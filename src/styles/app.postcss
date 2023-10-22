@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	/* Headings */
+	h2 {
+		@apply text-[2.75rem]/[3.25rem] font-medium leading-[3.3rem] -tracking-[0.15rem];
+	}
+
+	h3 {
+		@apply text-2xl font-medium leading-[1.95rem] -tracking-[0.1rem];
+	}
+
+	/* Paragraphs */
+	p {
+		@apply text-base leading-[1.6875rem] -tracking-[0.03rem];
+	}
+}
+
+@layer components {
+	/* Actions */
+	.action {
+		@apply px-6 py-3 font-bold rounded-lg flex items-center justify-center;
+	}
+
+	.action-base {
+		@apply action text-white bg-gray-900;
+	}
+
+	/* Containers */
+	.container-base {
+		@apply max-w-7xl mx-auto px-4;
+	}
+}
