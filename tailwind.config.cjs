@@ -6,7 +6,11 @@ const config = {
 		fontFamily: {
 			inter: ['Inter Variable', 'sans-serif']
 		},
-		extend: {}
+		extend: {
+			color: {
+				magnolia: '#eeecf1'
+			}
+		}
 	},
 
 	plugins: []
