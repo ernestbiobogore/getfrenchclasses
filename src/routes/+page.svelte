@@ -5,6 +5,12 @@
 	import ClockIcon from '$lib/icons/ClockIcon.svelte';
 	import DatabaseIcon from '$lib/icons/DatabaseIcon.svelte';
 	import PenSquareIcon from '$lib/icons/PenSquareIcon.svelte';
+	import { MessagesSquare } from 'lucide-svelte';
+	import { DownloadCloud } from 'lucide-svelte';
+	import { Gem } from 'lucide-svelte';
+	import { ScanEye } from 'lucide-svelte';
+	import { Video } from 'lucide-svelte';
+	import { ThumbsUp } from 'lucide-svelte';
 
 	const getSampleAvatars = (n = 3) => {
 		return Array.from({ length: n }, (_) => {
@@ -214,16 +220,63 @@
 
 <!-- Support -->
 <section class="py-24 container-base space-y-11">
-	<div>
-		<h2>Everything you nee, all in one place</h2>
-		<p>
+	<div class="flex flex-col text-center items-center gap-4">
+		<h2 class="text-2xl -tracking-[.1rem]">Everything you need, all in one place</h2>
+		<p class="text-sm">
 			Experience the transformative power of Filearn as you gain financial confidence, build wealth
 			and secure a better future.
 		</p>
-		<div>
-			<a href="/" class="action-base w-fit text-xs">View Courses</a>
-		</div>
+
+		<a href="/" class="action-base w-fit text-xs">View Courses</a>
 	</div>
 
-	<div class="grid gap-8 grid-cols-2 grid-rows-3 md:grid-cols-2 lg:grid-cols-3" />
+	<div class="grid grid-cols-2 grid-rows-3 gap-4">
+		<div>
+			<MessagesSquare color="#5e62d1" />
+			<p>
+				Get <span class="font-bold">instant chat support</span> and guidance from our dedicated chat
+				support team throughout your learning journey.
+			</p>
+		</div>
+
+		<div>
+			<DownloadCloud color="#5e62d1" />
+			<p>
+				<span class="font-bold">Access the course offline</span> without needing internet, allowing you
+				to learn anytime, anywhere, and at your own convenience.
+			</p>
+		</div>
+
+		<div>
+			<Gem color="#5e62d1" />
+			<p>
+				<span class="font-bold">Made by industry experts</span> who curated the course content with their
+				extensive knowledge and insights.
+			</p>
+		</div>
+
+		<div>
+			<ScanEye color="#5e62d1" />
+			<p>
+				<span class="font-bold"> Enjoy unlimited, lifetime access</span> to course materials, empowering
+				you to revisit and reinforce your knowledge at any time.
+			</p>
+		</div>
+
+		<div>
+			<Video color="#5e62d1" />
+			<p>
+				<span class="font-bold">Interactive learning techniques</span> through lessons, quizzes, and
+				practical exercises that enhance your learning experience.
+			</p>
+		</div>
+
+		<div>
+			<ThumbsUp color="#5e62d1" />
+			<p>
+				<span class="font-bold">Beginner-friendly courses</span> that provide a supportive and easy-to-understand
+				learning environment.
+			</p>
+		</div>
+	</div>
 </section>
