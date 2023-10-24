@@ -231,7 +231,7 @@
 	</div>
 
 	<div class="grid grid-cols-2 grid-rows-3 gap-4">
-		<div>
+		<div class="space-y-4">
 			<MessagesSquare color="#5e62d1" />
 			<p>
 				Get <span class="font-bold">instant chat support</span> and guidance from our dedicated chat
@@ -239,7 +239,7 @@
 			</p>
 		</div>
 
-		<div>
+		<div class="space-y-4">
 			<DownloadCloud color="#5e62d1" />
 			<p>
 				<span class="font-bold">Access the course offline</span> without needing internet, allowing you
@@ -247,7 +247,7 @@
 			</p>
 		</div>
 
-		<div>
+		<div class="space-y-4">
 			<Gem color="#5e62d1" />
 			<p>
 				<span class="font-bold">Made by industry experts</span> who curated the course content with their
@@ -255,7 +255,7 @@
 			</p>
 		</div>
 
-		<div>
+		<div class="space-y-4">
 			<ScanEye color="#5e62d1" />
 			<p>
 				<span class="font-bold"> Enjoy unlimited, lifetime access</span> to course materials, empowering
@@ -263,7 +263,7 @@
 			</p>
 		</div>
 
-		<div>
+		<div class="space-y-4">
 			<Video color="#5e62d1" />
 			<p>
 				<span class="font-bold">Interactive learning techniques</span> through lessons, quizzes, and
@@ -271,12 +271,26 @@
 			</p>
 		</div>
 
-		<div>
+		<div class="space-y-4">
 			<ThumbsUp color="#5e62d1" />
 			<p>
 				<span class="font-bold">Beginner-friendly courses</span> that provide a supportive and easy-to-understand
 				learning environment.
 			</p>
 		</div>
+	</div>
+</section>
+
+<!-- Learn About Us  -->
+<section class="py-24 container-base space-y-11">
+	<div class="space-y-6">
+		<h2 class="text-2xl -tracking-[.1rem]">
+			Curated to help you be smarter, more responsible financially.
+		</h2>
+		<p class="text-sm">
+			We use the latest technologies and tools backed by industry experts that will help secure you
+			dream universities, jobs and set you up for the future.
+		</p>
+		<a href="/" class="action-base w-fit text-xs">Learn About Us</a>
 	</div>
 </section>
