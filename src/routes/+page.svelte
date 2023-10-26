@@ -293,4 +293,92 @@
 		</p>
 		<a href="/" class="action-base w-fit text-xs">Learn About Us</a>
 	</div>
+	<div class="p-2">
+		<img src="./src/lib/images/supportImage.png" alt="" />
+	</div>
+
+	<hr class="h-0.5 bg-black" />
+</section>
+
+<section class="py-24 container-base space-y-11">
+	<div>
+		<div class="flex flex-col gap-6">
+			<img src="./src/lib/images/person1.png" alt="" />
+			<blockquote class="font-medium">"Best decision I ever made"</blockquote>
+			<p class="text-sm">
+				Their beginner-friendly approach made it easy for me to grasp complex financial concepts.
+				The chat support was incredibly helpful whenever I had questions. The course has been
+				invaluable, best decision I ever made buying it!
+			</p>
+			<span class="text-xs">Emily Thompson <br /> Purchase the Financial Foundations Course. </span>
+		</div>
+	</div>
+
+	<div class="flex flex-col gap-6">
+		<div class="flex flex-row justify-around items-center">
+			<img class="rounded-full h-10 w-10" src="./src/lib/images/person1.png" alt="" />
+			<span class="text-xs">Emily Thompson <br /> Purchase the Financial Foundations Course. </span>
+		</div>
+		<div class="flex flex-row justify-around items-center">
+			<img class="rounded-full h-10 w-10" src="./src/lib/images/person1.png" alt="" />
+			<span class="text-xs">Emily Thompson <br /> Purchase the Financial Foundations Course. </span>
+		</div>
+		<div class="flex flex-row justify-around items-center">
+			<img class="rounded-full h-10 w-10" src="./src/lib/images/person1.png" alt="" />
+			<span class="text-xs">Emily Thompson <br /> Purchase the Financial Foundations Course. </span>
+		</div>
+	</div>
+</section>
+
+<section class="py-24 container-base space-y-11">
+	<div class=" space-y-3">
+		<h2 class="text-2xl tracking-tighter">
+			Streamline your career goals with a collection of our top courses.
+		</h2>
+		<a href="/" class="action-base w-fit text-xs">Get started Today</a>
+	</div>
+
+	<div class=" space-y-12">
+		<div class="flex flex-row justify-evenly items-end">
+			<p><span class=" text-2xl">2000+</span> <br /> Enrolled Students</p>
+			<img class="w-5/12" src="./src/lib/images/teacher1.png" alt="" />
+		</div>
+
+		<div class="flex flex-row justify-evenly items-center">
+			<img class="w-5/12" src="./src/lib/images/teacher2.png" alt="" />
+			<p><span class=" text-2xl"> 87</span> <br /> Available Courses</p>
+		</div>
+	</div>
+</section>
+
+<!-- FAQ -->
+<section class="py-24 container-base space-y-11 text-center">
+	<h2 class="text-2xl tracking-tight">You questions, we have the answers.</h2>
+
+	<p class="text-sm">
+		If you can’t find the answer to your question below, please get in
+		<a class="underline" href="/">Contact</a> with us today
+	</p>
+
+	<div>
+		<div class="bg-white rounded-md p-4">
+			<a class="flex flex-row justify-evenly items-center" href="/">
+				<h2 class="text-sm tracking-tight">Can I enroll in multiple courses at once?</h2>
+				<span>&#43;</span>
+			</a>
+
+			<p class="hidden">
+				Absolutely! You can enroll in multiple courses simultaneously. Each course is self-paced,
+				allowing you to progress through the material at your own speed. However, we recommend
+				focusing on one course at a time to ensure you absorb the content effectively.
+			</p>
+		</div>
+	</div>
+</section>
+
+<!-- before footer -->
+<section class="py-24 container-base space-y-11">
+	<div class="bg-black">
+		<a href="/" class="action-base w-fit text-xs">Get started Today</a>
+	</div>
 </section>
