@@ -40,7 +40,7 @@
 			knowledge and skills needed to make informed financial decisions.
 		</p>
 		<div class="flex justify-center">
-			<a href="/" class="text-xs action-base w-fit">View Courses</a>
+			<a href="/" class="action-base w-fit">View Courses</a>
 		</div>
 
 		<div class="flex items-center justify-center gap-4">
@@ -105,7 +105,7 @@
 			and secure a better future.
 		</p>
 
-		<a href="/" class="text-xs action-base w-fit">View Courses</a>
+		<a href="/" class="action-base w-fit">View Courses</a>
 	</div>
 
 	<div class="grid grid-cols-2 grid-rows-3 gap-4">
@@ -170,7 +170,7 @@
 			</p>
 		</div>
 
-		<a href="/" class="text-xs action-base w-fit">Learn About Us</a>
+		<a href="/" class="action-base w-fit">Learn About Us</a>
 	</div>
 
 	<div class="">
