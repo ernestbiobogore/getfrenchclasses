@@ -1,10 +1,11 @@
 <script lang="ts">
 	import AvatarsGroup from '$lib/components/ui/AvatarsGroup.svelte';
 	import CourseCard from '$lib/components/ui/CourseCard.svelte';
+	import SupportImage from '$lib/images/supportImage.png';
 	import { getSampleAvatars } from '$lib/utils';
 	import { createAccordion, melt } from '@melt-ui/svelte';
 	import {
-		ArrowRight,
+		ChevronRight,
 		DownloadCloud,
 		Gem,
 		MessagesSquare,
@@ -33,11 +34,7 @@
 <!-- Hero -->
 <section class="p-3 md:py-20 container-base">
 	<div class="w-full mx-auto space-y-8 md:w-8/12">
-		<h1
-			class="font-medium text-center text-4xl md:text-[4.375rem]/[1.2] tracking-normal md:-tracking-[0.25rem]"
-		>
-			Invest in a better future, invest in yourself.
-		</h1>
+		<h1 class="text-center">Invest in a better future, invest in yourself.</h1>
 		<p class="w-full mx-auto text-center md:w-7/12">
 			Offering comprehensive online finance courses designed to empower individuals with the
 			knowledge and skills needed to make informed financial decisions.
@@ -56,12 +53,15 @@
 <!-- Popular Courses -->
 <section class="py-24 container-base space-y-11">
 	<div class="flex items-center justify-between gap-x-7">
-		<h2 class="w-3/6 text-2xl tracking-tight">Browse our most popular courses.</h2>
+		<h2>Browse our most popular courses.</h2>
 
-		<a href="/" class="flex items-center gap-2 px-3 py-2 text-xs rounded-lg hover:bg-gray-300">
+		<a
+			href="/"
+			class="flex items-center justify-end w-4/12 gap-2 px-3 py-2 text-xs rounded-lg sm:w-auto hover:bg-gray-300"
+		>
 			<span>View All</span>
 			<div class="p-[0.125rem] bg-gray-900 rounded-full">
-				<ArrowRight class="w-3 h-3 stroke-white" />
+				<ChevronRight class="w-3 h-3 stroke-white" />
 			</div>
 		</a>
 	</div>
@@ -76,12 +76,15 @@
 <!-- New Courses -->
 <section class="py-24 container-base space-y-11">
 	<div class="flex items-center justify-between">
-		<h2 class="w-3/6 text-2xl tracking-tight">New Courses.</h2>
+		<h2>New Courses.</h2>
 
-		<a href="/" class="flex items-center gap-2 px-3 py-2 text-xs rounded-lg hover:bg-gray-300">
+		<a
+			href="/"
+			class="flex items-center justify-end w-4/12 gap-2 px-3 py-2 text-xs rounded-lg sm:w-auto hover:bg-gray-300"
+		>
 			<span>View All</span>
 			<div class="p-[0.125rem] bg-gray-900 rounded-full">
-				<ArrowRight class="w-3 h-3 stroke-white" />
+				<ChevronRight class="w-3 h-3 stroke-white" />
 			</div>
 		</a>
 	</div>
@@ -96,8 +99,8 @@
 <!-- Support -->
 <section class="py-24 container-base space-y-11">
 	<div class="flex flex-col items-center gap-4 text-center">
-		<h2 class="text-2xl -tracking-[.1rem]">Everything you need, all in one place</h2>
-		<p class="text-sm">
+		<h2>Everything you need, all in one place</h2>
+		<p>
 			Experience the transformative power of Filearn as you gain financial confidence, build wealth
 			and secure a better future.
 		</p>
@@ -157,22 +160,22 @@
 </section>
 
 <!-- Learn About Us  -->
-<section class="py-24 container-base space-y-11">
+<section class="flex flex-col items-center justify-between gap-24 py-24 sm:flex-row container-base">
 	<div class="space-y-6">
-		<h2 class="text-2xl -tracking-[.1rem]">
-			Curated to help you be smarter, more responsible financially.
-		</h2>
-		<p class="text-sm">
-			We use the latest technologies and tools backed by industry experts that will help secure you
-			dream universities, jobs and set you up for the future.
-		</p>
+		<div class="space-y-5">
+			<h2>Curated to help you be smarter, more responsible financially.</h2>
+			<p class="md:w-8/12">
+				We use the latest technologies and tools backed by industry experts that will help secure
+				you dream universities, jobs and set you up for the future.
+			</p>
+		</div>
+
 		<a href="/" class="text-xs action-base w-fit">Learn About Us</a>
 	</div>
-	<div class="p-2">
-		<img src="./src/lib/images/supportImage.png" alt="" />
-	</div>
 
-	<hr class="h-0.5 bg-black" />
+	<div class="">
+		<img src={SupportImage} alt="Support pic" loading="lazy" class="" />
+	</div>
 </section>
 
 <section class="py-24 container-base space-y-11">
@@ -207,10 +210,8 @@
 
 <section class="py-24 container-base space-y-11">
 	<div class="space-y-3">
-		<h2 class="text-2xl tracking-tighter">
-			Streamline your career goals with a collection of our top courses.
-		</h2>
-		<a href="/" class="text-xs action-base w-fit">Get started Today</a>
+		<h2>Streamline your career goals with a collection of our top courses.</h2>
+		<a href="/" class="action-base w-fit">Get started Today</a>
 	</div>
 
 	<div class="space-y-12">
@@ -274,6 +275,6 @@
 <!-- before footer -->
 <section class="py-24 container-base space-y-11">
 	<div class="bg-black">
-		<a href="/" class="text-xs action-base w-fit">Get started Today</a>
+		<a href="/" class="action-base w-fit">Get started Today</a>
 	</div>
 </section>
