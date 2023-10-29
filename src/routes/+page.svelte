@@ -1,7 +1,10 @@
 <script lang="ts">
 	import AvatarsGroup from '$lib/components/ui/AvatarsGroup.svelte';
 	import CourseCard from '$lib/components/ui/CourseCard.svelte';
+	import Person1 from '$lib/images/person1.png';
 	import SupportImage from '$lib/images/supportImage.png';
+	import Teacher1 from '$lib/images/teacher1.png';
+	import Teacher2 from '$lib/images/teacher2.png';
 	import { getSampleAvatars } from '$lib/utils';
 	import { createAccordion, melt } from '@melt-ui/svelte';
 	import {
@@ -181,7 +184,7 @@
 <section class="py-24 container-base space-y-11">
 	<div>
 		<div class="flex flex-col gap-6">
-			<img src="./src/lib/images/person1.png" alt="" />
+			<img src={Person1} alt="" />
 			<blockquote class="font-medium">"Best decision I ever made"</blockquote>
 			<p class="text-sm">
 				Their beginner-friendly approach made it easy for me to grasp complex financial concepts.
@@ -194,15 +197,15 @@
 
 	<div class="flex flex-col gap-6">
 		<div class="flex flex-row items-center justify-around">
-			<img class="w-10 h-10 rounded-full" src="./src/lib/images/person1.png" alt="" />
+			<img class="w-10 h-10 rounded-full" src={Person1} alt="" />
 			<span class="text-xs">Emily Thompson <br /> Purchase the Financial Foundations Course. </span>
 		</div>
 		<div class="flex flex-row items-center justify-around">
-			<img class="w-10 h-10 rounded-full" src="./src/lib/images/person1.png" alt="" />
+			<img class="w-10 h-10 rounded-full" src={Person1} alt="" />
 			<span class="text-xs">Emily Thompson <br /> Purchase the Financial Foundations Course. </span>
 		</div>
 		<div class="flex flex-row items-center justify-around">
-			<img class="w-10 h-10 rounded-full" src="./src/lib/images/person1.png" alt="" />
+			<img class="w-10 h-10 rounded-full" src={Person1} alt="" />
 			<span class="text-xs">Emily Thompson <br /> Purchase the Financial Foundations Course. </span>
 		</div>
 	</div>
@@ -217,11 +220,11 @@
 	<div class="space-y-12">
 		<div class="flex flex-row items-end justify-evenly">
 			<p><span class="text-2xl">2000+</span> <br /> Enrolled Students</p>
-			<img class="w-5/12" src="./src/lib/images/teacher1.png" alt="" />
+			<img class="w-5/12" src={Teacher1} alt="" />
 		</div>
 
 		<div class="flex flex-row items-center justify-evenly">
-			<img class="w-5/12" src="./src/lib/images/teacher2.png" alt="" />
+			<img class="w-5/12" src={Teacher2} alt="" />
 			<p><span class="text-2xl"> 87</span> <br /> Available Courses</p>
 		</div>
 	</div>
