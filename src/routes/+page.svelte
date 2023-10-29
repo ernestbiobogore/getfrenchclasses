@@ -1,9 +1,7 @@
 <script lang="ts">
 	import AvatarsGroup from '$lib/components/ui/AvatarsGroup.svelte';
+	import CourseCard from '$lib/components/ui/CourseCard.svelte';
 	import ArrowRightIcon from '$lib/icons/ArrowRightIcon.svelte';
-	import BarChartIcon from '$lib/icons/BarChartIcon.svelte';
-	import ClockIcon from '$lib/icons/ClockIcon.svelte';
-	import PenSquareIcon from '$lib/icons/PenSquareIcon.svelte';
 	import { DownloadCloud, Gem, MessagesSquare, ScanEye, ThumbsUp, Video } from 'lucide-svelte';
 
 	export let data;
@@ -15,27 +13,6 @@
 			return {
 				src: `https://picsum.photos/100/100?random=${i + 1}`,
 				alt: `Avatar ${i + 1}`
-			};
-		});
-	};
-
-	const getSampleCoursesData = (n = 3) => {
-		return Array.from({ length: n }, (_) => {
-			const i = Math.floor(Math.random() * 100);
-
-			return {
-				title: 'Lorem ipsum dolor sit amet consectetur',
-				avatar: {
-					src: `https://picsum.photos/100/100?random=${i + 1}`,
-					alt: `Avatar ${i + 1}`
-				},
-				duration: Math.floor(Math.random() * 100),
-				sections: Math.floor(Math.random() * 100),
-				level: 'Expert',
-				description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-				quod, voluptatum, quibusdam, quia voluptates.`,
-				price: Math.floor(Math.random() * 100),
-				enrolled: Math.floor(Math.random() * 100)
 			};
 		});
 	};
@@ -107,53 +84,7 @@
 
 	<div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
 		{#each data.popularCourses as course (course.id)}
-			<div class="p-8 space-y-4 bg-white rounded-2xl">
-				<img
-					src={course.seo?.image?.url}
-					alt={course.seo?.image?.alt}
-					width="310"
-					height="210"
-					loading="lazy"
-					class="w-[22.5rem] h-[13.125rem] rounded-xl"
-				/>
-
-				<h3>{course.name}</h3>
-
-				<div class="flex justify-between">
-					<div class="flex items-center gap-2">
-						<ClockIcon class="w-4 h-4 stroke-gray-400" />
-						<p class="text-xs text-gray-500">{course.duration} hours</p>
-					</div>
-
-					<div class="flex items-center gap-2">
-						<PenSquareIcon class="w-4 h-4 stroke-gray-400" />
-						<p class="text-xs text-gray-500">{course.numberOfSections} sections</p>
-					</div>
-
-					<div class="flex items-center gap-2">
-						<BarChartIcon class="w-4 h-4 stroke-gray-400" />
-						<p class="text-xs text-gray-500">{course.level} level</p>
-					</div>
-				</div>
-
-				<p>
-					{course.seo?.description}
-				</p>
-
-				<p>
-					<span class="text-2xl">$ {course.price} USD</span>
-					<span class="text-sm text-gray-500">excl. taxes </span>
-				</p>
-
-				<div class="flex justify-between">
-					<a href="/" class="text-xs action-base w-fit">Enroll Now</a>
-
-					<div class="flex items-center gap-2">
-						<AvatarsGroup avatars={getSampleAvatars()} loading="lazy" />
-						<p class="text-xs">{course.numberOfEnrolledStudents} enrolled.</p>
-					</div>
-				</div>
-			</div>
+			<CourseCard {course} />
 		{/each}
 	</div>
 </section>
@@ -173,53 +104,7 @@
 
 	<div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
 		{#each data.newCourses as course (course.id)}
-			<div class="p-8 space-y-4 bg-white rounded-2xl">
-				<img
-					src={course.seo?.image?.url}
-					alt={course.seo?.image?.alt}
-					width="310"
-					height="210"
-					loading="lazy"
-					class="w-[22.5rem] h-[13.125rem] rounded-xl"
-				/>
-
-				<h3>{course.name}</h3>
-
-				<div class="flex justify-between">
-					<div class="flex items-center gap-2">
-						<ClockIcon class="w-4 h-4 stroke-gray-400" />
-						<p class="text-xs text-gray-500">{course.duration} hours</p>
-					</div>
-
-					<div class="flex items-center gap-2">
-						<PenSquareIcon class="w-4 h-4 stroke-gray-400" />
-						<p class="text-xs text-gray-500">{course.numberOfSections} sections</p>
-					</div>
-
-					<div class="flex items-center gap-2">
-						<BarChartIcon class="w-4 h-4 stroke-gray-400" />
-						<p class="text-xs text-gray-500">{course.level} level</p>
-					</div>
-				</div>
-
-				<p>
-					{course.seo?.description}
-				</p>
-
-				<p>
-					<span class="text-2xl">$ {course.price} USD</span>
-					<span class="text-sm text-gray-500">excl. taxes </span>
-				</p>
-
-				<div class="flex justify-between">
-					<a href="/" class="text-xs action-base w-fit">Enroll Now</a>
-
-					<div class="flex items-center gap-2">
-						<AvatarsGroup avatars={getSampleAvatars()} loading="lazy" />
-						<p class="text-xs">{course.numberOfEnrolledStudents} enrolled.</p>
-					</div>
-				</div>
-			</div>
+			<CourseCard {course} />
 		{/each}
 	</div>
 </section>
