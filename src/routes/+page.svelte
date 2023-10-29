@@ -5,12 +5,18 @@
 	import ClockIcon from '$lib/icons/ClockIcon.svelte';
 	import DatabaseIcon from '$lib/icons/DatabaseIcon.svelte';
 	import PenSquareIcon from '$lib/icons/PenSquareIcon.svelte';
-	import { MessagesSquare } from 'lucide-svelte';
-	import { DownloadCloud } from 'lucide-svelte';
-	import { Gem } from 'lucide-svelte';
-	import { ScanEye } from 'lucide-svelte';
-	import { Video } from 'lucide-svelte';
-	import { ThumbsUp } from 'lucide-svelte';
+	import { createAccordion, melt } from '@melt-ui/svelte';
+	import {
+		DownloadCloud,
+		Gem,
+		MessagesSquare,
+		Minus,
+		Plus,
+		ScanEye,
+		ThumbsUp,
+		Video
+	} from 'lucide-svelte';
+	import { slide } from 'svelte/transition';
 
 	const getSampleAvatars = (n = 3) => {
 		return Array.from({ length: n }, (_) => {
@@ -43,6 +49,13 @@
 			};
 		});
 	};
+
+	const {
+		elements: { content, item: accordionItem, trigger: accordionTrigger, root },
+		helpers: { isSelected }
+	} = createAccordion({
+		defaultValue: 'item-1'
+	});
 </script>
 
 <svelte:head>
@@ -353,26 +366,41 @@
 
 <!-- FAQ -->
 <section class="py-24 container-base space-y-11 text-center">
-	<h2 class="text-2xl tracking-tight">You questions, we have the answers.</h2>
+	<div class="space-y-5">
+		<h2>You have questions, we have the answers.</h2>
 
-	<p class="text-sm">
-		If you can’t find the answer to your question below, please get in
-		<a class="underline" href="/">Contact</a> with us today
-	</p>
+		<p class="text-sm md:w-4/12 mx-auto">
+			If you can’t find the answer to your question below, please get in
+			<a class="underline" href="/">contact</a> with us today
+		</p>
+	</div>
 
-	<div>
-		<div class="bg-white rounded-md p-4">
-			<a class="flex flex-row justify-evenly items-center" href="/">
-				<h2 class="text-sm tracking-tight">Can I enroll in multiple courses at once?</h2>
-				<span>&#43;</span>
-			</a>
+	<div class="md:w-6/12 mx-auto space-y-4">
+		{#each Array(6) as _, i}
+			{@const id = `item-${i + 1}`}
+			<div use:melt={$accordionItem(id)} class="bg-white rounded-xl py-4 px-6 space-y-4">
+				<h3>
+					<button use:melt={$accordionTrigger(id)} class="flex justify-between text-base font-medium w-full">
+						<span class="text-left basis-11/12">Lorem ipsum dolor sit amet consectetur. Fermentum.</span>
 
-			<p class="hidden">
-				Absolutely! You can enroll in multiple courses simultaneously. Each course is self-paced,
-				allowing you to progress through the material at your own speed. However, we recommend
-				focusing on one course at a time to ensure you absorb the content effectively.
-			</p>
-		</div>
+						{#if $isSelected(id)}
+							<Minus class="" />
+						{:else}
+							<Plus class="" />
+						{/if}
+					</button>
+				</h3>
+				{#if $isSelected(id)}
+					<div use:melt={$content(id)} transition:slide>
+						<p class="text-left">
+							Lorem ipsum dolor sit amet consectetur. Bibendum in ultrices ornare ut. Mattis nisl
+							nulla mattis euismod dictum egestas id eu ac. Sit dolor ut fermentum egestas phasellus
+							egestas.
+						</p>
+					</div>
+				{/if}
+			</div>
+		{/each}
 	</div>
 </section>
 
