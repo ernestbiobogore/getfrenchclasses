@@ -15,6 +15,7 @@ const getAllCourses = async (first?: number) => {
 			duration: true,
 			numberOfSections: true,
 			level: true,
+			tag: true,
 
 			// SEO
 			seo: {

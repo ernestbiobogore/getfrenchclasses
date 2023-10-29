@@ -1,17 +1,17 @@
-const {
+import {
   linkTypeMap,
-  createClient: createClientOriginal,
+  createClient as createClientOriginal,
   generateGraphqlOperation,
   assertSameVersion,
-} = require('@genql/runtime')
-var typeMap = linkTypeMap(require('./types.cjs'))
+} from '@genql/runtime'
+import types from './types.esm'
+var typeMap = linkTypeMap(types)
+export * from './guards.esm'
 
-var version = '2.10.0'
+export var version = '2.10.0'
 assertSameVersion(version)
 
-module.exports.version = version
-
-module.exports.createClient = function(options) {
+export var createClient = function(options) {
   options = options || {}
   var optionsCopy = {
     url: 'https://graphql.datocms.com/',
@@ -25,7 +25,7 @@ module.exports.createClient = function(options) {
   return createClientOriginal(optionsCopy)
 }
 
-module.exports.enumColorBucketType = {
+export const enumColorBucketType = {
   red: 'red',
   orange: 'orange',
   pink: 'pink',
@@ -40,7 +40,7 @@ module.exports.enumColorBucketType = {
   black: 'black',
 }
 
-module.exports.enumCourseModelOrderBy = {
+export const enumCourseModelOrderBy = {
   _createdAt_ASC: '_createdAt_ASC',
   _createdAt_DESC: '_createdAt_DESC',
   id_ASC: 'id_ASC',
@@ -69,22 +69,24 @@ module.exports.enumCourseModelOrderBy = {
   numberOfSections_DESC: 'numberOfSections_DESC',
   price_ASC: 'price_ASC',
   price_DESC: 'price_DESC',
+  tag_ASC: 'tag_ASC',
+  tag_DESC: 'tag_DESC',
 }
 
-module.exports.enumFaviconType = {
+export const enumFaviconType = {
   icon: 'icon',
   appleTouchIcon: 'appleTouchIcon',
   msApplication: 'msApplication',
 }
 
-module.exports.enumImgixParamsAuto = {
+export const enumImgixParamsAuto = {
   enhance: 'enhance',
   format: 'format',
   redeye: 'redeye',
   compress: 'compress',
 }
 
-module.exports.enumImgixParamsBlendAlign = {
+export const enumImgixParamsBlendAlign = {
   top: 'top',
   bottom: 'bottom',
   middle: 'middle',
@@ -93,7 +95,7 @@ module.exports.enumImgixParamsBlendAlign = {
   center: 'center',
 }
 
-module.exports.enumImgixParamsBlendCrop = {
+export const enumImgixParamsBlendCrop = {
   top: 'top',
   bottom: 'bottom',
   left: 'left',
@@ -101,7 +103,7 @@ module.exports.enumImgixParamsBlendCrop = {
   faces: 'faces',
 }
 
-module.exports.enumImgixParamsBlendFit = {
+export const enumImgixParamsBlendFit = {
   clamp: 'clamp',
   clip: 'clip',
   crop: 'crop',
@@ -109,7 +111,7 @@ module.exports.enumImgixParamsBlendFit = {
   max: 'max',
 }
 
-module.exports.enumImgixParamsBlendMode = {
+export const enumImgixParamsBlendMode = {
   color: 'color',
   burn: 'burn',
   dodge: 'dodge',
@@ -128,17 +130,17 @@ module.exports.enumImgixParamsBlendMode = {
   normal: 'normal',
 }
 
-module.exports.enumImgixParamsBlendSize = {
+export const enumImgixParamsBlendSize = {
   inherit: 'inherit',
 }
 
-module.exports.enumImgixParamsCh = {
+export const enumImgixParamsCh = {
   width: 'width',
   dpr: 'dpr',
   saveData: 'saveData',
 }
 
-module.exports.enumImgixParamsCrop = {
+export const enumImgixParamsCrop = {
   top: 'top',
   bottom: 'bottom',
   left: 'left',
@@ -149,19 +151,19 @@ module.exports.enumImgixParamsCrop = {
   focalpoint: 'focalpoint',
 }
 
-module.exports.enumImgixParamsCs = {
+export const enumImgixParamsCs = {
   srgb: 'srgb',
   adobergb1998: 'adobergb1998',
   tinysrgb: 'tinysrgb',
   strip: 'strip',
 }
 
-module.exports.enumImgixParamsFill = {
+export const enumImgixParamsFill = {
   solid: 'solid',
   blur: 'blur',
 }
 
-module.exports.enumImgixParamsFit = {
+export const enumImgixParamsFit = {
   clamp: 'clamp',
   clip: 'clip',
   crop: 'crop',
@@ -173,13 +175,13 @@ module.exports.enumImgixParamsFit = {
   scale: 'scale',
 }
 
-module.exports.enumImgixParamsFlip = {
+export const enumImgixParamsFlip = {
   h: 'h',
   v: 'v',
   hv: 'hv',
 }
 
-module.exports.enumImgixParamsFm = {
+export const enumImgixParamsFm = {
   gif: 'gif',
   jpg: 'jpg',
   jp2: 'jp2',
@@ -196,12 +198,12 @@ module.exports.enumImgixParamsFm = {
   avif: 'avif',
 }
 
-module.exports.enumImgixParamsIptc = {
+export const enumImgixParamsIptc = {
   allow: 'allow',
   block: 'block',
 }
 
-module.exports.enumImgixParamsMarkAlign = {
+export const enumImgixParamsMarkAlign = {
   top: 'top',
   middle: 'middle',
   bottom: 'bottom',
@@ -210,7 +212,7 @@ module.exports.enumImgixParamsMarkAlign = {
   right: 'right',
 }
 
-module.exports.enumImgixParamsMarkFit = {
+export const enumImgixParamsMarkFit = {
   clip: 'clip',
   crop: 'crop',
   fill: 'fill',
@@ -218,25 +220,25 @@ module.exports.enumImgixParamsMarkFit = {
   scale: 'scale',
 }
 
-module.exports.enumImgixParamsMarkTile = {
+export const enumImgixParamsMarkTile = {
   grid: 'grid',
 }
 
-module.exports.enumImgixParamsPalette = {
+export const enumImgixParamsPalette = {
   css: 'css',
   json: 'json',
 }
 
-module.exports.enumImgixParamsTransparency = {
+export const enumImgixParamsTransparency = {
   grid: 'grid',
 }
 
-module.exports.enumImgixParamsTrim = {
+export const enumImgixParamsTrim = {
   auto: 'auto',
   color: 'color',
 }
 
-module.exports.enumImgixParamsTxtAlign = {
+export const enumImgixParamsTxtAlign = {
   top: 'top',
   middle: 'middle',
   bottom: 'bottom',
@@ -245,41 +247,41 @@ module.exports.enumImgixParamsTxtAlign = {
   right: 'right',
 }
 
-module.exports.enumImgixParamsTxtClip = {
+export const enumImgixParamsTxtClip = {
   start: 'start',
   middle: 'middle',
   end: 'end',
   ellipsis: 'ellipsis',
 }
 
-module.exports.enumImgixParamsTxtFit = {
+export const enumImgixParamsTxtFit = {
   max: 'max',
 }
 
-module.exports.enumItemStatus = {
+export const enumItemStatus = {
   draft: 'draft',
   updated: 'updated',
   published: 'published',
 }
 
-module.exports.enumMuxThumbnailFormatType = {
+export const enumMuxThumbnailFormatType = {
   jpg: 'jpg',
   png: 'png',
   gif: 'gif',
 }
 
-module.exports.enumResolutionType = {
+export const enumResolutionType = {
   icon: 'icon',
   small: 'small',
   medium: 'medium',
   large: 'large',
 }
 
-module.exports.enumSiteLocale = {
+export const enumSiteLocale = {
   en: 'en',
 }
 
-module.exports.enumUploadOrderBy = {
+export const enumUploadOrderBy = {
   _createdAt_ASC: '_createdAt_ASC',
   _createdAt_DESC: '_createdAt_DESC',
   size_ASC: 'size_ASC',
@@ -300,13 +302,13 @@ module.exports.enumUploadOrderBy = {
   id_DESC: 'id_DESC',
 }
 
-module.exports.enumUploadOrientation = {
+export const enumUploadOrientation = {
   landscape: 'landscape',
   portrait: 'portrait',
   square: 'square',
 }
 
-module.exports.enumUploadType = {
+export const enumUploadType = {
   image: 'image',
   audio: 'audio',
   video: 'video',
@@ -317,26 +319,21 @@ module.exports.enumUploadType = {
   archive: 'archive',
 }
 
-module.exports.enumVideoMp4Res = {
+export const enumVideoMp4Res = {
   low: 'low',
   medium: 'medium',
   high: 'high',
 }
 
-module.exports.generateQueryOp = function(fields) {
+export var generateQueryOp = function(fields) {
   return generateGraphqlOperation('query', typeMap.Query, fields)
 }
-module.exports.generateMutationOp = function(fields) {
+export var generateMutationOp = function(fields) {
   return generateGraphqlOperation('mutation', typeMap.Mutation, fields)
 }
-module.exports.generateSubscriptionOp = function(fields) {
+export var generateSubscriptionOp = function(fields) {
   return generateGraphqlOperation('subscription', typeMap.Subscription, fields)
 }
-module.exports.everything = {
+export var everything = {
   __scalar: true,
-}
-
-var schemaExports = require('./guards.cjs')
-for (var k in schemaExports) {
-  module.exports[k] = schemaExports[k]
 }

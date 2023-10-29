@@ -51,6 +51,7 @@ input CourseModelFilter {
   numberOfSections: IntegerFilter
   price: IntegerFilter
   slug: SlugFilter
+  tag: StringFilter
   OR: [CourseModelFilter]
   AND: [CourseModelFilter]
 }
@@ -84,6 +85,8 @@ enum CourseModelOrderBy {
   numberOfSections_DESC
   price_ASC
   price_DESC
+  tag_ASC
+  tag_DESC
 }
 
 """Record of type Course (course)"""
@@ -114,6 +117,7 @@ type CourseRecord implements RecordInterface {
   price: IntType
   seo: [SeoBlockRecord!]!
   slug: String
+  tag: String
 }
 
 """Specifies how to filter by creation datetime"""

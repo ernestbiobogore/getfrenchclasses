@@ -76,6 +76,8 @@ export declare const enumCourseModelOrderBy: {
   readonly numberOfSections_DESC: 'numberOfSections_DESC'
   readonly price_ASC: 'price_ASC'
   readonly price_DESC: 'price_DESC'
+  readonly tag_ASC: 'tag_ASC'
+  readonly tag_DESC: 'tag_DESC'
 }
 
 export declare const enumFaviconType: {

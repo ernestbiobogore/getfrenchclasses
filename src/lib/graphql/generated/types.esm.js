@@ -1,4 +1,4 @@
-module.exports = {
+export default {
     "scalars": [
         0,
         2,
@@ -136,6 +136,9 @@ module.exports = {
             "slug": [
                 62
             ],
+            "tag": [
+                65
+            ],
             "OR": [
                 6
             ],
@@ -208,6 +211,9 @@ module.exports = {
                 58
             ],
             "slug": [
+                64
+            ],
+            "tag": [
                 64
             ],
             "__typename": [
