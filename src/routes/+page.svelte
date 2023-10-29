@@ -23,7 +23,7 @@
 	export let data;
 
 	const {
-		elements: { content, item: accordionItem, trigger: accordionTrigger, root },
+		elements: { content, item: accordionItem, trigger: accordionTrigger },
 		helpers: { isSelected }
 	} = createAccordion({
 		defaultValue: 'item-1'
@@ -249,15 +249,15 @@
 					<button
 						use:melt={$accordionTrigger(id)}
 						class="flex justify-between w-full text-base font-medium"
-					>
+					> 
 						<span class="text-left basis-11/12"
 							>Lorem ipsum dolor sit amet consectetur. Fermentum.</span
 						>
 
 						{#if $isSelected(id)}
-							<Minus class="" />
+							<Minus />
 						{:else}
-							<Plus class="" />
+							<Plus />
 						{/if}
 					</button>
 				</h3>
