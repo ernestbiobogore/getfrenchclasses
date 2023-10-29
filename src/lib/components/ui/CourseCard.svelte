@@ -27,7 +27,9 @@
 		class="w-[22.5rem] h-[13.125rem] rounded-xl"
 	/>
 
-	<h3>{course.name}</h3>
+	<h3>
+		<a href="/courses/{course.slug}" class="hover:underline">{course.name}</a>
+	</h3>
 
 	<div class="flex justify-between">
 		<div class="flex items-center gap-2">
