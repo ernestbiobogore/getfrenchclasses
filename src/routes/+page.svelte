@@ -1,5 +1,6 @@
 <script lang="ts">
 	import AvatarsGroup from '$lib/components/ui/AvatarsGroup.svelte';
+	import { createAccordion, melt } from '@melt-ui/svelte';
 	import {
 		ArrowRight,
 		BarChart,
@@ -8,11 +9,14 @@
 		DownloadCloud,
 		Gem,
 		MessagesSquare,
+		Minus,
 		PenSquare,
+		Plus,
 		ScanEye,
 		ThumbsUp,
 		Video
 	} from 'lucide-svelte';
+	import { slide } from 'svelte/transition';
 
 	const getSampleAvatars = (n = 3) => {
 		return Array.from({ length: n }, (_) => {
@@ -45,6 +49,13 @@
 			};
 		});
 	};
+
+	const {
+		elements: { content, item: accordionItem, trigger: accordionTrigger, root },
+		helpers: { isSelected }
+	} = createAccordion({
+		defaultValue: 'item-1'
+	});
 </script>
 
 <svelte:head>
@@ -53,7 +64,7 @@
 
 <!-- Header -->
 <section>
-	<div class=" py-2 md:py-4 bg-indigo-600">
+	<div class="py-2 bg-indigo-600 md:py-4">
 		<p class=" text-[11px] md:text-sm text-center text-white">
 			Get a free starter guide when you sign up for any of our <a
 				href="/"
@@ -63,32 +74,32 @@
 	</div>
 
 	<header class="flex items-center justify-between py-8 container-base">
-		<a href="/" class="text-xs md:text-xl font-bold">Get French Classes</a>
-		<nav class="py-4 space-x-2 hidden md:block">
+		<a href="/" class="text-xs font-bold md:text-xl">Get French Classes</a>
+		<nav class="hidden py-4 space-x-2 md:block">
 			<a href="/" class="px-3 py-2 font-medium rounded-lg hover:bg-gray-300">Courses</a>
 			<a href="/" class="px-3 py-2 font-medium rounded-lg hover:bg-gray-300">About</a>
 			<a href="/" class="px-3 py-2 font-medium rounded-lg hover:bg-gray-300">FAQ's</a>
 			<a href="/" class="px-3 py-2 font-medium rounded-lg hover:bg-gray-300">Contact</a>
 		</nav>
 
-		<a href="/" class="action-base text-xs md:text-xl">Get Started</a>
+		<a href="/" class="text-xs action-base md:text-xl">Get Started</a>
 	</header>
 </section>
 
 <!-- Hero -->
-<section class=" p-3 md:py-20 container-base">
-	<div class="w-full md:w-8/12 mx-auto space-y-8">
+<section class="p-3 md:py-20 container-base">
+	<div class="w-full mx-auto space-y-8 md:w-8/12">
 		<h1
 			class="font-medium text-center text-4xl md:text-[4.375rem]/[1.2] tracking-normal md:-tracking-[0.25rem]"
 		>
 			Invest in a better future, invest in yourself.
 		</h1>
-		<p class=" w-full md:w-7/12 mx-auto text-center">
+		<p class="w-full mx-auto text-center md:w-7/12">
 			Offering comprehensive online finance courses designed to empower individuals with the
 			knowledge and skills needed to make informed financial decisions.
 		</p>
 		<div class="flex justify-center">
-			<a href="/" class="action-base w-fit text-xs">View Courses</a>
+			<a href="/" class="text-xs action-base w-fit">View Courses</a>
 		</div>
 
 		<div class="flex items-center justify-center gap-4">
@@ -100,8 +111,8 @@
 
 <!-- Popular Courses -->
 <section class="py-24 container-base space-y-11">
-	<div class="flex items-center gap-x-7 justify-between">
-		<h2 class="text-2xl tracking-tight w-3/6">Browse our most popular courses.</h2>
+	<div class="flex items-center justify-between gap-x-7">
+		<h2 class="w-3/6 text-2xl tracking-tight">Browse our most popular courses.</h2>
 
 		<a href="/" class="flex items-center gap-2 px-3 py-2 text-xs rounded-lg hover:bg-gray-300">
 			<span>View All</span>
@@ -147,7 +158,7 @@
 				</p>
 
 				<div class="flex justify-between">
-					<a href="/" class="action-base w-fit text-xs">Enroll Now</a>
+					<a href="/" class="text-xs action-base w-fit">Enroll Now</a>
 
 					<div class="flex items-center gap-2">
 						<AvatarsGroup avatars={getSampleAvatars()} loading="lazy" />
@@ -162,7 +173,7 @@
 <!-- New Courses -->
 <section class="py-24 container-base space-y-11">
 	<div class="flex items-center justify-between">
-		<h2 class="text-2xl tracking-tight w-3/6">New Courses.</h2>
+		<h2 class="w-3/6 text-2xl tracking-tight">New Courses.</h2>
 
 		<a href="/" class="flex items-center gap-2 px-3 py-2 text-xs rounded-lg hover:bg-gray-300">
 			<span>View All</span>
@@ -208,7 +219,7 @@
 				</p>
 
 				<div class="flex justify-between">
-					<a href="/" class="action-base w-fit text-xs">Enroll Now</a>
+					<a href="/" class="text-xs action-base w-fit">Enroll Now</a>
 
 					<div class="flex items-center gap-2">
 						<AvatarsGroup avatars={getSampleAvatars()} loading="lazy" />
@@ -222,14 +233,14 @@
 
 <!-- Support -->
 <section class="py-24 container-base space-y-11">
-	<div class="flex flex-col text-center items-center gap-4">
+	<div class="flex flex-col items-center gap-4 text-center">
 		<h2 class="text-2xl -tracking-[.1rem]">Everything you need, all in one place</h2>
 		<p class="text-sm">
 			Experience the transformative power of Filearn as you gain financial confidence, build wealth
 			and secure a better future.
 		</p>
 
-		<a href="/" class="action-base w-fit text-xs">View Courses</a>
+		<a href="/" class="text-xs action-base w-fit">View Courses</a>
 	</div>
 
 	<div class="grid grid-cols-2 grid-rows-3 gap-4">
@@ -293,7 +304,7 @@
 			We use the latest technologies and tools backed by industry experts that will help secure you
 			dream universities, jobs and set you up for the future.
 		</p>
-		<a href="/" class="action-base w-fit text-xs">Learn About Us</a>
+		<a href="/" class="text-xs action-base w-fit">Learn About Us</a>
 	</div>
 	<div class="p-2">
 		<img src="./src/lib/images/supportImage.png" alt="" />
@@ -317,70 +328,90 @@
 	</div>
 
 	<div class="flex flex-col gap-6">
-		<div class="flex flex-row justify-around items-center">
-			<img class="rounded-full h-10 w-10" src="./src/lib/images/person1.png" alt="" />
+		<div class="flex flex-row items-center justify-around">
+			<img class="w-10 h-10 rounded-full" src="./src/lib/images/person1.png" alt="" />
 			<span class="text-xs">Emily Thompson <br /> Purchase the Financial Foundations Course. </span>
 		</div>
-		<div class="flex flex-row justify-around items-center">
-			<img class="rounded-full h-10 w-10" src="./src/lib/images/person1.png" alt="" />
+		<div class="flex flex-row items-center justify-around">
+			<img class="w-10 h-10 rounded-full" src="./src/lib/images/person1.png" alt="" />
 			<span class="text-xs">Emily Thompson <br /> Purchase the Financial Foundations Course. </span>
 		</div>
-		<div class="flex flex-row justify-around items-center">
-			<img class="rounded-full h-10 w-10" src="./src/lib/images/person1.png" alt="" />
+		<div class="flex flex-row items-center justify-around">
+			<img class="w-10 h-10 rounded-full" src="./src/lib/images/person1.png" alt="" />
 			<span class="text-xs">Emily Thompson <br /> Purchase the Financial Foundations Course. </span>
 		</div>
 	</div>
 </section>
 
 <section class="py-24 container-base space-y-11">
-	<div class=" space-y-3">
+	<div class="space-y-3">
 		<h2 class="text-2xl tracking-tighter">
 			Streamline your career goals with a collection of our top courses.
 		</h2>
-		<a href="/" class="action-base w-fit text-xs">Get started Today</a>
+		<a href="/" class="text-xs action-base w-fit">Get started Today</a>
 	</div>
 
-	<div class=" space-y-12">
-		<div class="flex flex-row justify-evenly items-end">
-			<p><span class=" text-2xl">2000+</span> <br /> Enrolled Students</p>
+	<div class="space-y-12">
+		<div class="flex flex-row items-end justify-evenly">
+			<p><span class="text-2xl">2000+</span> <br /> Enrolled Students</p>
 			<img class="w-5/12" src="./src/lib/images/teacher1.png" alt="" />
 		</div>
 
-		<div class="flex flex-row justify-evenly items-center">
+		<div class="flex flex-row items-center justify-evenly">
 			<img class="w-5/12" src="./src/lib/images/teacher2.png" alt="" />
-			<p><span class=" text-2xl"> 87</span> <br /> Available Courses</p>
+			<p><span class="text-2xl"> 87</span> <br /> Available Courses</p>
 		</div>
 	</div>
 </section>
 
 <!-- FAQ -->
-<section class="py-24 container-base space-y-11 text-center">
-	<h2 class="text-2xl tracking-tight">You questions, we have the answers.</h2>
+<section class="py-24 text-center container-base space-y-11">
+	<div class="space-y-5">
+		<h2>You have questions, we have the answers.</h2>
 
-	<p class="text-sm">
-		If you can’t find the answer to your question below, please get in
-		<a class="underline" href="/">Contact</a> with us today
-	</p>
+		<p class="mx-auto text-sm md:w-4/12">
+			If you can’t find the answer to your question below, please get in
+			<a class="underline" href="/">contact</a> with us today
+		</p>
+	</div>
 
-	<div>
-		<div class="bg-white rounded-md p-4">
-			<a class="flex flex-row justify-evenly items-center" href="/">
-				<h2 class="text-sm tracking-tight">Can I enroll in multiple courses at once?</h2>
-				<span>&#43;</span>
-			</a>
+	<div class="mx-auto space-y-4 md:w-6/12">
+		{#each Array(6) as _, i}
+			{@const id = `item-${i + 1}`}
+			<div use:melt={$accordionItem(id)} class="px-6 py-4 space-y-4 bg-white rounded-xl">
+				<h3>
+					<button
+						use:melt={$accordionTrigger(id)}
+						class="flex justify-between w-full text-base font-medium"
+					>
+						<span class="text-left basis-11/12"
+							>Lorem ipsum dolor sit amet consectetur. Fermentum.</span
+						>
 
-			<p class="hidden">
-				Absolutely! You can enroll in multiple courses simultaneously. Each course is self-paced,
-				allowing you to progress through the material at your own speed. However, we recommend
-				focusing on one course at a time to ensure you absorb the content effectively.
-			</p>
-		</div>
+						{#if $isSelected(id)}
+							<Minus class="" />
+						{:else}
+							<Plus class="" />
+						{/if}
+					</button>
+				</h3>
+				{#if $isSelected(id)}
+					<div use:melt={$content(id)} transition:slide>
+						<p class="text-left">
+							Lorem ipsum dolor sit amet consectetur. Bibendum in ultrices ornare ut. Mattis nisl
+							nulla mattis euismod dictum egestas id eu ac. Sit dolor ut fermentum egestas phasellus
+							egestas.
+						</p>
+					</div>
+				{/if}
+			</div>
+		{/each}
 	</div>
 </section>
 
 <!-- before footer -->
 <section class="py-24 container-base space-y-11">
 	<div class="bg-black">
-		<a href="/" class="action-base w-fit text-xs">Get started Today</a>
+		<a href="/" class="text-xs action-base w-fit">Get started Today</a>
 	</div>
 </section>
