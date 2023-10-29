@@ -127,6 +127,9 @@ export default {
             "name": [
                 65
             ],
+            "numberOfEnrolledStudents": [
+                45
+            ],
             "numberOfSections": [
                 45
             ],
@@ -200,6 +203,9 @@ export default {
             ],
             "name": [
                 64
+            ],
+            "numberOfEnrolledStudents": [
+                44
             ],
             "numberOfSections": [
                 44

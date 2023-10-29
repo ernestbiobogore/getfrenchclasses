@@ -65,6 +65,8 @@ export const enumCourseModelOrderBy = {
   level_DESC: 'level_DESC',
   name_ASC: 'name_ASC',
   name_DESC: 'name_DESC',
+  numberOfEnrolledStudents_ASC: 'numberOfEnrolledStudents_ASC',
+  numberOfEnrolledStudents_DESC: 'numberOfEnrolledStudents_DESC',
   numberOfSections_ASC: 'numberOfSections_ASC',
   numberOfSections_DESC: 'numberOfSections_DESC',
   price_ASC: 'price_ASC',

@@ -72,6 +72,8 @@ export declare const enumCourseModelOrderBy: {
   readonly level_DESC: 'level_DESC'
   readonly name_ASC: 'name_ASC'
   readonly name_DESC: 'name_DESC'
+  readonly numberOfEnrolledStudents_ASC: 'numberOfEnrolledStudents_ASC'
+  readonly numberOfEnrolledStudents_DESC: 'numberOfEnrolledStudents_DESC'
   readonly numberOfSections_ASC: 'numberOfSections_ASC'
   readonly numberOfSections_DESC: 'numberOfSections_DESC'
   readonly price_ASC: 'price_ASC'

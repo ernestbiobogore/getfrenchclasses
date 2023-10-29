@@ -48,6 +48,7 @@ input CourseModelFilter {
   duration: IntegerFilter
   level: StringFilter
   name: StringFilter
+  numberOfEnrolledStudents: IntegerFilter
   numberOfSections: IntegerFilter
   price: IntegerFilter
   slug: SlugFilter
@@ -81,6 +82,8 @@ enum CourseModelOrderBy {
   level_DESC
   name_ASC
   name_DESC
+  numberOfEnrolledStudents_ASC
+  numberOfEnrolledStudents_DESC
   numberOfSections_ASC
   numberOfSections_DESC
   price_ASC
@@ -113,6 +116,7 @@ type CourseRecord implements RecordInterface {
   id: ItemId!
   level: String
   name: String
+  numberOfEnrolledStudents: IntType
   numberOfSections: IntType
   price: IntType
   seo: [SeoBlockRecord!]!

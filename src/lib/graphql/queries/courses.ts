@@ -15,6 +15,7 @@ const getAllCourses = async (first?: number) => {
 			duration: true,
 			numberOfSections: true,
 			level: true,
+			numberOfEnrolledStudents: true,
 			tag: true,
 
 			// SEO
@@ -23,13 +24,17 @@ const getAllCourses = async (first?: number) => {
 					title: true,
 					description: true,
 					image: {
-						url: true
+						url: true,
+						alt: true
 					}
 				}
 			}
 		});
 
-	return courses;
+	return courses.map((course) => ({
+		...course,
+		seo: course.seo[0].seoBlock
+	}));
 };
 
 export { getAllCourses };
