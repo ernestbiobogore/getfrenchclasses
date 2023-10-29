@@ -31,10 +31,37 @@ const getAllCourses = async (first?: number) => {
 			}
 		});
 
-	return courses.map((course) => ({
-		...course,
-		seo: course.seo[0].seoBlock
-	}));
+	return courses;
 };
 
-export { getAllCourses };
+const getCourseBySlug = async (slug: string) => {
+	const course = await client.chain.query.course({ filter: { slug: { eq: slug } } }).get({
+		id: true,
+		name: true,
+		slug: true,
+
+		// Info
+		price: true,
+		duration: true,
+		numberOfSections: true,
+		level: true,
+		numberOfEnrolledStudents: true,
+		tag: true,
+
+		// SEO
+		seo: {
+			seoBlock: {
+				title: true,
+				description: true,
+				image: {
+					url: true,
+					alt: true
+				}
+			}
+		}
+	});
+
+	return course;
+};
+
+export { getAllCourses, getCourseBySlug };

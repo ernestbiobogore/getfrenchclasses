@@ -22,7 +22,7 @@
 			<a href="/" class="px-3 py-2 font-medium rounded-lg hover:bg-gray-300">Contact</a>
 		</nav>
 
-		<a href="/" class="text-xs action-base md:text-xl">Get Started</a>
+		<a href="/" class="text-xs action-base">Get Started</a>
 	</header>
 </section>
 

@@ -4,6 +4,10 @@
 
 @layer base {
 	/* Headings */
+	h1 {
+		@apply text-[2.5rem]/[2.75rem] -tracking-[0.175rem] md:text-[4.375rem]/[5.25rem] font-medium md:-tracking-[0.25rem];
+	}
+
 	h2 {
 		@apply text-[2.75rem]/[3.25rem] font-medium leading-[3.3rem] -tracking-[0.15rem];
 	}
@@ -21,15 +25,15 @@
 @layer components {
 	/* Actions */
 	.action {
-		@apply px-6 py-3 font-bold rounded-lg flex items-center justify-center;
+		@apply flex items-center justify-center px-6 py-3 font-medium rounded-lg;
 	}
 
 	.action-base {
-		@apply action text-white bg-gray-900;
+		@apply text-white bg-gray-900 action;
 	}
 
 	/* Containers */
 	.container-base {
-		@apply max-w-7xl mx-auto px-4;
+		@apply px-4 mx-auto max-w-7xl;
 	}
 }

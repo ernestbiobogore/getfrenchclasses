@@ -2,20 +2,10 @@
 	import AvatarsGroup from '$lib/components/ui/AvatarsGroup.svelte';
 	import CourseCard from '$lib/components/ui/CourseCard.svelte';
 	import ArrowRightIcon from '$lib/icons/ArrowRightIcon.svelte';
+	import { getSampleAvatars } from '$lib/utils';
 	import { DownloadCloud, Gem, MessagesSquare, ScanEye, ThumbsUp, Video } from 'lucide-svelte';
 
 	export let data;
-
-	const getSampleAvatars = (n = 3) => {
-		return Array.from({ length: n }, (_) => {
-			const i = Math.floor(Math.random() * 100);
-
-			return {
-				src: `https://picsum.photos/100/100?random=${i + 1}`,
-				alt: `Avatar ${i + 1}`
-			};
-		});
-	};
 </script>
 
 <svelte:head>

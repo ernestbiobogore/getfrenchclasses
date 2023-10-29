@@ -1,6 +1,7 @@
 <script lang="ts">
 	import AvatarsGroup from '$lib/components/ui/AvatarsGroup.svelte';
 	import type { getAllCourses } from '$lib/graphql/queries/courses';
+	import { getSampleAvatars } from '$lib/utils';
 	import { BarChart, Clock, PenSquare } from 'lucide-svelte';
 
 	export let course: Awaited<ReturnType<typeof getAllCourses>>[0];
@@ -8,17 +9,6 @@
 		...course,
 		seo: course.seo[0].seoBlock
 	}
-
-	const getSampleAvatars = (n = 3) => {
-		return Array.from({ length: n }, (_) => {
-			const i = Math.floor(Math.random() * 100);
-
-			return {
-				src: `https://picsum.photos/100/100?random=${i + 1}`,
-				alt: `Avatar ${i + 1}`
-			};
-		});
-	};
 </script>
 
 <div class="p-8 space-y-4 bg-white rounded-2xl">
