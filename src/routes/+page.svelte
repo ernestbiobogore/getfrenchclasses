@@ -1,11 +1,18 @@
 <script lang="ts">
 	import AvatarsGroup from '$lib/components/ui/AvatarsGroup.svelte';
-	import ArrowRightIcon from '$lib/icons/ArrowRightIcon.svelte';
-	import BarChartIcon from '$lib/icons/BarChartIcon.svelte';
-	import ClockIcon from '$lib/icons/ClockIcon.svelte';
-	import DatabaseIcon from '$lib/icons/DatabaseIcon.svelte';
-	import PenSquareIcon from '$lib/icons/PenSquareIcon.svelte';
-	import { DownloadCloud, Gem, MessagesSquare, ScanEye, ThumbsUp, Video } from 'lucide-svelte';
+	import {
+		ArrowRight,
+		BarChart,
+		Clock,
+		Database,
+		DownloadCloud,
+		Gem,
+		MessagesSquare,
+		PenSquare,
+		ScanEye,
+		ThumbsUp,
+		Video
+	} from 'lucide-svelte';
 
 	const getSampleAvatars = (n = 3) => {
 		return Array.from({ length: n }, (_) => {
@@ -99,7 +106,7 @@
 		<a href="/" class="flex items-center gap-2 px-3 py-2 text-xs rounded-lg hover:bg-gray-300">
 			<span>View All</span>
 			<div class="p-[0.125rem] bg-gray-900 rounded-full">
-				<ArrowRightIcon class="w-3 h-3 stroke-white" />
+				<ArrowRight class="w-3 h-3 stroke-white" />
 			</div>
 		</a>
 	</div>
@@ -108,24 +115,24 @@
 		{#each getSampleCoursesData() as course}
 			<div class="p-8 space-y-4 bg-white rounded-2xl">
 				<div class="bg-indigo-500 flex items-center justify-center h-[12rem] rounded-xl">
-					<DatabaseIcon class="w-12 h-12 stroke-indigo-950" />
+					<Database class="w-12 h-12 stroke-indigo-950" />
 				</div>
 
 				<h3>{course.title}</h3>
 
 				<div class="flex justify-between">
 					<div class="flex items-center gap-2">
-						<ClockIcon class="w-4 h-4 stroke-gray-400" />
+						<Clock class="w-4 h-4 stroke-gray-400" />
 						<p class="text-xs text-gray-500">{course.duration} hours</p>
 					</div>
 
 					<div class="flex items-center gap-2">
-						<PenSquareIcon class="w-4 h-4 stroke-gray-400" />
+						<PenSquare class="w-4 h-4 stroke-gray-400" />
 						<p class="text-xs text-gray-500">{course.sections} sections</p>
 					</div>
 
 					<div class="flex items-center gap-2">
-						<BarChartIcon class="w-4 h-4 stroke-gray-400" />
+						<BarChart class="w-4 h-4 stroke-gray-400" />
 						<p class="text-xs text-gray-500">{course.level} level</p>
 					</div>
 				</div>
@@ -160,7 +167,7 @@
 		<a href="/" class="flex items-center gap-2 px-3 py-2 text-xs rounded-lg hover:bg-gray-300">
 			<span>View All</span>
 			<div class="p-[0.125rem] bg-gray-900 rounded-full">
-				<ArrowRightIcon class="w-3 h-3 stroke-white" />
+				<ArrowRight class="w-3 h-3 stroke-white" />
 			</div>
 		</a>
 	</div>
@@ -169,24 +176,24 @@
 		{#each getSampleCoursesData() as course}
 			<div class="p-8 space-y-4 bg-white rounded-2xl">
 				<div class="bg-indigo-500 flex items-center justify-center h-[12rem] rounded-xl">
-					<DatabaseIcon class="w-12 h-12 stroke-indigo-950" />
+					<Database class="w-12 h-12 stroke-indigo-950" />
 				</div>
 
 				<h3>{course.title}</h3>
 
 				<div class="flex justify-between">
 					<div class="flex items-center gap-2">
-						<ClockIcon class="w-4 h-4 stroke-gray-400" />
+						<Clock class="w-4 h-4 stroke-gray-400" />
 						<p class="text-xs text-gray-500">{course.duration} hours</p>
 					</div>
 
 					<div class="flex items-center gap-2">
-						<PenSquareIcon class="w-4 h-4 stroke-gray-400" />
+						<PenSquare class="w-4 h-4 stroke-gray-400" />
 						<p class="text-xs text-gray-500">{course.sections} sections</p>
 					</div>
 
 					<div class="flex items-center gap-2">
-						<BarChartIcon class="w-4 h-4 stroke-gray-400" />
+						<BarChart class="w-4 h-4 stroke-gray-400" />
 						<p class="text-xs text-gray-500">{course.level} level</p>
 					</div>
 				</div>
