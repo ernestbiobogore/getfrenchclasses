@@ -56,35 +56,17 @@
 	} = createAccordion({
 		defaultValue: 'item-1'
 	});
+	import CourseCard from '$lib/components/ui/CourseCard.svelte';
+	import ArrowRightIcon from '$lib/icons/ArrowRightIcon.svelte';
+	import { getSampleAvatars } from '$lib/utils';
+	import { DownloadCloud, Gem, MessagesSquare, ScanEye, ThumbsUp, Video } from 'lucide-svelte';
+
+	export let data;
 </script>
 
 <svelte:head>
 	<title>Get French Classes</title>
 </svelte:head>
-
-<!-- Header -->
-<section>
-	<div class="py-2 bg-indigo-600 md:py-4">
-		<p class=" text-[11px] md:text-sm text-center text-white">
-			Get a free starter guide when you sign up for any of our <a
-				href="/"
-				class="font-bold underline">courses</a
-			>.
-		</p>
-	</div>
-
-	<header class="flex items-center justify-between py-8 container-base">
-		<a href="/" class="text-xs font-bold md:text-xl">Get French Classes</a>
-		<nav class="hidden py-4 space-x-2 md:block">
-			<a href="/" class="px-3 py-2 font-medium rounded-lg hover:bg-gray-300">Courses</a>
-			<a href="/" class="px-3 py-2 font-medium rounded-lg hover:bg-gray-300">About</a>
-			<a href="/" class="px-3 py-2 font-medium rounded-lg hover:bg-gray-300">FAQ's</a>
-			<a href="/" class="px-3 py-2 font-medium rounded-lg hover:bg-gray-300">Contact</a>
-		</nav>
-
-		<a href="/" class="text-xs action-base md:text-xl">Get Started</a>
-	</header>
-</section>
 
 <!-- Hero -->
 <section class="p-3 md:py-20 container-base">
@@ -123,49 +105,8 @@
 	</div>
 
 	<div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-		{#each getSampleCoursesData() as course}
-			<div class="p-8 space-y-4 bg-white rounded-2xl">
-				<div class="bg-indigo-500 flex items-center justify-center h-[12rem] rounded-xl">
-					<Database class="w-12 h-12 stroke-indigo-950" />
-				</div>
-
-				<h3>{course.title}</h3>
-
-				<div class="flex justify-between">
-					<div class="flex items-center gap-2">
-						<Clock class="w-4 h-4 stroke-gray-400" />
-						<p class="text-xs text-gray-500">{course.duration} hours</p>
-					</div>
-
-					<div class="flex items-center gap-2">
-						<PenSquare class="w-4 h-4 stroke-gray-400" />
-						<p class="text-xs text-gray-500">{course.sections} sections</p>
-					</div>
-
-					<div class="flex items-center gap-2">
-						<BarChart class="w-4 h-4 stroke-gray-400" />
-						<p class="text-xs text-gray-500">{course.level} level</p>
-					</div>
-				</div>
-
-				<p>
-					{course.description}
-				</p>
-
-				<p>
-					<span class="text-2xl">$ {course.price} USD</span>
-					<span class="text-sm text-gray-500">excl. taxes </span>
-				</p>
-
-				<div class="flex justify-between">
-					<a href="/" class="text-xs action-base w-fit">Enroll Now</a>
-
-					<div class="flex items-center gap-2">
-						<AvatarsGroup avatars={getSampleAvatars()} loading="lazy" />
-						<p class="text-xs">{course.enrolled} enrolled.</p>
-					</div>
-				</div>
-			</div>
+		{#each data.popularCourses as course (course.id)}
+			<CourseCard {course} />
 		{/each}
 	</div>
 </section>
@@ -184,49 +125,8 @@
 	</div>
 
 	<div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-		{#each getSampleCoursesData() as course}
-			<div class="p-8 space-y-4 bg-white rounded-2xl">
-				<div class="bg-indigo-500 flex items-center justify-center h-[12rem] rounded-xl">
-					<Database class="w-12 h-12 stroke-indigo-950" />
-				</div>
-
-				<h3>{course.title}</h3>
-
-				<div class="flex justify-between">
-					<div class="flex items-center gap-2">
-						<Clock class="w-4 h-4 stroke-gray-400" />
-						<p class="text-xs text-gray-500">{course.duration} hours</p>
-					</div>
-
-					<div class="flex items-center gap-2">
-						<PenSquare class="w-4 h-4 stroke-gray-400" />
-						<p class="text-xs text-gray-500">{course.sections} sections</p>
-					</div>
-
-					<div class="flex items-center gap-2">
-						<BarChart class="w-4 h-4 stroke-gray-400" />
-						<p class="text-xs text-gray-500">{course.level} level</p>
-					</div>
-				</div>
-
-				<p>
-					{course.description}
-				</p>
-
-				<p>
-					<span class="text-2xl">$ {course.price} USD</span>
-					<span class="text-sm text-gray-500">excl. taxes </span>
-				</p>
-
-				<div class="flex justify-between">
-					<a href="/" class="text-xs action-base w-fit">Enroll Now</a>
-
-					<div class="flex items-center gap-2">
-						<AvatarsGroup avatars={getSampleAvatars()} loading="lazy" />
-						<p class="text-xs">{course.enrolled} enrolled.</p>
-					</div>
-				</div>
-			</div>
+		{#each data.newCourses as course (course.id)}
+			<CourseCard {course} />
 		{/each}
 	</div>
 </section>
