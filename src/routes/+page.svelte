@@ -5,12 +5,7 @@
 	import ClockIcon from '$lib/icons/ClockIcon.svelte';
 	import DatabaseIcon from '$lib/icons/DatabaseIcon.svelte';
 	import PenSquareIcon from '$lib/icons/PenSquareIcon.svelte';
-	import { MessagesSquare } from 'lucide-svelte';
-	import { DownloadCloud } from 'lucide-svelte';
-	import { Gem } from 'lucide-svelte';
-	import { ScanEye } from 'lucide-svelte';
-	import { Video } from 'lucide-svelte';
-	import { ThumbsUp } from 'lucide-svelte';
+	import { DownloadCloud, Gem, MessagesSquare, ScanEye, ThumbsUp, Video } from 'lucide-svelte';
 
 	const getSampleAvatars = (n = 3) => {
 		return Array.from({ length: n }, (_) => {
