@@ -1,16 +1,14 @@
 <script lang="ts">
 	import AvatarsGroup from '$lib/components/ui/AvatarsGroup.svelte';
+	import CourseCard from '$lib/components/ui/CourseCard.svelte';
+	import { getSampleAvatars } from '$lib/utils';
 	import { createAccordion, melt } from '@melt-ui/svelte';
 	import {
 		ArrowRight,
-		BarChart,
-		Clock,
-		Database,
 		DownloadCloud,
 		Gem,
 		MessagesSquare,
 		Minus,
-		PenSquare,
 		Plus,
 		ScanEye,
 		ThumbsUp,
@@ -18,37 +16,7 @@
 	} from 'lucide-svelte';
 	import { slide } from 'svelte/transition';
 
-	const getSampleAvatars = (n = 3) => {
-		return Array.from({ length: n }, (_) => {
-			const i = Math.floor(Math.random() * 100);
-
-			return {
-				src: `https://picsum.photos/100/100?random=${i + 1}`,
-				alt: `Avatar ${i + 1}`
-			};
-		});
-	};
-
-	const getSampleCoursesData = (n = 3) => {
-		return Array.from({ length: n }, (_) => {
-			const i = Math.floor(Math.random() * 100);
-
-			return {
-				title: 'Lorem ipsum dolor sit amet consectetur',
-				avatar: {
-					src: `https://picsum.photos/100/100?random=${i + 1}`,
-					alt: `Avatar ${i + 1}`
-				},
-				duration: Math.floor(Math.random() * 100),
-				sections: Math.floor(Math.random() * 100),
-				level: 'Expert',
-				description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-				quod, voluptatum, quibusdam, quia voluptates.`,
-				price: Math.floor(Math.random() * 100),
-				enrolled: Math.floor(Math.random() * 100)
-			};
-		});
-	};
+	export let data;
 
 	const {
 		elements: { content, item: accordionItem, trigger: accordionTrigger, root },
@@ -56,12 +24,6 @@
 	} = createAccordion({
 		defaultValue: 'item-1'
 	});
-	import CourseCard from '$lib/components/ui/CourseCard.svelte';
-	import ArrowRightIcon from '$lib/icons/ArrowRightIcon.svelte';
-	import { getSampleAvatars } from '$lib/utils';
-	import { DownloadCloud, Gem, MessagesSquare, ScanEye, ThumbsUp, Video } from 'lucide-svelte';
-
-	export let data;
 </script>
 
 <svelte:head>
