@@ -1,5 +1,6 @@
 <script lang="ts">
 	import AvatarsGroup from '$lib/components/ui/AvatarsGroup.svelte';
+	import { createAccordion, melt } from '@melt-ui/svelte';
 	import {
 		ArrowRight,
 		BarChart,
@@ -8,11 +9,14 @@
 		DownloadCloud,
 		Gem,
 		MessagesSquare,
+		Minus,
 		PenSquare,
+		Plus,
 		ScanEye,
 		ThumbsUp,
 		Video
 	} from 'lucide-svelte';
+	import { slide } from 'svelte/transition';
 
 	const getSampleAvatars = (n = 3) => {
 		return Array.from({ length: n }, (_) => {
@@ -60,7 +64,7 @@
 
 <!-- Header -->
 <section>
-	<div class="py-2 bg-indigo-600  md:py-4">
+	<div class="py-2 bg-indigo-600 md:py-4">
 		<p class=" text-[11px] md:text-sm text-center text-white">
 			Get a free starter guide when you sign up for any of our <a
 				href="/"
@@ -83,14 +87,14 @@
 </section>
 
 <!-- Hero -->
-<section class="p-3  md:py-20 container-base">
+<section class="p-3 md:py-20 container-base">
 	<div class="w-full mx-auto space-y-8 md:w-8/12">
 		<h1
 			class="font-medium text-center text-4xl md:text-[4.375rem]/[1.2] tracking-normal md:-tracking-[0.25rem]"
 		>
 			Invest in a better future, invest in yourself.
 		</h1>
-		<p class="w-full mx-auto text-center  md:w-7/12">
+		<p class="w-full mx-auto text-center md:w-7/12">
 			Offering comprehensive online finance courses designed to empower individuals with the
 			knowledge and skills needed to make informed financial decisions.
 		</p>
@@ -340,22 +344,22 @@
 </section>
 
 <section class="py-24 container-base space-y-11">
-	<div class="space-y-3 ">
+	<div class="space-y-3">
 		<h2 class="text-2xl tracking-tighter">
 			Streamline your career goals with a collection of our top courses.
 		</h2>
 		<a href="/" class="text-xs action-base w-fit">Get started Today</a>
 	</div>
 
-	<div class="space-y-12 ">
+	<div class="space-y-12">
 		<div class="flex flex-row items-end justify-evenly">
-			<p><span class="text-2xl ">2000+</span> <br /> Enrolled Students</p>
+			<p><span class="text-2xl">2000+</span> <br /> Enrolled Students</p>
 			<img class="w-5/12" src="./src/lib/images/teacher1.png" alt="" />
 		</div>
 
 		<div class="flex flex-row items-center justify-evenly">
 			<img class="w-5/12" src="./src/lib/images/teacher2.png" alt="" />
-			<p><span class="text-2xl "> 87</span> <br /> Available Courses</p>
+			<p><span class="text-2xl"> 87</span> <br /> Available Courses</p>
 		</div>
 	</div>
 </section>
@@ -376,8 +380,13 @@
 			{@const id = `item-${i + 1}`}
 			<div use:melt={$accordionItem(id)} class="px-6 py-4 space-y-4 bg-white rounded-xl">
 				<h3>
-					<button use:melt={$accordionTrigger(id)} class="flex justify-between w-full text-base font-medium">
-						<span class="text-left basis-11/12">Lorem ipsum dolor sit amet consectetur. Fermentum.</span>
+					<button
+						use:melt={$accordionTrigger(id)}
+						class="flex justify-between w-full text-base font-medium"
+					>
+						<span class="text-left basis-11/12"
+							>Lorem ipsum dolor sit amet consectetur. Fermentum.</span
+						>
 
 						{#if $isSelected(id)}
 							<Minus class="" />
