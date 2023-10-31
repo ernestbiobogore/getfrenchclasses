@@ -99,17 +99,20 @@
 
 <!-- Support -->
 <section class="py-24 space-y-11">
-	<div class="flex flex-col items-center gap-4 text-center container-base">
-		<h2>Everything you need, all in one place</h2>
-		<p>
+	<div class="space-y-5 container-base">
+		<h2 class="text-center">Everything you need, all in one place</h2>
+
+		<p class="mx-auto text-sm text-center md:w-4/12">
 			Experience the transformative power of Filearn as you gain financial confidence, build wealth
 			and secure a better future.
 		</p>
 
-		<a href="/" class="action-base w-fit">View Courses</a>
+		<div class="flex justify-center">
+			<a href="/" class="action-base w-fit">View Courses</a>
+		</div>
 	</div>
 
-	<div class="grid grid-cols-2 grid-rows-3 gap-4 container-sm">
+	<div class="grid grid-cols-2 gap-8 sm:gap-16 lg:grid-cols-3 container-sm">
 		<div class="space-y-4">
 			<MessagesSquare color="#5e62d1" />
 			<p>
