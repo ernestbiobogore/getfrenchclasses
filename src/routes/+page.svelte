@@ -98,8 +98,8 @@
 </section>
 
 <!-- Support -->
-<section class="py-24 container-base space-y-11">
-	<div class="flex flex-col items-center gap-4 text-center">
+<section class="py-24 space-y-11">
+	<div class="flex flex-col items-center gap-4 text-center container-base">
 		<h2>Everything you need, all in one place</h2>
 		<p>
 			Experience the transformative power of Filearn as you gain financial confidence, build wealth
@@ -109,7 +109,7 @@
 		<a href="/" class="action-base w-fit">View Courses</a>
 	</div>
 
-	<div class="grid grid-cols-2 grid-rows-3 gap-4">
+	<div class="grid grid-cols-2 grid-rows-3 gap-4 container-sm">
 		<div class="space-y-4">
 			<MessagesSquare color="#5e62d1" />
 			<p>
@@ -229,7 +229,7 @@
 </section>
 
 <!-- FAQ -->
-<section class="py-24 text-center container-base space-y-11">
+<section class="py-24 text-center space-y-11 container-base">
 	<div class="space-y-5">
 		<h2>You have questions, we have the answers.</h2>
 
