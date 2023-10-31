@@ -182,34 +182,26 @@
 	</div>
 </section>
 
-<section class="py-24 container-base space-y-11">
-	<div>
-		<div class="flex flex-col gap-6">
-			<img src={Person1} alt="" />
-			<blockquote class="font-medium">"Best decision I ever made"</blockquote>
-			<p class="text-sm">
+
+<section class="py-24 container-sm flex flex-col sm:flex-row items-center gap-20">
+	<div class="basis-6/12">
+		<img src={Person1} alt="Person 1" />
+	</div>
+
+	<blockquote class="basis-6/12 space-y-6">
+		<div class="space-y-5">
+			<p class="text-2xl/[2.275rem] sm:text-[1.75rem]/[2.275rem] -tracking-[0.1rem]">
+				"Best decision I ever made"
+			</p>
+			<p>
 				Their beginner-friendly approach made it easy for me to grasp complex financial concepts.
 				The chat support was incredibly helpful whenever I had questions. The course has been
 				invaluable, best decision I ever made buying it!
 			</p>
-			<span class="text-xs">Emily Thompson <br /> Purchase the Financial Foundations Course. </span>
 		</div>
-	</div>
 
-	<div class="flex flex-col gap-6">
-		<div class="flex flex-row items-center justify-around">
-			<img class="w-10 h-10 rounded-full" src={Person1} alt="" />
-			<span class="text-xs">Emily Thompson <br /> Purchase the Financial Foundations Course. </span>
-		</div>
-		<div class="flex flex-row items-center justify-around">
-			<img class="w-10 h-10 rounded-full" src={Person1} alt="" />
-			<span class="text-xs">Emily Thompson <br /> Purchase the Financial Foundations Course. </span>
-		</div>
-		<div class="flex flex-row items-center justify-around">
-			<img class="w-10 h-10 rounded-full" src={Person1} alt="" />
-			<span class="text-xs">Emily Thompson <br /> Purchase the Financial Foundations Course. </span>
-		</div>
-	</div>
+		<footer>Emily Thompson</footer>
+	</blockquote>
 </section>
 
 <section class="py-24 container-base space-y-11">
