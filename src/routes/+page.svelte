@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Accordion from '$lib/components/ui/Accordion.svelte';
 	import AvatarsGroup from '$lib/components/ui/AvatarsGroup.svelte';
 	import CourseCard from '$lib/components/ui/CourseCard.svelte';
 	import Person1 from '$lib/images/person1.png';
@@ -6,19 +7,16 @@
 	import Teacher1 from '$lib/images/teacher1.png';
 	import Teacher2 from '$lib/images/teacher2.png';
 	import { getSampleAvatars } from '$lib/utils';
-	import { createAccordion, melt } from '@melt-ui/svelte';
+	import { createAccordion } from '@melt-ui/svelte';
 	import {
 		ChevronRight,
 		DownloadCloud,
 		Gem,
 		MessagesSquare,
-		Minus,
-		Plus,
 		ScanEye,
 		ThumbsUp,
 		Video
 	} from 'lucide-svelte';
-	import { slide } from 'svelte/transition';
 
 	export let data;
 
@@ -241,37 +239,18 @@
 		</p>
 	</div>
 
-	<div class="mx-auto space-y-4 md:w-6/12">
-		{#each Array(6) as _, i}
-			{@const id = `item-${i + 1}`}
-			<div use:melt={$accordionItem(id)} class="px-6 py-4 space-y-4 bg-white rounded-xl">
-				<h3>
-					<button
-						use:melt={$accordionTrigger(id)}
-						class="flex justify-between w-full text-base font-medium"
-					> 
-						<span class="text-left basis-11/12"
-							>Lorem ipsum dolor sit amet consectetur. Fermentum.</span
-						>
-
-						{#if $isSelected(id)}
-							<Minus />
-						{:else}
-							<Plus />
-						{/if}
-					</button>
-				</h3>
-				{#if $isSelected(id)}
-					<div use:melt={$content(id)} transition:slide>
-						<p class="text-left">
-							Lorem ipsum dolor sit amet consectetur. Bibendum in ultrices ornare ut. Mattis nisl
-							nulla mattis euismod dictum egestas id eu ac. Sit dolor ut fermentum egestas phasellus
-							egestas.
-						</p>
-					</div>
-				{/if}
-			</div>
-		{/each}
+	<div class="mx-auto md:w-6/12">
+		<Accordion
+			itemIds={Array.from({ length: 7 }, (_, i) => `item-${i + 1}`)}
+			titles={Array.from(
+				{ length: 7 },
+				(_) => `Lorem ipsum dolor sit amet consectetur. Fermentum.`
+			)}
+			contents={Array.from(
+				{ length: 7 },
+				(_) => `Lorem ipsum dolor sit amet consectetur. Bibendum in ultrices ornare ut. Mattis nisl`
+			)}
+		/>
 	</div>
 </section>
 
