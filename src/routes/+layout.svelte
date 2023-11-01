@@ -1,6 +1,7 @@
 <script>
 	import '$styles/app.postcss';
 	import '@fontsource-variable/inter';
+	import DropdownMenu from '$lib/components/DropdownMenu.svelte';
 </script>
 
 <section>
@@ -15,6 +16,10 @@
 
 	<header class="flex items-center justify-between py-8 container-base">
 		<a href="/" class="text-xs font-bold md:text-xl">Get French Classes</a>
+		<div class="md:hidden">
+			<DropdownMenu />
+		</div>
+
 		<nav class="hidden py-4 space-x-2 md:block">
 			<a href="/" class="px-3 py-2 font-medium rounded-lg hover:bg-gray-300">Courses</a>
 			<a href="/" class="px-3 py-2 font-medium rounded-lg hover:bg-gray-300">About</a>

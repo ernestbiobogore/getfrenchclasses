@@ -1,21 +1,21 @@
-<script>
-	import { fly, scale } from 'svelte/transition';
-	import { quadOut } from 'svelte/easing';
+<script lang="ts">
+	import { createMenubar, melt } from '@melt-ui/svelte';
 
-	/**
-	 * @type {any}
-	 */
-	export let open;
+	const {
+		elements: { menubar },
+		builders: { createMenu }
+	} = createMenubar();
+
+	const {
+		elements: { menu, item, trigger }
+	} = createMenu();
 </script>
 
-{#if open}
-	<div>
-		{#each ['Home', 'Example', 'About', 'Contact'] as link, i}
-			<p transition:fly={{ y: -15, delay: 50 * i }}>
-				{link}
-			</p>
-		{/each}
+<div use:melt={$menubar}>
+	<button use:melt={$trigger}>Open Menu</button>
+	<div use:melt={$menu}>
+		<div {...$item} use:item />
+		<div {...$item} use:item>...</div>
+		<div {...$item} use:item>...</div>
 	</div>
-
-	<hr transition:scale={{ duration: 750, easing: quadOut, opacity: 1 }} />
-{/if}
+</div>

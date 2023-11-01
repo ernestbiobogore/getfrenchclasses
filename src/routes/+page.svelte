@@ -8,6 +8,8 @@
 	import Teacher2 from '$lib/images/teacher2.png';
 	import { getSampleAvatars } from '$lib/utils';
 	import { createAccordion } from '@melt-ui/svelte';
+	import { redirect } from '@sveltejs/kit';
+
 	import {
 		ChevronRight,
 		DownloadCloud,
@@ -15,7 +17,12 @@
 		MessagesSquare,
 		ScanEye,
 		ThumbsUp,
-		Video
+		Video,
+		Instagram,
+		Facebook,
+		Twitter,
+		Youtube,
+		Linkedin
 	} from 'lucide-svelte';
 
 	export let data;
@@ -26,6 +33,10 @@
 	} = createAccordion({
 		defaultValue: 'item-1'
 	});
+
+	// const {
+	// 	elements: { menu, item, trigger, arrow }
+	// } = createDropdownMenu();
 </script>
 
 <svelte:head>
@@ -182,7 +193,6 @@
 	</div>
 </section>
 
-
 <section class="py-24 container-sm flex flex-col sm:flex-row items-center gap-20">
 	<div class="basis-6/12">
 		<img src={Person1} alt="Person 1" />
@@ -250,8 +260,27 @@
 </section>
 
 <!-- before footer -->
-<section class="py-24 container-base space-y-11">
-	<div class="bg-black">
-		<a href="/" class="action-base w-fit">Get started Today</a>
+<section class="py-24 container-base space-y-11 text-white">
+	<div class="bg-black w-full h-64 flex flex-row">
+		<div>
+			<h2>Empower your future Today</h2>
+			<a href="/" class="action-base w-fit">Get started Today</a>
+		</div>
 	</div>
+</section>
+
+<!-- footer -->
+<section class="py-24 container-base space-y-11">
+	<h2>Courses designed to Empower individuals with knowledge to suceed</h2>
+	<div class="flex flex-row space-x-2">
+		<Instagram fill="white" />
+		<Facebook class="bg-black rounded-full " fill="white" />
+		<Twitter fill="black" />
+		<Youtube class="bg-black" fill="white" />
+		<Linkedin class="bg-black  " fill="white" />
+	</div>
+</section>
+
+<section class="py-24 container-base space-y-11">
+	<h3>hellooo</h3>
 </section>
