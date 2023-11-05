@@ -7,36 +7,23 @@
 	import Teacher1 from '$lib/images/teacher1.png';
 	import Teacher2 from '$lib/images/teacher2.png';
 	import { getSampleAvatars } from '$lib/utils';
-	import { createAccordion } from '@melt-ui/svelte';
-	import { redirect } from '@sveltejs/kit';
 
 	import {
 		ChevronRight,
 		DownloadCloud,
+		Facebook,
 		Gem,
+		Instagram,
+		Linkedin,
 		MessagesSquare,
 		ScanEye,
 		ThumbsUp,
-		Video,
-		Instagram,
-		Facebook,
 		Twitter,
-		Youtube,
-		Linkedin
+		Video,
+		Youtube
 	} from 'lucide-svelte';
 
 	export let data;
-
-	const {
-		elements: { content, item: accordionItem, trigger: accordionTrigger },
-		helpers: { isSelected }
-	} = createAccordion({
-		defaultValue: 'item-1'
-	});
-
-	// const {
-	// 	elements: { menu, item, trigger, arrow }
-	// } = createDropdownMenu();
 </script>
 
 <svelte:head>
@@ -193,12 +180,12 @@
 	</div>
 </section>
 
-<section class="py-24 container-sm flex flex-col sm:flex-row items-center gap-20">
+<section class="flex flex-col items-center gap-20 py-24 container-sm sm:flex-row">
 	<div class="basis-6/12">
 		<img src={Person1} alt="Person 1" />
 	</div>
 
-	<blockquote class="basis-6/12 space-y-6">
+	<blockquote class="space-y-6 basis-6/12">
 		<div class="space-y-5">
 			<p class="text-2xl/[2.275rem] sm:text-[1.75rem]/[2.275rem] -tracking-[0.1rem]">
 				"Best decision I ever made"
@@ -260,8 +247,8 @@
 </section>
 
 <!-- before footer -->
-<section class="py-24 container-base space-y-11 text-white">
-	<div class="bg-black w-full h-64 flex flex-row">
+<section class="py-24 text-white container-base space-y-11">
+	<div class="flex flex-row w-full h-64 bg-black">
 		<div>
 			<h2>Empower your future Today</h2>
 			<a href="/" class="action-base w-fit">Get started Today</a>
@@ -269,18 +256,58 @@
 	</div>
 </section>
 
-<!-- footer -->
-<section class="py-24 container-base space-y-11">
-	<h2>Courses designed to Empower individuals with knowledge to suceed</h2>
-	<div class="flex flex-row space-x-2">
-		<Instagram fill="white" />
-		<Facebook class="bg-black rounded-full " fill="white" />
-		<Twitter fill="black" />
-		<Youtube class="bg-black" fill="white" />
-		<Linkedin class="bg-black  " fill="white" />
-	</div>
-</section>
+<!-- Footer -->
+<footer class="pt-8 pb-6 space-y-8 container-base">
+	<div class="flex flex-col gap-8 sm:gap-0 sm:flex-row pt-8 border-t-[0.5px] border-t-[#999]">
+		<div class="space-y-5 basis-9/12">
+			<a href="/" class="font-bold">Get French Classes</a>
+			<p class="text-sm sm:w-4/12">
+				Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto inventore repellendus
+				perferendis illum autem, deserunt dignissimos aut.
+			</p>
 
-<section class="py-24 container-base space-y-11">
-	<h3>hellooo</h3>
-</section>
+			<div class="flex gap-2">
+				<Instagram />
+				<Facebook class="bg-black rounded-full stroke-transparent fill-[#f1ecec]" />
+				<Twitter class="fill-black" />
+				<Youtube class="bg-black fill-[#f1ecec]" />
+				<Linkedin class="bg-black fill-[#f1ecec] stroke-0" />
+			</div>
+		</div>
+		<div class="flex gap-20 basis-3/12">
+			<div class="space-y-4">
+				<p class="font-bold">Company</p>
+				<ul class="space-y-2 text-sm">
+					<li>Courses</li>
+					<li>Features</li>
+					<li>FAQs</li>
+					<li>Reviews</li>
+					<li>About</li>
+					<li>Contact</li>
+				</ul>
+			</div>
+
+			<div class="space-y-4">
+				<p class="font-bold">Account</p>
+				<ul class="space-y-2 text-sm">
+					<li>Login</li>
+					<li>Sign Up</li>
+					<li>Reset Password</li>
+				</ul>
+			</div>
+
+			<div class="space-y-4">
+				<p class="font-bold">Resources</p>
+				<ul class="space-y-2 text-sm">
+					<li>Login</li>
+					<li>Sign Up</li>
+					<li>Reset Password</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div>
+		<p class="text-xs">© 2023 Get French Classes.</p>
+	</div>
+</footer>
