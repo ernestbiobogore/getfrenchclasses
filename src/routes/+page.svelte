@@ -246,13 +246,13 @@
 	</div>
 </section>
 
-<!-- before footer -->
-<section class="py-24 text-white container-base space-y-11">
-	<div class="flex flex-row w-full h-64 bg-black">
-		<div>
-			<h2>Empower your future Today</h2>
-			<a href="/" class="action-base w-fit">Get started Today</a>
-		</div>
+<!-- CTA -->
+<section class="container-base">
+	<div class="p-12 space-y-5 bg-night rounded-2xl h-96">
+		<h2 class="text-white text-[2.75rem]/[3.3rem] sm:w-5/12">
+			Empower your financial future, today.
+		</h2>
+		<a href="/" class="action-white w-fit">View our courses</a>
 	</div>
 </section>
 
@@ -268,10 +268,10 @@
 
 			<div class="flex gap-2">
 				<Instagram />
-				<Facebook class="bg-black rounded-full stroke-transparent fill-[#f1ecec]" />
-				<Twitter class="fill-black" />
-				<Youtube class="bg-black fill-[#f1ecec]" />
-				<Linkedin class="bg-black fill-[#f1ecec] stroke-0" />
+				<Facebook class="bg-night rounded-full stroke-transparent fill-[#f1ecec]" />
+				<Twitter class="fill-night" />
+				<Youtube class="bg-night fill-[#f1ecec]" />
+				<Linkedin class="bg-night fill-[#f1ecec] stroke-0" />
 			</div>
 		</div>
 		<div class="flex gap-20 basis-3/12">
