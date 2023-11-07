@@ -8,22 +8,20 @@
 	import Teacher1 from '$lib/images/teacher1.png';
 	import Teacher2 from '$lib/images/teacher2.png';
 	import { getSampleAvatars } from '$lib/utils';
-	import { createAccordion } from '@melt-ui/svelte';
-	import { redirect } from '@sveltejs/kit';
 
 	import {
 		ChevronRight,
 		DownloadCloud,
+		Facebook,
 		Gem,
+		Instagram,
+		Linkedin,
 		MessagesSquare,
 		ScanEye,
 		ThumbsUp,
-		Video,
-		Instagram,
-		Facebook,
 		Twitter,
-		Youtube,
-		Linkedin
+		Video,
+		Youtube
 	} from 'lucide-svelte';
 
 	export let data;
@@ -192,12 +190,12 @@
 	</div>
 </section>
 
-<section class="py-24 container-sm flex flex-col sm:flex-row items-center gap-20">
+<section class="flex flex-col items-center gap-20 py-24 container-sm sm:flex-row">
 	<div class="basis-6/12">
 		<img src={Person1} alt="Person 1" />
 	</div>
 
-	<blockquote class="basis-6/12 space-y-6">
+	<blockquote class="space-y-6 basis-6/12">
 		<div class="space-y-5">
 			<p class="text-2xl/[2.275rem] sm:text-[1.75rem]/[2.275rem] -tracking-[0.1rem]">
 				"Best decision I ever made"
@@ -260,32 +258,68 @@
 	</div>
 </section>
 
-<!-- before footer -->
-<section class="py-24 container-base space-y-11 text-white">
-	<div class="bg-black w-full h-80 flex flex-row rounded-2xl">
-		<div class="p-8 flex flex-col gap-5">
-			<h2 class="tracking-normal">Empower your financial, future, Today</h2>
-			<a href="/" class="action-base w-fit bg-white text-black">View Our Courses</a>
+<!-- CTA -->
+<section class="container-base">
+	<div class="p-12 space-y-5 bg-night rounded-2xl h-96">
+		<h2 class="text-white text-[2.75rem]/[3.3rem] sm:w-5/12">
+			Empower your financial future, today.
+		</h2>
+		<a href="/" class="action-white w-fit">View our courses</a>
+	</div>
+</section>
+
+<!-- Footer -->
+<footer class="pt-8 pb-6 space-y-8 container-base">
+	<div class="flex flex-col gap-8 sm:gap-0 sm:flex-row pt-8 border-t-[0.5px] border-t-[#999]">
+		<div class="space-y-5 basis-9/12">
+			<a href="/" class="font-bold">Get French Classes</a>
+			<p class="text-sm sm:w-4/12">
+				Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto inventore repellendus
+				perferendis illum autem, deserunt dignissimos aut.
+			</p>
+
+			<div class="flex gap-2">
+				<Instagram />
+				<Facebook class="bg-night rounded-full stroke-transparent fill-[#f1ecec]" />
+				<Twitter class="fill-night" />
+				<Youtube class="bg-night fill-[#f1ecec]" />
+				<Linkedin class="bg-night fill-[#f1ecec] stroke-0" />
+			</div>
+		</div>
+		<div class="flex gap-20 basis-3/12">
+			<div class="space-y-4">
+				<p class="font-bold">Company</p>
+				<ul class="space-y-2 text-sm">
+					<li>Courses</li>
+					<li>Features</li>
+					<li>FAQs</li>
+					<li>Reviews</li>
+					<li>About</li>
+					<li>Contact</li>
+				</ul>
+			</div>
+
+			<div class="space-y-4">
+				<p class="font-bold">Account</p>
+				<ul class="space-y-2 text-sm">
+					<li>Login</li>
+					<li>Sign Up</li>
+					<li>Reset Password</li>
+				</ul>
+			</div>
+
+			<div class="space-y-4">
+				<p class="font-bold">Resources</p>
+				<ul class="space-y-2 text-sm">
+					<li>Login</li>
+					<li>Sign Up</li>
+					<li>Reset Password</li>
+				</ul>
+			</div>
 		</div>
 	</div>
 
-	<hr class="w-full bg-black" />
-</section>
-
-<!-- footer -->
-<section class="py-24 container-base space-y-11">
-	<h2>Courses designed to Empower individuals with knowledge to suceed</h2>
-	<div class="flex flex-row space-x-2">
-		<Instagram fill="white" />
-		<Facebook class="bg-black rounded-full " fill="white" />
-		<Twitter fill="black" />
-		<Youtube class="bg-black" fill="white" />
-		<Linkedin class="bg-black  " fill="white" />
+	<div>
+		<p class="text-xs">© 2023 Get French Classes.</p>
 	</div>
-
-	<Menu />
-</section>
-
-<section class="py-24 container-base space-y-11">
-	<h3>hellooo</h3>
-</section>
+</footer>
