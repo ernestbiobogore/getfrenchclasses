@@ -5,17 +5,16 @@
 		elements: { menubar },
 		builders: { createMenu }
 	} = createMenubar();
-
 	const {
 		elements: { menu, item, trigger }
 	} = createMenu();
 </script>
 
 <div use:melt={$menubar}>
-	<button use:melt={$trigger}>Open Menu</button>
+	<button use:melt={$trigger}>Company</button>
 	<div use:melt={$menu}>
-		<div {...$item} use:item />
-		<div {...$item} use:item>...</div>
-		<div {...$item} use:item>...</div>
+		<div {...$item} use:item>Courses</div>
+		<div {...$item} use:item>About</div>
+		<div {...$item} use:item>Features</div>
 	</div>
 </div>

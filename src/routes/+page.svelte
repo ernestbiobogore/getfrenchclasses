@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Accordion from '$lib/components/ui/Accordion.svelte';
+	import Menu from '$lib/components/ui/Menu.svelte';
 	import AvatarsGroup from '$lib/components/ui/AvatarsGroup.svelte';
 	import CourseCard from '$lib/components/ui/CourseCard.svelte';
 	import Person1 from '$lib/images/person1.png';
@@ -33,10 +34,6 @@
 	} = createAccordion({
 		defaultValue: 'item-1'
 	});
-
-	// const {
-	// 	elements: { menu, item, trigger, arrow }
-	// } = createDropdownMenu();
 </script>
 
 <svelte:head>
@@ -78,7 +75,7 @@
 		</a>
 	</div>
 
-	<div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+	<div class="grid gap-8 grid-col-1 md:grid-cols-2 lg:grid-cols-3">
 		{#each data.popularCourses as course (course.id)}
 			<CourseCard {course} />
 		{/each}
@@ -176,9 +173,11 @@
 
 <!-- Learn About Us  -->
 <section class="flex flex-col items-center justify-between gap-24 py-24 sm:flex-row container-base">
-	<div class="space-y-6">
-		<div class="space-y-5">
-			<h2>Curated to help you be smarter, more responsible financially.</h2>
+	<div class="space-y-6 flex flex-col gap-4">
+		<div class="space-y-5 md:max-w-1/2 w-full">
+			<h2 class="md:tracking-tighter md:w-1/2">
+				Curated to help you be smarter, more responsible financially.
+			</h2>
 			<p class="md:w-8/12">
 				We use the latest technologies and tools backed by industry experts that will help secure
 				you dream universities, jobs and set you up for the future.
@@ -214,10 +213,12 @@
 	</blockquote>
 </section>
 
-<section class="py-24 container-base space-y-11">
-	<div class="space-y-3">
-		<h2>Streamline your career goals with a collection of our top courses.</h2>
-		<a href="/" class="action-base w-fit">Get started Today</a>
+<section class="py-24 container-base space-y-11 flex flex-col md:flex-row items-center">
+	<div class="space-y-3 md:space-y-6 md:w-1/2">
+		<h2 class="md:text-7xl md:tracking-tighter">
+			Streamline your career goals with a collection of our top courses.
+		</h2>
+		<a href="/" class="action-base w-fit md:text-base">Get started Today</a>
 	</div>
 
 	<div class="space-y-12">
@@ -261,12 +262,14 @@
 
 <!-- before footer -->
 <section class="py-24 container-base space-y-11 text-white">
-	<div class="bg-black w-full h-64 flex flex-row">
-		<div>
-			<h2>Empower your future Today</h2>
-			<a href="/" class="action-base w-fit">Get started Today</a>
+	<div class="bg-black w-full h-80 flex flex-row rounded-2xl">
+		<div class="p-8 flex flex-col gap-5">
+			<h2 class="tracking-normal">Empower your financial, future, Today</h2>
+			<a href="/" class="action-base w-fit bg-white text-black">View Our Courses</a>
 		</div>
 	</div>
+
+	<hr class="w-full bg-black" />
 </section>
 
 <!-- footer -->
@@ -279,6 +282,8 @@
 		<Youtube class="bg-black" fill="white" />
 		<Linkedin class="bg-black  " fill="white" />
 	</div>
+
+	<Menu />
 </section>
 
 <section class="py-24 container-base space-y-11">

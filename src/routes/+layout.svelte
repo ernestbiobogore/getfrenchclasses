@@ -1,7 +1,7 @@
 <script>
 	import '$styles/app.postcss';
 	import '@fontsource-variable/inter';
-	import DropdownMenu from '$lib/components/DropdownMenu.svelte';
+	import DropdownMenu from '$lib/components/ui/DropdownMenu.svelte';
 </script>
 
 <section>
