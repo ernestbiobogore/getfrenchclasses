@@ -1,6 +1,5 @@
 <script lang="ts">
 	import Accordion from '$lib/components/ui/Accordion.svelte';
-	import Menu from '$lib/components/ui/Menu.svelte';
 	import AvatarsGroup from '$lib/components/ui/AvatarsGroup.svelte';
 	import CourseCard from '$lib/components/ui/CourseCard.svelte';
 	import Person1 from '$lib/images/person1.png';
@@ -25,13 +24,6 @@
 	} from 'lucide-svelte';
 
 	export let data;
-
-	const {
-		elements: { content, item: accordionItem, trigger: accordionTrigger },
-		helpers: { isSelected }
-	} = createAccordion({
-		defaultValue: 'item-1'
-	});
 </script>
 
 <svelte:head>
