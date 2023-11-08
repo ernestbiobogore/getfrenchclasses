@@ -25,6 +25,29 @@ export var createClient = function(options) {
   return createClientOriginal(optionsCopy)
 }
 
+export const enumCategoryModelOrderBy = {
+  _createdAt_ASC: '_createdAt_ASC',
+  _createdAt_DESC: '_createdAt_DESC',
+  id_ASC: 'id_ASC',
+  id_DESC: 'id_DESC',
+  _firstPublishedAt_ASC: '_firstPublishedAt_ASC',
+  _firstPublishedAt_DESC: '_firstPublishedAt_DESC',
+  _publicationScheduledAt_ASC: '_publicationScheduledAt_ASC',
+  _publicationScheduledAt_DESC: '_publicationScheduledAt_DESC',
+  _unpublishingScheduledAt_ASC: '_unpublishingScheduledAt_ASC',
+  _unpublishingScheduledAt_DESC: '_unpublishingScheduledAt_DESC',
+  _publishedAt_ASC: '_publishedAt_ASC',
+  _publishedAt_DESC: '_publishedAt_DESC',
+  _status_ASC: '_status_ASC',
+  _status_DESC: '_status_DESC',
+  _updatedAt_ASC: '_updatedAt_ASC',
+  _updatedAt_DESC: '_updatedAt_DESC',
+  _isValid_ASC: '_isValid_ASC',
+  _isValid_DESC: '_isValid_DESC',
+  name_ASC: 'name_ASC',
+  name_DESC: 'name_DESC',
+}
+
 export const enumColorBucketType = {
   red: 'red',
   orange: 'orange',
@@ -270,6 +293,29 @@ export const enumMuxThumbnailFormatType = {
   jpg: 'jpg',
   png: 'png',
   gif: 'gif',
+}
+
+export const enumPostModelOrderBy = {
+  _createdAt_ASC: '_createdAt_ASC',
+  _createdAt_DESC: '_createdAt_DESC',
+  id_ASC: 'id_ASC',
+  id_DESC: 'id_DESC',
+  _firstPublishedAt_ASC: '_firstPublishedAt_ASC',
+  _firstPublishedAt_DESC: '_firstPublishedAt_DESC',
+  _publicationScheduledAt_ASC: '_publicationScheduledAt_ASC',
+  _publicationScheduledAt_DESC: '_publicationScheduledAt_DESC',
+  _unpublishingScheduledAt_ASC: '_unpublishingScheduledAt_ASC',
+  _unpublishingScheduledAt_DESC: '_unpublishingScheduledAt_DESC',
+  _publishedAt_ASC: '_publishedAt_ASC',
+  _publishedAt_DESC: '_publishedAt_DESC',
+  _status_ASC: '_status_ASC',
+  _status_DESC: '_status_DESC',
+  _updatedAt_ASC: '_updatedAt_ASC',
+  _updatedAt_DESC: '_updatedAt_DESC',
+  _isValid_ASC: '_isValid_ASC',
+  _isValid_DESC: '_isValid_DESC',
+  title_ASC: 'title_ASC',
+  title_DESC: 'title_DESC',
 }
 
 export const enumResolutionType = {

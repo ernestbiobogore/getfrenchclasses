@@ -32,6 +32,29 @@ export declare const generateQueryOp: (
   fields: QueryRequest & { __name?: string },
 ) => GraphqlOperation
 
+export declare const enumCategoryModelOrderBy: {
+  readonly _createdAt_ASC: '_createdAt_ASC'
+  readonly _createdAt_DESC: '_createdAt_DESC'
+  readonly id_ASC: 'id_ASC'
+  readonly id_DESC: 'id_DESC'
+  readonly _firstPublishedAt_ASC: '_firstPublishedAt_ASC'
+  readonly _firstPublishedAt_DESC: '_firstPublishedAt_DESC'
+  readonly _publicationScheduledAt_ASC: '_publicationScheduledAt_ASC'
+  readonly _publicationScheduledAt_DESC: '_publicationScheduledAt_DESC'
+  readonly _unpublishingScheduledAt_ASC: '_unpublishingScheduledAt_ASC'
+  readonly _unpublishingScheduledAt_DESC: '_unpublishingScheduledAt_DESC'
+  readonly _publishedAt_ASC: '_publishedAt_ASC'
+  readonly _publishedAt_DESC: '_publishedAt_DESC'
+  readonly _status_ASC: '_status_ASC'
+  readonly _status_DESC: '_status_DESC'
+  readonly _updatedAt_ASC: '_updatedAt_ASC'
+  readonly _updatedAt_DESC: '_updatedAt_DESC'
+  readonly _isValid_ASC: '_isValid_ASC'
+  readonly _isValid_DESC: '_isValid_DESC'
+  readonly name_ASC: 'name_ASC'
+  readonly name_DESC: 'name_DESC'
+}
+
 export declare const enumColorBucketType: {
   readonly red: 'red'
   readonly orange: 'orange'
@@ -277,6 +300,29 @@ export declare const enumMuxThumbnailFormatType: {
   readonly jpg: 'jpg'
   readonly png: 'png'
   readonly gif: 'gif'
+}
+
+export declare const enumPostModelOrderBy: {
+  readonly _createdAt_ASC: '_createdAt_ASC'
+  readonly _createdAt_DESC: '_createdAt_DESC'
+  readonly id_ASC: 'id_ASC'
+  readonly id_DESC: 'id_DESC'
+  readonly _firstPublishedAt_ASC: '_firstPublishedAt_ASC'
+  readonly _firstPublishedAt_DESC: '_firstPublishedAt_DESC'
+  readonly _publicationScheduledAt_ASC: '_publicationScheduledAt_ASC'
+  readonly _publicationScheduledAt_DESC: '_publicationScheduledAt_DESC'
+  readonly _unpublishingScheduledAt_ASC: '_unpublishingScheduledAt_ASC'
+  readonly _unpublishingScheduledAt_DESC: '_unpublishingScheduledAt_DESC'
+  readonly _publishedAt_ASC: '_publishedAt_ASC'
+  readonly _publishedAt_DESC: '_publishedAt_DESC'
+  readonly _status_ASC: '_status_ASC'
+  readonly _status_DESC: '_status_DESC'
+  readonly _updatedAt_ASC: '_updatedAt_ASC'
+  readonly _updatedAt_DESC: '_updatedAt_DESC'
+  readonly _isValid_ASC: '_isValid_ASC'
+  readonly _isValid_DESC: '_isValid_DESC'
+  readonly title_ASC: 'title_ASC'
+  readonly title_DESC: 'title_DESC'
 }
 
 export declare const enumResolutionType: {

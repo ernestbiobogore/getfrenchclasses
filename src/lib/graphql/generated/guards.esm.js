@@ -1,4 +1,12 @@
 
+var CategoryRecord_possibleTypes = ['CategoryRecord']
+export var isCategoryRecord = function(obj) {
+  if (!obj || !obj.__typename) throw new Error('__typename is missing in "isCategoryRecord"')
+  return CategoryRecord_possibleTypes.includes(obj.__typename)
+}
+
+
+
 var CollectionMetadata_possibleTypes = ['CollectionMetadata']
 export var isCollectionMetadata = function(obj) {
   if (!obj || !obj.__typename) throw new Error('__typename is missing in "isCollectionMetadata"')
@@ -47,6 +55,30 @@ export var isGlobalSeoField = function(obj) {
 
 
 
+var ImageBlockRecord_possibleTypes = ['ImageBlockRecord']
+export var isImageBlockRecord = function(obj) {
+  if (!obj || !obj.__typename) throw new Error('__typename is missing in "isImageBlockRecord"')
+  return ImageBlockRecord_possibleTypes.includes(obj.__typename)
+}
+
+
+
+var PostModelModularContentField_possibleTypes = ['ImageBlockRecord','RichTextBlockRecord']
+export var isPostModelModularContentField = function(obj) {
+  if (!obj || !obj.__typename) throw new Error('__typename is missing in "isPostModelModularContentField"')
+  return PostModelModularContentField_possibleTypes.includes(obj.__typename)
+}
+
+
+
+var PostRecord_possibleTypes = ['PostRecord']
+export var isPostRecord = function(obj) {
+  if (!obj || !obj.__typename) throw new Error('__typename is missing in "isPostRecord"')
+  return PostRecord_possibleTypes.includes(obj.__typename)
+}
+
+
+
 var Query_possibleTypes = ['Query']
 export var isQuery = function(obj) {
   if (!obj || !obj.__typename) throw new Error('__typename is missing in "isQuery"')
@@ -55,7 +87,7 @@ export var isQuery = function(obj) {
 
 
 
-var RecordInterface_possibleTypes = ['CourseRecord','SeoBlockRecord']
+var RecordInterface_possibleTypes = ['CategoryRecord','CourseRecord','ImageBlockRecord','PostRecord','RichTextBlockRecord','SeoBlockRecord']
 export var isRecordInterface = function(obj) {
   if (!obj || !obj.__typename) throw new Error('__typename is missing in "isRecordInterface"')
   return RecordInterface_possibleTypes.includes(obj.__typename)
@@ -67,6 +99,30 @@ var ResponsiveImage_possibleTypes = ['ResponsiveImage']
 export var isResponsiveImage = function(obj) {
   if (!obj || !obj.__typename) throw new Error('__typename is missing in "isResponsiveImage"')
   return ResponsiveImage_possibleTypes.includes(obj.__typename)
+}
+
+
+
+var RichTextBlockModelRichTextBlocksField_possibleTypes = ['ImageBlockRecord','SeoBlockRecord']
+export var isRichTextBlockModelRichTextBlocksField = function(obj) {
+  if (!obj || !obj.__typename) throw new Error('__typename is missing in "isRichTextBlockModelRichTextBlocksField"')
+  return RichTextBlockModelRichTextBlocksField_possibleTypes.includes(obj.__typename)
+}
+
+
+
+var RichTextBlockModelRichTextField_possibleTypes = ['RichTextBlockModelRichTextField']
+export var isRichTextBlockModelRichTextField = function(obj) {
+  if (!obj || !obj.__typename) throw new Error('__typename is missing in "isRichTextBlockModelRichTextField"')
+  return RichTextBlockModelRichTextField_possibleTypes.includes(obj.__typename)
+}
+
+
+
+var RichTextBlockRecord_possibleTypes = ['RichTextBlockRecord']
+export var isRichTextBlockRecord = function(obj) {
+  if (!obj || !obj.__typename) throw new Error('__typename is missing in "isRichTextBlockRecord"')
+  return RichTextBlockRecord_possibleTypes.includes(obj.__typename)
 }
 
 
