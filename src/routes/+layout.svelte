@@ -26,7 +26,7 @@
 			<a href="/" class="px-3 py-2 font-medium rounded-lg hover:bg-gray-300">Courses</a>
 			<a href="/about" class="px-3 py-2 font-medium rounded-lg hover:bg-gray-300">About</a>
 			<a href="/" class="px-3 py-2 font-medium rounded-lg hover:bg-gray-300">FAQ's</a>
-			<a href="/" class="px-3 py-2 font-medium rounded-lg hover:bg-gray-300">Contact</a>
+			<a href="/contact" class="px-3 py-2 font-medium rounded-lg hover:bg-gray-300">Contact</a>
 		</nav>
 
 		<a href="/" class="text-xs action-base">Get Started</a>
