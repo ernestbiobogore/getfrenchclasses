@@ -247,7 +247,7 @@
 
 <!-- CTA -->
 <section class="container-base">
-	<div class="p-12 space-y-5 bg-night rounded-2xl h-96">
+	<div class="p-12 space-y-5 bg-night rounded-2xl h-96 m-auto md:w-9/12">
 		<h2 class="text-white text-[2.75rem]/[3.3rem] sm:w-5/12">
 			Empower your financial future, today.
 		</h2>
