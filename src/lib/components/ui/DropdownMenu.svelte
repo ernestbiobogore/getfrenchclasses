@@ -21,9 +21,9 @@
 		<div use:melt={$arrow} />
 		<div class="bg-white h-50 w-full flex flex-col justify-between px-5">
 			<a href="/">Courses</a>
-			<a href="/">About</a>
+			<a href="/about">About</a>
 			<a href="/">FAQ's</a>
-			<a href="/">Contact</a>
+			<a href="/contact">Contact</a>
 		</div>
 		<button class="close px-5" use:melt={$close}>
 			<X class="square-4" />

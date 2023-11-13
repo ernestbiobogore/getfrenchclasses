@@ -3,6 +3,8 @@
 	import AvatarsGroup from '$lib/components/ui/AvatarsGroup.svelte';
 	import CourseCard from '$lib/components/ui/CourseCard.svelte';
 	import Person1 from '$lib/images/person1.png';
+	import Teacher3 from '$lib/images/teacher3.png';
+	import Teache4 from '$lib/images/teacher4.png';
 	import SupportImage from '$lib/images/supportImage.png';
 	import Teacher1 from '$lib/images/teacher1.png';
 	import Teacher2 from '$lib/images/teacher2.png';

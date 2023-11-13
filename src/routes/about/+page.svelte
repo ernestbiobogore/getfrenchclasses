@@ -1,10 +1,26 @@
 <script>
 	import { HelpingHand, Globe2, Lightbulb, File } from 'lucide-svelte';
+	import Person1 from '$lib/images/person1.png';
+	import SupportImage from '$lib/images/supportImage.png';
+	import Teacher1 from '$lib/images/teacher1.png';
+	import Teacher2 from '$lib/images/teacher2.png';
+	import Teacher3 from '$lib/images/teacher3.png';
+	import Teacher4 from '$lib/images/teacher4.png';
 </script>
 
 <!-- Hero -->
 <section class="p-3 md:py-20 container-base">
 	<h1 class="tracking-normal text-4xl text-center">Providing the tools necessary to succeed</h1>
+
+	<div class="images">
+		<div class="grid grid-cols-3">
+			<img src={Teacher1} alt="Teacher 1" class="" />
+			<img src={Teacher3} alt="Teacher 3" class="order-last" />
+			<img src={SupportImage} alt="Support" class="order-3" />
+			<img src={Teacher2} alt="Teacher 2" class="" />
+			<img src={Teacher4} alt="Teacher 4" />
+		</div>
+	</div>
 </section>
 
 <!-- Stats Section -->

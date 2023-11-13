@@ -10,6 +10,13 @@
 	<title>{data.course.name}</title>
 </svelte:head>
 
+<section>
+	<div>
+		<h2>Courses to guide you to brighter, stonger Future</h2>
+		<p>Explore our comprehensive range of financial courses</p>
+	</div>
+</section>
+
 <section class="flex flex-col justify-between gap-8 md:flex-row md:gap-0 container-base">
 	<div class="space-y-5 md:basis-6/12">
 		<div class="space-y-4">
