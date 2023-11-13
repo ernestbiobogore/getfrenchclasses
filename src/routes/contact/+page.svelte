@@ -8,19 +8,19 @@
 		Fill out the form below and we will get back to you as soon as possible.
 	</p>
 	<div class="form p-7">
-		<form method="" class=" flex flex-col gap-5">
+		<form method="" class=" flex flex-col gap-5 m-auto md:w-1/2">
 			<div class="flex flex-row bg-white rounded-md gap-4 p-2 items-center">
 				<User color="grey" class="w-4 h-4" />
-				<input type="text" placeholder="Enter your name" class="text-sm" />
+				<input type="text" placeholder="Enter your name" class="text-xs" />
 			</div>
 			<div class="flex flex-row bg-white rounded-md gap-4 p-2 items-center">
 				<Mail color="grey" class="w-4 h-4" />
-				<input name="email" placeholder="Enter your Email" class="text-sm" />
+				<input name="email" placeholder="Enter your Email" class="text-xs" />
 			</div>
 
 			<div class="flex flex-row bg-white rounded-md gap-4 p-2">
 				<MessageSquare color="grey" class="w-4 h-4" />
-				<textarea cols="25" rows="4" placeholder="Example Text" class="text-sm" />
+				<textarea cols="25" rows="4" placeholder="Example Text" class="text-xs" />
 			</div>
 
 			<button type="submit" class="bg-black text-white p-2 rounded-lg text-right self-end"
