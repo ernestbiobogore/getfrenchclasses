@@ -47,8 +47,8 @@
 	</div>
 </section>
 
-<section class="py-24 container-base md:flex flex-row gap-16">
-	<div>
+<section class="py-24 px-12 md:flex flex-row gap-16">
+	<div class="md:w-1/2">
 		<div class="text-center space-y-5">
 			<h2 class="tracking-normal">Our most frequently asked questions.</h2>
 			<p class="text-sm">
@@ -56,7 +56,7 @@
 				can contact us through the methods below.
 			</p>
 		</div>
-		<div class="py-4 flex flex-col items-center md:flex-row justify-evenly">
+		<div class="py-4 flex flex-col items-center md:flex-row justify-evenly flex-start">
 			<button class="flex flex-row items-center gap-4 border-2 p-6 bg-white rounded-lg">
 				<Mail color="#5e62d1" />
 				<a href="mailto:info.learn.com" class="whitespace-pre-line text-left text-xs">
@@ -83,7 +83,7 @@
 		</div>
 	</div>
 
-	<div class=" text-center space-y-11">
+	<div class=" text-center space-y-11 md:w-1/2">
 		<div class="mx-auto">
 			<Accordion
 				itemIds={Array.from({ length: 5 }, (_, i) => `item-${i + 1}`)}
