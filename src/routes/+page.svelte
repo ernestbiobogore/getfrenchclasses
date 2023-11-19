@@ -3,24 +3,16 @@
 	import AvatarsGroup from '$lib/components/ui/AvatarsGroup.svelte';
 	import CourseCard from '$lib/components/ui/CourseCard.svelte';
 	import Person1 from '$lib/images/person1.png';
-	import Teacher3 from '$lib/images/teacher3.png';
-	import Teache4 from '$lib/images/teacher4.png';
 	import SupportImage from '$lib/images/supportImage.png';
 	import Teacher1 from '$lib/images/teacher1.png';
 	import Teacher2 from '$lib/images/teacher2.png';
-	import { getSampleAvatars } from '$lib/utils';
 
-	import {
-		ChevronRight,
-		DownloadCloud,
-		Gem,
-		MessagesSquare,
-		ScanEye,
-		ThumbsUp,
-		Video
-	} from 'lucide-svelte';
+	import { ChevronRight } from 'lucide-svelte';
 
 	export let data;
+	$: ({ homepageData } = data);
+
+	$: console.log(homepageData);
 </script>
 
 <svelte:head>
@@ -30,131 +22,107 @@
 <!-- Hero -->
 <section class="p-3 md:py-20 container-base">
 	<div class="w-full mx-auto space-y-8 md:w-8/12">
-		<h1 class="text-center">Invest in a better future, invest in yourself.</h1>
+		<h1 class="text-center">{homepageData?.heroTitle}</h1>
 		<p class="w-full mx-auto text-center md:w-7/12">
-			Offering comprehensive online finance courses designed to empower individuals with the
-			knowledge and skills needed to make informed financial decisions.
+			{@html homepageData?.heroSubtitle}
 		</p>
 		<div class="flex justify-center">
-			<a href="/" class="action-base w-fit">View Courses</a>
+			<a href={homepageData?.heroCta[0].link} class="action-base w-fit"
+				>{homepageData?.heroCta[0].text}</a
+			>
 		</div>
 
 		<div class="flex items-center justify-center gap-4">
-			<AvatarsGroup avatars={getSampleAvatars()} />
-			<p class="text-xs">Trusted by over 2,000 people.</p>
+			<AvatarsGroup
+				avatars={homepageData?.heroTestimonialPictures.map((picture) => ({
+					src: picture.url,
+					alt: String(picture.alt)
+				}))}
+			/>
+			<p class="text-xs">{homepageData?.heroTestimonialTitle}</p>
 		</div>
 	</div>
 </section>
 
 <!-- Popular Courses -->
-<section class="py-24 container-base space-y-11">
-	<div class="flex items-center justify-between gap-x-7">
-		<h2>Browse our most popular courses.</h2>
+{#if homepageData && homepageData?.popularCoursesRecords.length > 0}
+	<section class="py-24 container-base space-y-11">
+		<div class="flex items-center justify-between gap-x-7">
+			<h2>{homepageData?.popularCoursesTitle}</h2>
 
-		<a
-			href="/"
-			class="flex items-center justify-end w-4/12 gap-2 px-3 py-2 text-xs rounded-lg sm:w-auto hover:bg-gray-300"
-		>
-			<span>View All</span>
-			<div class="p-[0.125rem] bg-gray-900 rounded-full">
-				<ChevronRight class="w-3 h-3 stroke-white" />
-			</div>
-		</a>
-	</div>
+			<a
+				href="/courses"
+				class="flex items-center justify-end w-4/12 gap-2 px-3 py-2 text-xs rounded-lg sm:w-auto hover:bg-gray-300"
+			>
+				<span>View All</span>
+				<div class="p-[0.125rem] bg-gray-900 rounded-full">
+					<ChevronRight class="w-3 h-3 stroke-white" />
+				</div>
+			</a>
+		</div>
 
-	<div class="grid gap-8 grid-col-1 md:grid-cols-2 lg:grid-cols-3">
-		{#each data.popularCourses as course (course.id)}
-			<CourseCard {course} />
-		{/each}
-	</div>
-</section>
+		<div class="grid gap-8 grid-col-1 md:grid-cols-2 lg:grid-cols-3">
+			{#each homepageData.popularCoursesRecords as course (course.id)}
+				<CourseCard {course} />
+			{/each}
+		</div>
+	</section>
+{/if}
 
 <!-- New Courses -->
-<section class="py-24 container-base space-y-11">
-	<div class="flex items-center justify-between">
-		<h2>New Courses.</h2>
+{#if homepageData && homepageData?.newCoursesRecords.length > 0}
+	<section class="py-24 container-base space-y-11">
+		<div class="flex items-center justify-between gap-x-7">
+			<h2>{homepageData?.newCoursesTitle}</h2>
 
-		<a
-			href="/"
-			class="flex items-center justify-end w-4/12 gap-2 px-3 py-2 text-xs rounded-lg sm:w-auto hover:bg-gray-300"
-		>
-			<span>View All</span>
-			<div class="p-[0.125rem] bg-gray-900 rounded-full">
-				<ChevronRight class="w-3 h-3 stroke-white" />
-			</div>
-		</a>
-	</div>
+			<a
+				href="/courses"
+				class="flex items-center justify-end w-4/12 gap-2 px-3 py-2 text-xs rounded-lg sm:w-auto hover:bg-gray-300"
+			>
+				<span>View All</span>
+				<div class="p-[0.125rem] bg-gray-900 rounded-full">
+					<ChevronRight class="w-3 h-3 stroke-white" />
+				</div>
+			</a>
+		</div>
 
-	<div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-		{#each data.newCourses as course (course.id)}
-			<CourseCard {course} />
-		{/each}
-	</div>
-</section>
+		<div class="grid gap-8 grid-col-1 md:grid-cols-2 lg:grid-cols-3">
+			{#each homepageData.newCoursesRecords as course (course.id)}
+				<CourseCard {course} />
+			{/each}
+		</div>
+	</section>
+{/if}
 
-<!-- Support -->
+<!-- Features -->
 <section class="py-24 space-y-11">
 	<div class="space-y-5 container-base">
-		<h2 class="text-center">Everything you need, all in one place</h2>
+		<h2 class="text-center">{homepageData?.featuresHeading[0].heading}</h2>
 
 		<p class="mx-auto text-sm text-center md:w-4/12">
-			Experience the transformative power of Filearn as you gain financial confidence, build wealth
-			and secure a better future.
+			{@html homepageData?.featuresHeading[0].subheading}
 		</p>
 
 		<div class="flex justify-center">
-			<a href="/" class="action-base w-fit">View Courses</a>
+			<a href={homepageData?.featuresCta[0].link} class="action-base w-fit"
+				>{homepageData?.featuresCta[0].text}</a
+			>
 		</div>
 	</div>
 
 	<div class="grid grid-cols-2 gap-8 sm:gap-16 lg:grid-cols-3 container-sm">
-		<div class="space-y-4">
-			<MessagesSquare color="#5e62d1" />
-			<p>
-				Get <span class="font-bold">instant chat support</span> and guidance from our dedicated chat
-				support team throughout your learning journey.
-			</p>
-		</div>
+		{#if homepageData && homepageData?.featureCards.length > 0}
+			{#each homepageData.featureCards as card}
+				<div class="space-y-4">
+					<img src={card.image?.url} alt={card.image?.alt} loading="lazy" class="w-5 h-5" />
 
-		<div class="space-y-4">
-			<DownloadCloud color="#5e62d1" />
-			<p>
-				<span class="font-bold">Access the course offline</span> without needing internet, allowing you
-				to learn anytime, anywhere, and at your own convenience.
-			</p>
-		</div>
-
-		<div class="space-y-4">
-			<Gem color="#5e62d1" />
-			<p>
-				<span class="font-bold">Made by industry experts</span> who curated the course content with their
-				extensive knowledge and insights.
-			</p>
-		</div>
-
-		<div class="space-y-4">
-			<ScanEye color="#5e62d1" />
-			<p>
-				<span class="font-bold"> Enjoy unlimited, lifetime access</span> to course materials, empowering
-				you to revisit and reinforce your knowledge at any time.
-			</p>
-		</div>
-
-		<div class="space-y-4">
-			<Video color="#5e62d1" />
-			<p>
-				<span class="font-bold">Interactive learning techniques</span> through lessons, quizzes, and
-				practical exercises that enhance your learning experience.
-			</p>
-		</div>
-
-		<div class="space-y-4">
-			<ThumbsUp color="#5e62d1" />
-			<p>
-				<span class="font-bold">Beginner-friendly courses</span> that provide a supportive and easy-to-understand
-				learning environment.
-			</p>
-		</div>
+					<p>
+						Get <span class="font-bold">instant chat support</span> and guidance from our dedicated chat
+						support team throughout your learning journey.
+					</p>
+				</div>
+			{/each}
+		{/if}
 	</div>
 </section>
 
@@ -163,15 +131,16 @@
 	<div class="space-y-6 flex flex-col gap-4">
 		<div class="space-y-5 md:max-w-1/2 w-full">
 			<h2 class="md:tracking-tighter md:w-1/2">
-				Curated to help you be smarter, more responsible financially.
+				{homepageData?.singleTestimonial[0].title}
 			</h2>
 			<p class="md:w-8/12">
-				We use the latest technologies and tools backed by industry experts that will help secure
-				you dream universities, jobs and set you up for the future.
+				{@html homepageData?.singleTestimonial[0].content}
 			</p>
 		</div>
 
-		<a href="/" class="action-base w-fit">Learn About Us</a>
+		<a href={homepageData?.singleTestimonial[0].cta[0].link} class="action-base w-fit">
+			{homepageData?.singleTestimonial[0].cta[0].text}
+		</a>
 	</div>
 
 	<div class="">

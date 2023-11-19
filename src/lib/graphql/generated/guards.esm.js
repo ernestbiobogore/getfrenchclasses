@@ -1,4 +1,20 @@
 
+var ActionBlockRecord_possibleTypes = ['ActionBlockRecord']
+export var isActionBlockRecord = function(obj) {
+  if (!obj || !obj.__typename) throw new Error('__typename is missing in "isActionBlockRecord"')
+  return ActionBlockRecord_possibleTypes.includes(obj.__typename)
+}
+
+
+
+var CardBlockRecord_possibleTypes = ['CardBlockRecord']
+export var isCardBlockRecord = function(obj) {
+  if (!obj || !obj.__typename) throw new Error('__typename is missing in "isCardBlockRecord"')
+  return CardBlockRecord_possibleTypes.includes(obj.__typename)
+}
+
+
+
 var CategoryRecord_possibleTypes = ['CategoryRecord']
 export var isCategoryRecord = function(obj) {
   if (!obj || !obj.__typename) throw new Error('__typename is missing in "isCategoryRecord"')
@@ -31,6 +47,22 @@ export var isCourseRecord = function(obj) {
 
 
 
+var FaqBlockRecord_possibleTypes = ['FaqBlockRecord']
+export var isFaqBlockRecord = function(obj) {
+  if (!obj || !obj.__typename) throw new Error('__typename is missing in "isFaqBlockRecord"')
+  return FaqBlockRecord_possibleTypes.includes(obj.__typename)
+}
+
+
+
+var FaqItemRecord_possibleTypes = ['FaqItemRecord']
+export var isFaqItemRecord = function(obj) {
+  if (!obj || !obj.__typename) throw new Error('__typename is missing in "isFaqItemRecord"')
+  return FaqItemRecord_possibleTypes.includes(obj.__typename)
+}
+
+
+
 var FileField_possibleTypes = ['FileField']
 export var isFileField = function(obj) {
   if (!obj || !obj.__typename) throw new Error('__typename is missing in "isFileField"')
@@ -51,6 +83,22 @@ var GlobalSeoField_possibleTypes = ['GlobalSeoField']
 export var isGlobalSeoField = function(obj) {
   if (!obj || !obj.__typename) throw new Error('__typename is missing in "isGlobalSeoField"')
   return GlobalSeoField_possibleTypes.includes(obj.__typename)
+}
+
+
+
+var HeadingBlockRecord_possibleTypes = ['HeadingBlockRecord']
+export var isHeadingBlockRecord = function(obj) {
+  if (!obj || !obj.__typename) throw new Error('__typename is missing in "isHeadingBlockRecord"')
+  return HeadingBlockRecord_possibleTypes.includes(obj.__typename)
+}
+
+
+
+var HomepageRecord_possibleTypes = ['HomepageRecord']
+export var isHomepageRecord = function(obj) {
+  if (!obj || !obj.__typename) throw new Error('__typename is missing in "isHomepageRecord"')
+  return HomepageRecord_possibleTypes.includes(obj.__typename)
 }
 
 
@@ -87,7 +135,7 @@ export var isQuery = function(obj) {
 
 
 
-var RecordInterface_possibleTypes = ['CategoryRecord','CourseRecord','ImageBlockRecord','PostRecord','RichTextBlockRecord','SeoBlockRecord']
+var RecordInterface_possibleTypes = ['ActionBlockRecord','CardBlockRecord','CategoryRecord','CourseRecord','FaqBlockRecord','FaqItemRecord','HeadingBlockRecord','HomepageRecord','ImageBlockRecord','PostRecord','RichTextBlockRecord','SeoBlockRecord']
 export var isRecordInterface = function(obj) {
   if (!obj || !obj.__typename) throw new Error('__typename is missing in "isRecordInterface"')
   return RecordInterface_possibleTypes.includes(obj.__typename)

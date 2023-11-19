@@ -98,6 +98,29 @@ export const enumCourseModelOrderBy = {
   tag_DESC: 'tag_DESC',
 }
 
+export const enumFaqItemModelOrderBy = {
+  _createdAt_ASC: '_createdAt_ASC',
+  _createdAt_DESC: '_createdAt_DESC',
+  id_ASC: 'id_ASC',
+  id_DESC: 'id_DESC',
+  _firstPublishedAt_ASC: '_firstPublishedAt_ASC',
+  _firstPublishedAt_DESC: '_firstPublishedAt_DESC',
+  _publicationScheduledAt_ASC: '_publicationScheduledAt_ASC',
+  _publicationScheduledAt_DESC: '_publicationScheduledAt_DESC',
+  _unpublishingScheduledAt_ASC: '_unpublishingScheduledAt_ASC',
+  _unpublishingScheduledAt_DESC: '_unpublishingScheduledAt_DESC',
+  _publishedAt_ASC: '_publishedAt_ASC',
+  _publishedAt_DESC: '_publishedAt_DESC',
+  _status_ASC: '_status_ASC',
+  _status_DESC: '_status_DESC',
+  _updatedAt_ASC: '_updatedAt_ASC',
+  _updatedAt_DESC: '_updatedAt_DESC',
+  _isValid_ASC: '_isValid_ASC',
+  _isValid_DESC: '_isValid_DESC',
+  title_ASC: 'title_ASC',
+  title_DESC: 'title_DESC',
+}
+
 export const enumFaviconType = {
   icon: 'icon',
   appleTouchIcon: 'appleTouchIcon',

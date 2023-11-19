@@ -1,3 +1,28 @@
+"""Block of type Action Block (action_block)"""
+type ActionBlockRecord implements RecordInterface {
+  _createdAt: DateTime!
+
+  """Editing URL"""
+  _editingUrl: String
+  _firstPublishedAt: DateTime
+  _isValid: BooleanType!
+  _modelApiKey: String!
+  _publicationScheduledAt: DateTime
+  _publishedAt: DateTime
+
+  """Generates SEO and Social card meta tags to be used in your frontend"""
+  _seoMetaTags(
+    """The locale to use to fetch the field's content"""
+    locale: SiteLocale
+  ): [Tag!]!
+  _status: ItemStatus!
+  _unpublishingScheduledAt: DateTime
+  _updatedAt: DateTime!
+  id: ItemId!
+  link: String
+  text: String
+}
+
 """Specifies how to filter Boolean fields"""
 input BooleanFilter {
   """Search for records with an exact match"""
@@ -6,6 +31,33 @@ input BooleanFilter {
 
 """Represents `true` or `false` values."""
 scalar BooleanType
+
+"""Block of type Card Block (card_block)"""
+type CardBlockRecord implements RecordInterface {
+  _createdAt: DateTime!
+
+  """Editing URL"""
+  _editingUrl: String
+  _firstPublishedAt: DateTime
+  _isValid: BooleanType!
+  _modelApiKey: String!
+  _publicationScheduledAt: DateTime
+  _publishedAt: DateTime
+
+  """Generates SEO and Social card meta tags to be used in your frontend"""
+  _seoMetaTags(
+    """The locale to use to fetch the field's content"""
+    locale: SiteLocale
+  ): [Tag!]!
+  _status: ItemStatus!
+  _unpublishingScheduledAt: DateTime
+  _updatedAt: DateTime!
+  content: [RichTextBlockRecord!]!
+  cta: [ActionBlockRecord!]!
+  id: ItemId!
+  image: FileField
+  title: String
+}
 
 input CategoryModelFilter {
   _createdAt: CreatedAtFilter
@@ -231,6 +283,94 @@ scalar CustomData
 """A ISO 8601 compliant datetime value"""
 scalar DateTime
 
+"""Block of type FAQ Block (faq_block)"""
+type FaqBlockRecord implements RecordInterface {
+  _createdAt: DateTime!
+
+  """Editing URL"""
+  _editingUrl: String
+  _firstPublishedAt: DateTime
+  _isValid: BooleanType!
+  _modelApiKey: String!
+  _publicationScheduledAt: DateTime
+  _publishedAt: DateTime
+
+  """Generates SEO and Social card meta tags to be used in your frontend"""
+  _seoMetaTags(
+    """The locale to use to fetch the field's content"""
+    locale: SiteLocale
+  ): [Tag!]!
+  _status: ItemStatus!
+  _unpublishingScheduledAt: DateTime
+  _updatedAt: DateTime!
+  answer: [RichTextBlockRecord!]!
+  id: ItemId!
+  question: String
+}
+
+input FaqItemModelFilter {
+  _createdAt: CreatedAtFilter
+  id: ItemIdFilter
+  _firstPublishedAt: PublishedAtFilter
+  _publicationScheduledAt: PublishedAtFilter
+  _unpublishingScheduledAt: PublishedAtFilter
+  _publishedAt: PublishedAtFilter
+  _status: StatusFilter
+  _updatedAt: UpdatedAtFilter
+  _isValid: BooleanFilter
+  title: StringFilter
+  OR: [FaqItemModelFilter]
+  AND: [FaqItemModelFilter]
+}
+
+enum FaqItemModelOrderBy {
+  _createdAt_ASC
+  _createdAt_DESC
+  id_ASC
+  id_DESC
+  _firstPublishedAt_ASC
+  _firstPublishedAt_DESC
+  _publicationScheduledAt_ASC
+  _publicationScheduledAt_DESC
+  _unpublishingScheduledAt_ASC
+  _unpublishingScheduledAt_DESC
+  _publishedAt_ASC
+  _publishedAt_DESC
+  _status_ASC
+  _status_DESC
+  _updatedAt_ASC
+  _updatedAt_DESC
+  _isValid_ASC
+  _isValid_DESC
+  title_ASC
+  title_DESC
+}
+
+"""Record of type FAQ Item (faq_item)"""
+type FaqItemRecord implements RecordInterface {
+  _createdAt: DateTime!
+
+  """Editing URL"""
+  _editingUrl: String
+  _firstPublishedAt: DateTime
+  _isValid: BooleanType!
+  _modelApiKey: String!
+  _publicationScheduledAt: DateTime
+  _publishedAt: DateTime
+
+  """Generates SEO and Social card meta tags to be used in your frontend"""
+  _seoMetaTags(
+    """The locale to use to fetch the field's content"""
+    locale: SiteLocale
+  ): [Tag!]!
+  _status: ItemStatus!
+  _unpublishingScheduledAt: DateTime
+  _updatedAt: DateTime!
+  answer: [FaqBlockRecord!]!
+  id: ItemId!
+  title: String
+}
+
 enum FaviconType {
   icon
   appleTouchIcon
@@ -446,6 +586,84 @@ type GlobalSeoField {
   siteName: String
   titleSuffix: String
   twitterAccount: String
+}
+
+"""Block of type Heading block (heading_block)"""
+type HeadingBlockRecord implements RecordInterface {
+  _createdAt: DateTime!
+
+  """Editing URL"""
+  _editingUrl: String
+  _firstPublishedAt: DateTime
+  _isValid: BooleanType!
+  _modelApiKey: String!
+  _publicationScheduledAt: DateTime
+  _publishedAt: DateTime
+
+  """Generates SEO and Social card meta tags to be used in your frontend"""
+  _seoMetaTags(
+    """The locale to use to fetch the field's content"""
+    locale: SiteLocale
+  ): [Tag!]!
+  _status: ItemStatus!
+  _unpublishingScheduledAt: DateTime
+  _updatedAt: DateTime!
+  heading: String
+  id: ItemId!
+  subheading(
+    """Process content as markdown"""
+    markdown: Boolean
+  ): String
+}
+
+"""Record of type Homepage (homepage)"""
+type HomepageRecord implements RecordInterface {
+  _createdAt: DateTime!
+
+  """Editing URL"""
+  _editingUrl: String
+  _firstPublishedAt: DateTime
+  _isValid: BooleanType!
+  _modelApiKey: String!
+  _publicationScheduledAt: DateTime
+  _publishedAt: DateTime
+
+  """Generates SEO and Social card meta tags to be used in your frontend"""
+  _seoMetaTags(
+    """The locale to use to fetch the field's content"""
+    locale: SiteLocale
+  ): [Tag!]!
+  _status: ItemStatus!
+  _unpublishingScheduledAt: DateTime
+  _updatedAt: DateTime!
+  ctaAction: [ActionBlockRecord!]!
+  ctaHeading: [HeadingBlockRecord!]!
+  faq: FaqItemRecord
+  faqHeading: [HeadingBlockRecord!]!
+  featureCards: [CardBlockRecord!]!
+  featuresCta: [ActionBlockRecord!]!
+  featuresHeading: [HeadingBlockRecord!]!
+  heroCta: [ActionBlockRecord!]!
+  heroSubtitle(
+    """Process content as markdown"""
+    markdown: Boolean
+  ): String
+  heroTestimonialPictures: [FileField!]!
+  heroTestimonialTitle: String
+  heroTitle: String
+  id: ItemId!
+  multipleTestimonials: [CardBlockRecord!]!
+  newCoursesRecords: [CourseRecord!]!
+  newCoursesTitle: String
+  popularCoursesRecords: [CourseRecord!]!
+  popularCoursesTitle: String
+  seo: [SeoBlockRecord!]!
+  singleTestimonial: [CardBlockRecord!]!
+  statsAction: [ActionBlockRecord!]!
+  statsData: [HeadingBlockRecord!]!
+  statsHeading: [HeadingBlockRecord!]!
+  statsImages: [FileField!]!
+  title: String
 }
 
 """Block of type Image Block (image_block)"""
@@ -2257,6 +2475,13 @@ type Query {
   ): CollectionMetadata!
 
   """Returns meta information regarding a record collection"""
+  _allFaqItemsMeta(
+    """The locale to use to fetch the field's content"""
+    locale: SiteLocale
+    filter: FaqItemModelFilter
+  ): CollectionMetadata!
+
+  """Returns meta information regarding a record collection"""
   _allPostsMeta(
     """The locale to use to fetch the field's content"""
     locale: SiteLocale
@@ -2318,6 +2543,25 @@ type Query {
     filter: CourseModelFilter
     orderBy: [CourseModelOrderBy] = [_updatedAt_DESC]
   ): [CourseRecord!]!
+
+  """Returns a collection of records"""
+  allFaqItems(
+    """The locale to use to fetch the field's content"""
+    locale: SiteLocale
+
+    """
+    If you want to fallback to a default translation when a translation has not been found
+    """
+    fallbackLocales: [SiteLocale!]
+
+    """Skip the first results"""
+    skip: IntType
+
+    """Limit the number of results"""
+    first: IntType = 20
+    filter: FaqItemModelFilter
+    orderBy: [FaqItemModelOrderBy] = [_updatedAt_DESC]
+  ): [FaqItemRecord!]!
 
   """Returns a collection of records"""
   allPosts(
@@ -2382,6 +2626,30 @@ type Query {
     filter: CourseModelFilter
     orderBy: [CourseModelOrderBy] = [_updatedAt_DESC]
   ): CourseRecord
+
+  """Returns a specific record"""
+  faqItem(
+    """The locale to use to fetch the field's content"""
+    locale: SiteLocale
+
+    """
+    If you want to fallback to a default translation when a translation has not been found
+    """
+    fallbackLocales: [SiteLocale!]
+    filter: FaqItemModelFilter
+    orderBy: [FaqItemModelOrderBy] = [_updatedAt_DESC]
+  ): FaqItemRecord
+
+  """Returns the single instance record"""
+  homepage(
+    """The locale to use to fetch the field's content"""
+    locale: SiteLocale
+
+    """
+    If you want to fallback to a default translation when a translation has not been found
+    """
+    fallbackLocales: [SiteLocale!]
+  ): HomepageRecord
 
   """Returns a specific record"""
   post(
