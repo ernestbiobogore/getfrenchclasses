@@ -150,7 +150,8 @@ const getHomePageData = async () => {
 		},
 		faq: {
 			title: true,
-			answer: {
+			faqBlocks: {
+				id: true,
 				question: true,
 				answer: {
 					richText: {

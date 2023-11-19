@@ -174,7 +174,7 @@ export interface FaqItemRecord {
     _status: ItemStatus
     _unpublishingScheduledAt?: Scalars['DateTime']
     _updatedAt: Scalars['DateTime']
-    answer: FaqBlockRecord[]
+    faqBlocks: FaqBlockRecord[]
     id: Scalars['ItemId']
     title?: Scalars['String']
     __typename: 'FaqItemRecord'
@@ -752,7 +752,7 @@ export interface FaqItemRecordRequest{
     _status?: boolean | number
     _unpublishingScheduledAt?: boolean | number
     _updatedAt?: boolean | number
-    answer?: FaqBlockRecordRequest
+    faqBlocks?: FaqBlockRecordRequest
     id?: boolean | number
     title?: boolean | number
     __typename?: boolean | number
@@ -3515,7 +3515,7 @@ locale?: (SiteLocale | null)}) => {get: <R extends TagRequest>(request: R, defau
     _status: ({get: (request?: boolean|number, defaultValue?: ItemStatus) => Promise<ItemStatus>}),
     _unpublishingScheduledAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Promise<(Scalars['DateTime'] | undefined)>}),
     _updatedAt: ({get: (request?: boolean|number, defaultValue?: Scalars['DateTime']) => Promise<Scalars['DateTime']>}),
-    answer: ({get: <R extends FaqBlockRecordRequest>(request: R, defaultValue?: FieldsSelection<FaqBlockRecord, R>[]) => Promise<FieldsSelection<FaqBlockRecord, R>[]>}),
+    faqBlocks: ({get: <R extends FaqBlockRecordRequest>(request: R, defaultValue?: FieldsSelection<FaqBlockRecord, R>[]) => Promise<FieldsSelection<FaqBlockRecord, R>[]>}),
     id: ({get: (request?: boolean|number, defaultValue?: Scalars['ItemId']) => Promise<Scalars['ItemId']>}),
     title: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
 }
@@ -3540,7 +3540,7 @@ locale?: (SiteLocale | null)}) => {get: <R extends TagRequest>(request: R, defau
     _status: ({get: (request?: boolean|number, defaultValue?: ItemStatus) => Observable<ItemStatus>}),
     _unpublishingScheduledAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Observable<(Scalars['DateTime'] | undefined)>}),
     _updatedAt: ({get: (request?: boolean|number, defaultValue?: Scalars['DateTime']) => Observable<Scalars['DateTime']>}),
-    answer: ({get: <R extends FaqBlockRecordRequest>(request: R, defaultValue?: FieldsSelection<FaqBlockRecord, R>[]) => Observable<FieldsSelection<FaqBlockRecord, R>[]>}),
+    faqBlocks: ({get: <R extends FaqBlockRecordRequest>(request: R, defaultValue?: FieldsSelection<FaqBlockRecord, R>[]) => Observable<FieldsSelection<FaqBlockRecord, R>[]>}),
     id: ({get: (request?: boolean|number, defaultValue?: Scalars['ItemId']) => Observable<Scalars['ItemId']>}),
     title: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
 }

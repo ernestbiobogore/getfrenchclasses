@@ -598,7 +598,7 @@ export default {
             "_updatedAt": [
                 16
             ],
-            "answer": [
+            "faqBlocks": [
                 17
             ],
             "id": [

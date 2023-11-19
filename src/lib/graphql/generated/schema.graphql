@@ -366,7 +366,7 @@ type FaqItemRecord implements RecordInterface {
   _status: ItemStatus!
   _unpublishingScheduledAt: DateTime
   _updatedAt: DateTime!
-  answer: [FaqBlockRecord!]!
+  faqBlocks: [FaqBlockRecord!]!
   id: ItemId!
   title: String
 }

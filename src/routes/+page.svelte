@@ -9,8 +9,6 @@
 
 	export let data;
 	$: ({ homepageData } = data);
-
-	$: console.log(homepageData);
 </script>
 
 <svelte:head>
@@ -204,27 +202,22 @@
 <!-- FAQ -->
 <section class="py-24 text-center space-y-11 container-base">
 	<div class="space-y-5">
-		<h2>You have questions, we have the answers.</h2>
+		<h2>{homepageData?.faqHeading[0].heading}</h2>
 
 		<p class="mx-auto text-sm md:w-4/12">
-			If you can’t find the answer to your question below, please get in
-			<a class="underline" href="/">contact</a> with us today
+			{@html homepageData?.faqHeading[0].subheading}
 		</p>
 	</div>
 
-	<div class="mx-auto md:w-6/12">
-		<Accordion
-			itemIds={Array.from({ length: 7 }, (_, i) => `item-${i + 1}`)}
-			titles={Array.from(
-				{ length: 7 },
-				(_) => `Lorem ipsum dolor sit amet consectetur. Fermentum.`
-			)}
-			contents={Array.from(
-				{ length: 7 },
-				(_) => `Lorem ipsum dolor sit amet consectetur. Bibendum in ultrices ornare ut. Mattis nisl`
-			)}
-		/>
-	</div>
+	{#if homepageData && homepageData.faq?.faqBlocks && homepageData.faq.faqBlocks.length > 0}
+		<div class="mx-auto md:w-6/12">
+			<Accordion
+				itemIds={homepageData.faq.faqBlocks.map((faq) => faq.id)}
+				titles={homepageData.faq.faqBlocks.map((faq) => faq.question || '')}
+				richTexts={homepageData.faq.faqBlocks.map((faq) => faq.answer[0].richText)}
+			/>
+		</div>
+	{/if}
 </section>
 
 <!-- CTA -->
