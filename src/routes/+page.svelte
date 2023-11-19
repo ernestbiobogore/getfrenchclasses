@@ -3,8 +3,6 @@
 	import AvatarsGroup from '$lib/components/ui/AvatarsGroup.svelte';
 	import CourseCard from '$lib/components/ui/CourseCard.svelte';
 	import SupportImage from '$lib/images/supportImage.png';
-	import Teacher1 from '$lib/images/teacher1.png';
-	import Teacher2 from '$lib/images/teacher2.png';
 	import { StructuredText } from '@datocms/svelte';
 
 	import { ChevronRight } from 'lucide-svelte';
@@ -173,22 +171,34 @@
 <section class="flex flex-col items-center py-24 container-base space-y-11 md:flex-row">
 	<div class="space-y-3 md:space-y-6 md:w-1/2">
 		<h2 class="md:text-7xl md:tracking-tighter">
-			Streamline your career goals with a collection of our top courses.
+			{homepageData?.statsHeading?.[0]?.heading}
 		</h2>
-		<a href="/" class="action-base w-fit md:text-base">Get started Today</a>
+		<a href={homepageData?.statsAction[0].link} class="action-base w-fit md:text-base">
+			{homepageData?.statsAction[0].text}
+		</a>
 	</div>
 
-	<div class="space-y-12">
-		<div class="flex flex-row items-end justify-evenly">
-			<p><span class="text-2xl">2000+</span> <br /> Enrolled Students</p>
-			<img class="w-5/12" src={Teacher1} alt="" />
+	{#if homepageData && homepageData?.statsData.length > 0}
+		<div class="space-y-12">
+			{#each homepageData.statsData as stat, i}
+				<div
+					class={`flex flex-row items-center justify-evenly ${
+						i % 2 !== 0 ? 'flex-row-reverse' : ''
+					} `}
+				>
+					<img
+						class="w-5/12"
+						src={homepageData.statsImages[i].url}
+						alt={homepageData.statsImages[i].alt}
+					/>
+					<p>
+						<span class="text-2xl">{stat.heading}</span>
+						{@html stat.subheading}
+					</p>
+				</div>
+			{/each}
 		</div>
-
-		<div class="flex flex-row items-center justify-evenly">
-			<img class="w-5/12" src={Teacher2} alt="" />
-			<p><span class="text-2xl"> 87</span> <br /> Available Courses</p>
-		</div>
-	</div>
+	{/if}
 </section>
 
 <!-- FAQ -->
