@@ -2,10 +2,10 @@
 	import Accordion from '$lib/components/ui/Accordion.svelte';
 	import AvatarsGroup from '$lib/components/ui/AvatarsGroup.svelte';
 	import CourseCard from '$lib/components/ui/CourseCard.svelte';
-	import Person1 from '$lib/images/person1.png';
 	import SupportImage from '$lib/images/supportImage.png';
 	import Teacher1 from '$lib/images/teacher1.png';
 	import Teacher2 from '$lib/images/teacher2.png';
+	import { StructuredText } from '@datocms/svelte';
 
 	import { ChevronRight } from 'lucide-svelte';
 
@@ -115,11 +115,7 @@
 			{#each homepageData.featureCards as card}
 				<div class="space-y-4">
 					<img src={card.image?.url} alt={card.image?.alt} loading="lazy" class="w-5 h-5" />
-
-					<p>
-						Get <span class="font-bold">instant chat support</span> and guidance from our dedicated chat
-						support team throughout your learning journey.
-					</p>
+					<StructuredText data={card.content[0].richText} />
 				</div>
 			{/each}
 		{/if}
@@ -128,14 +124,15 @@
 
 <!-- Learn About Us  -->
 <section class="flex flex-col items-center justify-between gap-24 py-24 sm:flex-row container-base">
-	<div class="space-y-6 flex flex-col gap-4">
-		<div class="space-y-5 md:max-w-1/2 w-full">
+	<div class="flex flex-col gap-4 space-y-6">
+		<div class="w-full space-y-5 md:max-w-1/2">
 			<h2 class="md:tracking-tighter md:w-1/2">
 				{homepageData?.singleTestimonial[0].title}
 			</h2>
-			<p class="md:w-8/12">
-				{@html homepageData?.singleTestimonial[0].content}
-			</p>
+
+			<div class="md:w-8/12">
+				<StructuredText data={homepageData?.singleTestimonial[0].content[0].richText} />
+			</div>
 		</div>
 
 		<a href={homepageData?.singleTestimonial[0].cta[0].link} class="action-base w-fit">
@@ -148,28 +145,32 @@
 	</div>
 </section>
 
-<section class="flex flex-col items-center gap-20 py-24 container-sm sm:flex-row">
-	<div class="basis-6/12">
-		<img src={Person1} alt="Person 1" />
-	</div>
+{#if homepageData && homepageData?.multipleTestimonials.length > 0}
+	<section class="grid gap-16 py-24 sm:grid-cols-2 container-sm">
+		{#each homepageData.multipleTestimonials as testimonial}
+			<div class="flex flex-col gap-8 sm:flex-row">
+				<div class="basis-6/12">
+					<img src={testimonial.image?.url} alt={testimonial.image?.alt} />
+				</div>
 
-	<blockquote class="space-y-6 basis-6/12">
-		<div class="space-y-5">
-			<p class="text-2xl/[2.275rem] sm:text-[1.75rem]/[2.275rem] -tracking-[0.1rem]">
-				"Best decision I ever made"
-			</p>
-			<p>
-				Their beginner-friendly approach made it easy for me to grasp complex financial concepts.
-				The chat support was incredibly helpful whenever I had questions. The course has been
-				invaluable, best decision I ever made buying it!
-			</p>
-		</div>
+				<blockquote class="space-y-6 basis-6/12">
+					<div class="space-y-5">
+						<p class="text-2xl/[2.275rem] sm:text-[1.75rem]/[2.275rem] -tracking-[0.1rem]">
+							{testimonial.title}
+						</p>
+						<p>
+							<StructuredText data={testimonial.content[0].richText} />
+						</p>
+					</div>
 
-		<footer>Emily Thompson</footer>
-	</blockquote>
-</section>
+					<footer>{testimonial.cta[0].text}</footer>
+				</blockquote>
+			</div>
+		{/each}
+	</section>
+{/if}
 
-<section class="py-24 container-base space-y-11 flex flex-col md:flex-row items-center">
+<section class="flex flex-col items-center py-24 container-base space-y-11 md:flex-row">
 	<div class="space-y-3 md:space-y-6 md:w-1/2">
 		<h2 class="md:text-7xl md:tracking-tighter">
 			Streamline your career goals with a collection of our top courses.
@@ -218,7 +219,7 @@
 
 <!-- CTA -->
 <section class="container-base">
-	<div class="p-12 space-y-5 bg-night rounded-2xl h-96 m-auto md:w-9/12">
+	<div class="p-12 m-auto space-y-5 bg-night rounded-2xl h-96 md:w-9/12">
 		<h2 class="text-white text-[2.75rem]/[3.3rem] sm:w-5/12">
 			Empower your financial future, today.
 		</h2>

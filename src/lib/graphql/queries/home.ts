@@ -107,6 +107,24 @@ const getHomePageData = async () => {
 			}
 		},
 
+		// Multiple testimonials
+		multipleTestimonials: {
+			title: true,
+			image: {
+				url: true,
+				alt: true
+			},
+			content: {
+				richText: {
+					value: true
+				}
+			},
+			cta: {
+				text: true,
+				link: true
+			}
+		},
+
 		// Stats
 		statsHeading: {
 			heading: true,
