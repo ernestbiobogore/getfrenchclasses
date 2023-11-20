@@ -6,6 +6,9 @@
 		// @ts-ignore please check this out?
 		input.classList.add('border-none');
 	};
+
+	// export let data;
+	// $: ({ homepageData } = data);
 </script>
 
 <section class="py-12 text-center">
@@ -83,20 +86,25 @@
 		</div>
 	</div>
 
-	<div class=" text-center space-y-11 md:w-1/2">
-		<div class="mx-auto">
-			<Accordion
-				itemIds={Array.from({ length: 5 }, (_, i) => `item-${i + 1}`)}
-				titles={Array.from(
-					{ length: 5 },
-					(_) => `Lorem ipsum dolor sit amet consectetur. Fermentum.`
-				)}
-				contents={Array.from(
-					{ length: 5 },
-					(_) =>
-						`Lorem ipsum dolor sit amet consectetur. Bibendum in ultrices ornare ut. Mattis nisl`
-				)}
-			/>
+	<!-- <div class=" text-center space-y-11 md:w-1/2">
+		<div class="py-24 text-center space-y-11 container-base">
+			<div class="space-y-5">
+				<h2>{homepageData?.faqHeading[0].heading}</h2>
+
+				<p class="mx-auto text-sm md:w-4/12">
+					{@html homepageData?.faqHeading[0].subheading}
+				</p>
+			</div>
+
+			{#if homepageData && homepageData.faq?.faqBlocks && homepageData.faq.faqBlocks.length > 0}
+				<div class="mx-auto md:w-6/12">
+					<Accordion
+						itemIds={homepageData.faq.faqBlocks.map((faq) => faq.id)}
+						titles={homepageData.faq.faqBlocks.map((faq) => faq.question || '')}
+						richTexts={homepageData.faq.faqBlocks.map((faq) => faq.answer[0].richText)}
+					/>
+				</div>
+			{/if}
 		</div>
-	</div>
+	</div> -->
 </section>
