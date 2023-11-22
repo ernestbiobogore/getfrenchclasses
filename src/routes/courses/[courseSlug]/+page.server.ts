@@ -1,4 +1,5 @@
 import { getCourseBySlug } from '$lib/graphql/queries/courses';
+
 import { error } from '@sveltejs/kit';
 
 export const load = async ({ params }) => {

@@ -114,8 +114,8 @@
 </section>
 
 <!-- before footer -->
-<section>
-	<h2 class="py-20 tracking-tighter">
+<section class="py-24 container-base">
+	<h2 class="py-20 tracking-tight text-4xl w-2/3">
 		Equipping the next generation of individuals with the knowledge and skills needed to achieve
 		financial freedom.
 	</h2>
