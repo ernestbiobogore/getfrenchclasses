@@ -7,7 +7,7 @@
 	export let course: Awaited<ReturnType<typeof getAllCourses>>[0];
 	const updatedCourse = {
 		...course,
-		seo: course.seo[0].seoBlock
+		seo: course.seo[0]?.seoBlock
 	}
 </script>
 
