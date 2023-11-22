@@ -17,8 +17,8 @@
 	<p>Explore our comprehensive range of financial courses</p>
 </section>
 
-<section class="grid gap-8 container-base py-7 lg:grid-cols-3 lg:grid-rows-2">
-	<div class="grid gap-8 grid-col-1 md:grid-cols-2 lg:grid-cols-3">
+<section class=" gap-8 container-base py-7">
+	<div class="grid gap-8 grid-col-1 lg:grid-cols-3 lg:grid-row-2">
 		{#each allCourses as course}
 			<CourseCard {course} />
 		{/each}

@@ -8,7 +8,7 @@
 	const updatedCourse = {
 		...course,
 		seo: course.seo[0]?.seoBlock
-	}
+	};
 </script>
 
 <div class="p-8 space-y-4 bg-white rounded-2xl">
@@ -18,7 +18,7 @@
 		width="310"
 		height="210"
 		loading="lazy"
-		class="w-[22.5rem] h-[13.125rem] rounded-xl"
+		class="w-[22.5rem] h-[13.125rem] rounded-xl bg-purple-600"
 	/>
 
 	<h3>
