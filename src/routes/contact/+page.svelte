@@ -1,14 +1,5 @@
 <script>
 	import { Mail, User, MessageSquare, Phone, MapPin } from 'lucide-svelte';
-	import Accordion from '$lib/components/ui/Accordion.svelte';
-	const addBorderNone = () => {
-		let input = document.getElementById('myInput');
-		// @ts-ignore please check this out?
-		input.classList.add('border-none');
-	};
-
-	// export let data;
-	// $: ({ homepageData } = data);
 </script>
 
 <section class="py-12 text-center">
@@ -22,10 +13,9 @@
 				<User color="grey" class="w-4 h-4" />
 				<input
 					id="myInput"
-					on:focus={addBorderNone}
 					type="text"
 					placeholder="Enter your name"
-					class="text-xs border-none"
+					class="text-xs border-none w-full p-2"
 				/>
 			</div>
 			<div class="flex flex-row bg-white rounded-md gap-4 p-2 md:p-4 items-center">
@@ -34,13 +24,18 @@
 					id="myInput"
 					name="email"
 					placeholder="Enter your Email"
-					class="text-xs border-none"
+					class="text-xs border-none w-full p-2"
 				/>
 			</div>
 
 			<div class="flex flex-row bg-white rounded-md gap-4 p-2 md:p-4">
 				<MessageSquare color="grey" class="w-4 h-4" />
-				<textarea cols="25" rows="4" placeholder="Example Text" class="text-xs border-none" />
+				<textarea
+					cols="25"
+					rows="4"
+					placeholder="Example Text"
+					class="text-xs border-none w-full p-2"
+				/>
 			</div>
 
 			<button type="submit" class="bg-black text-white p-2 rounded-lg text-right self-end"
@@ -85,26 +80,4 @@
 			</button>
 		</div>
 	</div>
-
-	<!-- <div class=" text-center space-y-11 md:w-1/2">
-		<div class="py-24 text-center space-y-11 container-base">
-			<div class="space-y-5">
-				<h2>{homepageData?.faqHeading[0].heading}</h2>
-
-				<p class="mx-auto text-sm md:w-4/12">
-					{@html homepageData?.faqHeading[0].subheading}
-				</p>
-			</div>
-
-			{#if homepageData && homepageData.faq?.faqBlocks && homepageData.faq.faqBlocks.length > 0}
-				<div class="mx-auto md:w-6/12">
-					<Accordion
-						itemIds={homepageData.faq.faqBlocks.map((faq) => faq.id)}
-						titles={homepageData.faq.faqBlocks.map((faq) => faq.question || '')}
-						richTexts={homepageData.faq.faqBlocks.map((faq) => faq.answer[0].richText)}
-					/>
-				</div>
-			{/if}
-		</div>
-	</div> -->
 </section>

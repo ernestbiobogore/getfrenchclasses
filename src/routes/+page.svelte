@@ -200,7 +200,7 @@
 </section>
 
 <!-- FAQ -->
-<section class="py-24 text-center space-y-11 container-base">
+<section class="py-24 text-center space-y-11 container-base" id="faq">
 	<div class="space-y-5">
 		<h2>{homepageData?.faqHeading[0].heading}</h2>
 

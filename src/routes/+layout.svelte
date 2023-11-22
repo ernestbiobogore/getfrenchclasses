@@ -25,7 +25,7 @@
 		<nav class="hidden py-4 space-x-2 md:block">
 			<a href="/courses" class="px-3 py-2 font-medium rounded-lg hover:bg-gray-300">Courses</a>
 			<a href="/about" class="px-3 py-2 font-medium rounded-lg hover:bg-gray-300">About</a>
-			<a href="/" class="px-3 py-2 font-medium rounded-lg hover:bg-gray-300">FAQ's</a>
+			<a href="/#faq" class="px-3 py-2 font-medium rounded-lg hover:bg-gray-300">FAQ's</a>
 			<a href="/contact" class="px-3 py-2 font-medium rounded-lg hover:bg-gray-300">Contact</a>
 		</nav>
 
