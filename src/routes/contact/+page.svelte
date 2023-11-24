@@ -1,6 +1,5 @@
 <script>
 	import { Mail, User, MessageSquare, Phone, MapPin } from 'lucide-svelte';
-	import Accordion from '$lib/components/ui/Accordion.svelte';
 </script>
 
 <section class="py-12 text-center">
