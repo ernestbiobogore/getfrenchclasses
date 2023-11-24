@@ -14,6 +14,7 @@
 	<div>
 		<h2>Courses to guide you to brighter, stonger Future</h2>
 		<p>Explore our comprehensive range of financial courses</p>
+		<p>are you the one?</p>
 	</div>
 </section>
 
