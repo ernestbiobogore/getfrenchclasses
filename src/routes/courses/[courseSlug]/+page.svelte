@@ -1,10 +1,10 @@
 <script lang="ts">
-	import AvatarsGroup from '$lib/components/ui/AvatarsGroup.svelte';
-	import { getSampleAvatars } from '$lib/utils';
-	import { BarChart, Clock, PenSquare } from 'lucide-svelte';
-	import Menu from '$lib/components/ui/Menu.svelte';
-	import { StructuredText } from '@datocms/svelte';
 	import Accordion from '$lib/components/ui/Accordion.svelte';
+	import AvatarsGroup from '$lib/components/ui/AvatarsGroup.svelte';
+	import Menu from '$lib/components/ui/Menu.svelte';
+	import { getSampleAvatars } from '$lib/utils';
+	import { StructuredText } from '@datocms/svelte';
+	import { BarChart, Clock, PenSquare } from 'lucide-svelte';
 
 	export let data;
 	$: ({ homepageData } = data);

@@ -1,124 +1,110 @@
 <script lang="ts">
-	import { createMenubar, melt } from '@melt-ui/svelte';
+	import { Tabs } from 'bits-ui';
 
-	const {
-		elements: { menubar },
-		builders: { createMenu }
-	} = createMenubar();
-
-	const {
-		elements: { trigger, menu, item }
-	} = createMenu();
-
-	const {
-		elements: { trigger: triggerA, menu: menuA, item: itemA }
-	} = createMenu();
-
-	const {
-		elements: { trigger: triggerB, menu: menuB, item: itemB }
-	} = createMenu();
+	const triggers = [
+		{ id: 'triggerA', text: 'About' },
+		{ id: 'triggerB', text: "What you'll learn" },
+		{ id: 'triggerC', text: 'Syllabus' }
+	];
 </script>
 
-<section class="container-base md:w-2/4">
-	<div use:melt={$menubar} class="flex flex-row gap-7">
-		<button use:melt={$trigger} class="hover:bg-gray-400 p-2 rounded-xl">About</button>
-		<div use:melt={$menu}>
-			<div {...$item} use:item>
-				<p>
-					The Retirement Planning Made Easy course is designed to help you navigate the complexities
-					of retirement planning and ensure a financially secure future. Whether you're just
-					starting to think about retirement or approaching your target retirement age, this course
-					provides you with the knowledge and tools to create a comprehensive retirement plan.
-				</p>
-			</div>
+<Tabs.Root>
+	<Tabs.List>
+		{#each triggers as { id, text }}
+			<Tabs.Trigger value={id} class="hover:bg-gray-400 p-2 rounded-xl">{text}</Tabs.Trigger>
+		{/each}
+	</Tabs.List>
+
+	<Tabs.Content value={triggers[0].id}>
+		<p>
+			The Real Estate Investing Secrets course is designed to unveil the strategies and techniques
+			used by successful real estate investors to build wealth through property investments. Whether
+			you're a beginner or have some real estate experience, this course will provide you with
+			valuable insights and practical knowledge to navigate the real estate market with confidence.
+			From identifying lucrative opportunities to financing and managing properties, this course
+			equips you with the secrets to achieve success in real estate investing.
+		</p>
+	</Tabs.Content>
+
+	<Tabs.Content value={triggers[1].id}>
+		<ul class="list-disc">
+			<li>Understand the importance of retirement planning and the key factors to consider.</li>
+			<li>
+				Learn how to calculate your retirement savings needs based on your desired lifestyle and
+				retirement goals..
+			</li>
+
+			<li>
+				Explore different retirement savings vehicles, such as 401(k)s, IRAs, and annuities, and
+				understand their benefits and limitations..
+			</li>
+
+			<li>
+				Gain insights into investment strategies tailored for retirement, including asset allocation
+				and diversification..
+			</li>
+
+			<li>Learn how to maximize Social Security benefits and other retirement income sources..</li>
+
+			<li>Understand healthcare and long-term care considerations in retirement.</li>
+		</ul>
+	</Tabs.Content>
+
+	<Tabs.Content value={triggers[2].id}>
+		<div>
+			<h2 class="text-2xl font-bold">Module 1: Introduction to Retirement Planning</h2>
+			<ul class="list-disc list-inside">
+				<li>Understanding the importance of retirement planning and setting financial goals</li>
+				<li>Assessing your current financial situation and retirement readiness</li>
+			</ul>
 		</div>
 
-		<button use:melt={$triggerA} class="hover:bg-gray-400 p-2 rounded-xl">What you'll learn</button>
-		<div use:melt={$menuA}>
-			<div {...$itemA} use:itemA>
-				<ul class="list-disc">
-					<li>Understand the importance of retirement planning and the key factors to consider.</li>
-					<li>
-						Learn how to calculate your retirement savings needs based on your desired lifestyle and
-						retirement goals..
-					</li>
-
-					<li>
-						Explore different retirement savings vehicles, such as 401(k)s, IRAs, and annuities, and
-						understand their benefits and limitations..
-					</li>
-
-					<li>
-						Gain insights into investment strategies tailored for retirement, including asset
-						allocation and diversification..
-					</li>
-
-					<li>
-						Learn how to maximize Social Security benefits and other retirement income sources..
-					</li>
-
-					<li>Understand healthcare and long-term care considerations in retirement.</li>
-				</ul>
-			</div>
+		<div>
+			<h2 class="text-2xl font-bold">Module 2: Introduction to Retirement Planning</h2>
+			<ul class="list-disc">
+				<li>Understanding the importance of retirement planning and setting financial goals</li>
+				<li>Assessing your current financial situation and retirement readiness</li>
+			</ul>
 		</div>
 
-		<button use:melt={$triggerB} class="hover:bg-gray-400 p-2 rounded-xl">Syllabus</button>
-		<div use:melt={$menuB}>
-			<div {...$itemB} use:itemB>
-				<h2 class="text-2xl font-bold">Module 1: Introduction to Retirement Planning</h2>
-				<ul class="list-disc list-inside">
-					<li>Understanding the importance of retirement planning and setting financial goals</li>
-					<li>Assessing your current financial situation and retirement readiness</li>
-				</ul>
-			</div>
-
-			<div {...$itemB} use:itemB>
-				<h2 class="text-2xl font-bold">Module 2: Introduction to Retirement Planning</h2>
-				<ul class="list-disc">
-					<li>Understanding the importance of retirement planning and setting financial goals</li>
-					<li>Assessing your current financial situation and retirement readiness</li>
-				</ul>
-			</div>
-
-			<div {...$itemB} use:itemB>
-				<h2 class="text-2xl font-bold">Module 3: Introduction to Retirement Planning</h2>
-				<ul class="list-disc">
-					<li>Understanding the importance of retirement planning and setting financial goals</li>
-					<li>Assessing your current financial situation and retirement readiness</li>
-				</ul>
-			</div>
-
-			<div {...$itemB} use:itemB>
-				<h2 class="text-2xl font-bold">Module 4: Introduction to Retirement Planning</h2>
-				<ul class="list-disc list-inside">
-					<li>Understanding the importance of retirement planning and setting financial goals</li>
-					<li>Assessing your current financial situation and retirement readiness</li>
-				</ul>
-			</div>
-
-			<div {...$itemB} use:itemB>
-				<h2 class="text-2xl font-bold">Module 5: Introduction to Retirement Planning</h2>
-				<ul class="list-disc list-inside">
-					<li>Understanding the importance of retirement planning and setting financial goals</li>
-					<li>Assessing your current financial situation and retirement readiness</li>
-				</ul>
-			</div>
-
-			<div {...$itemB} use:itemB>
-				<h2 class="text-2xl font-bold">Module 6: Introduction to Retirement Planning</h2>
-				<ul class="list-disc list-inside">
-					<li>Understanding the importance of retirement planning and setting financial goals</li>
-					<li>Assessing your current financial situation and retirement readiness</li>
-				</ul>
-			</div>
-
-			<div {...$itemB} use:itemB>
-				<h2 class="text-2xl font-bold">Module 7: Introduction to Retirement Planning</h2>
-				<ul class="list-disc list-inside">
-					<li>Understanding the importance of retirement planning and setting financial goals</li>
-					<li>Assessing your current financial situation and retirement readiness</li>
-				</ul>
-			</div>
+		<div>
+			<h2 class="text-2xl font-bold">Module 3: Introduction to Retirement Planning</h2>
+			<ul class="list-disc">
+				<li>Understanding the importance of retirement planning and setting financial goals</li>
+				<li>Assessing your current financial situation and retirement readiness</li>
+			</ul>
 		</div>
-	</div>
-</section>
+
+		<div>
+			<h2 class="text-2xl font-bold">Module 4: Introduction to Retirement Planning</h2>
+			<ul class="list-disc list-inside">
+				<li>Understanding the importance of retirement planning and setting financial goals</li>
+				<li>Assessing your current financial situation and retirement readiness</li>
+			</ul>
+		</div>
+
+		<div>
+			<h2 class="text-2xl font-bold">Module 5: Introduction to Retirement Planning</h2>
+			<ul class="list-disc list-inside">
+				<li>Understanding the importance of retirement planning and setting financial goals</li>
+				<li>Assessing your current financial situation and retirement readiness</li>
+			</ul>
+		</div>
+
+		<div>
+			<h2 class="text-2xl font-bold">Module 6: Introduction to Retirement Planning</h2>
+			<ul class="list-disc list-inside">
+				<li>Understanding the importance of retirement planning and setting financial goals</li>
+				<li>Assessing your current financial situation and retirement readiness</li>
+			</ul>
+		</div>
+
+		<div>
+			<h2 class="text-2xl font-bold">Module 7: Introduction to Retirement Planning</h2>
+			<ul class="list-disc list-inside">
+				<li>Understanding the importance of retirement planning and setting financial goals</li>
+				<li>Assessing your current financial situation and retirement readiness</li>
+			</ul>
+		</div>
+	</Tabs.Content>
+</Tabs.Root>
