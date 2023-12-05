@@ -8,6 +8,7 @@
 
 	export let data;
 	$: ({ homepageData } = data);
+	$: coursesPageFaq = homepageData?.faq?.faqBlocks.slice(0, 5)
 </script>
 
 <svelte:head>
@@ -78,12 +79,12 @@
 			</p>
 		</div>
 
-		{#if homepageData && homepageData.faq?.faqBlocks && homepageData.faq.faqBlocks.length > 0}
+		{#if coursesPageFaq && coursesPageFaq.length > 0}
 			<div class="mx-auto md:w-6/12">
 				<Accordion
-					itemIds={homepageData.faq.faqBlocks.map((faq) => faq.id)}
-					titles={homepageData.faq.faqBlocks.map((faq) => faq.question || '')}
-					richTexts={homepageData.faq.faqBlocks.map((faq) => faq.answer[0].richText)}
+					itemIds={coursesPageFaq.map((faq) => faq.id)}
+					titles={coursesPageFaq.map((faq) => faq.question || '')}
+					richTexts={coursesPageFaq.map((faq) => faq.answer[0].richText)}
 				/>
 			</div>
 		{/if}
