@@ -1,4 +1,5 @@
 <script lang="ts">
+	import HomeTestimonials from '$lib/components/section/HomeTestimonials.svelte';
 	import Accordion from '$lib/components/ui/Accordion.svelte';
 	import AvatarsGroup from '$lib/components/ui/AvatarsGroup.svelte';
 	import CourseCard from '$lib/components/ui/CourseCard.svelte';
@@ -136,36 +137,17 @@
 	</div>
 
 	<div class="">
-		<img src={homepageData?.about[0].image?.url} alt={homepageData?.about[0].image?.alt} loading="lazy" class="" />
+		<img
+			src={homepageData?.about[0].image?.url}
+			alt={homepageData?.about[0].image?.alt}
+			loading="lazy"
+			class=""
+		/>
 	</div>
 </section>
 
 {#if homepageData && homepageData?.multipleTestimonials.length > 0}
-	<section class="grid gap-16 py-24 sm:grid-cols-2 container-sm">
-		{#each homepageData.multipleTestimonials as testimonial}
-			<div class="flex flex-col gap-8 sm:flex-row">
-				<div class="basis-6/12">
-					<img src={testimonial.image?.url} alt={testimonial.image?.alt} />
-				</div>
-
-				<blockquote class="space-y-6 basis-6/12">
-					<div class="space-y-5">
-						<p class="text-2xl/[2.275rem] sm:text-[1.75rem]/[2.275rem] -tracking-[0.1rem]">
-							{testimonial.title}
-						</p>
-						<p>
-							<StructuredText data={testimonial.content[0].richText} />
-						</p>
-					</div>
-
-					<footer>
-						<p>{testimonial.author}</p>
-						<p class="text-xs font-semibold text-savoy-blue">{testimonial.role}</p>
-					</footer>
-				</blockquote>
-			</div>
-		{/each}
-	</section>
+	<HomeTestimonials testimonials={homepageData.multipleTestimonials} />
 {/if}
 
 <section class="flex flex-col items-center py-24 container-base space-y-11 md:flex-row">

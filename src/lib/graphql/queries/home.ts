@@ -109,6 +109,7 @@ const getHomePageData = async () => {
 
 		// Multiple testimonials
 		multipleTestimonials: {
+			id: true,
 			title: true,
 			image: {
 				url: true,
