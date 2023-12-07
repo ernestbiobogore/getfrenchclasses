@@ -11,10 +11,6 @@
 <Tabs.Root class="space-y-8 root">
 	<Tabs.List class="flex gap-4">
 		{#each triggers as { id, text }}
-			<!-- data-state="active" -->
-			<!-- 
-				when the trigger has the data-state="active" attribute, add bg-platinum
-			 -->
 			<Tabs.Trigger
 				value={id}
 				class="py-2 px-3 text-xs font-medium rounded-[0.625rem] data-[state=active]:bg-platinum"
