@@ -1075,6 +1075,9 @@ export default {
             "_updatedAt": [
                 16
             ],
+            "about": [
+                4
+            ],
             "ctaAction": [
                 0
             ],
@@ -1136,9 +1139,6 @@ export default {
             ],
             "seo": [
                 79
-            ],
-            "singleTestimonial": [
-                4
             ],
             "statsAction": [
                 0

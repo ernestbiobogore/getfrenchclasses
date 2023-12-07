@@ -640,6 +640,7 @@ type HomepageRecord implements RecordInterface {
   _status: ItemStatus!
   _unpublishingScheduledAt: DateTime
   _updatedAt: DateTime!
+  about: [CardBlockRecord!]!
   ctaAction: [ActionBlockRecord!]!
   ctaHeading: [HeadingBlockRecord!]!
   faq: FaqItemRecord
@@ -662,7 +663,6 @@ type HomepageRecord implements RecordInterface {
   popularCoursesRecords: [CourseRecord!]!
   popularCoursesTitle: String
   seo: [SeoBlockRecord!]!
-  singleTestimonial: [CardBlockRecord!]!
   statsAction: [ActionBlockRecord!]!
   statsData: [HeadingBlockRecord!]!
   statsHeading: [HeadingBlockRecord!]!

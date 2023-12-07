@@ -89,8 +89,8 @@ const getHomePageData = async () => {
 			}
 		},
 
-		// Single testimonial
-		singleTestimonial: {
+		// About
+		about: {
 			title: true,
 			image: {
 				url: true,

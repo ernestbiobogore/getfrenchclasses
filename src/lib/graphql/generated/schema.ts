@@ -268,6 +268,7 @@ export interface HomepageRecord {
     _status: ItemStatus
     _unpublishingScheduledAt?: Scalars['DateTime']
     _updatedAt: Scalars['DateTime']
+    about: CardBlockRecord[]
     ctaAction: ActionBlockRecord[]
     ctaHeading: HeadingBlockRecord[]
     faq?: FaqItemRecord
@@ -287,7 +288,6 @@ export interface HomepageRecord {
     popularCoursesRecords: CourseRecord[]
     popularCoursesTitle?: Scalars['String']
     seo: SeoBlockRecord[]
-    singleTestimonial: CardBlockRecord[]
     statsAction: ActionBlockRecord[]
     statsData: HeadingBlockRecord[]
     statsHeading: HeadingBlockRecord[]
@@ -959,6 +959,7 @@ export interface HomepageRecordRequest{
     _status?: boolean | number
     _unpublishingScheduledAt?: boolean | number
     _updatedAt?: boolean | number
+    about?: CardBlockRecordRequest
     ctaAction?: ActionBlockRecordRequest
     ctaHeading?: HeadingBlockRecordRequest
     faq?: FaqItemRecordRequest
@@ -980,7 +981,6 @@ export interface HomepageRecordRequest{
     popularCoursesRecords?: CourseRecordRequest
     popularCoursesTitle?: boolean | number
     seo?: SeoBlockRecordRequest
-    singleTestimonial?: CardBlockRecordRequest
     statsAction?: ActionBlockRecordRequest
     statsData?: HeadingBlockRecordRequest
     statsHeading?: HeadingBlockRecordRequest
@@ -3919,6 +3919,7 @@ locale?: (SiteLocale | null)}) => {get: <R extends TagRequest>(request: R, defau
     _status: ({get: (request?: boolean|number, defaultValue?: ItemStatus) => Promise<ItemStatus>}),
     _unpublishingScheduledAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Promise<(Scalars['DateTime'] | undefined)>}),
     _updatedAt: ({get: (request?: boolean|number, defaultValue?: Scalars['DateTime']) => Promise<Scalars['DateTime']>}),
+    about: ({get: <R extends CardBlockRecordRequest>(request: R, defaultValue?: FieldsSelection<CardBlockRecord, R>[]) => Promise<FieldsSelection<CardBlockRecord, R>[]>}),
     ctaAction: ({get: <R extends ActionBlockRecordRequest>(request: R, defaultValue?: FieldsSelection<ActionBlockRecord, R>[]) => Promise<FieldsSelection<ActionBlockRecord, R>[]>}),
     ctaHeading: ({get: <R extends HeadingBlockRecordRequest>(request: R, defaultValue?: FieldsSelection<HeadingBlockRecord, R>[]) => Promise<FieldsSelection<HeadingBlockRecord, R>[]>}),
     faq: (FaqItemRecordPromiseChain & {get: <R extends FaqItemRecordRequest>(request: R, defaultValue?: (FieldsSelection<FaqItemRecord, R> | undefined)) => Promise<(FieldsSelection<FaqItemRecord, R> | undefined)>}),
@@ -3940,7 +3941,6 @@ markdown?: (Scalars['Boolean'] | null)}) => {get: (request?: boolean|number, def
     popularCoursesRecords: ({get: <R extends CourseRecordRequest>(request: R, defaultValue?: FieldsSelection<CourseRecord, R>[]) => Promise<FieldsSelection<CourseRecord, R>[]>}),
     popularCoursesTitle: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
     seo: ({get: <R extends SeoBlockRecordRequest>(request: R, defaultValue?: FieldsSelection<SeoBlockRecord, R>[]) => Promise<FieldsSelection<SeoBlockRecord, R>[]>}),
-    singleTestimonial: ({get: <R extends CardBlockRecordRequest>(request: R, defaultValue?: FieldsSelection<CardBlockRecord, R>[]) => Promise<FieldsSelection<CardBlockRecord, R>[]>}),
     statsAction: ({get: <R extends ActionBlockRecordRequest>(request: R, defaultValue?: FieldsSelection<ActionBlockRecord, R>[]) => Promise<FieldsSelection<ActionBlockRecord, R>[]>}),
     statsData: ({get: <R extends HeadingBlockRecordRequest>(request: R, defaultValue?: FieldsSelection<HeadingBlockRecord, R>[]) => Promise<FieldsSelection<HeadingBlockRecord, R>[]>}),
     statsHeading: ({get: <R extends HeadingBlockRecordRequest>(request: R, defaultValue?: FieldsSelection<HeadingBlockRecord, R>[]) => Promise<FieldsSelection<HeadingBlockRecord, R>[]>}),
@@ -3968,6 +3968,7 @@ locale?: (SiteLocale | null)}) => {get: <R extends TagRequest>(request: R, defau
     _status: ({get: (request?: boolean|number, defaultValue?: ItemStatus) => Observable<ItemStatus>}),
     _unpublishingScheduledAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Observable<(Scalars['DateTime'] | undefined)>}),
     _updatedAt: ({get: (request?: boolean|number, defaultValue?: Scalars['DateTime']) => Observable<Scalars['DateTime']>}),
+    about: ({get: <R extends CardBlockRecordRequest>(request: R, defaultValue?: FieldsSelection<CardBlockRecord, R>[]) => Observable<FieldsSelection<CardBlockRecord, R>[]>}),
     ctaAction: ({get: <R extends ActionBlockRecordRequest>(request: R, defaultValue?: FieldsSelection<ActionBlockRecord, R>[]) => Observable<FieldsSelection<ActionBlockRecord, R>[]>}),
     ctaHeading: ({get: <R extends HeadingBlockRecordRequest>(request: R, defaultValue?: FieldsSelection<HeadingBlockRecord, R>[]) => Observable<FieldsSelection<HeadingBlockRecord, R>[]>}),
     faq: (FaqItemRecordObservableChain & {get: <R extends FaqItemRecordRequest>(request: R, defaultValue?: (FieldsSelection<FaqItemRecord, R> | undefined)) => Observable<(FieldsSelection<FaqItemRecord, R> | undefined)>}),
@@ -3989,7 +3990,6 @@ markdown?: (Scalars['Boolean'] | null)}) => {get: (request?: boolean|number, def
     popularCoursesRecords: ({get: <R extends CourseRecordRequest>(request: R, defaultValue?: FieldsSelection<CourseRecord, R>[]) => Observable<FieldsSelection<CourseRecord, R>[]>}),
     popularCoursesTitle: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
     seo: ({get: <R extends SeoBlockRecordRequest>(request: R, defaultValue?: FieldsSelection<SeoBlockRecord, R>[]) => Observable<FieldsSelection<SeoBlockRecord, R>[]>}),
-    singleTestimonial: ({get: <R extends CardBlockRecordRequest>(request: R, defaultValue?: FieldsSelection<CardBlockRecord, R>[]) => Observable<FieldsSelection<CardBlockRecord, R>[]>}),
     statsAction: ({get: <R extends ActionBlockRecordRequest>(request: R, defaultValue?: FieldsSelection<ActionBlockRecord, R>[]) => Observable<FieldsSelection<ActionBlockRecord, R>[]>}),
     statsData: ({get: <R extends HeadingBlockRecordRequest>(request: R, defaultValue?: FieldsSelection<HeadingBlockRecord, R>[]) => Observable<FieldsSelection<HeadingBlockRecord, R>[]>}),
     statsHeading: ({get: <R extends HeadingBlockRecordRequest>(request: R, defaultValue?: FieldsSelection<HeadingBlockRecord, R>[]) => Observable<FieldsSelection<HeadingBlockRecord, R>[]>}),
