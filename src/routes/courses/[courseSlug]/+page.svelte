@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Accordion from '$lib/components/ui/Accordion.svelte';
 	import AvatarsGroup from '$lib/components/ui/AvatarsGroup.svelte';
-	import Menu from '$lib/components/ui/Menu.svelte';
+	import CourseTabs from '$lib/components/ui/CourseTabs.svelte';
 	import { getSampleAvatars } from '$lib/utils';
 	import { StructuredText } from '@datocms/svelte';
 	import { BarChart, Clock, PenSquare } from 'lucide-svelte';
@@ -15,10 +15,10 @@
 	<title>{data.course.name}</title>
 </svelte:head>
 
-<section class="flex flex-col justify-between gap-8 md:flex-row md:gap-0 container-base">
+<section class="flex flex-col justify-between gap-24 md:flex-row container-base">
 	<div class="space-y-5 md:basis-6/12">
 		<div class="space-y-4">
-			<h1 class="text-4xl tracking-tighter">{data.course.name}</h1>
+			<h1>{data.course.name}</h1>
 
 			<div class="flex justify-between md:w-6/12">
 				<div class="flex items-center gap-2">
@@ -67,7 +67,7 @@
 
 <section class="py-32 container-base space-y-11 flex flex-col md:flex-row items-start">
 	<div class="basis-1/2">
-		<Menu />
+		<CourseTabs />
 	</div>
 
 	<div class=" text-center space-y-11 md:basis-1/2" id="faq">

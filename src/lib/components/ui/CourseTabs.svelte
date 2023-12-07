@@ -8,10 +8,18 @@
 	];
 </script>
 
-<Tabs.Root>
-	<Tabs.List>
+<Tabs.Root class="space-y-8 root">
+	<Tabs.List class="flex gap-4">
 		{#each triggers as { id, text }}
-			<Tabs.Trigger value={id} class="hover:bg-gray-400 p-2 rounded-xl">{text}</Tabs.Trigger>
+			<!-- data-state="active" -->
+			<!-- 
+				when the trigger has the data-state="active" attribute, add bg-platinum
+			 -->
+			<Tabs.Trigger
+				value={id}
+				class="py-2 px-3 text-xs font-medium rounded-[0.625rem] data-[state=active]:bg-platinum"
+				>{text}</Tabs.Trigger
+			>
 		{/each}
 	</Tabs.List>
 
@@ -52,15 +60,7 @@
 
 	<Tabs.Content value={triggers[2].id}>
 		<div>
-			<h2 class="text-2xl font-bold">Module 1: Introduction to Retirement Planning</h2>
-			<ul class="list-disc list-inside">
-				<li>Understanding the importance of retirement planning and setting financial goals</li>
-				<li>Assessing your current financial situation and retirement readiness</li>
-			</ul>
-		</div>
-
-		<div>
-			<h2 class="text-2xl font-bold">Module 2: Introduction to Retirement Planning</h2>
+			<p class="font-bold">Module 1: Introduction to Retirement Planning</p>
 			<ul class="list-disc">
 				<li>Understanding the importance of retirement planning and setting financial goals</li>
 				<li>Assessing your current financial situation and retirement readiness</li>
@@ -68,7 +68,7 @@
 		</div>
 
 		<div>
-			<h2 class="text-2xl font-bold">Module 3: Introduction to Retirement Planning</h2>
+			<p class="font-bold">Module 2: Introduction to Retirement Planning</p>
 			<ul class="list-disc">
 				<li>Understanding the importance of retirement planning and setting financial goals</li>
 				<li>Assessing your current financial situation and retirement readiness</li>
@@ -76,32 +76,8 @@
 		</div>
 
 		<div>
-			<h2 class="text-2xl font-bold">Module 4: Introduction to Retirement Planning</h2>
-			<ul class="list-disc list-inside">
-				<li>Understanding the importance of retirement planning and setting financial goals</li>
-				<li>Assessing your current financial situation and retirement readiness</li>
-			</ul>
-		</div>
-
-		<div>
-			<h2 class="text-2xl font-bold">Module 5: Introduction to Retirement Planning</h2>
-			<ul class="list-disc list-inside">
-				<li>Understanding the importance of retirement planning and setting financial goals</li>
-				<li>Assessing your current financial situation and retirement readiness</li>
-			</ul>
-		</div>
-
-		<div>
-			<h2 class="text-2xl font-bold">Module 6: Introduction to Retirement Planning</h2>
-			<ul class="list-disc list-inside">
-				<li>Understanding the importance of retirement planning and setting financial goals</li>
-				<li>Assessing your current financial situation and retirement readiness</li>
-			</ul>
-		</div>
-
-		<div>
-			<h2 class="text-2xl font-bold">Module 7: Introduction to Retirement Planning</h2>
-			<ul class="list-disc list-inside">
+			<p class="font-bold">Module 7: Introduction to Retirement Planning</p>
+			<ul class="list-disc">
 				<li>Understanding the importance of retirement planning and setting financial goals</li>
 				<li>Assessing your current financial situation and retirement readiness</li>
 			</ul>
