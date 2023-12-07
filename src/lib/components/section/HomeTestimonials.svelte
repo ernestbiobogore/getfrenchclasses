@@ -47,7 +47,10 @@
 
 	<Tabs.List class="flex flex-col gap-4 sm:items-center sm:flex-row">
 		{#each triggers as { id, image, author, role }}
-			<Tabs.Trigger value={id} class="flex items-center gap-4 p-4 data-[state=inactive]:opacity-40 data-[state=active]:pl-8">
+			<Tabs.Trigger
+				value={id}
+				class="flex items-center gap-4 p-4 data-[state=inactive]:opacity-40 data-[state=active]:pl-8"
+			>
 				<img
 					src={image.url}
 					alt={image.alt}
