@@ -131,6 +131,7 @@ export interface CourseRecord {
     numberOfSections?: Scalars['IntType']
     price?: Scalars['IntType']
     seo: SeoBlockRecord[]
+    singleTestimonial: CardBlockRecord[]
     slug?: Scalars['String']
     tag?: Scalars['String']
     __typename: 'CourseRecord'
@@ -687,6 +688,7 @@ export interface CourseRecordRequest{
     numberOfSections?: boolean | number
     price?: boolean | number
     seo?: SeoBlockRecordRequest
+    singleTestimonial?: CardBlockRecordRequest
     slug?: boolean | number
     tag?: boolean | number
     __typename?: boolean | number
@@ -3415,6 +3417,7 @@ locale?: (SiteLocale | null)}) => {get: <R extends TagRequest>(request: R, defau
     numberOfSections: ({get: (request?: boolean|number, defaultValue?: (Scalars['IntType'] | undefined)) => Promise<(Scalars['IntType'] | undefined)>}),
     price: ({get: (request?: boolean|number, defaultValue?: (Scalars['IntType'] | undefined)) => Promise<(Scalars['IntType'] | undefined)>}),
     seo: ({get: <R extends SeoBlockRecordRequest>(request: R, defaultValue?: FieldsSelection<SeoBlockRecord, R>[]) => Promise<FieldsSelection<SeoBlockRecord, R>[]>}),
+    singleTestimonial: ({get: <R extends CardBlockRecordRequest>(request: R, defaultValue?: FieldsSelection<CardBlockRecord, R>[]) => Promise<FieldsSelection<CardBlockRecord, R>[]>}),
     slug: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
     tag: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
 }
@@ -3449,6 +3452,7 @@ locale?: (SiteLocale | null)}) => {get: <R extends TagRequest>(request: R, defau
     numberOfSections: ({get: (request?: boolean|number, defaultValue?: (Scalars['IntType'] | undefined)) => Observable<(Scalars['IntType'] | undefined)>}),
     price: ({get: (request?: boolean|number, defaultValue?: (Scalars['IntType'] | undefined)) => Observable<(Scalars['IntType'] | undefined)>}),
     seo: ({get: <R extends SeoBlockRecordRequest>(request: R, defaultValue?: FieldsSelection<SeoBlockRecord, R>[]) => Observable<FieldsSelection<SeoBlockRecord, R>[]>}),
+    singleTestimonial: ({get: <R extends CardBlockRecordRequest>(request: R, defaultValue?: FieldsSelection<CardBlockRecord, R>[]) => Observable<FieldsSelection<CardBlockRecord, R>[]>}),
     slug: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
     tag: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
 }

@@ -76,6 +76,20 @@ const getCourseBySlug = async (slug: string) => {
 	
 		},
 
+		// Single testimonial
+		singleTestimonial: {
+			title: true,
+			image: {
+				url: true,
+				alt: true
+			},
+			content: {
+				richText: {
+					value: true
+				}
+			}
+		},
+
 		// SEO
 		seo: {
 			seoBlock: {

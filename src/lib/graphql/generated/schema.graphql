@@ -239,6 +239,7 @@ type CourseRecord implements RecordInterface {
   numberOfSections: IntType
   price: IntType
   seo: [SeoBlockRecord!]!
+  singleTestimonial: [CardBlockRecord!]!
   slug: String
   tag: String
 }

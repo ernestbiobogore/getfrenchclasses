@@ -436,6 +436,9 @@ export default {
             "seo": [
                 79
             ],
+            "singleTestimonial": [
+                4
+            ],
             "slug": [
                 85
             ],

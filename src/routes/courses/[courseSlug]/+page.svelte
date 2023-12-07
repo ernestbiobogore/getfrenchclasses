@@ -88,3 +88,15 @@
 		</div>
 	{/each}
 </section>
+
+
+<section class="container-sm py-36 px-12 flex items-center gap-20">
+	<div class="basis-6/12">
+		<img src={data.course.singleTestimonial[0].image?.url} alt={data.course.singleTestimonial[0].image?.alt} />
+	</div>
+
+	<div class="basis-6/12 space-y-5">
+		<h3>{data.course.singleTestimonial[0].title}</h3>
+		<StructuredText data={data.course?.singleTestimonial[0].content[0].richText} />
+	</div>
+</section>
