@@ -62,6 +62,20 @@ const getCourseBySlug = async (slug: string) => {
 			}
 		},
 
+		// Features
+		featuresCards: {
+			image: {
+				url: true,
+				alt: true
+			},
+			content: {
+				richText: {
+					value: true
+				}
+			},
+	
+		},
+
 		// SEO
 		seo: {
 			seoBlock: {

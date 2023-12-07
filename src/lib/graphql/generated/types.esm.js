@@ -412,6 +412,9 @@ export default {
             "faq": [
                 20
             ],
+            "featuresCards": [
+                4
+            ],
             "id": [
                 58
             ],

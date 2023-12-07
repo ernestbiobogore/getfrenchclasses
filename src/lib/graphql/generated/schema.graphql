@@ -231,6 +231,7 @@ type CourseRecord implements RecordInterface {
   _updatedAt: DateTime!
   duration: IntType
   faq: FaqItemRecord
+  featuresCards: [CardBlockRecord!]!
   id: ItemId!
   level: String
   name: String

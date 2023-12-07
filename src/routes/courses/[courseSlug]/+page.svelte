@@ -3,6 +3,7 @@
 	import AvatarsGroup from '$lib/components/ui/AvatarsGroup.svelte';
 	import CourseTabs from '$lib/components/ui/CourseTabs.svelte';
 	import { getSampleAvatars } from '$lib/utils';
+	import { StructuredText } from '@datocms/svelte';
 	import { BarChart, Clock, PenSquare } from 'lucide-svelte';
 
 	export let data;
@@ -79,29 +80,11 @@
 	</div>
 </section>
 
-<!-- <section class="py-24 space-y-11">
-	<div class="space-y-5 container-base">
-		<h2 class="text-center">{homepageData?.featuresHeading[0].heading}</h2>
-
-		<p class="mx-auto text-sm text-center md:w-4/12">
-			{@html homepageData?.featuresHeading[0].subheading}
-		</p>
-
-		<div class="flex justify-center">
-			<a href={homepageData?.featuresCta[0].link} class="action-base w-fit"
-				>{homepageData?.featuresCta[0].text}</a
-			>
+<section class="py-24 grid grid-cols-2 gap-8 sm:gap-16 lg:grid-cols-3 container-sm">
+	{#each data.course.featuresCards as card}
+		<div class="space-y-4">
+			<img src={card.image?.url} alt={card.image?.alt} loading="lazy" class="w-5 h-5" />
+			<StructuredText data={card.content[0].richText} />
 		</div>
-	</div>
-
-	<div class="grid grid-cols-2 gap-8 sm:gap-16 lg:grid-cols-3 container-sm">
-		{#if homepageData && homepageData?.featureCards.length > 0}
-			{#each homepageData.featureCards as card}
-				<div class="space-y-4">
-					<img src={card.image?.url} alt={card.image?.alt} loading="lazy" class="w-5 h-5" />
-					<StructuredText data={card.content[0].richText} />
-				</div>
-			{/each}
-		{/if}
-	</div>
-</section> -->
+	{/each}
+</section>

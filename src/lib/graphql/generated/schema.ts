@@ -123,6 +123,7 @@ export interface CourseRecord {
     _updatedAt: Scalars['DateTime']
     duration?: Scalars['IntType']
     faq?: FaqItemRecord
+    featuresCards: CardBlockRecord[]
     id: Scalars['ItemId']
     level?: Scalars['String']
     name?: Scalars['String']
@@ -678,6 +679,7 @@ export interface CourseRecordRequest{
     _updatedAt?: boolean | number
     duration?: boolean | number
     faq?: FaqItemRecordRequest
+    featuresCards?: CardBlockRecordRequest
     id?: boolean | number
     level?: boolean | number
     name?: boolean | number
@@ -3405,6 +3407,7 @@ locale?: (SiteLocale | null)}) => {get: <R extends TagRequest>(request: R, defau
     _updatedAt: ({get: (request?: boolean|number, defaultValue?: Scalars['DateTime']) => Promise<Scalars['DateTime']>}),
     duration: ({get: (request?: boolean|number, defaultValue?: (Scalars['IntType'] | undefined)) => Promise<(Scalars['IntType'] | undefined)>}),
     faq: (FaqItemRecordPromiseChain & {get: <R extends FaqItemRecordRequest>(request: R, defaultValue?: (FieldsSelection<FaqItemRecord, R> | undefined)) => Promise<(FieldsSelection<FaqItemRecord, R> | undefined)>}),
+    featuresCards: ({get: <R extends CardBlockRecordRequest>(request: R, defaultValue?: FieldsSelection<CardBlockRecord, R>[]) => Promise<FieldsSelection<CardBlockRecord, R>[]>}),
     id: ({get: (request?: boolean|number, defaultValue?: Scalars['ItemId']) => Promise<Scalars['ItemId']>}),
     level: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
     name: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
@@ -3438,6 +3441,7 @@ locale?: (SiteLocale | null)}) => {get: <R extends TagRequest>(request: R, defau
     _updatedAt: ({get: (request?: boolean|number, defaultValue?: Scalars['DateTime']) => Observable<Scalars['DateTime']>}),
     duration: ({get: (request?: boolean|number, defaultValue?: (Scalars['IntType'] | undefined)) => Observable<(Scalars['IntType'] | undefined)>}),
     faq: (FaqItemRecordObservableChain & {get: <R extends FaqItemRecordRequest>(request: R, defaultValue?: (FieldsSelection<FaqItemRecord, R> | undefined)) => Observable<(FieldsSelection<FaqItemRecord, R> | undefined)>}),
+    featuresCards: ({get: <R extends CardBlockRecordRequest>(request: R, defaultValue?: FieldsSelection<CardBlockRecord, R>[]) => Observable<FieldsSelection<CardBlockRecord, R>[]>}),
     id: ({get: (request?: boolean|number, defaultValue?: Scalars['ItemId']) => Observable<Scalars['ItemId']>}),
     level: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
     name: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
