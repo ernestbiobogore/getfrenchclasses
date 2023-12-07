@@ -2,7 +2,6 @@
 	import Accordion from '$lib/components/ui/Accordion.svelte';
 	import AvatarsGroup from '$lib/components/ui/AvatarsGroup.svelte';
 	import CourseCard from '$lib/components/ui/CourseCard.svelte';
-	import SupportImage from '$lib/images/supportImage.png';
 	import { StructuredText } from '@datocms/svelte';
 
 	import { ChevronRight } from 'lucide-svelte';
@@ -123,21 +122,21 @@
 	<div class="flex flex-col gap-4 space-y-6">
 		<div class="w-full space-y-5 md:max-w-1/2">
 			<h2 class="md:tracking-tighter md:w-1/2">
-				{homepageData?.singleTestimonial[0].title}
+				{homepageData?.about[0].title}
 			</h2>
 
 			<div class="md:w-8/12">
-				<StructuredText data={homepageData?.singleTestimonial[0].content[0].richText} />
+				<StructuredText data={homepageData?.about[0].content[0].richText} />
 			</div>
 		</div>
 
-		<a href={homepageData?.singleTestimonial[0].cta[0].link} class="action-base w-fit">
-			{homepageData?.singleTestimonial[0].cta[0].text}
+		<a href={homepageData?.about[0].cta[0].link} class="action-base w-fit">
+			{homepageData?.about[0].cta[0].text}
 		</a>
 	</div>
 
 	<div class="">
-		<img src={SupportImage} alt="Support pic" loading="lazy" class="" />
+		<img src={homepageData?.about[0].image?.url} alt={homepageData?.about[0].image?.alt} loading="lazy" class="" />
 	</div>
 </section>
 
