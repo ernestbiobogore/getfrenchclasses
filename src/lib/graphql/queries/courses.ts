@@ -48,6 +48,20 @@ const getCourseBySlug = async (slug: string) => {
 		numberOfEnrolledStudents: true,
 		tag: true,
 
+		// FAQ
+		faq: {
+			title: true,
+			faqBlocks: {
+				id: true,
+				question: true,
+				answer: {
+					richText: {
+						value: true
+					}
+				}
+			}
+		},
+
 		// SEO
 		seo: {
 			seoBlock: {

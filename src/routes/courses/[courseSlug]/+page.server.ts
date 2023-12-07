@@ -1,5 +1,4 @@
 import { getCourseBySlug } from '$lib/graphql/queries/courses';
-import { getHomePageData } from '$lib/graphql/queries/home';
 import { error } from '@sveltejs/kit';
 
 export const load = async ({ params }) => {
@@ -10,7 +9,6 @@ export const load = async ({ params }) => {
 	}
 
 	return {
-		homepageData: await getHomePageData(),
 		course: {
 			...course,
 			seo: course.seo[0].seoBlock

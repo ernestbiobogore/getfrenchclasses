@@ -162,6 +162,7 @@ input CourseModelFilter {
   _updatedAt: UpdatedAtFilter
   _isValid: BooleanFilter
   duration: IntegerFilter
+  faq: LinkFilter
   level: StringFilter
   name: StringFilter
   numberOfEnrolledStudents: IntegerFilter
@@ -229,6 +230,7 @@ type CourseRecord implements RecordInterface {
   _unpublishingScheduledAt: DateTime
   _updatedAt: DateTime!
   duration: IntType
+  faq: FaqItemRecord
   id: ItemId!
   level: String
   name: String

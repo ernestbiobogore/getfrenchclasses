@@ -122,6 +122,7 @@ export interface CourseRecord {
     _unpublishingScheduledAt?: Scalars['DateTime']
     _updatedAt: Scalars['DateTime']
     duration?: Scalars['IntType']
+    faq?: FaqItemRecord
     id: Scalars['ItemId']
     level?: Scalars['String']
     name?: Scalars['String']
@@ -655,7 +656,7 @@ export interface ColorFieldRequest{
     __scalar?: boolean | number
 }
 
-export interface CourseModelFilter {_createdAt?: (CreatedAtFilter | null),id?: (ItemIdFilter | null),_firstPublishedAt?: (PublishedAtFilter | null),_publicationScheduledAt?: (PublishedAtFilter | null),_unpublishingScheduledAt?: (PublishedAtFilter | null),_publishedAt?: (PublishedAtFilter | null),_status?: (StatusFilter | null),_updatedAt?: (UpdatedAtFilter | null),_isValid?: (BooleanFilter | null),duration?: (IntegerFilter | null),level?: (StringFilter | null),name?: (StringFilter | null),numberOfEnrolledStudents?: (IntegerFilter | null),numberOfSections?: (IntegerFilter | null),price?: (IntegerFilter | null),slug?: (SlugFilter | null),tag?: (StringFilter | null),OR?: ((CourseModelFilter | null)[] | null),AND?: ((CourseModelFilter | null)[] | null)}
+export interface CourseModelFilter {_createdAt?: (CreatedAtFilter | null),id?: (ItemIdFilter | null),_firstPublishedAt?: (PublishedAtFilter | null),_publicationScheduledAt?: (PublishedAtFilter | null),_unpublishingScheduledAt?: (PublishedAtFilter | null),_publishedAt?: (PublishedAtFilter | null),_status?: (StatusFilter | null),_updatedAt?: (UpdatedAtFilter | null),_isValid?: (BooleanFilter | null),duration?: (IntegerFilter | null),faq?: (LinkFilter | null),level?: (StringFilter | null),name?: (StringFilter | null),numberOfEnrolledStudents?: (IntegerFilter | null),numberOfSections?: (IntegerFilter | null),price?: (IntegerFilter | null),slug?: (SlugFilter | null),tag?: (StringFilter | null),OR?: ((CourseModelFilter | null)[] | null),AND?: ((CourseModelFilter | null)[] | null)}
 
 
 /** Record of type Course (course) */
@@ -676,6 +677,7 @@ export interface CourseRecordRequest{
     _unpublishingScheduledAt?: boolean | number
     _updatedAt?: boolean | number
     duration?: boolean | number
+    faq?: FaqItemRecordRequest
     id?: boolean | number
     level?: boolean | number
     name?: boolean | number
@@ -3402,6 +3404,7 @@ locale?: (SiteLocale | null)}) => {get: <R extends TagRequest>(request: R, defau
     _unpublishingScheduledAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Promise<(Scalars['DateTime'] | undefined)>}),
     _updatedAt: ({get: (request?: boolean|number, defaultValue?: Scalars['DateTime']) => Promise<Scalars['DateTime']>}),
     duration: ({get: (request?: boolean|number, defaultValue?: (Scalars['IntType'] | undefined)) => Promise<(Scalars['IntType'] | undefined)>}),
+    faq: (FaqItemRecordPromiseChain & {get: <R extends FaqItemRecordRequest>(request: R, defaultValue?: (FieldsSelection<FaqItemRecord, R> | undefined)) => Promise<(FieldsSelection<FaqItemRecord, R> | undefined)>}),
     id: ({get: (request?: boolean|number, defaultValue?: Scalars['ItemId']) => Promise<Scalars['ItemId']>}),
     level: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
     name: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
@@ -3434,6 +3437,7 @@ locale?: (SiteLocale | null)}) => {get: <R extends TagRequest>(request: R, defau
     _unpublishingScheduledAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Observable<(Scalars['DateTime'] | undefined)>}),
     _updatedAt: ({get: (request?: boolean|number, defaultValue?: Scalars['DateTime']) => Observable<Scalars['DateTime']>}),
     duration: ({get: (request?: boolean|number, defaultValue?: (Scalars['IntType'] | undefined)) => Observable<(Scalars['IntType'] | undefined)>}),
+    faq: (FaqItemRecordObservableChain & {get: <R extends FaqItemRecordRequest>(request: R, defaultValue?: (FieldsSelection<FaqItemRecord, R> | undefined)) => Observable<(FieldsSelection<FaqItemRecord, R> | undefined)>}),
     id: ({get: (request?: boolean|number, defaultValue?: Scalars['ItemId']) => Observable<Scalars['ItemId']>}),
     level: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
     name: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),

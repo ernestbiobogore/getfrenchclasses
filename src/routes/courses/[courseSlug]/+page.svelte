@@ -3,12 +3,10 @@
 	import AvatarsGroup from '$lib/components/ui/AvatarsGroup.svelte';
 	import CourseTabs from '$lib/components/ui/CourseTabs.svelte';
 	import { getSampleAvatars } from '$lib/utils';
-	import { StructuredText } from '@datocms/svelte';
 	import { BarChart, Clock, PenSquare } from 'lucide-svelte';
 
 	export let data;
-	$: ({ homepageData } = data);
-	$: coursesPageFaq = homepageData?.faq?.faqBlocks.slice(0, 5)
+	$: coursesPageFaq = data.course.faq?.faqBlocks;
 </script>
 
 <svelte:head>
@@ -65,32 +63,23 @@
 	</div>
 </section>
 
-<section class="py-32 container-base space-y-11 flex flex-col md:flex-row items-start">
+<section class="py-32 container-base space-y-11 gap-24 flex flex-col md:flex-row items-start">
 	<div class="basis-1/2">
 		<CourseTabs />
 	</div>
 
 	<div class=" text-center space-y-11 md:basis-1/2" id="faq">
-		<div class="space-y-5">
-			<h2>{homepageData?.faqHeading[0].heading}</h2>
-
-			<p class="mx-auto text-sm md:w-4/12">
-				{@html homepageData?.faqHeading[0].subheading}
-			</p>
-		</div>
-
 		{#if coursesPageFaq && coursesPageFaq.length > 0}
-			<div class="mx-auto md:w-6/12">
-				<Accordion
-					itemIds={coursesPageFaq.map((faq) => faq.id)}
-					titles={coursesPageFaq.map((faq) => faq.question || '')}
-					richTexts={coursesPageFaq.map((faq) => faq.answer[0].richText)}
-				/>
-			</div>
+			<Accordion
+				itemIds={coursesPageFaq.map((faq) => faq.id)}
+				titles={coursesPageFaq.map((faq) => faq.question || '')}
+				richTexts={coursesPageFaq.map((faq) => faq.answer[0].richText)}
+			/>
 		{/if}
 	</div>
 </section>
-<section class="py-24 space-y-11">
+
+<!-- <section class="py-24 space-y-11">
 	<div class="space-y-5 container-base">
 		<h2 class="text-center">{homepageData?.featuresHeading[0].heading}</h2>
 
@@ -115,4 +104,4 @@
 			{/each}
 		{/if}
 	</div>
-</section>
+</section> -->

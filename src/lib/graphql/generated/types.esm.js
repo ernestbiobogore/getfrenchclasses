@@ -332,6 +332,9 @@ export default {
             "duration": [
                 57
             ],
+            "faq": [
+                62
+            ],
             "level": [
                 86
             ],
@@ -405,6 +408,9 @@ export default {
             ],
             "duration": [
                 56
+            ],
+            "faq": [
+                20
             ],
             "id": [
                 58
