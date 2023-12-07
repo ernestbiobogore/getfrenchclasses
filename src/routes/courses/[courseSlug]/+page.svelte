@@ -1,7 +1,7 @@
 <script lang="ts">
+	import SingleourseTabs from '$lib/components/section/SingleCourseTabs.svelte';
 	import Accordion from '$lib/components/ui/Accordion.svelte';
 	import AvatarsGroup from '$lib/components/ui/AvatarsGroup.svelte';
-	import CourseTabs from '$lib/components/ui/CourseTabs.svelte';
 	import { getSampleAvatars } from '$lib/utils';
 	import { StructuredText } from '@datocms/svelte';
 	import { BarChart, Clock, PenSquare } from 'lucide-svelte';
@@ -66,7 +66,7 @@
 
 <section class="flex flex-col items-start gap-24 py-32 container-base space-y-11 md:flex-row">
 	<div class="basis-1/2">
-		<CourseTabs />
+		<SingleourseTabs />
 	</div>
 
 	<div class="text-center space-y-11 md:basis-1/2" id="faq">
