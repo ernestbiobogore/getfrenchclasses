@@ -45,11 +45,11 @@ export default {
         74,
         82,
         85,
-        101,
-        106,
+        102,
         107,
-        111,
-        115
+        108,
+        112,
+        116
     ],
     "types": {
         "ActionBlockRecord": {
@@ -195,7 +195,7 @@ export default {
                 84
             ],
             "_updatedAt": [
-                90
+                91
             ],
             "_isValid": [
                 2
@@ -324,7 +324,7 @@ export default {
                 84
             ],
             "_updatedAt": [
-                90
+                91
             ],
             "_isValid": [
                 2
@@ -437,7 +437,7 @@ export default {
                 79
             ],
             "singleTestimonial": [
-                4
+                89
             ],
             "slug": [
                 85
@@ -552,7 +552,7 @@ export default {
                 84
             ],
             "_updatedAt": [
-                90
+                91
             ],
             "_isValid": [
                 2
@@ -700,7 +700,7 @@ export default {
                 85
             ],
             "focalPoint": [
-                116,
+                117,
                 {
                     "locale": [
                         82
@@ -718,7 +718,7 @@ export default {
                 56
             ],
             "id": [
-                101
+                102
             ],
             "md5": [
                 85
@@ -780,7 +780,7 @@ export default {
                 }
             ],
             "video": [
-                113
+                114
             ],
             "width": [
                 56
@@ -865,7 +865,7 @@ export default {
                 85
             ],
             "focalPoint": [
-                116,
+                117,
                 {
                     "locale": [
                         82
@@ -883,7 +883,7 @@ export default {
                 56
             ],
             "id": [
-                101
+                102
             ],
             "md5": [
                 85
@@ -945,7 +945,7 @@ export default {
                 }
             ],
             "video": [
-                113
+                114
             ],
             "width": [
                 56
@@ -1123,7 +1123,7 @@ export default {
                 58
             ],
             "multipleTestimonials": [
-                4
+                89
             ],
             "newCoursesRecords": [
                 13
@@ -1730,10 +1730,10 @@ export default {
         "MuxThumbnailFormatType": {},
         "OrientationFilter": {
             "eq": [
-                107
+                108
             ],
             "neq": [
-                107
+                108
             ],
             "__typename": [
                 85
@@ -1762,7 +1762,7 @@ export default {
                 84
             ],
             "_updatedAt": [
-                90
+                91
             ],
             "_isValid": [
                 2
@@ -1940,7 +1940,7 @@ export default {
                         82
                     ],
                     "filter": [
-                        98
+                        99
                     ]
                 }
             ],
@@ -2073,10 +2073,10 @@ export default {
                         56
                     ],
                     "filter": [
-                        98
+                        99
                     ],
                     "orderBy": [
-                        106,
+                        107,
                         "[UploadOrderBy]"
                     ]
                 }
@@ -2180,10 +2180,10 @@ export default {
                         "[SiteLocale!]"
                     ],
                     "filter": [
-                        98
+                        99
                     ],
                     "orderBy": [
-                        106,
+                        107,
                         "[UploadOrderBy]"
                     ]
                 }
@@ -2269,6 +2269,9 @@ export default {
             ],
             "on_SeoBlockRecord": [
                 79
+            ],
+            "on_TestimonialBlockRecord": [
+                89
             ],
             "__typename": [
                 85
@@ -2601,18 +2604,82 @@ export default {
                 85
             ]
         },
+        "TestimonialBlockRecord": {
+            "_createdAt": [
+                16
+            ],
+            "_editingUrl": [
+                85
+            ],
+            "_firstPublishedAt": [
+                16
+            ],
+            "_isValid": [
+                3
+            ],
+            "_modelApiKey": [
+                85
+            ],
+            "_publicationScheduledAt": [
+                16
+            ],
+            "_publishedAt": [
+                16
+            ],
+            "_seoMetaTags": [
+                88,
+                {
+                    "locale": [
+                        82
+                    ]
+                }
+            ],
+            "_status": [
+                60
+            ],
+            "_unpublishingScheduledAt": [
+                16
+            ],
+            "_updatedAt": [
+                16
+            ],
+            "author": [
+                85
+            ],
+            "company": [
+                85
+            ],
+            "content": [
+                78
+            ],
+            "id": [
+                58
+            ],
+            "image": [
+                22
+            ],
+            "role": [
+                85
+            ],
+            "title": [
+                85
+            ],
+            "__typename": [
+                85
+            ]
+        },
         "TypeFilter": {
             "eq": [
-                111
+                112
             ],
             "neq": [
-                111
+                112
             ],
             "in": [
-                111
+                112
             ],
             "notIn": [
-                111
+                112
             ],
             "__typename": [
                 85
@@ -2765,7 +2832,7 @@ export default {
         },
         "UploadFilter": {
             "type": [
-                89
+                90
             ],
             "inUse": [
                 54
@@ -2774,70 +2841,70 @@ export default {
                 73
             ],
             "size": [
-                108
+                109
             ],
             "tags": [
-                109
+                110
             ],
             "smartTags": [
-                109
+                110
             ],
             "colors": [
-                94
+                95
             ],
             "orientation": [
                 65
             ],
             "id": [
-                102
-            ],
-            "mimeType": [
-                104
-            ],
-            "format": [
-                99
-            ],
-            "height": [
-                100
-            ],
-            "width": [
-                114
-            ],
-            "alt": [
-                91
-            ],
-            "title": [
-                110
-            ],
-            "notes": [
-                105
-            ],
-            "md5": [
                 103
             ],
-            "author": [
+            "mimeType": [
+                105
+            ],
+            "format": [
+                100
+            ],
+            "height": [
+                101
+            ],
+            "width": [
+                115
+            ],
+            "alt": [
                 92
             ],
-            "copyright": [
-                95
+            "title": [
+                111
             ],
-            "basename": [
+            "notes": [
+                106
+            ],
+            "md5": [
+                104
+            ],
+            "author": [
                 93
             ],
-            "filename": [
-                97
-            ],
-            "_createdAt": [
+            "copyright": [
                 96
             ],
+            "basename": [
+                94
+            ],
+            "filename": [
+                98
+            ],
+            "_createdAt": [
+                97
+            ],
             "_updatedAt": [
-                112
+                113
             ],
             "OR": [
-                98
+                99
             ],
             "AND": [
-                98
+                99
             ],
             "__typename": [
                 85
@@ -2886,16 +2953,16 @@ export default {
         "UploadId": {},
         "UploadIdFilter": {
             "eq": [
-                101
+                102
             ],
             "neq": [
-                101
+                102
             ],
             "in": [
-                101
+                102
             ],
             "notIn": [
-                101
+                102
             ],
             "__typename": [
                 85
@@ -3061,10 +3128,10 @@ export default {
                 85,
                 {
                     "res": [
-                        115
+                        116
                     ],
                     "exactRes": [
-                        115
+                        116
                     ]
                 }
             ],

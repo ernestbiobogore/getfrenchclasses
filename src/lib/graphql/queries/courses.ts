@@ -87,7 +87,9 @@ const getCourseBySlug = async (slug: string) => {
 				richText: {
 					value: true
 				}
-			}
+			},
+			author: true,
+			company: true
 		},
 
 		// SEO
