@@ -9,6 +9,7 @@
 	import Circle1 from '$lib/images/circle1.png';
 	import Circle2 from '$lib/images/circle2.png';
 	import Triangle from '$lib/images/triangle.png';
+	import Teacher5 from '$lib/images/Teacher5.png';
 </script>
 
 <!-- Hero -->
@@ -99,7 +100,7 @@
 
 <section class="flex flex-col items-center gap-20 py-24 container-sm sm:flex-row">
 	<div class="basis-6/12">
-		<img alt="" />
+		<img src={Teacher5} alt="Teacher5" />
 	</div>
 
 	<blockquote class="space-y-6 basis-6/12">
