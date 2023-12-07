@@ -657,7 +657,7 @@ type HomepageRecord implements RecordInterface {
   heroTestimonialTitle: String
   heroTitle: String
   id: ItemId!
-  multipleTestimonials: [CardBlockRecord!]!
+  multipleTestimonials: [TestimonialBlockRecord!]!
   newCoursesRecords: [CourseRecord!]!
   newCoursesTitle: String
   popularCoursesRecords: [CourseRecord!]!

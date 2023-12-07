@@ -119,10 +119,8 @@ const getHomePageData = async () => {
 					value: true
 				}
 			},
-			cta: {
-				text: true,
-				link: true
-			}
+			author: true,
+			role: true,
 		},
 
 		// Stats

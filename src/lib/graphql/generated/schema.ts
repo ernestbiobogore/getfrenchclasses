@@ -282,7 +282,7 @@ export interface HomepageRecord {
     heroTestimonialTitle?: Scalars['String']
     heroTitle?: Scalars['String']
     id: Scalars['ItemId']
-    multipleTestimonials: CardBlockRecord[]
+    multipleTestimonials: TestimonialBlockRecord[]
     newCoursesRecords: CourseRecord[]
     newCoursesTitle?: Scalars['String']
     popularCoursesRecords: CourseRecord[]
@@ -1001,7 +1001,7 @@ export interface HomepageRecordRequest{
     heroTestimonialTitle?: boolean | number
     heroTitle?: boolean | number
     id?: boolean | number
-    multipleTestimonials?: CardBlockRecordRequest
+    multipleTestimonials?: TestimonialBlockRecordRequest
     newCoursesRecords?: CourseRecordRequest
     newCoursesTitle?: boolean | number
     popularCoursesRecords?: CourseRecordRequest
@@ -3999,7 +3999,7 @@ markdown?: (Scalars['Boolean'] | null)}) => {get: (request?: boolean|number, def
     heroTestimonialTitle: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
     heroTitle: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
     id: ({get: (request?: boolean|number, defaultValue?: Scalars['ItemId']) => Promise<Scalars['ItemId']>}),
-    multipleTestimonials: ({get: <R extends CardBlockRecordRequest>(request: R, defaultValue?: FieldsSelection<CardBlockRecord, R>[]) => Promise<FieldsSelection<CardBlockRecord, R>[]>}),
+    multipleTestimonials: ({get: <R extends TestimonialBlockRecordRequest>(request: R, defaultValue?: FieldsSelection<TestimonialBlockRecord, R>[]) => Promise<FieldsSelection<TestimonialBlockRecord, R>[]>}),
     newCoursesRecords: ({get: <R extends CourseRecordRequest>(request: R, defaultValue?: FieldsSelection<CourseRecord, R>[]) => Promise<FieldsSelection<CourseRecord, R>[]>}),
     newCoursesTitle: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
     popularCoursesRecords: ({get: <R extends CourseRecordRequest>(request: R, defaultValue?: FieldsSelection<CourseRecord, R>[]) => Promise<FieldsSelection<CourseRecord, R>[]>}),
@@ -4048,7 +4048,7 @@ markdown?: (Scalars['Boolean'] | null)}) => {get: (request?: boolean|number, def
     heroTestimonialTitle: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
     heroTitle: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
     id: ({get: (request?: boolean|number, defaultValue?: Scalars['ItemId']) => Observable<Scalars['ItemId']>}),
-    multipleTestimonials: ({get: <R extends CardBlockRecordRequest>(request: R, defaultValue?: FieldsSelection<CardBlockRecord, R>[]) => Observable<FieldsSelection<CardBlockRecord, R>[]>}),
+    multipleTestimonials: ({get: <R extends TestimonialBlockRecordRequest>(request: R, defaultValue?: FieldsSelection<TestimonialBlockRecord, R>[]) => Observable<FieldsSelection<TestimonialBlockRecord, R>[]>}),
     newCoursesRecords: ({get: <R extends CourseRecordRequest>(request: R, defaultValue?: FieldsSelection<CourseRecord, R>[]) => Observable<FieldsSelection<CourseRecord, R>[]>}),
     newCoursesTitle: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
     popularCoursesRecords: ({get: <R extends CourseRecordRequest>(request: R, defaultValue?: FieldsSelection<CourseRecord, R>[]) => Observable<FieldsSelection<CourseRecord, R>[]>}),

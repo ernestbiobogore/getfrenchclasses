@@ -158,7 +158,10 @@
 						</p>
 					</div>
 
-					<footer>{testimonial.cta[0].text}</footer>
+					<footer>
+						<p>{testimonial.author}</p>
+						<p class="text-xs font-semibold text-savoy-blue">{testimonial.role}</p>
+					</footer>
 				</blockquote>
 			</div>
 		{/each}
