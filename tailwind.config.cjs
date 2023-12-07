@@ -11,6 +11,7 @@ const config = {
 				magnolia: '#eeecf1',
 				night: '#0f0f0f',
 				platinum: '#d9d9d9',
+				'savoy-blue': '#5e62d1'
 			}
 		}
 	},

@@ -64,12 +64,12 @@
 	</div>
 </section>
 
-<section class="py-32 container-base space-y-11 gap-24 flex flex-col md:flex-row items-start">
+<section class="flex flex-col items-start gap-24 py-32 container-base space-y-11 md:flex-row">
 	<div class="basis-1/2">
 		<CourseTabs />
 	</div>
 
-	<div class=" text-center space-y-11 md:basis-1/2" id="faq">
+	<div class="text-center space-y-11 md:basis-1/2" id="faq">
 		{#if coursesPageFaq && coursesPageFaq.length > 0}
 			<Accordion
 				itemIds={coursesPageFaq.map((faq) => faq.id)}
@@ -80,7 +80,7 @@
 	</div>
 </section>
 
-<section class="py-24 grid grid-cols-2 gap-8 sm:gap-16 lg:grid-cols-3 container-sm">
+<section class="grid grid-cols-2 gap-8 py-24 sm:gap-16 lg:grid-cols-3 container-sm">
 	{#each data.course.featuresCards as card}
 		<div class="space-y-4">
 			<img src={card.image?.url} alt={card.image?.alt} loading="lazy" class="w-5 h-5" />
@@ -90,13 +90,17 @@
 </section>
 
 
-<section class="container-sm py-36 px-12 flex items-center gap-20">
+<section class="flex flex-col items-center gap-20 sm:px-12 container-sm py-36 sm:flex-row">
 	<div class="basis-6/12">
 		<img src={data.course.singleTestimonial[0].image?.url} alt={data.course.singleTestimonial[0].image?.alt} />
 	</div>
 
-	<div class="basis-6/12 space-y-5">
+	<div class="space-y-5 basis-6/12">
 		<h3>{data.course.singleTestimonial[0].title}</h3>
 		<StructuredText data={data.course?.singleTestimonial[0].content[0].richText} />
+		<div>
+			<p>{data.course.singleTestimonial[0].author}</p>
+			<p class="text-xs font-semibold text-savoy-blue">{data.course.singleTestimonial[0].company}</p>
+		</div>
 	</div>
 </section>

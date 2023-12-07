@@ -239,7 +239,7 @@ type CourseRecord implements RecordInterface {
   numberOfSections: IntType
   price: IntType
   seo: [SeoBlockRecord!]!
-  singleTestimonial: [CardBlockRecord!]!
+  singleTestimonial: [TestimonialBlockRecord!]!
   slug: String
   tag: String
 }
@@ -2901,6 +2901,35 @@ type Tag {
   attributes: MetaTagAttributes
   content: String
   tag: String!
+}
+
+"""Block of type Testimonial Block (testimonial_block)"""
+type TestimonialBlockRecord implements RecordInterface {
+  _createdAt: DateTime!
+
+  """Editing URL"""
+  _editingUrl: String
+  _firstPublishedAt: DateTime
+  _isValid: BooleanType!
+  _modelApiKey: String!
+  _publicationScheduledAt: DateTime
+  _publishedAt: DateTime
+
+  """Generates SEO and Social card meta tags to be used in your frontend"""
+  _seoMetaTags(
+    """The locale to use to fetch the field's content"""
+    locale: SiteLocale
+  ): [Tag!]!
+  _status: ItemStatus!
+  _unpublishingScheduledAt: DateTime
+  _updatedAt: DateTime!
+  author: String
+  company: String
+  content: [RichTextBlockRecord!]!
+  id: ItemId!
+  image: FileField
+  role: String
+  title: String
 }
 
 """Specifies how to filter by upload type"""

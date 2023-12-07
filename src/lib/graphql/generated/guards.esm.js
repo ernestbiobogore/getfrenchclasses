@@ -135,7 +135,7 @@ export var isQuery = function(obj) {
 
 
 
-var RecordInterface_possibleTypes = ['ActionBlockRecord','CardBlockRecord','CategoryRecord','CourseRecord','FaqBlockRecord','FaqItemRecord','HeadingBlockRecord','HomepageRecord','ImageBlockRecord','PostRecord','RichTextBlockRecord','SeoBlockRecord']
+var RecordInterface_possibleTypes = ['ActionBlockRecord','CardBlockRecord','CategoryRecord','CourseRecord','FaqBlockRecord','FaqItemRecord','HeadingBlockRecord','HomepageRecord','ImageBlockRecord','PostRecord','RichTextBlockRecord','SeoBlockRecord','TestimonialBlockRecord']
 export var isRecordInterface = function(obj) {
   if (!obj || !obj.__typename) throw new Error('__typename is missing in "isRecordInterface"')
   return RecordInterface_possibleTypes.includes(obj.__typename)
@@ -203,6 +203,14 @@ var Tag_possibleTypes = ['Tag']
 export var isTag = function(obj) {
   if (!obj || !obj.__typename) throw new Error('__typename is missing in "isTag"')
   return Tag_possibleTypes.includes(obj.__typename)
+}
+
+
+
+var TestimonialBlockRecord_possibleTypes = ['TestimonialBlockRecord']
+export var isTestimonialBlockRecord = function(obj) {
+  if (!obj || !obj.__typename) throw new Error('__typename is missing in "isTestimonialBlockRecord"')
+  return TestimonialBlockRecord_possibleTypes.includes(obj.__typename)
 }
 
 

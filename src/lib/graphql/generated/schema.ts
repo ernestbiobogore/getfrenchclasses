@@ -131,7 +131,7 @@ export interface CourseRecord {
     numberOfSections?: Scalars['IntType']
     price?: Scalars['IntType']
     seo: SeoBlockRecord[]
-    singleTestimonial: CardBlockRecord[]
+    singleTestimonial: TestimonialBlockRecord[]
     slug?: Scalars['String']
     tag?: Scalars['String']
     __typename: 'CourseRecord'
@@ -436,7 +436,7 @@ export interface Query {
     __typename: 'Query'
 }
 
-export type RecordInterface = (ActionBlockRecord | CardBlockRecord | CategoryRecord | CourseRecord | FaqBlockRecord | FaqItemRecord | HeadingBlockRecord | HomepageRecord | ImageBlockRecord | PostRecord | RichTextBlockRecord | SeoBlockRecord) & { __isUnion?: true }
+export type RecordInterface = (ActionBlockRecord | CardBlockRecord | CategoryRecord | CourseRecord | FaqBlockRecord | FaqItemRecord | HeadingBlockRecord | HomepageRecord | ImageBlockRecord | PostRecord | RichTextBlockRecord | SeoBlockRecord | TestimonialBlockRecord) & { __isUnion?: true }
 
 export type ResolutionType = 'icon' | 'small' | 'medium' | 'large'
 
@@ -529,6 +529,32 @@ export interface Tag {
     content?: Scalars['String']
     tag: Scalars['String']
     __typename: 'Tag'
+}
+
+
+/** Block of type Testimonial Block (testimonial_block) */
+export interface TestimonialBlockRecord {
+    _createdAt: Scalars['DateTime']
+    /** Editing URL */
+    _editingUrl?: Scalars['String']
+    _firstPublishedAt?: Scalars['DateTime']
+    _isValid: Scalars['BooleanType']
+    _modelApiKey: Scalars['String']
+    _publicationScheduledAt?: Scalars['DateTime']
+    _publishedAt?: Scalars['DateTime']
+    /** Generates SEO and Social card meta tags to be used in your frontend */
+    _seoMetaTags: Tag[]
+    _status: ItemStatus
+    _unpublishingScheduledAt?: Scalars['DateTime']
+    _updatedAt: Scalars['DateTime']
+    author?: Scalars['String']
+    company?: Scalars['String']
+    content: RichTextBlockRecord[]
+    id: Scalars['ItemId']
+    image?: FileField
+    role?: Scalars['String']
+    title?: Scalars['String']
+    __typename: 'TestimonialBlockRecord'
 }
 
 export type UploadOrderBy = '_createdAt_ASC' | '_createdAt_DESC' | 'size_ASC' | 'size_DESC' | 'resolution_ASC' | 'resolution_DESC' | 'filename_ASC' | 'filename_DESC' | 'basename_ASC' | 'basename_DESC' | 'mimeType_ASC' | 'mimeType_DESC' | 'format_ASC' | 'format_DESC' | '_updatedAt_ASC' | '_updatedAt_DESC' | 'id_ASC' | 'id_DESC'
@@ -688,7 +714,7 @@ export interface CourseRecordRequest{
     numberOfSections?: boolean | number
     price?: boolean | number
     seo?: SeoBlockRecordRequest
-    singleTestimonial?: CardBlockRecordRequest
+    singleTestimonial?: TestimonialBlockRecordRequest
     slug?: boolean | number
     tag?: boolean | number
     __typename?: boolean | number
@@ -2509,6 +2535,7 @@ export interface RecordInterfaceRequest{
     on_PostRecord?: PostRecordRequest
     on_RichTextBlockRecord?: RichTextBlockRecordRequest
     on_SeoBlockRecord?: SeoBlockRecordRequest
+    on_TestimonialBlockRecord?: TestimonialBlockRecordRequest
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -2680,6 +2707,35 @@ export interface TagRequest{
     attributes?: boolean | number
     content?: boolean | number
     tag?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Block of type Testimonial Block (testimonial_block) */
+export interface TestimonialBlockRecordRequest{
+    _createdAt?: boolean | number
+    /** Editing URL */
+    _editingUrl?: boolean | number
+    _firstPublishedAt?: boolean | number
+    _isValid?: boolean | number
+    _modelApiKey?: boolean | number
+    _publicationScheduledAt?: boolean | number
+    _publishedAt?: boolean | number
+    /** Generates SEO and Social card meta tags to be used in your frontend */
+    _seoMetaTags?: [{
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null)},TagRequest] | TagRequest
+    _status?: boolean | number
+    _unpublishingScheduledAt?: boolean | number
+    _updatedAt?: boolean | number
+    author?: boolean | number
+    company?: boolean | number
+    content?: RichTextBlockRecordRequest
+    id?: boolean | number
+    image?: FileFieldRequest
+    role?: boolean | number
+    title?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -3120,7 +3176,7 @@ export const isQuery = (obj?: { __typename?: any } | null): obj is Query => {
 
 
 
-const RecordInterface_possibleTypes: string[] = ['ActionBlockRecord','CardBlockRecord','CategoryRecord','CourseRecord','FaqBlockRecord','FaqItemRecord','HeadingBlockRecord','HomepageRecord','ImageBlockRecord','PostRecord','RichTextBlockRecord','SeoBlockRecord']
+const RecordInterface_possibleTypes: string[] = ['ActionBlockRecord','CardBlockRecord','CategoryRecord','CourseRecord','FaqBlockRecord','FaqItemRecord','HeadingBlockRecord','HomepageRecord','ImageBlockRecord','PostRecord','RichTextBlockRecord','SeoBlockRecord','TestimonialBlockRecord']
 export const isRecordInterface = (obj?: { __typename?: any } | null): obj is RecordInterface => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isRecordInterface"')
   return RecordInterface_possibleTypes.includes(obj.__typename)
@@ -3188,6 +3244,14 @@ const Tag_possibleTypes: string[] = ['Tag']
 export const isTag = (obj?: { __typename?: any } | null): obj is Tag => {
   if (!obj?.__typename) throw new Error('__typename is missing in "isTag"')
   return Tag_possibleTypes.includes(obj.__typename)
+}
+
+
+
+const TestimonialBlockRecord_possibleTypes: string[] = ['TestimonialBlockRecord']
+export const isTestimonialBlockRecord = (obj?: { __typename?: any } | null): obj is TestimonialBlockRecord => {
+  if (!obj?.__typename) throw new Error('__typename is missing in "isTestimonialBlockRecord"')
+  return TestimonialBlockRecord_possibleTypes.includes(obj.__typename)
 }
 
 
@@ -3417,7 +3481,7 @@ locale?: (SiteLocale | null)}) => {get: <R extends TagRequest>(request: R, defau
     numberOfSections: ({get: (request?: boolean|number, defaultValue?: (Scalars['IntType'] | undefined)) => Promise<(Scalars['IntType'] | undefined)>}),
     price: ({get: (request?: boolean|number, defaultValue?: (Scalars['IntType'] | undefined)) => Promise<(Scalars['IntType'] | undefined)>}),
     seo: ({get: <R extends SeoBlockRecordRequest>(request: R, defaultValue?: FieldsSelection<SeoBlockRecord, R>[]) => Promise<FieldsSelection<SeoBlockRecord, R>[]>}),
-    singleTestimonial: ({get: <R extends CardBlockRecordRequest>(request: R, defaultValue?: FieldsSelection<CardBlockRecord, R>[]) => Promise<FieldsSelection<CardBlockRecord, R>[]>}),
+    singleTestimonial: ({get: <R extends TestimonialBlockRecordRequest>(request: R, defaultValue?: FieldsSelection<TestimonialBlockRecord, R>[]) => Promise<FieldsSelection<TestimonialBlockRecord, R>[]>}),
     slug: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
     tag: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
 }
@@ -3452,7 +3516,7 @@ locale?: (SiteLocale | null)}) => {get: <R extends TagRequest>(request: R, defau
     numberOfSections: ({get: (request?: boolean|number, defaultValue?: (Scalars['IntType'] | undefined)) => Observable<(Scalars['IntType'] | undefined)>}),
     price: ({get: (request?: boolean|number, defaultValue?: (Scalars['IntType'] | undefined)) => Observable<(Scalars['IntType'] | undefined)>}),
     seo: ({get: <R extends SeoBlockRecordRequest>(request: R, defaultValue?: FieldsSelection<SeoBlockRecord, R>[]) => Observable<FieldsSelection<SeoBlockRecord, R>[]>}),
-    singleTestimonial: ({get: <R extends CardBlockRecordRequest>(request: R, defaultValue?: FieldsSelection<CardBlockRecord, R>[]) => Observable<FieldsSelection<CardBlockRecord, R>[]>}),
+    singleTestimonial: ({get: <R extends TestimonialBlockRecordRequest>(request: R, defaultValue?: FieldsSelection<TestimonialBlockRecord, R>[]) => Observable<FieldsSelection<TestimonialBlockRecord, R>[]>}),
     slug: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
     tag: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
 }
@@ -4597,6 +4661,64 @@ export interface TagObservableChain{
     attributes: ({get: (request?: boolean|number, defaultValue?: (Scalars['MetaTagAttributes'] | undefined)) => Observable<(Scalars['MetaTagAttributes'] | undefined)>}),
     content: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
     tag: ({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Observable<Scalars['String']>})
+}
+
+
+/** Block of type Testimonial Block (testimonial_block) */
+export interface TestimonialBlockRecordPromiseChain{
+    _createdAt: ({get: (request?: boolean|number, defaultValue?: Scalars['DateTime']) => Promise<Scalars['DateTime']>}),
+    
+/** Editing URL */
+_editingUrl: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    _firstPublishedAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Promise<(Scalars['DateTime'] | undefined)>}),
+    _isValid: ({get: (request?: boolean|number, defaultValue?: Scalars['BooleanType']) => Promise<Scalars['BooleanType']>}),
+    _modelApiKey: ({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Promise<Scalars['String']>}),
+    _publicationScheduledAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Promise<(Scalars['DateTime'] | undefined)>}),
+    _publishedAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Promise<(Scalars['DateTime'] | undefined)>}),
+    
+/** Generates SEO and Social card meta tags to be used in your frontend */
+_seoMetaTags: ((args?: {
+/** The locale to use to fetch the field's content */
+locale?: (SiteLocale | null)}) => {get: <R extends TagRequest>(request: R, defaultValue?: FieldsSelection<Tag, R>[]) => Promise<FieldsSelection<Tag, R>[]>})&({get: <R extends TagRequest>(request: R, defaultValue?: FieldsSelection<Tag, R>[]) => Promise<FieldsSelection<Tag, R>[]>}),
+    _status: ({get: (request?: boolean|number, defaultValue?: ItemStatus) => Promise<ItemStatus>}),
+    _unpublishingScheduledAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Promise<(Scalars['DateTime'] | undefined)>}),
+    _updatedAt: ({get: (request?: boolean|number, defaultValue?: Scalars['DateTime']) => Promise<Scalars['DateTime']>}),
+    author: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    company: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    content: ({get: <R extends RichTextBlockRecordRequest>(request: R, defaultValue?: FieldsSelection<RichTextBlockRecord, R>[]) => Promise<FieldsSelection<RichTextBlockRecord, R>[]>}),
+    id: ({get: (request?: boolean|number, defaultValue?: Scalars['ItemId']) => Promise<Scalars['ItemId']>}),
+    image: (FileFieldPromiseChain & {get: <R extends FileFieldRequest>(request: R, defaultValue?: (FieldsSelection<FileField, R> | undefined)) => Promise<(FieldsSelection<FileField, R> | undefined)>}),
+    role: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
+    title: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
+}
+
+
+/** Block of type Testimonial Block (testimonial_block) */
+export interface TestimonialBlockRecordObservableChain{
+    _createdAt: ({get: (request?: boolean|number, defaultValue?: Scalars['DateTime']) => Observable<Scalars['DateTime']>}),
+    
+/** Editing URL */
+_editingUrl: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    _firstPublishedAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Observable<(Scalars['DateTime'] | undefined)>}),
+    _isValid: ({get: (request?: boolean|number, defaultValue?: Scalars['BooleanType']) => Observable<Scalars['BooleanType']>}),
+    _modelApiKey: ({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Observable<Scalars['String']>}),
+    _publicationScheduledAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Observable<(Scalars['DateTime'] | undefined)>}),
+    _publishedAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Observable<(Scalars['DateTime'] | undefined)>}),
+    
+/** Generates SEO and Social card meta tags to be used in your frontend */
+_seoMetaTags: ((args?: {
+/** The locale to use to fetch the field's content */
+locale?: (SiteLocale | null)}) => {get: <R extends TagRequest>(request: R, defaultValue?: FieldsSelection<Tag, R>[]) => Observable<FieldsSelection<Tag, R>[]>})&({get: <R extends TagRequest>(request: R, defaultValue?: FieldsSelection<Tag, R>[]) => Observable<FieldsSelection<Tag, R>[]>}),
+    _status: ({get: (request?: boolean|number, defaultValue?: ItemStatus) => Observable<ItemStatus>}),
+    _unpublishingScheduledAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Observable<(Scalars['DateTime'] | undefined)>}),
+    _updatedAt: ({get: (request?: boolean|number, defaultValue?: Scalars['DateTime']) => Observable<Scalars['DateTime']>}),
+    author: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    company: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    content: ({get: <R extends RichTextBlockRecordRequest>(request: R, defaultValue?: FieldsSelection<RichTextBlockRecord, R>[]) => Observable<FieldsSelection<RichTextBlockRecord, R>[]>}),
+    id: ({get: (request?: boolean|number, defaultValue?: Scalars['ItemId']) => Observable<Scalars['ItemId']>}),
+    image: (FileFieldObservableChain & {get: <R extends FileFieldRequest>(request: R, defaultValue?: (FieldsSelection<FileField, R> | undefined)) => Observable<(FieldsSelection<FileField, R> | undefined)>}),
+    role: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
+    title: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
 }
 
 export interface UploadVideoFieldPromiseChain{
