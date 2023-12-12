@@ -13,16 +13,16 @@
 </script>
 
 <!-- Hero -->
-<section class="p-3 md:py-20 container-base">
+<section class="p-3 md:py-20 container-base space-y-7">
 	<h1 class="tracking-normal text-4xl text-center">Providing the tools necessary to succeed</h1>
 
-	<div class="images">
-		<div class="grid grid-cols-3">
-			<img src={Teacher1} alt="Teacher 1" class="" />
-			<img src={Teacher3} alt="Teacher 3" class="order-last" />
-			<img src={SupportImage} alt="Support" class="order-3" />
-			<img src={Teacher2} alt="Teacher 2" class="" />
-			<img src={Teacher4} alt="Teacher 4" />
+	<div class="images p-4 hidden md:block">
+		<div class="about-hero-images items-center">
+			<img src={Teacher1} alt="Teacher 1" class="col-span-1 row-span-2" />
+			<img src={SupportImage} alt="Support" class="center-image" />
+			<img src={Teacher3} alt="Teacher 3" class="col-span-1 row-span-1 justify-end" />
+			<img src={Teacher2} alt="Teacher 2" class="col-span-1 row-span-1 justify-center" />
+			<img src={Teacher4} alt="Teacher 4" class="col-span-1 row-span-1" />
 		</div>
 	</div>
 </section>
