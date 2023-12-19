@@ -2766,7 +2766,7 @@ type ResponsiveImage {
 }
 
 type RichTextBlockModelRichTextField {
-  blocks: [ImageBlockRecord!]!
+  blocks: [String!]!
   links: [String!]!
   value: JsonField!
 }

@@ -481,7 +481,7 @@ export interface ResponsiveImage {
 }
 
 export interface RichTextBlockModelRichTextField {
-    blocks: ImageBlockRecord[]
+    blocks: Scalars['String'][]
     links: Scalars['String'][]
     value: Scalars['JsonField']
     __typename: 'RichTextBlockModelRichTextField'
@@ -2619,7 +2619,7 @@ export interface ResponsiveImageGenqlSelection{
 }
 
 export interface RichTextBlockModelRichTextFieldGenqlSelection{
-    blocks?: ImageBlockRecordGenqlSelection
+    blocks?: boolean | number
     links?: boolean | number
     value?: boolean | number
     __typename?: boolean | number

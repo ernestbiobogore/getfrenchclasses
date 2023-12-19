@@ -41,6 +41,7 @@
 		"@fontsource-variable/inter": "^5.0.15",
 		"@genql/runtime": "^2.10.0",
 		"@melt-ui/svelte": "^0.57.1",
+		"@unpic/svelte": "^0.0.43",
 		"bits-ui": "^0.10.3",
 		"lucide-svelte": "^0.288.0"
 	}

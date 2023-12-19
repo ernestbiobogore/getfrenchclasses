@@ -27,30 +27,7 @@ const getSingleBlogPost = async (slug: string) => {
 				__typename: true,
 				on_RichTextBlockRecord: {
 					richText: {
-						value: true,
-						blocks: {
-							__typename: true,
-							image: {
-								id: true,
-								responsiveImage: {
-									__args: {
-										imgixParams: {
-											fit: 'crop',
-											w: 300,
-											h: 300,
-											auto: ['format']
-										}
-									},
-									src: true,
-									width: true,
-									height: true,
-									alt: true,
-									base64: true,
-									bgColor: true,
-									sizes: true
-								}
-							}
-						}
+						value: true
 					}
 				},
 				on_NoteBlockRecord: {
@@ -58,6 +35,17 @@ const getSingleBlogPost = async (slug: string) => {
 					content: {
 						richText: {
 							value: true
+						}
+					}
+				},
+				on_ImageBlockRecord: {
+					image: {
+						responsiveImage: {
+							src: true,
+							width: true,
+							height: true,
+							alt: true,
+							sizes: true
 						}
 					}
 				}
