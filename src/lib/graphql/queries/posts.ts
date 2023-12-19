@@ -1,7 +1,7 @@
 import { client } from '$lib/graphql/client';
 
 const getSingleBlogPost = async (slug: string) => {
-	const post = await client.query({
+	const { post } = await client.query({
 		post: {
 			__args: {
 				filter: {
