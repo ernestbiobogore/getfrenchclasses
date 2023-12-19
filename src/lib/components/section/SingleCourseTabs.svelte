@@ -8,7 +8,7 @@
 	];
 </script>
 
-<Tabs.Root class="space-y-8 root">
+3<Tabs.Root class="space-y-8 root">
 	<Tabs.List class="flex gap-4">
 		{#each triggers as { id, text }}
 			<Tabs.Trigger

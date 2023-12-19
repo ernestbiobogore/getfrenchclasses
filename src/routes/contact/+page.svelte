@@ -1,5 +1,9 @@
 <script>
 	import { Mail, User, MessageSquare, Phone, MapPin } from 'lucide-svelte';
+	import Accordion from '$lib/components/ui/Accordion.svelte';
+	import { StructuredText } from '@datocms/svelte';
+	export let data;
+	$: coursesPageFaq = data.course.faq?.faqBlocks;
 </script>
 
 <section class="py-12 text-center">
@@ -8,22 +12,25 @@
 		Fill out the form below and we will get back to you as soon as possible.
 	</p>
 	<div class="form p-7">
-		<form method="" class=" flex flex-col gap-5 m-auto md:w-1/2 lg:w-1/3">
+		<form method="" class=" flex flex-col gap-5 m-auto md:w-1/2 lg:w-1/3" id="contact-form">
 			<div class="flex flex-row bg-white rounded-md gap-4 p-2 md:p-4 items-center">
 				<User color="grey" class="w-4 h-4" />
 				<input
-					id="myInput"
+					id="name"
+					name="name"
 					type="text"
 					placeholder="Enter your name"
+					autocomplete="name"
 					class="text-xs border-none w-full p-2"
 				/>
 			</div>
 			<div class="flex flex-row bg-white rounded-md gap-4 p-2 md:p-4 items-center">
 				<Mail color="grey" class="w-4 h-4" />
 				<input
-					id="myInput"
+					id="email"
 					name="email"
 					placeholder="Enter your Email"
+					autocomplete="email"
 					class="text-xs border-none w-full p-2"
 				/>
 			</div>
@@ -79,5 +86,14 @@
 				</a>
 			</button>
 		</div>
+	</div>
+	<div class="text-center space-y-11 md:basis-1/2" id="faq">
+		{#if coursesPageFaq && coursesPageFaq.length > 0}
+			<Accordion
+				itemIds={coursesPageFaq.map((faq) => faq.id)}
+				titles={coursesPageFaq.map((faq) => faq.question || '')}
+				richTexts={coursesPageFaq.map((faq) => faq.answer[0].richText)}
+			/>
+		{/if}
 	</div>
 </section>
