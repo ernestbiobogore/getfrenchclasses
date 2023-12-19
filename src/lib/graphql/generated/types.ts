@@ -1842,6 +1842,9 @@ export default {
             "on_ImageBlockRecord": [
                 29
             ],
+            "on_NoteBlockRecord": [
+                65
+            ],
             "on_RichTextBlockRecord": [
                 78
             ],

@@ -31,23 +31,33 @@ const getSingleBlogPost = async (slug: string) => {
 						blocks: {
 							__typename: true,
 							image: {
-								id: true
-
-								// responsiveImage: [
-								// 	{
-								// 		imgixParams: { fit: 'crop', w: 300, h: 300, auto: ['format'] }
-								// 	},
-								// 	{
-								// 		src: true,
-								// 		width: true,
-								// 		height: true,
-								// 		alt: true,
-								// 		base64: true,
-								// 		bgColor: true,
-								// 		sizes: true
-								// 	}
-								// ]
+								id: true,
+								responsiveImage: {
+									__args: {
+										imgixParams: {
+											fit: 'crop',
+											w: 300,
+											h: 300,
+											auto: ['format']
+										}
+									},
+									src: true,
+									width: true,
+									height: true,
+									alt: true,
+									base64: true,
+									bgColor: true,
+									sizes: true
+								}
 							}
+						}
+					}
+				},
+				on_NoteBlockRecord: {
+					noteType: true,
+					content: {
+						richText: {
+							value: true
 						}
 					}
 				}
