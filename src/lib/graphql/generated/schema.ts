@@ -370,6 +370,28 @@ export type ItemStatus = 'draft' | 'updated' | 'published'
 
 export type MuxThumbnailFormatType = 'jpg' | 'png' | 'gif'
 
+
+/** Block of type Note Block (note_block) */
+export interface NoteBlockRecord {
+    _createdAt: Scalars['DateTime']
+    /** Editing URL */
+    _editingUrl: (Scalars['String'] | null)
+    _firstPublishedAt: (Scalars['DateTime'] | null)
+    _isValid: Scalars['BooleanType']
+    _modelApiKey: Scalars['String']
+    _publicationScheduledAt: (Scalars['DateTime'] | null)
+    _publishedAt: (Scalars['DateTime'] | null)
+    /** Generates SEO and Social card meta tags to be used in your frontend */
+    _seoMetaTags: Tag[]
+    _status: ItemStatus
+    _unpublishingScheduledAt: (Scalars['DateTime'] | null)
+    _updatedAt: Scalars['DateTime']
+    content: RichTextBlockRecord[]
+    id: Scalars['ItemId']
+    noteType: (Scalars['String'] | null)
+    __typename: 'NoteBlockRecord'
+}
+
 export type PostModelModularContentField = (ImageBlockRecord | RichTextBlockRecord) & { __isUnion?: true }
 
 export type PostModelOrderBy = '_createdAt_ASC' | '_createdAt_DESC' | 'id_ASC' | 'id_DESC' | '_firstPublishedAt_ASC' | '_firstPublishedAt_DESC' | '_publicationScheduledAt_ASC' | '_publicationScheduledAt_DESC' | '_unpublishingScheduledAt_ASC' | '_unpublishingScheduledAt_DESC' | '_publishedAt_ASC' | '_publishedAt_DESC' | '_status_ASC' | '_status_DESC' | '_updatedAt_ASC' | '_updatedAt_DESC' | '_isValid_ASC' | '_isValid_DESC' | 'title_ASC' | 'title_DESC'
@@ -439,7 +461,7 @@ export interface Query {
     __typename: 'Query'
 }
 
-export type RecordInterface = (ActionBlockRecord | CardBlockRecord | CategoryRecord | CourseRecord | FaqBlockRecord | FaqItemRecord | HeadingBlockRecord | HomepageRecord | ImageBlockRecord | PostRecord | RichTextBlockRecord | SeoBlockRecord | TestimonialBlockRecord) & { __isUnion?: true }
+export type RecordInterface = (ActionBlockRecord | CardBlockRecord | CategoryRecord | CourseRecord | FaqBlockRecord | FaqItemRecord | HeadingBlockRecord | HomepageRecord | ImageBlockRecord | NoteBlockRecord | PostRecord | RichTextBlockRecord | SeoBlockRecord | TestimonialBlockRecord) & { __isUnion?: true }
 
 export type ResolutionType = 'icon' | 'small' | 'medium' | 'large'
 
@@ -458,10 +480,8 @@ export interface ResponsiveImage {
     __typename: 'ResponsiveImage'
 }
 
-export type RichTextBlockModelRichTextBlocksField = (ImageBlockRecord | SeoBlockRecord) & { __isUnion?: true }
-
 export interface RichTextBlockModelRichTextField {
-    blocks: RichTextBlockModelRichTextBlocksField[]
+    blocks: ImageBlockRecord[]
     links: Scalars['String'][]
     value: Scalars['JsonField']
     __typename: 'RichTextBlockModelRichTextField'
@@ -2328,6 +2348,31 @@ notIn?: ((Scalars['ItemId'] | null)[] | null),
 exists?: (Scalars['BooleanType'] | null)}
 
 
+/** Block of type Note Block (note_block) */
+export interface NoteBlockRecordGenqlSelection{
+    _createdAt?: boolean | number
+    /** Editing URL */
+    _editingUrl?: boolean | number
+    _firstPublishedAt?: boolean | number
+    _isValid?: boolean | number
+    _modelApiKey?: boolean | number
+    _publicationScheduledAt?: boolean | number
+    _publishedAt?: boolean | number
+    /** Generates SEO and Social card meta tags to be used in your frontend */
+    _seoMetaTags?: (TagGenqlSelection & { __args?: {
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null)} })
+    _status?: boolean | number
+    _unpublishingScheduledAt?: boolean | number
+    _updatedAt?: boolean | number
+    content?: RichTextBlockRecordGenqlSelection
+    id?: boolean | number
+    noteType?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
 /** Specifies how to filter by image orientation */
 export interface OrientationFilter {
 /** Search uploads with the specified orientation */
@@ -2535,6 +2580,7 @@ export interface RecordInterfaceGenqlSelection{
     on_HeadingBlockRecord?: HeadingBlockRecordGenqlSelection
     on_HomepageRecord?: HomepageRecordGenqlSelection
     on_ImageBlockRecord?: ImageBlockRecordGenqlSelection
+    on_NoteBlockRecord?: NoteBlockRecordGenqlSelection
     on_PostRecord?: PostRecordGenqlSelection
     on_RichTextBlockRecord?: RichTextBlockRecordGenqlSelection
     on_SeoBlockRecord?: SeoBlockRecordGenqlSelection
@@ -2571,15 +2617,8 @@ export interface ResponsiveImageGenqlSelection{
     __scalar?: boolean | number
 }
 
-export interface RichTextBlockModelRichTextBlocksFieldGenqlSelection{
-    on_ImageBlockRecord?:ImageBlockRecordGenqlSelection,
-    on_SeoBlockRecord?:SeoBlockRecordGenqlSelection,
-    on_RecordInterface?: RecordInterfaceGenqlSelection,
-    __typename?: boolean | number
-}
-
 export interface RichTextBlockModelRichTextFieldGenqlSelection{
-    blocks?: RichTextBlockModelRichTextBlocksFieldGenqlSelection
+    blocks?: ImageBlockRecordGenqlSelection
     links?: boolean | number
     value?: boolean | number
     __typename?: boolean | number
@@ -3155,6 +3194,14 @@ export interface focalPointGenqlSelection{
     
 
 
+    const NoteBlockRecord_possibleTypes: string[] = ['NoteBlockRecord']
+    export const isNoteBlockRecord = (obj?: { __typename?: any } | null): obj is NoteBlockRecord => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isNoteBlockRecord"')
+      return NoteBlockRecord_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
     const PostModelModularContentField_possibleTypes: string[] = ['ImageBlockRecord','RichTextBlockRecord']
     export const isPostModelModularContentField = (obj?: { __typename?: any } | null): obj is PostModelModularContentField => {
       if (!obj?.__typename) throw new Error('__typename is missing in "isPostModelModularContentField"')
@@ -3179,7 +3226,7 @@ export interface focalPointGenqlSelection{
     
 
 
-    const RecordInterface_possibleTypes: string[] = ['ActionBlockRecord','CardBlockRecord','CategoryRecord','CourseRecord','FaqBlockRecord','FaqItemRecord','HeadingBlockRecord','HomepageRecord','ImageBlockRecord','PostRecord','RichTextBlockRecord','SeoBlockRecord','TestimonialBlockRecord']
+    const RecordInterface_possibleTypes: string[] = ['ActionBlockRecord','CardBlockRecord','CategoryRecord','CourseRecord','FaqBlockRecord','FaqItemRecord','HeadingBlockRecord','HomepageRecord','ImageBlockRecord','NoteBlockRecord','PostRecord','RichTextBlockRecord','SeoBlockRecord','TestimonialBlockRecord']
     export const isRecordInterface = (obj?: { __typename?: any } | null): obj is RecordInterface => {
       if (!obj?.__typename) throw new Error('__typename is missing in "isRecordInterface"')
       return RecordInterface_possibleTypes.includes(obj.__typename)
@@ -3191,14 +3238,6 @@ export interface focalPointGenqlSelection{
     export const isResponsiveImage = (obj?: { __typename?: any } | null): obj is ResponsiveImage => {
       if (!obj?.__typename) throw new Error('__typename is missing in "isResponsiveImage"')
       return ResponsiveImage_possibleTypes.includes(obj.__typename)
-    }
-    
-
-
-    const RichTextBlockModelRichTextBlocksField_possibleTypes: string[] = ['ImageBlockRecord','SeoBlockRecord']
-    export const isRichTextBlockModelRichTextBlocksField = (obj?: { __typename?: any } | null): obj is RichTextBlockModelRichTextBlocksField => {
-      if (!obj?.__typename) throw new Error('__typename is missing in "isRichTextBlockModelRichTextBlocksField"')
-      return RichTextBlockModelRichTextBlocksField_possibleTypes.includes(obj.__typename)
     }
     
 

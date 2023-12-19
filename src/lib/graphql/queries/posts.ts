@@ -29,26 +29,24 @@ const getSingleBlogPost = async (slug: string) => {
 					richText: {
 						value: true,
 						blocks: {
-							on_ImageBlockRecord: {
-								__typename: true,
-								image: {
-									id: true
+							__typename: true,
+							image: {
+								id: true
 
-									// responsiveImage: [
-									// 	{
-									// 		imgixParams: { fit: 'crop', w: 300, h: 300, auto: ['format'] }
-									// 	},
-									// 	{
-									// 		src: true,
-									// 		width: true,
-									// 		height: true,
-									// 		alt: true,
-									// 		base64: true,
-									// 		bgColor: true,
-									// 		sizes: true
-									// 	}
-									// ]
-								}
+								// responsiveImage: [
+								// 	{
+								// 		imgixParams: { fit: 'crop', w: 300, h: 300, auto: ['format'] }
+								// 	},
+								// 	{
+								// 		src: true,
+								// 		width: true,
+								// 		height: true,
+								// 		alt: true,
+								// 		base64: true,
+								// 		bgColor: true,
+								// 		sizes: true
+								// 	}
+								// ]
 							}
 						}
 					}

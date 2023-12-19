@@ -41,8 +41,8 @@ export default {
         61,
         63,
         64,
-        68,
-        74,
+        69,
+        75,
         82,
         85,
         102,
@@ -180,16 +180,16 @@ export default {
                 59
             ],
             "_firstPublishedAt": [
-                70
+                71
             ],
             "_publicationScheduledAt": [
-                70
+                71
             ],
             "_unpublishingScheduledAt": [
-                70
+                71
             ],
             "_publishedAt": [
-                70
+                71
             ],
             "_status": [
                 84
@@ -309,16 +309,16 @@ export default {
                 59
             ],
             "_firstPublishedAt": [
-                70
+                71
             ],
             "_publicationScheduledAt": [
-                70
+                71
             ],
             "_unpublishingScheduledAt": [
-                70
+                71
             ],
             "_publishedAt": [
-                70
+                71
             ],
             "_status": [
                 84
@@ -537,16 +537,16 @@ export default {
                 59
             ],
             "_firstPublishedAt": [
-                70
+                71
             ],
             "_publicationScheduledAt": [
-                70
+                71
             ],
             "_unpublishingScheduledAt": [
-                70
+                71
             ],
             "_publishedAt": [
-                70
+                71
             ],
             "_status": [
                 84
@@ -730,7 +730,7 @@ export default {
                 85
             ],
             "responsiveImage": [
-                75,
+                76,
                 {
                     "imgixParams": [
                         30
@@ -895,7 +895,7 @@ export default {
                 85
             ],
             "responsiveImage": [
-                75,
+                76,
                 {
                     "imgixParams": [
                         30
@@ -1728,6 +1728,58 @@ export default {
         },
         "MetaTagAttributes": {},
         "MuxThumbnailFormatType": {},
+        "NoteBlockRecord": {
+            "_createdAt": [
+                16
+            ],
+            "_editingUrl": [
+                85
+            ],
+            "_firstPublishedAt": [
+                16
+            ],
+            "_isValid": [
+                3
+            ],
+            "_modelApiKey": [
+                85
+            ],
+            "_publicationScheduledAt": [
+                16
+            ],
+            "_publishedAt": [
+                16
+            ],
+            "_seoMetaTags": [
+                88,
+                {
+                    "locale": [
+                        82
+                    ]
+                }
+            ],
+            "_status": [
+                60
+            ],
+            "_unpublishingScheduledAt": [
+                16
+            ],
+            "_updatedAt": [
+                16
+            ],
+            "content": [
+                78
+            ],
+            "id": [
+                58
+            ],
+            "noteType": [
+                85
+            ],
+            "__typename": [
+                85
+            ]
+        },
         "OrientationFilter": {
             "eq": [
                 108
@@ -1747,16 +1799,16 @@ export default {
                 59
             ],
             "_firstPublishedAt": [
-                70
+                71
             ],
             "_publicationScheduledAt": [
-                70
+                71
             ],
             "_unpublishingScheduledAt": [
-                70
+                71
             ],
             "_publishedAt": [
-                70
+                71
             ],
             "_status": [
                 84
@@ -1777,10 +1829,10 @@ export default {
                 86
             ],
             "OR": [
-                66
+                67
             ],
             "AND": [
-                66
+                67
             ],
             "__typename": [
                 85
@@ -1794,7 +1846,7 @@ export default {
                 78
             ],
             "on_RecordInterface": [
-                72
+                73
             ],
             "__typename": [
                 85
@@ -1847,7 +1899,7 @@ export default {
                 58
             ],
             "modularContent": [
-                67
+                68
             ],
             "seo": [
                 79
@@ -1929,7 +1981,7 @@ export default {
                         82
                     ],
                     "filter": [
-                        66
+                        67
                     ]
                 }
             ],
@@ -2032,7 +2084,7 @@ export default {
                 }
             ],
             "allPosts": [
-                69,
+                70,
                 {
                     "locale": [
                         82
@@ -2048,10 +2100,10 @@ export default {
                         56
                     ],
                     "filter": [
-                        66
+                        67
                     ],
                     "orderBy": [
-                        68,
+                        69,
                         "[PostModelOrderBy]"
                     ]
                 }
@@ -2151,7 +2203,7 @@ export default {
                 }
             ],
             "post": [
-                69,
+                70,
                 {
                     "locale": [
                         82
@@ -2161,10 +2213,10 @@ export default {
                         "[SiteLocale!]"
                     ],
                     "filter": [
-                        66
+                        67
                     ],
                     "orderBy": [
-                        68,
+                        69,
                         "[PostModelOrderBy]"
                     ]
                 }
@@ -2261,8 +2313,11 @@ export default {
             "on_ImageBlockRecord": [
                 29
             ],
+            "on_NoteBlockRecord": [
+                65
+            ],
             "on_PostRecord": [
-                69
+                70
             ],
             "on_RichTextBlockRecord": [
                 78
@@ -2279,16 +2334,16 @@ export default {
         },
         "ResolutionFilter": {
             "eq": [
-                74
+                75
             ],
             "neq": [
-                74
+                75
             ],
             "in": [
-                74
+                75
             ],
             "notIn": [
-                74
+                75
             ],
             "__typename": [
                 85
@@ -2333,23 +2388,9 @@ export default {
                 85
             ]
         },
-        "RichTextBlockModelRichTextBlocksField": {
-            "on_ImageBlockRecord": [
-                29
-            ],
-            "on_SeoBlockRecord": [
-                79
-            ],
-            "on_RecordInterface": [
-                72
-            ],
-            "__typename": [
-                85
-            ]
-        },
         "RichTextBlockModelRichTextField": {
             "blocks": [
-                76
+                29
             ],
             "links": [
                 85
@@ -2838,7 +2879,7 @@ export default {
                 54
             ],
             "resolution": [
-                73
+                74
             ],
             "size": [
                 109
@@ -2853,7 +2894,7 @@ export default {
                 95
             ],
             "orientation": [
-                65
+                66
             ],
             "id": [
                 103
