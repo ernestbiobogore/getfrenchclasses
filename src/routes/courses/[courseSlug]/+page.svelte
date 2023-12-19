@@ -84,7 +84,7 @@
 	{#each data.course.featuresCards as card}
 		<div class="space-y-4">
 			<img src={card.image?.url} alt={card.image?.alt} loading="lazy" class="w-5 h-5" />
-			<StructuredText data={card.content[0].richText} />
+			<StructuredText data={card.content[0].richText?.value} />
 		</div>
 	{/each}
 </section>
@@ -100,7 +100,7 @@
 
 		<div class="space-y-5 basis-6/12">
 			<h3>{data.course.singleTestimonial[0].title}</h3>
-			<StructuredText data={data.course?.singleTestimonial[0].content[0].richText} />
+			<StructuredText data={data.course?.singleTestimonial[0].content[0].richText?.value} />
 			<div>
 				<p>{data.course.singleTestimonial[0].author}</p>
 				<p class="text-xs font-semibold text-savoy-blue">
