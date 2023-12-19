@@ -16,6 +16,20 @@ const getSingleBlogPost = async (slug: string) => {
 			_firstPublishedAt: true,
 			_updatedAt: true,
 
+			// CTA
+			cta: {
+				title: true,
+				content: {
+					richText: {
+						value: true
+					}
+				},
+				cta: {
+					text: true,
+					link: true
+				}
+			},
+
 			// Category
 			category: {
 				name: true,

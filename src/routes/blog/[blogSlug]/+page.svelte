@@ -22,31 +22,53 @@
 	<title>{data.post.title}</title>
 </svelte:head>
 
-<header class="container-base py-16">
+<header class="py-16 container-base">
 	<h1>{data.post.title}</h1>
 </header>
 
-<section class="container-base space-y-8">
-	{#each data.post.modularContent as block}
-		{#if block.__typename === 'ImageBlockRecord'}
-			<Image
-				src={block.image?.responsiveImage?.src}
-				width={block.image?.responsiveImage?.width}
-				height={block.image?.responsiveImage?.height}
-				alt={block.image?.responsiveImage?.alt}
-			/>
-		{/if}
+<article class="flex flex-col sm:flex-row gap-8 container-base">
+	<main class="space-y-8 basis-9/12">
+		{#each data.post.modularContent as block}
+			{#if block.__typename === 'ImageBlockRecord'}
+				<Image
+					src={block.image?.responsiveImage?.src}
+					width={block.image?.responsiveImage?.width}
+					height={block.image?.responsiveImage?.height}
+					alt={block.image?.responsiveImage?.alt}
+				/>
+			{/if}
 
-		{#if block.__typename === 'NoteBlockRecord'}
-			<div class={getNoteClass(block.noteType ?? 'note')}>
-				<StructuredText data={block.content[0].richText?.value} />
+			{#if block.__typename === 'NoteBlockRecord'}
+				<div class={getNoteClass(block.noteType ?? 'note')}>
+					<StructuredText data={block.content[0].richText?.value} />
+				</div>
+			{/if}
+
+			{#if block.__typename === 'RichTextBlockRecord'}
+				<div class="space-y-4">
+					<StructuredText data={block.richText?.value} />
+				</div>
+			{/if}
+		{/each}
+	</main>
+
+	<aside class="basis-3/12">
+		{#if data.post.cta[0]}
+			<div class="border-2 h-fit rounded-md border-gray-500 lg:sticky lg:top-20">
+				<div class="p-6 bg-night">
+					<p class="text-sm font-bold text-neutral-300">{data.post.cta[0].title}</p>
+				</div>
+
+				<div class="p-6 space-y-4">
+					<StructuredText data={data.post.cta[0].content[0].richText?.value} />
+				</div>
+
+				<div class="p-6 bg-night">
+					<a href={data.post.cta[0].cta[0].link} class="action-white w-fit text-sm rounded-none"
+						>{data.post.cta[0].cta[0].text}</a
+					>
+				</div>
 			</div>
 		{/if}
-
-		{#if block.__typename === 'RichTextBlockRecord'}
-			<div class="space-y-4">
-				<StructuredText data={block.richText?.value} />
-			</div>
-		{/if}
-	{/each}
-</section>
+	</aside>
+</article>

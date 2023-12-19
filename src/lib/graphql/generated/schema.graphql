@@ -2442,6 +2442,7 @@ type PostRecord implements RecordInterface {
   _unpublishingScheduledAt: DateTime
   _updatedAt: DateTime!
   category: CategoryRecord
+  cta: [CardBlockRecord!]!
   id: ItemId!
   modularContent: [PostModelModularContentField!]!
   seo: [SeoBlockRecord!]!

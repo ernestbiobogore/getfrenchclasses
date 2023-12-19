@@ -1898,6 +1898,9 @@ export default {
             "category": [
                 7
             ],
+            "cta": [
+                4
+            ],
             "id": [
                 58
             ],

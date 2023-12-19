@@ -413,6 +413,7 @@ export interface PostRecord {
     _unpublishingScheduledAt: (Scalars['DateTime'] | null)
     _updatedAt: Scalars['DateTime']
     category: (CategoryRecord | null)
+    cta: CardBlockRecord[]
     id: Scalars['ItemId']
     modularContent: PostModelModularContentField[]
     seo: SeoBlockRecord[]
@@ -2409,6 +2410,7 @@ export interface PostRecordGenqlSelection{
     _unpublishingScheduledAt?: boolean | number
     _updatedAt?: boolean | number
     category?: CategoryRecordGenqlSelection
+    cta?: CardBlockRecordGenqlSelection
     id?: boolean | number
     modularContent?: PostModelModularContentFieldGenqlSelection
     seo?: SeoBlockRecordGenqlSelection
