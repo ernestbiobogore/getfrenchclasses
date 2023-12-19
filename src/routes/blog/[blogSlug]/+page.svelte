@@ -4,6 +4,7 @@
 	import { Image } from '@unpic/svelte';
 
 	export let data;
+	$: postCta = data.post.cta[0];
 
 	const getNoteClass = (type: string) => {
 		return cn(
@@ -53,19 +54,19 @@
 	</main>
 
 	<aside class="basis-3/12">
-		{#if data.post.cta[0]}
+		{#if postCta}
 			<div class="border-2 h-fit rounded-md border-gray-500 lg:sticky lg:top-20">
 				<div class="p-6 bg-night">
-					<p class="text-sm font-bold text-neutral-300">{data.post.cta[0].title}</p>
+					<p class="text-sm font-bold text-neutral-300">{postCta.title}</p>
 				</div>
 
 				<div class="p-6 space-y-4">
-					<StructuredText data={data.post.cta[0].content[0].richText?.value} />
+					<StructuredText data={postCta.content[0].richText?.value} />
 				</div>
 
 				<div class="p-6 bg-night">
-					<a href={data.post.cta[0].cta[0].link} class="action-white w-fit text-sm rounded-none"
-						>{data.post.cta[0].cta[0].text}</a
+					<a href={postCta.cta[0].link} class="action-white w-fit text-sm rounded-none"
+						>{postCta.cta[0].text}</a
 					>
 				</div>
 			</div>
