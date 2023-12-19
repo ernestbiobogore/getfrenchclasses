@@ -1,4 +1,7 @@
-import {FieldsSelection,Observable} from '@genql/runtime'
+// @ts-nocheck
+/* istanbul ignore file */
+/* tslint:disable */
+/* eslint-disable */
 
 export type Scalars = {
     Boolean: boolean,
@@ -21,20 +24,20 @@ export type Scalars = {
 export interface ActionBlockRecord {
     _createdAt: Scalars['DateTime']
     /** Editing URL */
-    _editingUrl?: Scalars['String']
-    _firstPublishedAt?: Scalars['DateTime']
+    _editingUrl: (Scalars['String'] | null)
+    _firstPublishedAt: (Scalars['DateTime'] | null)
     _isValid: Scalars['BooleanType']
     _modelApiKey: Scalars['String']
-    _publicationScheduledAt?: Scalars['DateTime']
-    _publishedAt?: Scalars['DateTime']
+    _publicationScheduledAt: (Scalars['DateTime'] | null)
+    _publishedAt: (Scalars['DateTime'] | null)
     /** Generates SEO and Social card meta tags to be used in your frontend */
     _seoMetaTags: Tag[]
     _status: ItemStatus
-    _unpublishingScheduledAt?: Scalars['DateTime']
+    _unpublishingScheduledAt: (Scalars['DateTime'] | null)
     _updatedAt: Scalars['DateTime']
     id: Scalars['ItemId']
-    link?: Scalars['String']
-    text?: Scalars['String']
+    link: (Scalars['String'] | null)
+    text: (Scalars['String'] | null)
     __typename: 'ActionBlockRecord'
 }
 
@@ -43,22 +46,22 @@ export interface ActionBlockRecord {
 export interface CardBlockRecord {
     _createdAt: Scalars['DateTime']
     /** Editing URL */
-    _editingUrl?: Scalars['String']
-    _firstPublishedAt?: Scalars['DateTime']
+    _editingUrl: (Scalars['String'] | null)
+    _firstPublishedAt: (Scalars['DateTime'] | null)
     _isValid: Scalars['BooleanType']
     _modelApiKey: Scalars['String']
-    _publicationScheduledAt?: Scalars['DateTime']
-    _publishedAt?: Scalars['DateTime']
+    _publicationScheduledAt: (Scalars['DateTime'] | null)
+    _publishedAt: (Scalars['DateTime'] | null)
     /** Generates SEO and Social card meta tags to be used in your frontend */
     _seoMetaTags: Tag[]
     _status: ItemStatus
-    _unpublishingScheduledAt?: Scalars['DateTime']
+    _unpublishingScheduledAt: (Scalars['DateTime'] | null)
     _updatedAt: Scalars['DateTime']
     content: RichTextBlockRecord[]
     cta: ActionBlockRecord[]
     id: Scalars['ItemId']
-    image?: FileField
-    title?: Scalars['String']
+    image: (FileField | null)
+    title: (Scalars['String'] | null)
     __typename: 'CardBlockRecord'
 }
 
@@ -69,20 +72,20 @@ export type CategoryModelOrderBy = '_createdAt_ASC' | '_createdAt_DESC' | 'id_AS
 export interface CategoryRecord {
     _createdAt: Scalars['DateTime']
     /** Editing URL */
-    _editingUrl?: Scalars['String']
-    _firstPublishedAt?: Scalars['DateTime']
+    _editingUrl: (Scalars['String'] | null)
+    _firstPublishedAt: (Scalars['DateTime'] | null)
     _isValid: Scalars['BooleanType']
     _modelApiKey: Scalars['String']
-    _publicationScheduledAt?: Scalars['DateTime']
-    _publishedAt?: Scalars['DateTime']
+    _publicationScheduledAt: (Scalars['DateTime'] | null)
+    _publishedAt: (Scalars['DateTime'] | null)
     /** Generates SEO and Social card meta tags to be used in your frontend */
     _seoMetaTags: Tag[]
     _status: ItemStatus
-    _unpublishingScheduledAt?: Scalars['DateTime']
+    _unpublishingScheduledAt: (Scalars['DateTime'] | null)
     _updatedAt: Scalars['DateTime']
     id: Scalars['ItemId']
-    name?: Scalars['String']
-    slug?: Scalars['String']
+    name: (Scalars['String'] | null)
+    slug: (Scalars['String'] | null)
     __typename: 'CategoryRecord'
 }
 
@@ -110,30 +113,30 @@ export type CourseModelOrderBy = '_createdAt_ASC' | '_createdAt_DESC' | 'id_ASC'
 export interface CourseRecord {
     _createdAt: Scalars['DateTime']
     /** Editing URL */
-    _editingUrl?: Scalars['String']
-    _firstPublishedAt?: Scalars['DateTime']
+    _editingUrl: (Scalars['String'] | null)
+    _firstPublishedAt: (Scalars['DateTime'] | null)
     _isValid: Scalars['BooleanType']
     _modelApiKey: Scalars['String']
-    _publicationScheduledAt?: Scalars['DateTime']
-    _publishedAt?: Scalars['DateTime']
+    _publicationScheduledAt: (Scalars['DateTime'] | null)
+    _publishedAt: (Scalars['DateTime'] | null)
     /** Generates SEO and Social card meta tags to be used in your frontend */
     _seoMetaTags: Tag[]
     _status: ItemStatus
-    _unpublishingScheduledAt?: Scalars['DateTime']
+    _unpublishingScheduledAt: (Scalars['DateTime'] | null)
     _updatedAt: Scalars['DateTime']
-    duration?: Scalars['IntType']
-    faq?: FaqItemRecord
+    duration: (Scalars['IntType'] | null)
+    faq: (FaqItemRecord | null)
     featuresCards: CardBlockRecord[]
     id: Scalars['ItemId']
-    level?: Scalars['String']
-    name?: Scalars['String']
-    numberOfEnrolledStudents?: Scalars['IntType']
-    numberOfSections?: Scalars['IntType']
-    price?: Scalars['IntType']
+    level: (Scalars['String'] | null)
+    name: (Scalars['String'] | null)
+    numberOfEnrolledStudents: (Scalars['IntType'] | null)
+    numberOfSections: (Scalars['IntType'] | null)
+    price: (Scalars['IntType'] | null)
     seo: SeoBlockRecord[]
     singleTestimonial: TestimonialBlockRecord[]
-    slug?: Scalars['String']
-    tag?: Scalars['String']
+    slug: (Scalars['String'] | null)
+    tag: (Scalars['String'] | null)
     __typename: 'CourseRecord'
 }
 
@@ -142,20 +145,20 @@ export interface CourseRecord {
 export interface FaqBlockRecord {
     _createdAt: Scalars['DateTime']
     /** Editing URL */
-    _editingUrl?: Scalars['String']
-    _firstPublishedAt?: Scalars['DateTime']
+    _editingUrl: (Scalars['String'] | null)
+    _firstPublishedAt: (Scalars['DateTime'] | null)
     _isValid: Scalars['BooleanType']
     _modelApiKey: Scalars['String']
-    _publicationScheduledAt?: Scalars['DateTime']
-    _publishedAt?: Scalars['DateTime']
+    _publicationScheduledAt: (Scalars['DateTime'] | null)
+    _publishedAt: (Scalars['DateTime'] | null)
     /** Generates SEO and Social card meta tags to be used in your frontend */
     _seoMetaTags: Tag[]
     _status: ItemStatus
-    _unpublishingScheduledAt?: Scalars['DateTime']
+    _unpublishingScheduledAt: (Scalars['DateTime'] | null)
     _updatedAt: Scalars['DateTime']
     answer: RichTextBlockRecord[]
     id: Scalars['ItemId']
-    question?: Scalars['String']
+    question: (Scalars['String'] | null)
     __typename: 'FaqBlockRecord'
 }
 
@@ -166,20 +169,20 @@ export type FaqItemModelOrderBy = '_createdAt_ASC' | '_createdAt_DESC' | 'id_ASC
 export interface FaqItemRecord {
     _createdAt: Scalars['DateTime']
     /** Editing URL */
-    _editingUrl?: Scalars['String']
-    _firstPublishedAt?: Scalars['DateTime']
+    _editingUrl: (Scalars['String'] | null)
+    _firstPublishedAt: (Scalars['DateTime'] | null)
     _isValid: Scalars['BooleanType']
     _modelApiKey: Scalars['String']
-    _publicationScheduledAt?: Scalars['DateTime']
-    _publishedAt?: Scalars['DateTime']
+    _publicationScheduledAt: (Scalars['DateTime'] | null)
+    _publishedAt: (Scalars['DateTime'] | null)
     /** Generates SEO and Social card meta tags to be used in your frontend */
     _seoMetaTags: Tag[]
     _status: ItemStatus
-    _unpublishingScheduledAt?: Scalars['DateTime']
+    _unpublishingScheduledAt: (Scalars['DateTime'] | null)
     _updatedAt: Scalars['DateTime']
     faqBlocks: FaqBlockRecord[]
     id: Scalars['ItemId']
-    title?: Scalars['String']
+    title: (Scalars['String'] | null)
     __typename: 'FaqItemRecord'
 }
 
@@ -188,45 +191,45 @@ export type FaviconType = 'icon' | 'appleTouchIcon' | 'msApplication'
 export interface FileField {
     _createdAt: Scalars['DateTime']
     /** The DatoCMS URL where you can edit this entity. To use this field, you need to set a X-Base-Editing-Url header in the request */
-    _editingUrl?: Scalars['String']
+    _editingUrl: (Scalars['String'] | null)
     _updatedAt: Scalars['DateTime']
-    alt?: Scalars['String']
-    author?: Scalars['String']
+    alt: (Scalars['String'] | null)
+    author: (Scalars['String'] | null)
     basename: Scalars['String']
-    blurUpThumb?: Scalars['String']
-    blurhash?: Scalars['String']
+    blurUpThumb: (Scalars['String'] | null)
+    blurhash: (Scalars['String'] | null)
     colors: ColorField[]
-    copyright?: Scalars['String']
+    copyright: (Scalars['String'] | null)
     customData: Scalars['CustomData']
     exifInfo: Scalars['CustomData']
     filename: Scalars['String']
-    focalPoint?: focalPoint
+    focalPoint: (focalPoint | null)
     format: Scalars['String']
-    height?: Scalars['IntType']
+    height: (Scalars['IntType'] | null)
     id: Scalars['UploadId']
     md5: Scalars['String']
     mimeType: Scalars['String']
-    notes?: Scalars['String']
-    responsiveImage?: ResponsiveImage
+    notes: (Scalars['String'] | null)
+    responsiveImage: (ResponsiveImage | null)
     size: Scalars['IntType']
     smartTags: Scalars['String'][]
     tags: Scalars['String'][]
-    thumbhash?: Scalars['String']
-    title?: Scalars['String']
+    thumbhash: (Scalars['String'] | null)
+    title: (Scalars['String'] | null)
     url: Scalars['String']
-    video?: UploadVideoField
-    width?: Scalars['IntType']
+    video: (UploadVideoField | null)
+    width: (Scalars['IntType'] | null)
     __typename: 'FileField'
 }
 
 export type FileFieldInterface = (FileField) & { __isUnion?: true }
 
 export interface GlobalSeoField {
-    facebookPageUrl?: Scalars['String']
-    fallbackSeo?: SeoField
-    siteName?: Scalars['String']
-    titleSuffix?: Scalars['String']
-    twitterAccount?: Scalars['String']
+    facebookPageUrl: (Scalars['String'] | null)
+    fallbackSeo: (SeoField | null)
+    siteName: (Scalars['String'] | null)
+    titleSuffix: (Scalars['String'] | null)
+    twitterAccount: (Scalars['String'] | null)
     __typename: 'GlobalSeoField'
 }
 
@@ -235,20 +238,20 @@ export interface GlobalSeoField {
 export interface HeadingBlockRecord {
     _createdAt: Scalars['DateTime']
     /** Editing URL */
-    _editingUrl?: Scalars['String']
-    _firstPublishedAt?: Scalars['DateTime']
+    _editingUrl: (Scalars['String'] | null)
+    _firstPublishedAt: (Scalars['DateTime'] | null)
     _isValid: Scalars['BooleanType']
     _modelApiKey: Scalars['String']
-    _publicationScheduledAt?: Scalars['DateTime']
-    _publishedAt?: Scalars['DateTime']
+    _publicationScheduledAt: (Scalars['DateTime'] | null)
+    _publishedAt: (Scalars['DateTime'] | null)
     /** Generates SEO and Social card meta tags to be used in your frontend */
     _seoMetaTags: Tag[]
     _status: ItemStatus
-    _unpublishingScheduledAt?: Scalars['DateTime']
+    _unpublishingScheduledAt: (Scalars['DateTime'] | null)
     _updatedAt: Scalars['DateTime']
-    heading?: Scalars['String']
+    heading: (Scalars['String'] | null)
     id: Scalars['ItemId']
-    subheading?: Scalars['String']
+    subheading: (Scalars['String'] | null)
     __typename: 'HeadingBlockRecord'
 }
 
@@ -257,42 +260,42 @@ export interface HeadingBlockRecord {
 export interface HomepageRecord {
     _createdAt: Scalars['DateTime']
     /** Editing URL */
-    _editingUrl?: Scalars['String']
-    _firstPublishedAt?: Scalars['DateTime']
+    _editingUrl: (Scalars['String'] | null)
+    _firstPublishedAt: (Scalars['DateTime'] | null)
     _isValid: Scalars['BooleanType']
     _modelApiKey: Scalars['String']
-    _publicationScheduledAt?: Scalars['DateTime']
-    _publishedAt?: Scalars['DateTime']
+    _publicationScheduledAt: (Scalars['DateTime'] | null)
+    _publishedAt: (Scalars['DateTime'] | null)
     /** Generates SEO and Social card meta tags to be used in your frontend */
     _seoMetaTags: Tag[]
     _status: ItemStatus
-    _unpublishingScheduledAt?: Scalars['DateTime']
+    _unpublishingScheduledAt: (Scalars['DateTime'] | null)
     _updatedAt: Scalars['DateTime']
     about: CardBlockRecord[]
     ctaAction: ActionBlockRecord[]
     ctaHeading: HeadingBlockRecord[]
-    faq?: FaqItemRecord
+    faq: (FaqItemRecord | null)
     faqHeading: HeadingBlockRecord[]
     featureCards: CardBlockRecord[]
     featuresCta: ActionBlockRecord[]
     featuresHeading: HeadingBlockRecord[]
     heroCta: ActionBlockRecord[]
-    heroSubtitle?: Scalars['String']
+    heroSubtitle: (Scalars['String'] | null)
     heroTestimonialPictures: FileField[]
-    heroTestimonialTitle?: Scalars['String']
-    heroTitle?: Scalars['String']
+    heroTestimonialTitle: (Scalars['String'] | null)
+    heroTitle: (Scalars['String'] | null)
     id: Scalars['ItemId']
     multipleTestimonials: TestimonialBlockRecord[]
     newCoursesRecords: CourseRecord[]
-    newCoursesTitle?: Scalars['String']
+    newCoursesTitle: (Scalars['String'] | null)
     popularCoursesRecords: CourseRecord[]
-    popularCoursesTitle?: Scalars['String']
+    popularCoursesTitle: (Scalars['String'] | null)
     seo: SeoBlockRecord[]
     statsAction: ActionBlockRecord[]
     statsData: HeadingBlockRecord[]
     statsHeading: HeadingBlockRecord[]
     statsImages: FileField[]
-    title?: Scalars['String']
+    title: (Scalars['String'] | null)
     __typename: 'HomepageRecord'
 }
 
@@ -301,19 +304,19 @@ export interface HomepageRecord {
 export interface ImageBlockRecord {
     _createdAt: Scalars['DateTime']
     /** Editing URL */
-    _editingUrl?: Scalars['String']
-    _firstPublishedAt?: Scalars['DateTime']
+    _editingUrl: (Scalars['String'] | null)
+    _firstPublishedAt: (Scalars['DateTime'] | null)
     _isValid: Scalars['BooleanType']
     _modelApiKey: Scalars['String']
-    _publicationScheduledAt?: Scalars['DateTime']
-    _publishedAt?: Scalars['DateTime']
+    _publicationScheduledAt: (Scalars['DateTime'] | null)
+    _publishedAt: (Scalars['DateTime'] | null)
     /** Generates SEO and Social card meta tags to be used in your frontend */
     _seoMetaTags: Tag[]
     _status: ItemStatus
-    _unpublishingScheduledAt?: Scalars['DateTime']
+    _unpublishingScheduledAt: (Scalars['DateTime'] | null)
     _updatedAt: Scalars['DateTime']
     id: Scalars['ItemId']
-    image?: FileField
+    image: (FileField | null)
     __typename: 'ImageBlockRecord'
 }
 
@@ -376,23 +379,23 @@ export type PostModelOrderBy = '_createdAt_ASC' | '_createdAt_DESC' | 'id_ASC' |
 export interface PostRecord {
     _createdAt: Scalars['DateTime']
     /** Editing URL */
-    _editingUrl?: Scalars['String']
-    _firstPublishedAt?: Scalars['DateTime']
+    _editingUrl: (Scalars['String'] | null)
+    _firstPublishedAt: (Scalars['DateTime'] | null)
     _isValid: Scalars['BooleanType']
     _modelApiKey: Scalars['String']
-    _publicationScheduledAt?: Scalars['DateTime']
-    _publishedAt?: Scalars['DateTime']
+    _publicationScheduledAt: (Scalars['DateTime'] | null)
+    _publishedAt: (Scalars['DateTime'] | null)
     /** Generates SEO and Social card meta tags to be used in your frontend */
     _seoMetaTags: Tag[]
     _status: ItemStatus
-    _unpublishingScheduledAt?: Scalars['DateTime']
+    _unpublishingScheduledAt: (Scalars['DateTime'] | null)
     _updatedAt: Scalars['DateTime']
-    category?: CategoryRecord
+    category: (CategoryRecord | null)
     id: Scalars['ItemId']
     modularContent: PostModelModularContentField[]
     seo: SeoBlockRecord[]
-    slug?: Scalars['String']
-    title?: Scalars['String']
+    slug: (Scalars['String'] | null)
+    title: (Scalars['String'] | null)
     __typename: 'PostRecord'
 }
 
@@ -422,17 +425,17 @@ export interface Query {
     /** Returns a collection of assets */
     allUploads: FileField[]
     /** Returns a specific record */
-    category?: CategoryRecord
+    category: (CategoryRecord | null)
     /** Returns a specific record */
-    course?: CourseRecord
+    course: (CourseRecord | null)
     /** Returns a specific record */
-    faqItem?: FaqItemRecord
+    faqItem: (FaqItemRecord | null)
     /** Returns the single instance record */
-    homepage?: HomepageRecord
+    homepage: (HomepageRecord | null)
     /** Returns a specific record */
-    post?: PostRecord
+    post: (PostRecord | null)
     /** Returns a specific asset */
-    upload?: FileField
+    upload: (FileField | null)
     __typename: 'Query'
 }
 
@@ -441,15 +444,15 @@ export type RecordInterface = (ActionBlockRecord | CardBlockRecord | CategoryRec
 export type ResolutionType = 'icon' | 'small' | 'medium' | 'large'
 
 export interface ResponsiveImage {
-    alt?: Scalars['String']
+    alt: (Scalars['String'] | null)
     aspectRatio: Scalars['FloatType']
-    base64?: Scalars['String']
-    bgColor?: Scalars['String']
+    base64: (Scalars['String'] | null)
+    bgColor: (Scalars['String'] | null)
     height: Scalars['IntType']
     sizes: Scalars['String']
     src: Scalars['String']
     srcSet: Scalars['String']
-    title?: Scalars['String']
+    title: (Scalars['String'] | null)
     webpSrcSet: Scalars['String']
     width: Scalars['IntType']
     __typename: 'ResponsiveImage'
@@ -469,19 +472,19 @@ export interface RichTextBlockModelRichTextField {
 export interface RichTextBlockRecord {
     _createdAt: Scalars['DateTime']
     /** Editing URL */
-    _editingUrl?: Scalars['String']
-    _firstPublishedAt?: Scalars['DateTime']
+    _editingUrl: (Scalars['String'] | null)
+    _firstPublishedAt: (Scalars['DateTime'] | null)
     _isValid: Scalars['BooleanType']
     _modelApiKey: Scalars['String']
-    _publicationScheduledAt?: Scalars['DateTime']
-    _publishedAt?: Scalars['DateTime']
+    _publicationScheduledAt: (Scalars['DateTime'] | null)
+    _publishedAt: (Scalars['DateTime'] | null)
     /** Generates SEO and Social card meta tags to be used in your frontend */
     _seoMetaTags: Tag[]
     _status: ItemStatus
-    _unpublishingScheduledAt?: Scalars['DateTime']
+    _unpublishingScheduledAt: (Scalars['DateTime'] | null)
     _updatedAt: Scalars['DateTime']
     id: Scalars['ItemId']
-    richText?: RichTextBlockModelRichTextField
+    richText: (RichTextBlockModelRichTextField | null)
     __typename: 'RichTextBlockRecord'
 }
 
@@ -490,34 +493,34 @@ export interface RichTextBlockRecord {
 export interface SeoBlockRecord {
     _createdAt: Scalars['DateTime']
     /** Editing URL */
-    _editingUrl?: Scalars['String']
-    _firstPublishedAt?: Scalars['DateTime']
+    _editingUrl: (Scalars['String'] | null)
+    _firstPublishedAt: (Scalars['DateTime'] | null)
     _isValid: Scalars['BooleanType']
     _modelApiKey: Scalars['String']
-    _publicationScheduledAt?: Scalars['DateTime']
-    _publishedAt?: Scalars['DateTime']
+    _publicationScheduledAt: (Scalars['DateTime'] | null)
+    _publishedAt: (Scalars['DateTime'] | null)
     /** Generates SEO and Social card meta tags to be used in your frontend */
     _seoMetaTags: Tag[]
     _status: ItemStatus
-    _unpublishingScheduledAt?: Scalars['DateTime']
+    _unpublishingScheduledAt: (Scalars['DateTime'] | null)
     _updatedAt: Scalars['DateTime']
     id: Scalars['ItemId']
-    seoBlock?: SeoField
+    seoBlock: (SeoField | null)
     __typename: 'SeoBlockRecord'
 }
 
 export interface SeoField {
-    description?: Scalars['String']
-    image?: FileField
-    title?: Scalars['String']
-    twitterCard?: Scalars['String']
+    description: (Scalars['String'] | null)
+    image: (FileField | null)
+    title: (Scalars['String'] | null)
+    twitterCard: (Scalars['String'] | null)
     __typename: 'SeoField'
 }
 
 export interface Site {
-    favicon?: FileField
+    favicon: (FileField | null)
     faviconMetaTags: Tag[]
-    globalSeo?: GlobalSeoField
+    globalSeo: (GlobalSeoField | null)
     locales: SiteLocale[]
     __typename: 'Site'
 }
@@ -525,8 +528,8 @@ export interface Site {
 export type SiteLocale = 'en'
 
 export interface Tag {
-    attributes?: Scalars['MetaTagAttributes']
-    content?: Scalars['String']
+    attributes: (Scalars['MetaTagAttributes'] | null)
+    content: (Scalars['String'] | null)
     tag: Scalars['String']
     __typename: 'Tag'
 }
@@ -536,24 +539,24 @@ export interface Tag {
 export interface TestimonialBlockRecord {
     _createdAt: Scalars['DateTime']
     /** Editing URL */
-    _editingUrl?: Scalars['String']
-    _firstPublishedAt?: Scalars['DateTime']
+    _editingUrl: (Scalars['String'] | null)
+    _firstPublishedAt: (Scalars['DateTime'] | null)
     _isValid: Scalars['BooleanType']
     _modelApiKey: Scalars['String']
-    _publicationScheduledAt?: Scalars['DateTime']
-    _publishedAt?: Scalars['DateTime']
+    _publicationScheduledAt: (Scalars['DateTime'] | null)
+    _publishedAt: (Scalars['DateTime'] | null)
     /** Generates SEO and Social card meta tags to be used in your frontend */
     _seoMetaTags: Tag[]
     _status: ItemStatus
-    _unpublishingScheduledAt?: Scalars['DateTime']
+    _unpublishingScheduledAt: (Scalars['DateTime'] | null)
     _updatedAt: Scalars['DateTime']
-    author?: Scalars['String']
-    company?: Scalars['String']
+    author: (Scalars['String'] | null)
+    company: (Scalars['String'] | null)
     content: RichTextBlockRecord[]
     id: Scalars['ItemId']
-    image?: FileField
-    role?: Scalars['String']
-    title?: Scalars['String']
+    image: (FileField | null)
+    role: (Scalars['String'] | null)
+    title: (Scalars['String'] | null)
     __typename: 'TestimonialBlockRecord'
 }
 
@@ -564,9 +567,9 @@ export type UploadOrientation = 'landscape' | 'portrait' | 'square'
 export type UploadType = 'image' | 'audio' | 'video' | 'richtext' | 'presentation' | 'spreadsheet' | 'pdfdocument' | 'archive'
 
 export interface UploadVideoField {
-    duration?: Scalars['Int']
-    framerate?: Scalars['Int']
-    mp4Url?: Scalars['String']
+    duration: (Scalars['Int'] | null)
+    framerate: (Scalars['Int'] | null)
+    mp4Url: (Scalars['String'] | null)
     muxAssetId: Scalars['String']
     muxPlaybackId: Scalars['String']
     streamingUrl: Scalars['String']
@@ -584,7 +587,7 @@ export interface focalPoint {
 
 
 /** Block of type Action Block (action_block) */
-export interface ActionBlockRecordRequest{
+export interface ActionBlockRecordGenqlSelection{
     _createdAt?: boolean | number
     /** Editing URL */
     _editingUrl?: boolean | number
@@ -594,9 +597,9 @@ export interface ActionBlockRecordRequest{
     _publicationScheduledAt?: boolean | number
     _publishedAt?: boolean | number
     /** Generates SEO and Social card meta tags to be used in your frontend */
-    _seoMetaTags?: [{
+    _seoMetaTags?: (TagGenqlSelection & { __args?: {
     /** The locale to use to fetch the field's content */
-    locale?: (SiteLocale | null)},TagRequest] | TagRequest
+    locale?: (SiteLocale | null)} })
     _status?: boolean | number
     _unpublishingScheduledAt?: boolean | number
     _updatedAt?: boolean | number
@@ -615,7 +618,7 @@ eq?: (Scalars['BooleanType'] | null)}
 
 
 /** Block of type Card Block (card_block) */
-export interface CardBlockRecordRequest{
+export interface CardBlockRecordGenqlSelection{
     _createdAt?: boolean | number
     /** Editing URL */
     _editingUrl?: boolean | number
@@ -625,16 +628,16 @@ export interface CardBlockRecordRequest{
     _publicationScheduledAt?: boolean | number
     _publishedAt?: boolean | number
     /** Generates SEO and Social card meta tags to be used in your frontend */
-    _seoMetaTags?: [{
+    _seoMetaTags?: (TagGenqlSelection & { __args?: {
     /** The locale to use to fetch the field's content */
-    locale?: (SiteLocale | null)},TagRequest] | TagRequest
+    locale?: (SiteLocale | null)} })
     _status?: boolean | number
     _unpublishingScheduledAt?: boolean | number
     _updatedAt?: boolean | number
-    content?: RichTextBlockRecordRequest
-    cta?: ActionBlockRecordRequest
+    content?: RichTextBlockRecordGenqlSelection
+    cta?: ActionBlockRecordGenqlSelection
     id?: boolean | number
-    image?: FileFieldRequest
+    image?: FileFieldGenqlSelection
     title?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
@@ -644,7 +647,7 @@ export interface CategoryModelFilter {_createdAt?: (CreatedAtFilter | null),id?:
 
 
 /** Record of type Category (category) */
-export interface CategoryRecordRequest{
+export interface CategoryRecordGenqlSelection{
     _createdAt?: boolean | number
     /** Editing URL */
     _editingUrl?: boolean | number
@@ -654,9 +657,9 @@ export interface CategoryRecordRequest{
     _publicationScheduledAt?: boolean | number
     _publishedAt?: boolean | number
     /** Generates SEO and Social card meta tags to be used in your frontend */
-    _seoMetaTags?: [{
+    _seoMetaTags?: (TagGenqlSelection & { __args?: {
     /** The locale to use to fetch the field's content */
-    locale?: (SiteLocale | null)},TagRequest] | TagRequest
+    locale?: (SiteLocale | null)} })
     _status?: boolean | number
     _unpublishingScheduledAt?: boolean | number
     _updatedAt?: boolean | number
@@ -667,13 +670,13 @@ export interface CategoryRecordRequest{
     __scalar?: boolean | number
 }
 
-export interface CollectionMetadataRequest{
+export interface CollectionMetadataGenqlSelection{
     count?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
 
-export interface ColorFieldRequest{
+export interface ColorFieldGenqlSelection{
     alpha?: boolean | number
     blue?: boolean | number
     cssRgb?: boolean | number
@@ -688,7 +691,7 @@ export interface CourseModelFilter {_createdAt?: (CreatedAtFilter | null),id?: (
 
 
 /** Record of type Course (course) */
-export interface CourseRecordRequest{
+export interface CourseRecordGenqlSelection{
     _createdAt?: boolean | number
     /** Editing URL */
     _editingUrl?: boolean | number
@@ -698,23 +701,23 @@ export interface CourseRecordRequest{
     _publicationScheduledAt?: boolean | number
     _publishedAt?: boolean | number
     /** Generates SEO and Social card meta tags to be used in your frontend */
-    _seoMetaTags?: [{
+    _seoMetaTags?: (TagGenqlSelection & { __args?: {
     /** The locale to use to fetch the field's content */
-    locale?: (SiteLocale | null)},TagRequest] | TagRequest
+    locale?: (SiteLocale | null)} })
     _status?: boolean | number
     _unpublishingScheduledAt?: boolean | number
     _updatedAt?: boolean | number
     duration?: boolean | number
-    faq?: FaqItemRecordRequest
-    featuresCards?: CardBlockRecordRequest
+    faq?: FaqItemRecordGenqlSelection
+    featuresCards?: CardBlockRecordGenqlSelection
     id?: boolean | number
     level?: boolean | number
     name?: boolean | number
     numberOfEnrolledStudents?: boolean | number
     numberOfSections?: boolean | number
     price?: boolean | number
-    seo?: SeoBlockRecordRequest
-    singleTestimonial?: TestimonialBlockRecordRequest
+    seo?: SeoBlockRecordGenqlSelection
+    singleTestimonial?: TestimonialBlockRecordGenqlSelection
     slug?: boolean | number
     tag?: boolean | number
     __typename?: boolean | number
@@ -741,7 +744,7 @@ exists?: (Scalars['BooleanType'] | null)}
 
 
 /** Block of type FAQ Block (faq_block) */
-export interface FaqBlockRecordRequest{
+export interface FaqBlockRecordGenqlSelection{
     _createdAt?: boolean | number
     /** Editing URL */
     _editingUrl?: boolean | number
@@ -751,13 +754,13 @@ export interface FaqBlockRecordRequest{
     _publicationScheduledAt?: boolean | number
     _publishedAt?: boolean | number
     /** Generates SEO and Social card meta tags to be used in your frontend */
-    _seoMetaTags?: [{
+    _seoMetaTags?: (TagGenqlSelection & { __args?: {
     /** The locale to use to fetch the field's content */
-    locale?: (SiteLocale | null)},TagRequest] | TagRequest
+    locale?: (SiteLocale | null)} })
     _status?: boolean | number
     _unpublishingScheduledAt?: boolean | number
     _updatedAt?: boolean | number
-    answer?: RichTextBlockRecordRequest
+    answer?: RichTextBlockRecordGenqlSelection
     id?: boolean | number
     question?: boolean | number
     __typename?: boolean | number
@@ -768,7 +771,7 @@ export interface FaqItemModelFilter {_createdAt?: (CreatedAtFilter | null),id?: 
 
 
 /** Record of type FAQ Item (faq_item) */
-export interface FaqItemRecordRequest{
+export interface FaqItemRecordGenqlSelection{
     _createdAt?: boolean | number
     /** Editing URL */
     _editingUrl?: boolean | number
@@ -778,161 +781,161 @@ export interface FaqItemRecordRequest{
     _publicationScheduledAt?: boolean | number
     _publishedAt?: boolean | number
     /** Generates SEO and Social card meta tags to be used in your frontend */
-    _seoMetaTags?: [{
+    _seoMetaTags?: (TagGenqlSelection & { __args?: {
     /** The locale to use to fetch the field's content */
-    locale?: (SiteLocale | null)},TagRequest] | TagRequest
+    locale?: (SiteLocale | null)} })
     _status?: boolean | number
     _unpublishingScheduledAt?: boolean | number
     _updatedAt?: boolean | number
-    faqBlocks?: FaqBlockRecordRequest
+    faqBlocks?: FaqBlockRecordGenqlSelection
     id?: boolean | number
     title?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
 
-export interface FileFieldRequest{
+export interface FileFieldGenqlSelection{
     _createdAt?: boolean | number
     /** The DatoCMS URL where you can edit this entity. To use this field, you need to set a X-Base-Editing-Url header in the request */
     _editingUrl?: boolean | number
     _updatedAt?: boolean | number
-    alt?: [{
+    alt?: { __args: {
     /** The locale to use to fetch the field's content */
-    locale?: (SiteLocale | null),
+    locale?: (SiteLocale | null), 
     /** If you want to fallback to a default translation when a translation has not been found */
-    fallbackLocales?: (SiteLocale[] | null)}] | boolean | number
+    fallbackLocales?: (SiteLocale[] | null)} } | boolean | number
     author?: boolean | number
     basename?: boolean | number
-    blurUpThumb?: [{
+    blurUpThumb?: { __args: {
     /** Controls the "punch" value (~contrast) of the blurhash decoding algorithm (defaults to 1.0) */
-    punch: Scalars['Float'],
+    punch: Scalars['Float'], 
     /** Maximum image dimension (defaults to 24px) */
-    size: Scalars['Int'],
+    size: Scalars['Int'], 
     /** Image quality (defaults to 70%) */
-    quality: Scalars['Int'],
+    quality: Scalars['Int'], 
     /** Imgix transformations to apply to the image */
-    imgixParams?: (ImgixParams | null)}]
+    imgixParams?: (ImgixParams | null)} }
     blurhash?: boolean | number
-    colors?: ColorFieldRequest
+    colors?: ColorFieldGenqlSelection
     copyright?: boolean | number
-    customData?: [{
+    customData?: { __args: {
     /** The locale to use to fetch the field's content */
-    locale?: (SiteLocale | null),
+    locale?: (SiteLocale | null), 
     /** If you want to fallback to a default translation when a translation has not been found */
-    fallbackLocales?: (SiteLocale[] | null)}] | boolean | number
+    fallbackLocales?: (SiteLocale[] | null)} } | boolean | number
     exifInfo?: boolean | number
     filename?: boolean | number
-    focalPoint?: [{
+    focalPoint?: (focalPointGenqlSelection & { __args?: {
     /** The locale to use to fetch the field's content */
-    locale?: (SiteLocale | null),
+    locale?: (SiteLocale | null), 
     /** If you want to fallback to a default translation when a translation has not been found */
-    fallbackLocales?: (SiteLocale[] | null)},focalPointRequest] | focalPointRequest
+    fallbackLocales?: (SiteLocale[] | null)} })
     format?: boolean | number
     height?: boolean | number
     id?: boolean | number
     md5?: boolean | number
     mimeType?: boolean | number
     notes?: boolean | number
-    responsiveImage?: [{
+    responsiveImage?: (ResponsiveImageGenqlSelection & { __args?: {
     /** Imgix transformations to apply to the image */
-    imgixParams?: (ImgixParams | null),
+    imgixParams?: (ImgixParams | null), 
     /** Specify a custom `sizes` attribute for the image */
-    sizes?: (Scalars['String'] | null),
+    sizes?: (Scalars['String'] | null), 
     /** The locale to use to fetch the field's content */
-    locale?: (SiteLocale | null),
+    locale?: (SiteLocale | null), 
     /** If you want to fallback to a default translation when a translation has not been found */
-    fallbackLocales?: (SiteLocale[] | null)},ResponsiveImageRequest] | ResponsiveImageRequest
+    fallbackLocales?: (SiteLocale[] | null)} })
     size?: boolean | number
     smartTags?: boolean | number
     tags?: boolean | number
     thumbhash?: boolean | number
-    title?: [{
+    title?: { __args: {
     /** The locale to use to fetch the field's content */
-    locale?: (SiteLocale | null),
+    locale?: (SiteLocale | null), 
     /** If you want to fallback to a default translation when a translation has not been found */
-    fallbackLocales?: (SiteLocale[] | null)}] | boolean | number
-    url?: [{
+    fallbackLocales?: (SiteLocale[] | null)} } | boolean | number
+    url?: { __args: {
     /** Imgix transformations to apply to the image */
-    imgixParams?: (ImgixParams | null)}] | boolean | number
-    video?: UploadVideoFieldRequest
+    imgixParams?: (ImgixParams | null)} } | boolean | number
+    video?: UploadVideoFieldGenqlSelection
     width?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
 
-export interface FileFieldInterfaceRequest{
+export interface FileFieldInterfaceGenqlSelection{
     _createdAt?: boolean | number
     /** The DatoCMS URL where you can edit this entity. To use this field, you need to set a X-Base-Editing-Url header in the request */
     _editingUrl?: boolean | number
     _updatedAt?: boolean | number
-    alt?: [{
+    alt?: { __args: {
     /** The locale to use to fetch the field's content */
-    locale?: (SiteLocale | null),
+    locale?: (SiteLocale | null), 
     /** If you want to fallback to a default translation when a translation has not been found */
-    fallbackLocales?: (SiteLocale[] | null)}] | boolean | number
+    fallbackLocales?: (SiteLocale[] | null)} } | boolean | number
     author?: boolean | number
     basename?: boolean | number
-    blurUpThumb?: [{
+    blurUpThumb?: { __args: {
     /** Controls the "punch" value (~contrast) of the blurhash decoding algorithm (defaults to 1.0) */
-    punch: Scalars['Float'],
+    punch: Scalars['Float'], 
     /** Maximum image dimension (defaults to 24px) */
-    size: Scalars['Int'],
+    size: Scalars['Int'], 
     /** Image quality (defaults to 70%) */
-    quality: Scalars['Int'],
+    quality: Scalars['Int'], 
     /** Imgix transformations to apply to the image */
-    imgixParams?: (ImgixParams | null)}]
+    imgixParams?: (ImgixParams | null)} }
     blurhash?: boolean | number
-    colors?: ColorFieldRequest
+    colors?: ColorFieldGenqlSelection
     copyright?: boolean | number
-    customData?: [{
+    customData?: { __args: {
     /** The locale to use to fetch the field's content */
-    locale?: (SiteLocale | null),
+    locale?: (SiteLocale | null), 
     /** If you want to fallback to a default translation when a translation has not been found */
-    fallbackLocales?: (SiteLocale[] | null)}] | boolean | number
+    fallbackLocales?: (SiteLocale[] | null)} } | boolean | number
     exifInfo?: boolean | number
     filename?: boolean | number
-    focalPoint?: [{
+    focalPoint?: (focalPointGenqlSelection & { __args?: {
     /** The locale to use to fetch the field's content */
-    locale?: (SiteLocale | null),
+    locale?: (SiteLocale | null), 
     /** If you want to fallback to a default translation when a translation has not been found */
-    fallbackLocales?: (SiteLocale[] | null)},focalPointRequest] | focalPointRequest
+    fallbackLocales?: (SiteLocale[] | null)} })
     format?: boolean | number
     height?: boolean | number
     id?: boolean | number
     md5?: boolean | number
     mimeType?: boolean | number
     notes?: boolean | number
-    responsiveImage?: [{
+    responsiveImage?: (ResponsiveImageGenqlSelection & { __args?: {
     /** Imgix transformations to apply to the image */
-    imgixParams?: (ImgixParams | null),
+    imgixParams?: (ImgixParams | null), 
     /** Specify a custom `sizes` attribute for the image */
-    sizes?: (Scalars['String'] | null),
+    sizes?: (Scalars['String'] | null), 
     /** The locale to use to fetch the field's content */
-    locale?: (SiteLocale | null),
+    locale?: (SiteLocale | null), 
     /** If you want to fallback to a default translation when a translation has not been found */
-    fallbackLocales?: (SiteLocale[] | null)},ResponsiveImageRequest] | ResponsiveImageRequest
+    fallbackLocales?: (SiteLocale[] | null)} })
     size?: boolean | number
     smartTags?: boolean | number
     tags?: boolean | number
     thumbhash?: boolean | number
-    title?: [{
+    title?: { __args: {
     /** The locale to use to fetch the field's content */
-    locale?: (SiteLocale | null),
+    locale?: (SiteLocale | null), 
     /** If you want to fallback to a default translation when a translation has not been found */
-    fallbackLocales?: (SiteLocale[] | null)}] | boolean | number
-    url?: [{
+    fallbackLocales?: (SiteLocale[] | null)} } | boolean | number
+    url?: { __args: {
     /** Imgix transformations to apply to the image */
-    imgixParams?: (ImgixParams | null)}] | boolean | number
-    video?: UploadVideoFieldRequest
+    imgixParams?: (ImgixParams | null)} } | boolean | number
+    video?: UploadVideoFieldGenqlSelection
     width?: boolean | number
-    on_FileField?: FileFieldRequest
+    on_FileField?: FileFieldGenqlSelection
     __typename?: boolean | number
     __scalar?: boolean | number
 }
 
-export interface GlobalSeoFieldRequest{
+export interface GlobalSeoFieldGenqlSelection{
     facebookPageUrl?: boolean | number
-    fallbackSeo?: SeoFieldRequest
+    fallbackSeo?: SeoFieldGenqlSelection
     siteName?: boolean | number
     titleSuffix?: boolean | number
     twitterAccount?: boolean | number
@@ -942,7 +945,7 @@ export interface GlobalSeoFieldRequest{
 
 
 /** Block of type Heading block (heading_block) */
-export interface HeadingBlockRecordRequest{
+export interface HeadingBlockRecordGenqlSelection{
     _createdAt?: boolean | number
     /** Editing URL */
     _editingUrl?: boolean | number
@@ -952,24 +955,24 @@ export interface HeadingBlockRecordRequest{
     _publicationScheduledAt?: boolean | number
     _publishedAt?: boolean | number
     /** Generates SEO and Social card meta tags to be used in your frontend */
-    _seoMetaTags?: [{
+    _seoMetaTags?: (TagGenqlSelection & { __args?: {
     /** The locale to use to fetch the field's content */
-    locale?: (SiteLocale | null)},TagRequest] | TagRequest
+    locale?: (SiteLocale | null)} })
     _status?: boolean | number
     _unpublishingScheduledAt?: boolean | number
     _updatedAt?: boolean | number
     heading?: boolean | number
     id?: boolean | number
-    subheading?: [{
+    subheading?: { __args: {
     /** Process content as markdown */
-    markdown?: (Scalars['Boolean'] | null)}] | boolean | number
+    markdown?: (Scalars['Boolean'] | null)} } | boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
 
 
 /** Record of type Homepage (homepage) */
-export interface HomepageRecordRequest{
+export interface HomepageRecordGenqlSelection{
     _createdAt?: boolean | number
     /** Editing URL */
     _editingUrl?: boolean | number
@@ -979,38 +982,38 @@ export interface HomepageRecordRequest{
     _publicationScheduledAt?: boolean | number
     _publishedAt?: boolean | number
     /** Generates SEO and Social card meta tags to be used in your frontend */
-    _seoMetaTags?: [{
+    _seoMetaTags?: (TagGenqlSelection & { __args?: {
     /** The locale to use to fetch the field's content */
-    locale?: (SiteLocale | null)},TagRequest] | TagRequest
+    locale?: (SiteLocale | null)} })
     _status?: boolean | number
     _unpublishingScheduledAt?: boolean | number
     _updatedAt?: boolean | number
-    about?: CardBlockRecordRequest
-    ctaAction?: ActionBlockRecordRequest
-    ctaHeading?: HeadingBlockRecordRequest
-    faq?: FaqItemRecordRequest
-    faqHeading?: HeadingBlockRecordRequest
-    featureCards?: CardBlockRecordRequest
-    featuresCta?: ActionBlockRecordRequest
-    featuresHeading?: HeadingBlockRecordRequest
-    heroCta?: ActionBlockRecordRequest
-    heroSubtitle?: [{
+    about?: CardBlockRecordGenqlSelection
+    ctaAction?: ActionBlockRecordGenqlSelection
+    ctaHeading?: HeadingBlockRecordGenqlSelection
+    faq?: FaqItemRecordGenqlSelection
+    faqHeading?: HeadingBlockRecordGenqlSelection
+    featureCards?: CardBlockRecordGenqlSelection
+    featuresCta?: ActionBlockRecordGenqlSelection
+    featuresHeading?: HeadingBlockRecordGenqlSelection
+    heroCta?: ActionBlockRecordGenqlSelection
+    heroSubtitle?: { __args: {
     /** Process content as markdown */
-    markdown?: (Scalars['Boolean'] | null)}] | boolean | number
-    heroTestimonialPictures?: FileFieldRequest
+    markdown?: (Scalars['Boolean'] | null)} } | boolean | number
+    heroTestimonialPictures?: FileFieldGenqlSelection
     heroTestimonialTitle?: boolean | number
     heroTitle?: boolean | number
     id?: boolean | number
-    multipleTestimonials?: TestimonialBlockRecordRequest
-    newCoursesRecords?: CourseRecordRequest
+    multipleTestimonials?: TestimonialBlockRecordGenqlSelection
+    newCoursesRecords?: CourseRecordGenqlSelection
     newCoursesTitle?: boolean | number
-    popularCoursesRecords?: CourseRecordRequest
+    popularCoursesRecords?: CourseRecordGenqlSelection
     popularCoursesTitle?: boolean | number
-    seo?: SeoBlockRecordRequest
-    statsAction?: ActionBlockRecordRequest
-    statsData?: HeadingBlockRecordRequest
-    statsHeading?: HeadingBlockRecordRequest
-    statsImages?: FileFieldRequest
+    seo?: SeoBlockRecordGenqlSelection
+    statsAction?: ActionBlockRecordGenqlSelection
+    statsData?: HeadingBlockRecordGenqlSelection
+    statsHeading?: HeadingBlockRecordGenqlSelection
+    statsImages?: FileFieldGenqlSelection
     title?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
@@ -1018,7 +1021,7 @@ export interface HomepageRecordRequest{
 
 
 /** Block of type Image Block (image_block) */
-export interface ImageBlockRecordRequest{
+export interface ImageBlockRecordGenqlSelection{
     _createdAt?: boolean | number
     /** Editing URL */
     _editingUrl?: boolean | number
@@ -1028,14 +1031,14 @@ export interface ImageBlockRecordRequest{
     _publicationScheduledAt?: boolean | number
     _publishedAt?: boolean | number
     /** Generates SEO and Social card meta tags to be used in your frontend */
-    _seoMetaTags?: [{
+    _seoMetaTags?: (TagGenqlSelection & { __args?: {
     /** The locale to use to fetch the field's content */
-    locale?: (SiteLocale | null)},TagRequest] | TagRequest
+    locale?: (SiteLocale | null)} })
     _status?: boolean | number
     _unpublishingScheduledAt?: boolean | number
     _updatedAt?: boolean | number
     id?: boolean | number
-    image?: FileFieldRequest
+    image?: FileFieldGenqlSelection
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -2334,16 +2337,16 @@ neq?: (UploadOrientation | null)}
 
 export interface PostModelFilter {_createdAt?: (CreatedAtFilter | null),id?: (ItemIdFilter | null),_firstPublishedAt?: (PublishedAtFilter | null),_publicationScheduledAt?: (PublishedAtFilter | null),_unpublishingScheduledAt?: (PublishedAtFilter | null),_publishedAt?: (PublishedAtFilter | null),_status?: (StatusFilter | null),_updatedAt?: (UpdatedAtFilter | null),_isValid?: (BooleanFilter | null),category?: (LinkFilter | null),slug?: (SlugFilter | null),title?: (StringFilter | null),OR?: ((PostModelFilter | null)[] | null),AND?: ((PostModelFilter | null)[] | null)}
 
-export interface PostModelModularContentFieldRequest{
-    on_ImageBlockRecord?:ImageBlockRecordRequest,
-    on_RichTextBlockRecord?:RichTextBlockRecordRequest,
-    on_RecordInterface?: RecordInterfaceRequest,
+export interface PostModelModularContentFieldGenqlSelection{
+    on_ImageBlockRecord?:ImageBlockRecordGenqlSelection,
+    on_RichTextBlockRecord?:RichTextBlockRecordGenqlSelection,
+    on_RecordInterface?: RecordInterfaceGenqlSelection,
     __typename?: boolean | number
 }
 
 
 /** Record of type Post (post) */
-export interface PostRecordRequest{
+export interface PostRecordGenqlSelection{
     _createdAt?: boolean | number
     /** Editing URL */
     _editingUrl?: boolean | number
@@ -2353,16 +2356,16 @@ export interface PostRecordRequest{
     _publicationScheduledAt?: boolean | number
     _publishedAt?: boolean | number
     /** Generates SEO and Social card meta tags to be used in your frontend */
-    _seoMetaTags?: [{
+    _seoMetaTags?: (TagGenqlSelection & { __args?: {
     /** The locale to use to fetch the field's content */
-    locale?: (SiteLocale | null)},TagRequest] | TagRequest
+    locale?: (SiteLocale | null)} })
     _status?: boolean | number
     _unpublishingScheduledAt?: boolean | number
     _updatedAt?: boolean | number
-    category?: CategoryRecordRequest
+    category?: CategoryRecordGenqlSelection
     id?: boolean | number
-    modularContent?: PostModelModularContentFieldRequest
-    seo?: SeoBlockRecordRequest
+    modularContent?: PostModelModularContentFieldGenqlSelection
+    seo?: SeoBlockRecordGenqlSelection
     slug?: boolean | number
     title?: boolean | number
     __typename?: boolean | number
@@ -2389,124 +2392,124 @@ exists?: (Scalars['BooleanType'] | null)}
 
 
 /** The query root for this schema */
-export interface QueryRequest{
+export interface QueryGenqlSelection{
     /** Returns meta information regarding a record collection */
-    _allCategoriesMeta?: [{
+    _allCategoriesMeta?: (CollectionMetadataGenqlSelection & { __args?: {
     /** The locale to use to fetch the field's content */
-    locale?: (SiteLocale | null),filter?: (CategoryModelFilter | null)},CollectionMetadataRequest] | CollectionMetadataRequest
+    locale?: (SiteLocale | null), filter?: (CategoryModelFilter | null)} })
     /** Returns meta information regarding a record collection */
-    _allCoursesMeta?: [{
+    _allCoursesMeta?: (CollectionMetadataGenqlSelection & { __args?: {
     /** The locale to use to fetch the field's content */
-    locale?: (SiteLocale | null),filter?: (CourseModelFilter | null)},CollectionMetadataRequest] | CollectionMetadataRequest
+    locale?: (SiteLocale | null), filter?: (CourseModelFilter | null)} })
     /** Returns meta information regarding a record collection */
-    _allFaqItemsMeta?: [{
+    _allFaqItemsMeta?: (CollectionMetadataGenqlSelection & { __args?: {
     /** The locale to use to fetch the field's content */
-    locale?: (SiteLocale | null),filter?: (FaqItemModelFilter | null)},CollectionMetadataRequest] | CollectionMetadataRequest
+    locale?: (SiteLocale | null), filter?: (FaqItemModelFilter | null)} })
     /** Returns meta information regarding a record collection */
-    _allPostsMeta?: [{
+    _allPostsMeta?: (CollectionMetadataGenqlSelection & { __args?: {
     /** The locale to use to fetch the field's content */
-    locale?: (SiteLocale | null),filter?: (PostModelFilter | null)},CollectionMetadataRequest] | CollectionMetadataRequest
+    locale?: (SiteLocale | null), filter?: (PostModelFilter | null)} })
     /** Returns meta information regarding an assets collection */
-    _allUploadsMeta?: [{
+    _allUploadsMeta?: (CollectionMetadataGenqlSelection & { __args?: {
     /** The locale to use to fetch the field's content */
-    locale?: (SiteLocale | null),filter?: (UploadFilter | null)},CollectionMetadataRequest] | CollectionMetadataRequest
+    locale?: (SiteLocale | null), filter?: (UploadFilter | null)} })
     /** Returns the single instance record */
-    _site?: [{
+    _site?: (SiteGenqlSelection & { __args?: {
     /** The locale to use to fetch the field's content */
-    locale?: (SiteLocale | null),
+    locale?: (SiteLocale | null), 
     /** If you want to fallback to a default translation when a translation has not been found */
-    fallbackLocales?: (SiteLocale[] | null)},SiteRequest] | SiteRequest
+    fallbackLocales?: (SiteLocale[] | null)} })
     /** Returns a collection of records */
-    allCategories?: [{
+    allCategories?: (CategoryRecordGenqlSelection & { __args?: {
     /** The locale to use to fetch the field's content */
-    locale?: (SiteLocale | null),
+    locale?: (SiteLocale | null), 
     /** If you want to fallback to a default translation when a translation has not been found */
-    fallbackLocales?: (SiteLocale[] | null),
+    fallbackLocales?: (SiteLocale[] | null), 
     /** Skip the first results */
-    skip?: (Scalars['IntType'] | null),
+    skip?: (Scalars['IntType'] | null), 
     /** Limit the number of results */
-    first?: (Scalars['IntType'] | null),filter?: (CategoryModelFilter | null),orderBy?: ((CategoryModelOrderBy | null)[] | null)},CategoryRecordRequest] | CategoryRecordRequest
+    first?: (Scalars['IntType'] | null), filter?: (CategoryModelFilter | null), orderBy?: ((CategoryModelOrderBy | null)[] | null)} })
     /** Returns a collection of records */
-    allCourses?: [{
+    allCourses?: (CourseRecordGenqlSelection & { __args?: {
     /** The locale to use to fetch the field's content */
-    locale?: (SiteLocale | null),
+    locale?: (SiteLocale | null), 
     /** If you want to fallback to a default translation when a translation has not been found */
-    fallbackLocales?: (SiteLocale[] | null),
+    fallbackLocales?: (SiteLocale[] | null), 
     /** Skip the first results */
-    skip?: (Scalars['IntType'] | null),
+    skip?: (Scalars['IntType'] | null), 
     /** Limit the number of results */
-    first?: (Scalars['IntType'] | null),filter?: (CourseModelFilter | null),orderBy?: ((CourseModelOrderBy | null)[] | null)},CourseRecordRequest] | CourseRecordRequest
+    first?: (Scalars['IntType'] | null), filter?: (CourseModelFilter | null), orderBy?: ((CourseModelOrderBy | null)[] | null)} })
     /** Returns a collection of records */
-    allFaqItems?: [{
+    allFaqItems?: (FaqItemRecordGenqlSelection & { __args?: {
     /** The locale to use to fetch the field's content */
-    locale?: (SiteLocale | null),
+    locale?: (SiteLocale | null), 
     /** If you want to fallback to a default translation when a translation has not been found */
-    fallbackLocales?: (SiteLocale[] | null),
+    fallbackLocales?: (SiteLocale[] | null), 
     /** Skip the first results */
-    skip?: (Scalars['IntType'] | null),
+    skip?: (Scalars['IntType'] | null), 
     /** Limit the number of results */
-    first?: (Scalars['IntType'] | null),filter?: (FaqItemModelFilter | null),orderBy?: ((FaqItemModelOrderBy | null)[] | null)},FaqItemRecordRequest] | FaqItemRecordRequest
+    first?: (Scalars['IntType'] | null), filter?: (FaqItemModelFilter | null), orderBy?: ((FaqItemModelOrderBy | null)[] | null)} })
     /** Returns a collection of records */
-    allPosts?: [{
+    allPosts?: (PostRecordGenqlSelection & { __args?: {
     /** The locale to use to fetch the field's content */
-    locale?: (SiteLocale | null),
+    locale?: (SiteLocale | null), 
     /** If you want to fallback to a default translation when a translation has not been found */
-    fallbackLocales?: (SiteLocale[] | null),
+    fallbackLocales?: (SiteLocale[] | null), 
     /** Skip the first results */
-    skip?: (Scalars['IntType'] | null),
+    skip?: (Scalars['IntType'] | null), 
     /** Limit the number of results */
-    first?: (Scalars['IntType'] | null),filter?: (PostModelFilter | null),orderBy?: ((PostModelOrderBy | null)[] | null)},PostRecordRequest] | PostRecordRequest
+    first?: (Scalars['IntType'] | null), filter?: (PostModelFilter | null), orderBy?: ((PostModelOrderBy | null)[] | null)} })
     /** Returns a collection of assets */
-    allUploads?: [{
+    allUploads?: (FileFieldGenqlSelection & { __args?: {
     /** The locale to use to fetch the field's content */
-    locale?: (SiteLocale | null),
+    locale?: (SiteLocale | null), 
     /** If you want to fallback to a default translation when a translation has not been found */
-    fallbackLocales?: (SiteLocale[] | null),
+    fallbackLocales?: (SiteLocale[] | null), 
     /** Skip the first results */
-    skip?: (Scalars['IntType'] | null),
+    skip?: (Scalars['IntType'] | null), 
     /** Limit the number of results */
-    first?: (Scalars['IntType'] | null),filter?: (UploadFilter | null),orderBy?: ((UploadOrderBy | null)[] | null)},FileFieldRequest] | FileFieldRequest
+    first?: (Scalars['IntType'] | null), filter?: (UploadFilter | null), orderBy?: ((UploadOrderBy | null)[] | null)} })
     /** Returns a specific record */
-    category?: [{
+    category?: (CategoryRecordGenqlSelection & { __args?: {
     /** The locale to use to fetch the field's content */
-    locale?: (SiteLocale | null),
+    locale?: (SiteLocale | null), 
     /** If you want to fallback to a default translation when a translation has not been found */
-    fallbackLocales?: (SiteLocale[] | null),filter?: (CategoryModelFilter | null),orderBy?: ((CategoryModelOrderBy | null)[] | null)},CategoryRecordRequest] | CategoryRecordRequest
+    fallbackLocales?: (SiteLocale[] | null), filter?: (CategoryModelFilter | null), orderBy?: ((CategoryModelOrderBy | null)[] | null)} })
     /** Returns a specific record */
-    course?: [{
+    course?: (CourseRecordGenqlSelection & { __args?: {
     /** The locale to use to fetch the field's content */
-    locale?: (SiteLocale | null),
+    locale?: (SiteLocale | null), 
     /** If you want to fallback to a default translation when a translation has not been found */
-    fallbackLocales?: (SiteLocale[] | null),filter?: (CourseModelFilter | null),orderBy?: ((CourseModelOrderBy | null)[] | null)},CourseRecordRequest] | CourseRecordRequest
+    fallbackLocales?: (SiteLocale[] | null), filter?: (CourseModelFilter | null), orderBy?: ((CourseModelOrderBy | null)[] | null)} })
     /** Returns a specific record */
-    faqItem?: [{
+    faqItem?: (FaqItemRecordGenqlSelection & { __args?: {
     /** The locale to use to fetch the field's content */
-    locale?: (SiteLocale | null),
+    locale?: (SiteLocale | null), 
     /** If you want to fallback to a default translation when a translation has not been found */
-    fallbackLocales?: (SiteLocale[] | null),filter?: (FaqItemModelFilter | null),orderBy?: ((FaqItemModelOrderBy | null)[] | null)},FaqItemRecordRequest] | FaqItemRecordRequest
+    fallbackLocales?: (SiteLocale[] | null), filter?: (FaqItemModelFilter | null), orderBy?: ((FaqItemModelOrderBy | null)[] | null)} })
     /** Returns the single instance record */
-    homepage?: [{
+    homepage?: (HomepageRecordGenqlSelection & { __args?: {
     /** The locale to use to fetch the field's content */
-    locale?: (SiteLocale | null),
+    locale?: (SiteLocale | null), 
     /** If you want to fallback to a default translation when a translation has not been found */
-    fallbackLocales?: (SiteLocale[] | null)},HomepageRecordRequest] | HomepageRecordRequest
+    fallbackLocales?: (SiteLocale[] | null)} })
     /** Returns a specific record */
-    post?: [{
+    post?: (PostRecordGenqlSelection & { __args?: {
     /** The locale to use to fetch the field's content */
-    locale?: (SiteLocale | null),
+    locale?: (SiteLocale | null), 
     /** If you want to fallback to a default translation when a translation has not been found */
-    fallbackLocales?: (SiteLocale[] | null),filter?: (PostModelFilter | null),orderBy?: ((PostModelOrderBy | null)[] | null)},PostRecordRequest] | PostRecordRequest
+    fallbackLocales?: (SiteLocale[] | null), filter?: (PostModelFilter | null), orderBy?: ((PostModelOrderBy | null)[] | null)} })
     /** Returns a specific asset */
-    upload?: [{
+    upload?: (FileFieldGenqlSelection & { __args?: {
     /** The locale to use to fetch the field's content */
-    locale?: (SiteLocale | null),
+    locale?: (SiteLocale | null), 
     /** If you want to fallback to a default translation when a translation has not been found */
-    fallbackLocales?: (SiteLocale[] | null),filter?: (UploadFilter | null),orderBy?: ((UploadOrderBy | null)[] | null)},FileFieldRequest] | FileFieldRequest
+    fallbackLocales?: (SiteLocale[] | null), filter?: (UploadFilter | null), orderBy?: ((UploadOrderBy | null)[] | null)} })
     __typename?: boolean | number
     __scalar?: boolean | number
 }
 
-export interface RecordInterfaceRequest{
+export interface RecordInterfaceGenqlSelection{
     _createdAt?: boolean | number
     /** Editing URL */
     _editingUrl?: boolean | number
@@ -2516,26 +2519,26 @@ export interface RecordInterfaceRequest{
     _publicationScheduledAt?: boolean | number
     _publishedAt?: boolean | number
     /** Generates SEO and Social card meta tags to be used in your frontend */
-    _seoMetaTags?: [{
+    _seoMetaTags?: (TagGenqlSelection & { __args?: {
     /** The locale to use to fetch the field's content */
-    locale?: (SiteLocale | null)},TagRequest] | TagRequest
+    locale?: (SiteLocale | null)} })
     _status?: boolean | number
     _unpublishingScheduledAt?: boolean | number
     _updatedAt?: boolean | number
     id?: boolean | number
-    on_ActionBlockRecord?: ActionBlockRecordRequest
-    on_CardBlockRecord?: CardBlockRecordRequest
-    on_CategoryRecord?: CategoryRecordRequest
-    on_CourseRecord?: CourseRecordRequest
-    on_FaqBlockRecord?: FaqBlockRecordRequest
-    on_FaqItemRecord?: FaqItemRecordRequest
-    on_HeadingBlockRecord?: HeadingBlockRecordRequest
-    on_HomepageRecord?: HomepageRecordRequest
-    on_ImageBlockRecord?: ImageBlockRecordRequest
-    on_PostRecord?: PostRecordRequest
-    on_RichTextBlockRecord?: RichTextBlockRecordRequest
-    on_SeoBlockRecord?: SeoBlockRecordRequest
-    on_TestimonialBlockRecord?: TestimonialBlockRecordRequest
+    on_ActionBlockRecord?: ActionBlockRecordGenqlSelection
+    on_CardBlockRecord?: CardBlockRecordGenqlSelection
+    on_CategoryRecord?: CategoryRecordGenqlSelection
+    on_CourseRecord?: CourseRecordGenqlSelection
+    on_FaqBlockRecord?: FaqBlockRecordGenqlSelection
+    on_FaqItemRecord?: FaqItemRecordGenqlSelection
+    on_HeadingBlockRecord?: HeadingBlockRecordGenqlSelection
+    on_HomepageRecord?: HomepageRecordGenqlSelection
+    on_ImageBlockRecord?: ImageBlockRecordGenqlSelection
+    on_PostRecord?: PostRecordGenqlSelection
+    on_RichTextBlockRecord?: RichTextBlockRecordGenqlSelection
+    on_SeoBlockRecord?: SeoBlockRecordGenqlSelection
+    on_TestimonialBlockRecord?: TestimonialBlockRecordGenqlSelection
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -2552,7 +2555,7 @@ in?: ((ResolutionType | null)[] | null),
 /** Search uploads without the specified resolutions */
 notIn?: ((ResolutionType | null)[] | null)}
 
-export interface ResponsiveImageRequest{
+export interface ResponsiveImageGenqlSelection{
     alt?: boolean | number
     aspectRatio?: boolean | number
     base64?: boolean | number
@@ -2568,15 +2571,15 @@ export interface ResponsiveImageRequest{
     __scalar?: boolean | number
 }
 
-export interface RichTextBlockModelRichTextBlocksFieldRequest{
-    on_ImageBlockRecord?:ImageBlockRecordRequest,
-    on_SeoBlockRecord?:SeoBlockRecordRequest,
-    on_RecordInterface?: RecordInterfaceRequest,
+export interface RichTextBlockModelRichTextBlocksFieldGenqlSelection{
+    on_ImageBlockRecord?:ImageBlockRecordGenqlSelection,
+    on_SeoBlockRecord?:SeoBlockRecordGenqlSelection,
+    on_RecordInterface?: RecordInterfaceGenqlSelection,
     __typename?: boolean | number
 }
 
-export interface RichTextBlockModelRichTextFieldRequest{
-    blocks?: RichTextBlockModelRichTextBlocksFieldRequest
+export interface RichTextBlockModelRichTextFieldGenqlSelection{
+    blocks?: RichTextBlockModelRichTextBlocksFieldGenqlSelection
     links?: boolean | number
     value?: boolean | number
     __typename?: boolean | number
@@ -2585,7 +2588,7 @@ export interface RichTextBlockModelRichTextFieldRequest{
 
 
 /** Block of type Rich Text Block (rich_text_block) */
-export interface RichTextBlockRecordRequest{
+export interface RichTextBlockRecordGenqlSelection{
     _createdAt?: boolean | number
     /** Editing URL */
     _editingUrl?: boolean | number
@@ -2595,21 +2598,21 @@ export interface RichTextBlockRecordRequest{
     _publicationScheduledAt?: boolean | number
     _publishedAt?: boolean | number
     /** Generates SEO and Social card meta tags to be used in your frontend */
-    _seoMetaTags?: [{
+    _seoMetaTags?: (TagGenqlSelection & { __args?: {
     /** The locale to use to fetch the field's content */
-    locale?: (SiteLocale | null)},TagRequest] | TagRequest
+    locale?: (SiteLocale | null)} })
     _status?: boolean | number
     _unpublishingScheduledAt?: boolean | number
     _updatedAt?: boolean | number
     id?: boolean | number
-    richText?: RichTextBlockModelRichTextFieldRequest
+    richText?: RichTextBlockModelRichTextFieldGenqlSelection
     __typename?: boolean | number
     __scalar?: boolean | number
 }
 
 
 /** Block of type SEO Block (seo_block) */
-export interface SeoBlockRecordRequest{
+export interface SeoBlockRecordGenqlSelection{
     _createdAt?: boolean | number
     /** Editing URL */
     _editingUrl?: boolean | number
@@ -2619,37 +2622,37 @@ export interface SeoBlockRecordRequest{
     _publicationScheduledAt?: boolean | number
     _publishedAt?: boolean | number
     /** Generates SEO and Social card meta tags to be used in your frontend */
-    _seoMetaTags?: [{
+    _seoMetaTags?: (TagGenqlSelection & { __args?: {
     /** The locale to use to fetch the field's content */
-    locale?: (SiteLocale | null)},TagRequest] | TagRequest
+    locale?: (SiteLocale | null)} })
     _status?: boolean | number
     _unpublishingScheduledAt?: boolean | number
     _updatedAt?: boolean | number
     id?: boolean | number
-    seoBlock?: SeoFieldRequest
+    seoBlock?: SeoFieldGenqlSelection
     __typename?: boolean | number
     __scalar?: boolean | number
 }
 
-export interface SeoFieldRequest{
+export interface SeoFieldGenqlSelection{
     description?: boolean | number
-    image?: FileFieldRequest
+    image?: FileFieldGenqlSelection
     title?: boolean | number
     twitterCard?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
 
-export interface SiteRequest{
-    favicon?: FileFieldRequest
-    faviconMetaTags?: [{
+export interface SiteGenqlSelection{
+    favicon?: FileFieldGenqlSelection
+    faviconMetaTags?: (TagGenqlSelection & { __args?: {
     /** The variants to build */
-    variants?: ((FaviconType | null)[] | null)},TagRequest] | TagRequest
-    globalSeo?: [{
+    variants?: ((FaviconType | null)[] | null)} })
+    globalSeo?: (GlobalSeoFieldGenqlSelection & { __args?: {
     /** The locale to use to fetch the field's content */
-    locale?: (SiteLocale | null),
+    locale?: (SiteLocale | null), 
     /** If you want to fallback to a default translation when a translation has not been found */
-    fallbackLocales?: (SiteLocale[] | null)},GlobalSeoFieldRequest] | GlobalSeoFieldRequest
+    fallbackLocales?: (SiteLocale[] | null)} })
     locales?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
@@ -2703,7 +2706,7 @@ exists?: (Scalars['BooleanType'] | null)}
 
 export interface StringMatchesFilter {pattern: Scalars['String'],caseSensitive?: (Scalars['BooleanType'] | null),regexp?: (Scalars['BooleanType'] | null)}
 
-export interface TagRequest{
+export interface TagGenqlSelection{
     attributes?: boolean | number
     content?: boolean | number
     tag?: boolean | number
@@ -2713,7 +2716,7 @@ export interface TagRequest{
 
 
 /** Block of type Testimonial Block (testimonial_block) */
-export interface TestimonialBlockRecordRequest{
+export interface TestimonialBlockRecordGenqlSelection{
     _createdAt?: boolean | number
     /** Editing URL */
     _editingUrl?: boolean | number
@@ -2723,17 +2726,17 @@ export interface TestimonialBlockRecordRequest{
     _publicationScheduledAt?: boolean | number
     _publishedAt?: boolean | number
     /** Generates SEO and Social card meta tags to be used in your frontend */
-    _seoMetaTags?: [{
+    _seoMetaTags?: (TagGenqlSelection & { __args?: {
     /** The locale to use to fetch the field's content */
-    locale?: (SiteLocale | null)},TagRequest] | TagRequest
+    locale?: (SiteLocale | null)} })
     _status?: boolean | number
     _unpublishingScheduledAt?: boolean | number
     _updatedAt?: boolean | number
     author?: boolean | number
     company?: boolean | number
-    content?: RichTextBlockRecordRequest
+    content?: RichTextBlockRecordGenqlSelection
     id?: boolean | number
-    image?: FileFieldRequest
+    image?: FileFieldGenqlSelection
     role?: boolean | number
     title?: boolean | number
     __typename?: boolean | number
@@ -2998,20 +3001,20 @@ gt?: (Scalars['DateTime'] | null),
 /** Filter uploads with a value that's greater than or equal to the one specified */
 gte?: (Scalars['DateTime'] | null)}
 
-export interface UploadVideoFieldRequest{
+export interface UploadVideoFieldGenqlSelection{
     duration?: boolean | number
     framerate?: boolean | number
-    mp4Url?: [{
+    mp4Url?: { __args: {
     /** Pick highest resolution available up to the specified argument */
-    res?: (VideoMp4Res | null),
+    res?: (VideoMp4Res | null), 
     /** Pick the exact resolution quality specified in the argument */
-    exactRes?: (VideoMp4Res | null)}] | boolean | number
+    exactRes?: (VideoMp4Res | null)} } | boolean | number
     muxAssetId?: boolean | number
     muxPlaybackId?: boolean | number
     streamingUrl?: boolean | number
-    thumbnailUrl?: [{
+    thumbnailUrl?: { __args: {
     /** The file extension of the requested image format. Either png, jpg or gif */
-    format?: (MuxThumbnailFormatType | null)}] | boolean | number
+    format?: (MuxThumbnailFormatType | null)} } | boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -3032,7 +3035,7 @@ eq?: (Scalars['IntType'] | null),
 /** Search assets that do not have the specified width */
 neq?: (Scalars['IntType'] | null)}
 
-export interface focalPointRequest{
+export interface focalPointGenqlSelection{
     x?: boolean | number
     y?: boolean | number
     __typename?: boolean | number
@@ -3040,1725 +3043,604 @@ export interface focalPointRequest{
 }
 
 
-const ActionBlockRecord_possibleTypes: string[] = ['ActionBlockRecord']
-export const isActionBlockRecord = (obj?: { __typename?: any } | null): obj is ActionBlockRecord => {
-  if (!obj?.__typename) throw new Error('__typename is missing in "isActionBlockRecord"')
-  return ActionBlockRecord_possibleTypes.includes(obj.__typename)
-}
-
-
-
-const CardBlockRecord_possibleTypes: string[] = ['CardBlockRecord']
-export const isCardBlockRecord = (obj?: { __typename?: any } | null): obj is CardBlockRecord => {
-  if (!obj?.__typename) throw new Error('__typename is missing in "isCardBlockRecord"')
-  return CardBlockRecord_possibleTypes.includes(obj.__typename)
-}
-
-
-
-const CategoryRecord_possibleTypes: string[] = ['CategoryRecord']
-export const isCategoryRecord = (obj?: { __typename?: any } | null): obj is CategoryRecord => {
-  if (!obj?.__typename) throw new Error('__typename is missing in "isCategoryRecord"')
-  return CategoryRecord_possibleTypes.includes(obj.__typename)
-}
-
-
-
-const CollectionMetadata_possibleTypes: string[] = ['CollectionMetadata']
-export const isCollectionMetadata = (obj?: { __typename?: any } | null): obj is CollectionMetadata => {
-  if (!obj?.__typename) throw new Error('__typename is missing in "isCollectionMetadata"')
-  return CollectionMetadata_possibleTypes.includes(obj.__typename)
-}
-
-
-
-const ColorField_possibleTypes: string[] = ['ColorField']
-export const isColorField = (obj?: { __typename?: any } | null): obj is ColorField => {
-  if (!obj?.__typename) throw new Error('__typename is missing in "isColorField"')
-  return ColorField_possibleTypes.includes(obj.__typename)
-}
-
-
-
-const CourseRecord_possibleTypes: string[] = ['CourseRecord']
-export const isCourseRecord = (obj?: { __typename?: any } | null): obj is CourseRecord => {
-  if (!obj?.__typename) throw new Error('__typename is missing in "isCourseRecord"')
-  return CourseRecord_possibleTypes.includes(obj.__typename)
-}
+    const ActionBlockRecord_possibleTypes: string[] = ['ActionBlockRecord']
+    export const isActionBlockRecord = (obj?: { __typename?: any } | null): obj is ActionBlockRecord => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isActionBlockRecord"')
+      return ActionBlockRecord_possibleTypes.includes(obj.__typename)
+    }
+    
 
 
+    const CardBlockRecord_possibleTypes: string[] = ['CardBlockRecord']
+    export const isCardBlockRecord = (obj?: { __typename?: any } | null): obj is CardBlockRecord => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isCardBlockRecord"')
+      return CardBlockRecord_possibleTypes.includes(obj.__typename)
+    }
+    
 
-const FaqBlockRecord_possibleTypes: string[] = ['FaqBlockRecord']
-export const isFaqBlockRecord = (obj?: { __typename?: any } | null): obj is FaqBlockRecord => {
-  if (!obj?.__typename) throw new Error('__typename is missing in "isFaqBlockRecord"')
-  return FaqBlockRecord_possibleTypes.includes(obj.__typename)
-}
 
+    const CategoryRecord_possibleTypes: string[] = ['CategoryRecord']
+    export const isCategoryRecord = (obj?: { __typename?: any } | null): obj is CategoryRecord => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isCategoryRecord"')
+      return CategoryRecord_possibleTypes.includes(obj.__typename)
+    }
+    
 
 
-const FaqItemRecord_possibleTypes: string[] = ['FaqItemRecord']
-export const isFaqItemRecord = (obj?: { __typename?: any } | null): obj is FaqItemRecord => {
-  if (!obj?.__typename) throw new Error('__typename is missing in "isFaqItemRecord"')
-  return FaqItemRecord_possibleTypes.includes(obj.__typename)
-}
+    const CollectionMetadata_possibleTypes: string[] = ['CollectionMetadata']
+    export const isCollectionMetadata = (obj?: { __typename?: any } | null): obj is CollectionMetadata => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isCollectionMetadata"')
+      return CollectionMetadata_possibleTypes.includes(obj.__typename)
+    }
+    
 
 
+    const ColorField_possibleTypes: string[] = ['ColorField']
+    export const isColorField = (obj?: { __typename?: any } | null): obj is ColorField => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isColorField"')
+      return ColorField_possibleTypes.includes(obj.__typename)
+    }
+    
 
-const FileField_possibleTypes: string[] = ['FileField']
-export const isFileField = (obj?: { __typename?: any } | null): obj is FileField => {
-  if (!obj?.__typename) throw new Error('__typename is missing in "isFileField"')
-  return FileField_possibleTypes.includes(obj.__typename)
-}
 
+    const CourseRecord_possibleTypes: string[] = ['CourseRecord']
+    export const isCourseRecord = (obj?: { __typename?: any } | null): obj is CourseRecord => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isCourseRecord"')
+      return CourseRecord_possibleTypes.includes(obj.__typename)
+    }
+    
 
 
-const FileFieldInterface_possibleTypes: string[] = ['FileField']
-export const isFileFieldInterface = (obj?: { __typename?: any } | null): obj is FileFieldInterface => {
-  if (!obj?.__typename) throw new Error('__typename is missing in "isFileFieldInterface"')
-  return FileFieldInterface_possibleTypes.includes(obj.__typename)
-}
+    const FaqBlockRecord_possibleTypes: string[] = ['FaqBlockRecord']
+    export const isFaqBlockRecord = (obj?: { __typename?: any } | null): obj is FaqBlockRecord => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isFaqBlockRecord"')
+      return FaqBlockRecord_possibleTypes.includes(obj.__typename)
+    }
+    
 
 
+    const FaqItemRecord_possibleTypes: string[] = ['FaqItemRecord']
+    export const isFaqItemRecord = (obj?: { __typename?: any } | null): obj is FaqItemRecord => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isFaqItemRecord"')
+      return FaqItemRecord_possibleTypes.includes(obj.__typename)
+    }
+    
 
-const GlobalSeoField_possibleTypes: string[] = ['GlobalSeoField']
-export const isGlobalSeoField = (obj?: { __typename?: any } | null): obj is GlobalSeoField => {
-  if (!obj?.__typename) throw new Error('__typename is missing in "isGlobalSeoField"')
-  return GlobalSeoField_possibleTypes.includes(obj.__typename)
-}
 
+    const FileField_possibleTypes: string[] = ['FileField']
+    export const isFileField = (obj?: { __typename?: any } | null): obj is FileField => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isFileField"')
+      return FileField_possibleTypes.includes(obj.__typename)
+    }
+    
 
 
-const HeadingBlockRecord_possibleTypes: string[] = ['HeadingBlockRecord']
-export const isHeadingBlockRecord = (obj?: { __typename?: any } | null): obj is HeadingBlockRecord => {
-  if (!obj?.__typename) throw new Error('__typename is missing in "isHeadingBlockRecord"')
-  return HeadingBlockRecord_possibleTypes.includes(obj.__typename)
-}
+    const FileFieldInterface_possibleTypes: string[] = ['FileField']
+    export const isFileFieldInterface = (obj?: { __typename?: any } | null): obj is FileFieldInterface => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isFileFieldInterface"')
+      return FileFieldInterface_possibleTypes.includes(obj.__typename)
+    }
+    
 
 
+    const GlobalSeoField_possibleTypes: string[] = ['GlobalSeoField']
+    export const isGlobalSeoField = (obj?: { __typename?: any } | null): obj is GlobalSeoField => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isGlobalSeoField"')
+      return GlobalSeoField_possibleTypes.includes(obj.__typename)
+    }
+    
 
-const HomepageRecord_possibleTypes: string[] = ['HomepageRecord']
-export const isHomepageRecord = (obj?: { __typename?: any } | null): obj is HomepageRecord => {
-  if (!obj?.__typename) throw new Error('__typename is missing in "isHomepageRecord"')
-  return HomepageRecord_possibleTypes.includes(obj.__typename)
-}
 
+    const HeadingBlockRecord_possibleTypes: string[] = ['HeadingBlockRecord']
+    export const isHeadingBlockRecord = (obj?: { __typename?: any } | null): obj is HeadingBlockRecord => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isHeadingBlockRecord"')
+      return HeadingBlockRecord_possibleTypes.includes(obj.__typename)
+    }
+    
 
 
-const ImageBlockRecord_possibleTypes: string[] = ['ImageBlockRecord']
-export const isImageBlockRecord = (obj?: { __typename?: any } | null): obj is ImageBlockRecord => {
-  if (!obj?.__typename) throw new Error('__typename is missing in "isImageBlockRecord"')
-  return ImageBlockRecord_possibleTypes.includes(obj.__typename)
-}
+    const HomepageRecord_possibleTypes: string[] = ['HomepageRecord']
+    export const isHomepageRecord = (obj?: { __typename?: any } | null): obj is HomepageRecord => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isHomepageRecord"')
+      return HomepageRecord_possibleTypes.includes(obj.__typename)
+    }
+    
 
 
+    const ImageBlockRecord_possibleTypes: string[] = ['ImageBlockRecord']
+    export const isImageBlockRecord = (obj?: { __typename?: any } | null): obj is ImageBlockRecord => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isImageBlockRecord"')
+      return ImageBlockRecord_possibleTypes.includes(obj.__typename)
+    }
+    
 
-const PostModelModularContentField_possibleTypes: string[] = ['ImageBlockRecord','RichTextBlockRecord']
-export const isPostModelModularContentField = (obj?: { __typename?: any } | null): obj is PostModelModularContentField => {
-  if (!obj?.__typename) throw new Error('__typename is missing in "isPostModelModularContentField"')
-  return PostModelModularContentField_possibleTypes.includes(obj.__typename)
-}
 
+    const PostModelModularContentField_possibleTypes: string[] = ['ImageBlockRecord','RichTextBlockRecord']
+    export const isPostModelModularContentField = (obj?: { __typename?: any } | null): obj is PostModelModularContentField => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isPostModelModularContentField"')
+      return PostModelModularContentField_possibleTypes.includes(obj.__typename)
+    }
+    
 
 
-const PostRecord_possibleTypes: string[] = ['PostRecord']
-export const isPostRecord = (obj?: { __typename?: any } | null): obj is PostRecord => {
-  if (!obj?.__typename) throw new Error('__typename is missing in "isPostRecord"')
-  return PostRecord_possibleTypes.includes(obj.__typename)
-}
+    const PostRecord_possibleTypes: string[] = ['PostRecord']
+    export const isPostRecord = (obj?: { __typename?: any } | null): obj is PostRecord => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isPostRecord"')
+      return PostRecord_possibleTypes.includes(obj.__typename)
+    }
+    
 
 
+    const Query_possibleTypes: string[] = ['Query']
+    export const isQuery = (obj?: { __typename?: any } | null): obj is Query => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isQuery"')
+      return Query_possibleTypes.includes(obj.__typename)
+    }
+    
 
-const Query_possibleTypes: string[] = ['Query']
-export const isQuery = (obj?: { __typename?: any } | null): obj is Query => {
-  if (!obj?.__typename) throw new Error('__typename is missing in "isQuery"')
-  return Query_possibleTypes.includes(obj.__typename)
-}
 
+    const RecordInterface_possibleTypes: string[] = ['ActionBlockRecord','CardBlockRecord','CategoryRecord','CourseRecord','FaqBlockRecord','FaqItemRecord','HeadingBlockRecord','HomepageRecord','ImageBlockRecord','PostRecord','RichTextBlockRecord','SeoBlockRecord','TestimonialBlockRecord']
+    export const isRecordInterface = (obj?: { __typename?: any } | null): obj is RecordInterface => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isRecordInterface"')
+      return RecordInterface_possibleTypes.includes(obj.__typename)
+    }
+    
 
 
-const RecordInterface_possibleTypes: string[] = ['ActionBlockRecord','CardBlockRecord','CategoryRecord','CourseRecord','FaqBlockRecord','FaqItemRecord','HeadingBlockRecord','HomepageRecord','ImageBlockRecord','PostRecord','RichTextBlockRecord','SeoBlockRecord','TestimonialBlockRecord']
-export const isRecordInterface = (obj?: { __typename?: any } | null): obj is RecordInterface => {
-  if (!obj?.__typename) throw new Error('__typename is missing in "isRecordInterface"')
-  return RecordInterface_possibleTypes.includes(obj.__typename)
-}
+    const ResponsiveImage_possibleTypes: string[] = ['ResponsiveImage']
+    export const isResponsiveImage = (obj?: { __typename?: any } | null): obj is ResponsiveImage => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isResponsiveImage"')
+      return ResponsiveImage_possibleTypes.includes(obj.__typename)
+    }
+    
 
 
+    const RichTextBlockModelRichTextBlocksField_possibleTypes: string[] = ['ImageBlockRecord','SeoBlockRecord']
+    export const isRichTextBlockModelRichTextBlocksField = (obj?: { __typename?: any } | null): obj is RichTextBlockModelRichTextBlocksField => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isRichTextBlockModelRichTextBlocksField"')
+      return RichTextBlockModelRichTextBlocksField_possibleTypes.includes(obj.__typename)
+    }
+    
 
-const ResponsiveImage_possibleTypes: string[] = ['ResponsiveImage']
-export const isResponsiveImage = (obj?: { __typename?: any } | null): obj is ResponsiveImage => {
-  if (!obj?.__typename) throw new Error('__typename is missing in "isResponsiveImage"')
-  return ResponsiveImage_possibleTypes.includes(obj.__typename)
-}
 
+    const RichTextBlockModelRichTextField_possibleTypes: string[] = ['RichTextBlockModelRichTextField']
+    export const isRichTextBlockModelRichTextField = (obj?: { __typename?: any } | null): obj is RichTextBlockModelRichTextField => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isRichTextBlockModelRichTextField"')
+      return RichTextBlockModelRichTextField_possibleTypes.includes(obj.__typename)
+    }
+    
 
 
-const RichTextBlockModelRichTextBlocksField_possibleTypes: string[] = ['ImageBlockRecord','SeoBlockRecord']
-export const isRichTextBlockModelRichTextBlocksField = (obj?: { __typename?: any } | null): obj is RichTextBlockModelRichTextBlocksField => {
-  if (!obj?.__typename) throw new Error('__typename is missing in "isRichTextBlockModelRichTextBlocksField"')
-  return RichTextBlockModelRichTextBlocksField_possibleTypes.includes(obj.__typename)
-}
+    const RichTextBlockRecord_possibleTypes: string[] = ['RichTextBlockRecord']
+    export const isRichTextBlockRecord = (obj?: { __typename?: any } | null): obj is RichTextBlockRecord => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isRichTextBlockRecord"')
+      return RichTextBlockRecord_possibleTypes.includes(obj.__typename)
+    }
+    
 
 
+    const SeoBlockRecord_possibleTypes: string[] = ['SeoBlockRecord']
+    export const isSeoBlockRecord = (obj?: { __typename?: any } | null): obj is SeoBlockRecord => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSeoBlockRecord"')
+      return SeoBlockRecord_possibleTypes.includes(obj.__typename)
+    }
+    
 
-const RichTextBlockModelRichTextField_possibleTypes: string[] = ['RichTextBlockModelRichTextField']
-export const isRichTextBlockModelRichTextField = (obj?: { __typename?: any } | null): obj is RichTextBlockModelRichTextField => {
-  if (!obj?.__typename) throw new Error('__typename is missing in "isRichTextBlockModelRichTextField"')
-  return RichTextBlockModelRichTextField_possibleTypes.includes(obj.__typename)
-}
 
+    const SeoField_possibleTypes: string[] = ['SeoField']
+    export const isSeoField = (obj?: { __typename?: any } | null): obj is SeoField => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSeoField"')
+      return SeoField_possibleTypes.includes(obj.__typename)
+    }
+    
 
 
-const RichTextBlockRecord_possibleTypes: string[] = ['RichTextBlockRecord']
-export const isRichTextBlockRecord = (obj?: { __typename?: any } | null): obj is RichTextBlockRecord => {
-  if (!obj?.__typename) throw new Error('__typename is missing in "isRichTextBlockRecord"')
-  return RichTextBlockRecord_possibleTypes.includes(obj.__typename)
-}
+    const Site_possibleTypes: string[] = ['Site']
+    export const isSite = (obj?: { __typename?: any } | null): obj is Site => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSite"')
+      return Site_possibleTypes.includes(obj.__typename)
+    }
+    
 
 
+    const Tag_possibleTypes: string[] = ['Tag']
+    export const isTag = (obj?: { __typename?: any } | null): obj is Tag => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isTag"')
+      return Tag_possibleTypes.includes(obj.__typename)
+    }
+    
 
-const SeoBlockRecord_possibleTypes: string[] = ['SeoBlockRecord']
-export const isSeoBlockRecord = (obj?: { __typename?: any } | null): obj is SeoBlockRecord => {
-  if (!obj?.__typename) throw new Error('__typename is missing in "isSeoBlockRecord"')
-  return SeoBlockRecord_possibleTypes.includes(obj.__typename)
-}
 
+    const TestimonialBlockRecord_possibleTypes: string[] = ['TestimonialBlockRecord']
+    export const isTestimonialBlockRecord = (obj?: { __typename?: any } | null): obj is TestimonialBlockRecord => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isTestimonialBlockRecord"')
+      return TestimonialBlockRecord_possibleTypes.includes(obj.__typename)
+    }
+    
 
 
-const SeoField_possibleTypes: string[] = ['SeoField']
-export const isSeoField = (obj?: { __typename?: any } | null): obj is SeoField => {
-  if (!obj?.__typename) throw new Error('__typename is missing in "isSeoField"')
-  return SeoField_possibleTypes.includes(obj.__typename)
-}
+    const UploadVideoField_possibleTypes: string[] = ['UploadVideoField']
+    export const isUploadVideoField = (obj?: { __typename?: any } | null): obj is UploadVideoField => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isUploadVideoField"')
+      return UploadVideoField_possibleTypes.includes(obj.__typename)
+    }
+    
 
 
+    const focalPoint_possibleTypes: string[] = ['focalPoint']
+    export const isfocalPoint = (obj?: { __typename?: any } | null): obj is focalPoint => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isfocalPoint"')
+      return focalPoint_possibleTypes.includes(obj.__typename)
+    }
+    
 
-const Site_possibleTypes: string[] = ['Site']
-export const isSite = (obj?: { __typename?: any } | null): obj is Site => {
-  if (!obj?.__typename) throw new Error('__typename is missing in "isSite"')
-  return Site_possibleTypes.includes(obj.__typename)
+export const enumCategoryModelOrderBy = {
+   _createdAt_ASC: '_createdAt_ASC' as const,
+   _createdAt_DESC: '_createdAt_DESC' as const,
+   id_ASC: 'id_ASC' as const,
+   id_DESC: 'id_DESC' as const,
+   _firstPublishedAt_ASC: '_firstPublishedAt_ASC' as const,
+   _firstPublishedAt_DESC: '_firstPublishedAt_DESC' as const,
+   _publicationScheduledAt_ASC: '_publicationScheduledAt_ASC' as const,
+   _publicationScheduledAt_DESC: '_publicationScheduledAt_DESC' as const,
+   _unpublishingScheduledAt_ASC: '_unpublishingScheduledAt_ASC' as const,
+   _unpublishingScheduledAt_DESC: '_unpublishingScheduledAt_DESC' as const,
+   _publishedAt_ASC: '_publishedAt_ASC' as const,
+   _publishedAt_DESC: '_publishedAt_DESC' as const,
+   _status_ASC: '_status_ASC' as const,
+   _status_DESC: '_status_DESC' as const,
+   _updatedAt_ASC: '_updatedAt_ASC' as const,
+   _updatedAt_DESC: '_updatedAt_DESC' as const,
+   _isValid_ASC: '_isValid_ASC' as const,
+   _isValid_DESC: '_isValid_DESC' as const,
+   name_ASC: 'name_ASC' as const,
+   name_DESC: 'name_DESC' as const
 }
-
-
 
-const Tag_possibleTypes: string[] = ['Tag']
-export const isTag = (obj?: { __typename?: any } | null): obj is Tag => {
-  if (!obj?.__typename) throw new Error('__typename is missing in "isTag"')
-  return Tag_possibleTypes.includes(obj.__typename)
+export const enumColorBucketType = {
+   red: 'red' as const,
+   orange: 'orange' as const,
+   pink: 'pink' as const,
+   cyan: 'cyan' as const,
+   purple: 'purple' as const,
+   blue: 'blue' as const,
+   yellow: 'yellow' as const,
+   green: 'green' as const,
+   brown: 'brown' as const,
+   grey: 'grey' as const,
+   white: 'white' as const,
+   black: 'black' as const
 }
 
+export const enumCourseModelOrderBy = {
+   _createdAt_ASC: '_createdAt_ASC' as const,
+   _createdAt_DESC: '_createdAt_DESC' as const,
+   id_ASC: 'id_ASC' as const,
+   id_DESC: 'id_DESC' as const,
+   _firstPublishedAt_ASC: '_firstPublishedAt_ASC' as const,
+   _firstPublishedAt_DESC: '_firstPublishedAt_DESC' as const,
+   _publicationScheduledAt_ASC: '_publicationScheduledAt_ASC' as const,
+   _publicationScheduledAt_DESC: '_publicationScheduledAt_DESC' as const,
+   _unpublishingScheduledAt_ASC: '_unpublishingScheduledAt_ASC' as const,
+   _unpublishingScheduledAt_DESC: '_unpublishingScheduledAt_DESC' as const,
+   _publishedAt_ASC: '_publishedAt_ASC' as const,
+   _publishedAt_DESC: '_publishedAt_DESC' as const,
+   _status_ASC: '_status_ASC' as const,
+   _status_DESC: '_status_DESC' as const,
+   _updatedAt_ASC: '_updatedAt_ASC' as const,
+   _updatedAt_DESC: '_updatedAt_DESC' as const,
+   _isValid_ASC: '_isValid_ASC' as const,
+   _isValid_DESC: '_isValid_DESC' as const,
+   duration_ASC: 'duration_ASC' as const,
+   duration_DESC: 'duration_DESC' as const,
+   level_ASC: 'level_ASC' as const,
+   level_DESC: 'level_DESC' as const,
+   name_ASC: 'name_ASC' as const,
+   name_DESC: 'name_DESC' as const,
+   numberOfEnrolledStudents_ASC: 'numberOfEnrolledStudents_ASC' as const,
+   numberOfEnrolledStudents_DESC: 'numberOfEnrolledStudents_DESC' as const,
+   numberOfSections_ASC: 'numberOfSections_ASC' as const,
+   numberOfSections_DESC: 'numberOfSections_DESC' as const,
+   price_ASC: 'price_ASC' as const,
+   price_DESC: 'price_DESC' as const,
+   tag_ASC: 'tag_ASC' as const,
+   tag_DESC: 'tag_DESC' as const
+}
+
+export const enumFaqItemModelOrderBy = {
+   _createdAt_ASC: '_createdAt_ASC' as const,
+   _createdAt_DESC: '_createdAt_DESC' as const,
+   id_ASC: 'id_ASC' as const,
+   id_DESC: 'id_DESC' as const,
+   _firstPublishedAt_ASC: '_firstPublishedAt_ASC' as const,
+   _firstPublishedAt_DESC: '_firstPublishedAt_DESC' as const,
+   _publicationScheduledAt_ASC: '_publicationScheduledAt_ASC' as const,
+   _publicationScheduledAt_DESC: '_publicationScheduledAt_DESC' as const,
+   _unpublishingScheduledAt_ASC: '_unpublishingScheduledAt_ASC' as const,
+   _unpublishingScheduledAt_DESC: '_unpublishingScheduledAt_DESC' as const,
+   _publishedAt_ASC: '_publishedAt_ASC' as const,
+   _publishedAt_DESC: '_publishedAt_DESC' as const,
+   _status_ASC: '_status_ASC' as const,
+   _status_DESC: '_status_DESC' as const,
+   _updatedAt_ASC: '_updatedAt_ASC' as const,
+   _updatedAt_DESC: '_updatedAt_DESC' as const,
+   _isValid_ASC: '_isValid_ASC' as const,
+   _isValid_DESC: '_isValid_DESC' as const,
+   title_ASC: 'title_ASC' as const,
+   title_DESC: 'title_DESC' as const
+}
+
+export const enumFaviconType = {
+   icon: 'icon' as const,
+   appleTouchIcon: 'appleTouchIcon' as const,
+   msApplication: 'msApplication' as const
+}
+
+export const enumImgixParamsAuto = {
+   enhance: 'enhance' as const,
+   format: 'format' as const,
+   redeye: 'redeye' as const,
+   compress: 'compress' as const
+}
+
+export const enumImgixParamsBlendAlign = {
+   top: 'top' as const,
+   bottom: 'bottom' as const,
+   middle: 'middle' as const,
+   left: 'left' as const,
+   right: 'right' as const,
+   center: 'center' as const
+}
+
+export const enumImgixParamsBlendCrop = {
+   top: 'top' as const,
+   bottom: 'bottom' as const,
+   left: 'left' as const,
+   right: 'right' as const,
+   faces: 'faces' as const
+}
+
+export const enumImgixParamsBlendFit = {
+   clamp: 'clamp' as const,
+   clip: 'clip' as const,
+   crop: 'crop' as const,
+   scale: 'scale' as const,
+   max: 'max' as const
+}
+
+export const enumImgixParamsBlendMode = {
+   color: 'color' as const,
+   burn: 'burn' as const,
+   dodge: 'dodge' as const,
+   darken: 'darken' as const,
+   difference: 'difference' as const,
+   exclusion: 'exclusion' as const,
+   hardlight: 'hardlight' as const,
+   hue: 'hue' as const,
+   lighten: 'lighten' as const,
+   luminosity: 'luminosity' as const,
+   multiply: 'multiply' as const,
+   overlay: 'overlay' as const,
+   saturation: 'saturation' as const,
+   screen: 'screen' as const,
+   softlight: 'softlight' as const,
+   normal: 'normal' as const
+}
 
-
-const TestimonialBlockRecord_possibleTypes: string[] = ['TestimonialBlockRecord']
-export const isTestimonialBlockRecord = (obj?: { __typename?: any } | null): obj is TestimonialBlockRecord => {
-  if (!obj?.__typename) throw new Error('__typename is missing in "isTestimonialBlockRecord"')
-  return TestimonialBlockRecord_possibleTypes.includes(obj.__typename)
+export const enumImgixParamsBlendSize = {
+   inherit: 'inherit' as const
 }
-
-
 
-const UploadVideoField_possibleTypes: string[] = ['UploadVideoField']
-export const isUploadVideoField = (obj?: { __typename?: any } | null): obj is UploadVideoField => {
-  if (!obj?.__typename) throw new Error('__typename is missing in "isUploadVideoField"')
-  return UploadVideoField_possibleTypes.includes(obj.__typename)
+export const enumImgixParamsCh = {
+   width: 'width' as const,
+   dpr: 'dpr' as const,
+   saveData: 'saveData' as const
 }
 
-
-
-const focalPoint_possibleTypes: string[] = ['focalPoint']
-export const isfocalPoint = (obj?: { __typename?: any } | null): obj is focalPoint => {
-  if (!obj?.__typename) throw new Error('__typename is missing in "isfocalPoint"')
-  return focalPoint_possibleTypes.includes(obj.__typename)
+export const enumImgixParamsCrop = {
+   top: 'top' as const,
+   bottom: 'bottom' as const,
+   left: 'left' as const,
+   right: 'right' as const,
+   faces: 'faces' as const,
+   entropy: 'entropy' as const,
+   edges: 'edges' as const,
+   focalpoint: 'focalpoint' as const
 }
-
 
-
-/** Block of type Action Block (action_block) */
-export interface ActionBlockRecordPromiseChain{
-    _createdAt: ({get: (request?: boolean|number, defaultValue?: Scalars['DateTime']) => Promise<Scalars['DateTime']>}),
-    
-/** Editing URL */
-_editingUrl: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
-    _firstPublishedAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Promise<(Scalars['DateTime'] | undefined)>}),
-    _isValid: ({get: (request?: boolean|number, defaultValue?: Scalars['BooleanType']) => Promise<Scalars['BooleanType']>}),
-    _modelApiKey: ({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Promise<Scalars['String']>}),
-    _publicationScheduledAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Promise<(Scalars['DateTime'] | undefined)>}),
-    _publishedAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Promise<(Scalars['DateTime'] | undefined)>}),
-    
-/** Generates SEO and Social card meta tags to be used in your frontend */
-_seoMetaTags: ((args?: {
-/** The locale to use to fetch the field's content */
-locale?: (SiteLocale | null)}) => {get: <R extends TagRequest>(request: R, defaultValue?: FieldsSelection<Tag, R>[]) => Promise<FieldsSelection<Tag, R>[]>})&({get: <R extends TagRequest>(request: R, defaultValue?: FieldsSelection<Tag, R>[]) => Promise<FieldsSelection<Tag, R>[]>}),
-    _status: ({get: (request?: boolean|number, defaultValue?: ItemStatus) => Promise<ItemStatus>}),
-    _unpublishingScheduledAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Promise<(Scalars['DateTime'] | undefined)>}),
-    _updatedAt: ({get: (request?: boolean|number, defaultValue?: Scalars['DateTime']) => Promise<Scalars['DateTime']>}),
-    id: ({get: (request?: boolean|number, defaultValue?: Scalars['ItemId']) => Promise<Scalars['ItemId']>}),
-    link: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
-    text: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
-}
-
-
-/** Block of type Action Block (action_block) */
-export interface ActionBlockRecordObservableChain{
-    _createdAt: ({get: (request?: boolean|number, defaultValue?: Scalars['DateTime']) => Observable<Scalars['DateTime']>}),
-    
-/** Editing URL */
-_editingUrl: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
-    _firstPublishedAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Observable<(Scalars['DateTime'] | undefined)>}),
-    _isValid: ({get: (request?: boolean|number, defaultValue?: Scalars['BooleanType']) => Observable<Scalars['BooleanType']>}),
-    _modelApiKey: ({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Observable<Scalars['String']>}),
-    _publicationScheduledAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Observable<(Scalars['DateTime'] | undefined)>}),
-    _publishedAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Observable<(Scalars['DateTime'] | undefined)>}),
-    
-/** Generates SEO and Social card meta tags to be used in your frontend */
-_seoMetaTags: ((args?: {
-/** The locale to use to fetch the field's content */
-locale?: (SiteLocale | null)}) => {get: <R extends TagRequest>(request: R, defaultValue?: FieldsSelection<Tag, R>[]) => Observable<FieldsSelection<Tag, R>[]>})&({get: <R extends TagRequest>(request: R, defaultValue?: FieldsSelection<Tag, R>[]) => Observable<FieldsSelection<Tag, R>[]>}),
-    _status: ({get: (request?: boolean|number, defaultValue?: ItemStatus) => Observable<ItemStatus>}),
-    _unpublishingScheduledAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Observable<(Scalars['DateTime'] | undefined)>}),
-    _updatedAt: ({get: (request?: boolean|number, defaultValue?: Scalars['DateTime']) => Observable<Scalars['DateTime']>}),
-    id: ({get: (request?: boolean|number, defaultValue?: Scalars['ItemId']) => Observable<Scalars['ItemId']>}),
-    link: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
-    text: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
-}
-
-
-/** Block of type Card Block (card_block) */
-export interface CardBlockRecordPromiseChain{
-    _createdAt: ({get: (request?: boolean|number, defaultValue?: Scalars['DateTime']) => Promise<Scalars['DateTime']>}),
-    
-/** Editing URL */
-_editingUrl: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
-    _firstPublishedAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Promise<(Scalars['DateTime'] | undefined)>}),
-    _isValid: ({get: (request?: boolean|number, defaultValue?: Scalars['BooleanType']) => Promise<Scalars['BooleanType']>}),
-    _modelApiKey: ({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Promise<Scalars['String']>}),
-    _publicationScheduledAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Promise<(Scalars['DateTime'] | undefined)>}),
-    _publishedAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Promise<(Scalars['DateTime'] | undefined)>}),
-    
-/** Generates SEO and Social card meta tags to be used in your frontend */
-_seoMetaTags: ((args?: {
-/** The locale to use to fetch the field's content */
-locale?: (SiteLocale | null)}) => {get: <R extends TagRequest>(request: R, defaultValue?: FieldsSelection<Tag, R>[]) => Promise<FieldsSelection<Tag, R>[]>})&({get: <R extends TagRequest>(request: R, defaultValue?: FieldsSelection<Tag, R>[]) => Promise<FieldsSelection<Tag, R>[]>}),
-    _status: ({get: (request?: boolean|number, defaultValue?: ItemStatus) => Promise<ItemStatus>}),
-    _unpublishingScheduledAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Promise<(Scalars['DateTime'] | undefined)>}),
-    _updatedAt: ({get: (request?: boolean|number, defaultValue?: Scalars['DateTime']) => Promise<Scalars['DateTime']>}),
-    content: ({get: <R extends RichTextBlockRecordRequest>(request: R, defaultValue?: FieldsSelection<RichTextBlockRecord, R>[]) => Promise<FieldsSelection<RichTextBlockRecord, R>[]>}),
-    cta: ({get: <R extends ActionBlockRecordRequest>(request: R, defaultValue?: FieldsSelection<ActionBlockRecord, R>[]) => Promise<FieldsSelection<ActionBlockRecord, R>[]>}),
-    id: ({get: (request?: boolean|number, defaultValue?: Scalars['ItemId']) => Promise<Scalars['ItemId']>}),
-    image: (FileFieldPromiseChain & {get: <R extends FileFieldRequest>(request: R, defaultValue?: (FieldsSelection<FileField, R> | undefined)) => Promise<(FieldsSelection<FileField, R> | undefined)>}),
-    title: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
-}
-
-
-/** Block of type Card Block (card_block) */
-export interface CardBlockRecordObservableChain{
-    _createdAt: ({get: (request?: boolean|number, defaultValue?: Scalars['DateTime']) => Observable<Scalars['DateTime']>}),
-    
-/** Editing URL */
-_editingUrl: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
-    _firstPublishedAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Observable<(Scalars['DateTime'] | undefined)>}),
-    _isValid: ({get: (request?: boolean|number, defaultValue?: Scalars['BooleanType']) => Observable<Scalars['BooleanType']>}),
-    _modelApiKey: ({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Observable<Scalars['String']>}),
-    _publicationScheduledAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Observable<(Scalars['DateTime'] | undefined)>}),
-    _publishedAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Observable<(Scalars['DateTime'] | undefined)>}),
-    
-/** Generates SEO and Social card meta tags to be used in your frontend */
-_seoMetaTags: ((args?: {
-/** The locale to use to fetch the field's content */
-locale?: (SiteLocale | null)}) => {get: <R extends TagRequest>(request: R, defaultValue?: FieldsSelection<Tag, R>[]) => Observable<FieldsSelection<Tag, R>[]>})&({get: <R extends TagRequest>(request: R, defaultValue?: FieldsSelection<Tag, R>[]) => Observable<FieldsSelection<Tag, R>[]>}),
-    _status: ({get: (request?: boolean|number, defaultValue?: ItemStatus) => Observable<ItemStatus>}),
-    _unpublishingScheduledAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Observable<(Scalars['DateTime'] | undefined)>}),
-    _updatedAt: ({get: (request?: boolean|number, defaultValue?: Scalars['DateTime']) => Observable<Scalars['DateTime']>}),
-    content: ({get: <R extends RichTextBlockRecordRequest>(request: R, defaultValue?: FieldsSelection<RichTextBlockRecord, R>[]) => Observable<FieldsSelection<RichTextBlockRecord, R>[]>}),
-    cta: ({get: <R extends ActionBlockRecordRequest>(request: R, defaultValue?: FieldsSelection<ActionBlockRecord, R>[]) => Observable<FieldsSelection<ActionBlockRecord, R>[]>}),
-    id: ({get: (request?: boolean|number, defaultValue?: Scalars['ItemId']) => Observable<Scalars['ItemId']>}),
-    image: (FileFieldObservableChain & {get: <R extends FileFieldRequest>(request: R, defaultValue?: (FieldsSelection<FileField, R> | undefined)) => Observable<(FieldsSelection<FileField, R> | undefined)>}),
-    title: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
-}
-
-
-/** Record of type Category (category) */
-export interface CategoryRecordPromiseChain{
-    _createdAt: ({get: (request?: boolean|number, defaultValue?: Scalars['DateTime']) => Promise<Scalars['DateTime']>}),
-    
-/** Editing URL */
-_editingUrl: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
-    _firstPublishedAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Promise<(Scalars['DateTime'] | undefined)>}),
-    _isValid: ({get: (request?: boolean|number, defaultValue?: Scalars['BooleanType']) => Promise<Scalars['BooleanType']>}),
-    _modelApiKey: ({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Promise<Scalars['String']>}),
-    _publicationScheduledAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Promise<(Scalars['DateTime'] | undefined)>}),
-    _publishedAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Promise<(Scalars['DateTime'] | undefined)>}),
-    
-/** Generates SEO and Social card meta tags to be used in your frontend */
-_seoMetaTags: ((args?: {
-/** The locale to use to fetch the field's content */
-locale?: (SiteLocale | null)}) => {get: <R extends TagRequest>(request: R, defaultValue?: FieldsSelection<Tag, R>[]) => Promise<FieldsSelection<Tag, R>[]>})&({get: <R extends TagRequest>(request: R, defaultValue?: FieldsSelection<Tag, R>[]) => Promise<FieldsSelection<Tag, R>[]>}),
-    _status: ({get: (request?: boolean|number, defaultValue?: ItemStatus) => Promise<ItemStatus>}),
-    _unpublishingScheduledAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Promise<(Scalars['DateTime'] | undefined)>}),
-    _updatedAt: ({get: (request?: boolean|number, defaultValue?: Scalars['DateTime']) => Promise<Scalars['DateTime']>}),
-    id: ({get: (request?: boolean|number, defaultValue?: Scalars['ItemId']) => Promise<Scalars['ItemId']>}),
-    name: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
-    slug: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
-}
-
-
-/** Record of type Category (category) */
-export interface CategoryRecordObservableChain{
-    _createdAt: ({get: (request?: boolean|number, defaultValue?: Scalars['DateTime']) => Observable<Scalars['DateTime']>}),
-    
-/** Editing URL */
-_editingUrl: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
-    _firstPublishedAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Observable<(Scalars['DateTime'] | undefined)>}),
-    _isValid: ({get: (request?: boolean|number, defaultValue?: Scalars['BooleanType']) => Observable<Scalars['BooleanType']>}),
-    _modelApiKey: ({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Observable<Scalars['String']>}),
-    _publicationScheduledAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Observable<(Scalars['DateTime'] | undefined)>}),
-    _publishedAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Observable<(Scalars['DateTime'] | undefined)>}),
-    
-/** Generates SEO and Social card meta tags to be used in your frontend */
-_seoMetaTags: ((args?: {
-/** The locale to use to fetch the field's content */
-locale?: (SiteLocale | null)}) => {get: <R extends TagRequest>(request: R, defaultValue?: FieldsSelection<Tag, R>[]) => Observable<FieldsSelection<Tag, R>[]>})&({get: <R extends TagRequest>(request: R, defaultValue?: FieldsSelection<Tag, R>[]) => Observable<FieldsSelection<Tag, R>[]>}),
-    _status: ({get: (request?: boolean|number, defaultValue?: ItemStatus) => Observable<ItemStatus>}),
-    _unpublishingScheduledAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Observable<(Scalars['DateTime'] | undefined)>}),
-    _updatedAt: ({get: (request?: boolean|number, defaultValue?: Scalars['DateTime']) => Observable<Scalars['DateTime']>}),
-    id: ({get: (request?: boolean|number, defaultValue?: Scalars['ItemId']) => Observable<Scalars['ItemId']>}),
-    name: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
-    slug: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
+export const enumImgixParamsCs = {
+   srgb: 'srgb' as const,
+   adobergb1998: 'adobergb1998' as const,
+   tinysrgb: 'tinysrgb' as const,
+   strip: 'strip' as const
 }
 
-export interface CollectionMetadataPromiseChain{
-    count: ({get: (request?: boolean|number, defaultValue?: Scalars['IntType']) => Promise<Scalars['IntType']>})
+export const enumImgixParamsFill = {
+   solid: 'solid' as const,
+   blur: 'blur' as const
 }
 
-export interface CollectionMetadataObservableChain{
-    count: ({get: (request?: boolean|number, defaultValue?: Scalars['IntType']) => Observable<Scalars['IntType']>})
+export const enumImgixParamsFit = {
+   clamp: 'clamp' as const,
+   clip: 'clip' as const,
+   crop: 'crop' as const,
+   facearea: 'facearea' as const,
+   fill: 'fill' as const,
+   fillmax: 'fillmax' as const,
+   max: 'max' as const,
+   min: 'min' as const,
+   scale: 'scale' as const
 }
 
-export interface ColorFieldPromiseChain{
-    alpha: ({get: (request?: boolean|number, defaultValue?: Scalars['IntType']) => Promise<Scalars['IntType']>}),
-    blue: ({get: (request?: boolean|number, defaultValue?: Scalars['IntType']) => Promise<Scalars['IntType']>}),
-    cssRgb: ({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Promise<Scalars['String']>}),
-    green: ({get: (request?: boolean|number, defaultValue?: Scalars['IntType']) => Promise<Scalars['IntType']>}),
-    hex: ({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Promise<Scalars['String']>}),
-    red: ({get: (request?: boolean|number, defaultValue?: Scalars['IntType']) => Promise<Scalars['IntType']>})
+export const enumImgixParamsFlip = {
+   h: 'h' as const,
+   v: 'v' as const,
+   hv: 'hv' as const
 }
 
-export interface ColorFieldObservableChain{
-    alpha: ({get: (request?: boolean|number, defaultValue?: Scalars['IntType']) => Observable<Scalars['IntType']>}),
-    blue: ({get: (request?: boolean|number, defaultValue?: Scalars['IntType']) => Observable<Scalars['IntType']>}),
-    cssRgb: ({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Observable<Scalars['String']>}),
-    green: ({get: (request?: boolean|number, defaultValue?: Scalars['IntType']) => Observable<Scalars['IntType']>}),
-    hex: ({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Observable<Scalars['String']>}),
-    red: ({get: (request?: boolean|number, defaultValue?: Scalars['IntType']) => Observable<Scalars['IntType']>})
+export const enumImgixParamsFm = {
+   gif: 'gif' as const,
+   jpg: 'jpg' as const,
+   jp2: 'jp2' as const,
+   json: 'json' as const,
+   jxr: 'jxr' as const,
+   pjpg: 'pjpg' as const,
+   mp4: 'mp4' as const,
+   png: 'png' as const,
+   png8: 'png8' as const,
+   png32: 'png32' as const,
+   webp: 'webp' as const,
+   webm: 'webm' as const,
+   blurhash: 'blurhash' as const,
+   avif: 'avif' as const
+}
+
+export const enumImgixParamsIptc = {
+   allow: 'allow' as const,
+   block: 'block' as const
 }
 
-
-/** Record of type Course (course) */
-export interface CourseRecordPromiseChain{
-    _createdAt: ({get: (request?: boolean|number, defaultValue?: Scalars['DateTime']) => Promise<Scalars['DateTime']>}),
-    
-/** Editing URL */
-_editingUrl: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
-    _firstPublishedAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Promise<(Scalars['DateTime'] | undefined)>}),
-    _isValid: ({get: (request?: boolean|number, defaultValue?: Scalars['BooleanType']) => Promise<Scalars['BooleanType']>}),
-    _modelApiKey: ({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Promise<Scalars['String']>}),
-    _publicationScheduledAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Promise<(Scalars['DateTime'] | undefined)>}),
-    _publishedAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Promise<(Scalars['DateTime'] | undefined)>}),
-    
-/** Generates SEO and Social card meta tags to be used in your frontend */
-_seoMetaTags: ((args?: {
-/** The locale to use to fetch the field's content */
-locale?: (SiteLocale | null)}) => {get: <R extends TagRequest>(request: R, defaultValue?: FieldsSelection<Tag, R>[]) => Promise<FieldsSelection<Tag, R>[]>})&({get: <R extends TagRequest>(request: R, defaultValue?: FieldsSelection<Tag, R>[]) => Promise<FieldsSelection<Tag, R>[]>}),
-    _status: ({get: (request?: boolean|number, defaultValue?: ItemStatus) => Promise<ItemStatus>}),
-    _unpublishingScheduledAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Promise<(Scalars['DateTime'] | undefined)>}),
-    _updatedAt: ({get: (request?: boolean|number, defaultValue?: Scalars['DateTime']) => Promise<Scalars['DateTime']>}),
-    duration: ({get: (request?: boolean|number, defaultValue?: (Scalars['IntType'] | undefined)) => Promise<(Scalars['IntType'] | undefined)>}),
-    faq: (FaqItemRecordPromiseChain & {get: <R extends FaqItemRecordRequest>(request: R, defaultValue?: (FieldsSelection<FaqItemRecord, R> | undefined)) => Promise<(FieldsSelection<FaqItemRecord, R> | undefined)>}),
-    featuresCards: ({get: <R extends CardBlockRecordRequest>(request: R, defaultValue?: FieldsSelection<CardBlockRecord, R>[]) => Promise<FieldsSelection<CardBlockRecord, R>[]>}),
-    id: ({get: (request?: boolean|number, defaultValue?: Scalars['ItemId']) => Promise<Scalars['ItemId']>}),
-    level: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
-    name: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
-    numberOfEnrolledStudents: ({get: (request?: boolean|number, defaultValue?: (Scalars['IntType'] | undefined)) => Promise<(Scalars['IntType'] | undefined)>}),
-    numberOfSections: ({get: (request?: boolean|number, defaultValue?: (Scalars['IntType'] | undefined)) => Promise<(Scalars['IntType'] | undefined)>}),
-    price: ({get: (request?: boolean|number, defaultValue?: (Scalars['IntType'] | undefined)) => Promise<(Scalars['IntType'] | undefined)>}),
-    seo: ({get: <R extends SeoBlockRecordRequest>(request: R, defaultValue?: FieldsSelection<SeoBlockRecord, R>[]) => Promise<FieldsSelection<SeoBlockRecord, R>[]>}),
-    singleTestimonial: ({get: <R extends TestimonialBlockRecordRequest>(request: R, defaultValue?: FieldsSelection<TestimonialBlockRecord, R>[]) => Promise<FieldsSelection<TestimonialBlockRecord, R>[]>}),
-    slug: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
-    tag: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
-}
-
-
-/** Record of type Course (course) */
-export interface CourseRecordObservableChain{
-    _createdAt: ({get: (request?: boolean|number, defaultValue?: Scalars['DateTime']) => Observable<Scalars['DateTime']>}),
-    
-/** Editing URL */
-_editingUrl: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
-    _firstPublishedAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Observable<(Scalars['DateTime'] | undefined)>}),
-    _isValid: ({get: (request?: boolean|number, defaultValue?: Scalars['BooleanType']) => Observable<Scalars['BooleanType']>}),
-    _modelApiKey: ({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Observable<Scalars['String']>}),
-    _publicationScheduledAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Observable<(Scalars['DateTime'] | undefined)>}),
-    _publishedAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Observable<(Scalars['DateTime'] | undefined)>}),
-    
-/** Generates SEO and Social card meta tags to be used in your frontend */
-_seoMetaTags: ((args?: {
-/** The locale to use to fetch the field's content */
-locale?: (SiteLocale | null)}) => {get: <R extends TagRequest>(request: R, defaultValue?: FieldsSelection<Tag, R>[]) => Observable<FieldsSelection<Tag, R>[]>})&({get: <R extends TagRequest>(request: R, defaultValue?: FieldsSelection<Tag, R>[]) => Observable<FieldsSelection<Tag, R>[]>}),
-    _status: ({get: (request?: boolean|number, defaultValue?: ItemStatus) => Observable<ItemStatus>}),
-    _unpublishingScheduledAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Observable<(Scalars['DateTime'] | undefined)>}),
-    _updatedAt: ({get: (request?: boolean|number, defaultValue?: Scalars['DateTime']) => Observable<Scalars['DateTime']>}),
-    duration: ({get: (request?: boolean|number, defaultValue?: (Scalars['IntType'] | undefined)) => Observable<(Scalars['IntType'] | undefined)>}),
-    faq: (FaqItemRecordObservableChain & {get: <R extends FaqItemRecordRequest>(request: R, defaultValue?: (FieldsSelection<FaqItemRecord, R> | undefined)) => Observable<(FieldsSelection<FaqItemRecord, R> | undefined)>}),
-    featuresCards: ({get: <R extends CardBlockRecordRequest>(request: R, defaultValue?: FieldsSelection<CardBlockRecord, R>[]) => Observable<FieldsSelection<CardBlockRecord, R>[]>}),
-    id: ({get: (request?: boolean|number, defaultValue?: Scalars['ItemId']) => Observable<Scalars['ItemId']>}),
-    level: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
-    name: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
-    numberOfEnrolledStudents: ({get: (request?: boolean|number, defaultValue?: (Scalars['IntType'] | undefined)) => Observable<(Scalars['IntType'] | undefined)>}),
-    numberOfSections: ({get: (request?: boolean|number, defaultValue?: (Scalars['IntType'] | undefined)) => Observable<(Scalars['IntType'] | undefined)>}),
-    price: ({get: (request?: boolean|number, defaultValue?: (Scalars['IntType'] | undefined)) => Observable<(Scalars['IntType'] | undefined)>}),
-    seo: ({get: <R extends SeoBlockRecordRequest>(request: R, defaultValue?: FieldsSelection<SeoBlockRecord, R>[]) => Observable<FieldsSelection<SeoBlockRecord, R>[]>}),
-    singleTestimonial: ({get: <R extends TestimonialBlockRecordRequest>(request: R, defaultValue?: FieldsSelection<TestimonialBlockRecord, R>[]) => Observable<FieldsSelection<TestimonialBlockRecord, R>[]>}),
-    slug: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
-    tag: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
-}
-
-
-/** Block of type FAQ Block (faq_block) */
-export interface FaqBlockRecordPromiseChain{
-    _createdAt: ({get: (request?: boolean|number, defaultValue?: Scalars['DateTime']) => Promise<Scalars['DateTime']>}),
-    
-/** Editing URL */
-_editingUrl: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
-    _firstPublishedAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Promise<(Scalars['DateTime'] | undefined)>}),
-    _isValid: ({get: (request?: boolean|number, defaultValue?: Scalars['BooleanType']) => Promise<Scalars['BooleanType']>}),
-    _modelApiKey: ({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Promise<Scalars['String']>}),
-    _publicationScheduledAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Promise<(Scalars['DateTime'] | undefined)>}),
-    _publishedAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Promise<(Scalars['DateTime'] | undefined)>}),
-    
-/** Generates SEO and Social card meta tags to be used in your frontend */
-_seoMetaTags: ((args?: {
-/** The locale to use to fetch the field's content */
-locale?: (SiteLocale | null)}) => {get: <R extends TagRequest>(request: R, defaultValue?: FieldsSelection<Tag, R>[]) => Promise<FieldsSelection<Tag, R>[]>})&({get: <R extends TagRequest>(request: R, defaultValue?: FieldsSelection<Tag, R>[]) => Promise<FieldsSelection<Tag, R>[]>}),
-    _status: ({get: (request?: boolean|number, defaultValue?: ItemStatus) => Promise<ItemStatus>}),
-    _unpublishingScheduledAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Promise<(Scalars['DateTime'] | undefined)>}),
-    _updatedAt: ({get: (request?: boolean|number, defaultValue?: Scalars['DateTime']) => Promise<Scalars['DateTime']>}),
-    answer: ({get: <R extends RichTextBlockRecordRequest>(request: R, defaultValue?: FieldsSelection<RichTextBlockRecord, R>[]) => Promise<FieldsSelection<RichTextBlockRecord, R>[]>}),
-    id: ({get: (request?: boolean|number, defaultValue?: Scalars['ItemId']) => Promise<Scalars['ItemId']>}),
-    question: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
-}
-
-
-/** Block of type FAQ Block (faq_block) */
-export interface FaqBlockRecordObservableChain{
-    _createdAt: ({get: (request?: boolean|number, defaultValue?: Scalars['DateTime']) => Observable<Scalars['DateTime']>}),
-    
-/** Editing URL */
-_editingUrl: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
-    _firstPublishedAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Observable<(Scalars['DateTime'] | undefined)>}),
-    _isValid: ({get: (request?: boolean|number, defaultValue?: Scalars['BooleanType']) => Observable<Scalars['BooleanType']>}),
-    _modelApiKey: ({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Observable<Scalars['String']>}),
-    _publicationScheduledAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Observable<(Scalars['DateTime'] | undefined)>}),
-    _publishedAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Observable<(Scalars['DateTime'] | undefined)>}),
-    
-/** Generates SEO and Social card meta tags to be used in your frontend */
-_seoMetaTags: ((args?: {
-/** The locale to use to fetch the field's content */
-locale?: (SiteLocale | null)}) => {get: <R extends TagRequest>(request: R, defaultValue?: FieldsSelection<Tag, R>[]) => Observable<FieldsSelection<Tag, R>[]>})&({get: <R extends TagRequest>(request: R, defaultValue?: FieldsSelection<Tag, R>[]) => Observable<FieldsSelection<Tag, R>[]>}),
-    _status: ({get: (request?: boolean|number, defaultValue?: ItemStatus) => Observable<ItemStatus>}),
-    _unpublishingScheduledAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Observable<(Scalars['DateTime'] | undefined)>}),
-    _updatedAt: ({get: (request?: boolean|number, defaultValue?: Scalars['DateTime']) => Observable<Scalars['DateTime']>}),
-    answer: ({get: <R extends RichTextBlockRecordRequest>(request: R, defaultValue?: FieldsSelection<RichTextBlockRecord, R>[]) => Observable<FieldsSelection<RichTextBlockRecord, R>[]>}),
-    id: ({get: (request?: boolean|number, defaultValue?: Scalars['ItemId']) => Observable<Scalars['ItemId']>}),
-    question: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
-}
-
-
-/** Record of type FAQ Item (faq_item) */
-export interface FaqItemRecordPromiseChain{
-    _createdAt: ({get: (request?: boolean|number, defaultValue?: Scalars['DateTime']) => Promise<Scalars['DateTime']>}),
-    
-/** Editing URL */
-_editingUrl: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
-    _firstPublishedAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Promise<(Scalars['DateTime'] | undefined)>}),
-    _isValid: ({get: (request?: boolean|number, defaultValue?: Scalars['BooleanType']) => Promise<Scalars['BooleanType']>}),
-    _modelApiKey: ({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Promise<Scalars['String']>}),
-    _publicationScheduledAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Promise<(Scalars['DateTime'] | undefined)>}),
-    _publishedAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Promise<(Scalars['DateTime'] | undefined)>}),
-    
-/** Generates SEO and Social card meta tags to be used in your frontend */
-_seoMetaTags: ((args?: {
-/** The locale to use to fetch the field's content */
-locale?: (SiteLocale | null)}) => {get: <R extends TagRequest>(request: R, defaultValue?: FieldsSelection<Tag, R>[]) => Promise<FieldsSelection<Tag, R>[]>})&({get: <R extends TagRequest>(request: R, defaultValue?: FieldsSelection<Tag, R>[]) => Promise<FieldsSelection<Tag, R>[]>}),
-    _status: ({get: (request?: boolean|number, defaultValue?: ItemStatus) => Promise<ItemStatus>}),
-    _unpublishingScheduledAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Promise<(Scalars['DateTime'] | undefined)>}),
-    _updatedAt: ({get: (request?: boolean|number, defaultValue?: Scalars['DateTime']) => Promise<Scalars['DateTime']>}),
-    faqBlocks: ({get: <R extends FaqBlockRecordRequest>(request: R, defaultValue?: FieldsSelection<FaqBlockRecord, R>[]) => Promise<FieldsSelection<FaqBlockRecord, R>[]>}),
-    id: ({get: (request?: boolean|number, defaultValue?: Scalars['ItemId']) => Promise<Scalars['ItemId']>}),
-    title: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
-}
-
-
-/** Record of type FAQ Item (faq_item) */
-export interface FaqItemRecordObservableChain{
-    _createdAt: ({get: (request?: boolean|number, defaultValue?: Scalars['DateTime']) => Observable<Scalars['DateTime']>}),
-    
-/** Editing URL */
-_editingUrl: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
-    _firstPublishedAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Observable<(Scalars['DateTime'] | undefined)>}),
-    _isValid: ({get: (request?: boolean|number, defaultValue?: Scalars['BooleanType']) => Observable<Scalars['BooleanType']>}),
-    _modelApiKey: ({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Observable<Scalars['String']>}),
-    _publicationScheduledAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Observable<(Scalars['DateTime'] | undefined)>}),
-    _publishedAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Observable<(Scalars['DateTime'] | undefined)>}),
-    
-/** Generates SEO and Social card meta tags to be used in your frontend */
-_seoMetaTags: ((args?: {
-/** The locale to use to fetch the field's content */
-locale?: (SiteLocale | null)}) => {get: <R extends TagRequest>(request: R, defaultValue?: FieldsSelection<Tag, R>[]) => Observable<FieldsSelection<Tag, R>[]>})&({get: <R extends TagRequest>(request: R, defaultValue?: FieldsSelection<Tag, R>[]) => Observable<FieldsSelection<Tag, R>[]>}),
-    _status: ({get: (request?: boolean|number, defaultValue?: ItemStatus) => Observable<ItemStatus>}),
-    _unpublishingScheduledAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Observable<(Scalars['DateTime'] | undefined)>}),
-    _updatedAt: ({get: (request?: boolean|number, defaultValue?: Scalars['DateTime']) => Observable<Scalars['DateTime']>}),
-    faqBlocks: ({get: <R extends FaqBlockRecordRequest>(request: R, defaultValue?: FieldsSelection<FaqBlockRecord, R>[]) => Observable<FieldsSelection<FaqBlockRecord, R>[]>}),
-    id: ({get: (request?: boolean|number, defaultValue?: Scalars['ItemId']) => Observable<Scalars['ItemId']>}),
-    title: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
-}
-
-export interface FileFieldPromiseChain{
-    _createdAt: ({get: (request?: boolean|number, defaultValue?: Scalars['DateTime']) => Promise<Scalars['DateTime']>}),
-    
-/** The DatoCMS URL where you can edit this entity. To use this field, you need to set a X-Base-Editing-Url header in the request */
-_editingUrl: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
-    _updatedAt: ({get: (request?: boolean|number, defaultValue?: Scalars['DateTime']) => Promise<Scalars['DateTime']>}),
-    alt: ((args?: {
-/** The locale to use to fetch the field's content */
-locale?: (SiteLocale | null),
-/** If you want to fallback to a default translation when a translation has not been found */
-fallbackLocales?: (SiteLocale[] | null)}) => {get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})&({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
-    author: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
-    basename: ({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Promise<Scalars['String']>}),
-    blurUpThumb: ((args: {
-/** Controls the "punch" value (~contrast) of the blurhash decoding algorithm (defaults to 1.0) */
-punch: Scalars['Float'],
-/** Maximum image dimension (defaults to 24px) */
-size: Scalars['Int'],
-/** Image quality (defaults to 70%) */
-quality: Scalars['Int'],
-/** Imgix transformations to apply to the image */
-imgixParams?: (ImgixParams | null)}) => {get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
-    blurhash: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
-    colors: ({get: <R extends ColorFieldRequest>(request: R, defaultValue?: FieldsSelection<ColorField, R>[]) => Promise<FieldsSelection<ColorField, R>[]>}),
-    copyright: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
-    customData: ((args?: {
-/** The locale to use to fetch the field's content */
-locale?: (SiteLocale | null),
-/** If you want to fallback to a default translation when a translation has not been found */
-fallbackLocales?: (SiteLocale[] | null)}) => {get: (request?: boolean|number, defaultValue?: Scalars['CustomData']) => Promise<Scalars['CustomData']>})&({get: (request?: boolean|number, defaultValue?: Scalars['CustomData']) => Promise<Scalars['CustomData']>}),
-    exifInfo: ({get: (request?: boolean|number, defaultValue?: Scalars['CustomData']) => Promise<Scalars['CustomData']>}),
-    filename: ({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Promise<Scalars['String']>}),
-    focalPoint: ((args?: {
-/** The locale to use to fetch the field's content */
-locale?: (SiteLocale | null),
-/** If you want to fallback to a default translation when a translation has not been found */
-fallbackLocales?: (SiteLocale[] | null)}) => focalPointPromiseChain & {get: <R extends focalPointRequest>(request: R, defaultValue?: (FieldsSelection<focalPoint, R> | undefined)) => Promise<(FieldsSelection<focalPoint, R> | undefined)>})&(focalPointPromiseChain & {get: <R extends focalPointRequest>(request: R, defaultValue?: (FieldsSelection<focalPoint, R> | undefined)) => Promise<(FieldsSelection<focalPoint, R> | undefined)>}),
-    format: ({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Promise<Scalars['String']>}),
-    height: ({get: (request?: boolean|number, defaultValue?: (Scalars['IntType'] | undefined)) => Promise<(Scalars['IntType'] | undefined)>}),
-    id: ({get: (request?: boolean|number, defaultValue?: Scalars['UploadId']) => Promise<Scalars['UploadId']>}),
-    md5: ({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Promise<Scalars['String']>}),
-    mimeType: ({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Promise<Scalars['String']>}),
-    notes: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
-    responsiveImage: ((args?: {
-/** Imgix transformations to apply to the image */
-imgixParams?: (ImgixParams | null),
-/** Specify a custom `sizes` attribute for the image */
-sizes?: (Scalars['String'] | null),
-/** The locale to use to fetch the field's content */
-locale?: (SiteLocale | null),
-/** If you want to fallback to a default translation when a translation has not been found */
-fallbackLocales?: (SiteLocale[] | null)}) => ResponsiveImagePromiseChain & {get: <R extends ResponsiveImageRequest>(request: R, defaultValue?: (FieldsSelection<ResponsiveImage, R> | undefined)) => Promise<(FieldsSelection<ResponsiveImage, R> | undefined)>})&(ResponsiveImagePromiseChain & {get: <R extends ResponsiveImageRequest>(request: R, defaultValue?: (FieldsSelection<ResponsiveImage, R> | undefined)) => Promise<(FieldsSelection<ResponsiveImage, R> | undefined)>}),
-    size: ({get: (request?: boolean|number, defaultValue?: Scalars['IntType']) => Promise<Scalars['IntType']>}),
-    smartTags: ({get: (request?: boolean|number, defaultValue?: Scalars['String'][]) => Promise<Scalars['String'][]>}),
-    tags: ({get: (request?: boolean|number, defaultValue?: Scalars['String'][]) => Promise<Scalars['String'][]>}),
-    thumbhash: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
-    title: ((args?: {
-/** The locale to use to fetch the field's content */
-locale?: (SiteLocale | null),
-/** If you want to fallback to a default translation when a translation has not been found */
-fallbackLocales?: (SiteLocale[] | null)}) => {get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})&({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
-    url: ((args?: {
-/** Imgix transformations to apply to the image */
-imgixParams?: (ImgixParams | null)}) => {get: (request?: boolean|number, defaultValue?: Scalars['String']) => Promise<Scalars['String']>})&({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Promise<Scalars['String']>}),
-    video: (UploadVideoFieldPromiseChain & {get: <R extends UploadVideoFieldRequest>(request: R, defaultValue?: (FieldsSelection<UploadVideoField, R> | undefined)) => Promise<(FieldsSelection<UploadVideoField, R> | undefined)>}),
-    width: ({get: (request?: boolean|number, defaultValue?: (Scalars['IntType'] | undefined)) => Promise<(Scalars['IntType'] | undefined)>})
-}
-
-export interface FileFieldObservableChain{
-    _createdAt: ({get: (request?: boolean|number, defaultValue?: Scalars['DateTime']) => Observable<Scalars['DateTime']>}),
-    
-/** The DatoCMS URL where you can edit this entity. To use this field, you need to set a X-Base-Editing-Url header in the request */
-_editingUrl: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
-    _updatedAt: ({get: (request?: boolean|number, defaultValue?: Scalars['DateTime']) => Observable<Scalars['DateTime']>}),
-    alt: ((args?: {
-/** The locale to use to fetch the field's content */
-locale?: (SiteLocale | null),
-/** If you want to fallback to a default translation when a translation has not been found */
-fallbackLocales?: (SiteLocale[] | null)}) => {get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})&({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
-    author: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
-    basename: ({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Observable<Scalars['String']>}),
-    blurUpThumb: ((args: {
-/** Controls the "punch" value (~contrast) of the blurhash decoding algorithm (defaults to 1.0) */
-punch: Scalars['Float'],
-/** Maximum image dimension (defaults to 24px) */
-size: Scalars['Int'],
-/** Image quality (defaults to 70%) */
-quality: Scalars['Int'],
-/** Imgix transformations to apply to the image */
-imgixParams?: (ImgixParams | null)}) => {get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
-    blurhash: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
-    colors: ({get: <R extends ColorFieldRequest>(request: R, defaultValue?: FieldsSelection<ColorField, R>[]) => Observable<FieldsSelection<ColorField, R>[]>}),
-    copyright: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
-    customData: ((args?: {
-/** The locale to use to fetch the field's content */
-locale?: (SiteLocale | null),
-/** If you want to fallback to a default translation when a translation has not been found */
-fallbackLocales?: (SiteLocale[] | null)}) => {get: (request?: boolean|number, defaultValue?: Scalars['CustomData']) => Observable<Scalars['CustomData']>})&({get: (request?: boolean|number, defaultValue?: Scalars['CustomData']) => Observable<Scalars['CustomData']>}),
-    exifInfo: ({get: (request?: boolean|number, defaultValue?: Scalars['CustomData']) => Observable<Scalars['CustomData']>}),
-    filename: ({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Observable<Scalars['String']>}),
-    focalPoint: ((args?: {
-/** The locale to use to fetch the field's content */
-locale?: (SiteLocale | null),
-/** If you want to fallback to a default translation when a translation has not been found */
-fallbackLocales?: (SiteLocale[] | null)}) => focalPointObservableChain & {get: <R extends focalPointRequest>(request: R, defaultValue?: (FieldsSelection<focalPoint, R> | undefined)) => Observable<(FieldsSelection<focalPoint, R> | undefined)>})&(focalPointObservableChain & {get: <R extends focalPointRequest>(request: R, defaultValue?: (FieldsSelection<focalPoint, R> | undefined)) => Observable<(FieldsSelection<focalPoint, R> | undefined)>}),
-    format: ({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Observable<Scalars['String']>}),
-    height: ({get: (request?: boolean|number, defaultValue?: (Scalars['IntType'] | undefined)) => Observable<(Scalars['IntType'] | undefined)>}),
-    id: ({get: (request?: boolean|number, defaultValue?: Scalars['UploadId']) => Observable<Scalars['UploadId']>}),
-    md5: ({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Observable<Scalars['String']>}),
-    mimeType: ({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Observable<Scalars['String']>}),
-    notes: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
-    responsiveImage: ((args?: {
-/** Imgix transformations to apply to the image */
-imgixParams?: (ImgixParams | null),
-/** Specify a custom `sizes` attribute for the image */
-sizes?: (Scalars['String'] | null),
-/** The locale to use to fetch the field's content */
-locale?: (SiteLocale | null),
-/** If you want to fallback to a default translation when a translation has not been found */
-fallbackLocales?: (SiteLocale[] | null)}) => ResponsiveImageObservableChain & {get: <R extends ResponsiveImageRequest>(request: R, defaultValue?: (FieldsSelection<ResponsiveImage, R> | undefined)) => Observable<(FieldsSelection<ResponsiveImage, R> | undefined)>})&(ResponsiveImageObservableChain & {get: <R extends ResponsiveImageRequest>(request: R, defaultValue?: (FieldsSelection<ResponsiveImage, R> | undefined)) => Observable<(FieldsSelection<ResponsiveImage, R> | undefined)>}),
-    size: ({get: (request?: boolean|number, defaultValue?: Scalars['IntType']) => Observable<Scalars['IntType']>}),
-    smartTags: ({get: (request?: boolean|number, defaultValue?: Scalars['String'][]) => Observable<Scalars['String'][]>}),
-    tags: ({get: (request?: boolean|number, defaultValue?: Scalars['String'][]) => Observable<Scalars['String'][]>}),
-    thumbhash: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
-    title: ((args?: {
-/** The locale to use to fetch the field's content */
-locale?: (SiteLocale | null),
-/** If you want to fallback to a default translation when a translation has not been found */
-fallbackLocales?: (SiteLocale[] | null)}) => {get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})&({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
-    url: ((args?: {
-/** Imgix transformations to apply to the image */
-imgixParams?: (ImgixParams | null)}) => {get: (request?: boolean|number, defaultValue?: Scalars['String']) => Observable<Scalars['String']>})&({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Observable<Scalars['String']>}),
-    video: (UploadVideoFieldObservableChain & {get: <R extends UploadVideoFieldRequest>(request: R, defaultValue?: (FieldsSelection<UploadVideoField, R> | undefined)) => Observable<(FieldsSelection<UploadVideoField, R> | undefined)>}),
-    width: ({get: (request?: boolean|number, defaultValue?: (Scalars['IntType'] | undefined)) => Observable<(Scalars['IntType'] | undefined)>})
-}
-
-export interface FileFieldInterfacePromiseChain{
-    _createdAt: ({get: (request?: boolean|number, defaultValue?: Scalars['DateTime']) => Promise<Scalars['DateTime']>}),
-    
-/** The DatoCMS URL where you can edit this entity. To use this field, you need to set a X-Base-Editing-Url header in the request */
-_editingUrl: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
-    _updatedAt: ({get: (request?: boolean|number, defaultValue?: Scalars['DateTime']) => Promise<Scalars['DateTime']>}),
-    alt: ((args?: {
-/** The locale to use to fetch the field's content */
-locale?: (SiteLocale | null),
-/** If you want to fallback to a default translation when a translation has not been found */
-fallbackLocales?: (SiteLocale[] | null)}) => {get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})&({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
-    author: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
-    basename: ({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Promise<Scalars['String']>}),
-    blurUpThumb: ((args: {
-/** Controls the "punch" value (~contrast) of the blurhash decoding algorithm (defaults to 1.0) */
-punch: Scalars['Float'],
-/** Maximum image dimension (defaults to 24px) */
-size: Scalars['Int'],
-/** Image quality (defaults to 70%) */
-quality: Scalars['Int'],
-/** Imgix transformations to apply to the image */
-imgixParams?: (ImgixParams | null)}) => {get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
-    blurhash: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
-    colors: ({get: <R extends ColorFieldRequest>(request: R, defaultValue?: FieldsSelection<ColorField, R>[]) => Promise<FieldsSelection<ColorField, R>[]>}),
-    copyright: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
-    customData: ((args?: {
-/** The locale to use to fetch the field's content */
-locale?: (SiteLocale | null),
-/** If you want to fallback to a default translation when a translation has not been found */
-fallbackLocales?: (SiteLocale[] | null)}) => {get: (request?: boolean|number, defaultValue?: Scalars['CustomData']) => Promise<Scalars['CustomData']>})&({get: (request?: boolean|number, defaultValue?: Scalars['CustomData']) => Promise<Scalars['CustomData']>}),
-    exifInfo: ({get: (request?: boolean|number, defaultValue?: Scalars['CustomData']) => Promise<Scalars['CustomData']>}),
-    filename: ({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Promise<Scalars['String']>}),
-    focalPoint: ((args?: {
-/** The locale to use to fetch the field's content */
-locale?: (SiteLocale | null),
-/** If you want to fallback to a default translation when a translation has not been found */
-fallbackLocales?: (SiteLocale[] | null)}) => focalPointPromiseChain & {get: <R extends focalPointRequest>(request: R, defaultValue?: (FieldsSelection<focalPoint, R> | undefined)) => Promise<(FieldsSelection<focalPoint, R> | undefined)>})&(focalPointPromiseChain & {get: <R extends focalPointRequest>(request: R, defaultValue?: (FieldsSelection<focalPoint, R> | undefined)) => Promise<(FieldsSelection<focalPoint, R> | undefined)>}),
-    format: ({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Promise<Scalars['String']>}),
-    height: ({get: (request?: boolean|number, defaultValue?: (Scalars['IntType'] | undefined)) => Promise<(Scalars['IntType'] | undefined)>}),
-    id: ({get: (request?: boolean|number, defaultValue?: Scalars['UploadId']) => Promise<Scalars['UploadId']>}),
-    md5: ({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Promise<Scalars['String']>}),
-    mimeType: ({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Promise<Scalars['String']>}),
-    notes: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
-    responsiveImage: ((args?: {
-/** Imgix transformations to apply to the image */
-imgixParams?: (ImgixParams | null),
-/** Specify a custom `sizes` attribute for the image */
-sizes?: (Scalars['String'] | null),
-/** The locale to use to fetch the field's content */
-locale?: (SiteLocale | null),
-/** If you want to fallback to a default translation when a translation has not been found */
-fallbackLocales?: (SiteLocale[] | null)}) => ResponsiveImagePromiseChain & {get: <R extends ResponsiveImageRequest>(request: R, defaultValue?: (FieldsSelection<ResponsiveImage, R> | undefined)) => Promise<(FieldsSelection<ResponsiveImage, R> | undefined)>})&(ResponsiveImagePromiseChain & {get: <R extends ResponsiveImageRequest>(request: R, defaultValue?: (FieldsSelection<ResponsiveImage, R> | undefined)) => Promise<(FieldsSelection<ResponsiveImage, R> | undefined)>}),
-    size: ({get: (request?: boolean|number, defaultValue?: Scalars['IntType']) => Promise<Scalars['IntType']>}),
-    smartTags: ({get: (request?: boolean|number, defaultValue?: Scalars['String'][]) => Promise<Scalars['String'][]>}),
-    tags: ({get: (request?: boolean|number, defaultValue?: Scalars['String'][]) => Promise<Scalars['String'][]>}),
-    thumbhash: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
-    title: ((args?: {
-/** The locale to use to fetch the field's content */
-locale?: (SiteLocale | null),
-/** If you want to fallback to a default translation when a translation has not been found */
-fallbackLocales?: (SiteLocale[] | null)}) => {get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})&({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
-    url: ((args?: {
-/** Imgix transformations to apply to the image */
-imgixParams?: (ImgixParams | null)}) => {get: (request?: boolean|number, defaultValue?: Scalars['String']) => Promise<Scalars['String']>})&({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Promise<Scalars['String']>}),
-    video: (UploadVideoFieldPromiseChain & {get: <R extends UploadVideoFieldRequest>(request: R, defaultValue?: (FieldsSelection<UploadVideoField, R> | undefined)) => Promise<(FieldsSelection<UploadVideoField, R> | undefined)>}),
-    width: ({get: (request?: boolean|number, defaultValue?: (Scalars['IntType'] | undefined)) => Promise<(Scalars['IntType'] | undefined)>})
-}
-
-export interface FileFieldInterfaceObservableChain{
-    _createdAt: ({get: (request?: boolean|number, defaultValue?: Scalars['DateTime']) => Observable<Scalars['DateTime']>}),
-    
-/** The DatoCMS URL where you can edit this entity. To use this field, you need to set a X-Base-Editing-Url header in the request */
-_editingUrl: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
-    _updatedAt: ({get: (request?: boolean|number, defaultValue?: Scalars['DateTime']) => Observable<Scalars['DateTime']>}),
-    alt: ((args?: {
-/** The locale to use to fetch the field's content */
-locale?: (SiteLocale | null),
-/** If you want to fallback to a default translation when a translation has not been found */
-fallbackLocales?: (SiteLocale[] | null)}) => {get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})&({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
-    author: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
-    basename: ({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Observable<Scalars['String']>}),
-    blurUpThumb: ((args: {
-/** Controls the "punch" value (~contrast) of the blurhash decoding algorithm (defaults to 1.0) */
-punch: Scalars['Float'],
-/** Maximum image dimension (defaults to 24px) */
-size: Scalars['Int'],
-/** Image quality (defaults to 70%) */
-quality: Scalars['Int'],
-/** Imgix transformations to apply to the image */
-imgixParams?: (ImgixParams | null)}) => {get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
-    blurhash: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
-    colors: ({get: <R extends ColorFieldRequest>(request: R, defaultValue?: FieldsSelection<ColorField, R>[]) => Observable<FieldsSelection<ColorField, R>[]>}),
-    copyright: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
-    customData: ((args?: {
-/** The locale to use to fetch the field's content */
-locale?: (SiteLocale | null),
-/** If you want to fallback to a default translation when a translation has not been found */
-fallbackLocales?: (SiteLocale[] | null)}) => {get: (request?: boolean|number, defaultValue?: Scalars['CustomData']) => Observable<Scalars['CustomData']>})&({get: (request?: boolean|number, defaultValue?: Scalars['CustomData']) => Observable<Scalars['CustomData']>}),
-    exifInfo: ({get: (request?: boolean|number, defaultValue?: Scalars['CustomData']) => Observable<Scalars['CustomData']>}),
-    filename: ({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Observable<Scalars['String']>}),
-    focalPoint: ((args?: {
-/** The locale to use to fetch the field's content */
-locale?: (SiteLocale | null),
-/** If you want to fallback to a default translation when a translation has not been found */
-fallbackLocales?: (SiteLocale[] | null)}) => focalPointObservableChain & {get: <R extends focalPointRequest>(request: R, defaultValue?: (FieldsSelection<focalPoint, R> | undefined)) => Observable<(FieldsSelection<focalPoint, R> | undefined)>})&(focalPointObservableChain & {get: <R extends focalPointRequest>(request: R, defaultValue?: (FieldsSelection<focalPoint, R> | undefined)) => Observable<(FieldsSelection<focalPoint, R> | undefined)>}),
-    format: ({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Observable<Scalars['String']>}),
-    height: ({get: (request?: boolean|number, defaultValue?: (Scalars['IntType'] | undefined)) => Observable<(Scalars['IntType'] | undefined)>}),
-    id: ({get: (request?: boolean|number, defaultValue?: Scalars['UploadId']) => Observable<Scalars['UploadId']>}),
-    md5: ({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Observable<Scalars['String']>}),
-    mimeType: ({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Observable<Scalars['String']>}),
-    notes: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
-    responsiveImage: ((args?: {
-/** Imgix transformations to apply to the image */
-imgixParams?: (ImgixParams | null),
-/** Specify a custom `sizes` attribute for the image */
-sizes?: (Scalars['String'] | null),
-/** The locale to use to fetch the field's content */
-locale?: (SiteLocale | null),
-/** If you want to fallback to a default translation when a translation has not been found */
-fallbackLocales?: (SiteLocale[] | null)}) => ResponsiveImageObservableChain & {get: <R extends ResponsiveImageRequest>(request: R, defaultValue?: (FieldsSelection<ResponsiveImage, R> | undefined)) => Observable<(FieldsSelection<ResponsiveImage, R> | undefined)>})&(ResponsiveImageObservableChain & {get: <R extends ResponsiveImageRequest>(request: R, defaultValue?: (FieldsSelection<ResponsiveImage, R> | undefined)) => Observable<(FieldsSelection<ResponsiveImage, R> | undefined)>}),
-    size: ({get: (request?: boolean|number, defaultValue?: Scalars['IntType']) => Observable<Scalars['IntType']>}),
-    smartTags: ({get: (request?: boolean|number, defaultValue?: Scalars['String'][]) => Observable<Scalars['String'][]>}),
-    tags: ({get: (request?: boolean|number, defaultValue?: Scalars['String'][]) => Observable<Scalars['String'][]>}),
-    thumbhash: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
-    title: ((args?: {
-/** The locale to use to fetch the field's content */
-locale?: (SiteLocale | null),
-/** If you want to fallback to a default translation when a translation has not been found */
-fallbackLocales?: (SiteLocale[] | null)}) => {get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})&({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
-    url: ((args?: {
-/** Imgix transformations to apply to the image */
-imgixParams?: (ImgixParams | null)}) => {get: (request?: boolean|number, defaultValue?: Scalars['String']) => Observable<Scalars['String']>})&({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Observable<Scalars['String']>}),
-    video: (UploadVideoFieldObservableChain & {get: <R extends UploadVideoFieldRequest>(request: R, defaultValue?: (FieldsSelection<UploadVideoField, R> | undefined)) => Observable<(FieldsSelection<UploadVideoField, R> | undefined)>}),
-    width: ({get: (request?: boolean|number, defaultValue?: (Scalars['IntType'] | undefined)) => Observable<(Scalars['IntType'] | undefined)>})
-}
-
-export interface GlobalSeoFieldPromiseChain{
-    facebookPageUrl: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
-    fallbackSeo: (SeoFieldPromiseChain & {get: <R extends SeoFieldRequest>(request: R, defaultValue?: (FieldsSelection<SeoField, R> | undefined)) => Promise<(FieldsSelection<SeoField, R> | undefined)>}),
-    siteName: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
-    titleSuffix: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
-    twitterAccount: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
-}
-
-export interface GlobalSeoFieldObservableChain{
-    facebookPageUrl: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
-    fallbackSeo: (SeoFieldObservableChain & {get: <R extends SeoFieldRequest>(request: R, defaultValue?: (FieldsSelection<SeoField, R> | undefined)) => Observable<(FieldsSelection<SeoField, R> | undefined)>}),
-    siteName: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
-    titleSuffix: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
-    twitterAccount: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
-}
-
-
-/** Block of type Heading block (heading_block) */
-export interface HeadingBlockRecordPromiseChain{
-    _createdAt: ({get: (request?: boolean|number, defaultValue?: Scalars['DateTime']) => Promise<Scalars['DateTime']>}),
-    
-/** Editing URL */
-_editingUrl: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
-    _firstPublishedAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Promise<(Scalars['DateTime'] | undefined)>}),
-    _isValid: ({get: (request?: boolean|number, defaultValue?: Scalars['BooleanType']) => Promise<Scalars['BooleanType']>}),
-    _modelApiKey: ({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Promise<Scalars['String']>}),
-    _publicationScheduledAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Promise<(Scalars['DateTime'] | undefined)>}),
-    _publishedAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Promise<(Scalars['DateTime'] | undefined)>}),
-    
-/** Generates SEO and Social card meta tags to be used in your frontend */
-_seoMetaTags: ((args?: {
-/** The locale to use to fetch the field's content */
-locale?: (SiteLocale | null)}) => {get: <R extends TagRequest>(request: R, defaultValue?: FieldsSelection<Tag, R>[]) => Promise<FieldsSelection<Tag, R>[]>})&({get: <R extends TagRequest>(request: R, defaultValue?: FieldsSelection<Tag, R>[]) => Promise<FieldsSelection<Tag, R>[]>}),
-    _status: ({get: (request?: boolean|number, defaultValue?: ItemStatus) => Promise<ItemStatus>}),
-    _unpublishingScheduledAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Promise<(Scalars['DateTime'] | undefined)>}),
-    _updatedAt: ({get: (request?: boolean|number, defaultValue?: Scalars['DateTime']) => Promise<Scalars['DateTime']>}),
-    heading: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
-    id: ({get: (request?: boolean|number, defaultValue?: Scalars['ItemId']) => Promise<Scalars['ItemId']>}),
-    subheading: ((args?: {
-/** Process content as markdown */
-markdown?: (Scalars['Boolean'] | null)}) => {get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})&({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
-}
-
-
-/** Block of type Heading block (heading_block) */
-export interface HeadingBlockRecordObservableChain{
-    _createdAt: ({get: (request?: boolean|number, defaultValue?: Scalars['DateTime']) => Observable<Scalars['DateTime']>}),
-    
-/** Editing URL */
-_editingUrl: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
-    _firstPublishedAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Observable<(Scalars['DateTime'] | undefined)>}),
-    _isValid: ({get: (request?: boolean|number, defaultValue?: Scalars['BooleanType']) => Observable<Scalars['BooleanType']>}),
-    _modelApiKey: ({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Observable<Scalars['String']>}),
-    _publicationScheduledAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Observable<(Scalars['DateTime'] | undefined)>}),
-    _publishedAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Observable<(Scalars['DateTime'] | undefined)>}),
-    
-/** Generates SEO and Social card meta tags to be used in your frontend */
-_seoMetaTags: ((args?: {
-/** The locale to use to fetch the field's content */
-locale?: (SiteLocale | null)}) => {get: <R extends TagRequest>(request: R, defaultValue?: FieldsSelection<Tag, R>[]) => Observable<FieldsSelection<Tag, R>[]>})&({get: <R extends TagRequest>(request: R, defaultValue?: FieldsSelection<Tag, R>[]) => Observable<FieldsSelection<Tag, R>[]>}),
-    _status: ({get: (request?: boolean|number, defaultValue?: ItemStatus) => Observable<ItemStatus>}),
-    _unpublishingScheduledAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Observable<(Scalars['DateTime'] | undefined)>}),
-    _updatedAt: ({get: (request?: boolean|number, defaultValue?: Scalars['DateTime']) => Observable<Scalars['DateTime']>}),
-    heading: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
-    id: ({get: (request?: boolean|number, defaultValue?: Scalars['ItemId']) => Observable<Scalars['ItemId']>}),
-    subheading: ((args?: {
-/** Process content as markdown */
-markdown?: (Scalars['Boolean'] | null)}) => {get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})&({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
-}
-
-
-/** Record of type Homepage (homepage) */
-export interface HomepageRecordPromiseChain{
-    _createdAt: ({get: (request?: boolean|number, defaultValue?: Scalars['DateTime']) => Promise<Scalars['DateTime']>}),
-    
-/** Editing URL */
-_editingUrl: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
-    _firstPublishedAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Promise<(Scalars['DateTime'] | undefined)>}),
-    _isValid: ({get: (request?: boolean|number, defaultValue?: Scalars['BooleanType']) => Promise<Scalars['BooleanType']>}),
-    _modelApiKey: ({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Promise<Scalars['String']>}),
-    _publicationScheduledAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Promise<(Scalars['DateTime'] | undefined)>}),
-    _publishedAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Promise<(Scalars['DateTime'] | undefined)>}),
-    
-/** Generates SEO and Social card meta tags to be used in your frontend */
-_seoMetaTags: ((args?: {
-/** The locale to use to fetch the field's content */
-locale?: (SiteLocale | null)}) => {get: <R extends TagRequest>(request: R, defaultValue?: FieldsSelection<Tag, R>[]) => Promise<FieldsSelection<Tag, R>[]>})&({get: <R extends TagRequest>(request: R, defaultValue?: FieldsSelection<Tag, R>[]) => Promise<FieldsSelection<Tag, R>[]>}),
-    _status: ({get: (request?: boolean|number, defaultValue?: ItemStatus) => Promise<ItemStatus>}),
-    _unpublishingScheduledAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Promise<(Scalars['DateTime'] | undefined)>}),
-    _updatedAt: ({get: (request?: boolean|number, defaultValue?: Scalars['DateTime']) => Promise<Scalars['DateTime']>}),
-    about: ({get: <R extends CardBlockRecordRequest>(request: R, defaultValue?: FieldsSelection<CardBlockRecord, R>[]) => Promise<FieldsSelection<CardBlockRecord, R>[]>}),
-    ctaAction: ({get: <R extends ActionBlockRecordRequest>(request: R, defaultValue?: FieldsSelection<ActionBlockRecord, R>[]) => Promise<FieldsSelection<ActionBlockRecord, R>[]>}),
-    ctaHeading: ({get: <R extends HeadingBlockRecordRequest>(request: R, defaultValue?: FieldsSelection<HeadingBlockRecord, R>[]) => Promise<FieldsSelection<HeadingBlockRecord, R>[]>}),
-    faq: (FaqItemRecordPromiseChain & {get: <R extends FaqItemRecordRequest>(request: R, defaultValue?: (FieldsSelection<FaqItemRecord, R> | undefined)) => Promise<(FieldsSelection<FaqItemRecord, R> | undefined)>}),
-    faqHeading: ({get: <R extends HeadingBlockRecordRequest>(request: R, defaultValue?: FieldsSelection<HeadingBlockRecord, R>[]) => Promise<FieldsSelection<HeadingBlockRecord, R>[]>}),
-    featureCards: ({get: <R extends CardBlockRecordRequest>(request: R, defaultValue?: FieldsSelection<CardBlockRecord, R>[]) => Promise<FieldsSelection<CardBlockRecord, R>[]>}),
-    featuresCta: ({get: <R extends ActionBlockRecordRequest>(request: R, defaultValue?: FieldsSelection<ActionBlockRecord, R>[]) => Promise<FieldsSelection<ActionBlockRecord, R>[]>}),
-    featuresHeading: ({get: <R extends HeadingBlockRecordRequest>(request: R, defaultValue?: FieldsSelection<HeadingBlockRecord, R>[]) => Promise<FieldsSelection<HeadingBlockRecord, R>[]>}),
-    heroCta: ({get: <R extends ActionBlockRecordRequest>(request: R, defaultValue?: FieldsSelection<ActionBlockRecord, R>[]) => Promise<FieldsSelection<ActionBlockRecord, R>[]>}),
-    heroSubtitle: ((args?: {
-/** Process content as markdown */
-markdown?: (Scalars['Boolean'] | null)}) => {get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})&({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
-    heroTestimonialPictures: ({get: <R extends FileFieldRequest>(request: R, defaultValue?: FieldsSelection<FileField, R>[]) => Promise<FieldsSelection<FileField, R>[]>}),
-    heroTestimonialTitle: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
-    heroTitle: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
-    id: ({get: (request?: boolean|number, defaultValue?: Scalars['ItemId']) => Promise<Scalars['ItemId']>}),
-    multipleTestimonials: ({get: <R extends TestimonialBlockRecordRequest>(request: R, defaultValue?: FieldsSelection<TestimonialBlockRecord, R>[]) => Promise<FieldsSelection<TestimonialBlockRecord, R>[]>}),
-    newCoursesRecords: ({get: <R extends CourseRecordRequest>(request: R, defaultValue?: FieldsSelection<CourseRecord, R>[]) => Promise<FieldsSelection<CourseRecord, R>[]>}),
-    newCoursesTitle: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
-    popularCoursesRecords: ({get: <R extends CourseRecordRequest>(request: R, defaultValue?: FieldsSelection<CourseRecord, R>[]) => Promise<FieldsSelection<CourseRecord, R>[]>}),
-    popularCoursesTitle: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
-    seo: ({get: <R extends SeoBlockRecordRequest>(request: R, defaultValue?: FieldsSelection<SeoBlockRecord, R>[]) => Promise<FieldsSelection<SeoBlockRecord, R>[]>}),
-    statsAction: ({get: <R extends ActionBlockRecordRequest>(request: R, defaultValue?: FieldsSelection<ActionBlockRecord, R>[]) => Promise<FieldsSelection<ActionBlockRecord, R>[]>}),
-    statsData: ({get: <R extends HeadingBlockRecordRequest>(request: R, defaultValue?: FieldsSelection<HeadingBlockRecord, R>[]) => Promise<FieldsSelection<HeadingBlockRecord, R>[]>}),
-    statsHeading: ({get: <R extends HeadingBlockRecordRequest>(request: R, defaultValue?: FieldsSelection<HeadingBlockRecord, R>[]) => Promise<FieldsSelection<HeadingBlockRecord, R>[]>}),
-    statsImages: ({get: <R extends FileFieldRequest>(request: R, defaultValue?: FieldsSelection<FileField, R>[]) => Promise<FieldsSelection<FileField, R>[]>}),
-    title: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
-}
-
-
-/** Record of type Homepage (homepage) */
-export interface HomepageRecordObservableChain{
-    _createdAt: ({get: (request?: boolean|number, defaultValue?: Scalars['DateTime']) => Observable<Scalars['DateTime']>}),
-    
-/** Editing URL */
-_editingUrl: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
-    _firstPublishedAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Observable<(Scalars['DateTime'] | undefined)>}),
-    _isValid: ({get: (request?: boolean|number, defaultValue?: Scalars['BooleanType']) => Observable<Scalars['BooleanType']>}),
-    _modelApiKey: ({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Observable<Scalars['String']>}),
-    _publicationScheduledAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Observable<(Scalars['DateTime'] | undefined)>}),
-    _publishedAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Observable<(Scalars['DateTime'] | undefined)>}),
-    
-/** Generates SEO and Social card meta tags to be used in your frontend */
-_seoMetaTags: ((args?: {
-/** The locale to use to fetch the field's content */
-locale?: (SiteLocale | null)}) => {get: <R extends TagRequest>(request: R, defaultValue?: FieldsSelection<Tag, R>[]) => Observable<FieldsSelection<Tag, R>[]>})&({get: <R extends TagRequest>(request: R, defaultValue?: FieldsSelection<Tag, R>[]) => Observable<FieldsSelection<Tag, R>[]>}),
-    _status: ({get: (request?: boolean|number, defaultValue?: ItemStatus) => Observable<ItemStatus>}),
-    _unpublishingScheduledAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Observable<(Scalars['DateTime'] | undefined)>}),
-    _updatedAt: ({get: (request?: boolean|number, defaultValue?: Scalars['DateTime']) => Observable<Scalars['DateTime']>}),
-    about: ({get: <R extends CardBlockRecordRequest>(request: R, defaultValue?: FieldsSelection<CardBlockRecord, R>[]) => Observable<FieldsSelection<CardBlockRecord, R>[]>}),
-    ctaAction: ({get: <R extends ActionBlockRecordRequest>(request: R, defaultValue?: FieldsSelection<ActionBlockRecord, R>[]) => Observable<FieldsSelection<ActionBlockRecord, R>[]>}),
-    ctaHeading: ({get: <R extends HeadingBlockRecordRequest>(request: R, defaultValue?: FieldsSelection<HeadingBlockRecord, R>[]) => Observable<FieldsSelection<HeadingBlockRecord, R>[]>}),
-    faq: (FaqItemRecordObservableChain & {get: <R extends FaqItemRecordRequest>(request: R, defaultValue?: (FieldsSelection<FaqItemRecord, R> | undefined)) => Observable<(FieldsSelection<FaqItemRecord, R> | undefined)>}),
-    faqHeading: ({get: <R extends HeadingBlockRecordRequest>(request: R, defaultValue?: FieldsSelection<HeadingBlockRecord, R>[]) => Observable<FieldsSelection<HeadingBlockRecord, R>[]>}),
-    featureCards: ({get: <R extends CardBlockRecordRequest>(request: R, defaultValue?: FieldsSelection<CardBlockRecord, R>[]) => Observable<FieldsSelection<CardBlockRecord, R>[]>}),
-    featuresCta: ({get: <R extends ActionBlockRecordRequest>(request: R, defaultValue?: FieldsSelection<ActionBlockRecord, R>[]) => Observable<FieldsSelection<ActionBlockRecord, R>[]>}),
-    featuresHeading: ({get: <R extends HeadingBlockRecordRequest>(request: R, defaultValue?: FieldsSelection<HeadingBlockRecord, R>[]) => Observable<FieldsSelection<HeadingBlockRecord, R>[]>}),
-    heroCta: ({get: <R extends ActionBlockRecordRequest>(request: R, defaultValue?: FieldsSelection<ActionBlockRecord, R>[]) => Observable<FieldsSelection<ActionBlockRecord, R>[]>}),
-    heroSubtitle: ((args?: {
-/** Process content as markdown */
-markdown?: (Scalars['Boolean'] | null)}) => {get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})&({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
-    heroTestimonialPictures: ({get: <R extends FileFieldRequest>(request: R, defaultValue?: FieldsSelection<FileField, R>[]) => Observable<FieldsSelection<FileField, R>[]>}),
-    heroTestimonialTitle: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
-    heroTitle: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
-    id: ({get: (request?: boolean|number, defaultValue?: Scalars['ItemId']) => Observable<Scalars['ItemId']>}),
-    multipleTestimonials: ({get: <R extends TestimonialBlockRecordRequest>(request: R, defaultValue?: FieldsSelection<TestimonialBlockRecord, R>[]) => Observable<FieldsSelection<TestimonialBlockRecord, R>[]>}),
-    newCoursesRecords: ({get: <R extends CourseRecordRequest>(request: R, defaultValue?: FieldsSelection<CourseRecord, R>[]) => Observable<FieldsSelection<CourseRecord, R>[]>}),
-    newCoursesTitle: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
-    popularCoursesRecords: ({get: <R extends CourseRecordRequest>(request: R, defaultValue?: FieldsSelection<CourseRecord, R>[]) => Observable<FieldsSelection<CourseRecord, R>[]>}),
-    popularCoursesTitle: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
-    seo: ({get: <R extends SeoBlockRecordRequest>(request: R, defaultValue?: FieldsSelection<SeoBlockRecord, R>[]) => Observable<FieldsSelection<SeoBlockRecord, R>[]>}),
-    statsAction: ({get: <R extends ActionBlockRecordRequest>(request: R, defaultValue?: FieldsSelection<ActionBlockRecord, R>[]) => Observable<FieldsSelection<ActionBlockRecord, R>[]>}),
-    statsData: ({get: <R extends HeadingBlockRecordRequest>(request: R, defaultValue?: FieldsSelection<HeadingBlockRecord, R>[]) => Observable<FieldsSelection<HeadingBlockRecord, R>[]>}),
-    statsHeading: ({get: <R extends HeadingBlockRecordRequest>(request: R, defaultValue?: FieldsSelection<HeadingBlockRecord, R>[]) => Observable<FieldsSelection<HeadingBlockRecord, R>[]>}),
-    statsImages: ({get: <R extends FileFieldRequest>(request: R, defaultValue?: FieldsSelection<FileField, R>[]) => Observable<FieldsSelection<FileField, R>[]>}),
-    title: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
-}
-
-
-/** Block of type Image Block (image_block) */
-export interface ImageBlockRecordPromiseChain{
-    _createdAt: ({get: (request?: boolean|number, defaultValue?: Scalars['DateTime']) => Promise<Scalars['DateTime']>}),
-    
-/** Editing URL */
-_editingUrl: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
-    _firstPublishedAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Promise<(Scalars['DateTime'] | undefined)>}),
-    _isValid: ({get: (request?: boolean|number, defaultValue?: Scalars['BooleanType']) => Promise<Scalars['BooleanType']>}),
-    _modelApiKey: ({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Promise<Scalars['String']>}),
-    _publicationScheduledAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Promise<(Scalars['DateTime'] | undefined)>}),
-    _publishedAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Promise<(Scalars['DateTime'] | undefined)>}),
-    
-/** Generates SEO and Social card meta tags to be used in your frontend */
-_seoMetaTags: ((args?: {
-/** The locale to use to fetch the field's content */
-locale?: (SiteLocale | null)}) => {get: <R extends TagRequest>(request: R, defaultValue?: FieldsSelection<Tag, R>[]) => Promise<FieldsSelection<Tag, R>[]>})&({get: <R extends TagRequest>(request: R, defaultValue?: FieldsSelection<Tag, R>[]) => Promise<FieldsSelection<Tag, R>[]>}),
-    _status: ({get: (request?: boolean|number, defaultValue?: ItemStatus) => Promise<ItemStatus>}),
-    _unpublishingScheduledAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Promise<(Scalars['DateTime'] | undefined)>}),
-    _updatedAt: ({get: (request?: boolean|number, defaultValue?: Scalars['DateTime']) => Promise<Scalars['DateTime']>}),
-    id: ({get: (request?: boolean|number, defaultValue?: Scalars['ItemId']) => Promise<Scalars['ItemId']>}),
-    image: (FileFieldPromiseChain & {get: <R extends FileFieldRequest>(request: R, defaultValue?: (FieldsSelection<FileField, R> | undefined)) => Promise<(FieldsSelection<FileField, R> | undefined)>})
-}
-
-
-/** Block of type Image Block (image_block) */
-export interface ImageBlockRecordObservableChain{
-    _createdAt: ({get: (request?: boolean|number, defaultValue?: Scalars['DateTime']) => Observable<Scalars['DateTime']>}),
-    
-/** Editing URL */
-_editingUrl: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
-    _firstPublishedAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Observable<(Scalars['DateTime'] | undefined)>}),
-    _isValid: ({get: (request?: boolean|number, defaultValue?: Scalars['BooleanType']) => Observable<Scalars['BooleanType']>}),
-    _modelApiKey: ({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Observable<Scalars['String']>}),
-    _publicationScheduledAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Observable<(Scalars['DateTime'] | undefined)>}),
-    _publishedAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Observable<(Scalars['DateTime'] | undefined)>}),
-    
-/** Generates SEO and Social card meta tags to be used in your frontend */
-_seoMetaTags: ((args?: {
-/** The locale to use to fetch the field's content */
-locale?: (SiteLocale | null)}) => {get: <R extends TagRequest>(request: R, defaultValue?: FieldsSelection<Tag, R>[]) => Observable<FieldsSelection<Tag, R>[]>})&({get: <R extends TagRequest>(request: R, defaultValue?: FieldsSelection<Tag, R>[]) => Observable<FieldsSelection<Tag, R>[]>}),
-    _status: ({get: (request?: boolean|number, defaultValue?: ItemStatus) => Observable<ItemStatus>}),
-    _unpublishingScheduledAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Observable<(Scalars['DateTime'] | undefined)>}),
-    _updatedAt: ({get: (request?: boolean|number, defaultValue?: Scalars['DateTime']) => Observable<Scalars['DateTime']>}),
-    id: ({get: (request?: boolean|number, defaultValue?: Scalars['ItemId']) => Observable<Scalars['ItemId']>}),
-    image: (FileFieldObservableChain & {get: <R extends FileFieldRequest>(request: R, defaultValue?: (FieldsSelection<FileField, R> | undefined)) => Observable<(FieldsSelection<FileField, R> | undefined)>})
-}
-
-
-/** Record of type Post (post) */
-export interface PostRecordPromiseChain{
-    _createdAt: ({get: (request?: boolean|number, defaultValue?: Scalars['DateTime']) => Promise<Scalars['DateTime']>}),
-    
-/** Editing URL */
-_editingUrl: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
-    _firstPublishedAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Promise<(Scalars['DateTime'] | undefined)>}),
-    _isValid: ({get: (request?: boolean|number, defaultValue?: Scalars['BooleanType']) => Promise<Scalars['BooleanType']>}),
-    _modelApiKey: ({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Promise<Scalars['String']>}),
-    _publicationScheduledAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Promise<(Scalars['DateTime'] | undefined)>}),
-    _publishedAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Promise<(Scalars['DateTime'] | undefined)>}),
-    
-/** Generates SEO and Social card meta tags to be used in your frontend */
-_seoMetaTags: ((args?: {
-/** The locale to use to fetch the field's content */
-locale?: (SiteLocale | null)}) => {get: <R extends TagRequest>(request: R, defaultValue?: FieldsSelection<Tag, R>[]) => Promise<FieldsSelection<Tag, R>[]>})&({get: <R extends TagRequest>(request: R, defaultValue?: FieldsSelection<Tag, R>[]) => Promise<FieldsSelection<Tag, R>[]>}),
-    _status: ({get: (request?: boolean|number, defaultValue?: ItemStatus) => Promise<ItemStatus>}),
-    _unpublishingScheduledAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Promise<(Scalars['DateTime'] | undefined)>}),
-    _updatedAt: ({get: (request?: boolean|number, defaultValue?: Scalars['DateTime']) => Promise<Scalars['DateTime']>}),
-    category: (CategoryRecordPromiseChain & {get: <R extends CategoryRecordRequest>(request: R, defaultValue?: (FieldsSelection<CategoryRecord, R> | undefined)) => Promise<(FieldsSelection<CategoryRecord, R> | undefined)>}),
-    id: ({get: (request?: boolean|number, defaultValue?: Scalars['ItemId']) => Promise<Scalars['ItemId']>}),
-    modularContent: ({get: <R extends PostModelModularContentFieldRequest>(request: R, defaultValue?: FieldsSelection<PostModelModularContentField, R>[]) => Promise<FieldsSelection<PostModelModularContentField, R>[]>}),
-    seo: ({get: <R extends SeoBlockRecordRequest>(request: R, defaultValue?: FieldsSelection<SeoBlockRecord, R>[]) => Promise<FieldsSelection<SeoBlockRecord, R>[]>}),
-    slug: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
-    title: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
-}
-
-
-/** Record of type Post (post) */
-export interface PostRecordObservableChain{
-    _createdAt: ({get: (request?: boolean|number, defaultValue?: Scalars['DateTime']) => Observable<Scalars['DateTime']>}),
-    
-/** Editing URL */
-_editingUrl: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
-    _firstPublishedAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Observable<(Scalars['DateTime'] | undefined)>}),
-    _isValid: ({get: (request?: boolean|number, defaultValue?: Scalars['BooleanType']) => Observable<Scalars['BooleanType']>}),
-    _modelApiKey: ({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Observable<Scalars['String']>}),
-    _publicationScheduledAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Observable<(Scalars['DateTime'] | undefined)>}),
-    _publishedAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Observable<(Scalars['DateTime'] | undefined)>}),
-    
-/** Generates SEO and Social card meta tags to be used in your frontend */
-_seoMetaTags: ((args?: {
-/** The locale to use to fetch the field's content */
-locale?: (SiteLocale | null)}) => {get: <R extends TagRequest>(request: R, defaultValue?: FieldsSelection<Tag, R>[]) => Observable<FieldsSelection<Tag, R>[]>})&({get: <R extends TagRequest>(request: R, defaultValue?: FieldsSelection<Tag, R>[]) => Observable<FieldsSelection<Tag, R>[]>}),
-    _status: ({get: (request?: boolean|number, defaultValue?: ItemStatus) => Observable<ItemStatus>}),
-    _unpublishingScheduledAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Observable<(Scalars['DateTime'] | undefined)>}),
-    _updatedAt: ({get: (request?: boolean|number, defaultValue?: Scalars['DateTime']) => Observable<Scalars['DateTime']>}),
-    category: (CategoryRecordObservableChain & {get: <R extends CategoryRecordRequest>(request: R, defaultValue?: (FieldsSelection<CategoryRecord, R> | undefined)) => Observable<(FieldsSelection<CategoryRecord, R> | undefined)>}),
-    id: ({get: (request?: boolean|number, defaultValue?: Scalars['ItemId']) => Observable<Scalars['ItemId']>}),
-    modularContent: ({get: <R extends PostModelModularContentFieldRequest>(request: R, defaultValue?: FieldsSelection<PostModelModularContentField, R>[]) => Observable<FieldsSelection<PostModelModularContentField, R>[]>}),
-    seo: ({get: <R extends SeoBlockRecordRequest>(request: R, defaultValue?: FieldsSelection<SeoBlockRecord, R>[]) => Observable<FieldsSelection<SeoBlockRecord, R>[]>}),
-    slug: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
-    title: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
-}
-
-
-/** The query root for this schema */
-export interface QueryPromiseChain{
-    
-/** Returns meta information regarding a record collection */
-_allCategoriesMeta: ((args?: {
-/** The locale to use to fetch the field's content */
-locale?: (SiteLocale | null),filter?: (CategoryModelFilter | null)}) => CollectionMetadataPromiseChain & {get: <R extends CollectionMetadataRequest>(request: R, defaultValue?: FieldsSelection<CollectionMetadata, R>) => Promise<FieldsSelection<CollectionMetadata, R>>})&(CollectionMetadataPromiseChain & {get: <R extends CollectionMetadataRequest>(request: R, defaultValue?: FieldsSelection<CollectionMetadata, R>) => Promise<FieldsSelection<CollectionMetadata, R>>}),
-    
-/** Returns meta information regarding a record collection */
-_allCoursesMeta: ((args?: {
-/** The locale to use to fetch the field's content */
-locale?: (SiteLocale | null),filter?: (CourseModelFilter | null)}) => CollectionMetadataPromiseChain & {get: <R extends CollectionMetadataRequest>(request: R, defaultValue?: FieldsSelection<CollectionMetadata, R>) => Promise<FieldsSelection<CollectionMetadata, R>>})&(CollectionMetadataPromiseChain & {get: <R extends CollectionMetadataRequest>(request: R, defaultValue?: FieldsSelection<CollectionMetadata, R>) => Promise<FieldsSelection<CollectionMetadata, R>>}),
-    
-/** Returns meta information regarding a record collection */
-_allFaqItemsMeta: ((args?: {
-/** The locale to use to fetch the field's content */
-locale?: (SiteLocale | null),filter?: (FaqItemModelFilter | null)}) => CollectionMetadataPromiseChain & {get: <R extends CollectionMetadataRequest>(request: R, defaultValue?: FieldsSelection<CollectionMetadata, R>) => Promise<FieldsSelection<CollectionMetadata, R>>})&(CollectionMetadataPromiseChain & {get: <R extends CollectionMetadataRequest>(request: R, defaultValue?: FieldsSelection<CollectionMetadata, R>) => Promise<FieldsSelection<CollectionMetadata, R>>}),
-    
-/** Returns meta information regarding a record collection */
-_allPostsMeta: ((args?: {
-/** The locale to use to fetch the field's content */
-locale?: (SiteLocale | null),filter?: (PostModelFilter | null)}) => CollectionMetadataPromiseChain & {get: <R extends CollectionMetadataRequest>(request: R, defaultValue?: FieldsSelection<CollectionMetadata, R>) => Promise<FieldsSelection<CollectionMetadata, R>>})&(CollectionMetadataPromiseChain & {get: <R extends CollectionMetadataRequest>(request: R, defaultValue?: FieldsSelection<CollectionMetadata, R>) => Promise<FieldsSelection<CollectionMetadata, R>>}),
-    
-/** Returns meta information regarding an assets collection */
-_allUploadsMeta: ((args?: {
-/** The locale to use to fetch the field's content */
-locale?: (SiteLocale | null),filter?: (UploadFilter | null)}) => CollectionMetadataPromiseChain & {get: <R extends CollectionMetadataRequest>(request: R, defaultValue?: FieldsSelection<CollectionMetadata, R>) => Promise<FieldsSelection<CollectionMetadata, R>>})&(CollectionMetadataPromiseChain & {get: <R extends CollectionMetadataRequest>(request: R, defaultValue?: FieldsSelection<CollectionMetadata, R>) => Promise<FieldsSelection<CollectionMetadata, R>>}),
-    
-/** Returns the single instance record */
-_site: ((args?: {
-/** The locale to use to fetch the field's content */
-locale?: (SiteLocale | null),
-/** If you want to fallback to a default translation when a translation has not been found */
-fallbackLocales?: (SiteLocale[] | null)}) => SitePromiseChain & {get: <R extends SiteRequest>(request: R, defaultValue?: FieldsSelection<Site, R>) => Promise<FieldsSelection<Site, R>>})&(SitePromiseChain & {get: <R extends SiteRequest>(request: R, defaultValue?: FieldsSelection<Site, R>) => Promise<FieldsSelection<Site, R>>}),
-    
-/** Returns a collection of records */
-allCategories: ((args?: {
-/** The locale to use to fetch the field's content */
-locale?: (SiteLocale | null),
-/** If you want to fallback to a default translation when a translation has not been found */
-fallbackLocales?: (SiteLocale[] | null),
-/** Skip the first results */
-skip?: (Scalars['IntType'] | null),
-/** Limit the number of results */
-first?: (Scalars['IntType'] | null),filter?: (CategoryModelFilter | null),orderBy?: ((CategoryModelOrderBy | null)[] | null)}) => {get: <R extends CategoryRecordRequest>(request: R, defaultValue?: FieldsSelection<CategoryRecord, R>[]) => Promise<FieldsSelection<CategoryRecord, R>[]>})&({get: <R extends CategoryRecordRequest>(request: R, defaultValue?: FieldsSelection<CategoryRecord, R>[]) => Promise<FieldsSelection<CategoryRecord, R>[]>}),
-    
-/** Returns a collection of records */
-allCourses: ((args?: {
-/** The locale to use to fetch the field's content */
-locale?: (SiteLocale | null),
-/** If you want to fallback to a default translation when a translation has not been found */
-fallbackLocales?: (SiteLocale[] | null),
-/** Skip the first results */
-skip?: (Scalars['IntType'] | null),
-/** Limit the number of results */
-first?: (Scalars['IntType'] | null),filter?: (CourseModelFilter | null),orderBy?: ((CourseModelOrderBy | null)[] | null)}) => {get: <R extends CourseRecordRequest>(request: R, defaultValue?: FieldsSelection<CourseRecord, R>[]) => Promise<FieldsSelection<CourseRecord, R>[]>})&({get: <R extends CourseRecordRequest>(request: R, defaultValue?: FieldsSelection<CourseRecord, R>[]) => Promise<FieldsSelection<CourseRecord, R>[]>}),
-    
-/** Returns a collection of records */
-allFaqItems: ((args?: {
-/** The locale to use to fetch the field's content */
-locale?: (SiteLocale | null),
-/** If you want to fallback to a default translation when a translation has not been found */
-fallbackLocales?: (SiteLocale[] | null),
-/** Skip the first results */
-skip?: (Scalars['IntType'] | null),
-/** Limit the number of results */
-first?: (Scalars['IntType'] | null),filter?: (FaqItemModelFilter | null),orderBy?: ((FaqItemModelOrderBy | null)[] | null)}) => {get: <R extends FaqItemRecordRequest>(request: R, defaultValue?: FieldsSelection<FaqItemRecord, R>[]) => Promise<FieldsSelection<FaqItemRecord, R>[]>})&({get: <R extends FaqItemRecordRequest>(request: R, defaultValue?: FieldsSelection<FaqItemRecord, R>[]) => Promise<FieldsSelection<FaqItemRecord, R>[]>}),
-    
-/** Returns a collection of records */
-allPosts: ((args?: {
-/** The locale to use to fetch the field's content */
-locale?: (SiteLocale | null),
-/** If you want to fallback to a default translation when a translation has not been found */
-fallbackLocales?: (SiteLocale[] | null),
-/** Skip the first results */
-skip?: (Scalars['IntType'] | null),
-/** Limit the number of results */
-first?: (Scalars['IntType'] | null),filter?: (PostModelFilter | null),orderBy?: ((PostModelOrderBy | null)[] | null)}) => {get: <R extends PostRecordRequest>(request: R, defaultValue?: FieldsSelection<PostRecord, R>[]) => Promise<FieldsSelection<PostRecord, R>[]>})&({get: <R extends PostRecordRequest>(request: R, defaultValue?: FieldsSelection<PostRecord, R>[]) => Promise<FieldsSelection<PostRecord, R>[]>}),
-    
-/** Returns a collection of assets */
-allUploads: ((args?: {
-/** The locale to use to fetch the field's content */
-locale?: (SiteLocale | null),
-/** If you want to fallback to a default translation when a translation has not been found */
-fallbackLocales?: (SiteLocale[] | null),
-/** Skip the first results */
-skip?: (Scalars['IntType'] | null),
-/** Limit the number of results */
-first?: (Scalars['IntType'] | null),filter?: (UploadFilter | null),orderBy?: ((UploadOrderBy | null)[] | null)}) => {get: <R extends FileFieldRequest>(request: R, defaultValue?: FieldsSelection<FileField, R>[]) => Promise<FieldsSelection<FileField, R>[]>})&({get: <R extends FileFieldRequest>(request: R, defaultValue?: FieldsSelection<FileField, R>[]) => Promise<FieldsSelection<FileField, R>[]>}),
-    
-/** Returns a specific record */
-category: ((args?: {
-/** The locale to use to fetch the field's content */
-locale?: (SiteLocale | null),
-/** If you want to fallback to a default translation when a translation has not been found */
-fallbackLocales?: (SiteLocale[] | null),filter?: (CategoryModelFilter | null),orderBy?: ((CategoryModelOrderBy | null)[] | null)}) => CategoryRecordPromiseChain & {get: <R extends CategoryRecordRequest>(request: R, defaultValue?: (FieldsSelection<CategoryRecord, R> | undefined)) => Promise<(FieldsSelection<CategoryRecord, R> | undefined)>})&(CategoryRecordPromiseChain & {get: <R extends CategoryRecordRequest>(request: R, defaultValue?: (FieldsSelection<CategoryRecord, R> | undefined)) => Promise<(FieldsSelection<CategoryRecord, R> | undefined)>}),
-    
-/** Returns a specific record */
-course: ((args?: {
-/** The locale to use to fetch the field's content */
-locale?: (SiteLocale | null),
-/** If you want to fallback to a default translation when a translation has not been found */
-fallbackLocales?: (SiteLocale[] | null),filter?: (CourseModelFilter | null),orderBy?: ((CourseModelOrderBy | null)[] | null)}) => CourseRecordPromiseChain & {get: <R extends CourseRecordRequest>(request: R, defaultValue?: (FieldsSelection<CourseRecord, R> | undefined)) => Promise<(FieldsSelection<CourseRecord, R> | undefined)>})&(CourseRecordPromiseChain & {get: <R extends CourseRecordRequest>(request: R, defaultValue?: (FieldsSelection<CourseRecord, R> | undefined)) => Promise<(FieldsSelection<CourseRecord, R> | undefined)>}),
-    
-/** Returns a specific record */
-faqItem: ((args?: {
-/** The locale to use to fetch the field's content */
-locale?: (SiteLocale | null),
-/** If you want to fallback to a default translation when a translation has not been found */
-fallbackLocales?: (SiteLocale[] | null),filter?: (FaqItemModelFilter | null),orderBy?: ((FaqItemModelOrderBy | null)[] | null)}) => FaqItemRecordPromiseChain & {get: <R extends FaqItemRecordRequest>(request: R, defaultValue?: (FieldsSelection<FaqItemRecord, R> | undefined)) => Promise<(FieldsSelection<FaqItemRecord, R> | undefined)>})&(FaqItemRecordPromiseChain & {get: <R extends FaqItemRecordRequest>(request: R, defaultValue?: (FieldsSelection<FaqItemRecord, R> | undefined)) => Promise<(FieldsSelection<FaqItemRecord, R> | undefined)>}),
-    
-/** Returns the single instance record */
-homepage: ((args?: {
-/** The locale to use to fetch the field's content */
-locale?: (SiteLocale | null),
-/** If you want to fallback to a default translation when a translation has not been found */
-fallbackLocales?: (SiteLocale[] | null)}) => HomepageRecordPromiseChain & {get: <R extends HomepageRecordRequest>(request: R, defaultValue?: (FieldsSelection<HomepageRecord, R> | undefined)) => Promise<(FieldsSelection<HomepageRecord, R> | undefined)>})&(HomepageRecordPromiseChain & {get: <R extends HomepageRecordRequest>(request: R, defaultValue?: (FieldsSelection<HomepageRecord, R> | undefined)) => Promise<(FieldsSelection<HomepageRecord, R> | undefined)>}),
-    
-/** Returns a specific record */
-post: ((args?: {
-/** The locale to use to fetch the field's content */
-locale?: (SiteLocale | null),
-/** If you want to fallback to a default translation when a translation has not been found */
-fallbackLocales?: (SiteLocale[] | null),filter?: (PostModelFilter | null),orderBy?: ((PostModelOrderBy | null)[] | null)}) => PostRecordPromiseChain & {get: <R extends PostRecordRequest>(request: R, defaultValue?: (FieldsSelection<PostRecord, R> | undefined)) => Promise<(FieldsSelection<PostRecord, R> | undefined)>})&(PostRecordPromiseChain & {get: <R extends PostRecordRequest>(request: R, defaultValue?: (FieldsSelection<PostRecord, R> | undefined)) => Promise<(FieldsSelection<PostRecord, R> | undefined)>}),
-    
-/** Returns a specific asset */
-upload: ((args?: {
-/** The locale to use to fetch the field's content */
-locale?: (SiteLocale | null),
-/** If you want to fallback to a default translation when a translation has not been found */
-fallbackLocales?: (SiteLocale[] | null),filter?: (UploadFilter | null),orderBy?: ((UploadOrderBy | null)[] | null)}) => FileFieldPromiseChain & {get: <R extends FileFieldRequest>(request: R, defaultValue?: (FieldsSelection<FileField, R> | undefined)) => Promise<(FieldsSelection<FileField, R> | undefined)>})&(FileFieldPromiseChain & {get: <R extends FileFieldRequest>(request: R, defaultValue?: (FieldsSelection<FileField, R> | undefined)) => Promise<(FieldsSelection<FileField, R> | undefined)>})
+export const enumImgixParamsMarkAlign = {
+   top: 'top' as const,
+   middle: 'middle' as const,
+   bottom: 'bottom' as const,
+   left: 'left' as const,
+   center: 'center' as const,
+   right: 'right' as const
 }
-
-
-/** The query root for this schema */
-export interface QueryObservableChain{
-    
-/** Returns meta information regarding a record collection */
-_allCategoriesMeta: ((args?: {
-/** The locale to use to fetch the field's content */
-locale?: (SiteLocale | null),filter?: (CategoryModelFilter | null)}) => CollectionMetadataObservableChain & {get: <R extends CollectionMetadataRequest>(request: R, defaultValue?: FieldsSelection<CollectionMetadata, R>) => Observable<FieldsSelection<CollectionMetadata, R>>})&(CollectionMetadataObservableChain & {get: <R extends CollectionMetadataRequest>(request: R, defaultValue?: FieldsSelection<CollectionMetadata, R>) => Observable<FieldsSelection<CollectionMetadata, R>>}),
-    
-/** Returns meta information regarding a record collection */
-_allCoursesMeta: ((args?: {
-/** The locale to use to fetch the field's content */
-locale?: (SiteLocale | null),filter?: (CourseModelFilter | null)}) => CollectionMetadataObservableChain & {get: <R extends CollectionMetadataRequest>(request: R, defaultValue?: FieldsSelection<CollectionMetadata, R>) => Observable<FieldsSelection<CollectionMetadata, R>>})&(CollectionMetadataObservableChain & {get: <R extends CollectionMetadataRequest>(request: R, defaultValue?: FieldsSelection<CollectionMetadata, R>) => Observable<FieldsSelection<CollectionMetadata, R>>}),
-    
-/** Returns meta information regarding a record collection */
-_allFaqItemsMeta: ((args?: {
-/** The locale to use to fetch the field's content */
-locale?: (SiteLocale | null),filter?: (FaqItemModelFilter | null)}) => CollectionMetadataObservableChain & {get: <R extends CollectionMetadataRequest>(request: R, defaultValue?: FieldsSelection<CollectionMetadata, R>) => Observable<FieldsSelection<CollectionMetadata, R>>})&(CollectionMetadataObservableChain & {get: <R extends CollectionMetadataRequest>(request: R, defaultValue?: FieldsSelection<CollectionMetadata, R>) => Observable<FieldsSelection<CollectionMetadata, R>>}),
-    
-/** Returns meta information regarding a record collection */
-_allPostsMeta: ((args?: {
-/** The locale to use to fetch the field's content */
-locale?: (SiteLocale | null),filter?: (PostModelFilter | null)}) => CollectionMetadataObservableChain & {get: <R extends CollectionMetadataRequest>(request: R, defaultValue?: FieldsSelection<CollectionMetadata, R>) => Observable<FieldsSelection<CollectionMetadata, R>>})&(CollectionMetadataObservableChain & {get: <R extends CollectionMetadataRequest>(request: R, defaultValue?: FieldsSelection<CollectionMetadata, R>) => Observable<FieldsSelection<CollectionMetadata, R>>}),
-    
-/** Returns meta information regarding an assets collection */
-_allUploadsMeta: ((args?: {
-/** The locale to use to fetch the field's content */
-locale?: (SiteLocale | null),filter?: (UploadFilter | null)}) => CollectionMetadataObservableChain & {get: <R extends CollectionMetadataRequest>(request: R, defaultValue?: FieldsSelection<CollectionMetadata, R>) => Observable<FieldsSelection<CollectionMetadata, R>>})&(CollectionMetadataObservableChain & {get: <R extends CollectionMetadataRequest>(request: R, defaultValue?: FieldsSelection<CollectionMetadata, R>) => Observable<FieldsSelection<CollectionMetadata, R>>}),
-    
-/** Returns the single instance record */
-_site: ((args?: {
-/** The locale to use to fetch the field's content */
-locale?: (SiteLocale | null),
-/** If you want to fallback to a default translation when a translation has not been found */
-fallbackLocales?: (SiteLocale[] | null)}) => SiteObservableChain & {get: <R extends SiteRequest>(request: R, defaultValue?: FieldsSelection<Site, R>) => Observable<FieldsSelection<Site, R>>})&(SiteObservableChain & {get: <R extends SiteRequest>(request: R, defaultValue?: FieldsSelection<Site, R>) => Observable<FieldsSelection<Site, R>>}),
-    
-/** Returns a collection of records */
-allCategories: ((args?: {
-/** The locale to use to fetch the field's content */
-locale?: (SiteLocale | null),
-/** If you want to fallback to a default translation when a translation has not been found */
-fallbackLocales?: (SiteLocale[] | null),
-/** Skip the first results */
-skip?: (Scalars['IntType'] | null),
-/** Limit the number of results */
-first?: (Scalars['IntType'] | null),filter?: (CategoryModelFilter | null),orderBy?: ((CategoryModelOrderBy | null)[] | null)}) => {get: <R extends CategoryRecordRequest>(request: R, defaultValue?: FieldsSelection<CategoryRecord, R>[]) => Observable<FieldsSelection<CategoryRecord, R>[]>})&({get: <R extends CategoryRecordRequest>(request: R, defaultValue?: FieldsSelection<CategoryRecord, R>[]) => Observable<FieldsSelection<CategoryRecord, R>[]>}),
-    
-/** Returns a collection of records */
-allCourses: ((args?: {
-/** The locale to use to fetch the field's content */
-locale?: (SiteLocale | null),
-/** If you want to fallback to a default translation when a translation has not been found */
-fallbackLocales?: (SiteLocale[] | null),
-/** Skip the first results */
-skip?: (Scalars['IntType'] | null),
-/** Limit the number of results */
-first?: (Scalars['IntType'] | null),filter?: (CourseModelFilter | null),orderBy?: ((CourseModelOrderBy | null)[] | null)}) => {get: <R extends CourseRecordRequest>(request: R, defaultValue?: FieldsSelection<CourseRecord, R>[]) => Observable<FieldsSelection<CourseRecord, R>[]>})&({get: <R extends CourseRecordRequest>(request: R, defaultValue?: FieldsSelection<CourseRecord, R>[]) => Observable<FieldsSelection<CourseRecord, R>[]>}),
-    
-/** Returns a collection of records */
-allFaqItems: ((args?: {
-/** The locale to use to fetch the field's content */
-locale?: (SiteLocale | null),
-/** If you want to fallback to a default translation when a translation has not been found */
-fallbackLocales?: (SiteLocale[] | null),
-/** Skip the first results */
-skip?: (Scalars['IntType'] | null),
-/** Limit the number of results */
-first?: (Scalars['IntType'] | null),filter?: (FaqItemModelFilter | null),orderBy?: ((FaqItemModelOrderBy | null)[] | null)}) => {get: <R extends FaqItemRecordRequest>(request: R, defaultValue?: FieldsSelection<FaqItemRecord, R>[]) => Observable<FieldsSelection<FaqItemRecord, R>[]>})&({get: <R extends FaqItemRecordRequest>(request: R, defaultValue?: FieldsSelection<FaqItemRecord, R>[]) => Observable<FieldsSelection<FaqItemRecord, R>[]>}),
-    
-/** Returns a collection of records */
-allPosts: ((args?: {
-/** The locale to use to fetch the field's content */
-locale?: (SiteLocale | null),
-/** If you want to fallback to a default translation when a translation has not been found */
-fallbackLocales?: (SiteLocale[] | null),
-/** Skip the first results */
-skip?: (Scalars['IntType'] | null),
-/** Limit the number of results */
-first?: (Scalars['IntType'] | null),filter?: (PostModelFilter | null),orderBy?: ((PostModelOrderBy | null)[] | null)}) => {get: <R extends PostRecordRequest>(request: R, defaultValue?: FieldsSelection<PostRecord, R>[]) => Observable<FieldsSelection<PostRecord, R>[]>})&({get: <R extends PostRecordRequest>(request: R, defaultValue?: FieldsSelection<PostRecord, R>[]) => Observable<FieldsSelection<PostRecord, R>[]>}),
-    
-/** Returns a collection of assets */
-allUploads: ((args?: {
-/** The locale to use to fetch the field's content */
-locale?: (SiteLocale | null),
-/** If you want to fallback to a default translation when a translation has not been found */
-fallbackLocales?: (SiteLocale[] | null),
-/** Skip the first results */
-skip?: (Scalars['IntType'] | null),
-/** Limit the number of results */
-first?: (Scalars['IntType'] | null),filter?: (UploadFilter | null),orderBy?: ((UploadOrderBy | null)[] | null)}) => {get: <R extends FileFieldRequest>(request: R, defaultValue?: FieldsSelection<FileField, R>[]) => Observable<FieldsSelection<FileField, R>[]>})&({get: <R extends FileFieldRequest>(request: R, defaultValue?: FieldsSelection<FileField, R>[]) => Observable<FieldsSelection<FileField, R>[]>}),
-    
-/** Returns a specific record */
-category: ((args?: {
-/** The locale to use to fetch the field's content */
-locale?: (SiteLocale | null),
-/** If you want to fallback to a default translation when a translation has not been found */
-fallbackLocales?: (SiteLocale[] | null),filter?: (CategoryModelFilter | null),orderBy?: ((CategoryModelOrderBy | null)[] | null)}) => CategoryRecordObservableChain & {get: <R extends CategoryRecordRequest>(request: R, defaultValue?: (FieldsSelection<CategoryRecord, R> | undefined)) => Observable<(FieldsSelection<CategoryRecord, R> | undefined)>})&(CategoryRecordObservableChain & {get: <R extends CategoryRecordRequest>(request: R, defaultValue?: (FieldsSelection<CategoryRecord, R> | undefined)) => Observable<(FieldsSelection<CategoryRecord, R> | undefined)>}),
-    
-/** Returns a specific record */
-course: ((args?: {
-/** The locale to use to fetch the field's content */
-locale?: (SiteLocale | null),
-/** If you want to fallback to a default translation when a translation has not been found */
-fallbackLocales?: (SiteLocale[] | null),filter?: (CourseModelFilter | null),orderBy?: ((CourseModelOrderBy | null)[] | null)}) => CourseRecordObservableChain & {get: <R extends CourseRecordRequest>(request: R, defaultValue?: (FieldsSelection<CourseRecord, R> | undefined)) => Observable<(FieldsSelection<CourseRecord, R> | undefined)>})&(CourseRecordObservableChain & {get: <R extends CourseRecordRequest>(request: R, defaultValue?: (FieldsSelection<CourseRecord, R> | undefined)) => Observable<(FieldsSelection<CourseRecord, R> | undefined)>}),
-    
-/** Returns a specific record */
-faqItem: ((args?: {
-/** The locale to use to fetch the field's content */
-locale?: (SiteLocale | null),
-/** If you want to fallback to a default translation when a translation has not been found */
-fallbackLocales?: (SiteLocale[] | null),filter?: (FaqItemModelFilter | null),orderBy?: ((FaqItemModelOrderBy | null)[] | null)}) => FaqItemRecordObservableChain & {get: <R extends FaqItemRecordRequest>(request: R, defaultValue?: (FieldsSelection<FaqItemRecord, R> | undefined)) => Observable<(FieldsSelection<FaqItemRecord, R> | undefined)>})&(FaqItemRecordObservableChain & {get: <R extends FaqItemRecordRequest>(request: R, defaultValue?: (FieldsSelection<FaqItemRecord, R> | undefined)) => Observable<(FieldsSelection<FaqItemRecord, R> | undefined)>}),
-    
-/** Returns the single instance record */
-homepage: ((args?: {
-/** The locale to use to fetch the field's content */
-locale?: (SiteLocale | null),
-/** If you want to fallback to a default translation when a translation has not been found */
-fallbackLocales?: (SiteLocale[] | null)}) => HomepageRecordObservableChain & {get: <R extends HomepageRecordRequest>(request: R, defaultValue?: (FieldsSelection<HomepageRecord, R> | undefined)) => Observable<(FieldsSelection<HomepageRecord, R> | undefined)>})&(HomepageRecordObservableChain & {get: <R extends HomepageRecordRequest>(request: R, defaultValue?: (FieldsSelection<HomepageRecord, R> | undefined)) => Observable<(FieldsSelection<HomepageRecord, R> | undefined)>}),
-    
-/** Returns a specific record */
-post: ((args?: {
-/** The locale to use to fetch the field's content */
-locale?: (SiteLocale | null),
-/** If you want to fallback to a default translation when a translation has not been found */
-fallbackLocales?: (SiteLocale[] | null),filter?: (PostModelFilter | null),orderBy?: ((PostModelOrderBy | null)[] | null)}) => PostRecordObservableChain & {get: <R extends PostRecordRequest>(request: R, defaultValue?: (FieldsSelection<PostRecord, R> | undefined)) => Observable<(FieldsSelection<PostRecord, R> | undefined)>})&(PostRecordObservableChain & {get: <R extends PostRecordRequest>(request: R, defaultValue?: (FieldsSelection<PostRecord, R> | undefined)) => Observable<(FieldsSelection<PostRecord, R> | undefined)>}),
-    
-/** Returns a specific asset */
-upload: ((args?: {
-/** The locale to use to fetch the field's content */
-locale?: (SiteLocale | null),
-/** If you want to fallback to a default translation when a translation has not been found */
-fallbackLocales?: (SiteLocale[] | null),filter?: (UploadFilter | null),orderBy?: ((UploadOrderBy | null)[] | null)}) => FileFieldObservableChain & {get: <R extends FileFieldRequest>(request: R, defaultValue?: (FieldsSelection<FileField, R> | undefined)) => Observable<(FieldsSelection<FileField, R> | undefined)>})&(FileFieldObservableChain & {get: <R extends FileFieldRequest>(request: R, defaultValue?: (FieldsSelection<FileField, R> | undefined)) => Observable<(FieldsSelection<FileField, R> | undefined)>})
-}
-
-export interface RecordInterfacePromiseChain{
-    _createdAt: ({get: (request?: boolean|number, defaultValue?: Scalars['DateTime']) => Promise<Scalars['DateTime']>}),
-    
-/** Editing URL */
-_editingUrl: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
-    _firstPublishedAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Promise<(Scalars['DateTime'] | undefined)>}),
-    _isValid: ({get: (request?: boolean|number, defaultValue?: Scalars['BooleanType']) => Promise<Scalars['BooleanType']>}),
-    _modelApiKey: ({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Promise<Scalars['String']>}),
-    _publicationScheduledAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Promise<(Scalars['DateTime'] | undefined)>}),
-    _publishedAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Promise<(Scalars['DateTime'] | undefined)>}),
-    
-/** Generates SEO and Social card meta tags to be used in your frontend */
-_seoMetaTags: ((args?: {
-/** The locale to use to fetch the field's content */
-locale?: (SiteLocale | null)}) => {get: <R extends TagRequest>(request: R, defaultValue?: FieldsSelection<Tag, R>[]) => Promise<FieldsSelection<Tag, R>[]>})&({get: <R extends TagRequest>(request: R, defaultValue?: FieldsSelection<Tag, R>[]) => Promise<FieldsSelection<Tag, R>[]>}),
-    _status: ({get: (request?: boolean|number, defaultValue?: ItemStatus) => Promise<ItemStatus>}),
-    _unpublishingScheduledAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Promise<(Scalars['DateTime'] | undefined)>}),
-    _updatedAt: ({get: (request?: boolean|number, defaultValue?: Scalars['DateTime']) => Promise<Scalars['DateTime']>}),
-    id: ({get: (request?: boolean|number, defaultValue?: Scalars['ItemId']) => Promise<Scalars['ItemId']>})
-}
-
-export interface RecordInterfaceObservableChain{
-    _createdAt: ({get: (request?: boolean|number, defaultValue?: Scalars['DateTime']) => Observable<Scalars['DateTime']>}),
-    
-/** Editing URL */
-_editingUrl: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
-    _firstPublishedAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Observable<(Scalars['DateTime'] | undefined)>}),
-    _isValid: ({get: (request?: boolean|number, defaultValue?: Scalars['BooleanType']) => Observable<Scalars['BooleanType']>}),
-    _modelApiKey: ({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Observable<Scalars['String']>}),
-    _publicationScheduledAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Observable<(Scalars['DateTime'] | undefined)>}),
-    _publishedAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Observable<(Scalars['DateTime'] | undefined)>}),
-    
-/** Generates SEO and Social card meta tags to be used in your frontend */
-_seoMetaTags: ((args?: {
-/** The locale to use to fetch the field's content */
-locale?: (SiteLocale | null)}) => {get: <R extends TagRequest>(request: R, defaultValue?: FieldsSelection<Tag, R>[]) => Observable<FieldsSelection<Tag, R>[]>})&({get: <R extends TagRequest>(request: R, defaultValue?: FieldsSelection<Tag, R>[]) => Observable<FieldsSelection<Tag, R>[]>}),
-    _status: ({get: (request?: boolean|number, defaultValue?: ItemStatus) => Observable<ItemStatus>}),
-    _unpublishingScheduledAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Observable<(Scalars['DateTime'] | undefined)>}),
-    _updatedAt: ({get: (request?: boolean|number, defaultValue?: Scalars['DateTime']) => Observable<Scalars['DateTime']>}),
-    id: ({get: (request?: boolean|number, defaultValue?: Scalars['ItemId']) => Observable<Scalars['ItemId']>})
-}
-
-export interface ResponsiveImagePromiseChain{
-    alt: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
-    aspectRatio: ({get: (request?: boolean|number, defaultValue?: Scalars['FloatType']) => Promise<Scalars['FloatType']>}),
-    base64: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
-    bgColor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
-    height: ({get: (request?: boolean|number, defaultValue?: Scalars['IntType']) => Promise<Scalars['IntType']>}),
-    sizes: ({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Promise<Scalars['String']>}),
-    src: ({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Promise<Scalars['String']>}),
-    srcSet: ({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Promise<Scalars['String']>}),
-    title: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
-    webpSrcSet: ({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Promise<Scalars['String']>}),
-    width: ({get: (request?: boolean|number, defaultValue?: Scalars['IntType']) => Promise<Scalars['IntType']>})
-}
-
-export interface ResponsiveImageObservableChain{
-    alt: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
-    aspectRatio: ({get: (request?: boolean|number, defaultValue?: Scalars['FloatType']) => Observable<Scalars['FloatType']>}),
-    base64: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
-    bgColor: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
-    height: ({get: (request?: boolean|number, defaultValue?: Scalars['IntType']) => Observable<Scalars['IntType']>}),
-    sizes: ({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Observable<Scalars['String']>}),
-    src: ({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Observable<Scalars['String']>}),
-    srcSet: ({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Observable<Scalars['String']>}),
-    title: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
-    webpSrcSet: ({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Observable<Scalars['String']>}),
-    width: ({get: (request?: boolean|number, defaultValue?: Scalars['IntType']) => Observable<Scalars['IntType']>})
-}
-
-export interface RichTextBlockModelRichTextFieldPromiseChain{
-    blocks: ({get: <R extends RichTextBlockModelRichTextBlocksFieldRequest>(request: R, defaultValue?: FieldsSelection<RichTextBlockModelRichTextBlocksField, R>[]) => Promise<FieldsSelection<RichTextBlockModelRichTextBlocksField, R>[]>}),
-    links: ({get: (request?: boolean|number, defaultValue?: Scalars['String'][]) => Promise<Scalars['String'][]>}),
-    value: ({get: (request?: boolean|number, defaultValue?: Scalars['JsonField']) => Promise<Scalars['JsonField']>})
-}
-
-export interface RichTextBlockModelRichTextFieldObservableChain{
-    blocks: ({get: <R extends RichTextBlockModelRichTextBlocksFieldRequest>(request: R, defaultValue?: FieldsSelection<RichTextBlockModelRichTextBlocksField, R>[]) => Observable<FieldsSelection<RichTextBlockModelRichTextBlocksField, R>[]>}),
-    links: ({get: (request?: boolean|number, defaultValue?: Scalars['String'][]) => Observable<Scalars['String'][]>}),
-    value: ({get: (request?: boolean|number, defaultValue?: Scalars['JsonField']) => Observable<Scalars['JsonField']>})
-}
-
-
-/** Block of type Rich Text Block (rich_text_block) */
-export interface RichTextBlockRecordPromiseChain{
-    _createdAt: ({get: (request?: boolean|number, defaultValue?: Scalars['DateTime']) => Promise<Scalars['DateTime']>}),
-    
-/** Editing URL */
-_editingUrl: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
-    _firstPublishedAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Promise<(Scalars['DateTime'] | undefined)>}),
-    _isValid: ({get: (request?: boolean|number, defaultValue?: Scalars['BooleanType']) => Promise<Scalars['BooleanType']>}),
-    _modelApiKey: ({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Promise<Scalars['String']>}),
-    _publicationScheduledAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Promise<(Scalars['DateTime'] | undefined)>}),
-    _publishedAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Promise<(Scalars['DateTime'] | undefined)>}),
-    
-/** Generates SEO and Social card meta tags to be used in your frontend */
-_seoMetaTags: ((args?: {
-/** The locale to use to fetch the field's content */
-locale?: (SiteLocale | null)}) => {get: <R extends TagRequest>(request: R, defaultValue?: FieldsSelection<Tag, R>[]) => Promise<FieldsSelection<Tag, R>[]>})&({get: <R extends TagRequest>(request: R, defaultValue?: FieldsSelection<Tag, R>[]) => Promise<FieldsSelection<Tag, R>[]>}),
-    _status: ({get: (request?: boolean|number, defaultValue?: ItemStatus) => Promise<ItemStatus>}),
-    _unpublishingScheduledAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Promise<(Scalars['DateTime'] | undefined)>}),
-    _updatedAt: ({get: (request?: boolean|number, defaultValue?: Scalars['DateTime']) => Promise<Scalars['DateTime']>}),
-    id: ({get: (request?: boolean|number, defaultValue?: Scalars['ItemId']) => Promise<Scalars['ItemId']>}),
-    richText: (RichTextBlockModelRichTextFieldPromiseChain & {get: <R extends RichTextBlockModelRichTextFieldRequest>(request: R, defaultValue?: (FieldsSelection<RichTextBlockModelRichTextField, R> | undefined)) => Promise<(FieldsSelection<RichTextBlockModelRichTextField, R> | undefined)>})
-}
-
-
-/** Block of type Rich Text Block (rich_text_block) */
-export interface RichTextBlockRecordObservableChain{
-    _createdAt: ({get: (request?: boolean|number, defaultValue?: Scalars['DateTime']) => Observable<Scalars['DateTime']>}),
-    
-/** Editing URL */
-_editingUrl: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
-    _firstPublishedAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Observable<(Scalars['DateTime'] | undefined)>}),
-    _isValid: ({get: (request?: boolean|number, defaultValue?: Scalars['BooleanType']) => Observable<Scalars['BooleanType']>}),
-    _modelApiKey: ({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Observable<Scalars['String']>}),
-    _publicationScheduledAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Observable<(Scalars['DateTime'] | undefined)>}),
-    _publishedAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Observable<(Scalars['DateTime'] | undefined)>}),
-    
-/** Generates SEO and Social card meta tags to be used in your frontend */
-_seoMetaTags: ((args?: {
-/** The locale to use to fetch the field's content */
-locale?: (SiteLocale | null)}) => {get: <R extends TagRequest>(request: R, defaultValue?: FieldsSelection<Tag, R>[]) => Observable<FieldsSelection<Tag, R>[]>})&({get: <R extends TagRequest>(request: R, defaultValue?: FieldsSelection<Tag, R>[]) => Observable<FieldsSelection<Tag, R>[]>}),
-    _status: ({get: (request?: boolean|number, defaultValue?: ItemStatus) => Observable<ItemStatus>}),
-    _unpublishingScheduledAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Observable<(Scalars['DateTime'] | undefined)>}),
-    _updatedAt: ({get: (request?: boolean|number, defaultValue?: Scalars['DateTime']) => Observable<Scalars['DateTime']>}),
-    id: ({get: (request?: boolean|number, defaultValue?: Scalars['ItemId']) => Observable<Scalars['ItemId']>}),
-    richText: (RichTextBlockModelRichTextFieldObservableChain & {get: <R extends RichTextBlockModelRichTextFieldRequest>(request: R, defaultValue?: (FieldsSelection<RichTextBlockModelRichTextField, R> | undefined)) => Observable<(FieldsSelection<RichTextBlockModelRichTextField, R> | undefined)>})
-}
-
-
-/** Block of type SEO Block (seo_block) */
-export interface SeoBlockRecordPromiseChain{
-    _createdAt: ({get: (request?: boolean|number, defaultValue?: Scalars['DateTime']) => Promise<Scalars['DateTime']>}),
-    
-/** Editing URL */
-_editingUrl: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
-    _firstPublishedAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Promise<(Scalars['DateTime'] | undefined)>}),
-    _isValid: ({get: (request?: boolean|number, defaultValue?: Scalars['BooleanType']) => Promise<Scalars['BooleanType']>}),
-    _modelApiKey: ({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Promise<Scalars['String']>}),
-    _publicationScheduledAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Promise<(Scalars['DateTime'] | undefined)>}),
-    _publishedAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Promise<(Scalars['DateTime'] | undefined)>}),
-    
-/** Generates SEO and Social card meta tags to be used in your frontend */
-_seoMetaTags: ((args?: {
-/** The locale to use to fetch the field's content */
-locale?: (SiteLocale | null)}) => {get: <R extends TagRequest>(request: R, defaultValue?: FieldsSelection<Tag, R>[]) => Promise<FieldsSelection<Tag, R>[]>})&({get: <R extends TagRequest>(request: R, defaultValue?: FieldsSelection<Tag, R>[]) => Promise<FieldsSelection<Tag, R>[]>}),
-    _status: ({get: (request?: boolean|number, defaultValue?: ItemStatus) => Promise<ItemStatus>}),
-    _unpublishingScheduledAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Promise<(Scalars['DateTime'] | undefined)>}),
-    _updatedAt: ({get: (request?: boolean|number, defaultValue?: Scalars['DateTime']) => Promise<Scalars['DateTime']>}),
-    id: ({get: (request?: boolean|number, defaultValue?: Scalars['ItemId']) => Promise<Scalars['ItemId']>}),
-    seoBlock: (SeoFieldPromiseChain & {get: <R extends SeoFieldRequest>(request: R, defaultValue?: (FieldsSelection<SeoField, R> | undefined)) => Promise<(FieldsSelection<SeoField, R> | undefined)>})
-}
-
-
-/** Block of type SEO Block (seo_block) */
-export interface SeoBlockRecordObservableChain{
-    _createdAt: ({get: (request?: boolean|number, defaultValue?: Scalars['DateTime']) => Observable<Scalars['DateTime']>}),
-    
-/** Editing URL */
-_editingUrl: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
-    _firstPublishedAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Observable<(Scalars['DateTime'] | undefined)>}),
-    _isValid: ({get: (request?: boolean|number, defaultValue?: Scalars['BooleanType']) => Observable<Scalars['BooleanType']>}),
-    _modelApiKey: ({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Observable<Scalars['String']>}),
-    _publicationScheduledAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Observable<(Scalars['DateTime'] | undefined)>}),
-    _publishedAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Observable<(Scalars['DateTime'] | undefined)>}),
-    
-/** Generates SEO and Social card meta tags to be used in your frontend */
-_seoMetaTags: ((args?: {
-/** The locale to use to fetch the field's content */
-locale?: (SiteLocale | null)}) => {get: <R extends TagRequest>(request: R, defaultValue?: FieldsSelection<Tag, R>[]) => Observable<FieldsSelection<Tag, R>[]>})&({get: <R extends TagRequest>(request: R, defaultValue?: FieldsSelection<Tag, R>[]) => Observable<FieldsSelection<Tag, R>[]>}),
-    _status: ({get: (request?: boolean|number, defaultValue?: ItemStatus) => Observable<ItemStatus>}),
-    _unpublishingScheduledAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Observable<(Scalars['DateTime'] | undefined)>}),
-    _updatedAt: ({get: (request?: boolean|number, defaultValue?: Scalars['DateTime']) => Observable<Scalars['DateTime']>}),
-    id: ({get: (request?: boolean|number, defaultValue?: Scalars['ItemId']) => Observable<Scalars['ItemId']>}),
-    seoBlock: (SeoFieldObservableChain & {get: <R extends SeoFieldRequest>(request: R, defaultValue?: (FieldsSelection<SeoField, R> | undefined)) => Observable<(FieldsSelection<SeoField, R> | undefined)>})
-}
-
-export interface SeoFieldPromiseChain{
-    description: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
-    image: (FileFieldPromiseChain & {get: <R extends FileFieldRequest>(request: R, defaultValue?: (FieldsSelection<FileField, R> | undefined)) => Promise<(FieldsSelection<FileField, R> | undefined)>}),
-    title: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
-    twitterCard: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
-}
-
-export interface SeoFieldObservableChain{
-    description: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
-    image: (FileFieldObservableChain & {get: <R extends FileFieldRequest>(request: R, defaultValue?: (FieldsSelection<FileField, R> | undefined)) => Observable<(FieldsSelection<FileField, R> | undefined)>}),
-    title: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
-    twitterCard: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
-}
-
-export interface SitePromiseChain{
-    favicon: (FileFieldPromiseChain & {get: <R extends FileFieldRequest>(request: R, defaultValue?: (FieldsSelection<FileField, R> | undefined)) => Promise<(FieldsSelection<FileField, R> | undefined)>}),
-    faviconMetaTags: ((args?: {
-/** The variants to build */
-variants?: ((FaviconType | null)[] | null)}) => {get: <R extends TagRequest>(request: R, defaultValue?: FieldsSelection<Tag, R>[]) => Promise<FieldsSelection<Tag, R>[]>})&({get: <R extends TagRequest>(request: R, defaultValue?: FieldsSelection<Tag, R>[]) => Promise<FieldsSelection<Tag, R>[]>}),
-    globalSeo: ((args?: {
-/** The locale to use to fetch the field's content */
-locale?: (SiteLocale | null),
-/** If you want to fallback to a default translation when a translation has not been found */
-fallbackLocales?: (SiteLocale[] | null)}) => GlobalSeoFieldPromiseChain & {get: <R extends GlobalSeoFieldRequest>(request: R, defaultValue?: (FieldsSelection<GlobalSeoField, R> | undefined)) => Promise<(FieldsSelection<GlobalSeoField, R> | undefined)>})&(GlobalSeoFieldPromiseChain & {get: <R extends GlobalSeoFieldRequest>(request: R, defaultValue?: (FieldsSelection<GlobalSeoField, R> | undefined)) => Promise<(FieldsSelection<GlobalSeoField, R> | undefined)>}),
-    locales: ({get: (request?: boolean|number, defaultValue?: SiteLocale[]) => Promise<SiteLocale[]>})
-}
-
-export interface SiteObservableChain{
-    favicon: (FileFieldObservableChain & {get: <R extends FileFieldRequest>(request: R, defaultValue?: (FieldsSelection<FileField, R> | undefined)) => Observable<(FieldsSelection<FileField, R> | undefined)>}),
-    faviconMetaTags: ((args?: {
-/** The variants to build */
-variants?: ((FaviconType | null)[] | null)}) => {get: <R extends TagRequest>(request: R, defaultValue?: FieldsSelection<Tag, R>[]) => Observable<FieldsSelection<Tag, R>[]>})&({get: <R extends TagRequest>(request: R, defaultValue?: FieldsSelection<Tag, R>[]) => Observable<FieldsSelection<Tag, R>[]>}),
-    globalSeo: ((args?: {
-/** The locale to use to fetch the field's content */
-locale?: (SiteLocale | null),
-/** If you want to fallback to a default translation when a translation has not been found */
-fallbackLocales?: (SiteLocale[] | null)}) => GlobalSeoFieldObservableChain & {get: <R extends GlobalSeoFieldRequest>(request: R, defaultValue?: (FieldsSelection<GlobalSeoField, R> | undefined)) => Observable<(FieldsSelection<GlobalSeoField, R> | undefined)>})&(GlobalSeoFieldObservableChain & {get: <R extends GlobalSeoFieldRequest>(request: R, defaultValue?: (FieldsSelection<GlobalSeoField, R> | undefined)) => Observable<(FieldsSelection<GlobalSeoField, R> | undefined)>}),
-    locales: ({get: (request?: boolean|number, defaultValue?: SiteLocale[]) => Observable<SiteLocale[]>})
-}
-
-export interface TagPromiseChain{
-    attributes: ({get: (request?: boolean|number, defaultValue?: (Scalars['MetaTagAttributes'] | undefined)) => Promise<(Scalars['MetaTagAttributes'] | undefined)>}),
-    content: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
-    tag: ({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Promise<Scalars['String']>})
-}
-
-export interface TagObservableChain{
-    attributes: ({get: (request?: boolean|number, defaultValue?: (Scalars['MetaTagAttributes'] | undefined)) => Observable<(Scalars['MetaTagAttributes'] | undefined)>}),
-    content: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
-    tag: ({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Observable<Scalars['String']>})
-}
-
-
-/** Block of type Testimonial Block (testimonial_block) */
-export interface TestimonialBlockRecordPromiseChain{
-    _createdAt: ({get: (request?: boolean|number, defaultValue?: Scalars['DateTime']) => Promise<Scalars['DateTime']>}),
-    
-/** Editing URL */
-_editingUrl: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
-    _firstPublishedAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Promise<(Scalars['DateTime'] | undefined)>}),
-    _isValid: ({get: (request?: boolean|number, defaultValue?: Scalars['BooleanType']) => Promise<Scalars['BooleanType']>}),
-    _modelApiKey: ({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Promise<Scalars['String']>}),
-    _publicationScheduledAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Promise<(Scalars['DateTime'] | undefined)>}),
-    _publishedAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Promise<(Scalars['DateTime'] | undefined)>}),
-    
-/** Generates SEO and Social card meta tags to be used in your frontend */
-_seoMetaTags: ((args?: {
-/** The locale to use to fetch the field's content */
-locale?: (SiteLocale | null)}) => {get: <R extends TagRequest>(request: R, defaultValue?: FieldsSelection<Tag, R>[]) => Promise<FieldsSelection<Tag, R>[]>})&({get: <R extends TagRequest>(request: R, defaultValue?: FieldsSelection<Tag, R>[]) => Promise<FieldsSelection<Tag, R>[]>}),
-    _status: ({get: (request?: boolean|number, defaultValue?: ItemStatus) => Promise<ItemStatus>}),
-    _unpublishingScheduledAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Promise<(Scalars['DateTime'] | undefined)>}),
-    _updatedAt: ({get: (request?: boolean|number, defaultValue?: Scalars['DateTime']) => Promise<Scalars['DateTime']>}),
-    author: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
-    company: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
-    content: ({get: <R extends RichTextBlockRecordRequest>(request: R, defaultValue?: FieldsSelection<RichTextBlockRecord, R>[]) => Promise<FieldsSelection<RichTextBlockRecord, R>[]>}),
-    id: ({get: (request?: boolean|number, defaultValue?: Scalars['ItemId']) => Promise<Scalars['ItemId']>}),
-    image: (FileFieldPromiseChain & {get: <R extends FileFieldRequest>(request: R, defaultValue?: (FieldsSelection<FileField, R> | undefined)) => Promise<(FieldsSelection<FileField, R> | undefined)>}),
-    role: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
-    title: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})
-}
-
-
-/** Block of type Testimonial Block (testimonial_block) */
-export interface TestimonialBlockRecordObservableChain{
-    _createdAt: ({get: (request?: boolean|number, defaultValue?: Scalars['DateTime']) => Observable<Scalars['DateTime']>}),
-    
-/** Editing URL */
-_editingUrl: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
-    _firstPublishedAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Observable<(Scalars['DateTime'] | undefined)>}),
-    _isValid: ({get: (request?: boolean|number, defaultValue?: Scalars['BooleanType']) => Observable<Scalars['BooleanType']>}),
-    _modelApiKey: ({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Observable<Scalars['String']>}),
-    _publicationScheduledAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Observable<(Scalars['DateTime'] | undefined)>}),
-    _publishedAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Observable<(Scalars['DateTime'] | undefined)>}),
-    
-/** Generates SEO and Social card meta tags to be used in your frontend */
-_seoMetaTags: ((args?: {
-/** The locale to use to fetch the field's content */
-locale?: (SiteLocale | null)}) => {get: <R extends TagRequest>(request: R, defaultValue?: FieldsSelection<Tag, R>[]) => Observable<FieldsSelection<Tag, R>[]>})&({get: <R extends TagRequest>(request: R, defaultValue?: FieldsSelection<Tag, R>[]) => Observable<FieldsSelection<Tag, R>[]>}),
-    _status: ({get: (request?: boolean|number, defaultValue?: ItemStatus) => Observable<ItemStatus>}),
-    _unpublishingScheduledAt: ({get: (request?: boolean|number, defaultValue?: (Scalars['DateTime'] | undefined)) => Observable<(Scalars['DateTime'] | undefined)>}),
-    _updatedAt: ({get: (request?: boolean|number, defaultValue?: Scalars['DateTime']) => Observable<Scalars['DateTime']>}),
-    author: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
-    company: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
-    content: ({get: <R extends RichTextBlockRecordRequest>(request: R, defaultValue?: FieldsSelection<RichTextBlockRecord, R>[]) => Observable<FieldsSelection<RichTextBlockRecord, R>[]>}),
-    id: ({get: (request?: boolean|number, defaultValue?: Scalars['ItemId']) => Observable<Scalars['ItemId']>}),
-    image: (FileFieldObservableChain & {get: <R extends FileFieldRequest>(request: R, defaultValue?: (FieldsSelection<FileField, R> | undefined)) => Observable<(FieldsSelection<FileField, R> | undefined)>}),
-    role: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
-    title: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})
-}
-
-export interface UploadVideoFieldPromiseChain{
-    duration: ({get: (request?: boolean|number, defaultValue?: (Scalars['Int'] | undefined)) => Promise<(Scalars['Int'] | undefined)>}),
-    framerate: ({get: (request?: boolean|number, defaultValue?: (Scalars['Int'] | undefined)) => Promise<(Scalars['Int'] | undefined)>}),
-    mp4Url: ((args?: {
-/** Pick highest resolution available up to the specified argument */
-res?: (VideoMp4Res | null),
-/** Pick the exact resolution quality specified in the argument */
-exactRes?: (VideoMp4Res | null)}) => {get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>})&({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
-    muxAssetId: ({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Promise<Scalars['String']>}),
-    muxPlaybackId: ({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Promise<Scalars['String']>}),
-    streamingUrl: ({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Promise<Scalars['String']>}),
-    thumbnailUrl: ((args?: {
-/** The file extension of the requested image format. Either png, jpg or gif */
-format?: (MuxThumbnailFormatType | null)}) => {get: (request?: boolean|number, defaultValue?: Scalars['String']) => Promise<Scalars['String']>})&({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Promise<Scalars['String']>})
-}
-
-export interface UploadVideoFieldObservableChain{
-    duration: ({get: (request?: boolean|number, defaultValue?: (Scalars['Int'] | undefined)) => Observable<(Scalars['Int'] | undefined)>}),
-    framerate: ({get: (request?: boolean|number, defaultValue?: (Scalars['Int'] | undefined)) => Observable<(Scalars['Int'] | undefined)>}),
-    mp4Url: ((args?: {
-/** Pick highest resolution available up to the specified argument */
-res?: (VideoMp4Res | null),
-/** Pick the exact resolution quality specified in the argument */
-exactRes?: (VideoMp4Res | null)}) => {get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>})&({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
-    muxAssetId: ({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Observable<Scalars['String']>}),
-    muxPlaybackId: ({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Observable<Scalars['String']>}),
-    streamingUrl: ({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Observable<Scalars['String']>}),
-    thumbnailUrl: ((args?: {
-/** The file extension of the requested image format. Either png, jpg or gif */
-format?: (MuxThumbnailFormatType | null)}) => {get: (request?: boolean|number, defaultValue?: Scalars['String']) => Observable<Scalars['String']>})&({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Observable<Scalars['String']>})
-}
-
-export interface focalPointPromiseChain{
-    x: ({get: (request?: boolean|number, defaultValue?: Scalars['FloatType']) => Promise<Scalars['FloatType']>}),
-    y: ({get: (request?: boolean|number, defaultValue?: Scalars['FloatType']) => Promise<Scalars['FloatType']>})
-}
-
-export interface focalPointObservableChain{
-    x: ({get: (request?: boolean|number, defaultValue?: Scalars['FloatType']) => Observable<Scalars['FloatType']>}),
-    y: ({get: (request?: boolean|number, defaultValue?: Scalars['FloatType']) => Observable<Scalars['FloatType']>})
+
+export const enumImgixParamsMarkFit = {
+   clip: 'clip' as const,
+   crop: 'crop' as const,
+   fill: 'fill' as const,
+   max: 'max' as const,
+   scale: 'scale' as const
+}
+
+export const enumImgixParamsMarkTile = {
+   grid: 'grid' as const
+}
+
+export const enumImgixParamsPalette = {
+   css: 'css' as const,
+   json: 'json' as const
+}
+
+export const enumImgixParamsTransparency = {
+   grid: 'grid' as const
+}
+
+export const enumImgixParamsTrim = {
+   auto: 'auto' as const,
+   color: 'color' as const
+}
+
+export const enumImgixParamsTxtAlign = {
+   top: 'top' as const,
+   middle: 'middle' as const,
+   bottom: 'bottom' as const,
+   left: 'left' as const,
+   center: 'center' as const,
+   right: 'right' as const
+}
+
+export const enumImgixParamsTxtClip = {
+   start: 'start' as const,
+   middle: 'middle' as const,
+   end: 'end' as const,
+   ellipsis: 'ellipsis' as const
+}
+
+export const enumImgixParamsTxtFit = {
+   max: 'max' as const
+}
+
+export const enumItemStatus = {
+   draft: 'draft' as const,
+   updated: 'updated' as const,
+   published: 'published' as const
+}
+
+export const enumMuxThumbnailFormatType = {
+   jpg: 'jpg' as const,
+   png: 'png' as const,
+   gif: 'gif' as const
+}
+
+export const enumPostModelOrderBy = {
+   _createdAt_ASC: '_createdAt_ASC' as const,
+   _createdAt_DESC: '_createdAt_DESC' as const,
+   id_ASC: 'id_ASC' as const,
+   id_DESC: 'id_DESC' as const,
+   _firstPublishedAt_ASC: '_firstPublishedAt_ASC' as const,
+   _firstPublishedAt_DESC: '_firstPublishedAt_DESC' as const,
+   _publicationScheduledAt_ASC: '_publicationScheduledAt_ASC' as const,
+   _publicationScheduledAt_DESC: '_publicationScheduledAt_DESC' as const,
+   _unpublishingScheduledAt_ASC: '_unpublishingScheduledAt_ASC' as const,
+   _unpublishingScheduledAt_DESC: '_unpublishingScheduledAt_DESC' as const,
+   _publishedAt_ASC: '_publishedAt_ASC' as const,
+   _publishedAt_DESC: '_publishedAt_DESC' as const,
+   _status_ASC: '_status_ASC' as const,
+   _status_DESC: '_status_DESC' as const,
+   _updatedAt_ASC: '_updatedAt_ASC' as const,
+   _updatedAt_DESC: '_updatedAt_DESC' as const,
+   _isValid_ASC: '_isValid_ASC' as const,
+   _isValid_DESC: '_isValid_DESC' as const,
+   title_ASC: 'title_ASC' as const,
+   title_DESC: 'title_DESC' as const
+}
+
+export const enumResolutionType = {
+   icon: 'icon' as const,
+   small: 'small' as const,
+   medium: 'medium' as const,
+   large: 'large' as const
+}
+
+export const enumSiteLocale = {
+   en: 'en' as const
+}
+
+export const enumUploadOrderBy = {
+   _createdAt_ASC: '_createdAt_ASC' as const,
+   _createdAt_DESC: '_createdAt_DESC' as const,
+   size_ASC: 'size_ASC' as const,
+   size_DESC: 'size_DESC' as const,
+   resolution_ASC: 'resolution_ASC' as const,
+   resolution_DESC: 'resolution_DESC' as const,
+   filename_ASC: 'filename_ASC' as const,
+   filename_DESC: 'filename_DESC' as const,
+   basename_ASC: 'basename_ASC' as const,
+   basename_DESC: 'basename_DESC' as const,
+   mimeType_ASC: 'mimeType_ASC' as const,
+   mimeType_DESC: 'mimeType_DESC' as const,
+   format_ASC: 'format_ASC' as const,
+   format_DESC: 'format_DESC' as const,
+   _updatedAt_ASC: '_updatedAt_ASC' as const,
+   _updatedAt_DESC: '_updatedAt_DESC' as const,
+   id_ASC: 'id_ASC' as const,
+   id_DESC: 'id_DESC' as const
+}
+
+export const enumUploadOrientation = {
+   landscape: 'landscape' as const,
+   portrait: 'portrait' as const,
+   square: 'square' as const
+}
+
+export const enumUploadType = {
+   image: 'image' as const,
+   audio: 'audio' as const,
+   video: 'video' as const,
+   richtext: 'richtext' as const,
+   presentation: 'presentation' as const,
+   spreadsheet: 'spreadsheet' as const,
+   pdfdocument: 'pdfdocument' as const,
+   archive: 'archive' as const
+}
+
+export const enumVideoMp4Res = {
+   low: 'low' as const,
+   medium: 'medium' as const,
+   high: 'high' as const
 }
