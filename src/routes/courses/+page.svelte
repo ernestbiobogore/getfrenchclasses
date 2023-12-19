@@ -1,16 +1,11 @@
 <script>
 	import CourseCard from '$lib/components/ui/CourseCard.svelte';
-	import AvatarsGroup from '$lib/components/ui/AvatarsGroup.svelte';
-	import { getSampleAvatars } from '$lib/utils';
-	import { BarChart, Clock, PenSquare } from 'lucide-svelte';
 	import Circle1 from '$lib/images/circle1.png';
 	import Circle2 from '$lib/images/circle2.png';
 	import Triangle from '$lib/images/triangle.png';
 
 	export let data;
 	$: ({ allCourses } = data);
-
-	console.log(data);
 </script>
 
 <section class="p-3 md:py-20 container-base text-center space-y-5">
