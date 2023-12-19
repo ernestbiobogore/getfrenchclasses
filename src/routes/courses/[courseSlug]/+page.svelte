@@ -89,18 +89,24 @@
 	{/each}
 </section>
 
-
-<section class="flex flex-col items-center gap-20 sm:px-12 container-sm py-36 sm:flex-row">
-	<div class="basis-6/12">
-		<img src={data.course.singleTestimonial[0].image?.url} alt={data.course.singleTestimonial[0].image?.alt} />
-	</div>
-
-	<div class="space-y-5 basis-6/12">
-		<h3>{data.course.singleTestimonial[0].title}</h3>
-		<StructuredText data={data.course?.singleTestimonial[0].content[0].richText} />
-		<div>
-			<p>{data.course.singleTestimonial[0].author}</p>
-			<p class="text-xs font-semibold text-savoy-blue">{data.course.singleTestimonial[0].company}</p>
+{#if data.course.singleTestimonial.length > 0}
+	<section class="flex flex-col items-center gap-20 sm:px-12 container-sm py-36 sm:flex-row">
+		<div class="basis-6/12">
+			<img
+				src={data.course.singleTestimonial[0].image?.url}
+				alt={data.course.singleTestimonial[0].image?.alt}
+			/>
 		</div>
-	</div>
-</section>
+
+		<div class="space-y-5 basis-6/12">
+			<h3>{data.course.singleTestimonial[0].title}</h3>
+			<StructuredText data={data.course?.singleTestimonial[0].content[0].richText} />
+			<div>
+				<p>{data.course.singleTestimonial[0].author}</p>
+				<p class="text-xs font-semibold text-savoy-blue">
+					{data.course.singleTestimonial[0].company}
+				</p>
+			</div>
+		</div>
+	</section>
+{/if}
