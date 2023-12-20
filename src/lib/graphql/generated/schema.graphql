@@ -161,15 +161,15 @@ input CourseModelFilter {
   _status: StatusFilter
   _updatedAt: UpdatedAtFilter
   _isValid: BooleanFilter
-  duration: IntegerFilter
-  faq: LinkFilter
-  level: StringFilter
-  name: StringFilter
-  numberOfEnrolledStudents: IntegerFilter
-  numberOfSections: IntegerFilter
   price: IntegerFilter
-  slug: SlugFilter
+  numberOfSections: IntegerFilter
   tag: StringFilter
+  level: StringFilter
+  faq: LinkFilter
+  name: StringFilter
+  duration: IntegerFilter
+  numberOfEnrolledStudents: IntegerFilter
+  slug: SlugFilter
   OR: [CourseModelFilter]
   AND: [CourseModelFilter]
 }
@@ -193,20 +193,20 @@ enum CourseModelOrderBy {
   _updatedAt_DESC
   _isValid_ASC
   _isValid_DESC
-  duration_ASC
-  duration_DESC
+  price_ASC
+  price_DESC
+  numberOfSections_ASC
+  numberOfSections_DESC
+  tag_ASC
+  tag_DESC
   level_ASC
   level_DESC
   name_ASC
   name_DESC
+  duration_ASC
+  duration_DESC
   numberOfEnrolledStudents_ASC
   numberOfEnrolledStudents_DESC
-  numberOfSections_ASC
-  numberOfSections_DESC
-  price_ASC
-  price_DESC
-  tag_ASC
-  tag_DESC
 }
 
 """Record of type Course (course)"""
@@ -2390,8 +2390,8 @@ input PostModelFilter {
   _updatedAt: UpdatedAtFilter
   _isValid: BooleanFilter
   category: LinkFilter
-  slug: SlugFilter
   title: StringFilter
+  slug: SlugFilter
   OR: [PostModelFilter]
   AND: [PostModelFilter]
 }
@@ -2823,6 +2823,7 @@ type SeoBlockRecord implements RecordInterface {
 type SeoField {
   description: String
   image: FileField
+  noIndex: BooleanType
   title: String
   twitterCard: String
 }
@@ -2843,6 +2844,7 @@ type Site {
     fallbackLocales: [SiteLocale!]
   ): GlobalSeoField
   locales: [SiteLocale!]!
+  noIndex: BooleanType
 }
 
 enum SiteLocale {

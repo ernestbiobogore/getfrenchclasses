@@ -329,32 +329,32 @@ export default {
             "_isValid": [
                 2
             ],
-            "duration": [
-                57
-            ],
-            "faq": [
-                62
-            ],
-            "level": [
-                86
-            ],
-            "name": [
-                86
-            ],
-            "numberOfEnrolledStudents": [
+            "price": [
                 57
             ],
             "numberOfSections": [
                 57
             ],
-            "price": [
+            "tag": [
+                86
+            ],
+            "level": [
+                86
+            ],
+            "faq": [
+                62
+            ],
+            "name": [
+                86
+            ],
+            "duration": [
+                57
+            ],
+            "numberOfEnrolledStudents": [
                 57
             ],
             "slug": [
                 83
-            ],
-            "tag": [
-                86
             ],
             "OR": [
                 11
@@ -1822,11 +1822,11 @@ export default {
             "category": [
                 62
             ],
-            "slug": [
-                83
-            ],
             "title": [
                 86
+            ],
+            "slug": [
+                83
             ],
             "OR": [
                 67
@@ -2513,6 +2513,9 @@ export default {
             "image": [
                 22
             ],
+            "noIndex": [
+                3
+            ],
             "title": [
                 85
             ],
@@ -2550,6 +2553,9 @@ export default {
             ],
             "locales": [
                 82
+            ],
+            "noIndex": [
+                3
             ],
             "__typename": [
                 85

@@ -106,7 +106,7 @@ export interface ColorField {
     __typename: 'ColorField'
 }
 
-export type CourseModelOrderBy = '_createdAt_ASC' | '_createdAt_DESC' | 'id_ASC' | 'id_DESC' | '_firstPublishedAt_ASC' | '_firstPublishedAt_DESC' | '_publicationScheduledAt_ASC' | '_publicationScheduledAt_DESC' | '_unpublishingScheduledAt_ASC' | '_unpublishingScheduledAt_DESC' | '_publishedAt_ASC' | '_publishedAt_DESC' | '_status_ASC' | '_status_DESC' | '_updatedAt_ASC' | '_updatedAt_DESC' | '_isValid_ASC' | '_isValid_DESC' | 'duration_ASC' | 'duration_DESC' | 'level_ASC' | 'level_DESC' | 'name_ASC' | 'name_DESC' | 'numberOfEnrolledStudents_ASC' | 'numberOfEnrolledStudents_DESC' | 'numberOfSections_ASC' | 'numberOfSections_DESC' | 'price_ASC' | 'price_DESC' | 'tag_ASC' | 'tag_DESC'
+export type CourseModelOrderBy = '_createdAt_ASC' | '_createdAt_DESC' | 'id_ASC' | 'id_DESC' | '_firstPublishedAt_ASC' | '_firstPublishedAt_DESC' | '_publicationScheduledAt_ASC' | '_publicationScheduledAt_DESC' | '_unpublishingScheduledAt_ASC' | '_unpublishingScheduledAt_DESC' | '_publishedAt_ASC' | '_publishedAt_DESC' | '_status_ASC' | '_status_DESC' | '_updatedAt_ASC' | '_updatedAt_DESC' | '_isValid_ASC' | '_isValid_DESC' | 'price_ASC' | 'price_DESC' | 'numberOfSections_ASC' | 'numberOfSections_DESC' | 'tag_ASC' | 'tag_DESC' | 'level_ASC' | 'level_DESC' | 'name_ASC' | 'name_DESC' | 'duration_ASC' | 'duration_DESC' | 'numberOfEnrolledStudents_ASC' | 'numberOfEnrolledStudents_DESC'
 
 
 /** Record of type Course (course) */
@@ -533,6 +533,7 @@ export interface SeoBlockRecord {
 export interface SeoField {
     description: (Scalars['String'] | null)
     image: (FileField | null)
+    noIndex: (Scalars['BooleanType'] | null)
     title: (Scalars['String'] | null)
     twitterCard: (Scalars['String'] | null)
     __typename: 'SeoField'
@@ -543,6 +544,7 @@ export interface Site {
     faviconMetaTags: Tag[]
     globalSeo: (GlobalSeoField | null)
     locales: SiteLocale[]
+    noIndex: (Scalars['BooleanType'] | null)
     __typename: 'Site'
 }
 
@@ -708,7 +710,7 @@ export interface ColorFieldGenqlSelection{
     __scalar?: boolean | number
 }
 
-export interface CourseModelFilter {_createdAt?: (CreatedAtFilter | null),id?: (ItemIdFilter | null),_firstPublishedAt?: (PublishedAtFilter | null),_publicationScheduledAt?: (PublishedAtFilter | null),_unpublishingScheduledAt?: (PublishedAtFilter | null),_publishedAt?: (PublishedAtFilter | null),_status?: (StatusFilter | null),_updatedAt?: (UpdatedAtFilter | null),_isValid?: (BooleanFilter | null),duration?: (IntegerFilter | null),faq?: (LinkFilter | null),level?: (StringFilter | null),name?: (StringFilter | null),numberOfEnrolledStudents?: (IntegerFilter | null),numberOfSections?: (IntegerFilter | null),price?: (IntegerFilter | null),slug?: (SlugFilter | null),tag?: (StringFilter | null),OR?: ((CourseModelFilter | null)[] | null),AND?: ((CourseModelFilter | null)[] | null)}
+export interface CourseModelFilter {_createdAt?: (CreatedAtFilter | null),id?: (ItemIdFilter | null),_firstPublishedAt?: (PublishedAtFilter | null),_publicationScheduledAt?: (PublishedAtFilter | null),_unpublishingScheduledAt?: (PublishedAtFilter | null),_publishedAt?: (PublishedAtFilter | null),_status?: (StatusFilter | null),_updatedAt?: (UpdatedAtFilter | null),_isValid?: (BooleanFilter | null),price?: (IntegerFilter | null),numberOfSections?: (IntegerFilter | null),tag?: (StringFilter | null),level?: (StringFilter | null),faq?: (LinkFilter | null),name?: (StringFilter | null),duration?: (IntegerFilter | null),numberOfEnrolledStudents?: (IntegerFilter | null),slug?: (SlugFilter | null),OR?: ((CourseModelFilter | null)[] | null),AND?: ((CourseModelFilter | null)[] | null)}
 
 
 /** Record of type Course (course) */
@@ -2381,7 +2383,7 @@ eq?: (UploadOrientation | null),
 /** Exclude uploads with the specified orientation */
 neq?: (UploadOrientation | null)}
 
-export interface PostModelFilter {_createdAt?: (CreatedAtFilter | null),id?: (ItemIdFilter | null),_firstPublishedAt?: (PublishedAtFilter | null),_publicationScheduledAt?: (PublishedAtFilter | null),_unpublishingScheduledAt?: (PublishedAtFilter | null),_publishedAt?: (PublishedAtFilter | null),_status?: (StatusFilter | null),_updatedAt?: (UpdatedAtFilter | null),_isValid?: (BooleanFilter | null),category?: (LinkFilter | null),slug?: (SlugFilter | null),title?: (StringFilter | null),OR?: ((PostModelFilter | null)[] | null),AND?: ((PostModelFilter | null)[] | null)}
+export interface PostModelFilter {_createdAt?: (CreatedAtFilter | null),id?: (ItemIdFilter | null),_firstPublishedAt?: (PublishedAtFilter | null),_publicationScheduledAt?: (PublishedAtFilter | null),_unpublishingScheduledAt?: (PublishedAtFilter | null),_publishedAt?: (PublishedAtFilter | null),_status?: (StatusFilter | null),_updatedAt?: (UpdatedAtFilter | null),_isValid?: (BooleanFilter | null),category?: (LinkFilter | null),title?: (StringFilter | null),slug?: (SlugFilter | null),OR?: ((PostModelFilter | null)[] | null),AND?: ((PostModelFilter | null)[] | null)}
 
 export interface PostModelModularContentFieldGenqlSelection{
     on_ImageBlockRecord?:ImageBlockRecordGenqlSelection,
@@ -2679,6 +2681,7 @@ export interface SeoBlockRecordGenqlSelection{
 export interface SeoFieldGenqlSelection{
     description?: boolean | number
     image?: FileFieldGenqlSelection
+    noIndex?: boolean | number
     title?: boolean | number
     twitterCard?: boolean | number
     __typename?: boolean | number
@@ -2696,6 +2699,7 @@ export interface SiteGenqlSelection{
     /** If you want to fallback to a default translation when a translation has not been found */
     fallbackLocales?: (SiteLocale[] | null)} })
     locales?: boolean | number
+    noIndex?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -3373,20 +3377,20 @@ export const enumCourseModelOrderBy = {
    _updatedAt_DESC: '_updatedAt_DESC' as const,
    _isValid_ASC: '_isValid_ASC' as const,
    _isValid_DESC: '_isValid_DESC' as const,
-   duration_ASC: 'duration_ASC' as const,
-   duration_DESC: 'duration_DESC' as const,
+   price_ASC: 'price_ASC' as const,
+   price_DESC: 'price_DESC' as const,
+   numberOfSections_ASC: 'numberOfSections_ASC' as const,
+   numberOfSections_DESC: 'numberOfSections_DESC' as const,
+   tag_ASC: 'tag_ASC' as const,
+   tag_DESC: 'tag_DESC' as const,
    level_ASC: 'level_ASC' as const,
    level_DESC: 'level_DESC' as const,
    name_ASC: 'name_ASC' as const,
    name_DESC: 'name_DESC' as const,
+   duration_ASC: 'duration_ASC' as const,
+   duration_DESC: 'duration_DESC' as const,
    numberOfEnrolledStudents_ASC: 'numberOfEnrolledStudents_ASC' as const,
-   numberOfEnrolledStudents_DESC: 'numberOfEnrolledStudents_DESC' as const,
-   numberOfSections_ASC: 'numberOfSections_ASC' as const,
-   numberOfSections_DESC: 'numberOfSections_DESC' as const,
-   price_ASC: 'price_ASC' as const,
-   price_DESC: 'price_DESC' as const,
-   tag_ASC: 'tag_ASC' as const,
-   tag_DESC: 'tag_DESC' as const
+   numberOfEnrolledStudents_DESC: 'numberOfEnrolledStudents_DESC' as const
 }
 
 export const enumFaqItemModelOrderBy = {
