@@ -23,6 +23,7 @@
 			<a href="/">Courses</a>
 			<a href="/about">About</a>
 			<a href="/">FAQ's</a>
+			<a href="/blog">Blog</a>
 			<a href="/contact">Contact</a>
 		</div>
 		<button class="close px-5" use:melt={$close}>
