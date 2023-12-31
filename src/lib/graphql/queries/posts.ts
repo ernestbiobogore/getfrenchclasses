@@ -1,5 +1,15 @@
 import { client } from '$lib/graphql/client';
 
+const getBlogPostsSlugs = async () => {
+	const { allPosts } = await client.query({
+		allPosts: {
+			slug: true
+		}
+	});
+
+	return allPosts.map(({ slug }) => slug);
+};
+
 const getSingleBlogPost = async (slug: string) => {
 	const { post } = await client.query({
 		post: {
@@ -82,4 +92,5 @@ const getSingleBlogPost = async (slug: string) => {
 	return post;
 };
 
-export { getSingleBlogPost };
+export { getBlogPostsSlugs, getSingleBlogPost };
+
