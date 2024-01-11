@@ -3,11 +3,12 @@ import { client } from '$lib/graphql/client';
 const getCoursesSlugs = async () => {
 	const { allCourses } = await client.query({
 		allCourses: {
-			slug: true
+			slug: true,
+			_updatedAt: true
 		}
 	});
 
-	return allCourses.map(({ slug }) => slug);
+	return allCourses;
 };
 
 const getAllCourses = async (first?: number) => {

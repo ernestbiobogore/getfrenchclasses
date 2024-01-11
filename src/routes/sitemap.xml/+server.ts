@@ -1,16 +1,55 @@
 import { getCoursesSlugs } from '$lib/graphql/queries/courses';
 import { getBlogPostsSlugs } from '$lib/graphql/queries/posts';
-import * as sitemap from 'super-sitemap';
 
 export const GET = async ({ url }) => {
-	const postsSlugs = (await getBlogPostsSlugs()).filter((slug): slug is string => slug !== null);
-	const coursesSlugs = (await getCoursesSlugs()).filter((slug): slug is string => slug !== null);
+	const siteURL = url.origin;
+	const priority = 0.6;
+	const frequency = 'daily';
 
-	return await sitemap.response({
-		origin: url.origin,
-		paramValues: {
-			'/blog/[blogSlug]': postsSlugs,
-			'/courses/[courseSlug]': coursesSlugs
+	const postsEntries = (await getBlogPostsSlugs()).map(({ slug, _updatedAt }) => ({
+		url: `${siteURL}/blog/${slug}`,
+		lastmod: new Date(_updatedAt).toISOString(),
+		priority,
+		frequency
+	}));
+
+	const coursesEntries = (await getCoursesSlugs()).map(({ slug, _updatedAt }) => ({
+		url: `${siteURL}/courses/${slug}`,
+		lastmod: new Date(_updatedAt).toISOString(),
+		priority,
+		frequency
+	}));
+
+	const entries = [...postsEntries, ...coursesEntries];
+
+	const entriesXml = entries.map(({ url, lastmod, priority, frequency }) => {
+		return `
+			<url>
+				<loc>${url}</loc>
+				<lastmod>${lastmod}</lastmod>
+				<priority>${priority}</priority>
+				<changefreq>${frequency}</changefreq>
+			</url>
+		`;
+	});
+
+	const xml = `
+		<urlset
+			xmlns="https://www.sitemaps.org/schemas/sitemap/0.9"
+			xmlns:news="https://www.google.com/schemas/sitemap-news/0.9"
+			xmlns:xhtml="https://www.w3.org/1999/xhtml"
+			xmlns:mobile="https://www.google.com/schemas/sitemap-mobile/1.0"
+			xmlns:image="https://www.google.com/schemas/sitemap-image/1.1"
+			xmlns:video="https://www.google.com/schemas/sitemap-video/1.1"
+		>
+			${entriesXml.join('')}
+		</urlset>
+	`;
+
+	return new Response(xml, {
+		headers: {
+			'Cache-Control': 'max-age=0, s-maxage=3600',
+			'Content-Type': 'application/xml'
 		}
 	});
 };
