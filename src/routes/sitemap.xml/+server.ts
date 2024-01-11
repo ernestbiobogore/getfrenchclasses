@@ -20,7 +20,16 @@ export const GET = async ({ url }) => {
 		frequency
 	}));
 
-	const entries = [...postsEntries, ...coursesEntries];
+	const entries = [
+		{
+			url: siteURL,
+			lastmod: new Date().toISOString(),
+			frequency,
+			priority
+		},
+		...postsEntries,
+		...coursesEntries
+	];
 
 	const entriesXml = entries.map(({ url, lastmod, priority, frequency }) => {
 		return `
