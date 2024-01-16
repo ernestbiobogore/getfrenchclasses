@@ -56,7 +56,7 @@ const getSingleBlogPost = async (slug: string) => {
 			},
 
 			// Category
-			category: {
+			routePaths: {
 				name: true,
 				slug: true
 			},
