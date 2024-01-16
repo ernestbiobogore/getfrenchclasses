@@ -4,5 +4,5 @@
 
 <section class="pt-24 pb-6 space-y-8 container-base">
 	<h1>{$page.status}</h1>
-	<p>{$page.error?.message}</p>
+	<p class="text-2xl">{$page.error?.message}</p>
 </section>
