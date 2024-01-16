@@ -21,6 +21,9 @@
 
 <svelte:head>
 	<title>{data.post?.title || 'Post not found'}</title>
+	{#if !data.post}
+		<meta name="robots" content="noindex" />
+	{/if}
 </svelte:head>
 
 {#if data.post}
@@ -79,7 +82,7 @@
 {#if data.correctUrl}
 	<section class="container-base py-16 space-y-2">
 		<p class="text-xl">It looks like you are trying to access an existing post with a wrong URL.</p>
-		<p class="text-xl">
+		<p class="text-xl break-words">
 			Try this one:
 			<a href={data.correctUrl} class="underline font-semibold">{data.correctUrl}</a>
 		</p>
