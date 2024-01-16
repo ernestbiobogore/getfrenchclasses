@@ -12,12 +12,11 @@ export const load = async ({ params, url }) => {
 	}
 
 	if (post.routePaths.length > 0 && parts.length < post.routePaths.length + 1) {
-		throw error(
-			404,
-			`It looks like you are trying to access an existing post with a wrong URL. Try this one: ${
-				url.origin
-			}/blog/${post.routePaths.map((path) => path.slug).join('/')}/${post.slug}`
-		);
+		return {
+			correctUrl: `${url.origin}/blog/${post.routePaths.map((path) => path.slug).join('/')}/${
+				post.slug
+			}`
+		};
 	}
 
 	return {

@@ -4,7 +4,7 @@
 	import { Image } from '@unpic/svelte';
 
 	export let data;
-	$: postCta = data.post.cta[0];
+	$: postCta = data.post?.cta[0];
 
 	const getNoteClass = (type: string) => {
 		return cn(
@@ -20,56 +20,68 @@
 </script>
 
 <svelte:head>
-	<title>{data.post.title}</title>
+	<title>{data.post?.title}</title>
 </svelte:head>
 
-<header class="py-16 container-base">
-	<h1>{data.post.title}</h1>
-</header>
+{#if data.post}
+	<header class="py-16 container-base">
+		<h1>{data.post?.title}</h1>
+	</header>
 
-<article class="flex flex-col sm:flex-row gap-8 container-base">
-	<main class="space-y-8 basis-9/12">
-		{#each data.post.modularContent as block}
-			{#if block.__typename === 'ImageBlockRecord'}
-				<Image
-					src={block.image?.responsiveImage?.src}
-					width={block.image?.responsiveImage?.width}
-					height={block.image?.responsiveImage?.height}
-					alt={block.image?.responsiveImage?.alt}
-				/>
-			{/if}
+	<article class="flex flex-col sm:flex-row gap-8 container-base">
+		<main class="space-y-8 basis-9/12">
+			{#each data.post.modularContent as block}
+				{#if block.__typename === 'ImageBlockRecord'}
+					<Image
+						src={block.image?.responsiveImage?.src}
+						width={block.image?.responsiveImage?.width}
+						height={block.image?.responsiveImage?.height}
+						alt={block.image?.responsiveImage?.alt}
+					/>
+				{/if}
 
-			{#if block.__typename === 'NoteBlockRecord'}
-				<div class={getNoteClass(block.noteType ?? 'note')}>
-					<StructuredText data={block.content[0].richText?.value} />
+				{#if block.__typename === 'NoteBlockRecord'}
+					<div class={getNoteClass(block.noteType ?? 'note')}>
+						<StructuredText data={block.content[0].richText?.value} />
+					</div>
+				{/if}
+
+				{#if block.__typename === 'RichTextBlockRecord'}
+					<div class="space-y-4">
+						<StructuredText data={block.richText?.value} />
+					</div>
+				{/if}
+			{/each}
+		</main>
+
+		<aside class="basis-3/12">
+			{#if postCta}
+				<div class="border-2 h-fit rounded-md border-gray-500 lg:sticky lg:top-20">
+					<div class="p-6 bg-night">
+						<p class="text-sm font-bold text-neutral-300">{postCta.title}</p>
+					</div>
+
+					<div class="p-6 space-y-4">
+						<StructuredText data={postCta.content[0].richText?.value} />
+					</div>
+
+					<div class="p-6 bg-night">
+						<a href={postCta.cta[0].link} class="action-white w-fit text-sm rounded-none"
+							>{postCta.cta[0].text}</a
+						>
+					</div>
 				</div>
 			{/if}
+		</aside>
+	</article>
+{/if}
 
-			{#if block.__typename === 'RichTextBlockRecord'}
-				<div class="space-y-4">
-					<StructuredText data={block.richText?.value} />
-				</div>
-			{/if}
-		{/each}
-	</main>
-
-	<aside class="basis-3/12">
-		{#if postCta}
-			<div class="border-2 h-fit rounded-md border-gray-500 lg:sticky lg:top-20">
-				<div class="p-6 bg-night">
-					<p class="text-sm font-bold text-neutral-300">{postCta.title}</p>
-				</div>
-
-				<div class="p-6 space-y-4">
-					<StructuredText data={postCta.content[0].richText?.value} />
-				</div>
-
-				<div class="p-6 bg-night">
-					<a href={postCta.cta[0].link} class="action-white w-fit text-sm rounded-none"
-						>{postCta.cta[0].text}</a
-					>
-				</div>
-			</div>
-		{/if}
-	</aside>
-</article>
+{#if data.correctUrl}
+	<section class="container-base py-16 space-y-2">
+		<p class="text-xl">It looks like you are trying to access an existing post with a wrong URL.</p>
+		<p class="text-xl">
+			Try this one:
+			<a href={data.correctUrl} class="underline font-semibold">{data.correctUrl}</a>
+		</p>
+	</section>
+{/if}
