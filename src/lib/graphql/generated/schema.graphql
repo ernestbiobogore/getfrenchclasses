@@ -161,15 +161,15 @@ input CourseModelFilter {
   _status: StatusFilter
   _updatedAt: UpdatedAtFilter
   _isValid: BooleanFilter
-  price: IntegerFilter
-  numberOfSections: IntegerFilter
-  tag: StringFilter
-  level: StringFilter
-  faq: LinkFilter
-  name: StringFilter
   duration: IntegerFilter
+  faq: LinkFilter
+  level: StringFilter
+  name: StringFilter
   numberOfEnrolledStudents: IntegerFilter
+  numberOfSections: IntegerFilter
+  price: IntegerFilter
   slug: SlugFilter
+  tag: StringFilter
   OR: [CourseModelFilter]
   AND: [CourseModelFilter]
 }
@@ -193,20 +193,20 @@ enum CourseModelOrderBy {
   _updatedAt_DESC
   _isValid_ASC
   _isValid_DESC
-  price_ASC
-  price_DESC
-  numberOfSections_ASC
-  numberOfSections_DESC
-  tag_ASC
-  tag_DESC
+  duration_ASC
+  duration_DESC
   level_ASC
   level_DESC
   name_ASC
   name_DESC
-  duration_ASC
-  duration_DESC
   numberOfEnrolledStudents_ASC
   numberOfEnrolledStudents_DESC
+  numberOfSections_ASC
+  numberOfSections_DESC
+  price_ASC
+  price_DESC
+  tag_ASC
+  tag_DESC
 }
 
 """Record of type Course (course)"""
@@ -2337,6 +2337,34 @@ input LinkFilter {
   exists: BooleanType
 }
 
+"""Specifies how to filter Multiple-links fields"""
+input LinksFilter {
+  """
+  Search for records with an exact match. The specified values must be Record IDs
+  """
+  eq: [ItemId]
+
+  """
+  Filter records linked to all of the specified records. The specified values must be Record IDs
+  """
+  allIn: [ItemId]
+
+  """
+  Filter records linked to at least one of the specified records. The specified values must be Record IDs
+  """
+  anyIn: [ItemId]
+
+  """
+  Filter records not linked to any of the specified records. The specified values must be Record IDs
+  """
+  notIn: [ItemId]
+
+  """
+  Filter records with the specified field defined (i.e. with any value) or not
+  """
+  exists: BooleanType
+}
+
 scalar MetaTagAttributes
 
 enum MuxThumbnailFormatType {
@@ -2389,9 +2417,9 @@ input PostModelFilter {
   _status: StatusFilter
   _updatedAt: UpdatedAtFilter
   _isValid: BooleanFilter
-  category: LinkFilter
-  title: StringFilter
+  category: LinksFilter
   slug: SlugFilter
+  title: StringFilter
   OR: [PostModelFilter]
   AND: [PostModelFilter]
 }
@@ -2441,7 +2469,7 @@ type PostRecord implements RecordInterface {
   _status: ItemStatus!
   _unpublishingScheduledAt: DateTime
   _updatedAt: DateTime!
-  category: CategoryRecord
+  category: [CategoryRecord!]!
   cta: [CardBlockRecord!]!
   id: ItemId!
   modularContent: [PostModelModularContentField!]!
