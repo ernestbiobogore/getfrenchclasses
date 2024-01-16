@@ -13,6 +13,18 @@ const getBlogPostsSlugs = async () => {
 
 };
 
+const getAllBlogPosts = async () => {
+	const {allPosts} = await client.query({
+		allPosts: {
+			id: true,
+			slug: true,
+			title: true,
+		}
+	});
+
+	return allPosts;
+}
+
 const getSingleBlogPost = async (slug: string) => {
 	const { post } = await client.query({
 		post: {
@@ -95,5 +107,5 @@ const getSingleBlogPost = async (slug: string) => {
 	return post;
 };
 
-export { getBlogPostsSlugs, getSingleBlogPost };
+export { getAllBlogPosts, getBlogPostsSlugs, getSingleBlogPost };
 
