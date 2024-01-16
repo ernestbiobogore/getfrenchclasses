@@ -2417,7 +2417,7 @@ input PostModelFilter {
   _status: StatusFilter
   _updatedAt: UpdatedAtFilter
   _isValid: BooleanFilter
-  category: LinksFilter
+  routePaths: LinksFilter
   slug: SlugFilter
   title: StringFilter
   OR: [PostModelFilter]
@@ -2469,10 +2469,10 @@ type PostRecord implements RecordInterface {
   _status: ItemStatus!
   _unpublishingScheduledAt: DateTime
   _updatedAt: DateTime!
-  category: [CategoryRecord!]!
   cta: [CardBlockRecord!]!
   id: ItemId!
   modularContent: [PostModelModularContentField!]!
+  routePaths: [CategoryRecord!]!
   seo: [SeoBlockRecord!]!
   slug: String
   title: String

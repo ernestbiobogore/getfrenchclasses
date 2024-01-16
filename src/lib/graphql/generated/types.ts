@@ -1839,7 +1839,7 @@ export default {
             "_isValid": [
                 2
             ],
-            "category": [
+            "routePaths": [
                 63
             ],
             "slug": [
@@ -1915,9 +1915,6 @@ export default {
             "_updatedAt": [
                 16
             ],
-            "category": [
-                7
-            ],
             "cta": [
                 4
             ],
@@ -1926,6 +1923,9 @@ export default {
             ],
             "modularContent": [
                 69
+            ],
+            "routePaths": [
+                7
             ],
             "seo": [
                 80

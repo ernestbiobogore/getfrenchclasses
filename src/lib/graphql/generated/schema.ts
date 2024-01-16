@@ -412,10 +412,10 @@ export interface PostRecord {
     _status: ItemStatus
     _unpublishingScheduledAt: (Scalars['DateTime'] | null)
     _updatedAt: Scalars['DateTime']
-    category: CategoryRecord[]
     cta: CardBlockRecord[]
     id: Scalars['ItemId']
     modularContent: PostModelModularContentField[]
+    routePaths: CategoryRecord[]
     seo: SeoBlockRecord[]
     slug: (Scalars['String'] | null)
     title: (Scalars['String'] | null)
@@ -2397,7 +2397,7 @@ eq?: (UploadOrientation | null),
 /** Exclude uploads with the specified orientation */
 neq?: (UploadOrientation | null)}
 
-export interface PostModelFilter {_createdAt?: (CreatedAtFilter | null),id?: (ItemIdFilter | null),_firstPublishedAt?: (PublishedAtFilter | null),_publicationScheduledAt?: (PublishedAtFilter | null),_unpublishingScheduledAt?: (PublishedAtFilter | null),_publishedAt?: (PublishedAtFilter | null),_status?: (StatusFilter | null),_updatedAt?: (UpdatedAtFilter | null),_isValid?: (BooleanFilter | null),category?: (LinksFilter | null),slug?: (SlugFilter | null),title?: (StringFilter | null),OR?: ((PostModelFilter | null)[] | null),AND?: ((PostModelFilter | null)[] | null)}
+export interface PostModelFilter {_createdAt?: (CreatedAtFilter | null),id?: (ItemIdFilter | null),_firstPublishedAt?: (PublishedAtFilter | null),_publicationScheduledAt?: (PublishedAtFilter | null),_unpublishingScheduledAt?: (PublishedAtFilter | null),_publishedAt?: (PublishedAtFilter | null),_status?: (StatusFilter | null),_updatedAt?: (UpdatedAtFilter | null),_isValid?: (BooleanFilter | null),routePaths?: (LinksFilter | null),slug?: (SlugFilter | null),title?: (StringFilter | null),OR?: ((PostModelFilter | null)[] | null),AND?: ((PostModelFilter | null)[] | null)}
 
 export interface PostModelModularContentFieldGenqlSelection{
     on_ImageBlockRecord?:ImageBlockRecordGenqlSelection,
@@ -2425,10 +2425,10 @@ export interface PostRecordGenqlSelection{
     _status?: boolean | number
     _unpublishingScheduledAt?: boolean | number
     _updatedAt?: boolean | number
-    category?: CategoryRecordGenqlSelection
     cta?: CardBlockRecordGenqlSelection
     id?: boolean | number
     modularContent?: PostModelModularContentFieldGenqlSelection
+    routePaths?: CategoryRecordGenqlSelection
     seo?: SeoBlockRecordGenqlSelection
     slug?: boolean | number
     title?: boolean | number
