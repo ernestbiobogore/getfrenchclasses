@@ -6,8 +6,8 @@ export const GET = async ({ url }) => {
 	const priority = 0.6;
 	const frequency = 'daily';
 
-	const postsEntries = (await getBlogPostsSlugs()).map(({ slug, _updatedAt }) => ({
-		url: `${siteURL}/blog/${slug}`,
+	const postsEntries = (await getBlogPostsSlugs()).map(({ slug, routePaths, _updatedAt }) => ({
+		url: `${siteURL}/blog/${routePaths.map((path) => path.slug).join('/')}/${slug}`,
 		lastmod: new Date(_updatedAt).toISOString(),
 		priority,
 		frequency

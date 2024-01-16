@@ -4,7 +4,10 @@ const getBlogPostsSlugs = async () => {
 	const { allPosts } = await client.query({
 		allPosts: {
 			slug: true,
-			_updatedAt: true
+			_updatedAt: true,
+			routePaths: {
+				slug: true
+			}
 		}
 	});
 
