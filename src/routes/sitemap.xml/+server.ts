@@ -6,12 +6,20 @@ export const GET = async ({ url }) => {
 	const priority = 0.6;
 	const frequency = 'daily';
 
-	const postsEntries = (await getBlogPostsSlugs()).map(({ slug, routePaths, _updatedAt }) => ({
-		url: `${siteURL}/blog/${routePaths.map((path) => path.slug).join('/')}/${slug}`,
-		lastmod: new Date(_updatedAt).toISOString(),
-		priority,
-		frequency
-	}));
+	const allPosts = await getBlogPostsSlugs();
+
+	const postsEntries = allPosts.map(({ slug, routePaths, _updatedAt }) => {
+		const pathComponents = routePaths.map((path) => path.slug);
+		const pathString = pathComponents.length > 0 ? `/${pathComponents.join('/')}` : '';
+		const postFullPath = `${siteURL}/blog${pathString}/${slug}`;
+
+		return {
+			url: postFullPath,
+			lastmod: new Date(_updatedAt).toISOString(),
+			priority,
+			frequency
+		};
+	});
 
 	const coursesEntries = (await getCoursesSlugs()).map(({ slug, _updatedAt }) => ({
 		url: `${siteURL}/courses/${slug}`,
