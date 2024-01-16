@@ -20,7 +20,7 @@
 </script>
 
 <svelte:head>
-	<title>{data.post?.title}</title>
+	<title>{data.post?.title || 'Post not found'}</title>
 </svelte:head>
 
 {#if data.post}
