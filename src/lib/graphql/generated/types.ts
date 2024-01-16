@@ -5,12 +5,14 @@ export default {
         6,
         9,
         12,
-        15,
+        13,
         16,
-        19,
+        18,
         21,
-        24,
-        25,
+        22,
+        28,
+        29,
+        30,
         31,
         32,
         33,
@@ -31,18 +33,16 @@ export default {
         48,
         49,
         50,
-        51,
         52,
         53,
         55,
-        56,
+        57,
         58,
-        60,
         61,
-        64,
-        65,
-        70,
-        76,
+        62,
+        67,
+        73,
+        78,
         83,
         86,
         103,
@@ -54,13 +54,13 @@ export default {
     "types": {
         "ActionBlockRecord": {
             "_createdAt": [
-                16
+                13
             ],
             "_editingUrl": [
                 86
             ],
             "_firstPublishedAt": [
-                16
+                13
             ],
             "_isValid": [
                 3
@@ -69,10 +69,10 @@ export default {
                 86
             ],
             "_publicationScheduledAt": [
-                16
+                13
             ],
             "_publishedAt": [
-                16
+                13
             ],
             "_seoMetaTags": [
                 89,
@@ -83,16 +83,16 @@ export default {
                 }
             ],
             "_status": [
-                60
+                57
             ],
             "_unpublishingScheduledAt": [
-                16
+                13
             ],
             "_updatedAt": [
-                16
+                13
             ],
             "id": [
-                58
+                55
             ],
             "link": [
                 86
@@ -116,13 +116,13 @@ export default {
         "BooleanType": {},
         "CardBlockRecord": {
             "_createdAt": [
-                16
+                13
             ],
             "_editingUrl": [
                 86
             ],
             "_firstPublishedAt": [
-                16
+                13
             ],
             "_isValid": [
                 3
@@ -131,10 +131,10 @@ export default {
                 86
             ],
             "_publicationScheduledAt": [
-                16
+                13
             ],
             "_publishedAt": [
-                16
+                13
             ],
             "_seoMetaTags": [
                 89,
@@ -145,25 +145,25 @@ export default {
                 }
             ],
             "_status": [
-                60
+                57
             ],
             "_unpublishingScheduledAt": [
-                16
+                13
             ],
             "_updatedAt": [
-                16
+                13
             ],
             "content": [
-                79
+                76
             ],
             "cta": [
                 0
             ],
             "id": [
-                58
+                55
             ],
             "image": [
-                22
+                19
             ],
             "title": [
                 86
@@ -172,106 +172,9 @@ export default {
                 86
             ]
         },
-        "CategoryModelFilter": {
-            "_createdAt": [
-                14
-            ],
-            "id": [
-                59
-            ],
-            "_firstPublishedAt": [
-                72
-            ],
-            "_publicationScheduledAt": [
-                72
-            ],
-            "_unpublishingScheduledAt": [
-                72
-            ],
-            "_publishedAt": [
-                72
-            ],
-            "_status": [
-                85
-            ],
-            "_updatedAt": [
-                92
-            ],
-            "_isValid": [
-                2
-            ],
-            "name": [
-                87
-            ],
-            "slug": [
-                84
-            ],
-            "OR": [
-                5
-            ],
-            "AND": [
-                5
-            ],
-            "__typename": [
-                86
-            ]
-        },
-        "CategoryModelOrderBy": {},
-        "CategoryRecord": {
-            "_createdAt": [
-                16
-            ],
-            "_editingUrl": [
-                86
-            ],
-            "_firstPublishedAt": [
-                16
-            ],
-            "_isValid": [
-                3
-            ],
-            "_modelApiKey": [
-                86
-            ],
-            "_publicationScheduledAt": [
-                16
-            ],
-            "_publishedAt": [
-                16
-            ],
-            "_seoMetaTags": [
-                89,
-                {
-                    "locale": [
-                        83
-                    ]
-                }
-            ],
-            "_status": [
-                60
-            ],
-            "_unpublishingScheduledAt": [
-                16
-            ],
-            "_updatedAt": [
-                16
-            ],
-            "id": [
-                58
-            ],
-            "name": [
-                86
-            ],
-            "slug": [
-                86
-            ],
-            "__typename": [
-                86
-            ]
-        },
         "CollectionMetadata": {
             "count": [
-                56
+                53
             ],
             "__typename": [
                 86
@@ -280,22 +183,22 @@ export default {
         "ColorBucketType": {},
         "ColorField": {
             "alpha": [
-                56
+                53
             ],
             "blue": [
-                56
+                53
             ],
             "cssRgb": [
                 86
             ],
             "green": [
-                56
+                53
             ],
             "hex": [
                 86
             ],
             "red": [
-                56
+                53
             ],
             "__typename": [
                 86
@@ -303,22 +206,22 @@ export default {
         },
         "CourseModelFilter": {
             "_createdAt": [
-                14
+                11
             ],
             "id": [
-                59
+                56
             ],
             "_firstPublishedAt": [
-                72
+                69
             ],
             "_publicationScheduledAt": [
-                72
+                69
             ],
             "_unpublishingScheduledAt": [
-                72
+                69
             ],
             "_publishedAt": [
-                72
+                69
             ],
             "_status": [
                 85
@@ -330,10 +233,10 @@ export default {
                 2
             ],
             "duration": [
-                57
+                54
             ],
             "faq": [
-                62
+                59
             ],
             "level": [
                 87
@@ -342,13 +245,13 @@ export default {
                 87
             ],
             "numberOfEnrolledStudents": [
-                57
+                54
             ],
             "numberOfSections": [
-                57
+                54
             ],
             "price": [
-                57
+                54
             ],
             "slug": [
                 84
@@ -357,10 +260,10 @@ export default {
                 87
             ],
             "OR": [
-                11
+                8
             ],
             "AND": [
-                11
+                8
             ],
             "__typename": [
                 86
@@ -369,13 +272,13 @@ export default {
         "CourseModelOrderBy": {},
         "CourseRecord": {
             "_createdAt": [
-                16
+                13
             ],
             "_editingUrl": [
                 86
             ],
             "_firstPublishedAt": [
-                16
+                13
             ],
             "_isValid": [
                 3
@@ -384,10 +287,10 @@ export default {
                 86
             ],
             "_publicationScheduledAt": [
-                16
+                13
             ],
             "_publishedAt": [
-                16
+                13
             ],
             "_seoMetaTags": [
                 89,
@@ -398,25 +301,25 @@ export default {
                 }
             ],
             "_status": [
-                60
+                57
             ],
             "_unpublishingScheduledAt": [
-                16
+                13
             ],
             "_updatedAt": [
-                16
+                13
             ],
             "duration": [
-                56
+                53
             ],
             "faq": [
-                20
+                17
             ],
             "featuresCards": [
                 4
             ],
             "id": [
-                58
+                55
             ],
             "level": [
                 86
@@ -425,13 +328,13 @@ export default {
                 86
             ],
             "numberOfEnrolledStudents": [
-                56
+                53
             ],
             "numberOfSections": [
-                56
+                53
             ],
             "price": [
-                56
+                53
             ],
             "seo": [
                 80
@@ -451,22 +354,22 @@ export default {
         },
         "CreatedAtFilter": {
             "gt": [
-                16
+                13
             ],
             "lt": [
-                16
+                13
             ],
             "gte": [
-                16
+                13
             ],
             "lte": [
-                16
+                13
             ],
             "eq": [
-                16
+                13
             ],
             "neq": [
-                16
+                13
             ],
             "exists": [
                 3
@@ -479,13 +382,13 @@ export default {
         "DateTime": {},
         "FaqBlockRecord": {
             "_createdAt": [
-                16
+                13
             ],
             "_editingUrl": [
                 86
             ],
             "_firstPublishedAt": [
-                16
+                13
             ],
             "_isValid": [
                 3
@@ -494,10 +397,10 @@ export default {
                 86
             ],
             "_publicationScheduledAt": [
-                16
+                13
             ],
             "_publishedAt": [
-                16
+                13
             ],
             "_seoMetaTags": [
                 89,
@@ -508,19 +411,19 @@ export default {
                 }
             ],
             "_status": [
-                60
+                57
             ],
             "_unpublishingScheduledAt": [
-                16
+                13
             ],
             "_updatedAt": [
-                16
+                13
             ],
             "answer": [
-                79
+                76
             ],
             "id": [
-                58
+                55
             ],
             "question": [
                 86
@@ -531,22 +434,22 @@ export default {
         },
         "FaqItemModelFilter": {
             "_createdAt": [
-                14
+                11
             ],
             "id": [
-                59
+                56
             ],
             "_firstPublishedAt": [
-                72
+                69
             ],
             "_publicationScheduledAt": [
-                72
+                69
             ],
             "_unpublishingScheduledAt": [
-                72
+                69
             ],
             "_publishedAt": [
-                72
+                69
             ],
             "_status": [
                 85
@@ -561,10 +464,10 @@ export default {
                 87
             ],
             "OR": [
-                18
+                15
             ],
             "AND": [
-                18
+                15
             ],
             "__typename": [
                 86
@@ -573,13 +476,13 @@ export default {
         "FaqItemModelOrderBy": {},
         "FaqItemRecord": {
             "_createdAt": [
-                16
+                13
             ],
             "_editingUrl": [
                 86
             ],
             "_firstPublishedAt": [
-                16
+                13
             ],
             "_isValid": [
                 3
@@ -588,10 +491,10 @@ export default {
                 86
             ],
             "_publicationScheduledAt": [
-                16
+                13
             ],
             "_publishedAt": [
-                16
+                13
             ],
             "_seoMetaTags": [
                 89,
@@ -602,19 +505,19 @@ export default {
                 }
             ],
             "_status": [
-                60
+                57
             ],
             "_unpublishingScheduledAt": [
-                16
+                13
             ],
             "_updatedAt": [
-                16
+                13
             ],
             "faqBlocks": [
-                17
+                14
             ],
             "id": [
-                58
+                55
             ],
             "title": [
                 86
@@ -626,13 +529,13 @@ export default {
         "FaviconType": {},
         "FileField": {
             "_createdAt": [
-                16
+                13
             ],
             "_editingUrl": [
                 86
             ],
             "_updatedAt": [
-                16
+                13
             ],
             "alt": [
                 86,
@@ -656,19 +559,19 @@ export default {
                 86,
                 {
                     "punch": [
-                        24,
+                        21,
                         "Float!"
                     ],
                     "size": [
-                        55,
+                        52,
                         "Int!"
                     ],
                     "quality": [
-                        55,
+                        52,
                         "Int!"
                     ],
                     "imgixParams": [
-                        30
+                        27
                     ]
                 }
             ],
@@ -676,13 +579,13 @@ export default {
                 86
             ],
             "colors": [
-                10
+                7
             ],
             "copyright": [
                 86
             ],
             "customData": [
-                15,
+                12,
                 {
                     "locale": [
                         83
@@ -694,7 +597,7 @@ export default {
                 }
             ],
             "exifInfo": [
-                15
+                12
             ],
             "filename": [
                 86
@@ -715,7 +618,7 @@ export default {
                 86
             ],
             "height": [
-                56
+                53
             ],
             "id": [
                 103
@@ -730,10 +633,10 @@ export default {
                 86
             ],
             "responsiveImage": [
-                77,
+                74,
                 {
                     "imgixParams": [
-                        30
+                        27
                     ],
                     "sizes": [
                         86
@@ -748,7 +651,7 @@ export default {
                 }
             ],
             "size": [
-                56
+                53
             ],
             "smartTags": [
                 86
@@ -775,7 +678,7 @@ export default {
                 86,
                 {
                     "imgixParams": [
-                        30
+                        27
                     ]
                 }
             ],
@@ -783,7 +686,7 @@ export default {
                 115
             ],
             "width": [
-                56
+                53
             ],
             "__typename": [
                 86
@@ -791,13 +694,13 @@ export default {
         },
         "FileFieldInterface": {
             "_createdAt": [
-                16
+                13
             ],
             "_editingUrl": [
                 86
             ],
             "_updatedAt": [
-                16
+                13
             ],
             "alt": [
                 86,
@@ -821,19 +724,19 @@ export default {
                 86,
                 {
                     "punch": [
-                        24,
+                        21,
                         "Float!"
                     ],
                     "size": [
-                        55,
+                        52,
                         "Int!"
                     ],
                     "quality": [
-                        55,
+                        52,
                         "Int!"
                     ],
                     "imgixParams": [
-                        30
+                        27
                     ]
                 }
             ],
@@ -841,13 +744,13 @@ export default {
                 86
             ],
             "colors": [
-                10
+                7
             ],
             "copyright": [
                 86
             ],
             "customData": [
-                15,
+                12,
                 {
                     "locale": [
                         83
@@ -859,7 +762,7 @@ export default {
                 }
             ],
             "exifInfo": [
-                15
+                12
             ],
             "filename": [
                 86
@@ -880,7 +783,7 @@ export default {
                 86
             ],
             "height": [
-                56
+                53
             ],
             "id": [
                 103
@@ -895,10 +798,10 @@ export default {
                 86
             ],
             "responsiveImage": [
-                77,
+                74,
                 {
                     "imgixParams": [
-                        30
+                        27
                     ],
                     "sizes": [
                         86
@@ -913,7 +816,7 @@ export default {
                 }
             ],
             "size": [
-                56
+                53
             ],
             "smartTags": [
                 86
@@ -940,7 +843,7 @@ export default {
                 86,
                 {
                     "imgixParams": [
-                        30
+                        27
                     ]
                 }
             ],
@@ -948,10 +851,10 @@ export default {
                 115
             ],
             "width": [
-                56
+                53
             ],
             "on_FileField": [
-                22
+                19
             ],
             "__typename": [
                 86
@@ -981,13 +884,13 @@ export default {
         },
         "HeadingBlockRecord": {
             "_createdAt": [
-                16
+                13
             ],
             "_editingUrl": [
                 86
             ],
             "_firstPublishedAt": [
-                16
+                13
             ],
             "_isValid": [
                 3
@@ -996,10 +899,10 @@ export default {
                 86
             ],
             "_publicationScheduledAt": [
-                16
+                13
             ],
             "_publishedAt": [
-                16
+                13
             ],
             "_seoMetaTags": [
                 89,
@@ -1010,19 +913,19 @@ export default {
                 }
             ],
             "_status": [
-                60
+                57
             ],
             "_unpublishingScheduledAt": [
-                16
+                13
             ],
             "_updatedAt": [
-                16
+                13
             ],
             "heading": [
                 86
             ],
             "id": [
-                58
+                55
             ],
             "subheading": [
                 86,
@@ -1038,13 +941,13 @@ export default {
         },
         "HomepageRecord": {
             "_createdAt": [
-                16
+                13
             ],
             "_editingUrl": [
                 86
             ],
             "_firstPublishedAt": [
-                16
+                13
             ],
             "_isValid": [
                 3
@@ -1053,10 +956,10 @@ export default {
                 86
             ],
             "_publicationScheduledAt": [
-                16
+                13
             ],
             "_publishedAt": [
-                16
+                13
             ],
             "_seoMetaTags": [
                 89,
@@ -1067,13 +970,13 @@ export default {
                 }
             ],
             "_status": [
-                60
+                57
             ],
             "_unpublishingScheduledAt": [
-                16
+                13
             ],
             "_updatedAt": [
-                16
+                13
             ],
             "about": [
                 4
@@ -1082,13 +985,13 @@ export default {
                 0
             ],
             "ctaHeading": [
-                27
+                24
             ],
             "faq": [
-                20
+                17
             ],
             "faqHeading": [
-                27
+                24
             ],
             "featureCards": [
                 4
@@ -1097,7 +1000,7 @@ export default {
                 0
             ],
             "featuresHeading": [
-                27
+                24
             ],
             "heroCta": [
                 0
@@ -1111,7 +1014,7 @@ export default {
                 }
             ],
             "heroTestimonialPictures": [
-                22
+                19
             ],
             "heroTestimonialTitle": [
                 86
@@ -1120,19 +1023,19 @@ export default {
                 86
             ],
             "id": [
-                58
+                55
             ],
             "multipleTestimonials": [
                 90
             ],
             "newCoursesRecords": [
-                13
+                10
             ],
             "newCoursesTitle": [
                 86
             ],
             "popularCoursesRecords": [
-                13
+                10
             ],
             "popularCoursesTitle": [
                 86
@@ -1144,13 +1047,13 @@ export default {
                 0
             ],
             "statsData": [
-                27
+                24
             ],
             "statsHeading": [
-                27
+                24
             ],
             "statsImages": [
-                22
+                19
             ],
             "title": [
                 86
@@ -1161,13 +1064,13 @@ export default {
         },
         "ImageBlockRecord": {
             "_createdAt": [
-                16
+                13
             ],
             "_editingUrl": [
                 86
             ],
             "_firstPublishedAt": [
-                16
+                13
             ],
             "_isValid": [
                 3
@@ -1176,10 +1079,10 @@ export default {
                 86
             ],
             "_publicationScheduledAt": [
-                16
+                13
             ],
             "_publishedAt": [
-                16
+                13
             ],
             "_seoMetaTags": [
                 89,
@@ -1190,19 +1093,19 @@ export default {
                 }
             ],
             "_status": [
-                60
+                57
             ],
             "_unpublishingScheduledAt": [
-                16
+                13
             ],
             "_updatedAt": [
-                16
+                13
             ],
             "id": [
-                58
+                55
             ],
             "image": [
-                22
+                19
             ],
             "__typename": [
                 86
@@ -1213,7 +1116,7 @@ export default {
                 86
             ],
             "auto": [
-                31
+                28
             ],
             "bgRemove": [
                 3
@@ -1222,52 +1125,52 @@ export default {
                 86
             ],
             "blendAlign": [
-                32
+                29
             ],
             "blendAlpha": [
-                56
+                53
             ],
             "blendColor": [
                 86
             ],
             "blendCrop": [
-                33
+                30
             ],
             "blendFit": [
-                34
+                31
             ],
             "blendH": [
-                25
+                22
             ],
             "blendMode": [
-                35
+                32
             ],
             "blendPad": [
-                56
+                53
             ],
             "blendSize": [
-                36
+                33
             ],
             "blendW": [
-                25
+                22
             ],
             "blendX": [
-                56
+                53
             ],
             "blendY": [
-                56
+                53
             ],
             "blend": [
                 86
             ],
             "blur": [
-                56
+                53
             ],
             "borderBottom": [
-                56
+                53
             ],
             "borderLeft": [
-                56
+                53
             ],
             "borderRadiusInner": [
                 86
@@ -1276,178 +1179,178 @@ export default {
                 86
             ],
             "borderRight": [
-                56
+                53
             ],
             "borderTop": [
-                56
+                53
             ],
             "border": [
                 86
             ],
             "bri": [
-                56
+                53
             ],
             "ch": [
-                37
+                34
             ],
             "chromasub": [
-                56
+                53
             ],
             "colorquant": [
-                56
+                53
             ],
             "colors": [
-                56
+                53
             ],
             "con": [
-                56
+                53
             ],
             "cornerRadius": [
                 86
             ],
             "crop": [
-                38
+                35
             ],
             "cs": [
-                39
+                36
             ],
             "dl": [
                 86
             ],
             "dpi": [
-                56
+                53
             ],
             "dpr": [
-                25
+                22
             ],
             "duotoneAlpha": [
-                56
+                53
             ],
             "duotone": [
                 86
             ],
             "exp": [
-                56
+                53
             ],
             "expires": [
-                56
+                53
             ],
             "faceindex": [
-                56
+                53
             ],
             "facepad": [
-                25
+                22
             ],
             "faces": [
-                56
+                53
             ],
             "fillColor": [
                 86
             ],
             "fill": [
-                40
+                37
             ],
             "fit": [
-                41
+                38
             ],
             "flip": [
-                42
+                39
             ],
             "fm": [
-                43
+                40
             ],
             "fpDebug": [
                 3
             ],
             "fpX": [
-                25
+                22
             ],
             "fpY": [
-                25
+                22
             ],
             "fpZ": [
-                25
+                22
             ],
             "fps": [
-                56
+                53
             ],
             "frame": [
                 86
             ],
             "gam": [
-                56
+                53
             ],
             "gifQ": [
-                56
+                53
             ],
             "gridColors": [
                 86
             ],
             "gridSize": [
-                56
+                53
             ],
             "h": [
-                25
+                22
             ],
             "high": [
-                56
+                53
             ],
             "htn": [
-                56
+                53
             ],
             "hue": [
-                56
+                53
             ],
             "interval": [
-                56
+                53
             ],
             "invert": [
                 3
             ],
             "iptc": [
-                44
+                41
             ],
             "loop": [
-                56
+                53
             ],
             "lossless": [
                 3
             ],
             "markAlign": [
-                45
+                42
             ],
             "markAlpha": [
-                56
+                53
             ],
             "markBase": [
                 86
             ],
             "markFit": [
-                46
+                43
             ],
             "markH": [
-                25
+                22
             ],
             "markPad": [
-                56
+                53
             ],
             "markRot": [
-                25
+                22
             ],
             "markScale": [
-                56
+                53
             ],
             "markTile": [
-                47
+                44
             ],
             "markW": [
-                25
+                22
             ],
             "markX": [
-                56
+                53
             ],
             "markY": [
-                56
+                53
             ],
             "mark": [
                 86
@@ -1459,49 +1362,49 @@ export default {
                 86
             ],
             "maxH": [
-                56
+                53
             ],
             "maxW": [
-                56
+                53
             ],
             "minH": [
-                56
+                53
             ],
             "minW": [
-                56
+                53
             ],
             "monochrome": [
                 86
             ],
             "nr": [
-                56
+                53
             ],
             "nrs": [
-                56
+                53
             ],
             "orient": [
-                56
+                53
             ],
             "padBottom": [
-                56
+                53
             ],
             "padLeft": [
-                56
+                53
             ],
             "padRight": [
-                56
+                53
             ],
             "padTop": [
-                56
+                53
             ],
             "pad": [
-                56
+                53
             ],
             "page": [
-                56
+                53
             ],
             "palette": [
-                48
+                45
             ],
             "pdfAnnotation": [
                 3
@@ -1510,10 +1413,10 @@ export default {
                 86
             ],
             "px": [
-                56
+                53
             ],
             "q": [
-                56
+                53
             ],
             "rect": [
                 86
@@ -1522,106 +1425,106 @@ export default {
                 3
             ],
             "rot": [
-                25
+                22
             ],
             "sat": [
-                56
+                53
             ],
             "sepia": [
-                56
+                53
             ],
             "shad": [
-                25
+                22
             ],
             "sharp": [
-                25
+                22
             ],
             "skip": [
-                56
+                53
             ],
             "transparency": [
-                49
+                46
             ],
             "trimColor": [
                 86
             ],
             "trimMd": [
-                25
+                22
             ],
             "trimPad": [
-                56
+                53
             ],
             "trimSd": [
-                25
+                22
             ],
             "trimTol": [
-                25
+                22
             ],
             "trim": [
-                50
+                47
             ],
             "txtAlign": [
-                51
+                48
             ],
             "txtClip": [
-                52
+                49
             ],
             "txtColor": [
                 86
             ],
             "txtFit": [
-                53
+                50
             ],
             "txtFont": [
                 86
             ],
             "txtLead": [
-                56
+                53
             ],
             "txtLig": [
-                56
+                53
             ],
             "txtLineColor": [
                 86
             ],
             "txtLine": [
-                56
+                53
             ],
             "txtPad": [
-                56
+                53
             ],
             "txtShad": [
-                25
+                22
             ],
             "txtSize": [
-                56
+                53
             ],
             "txtTrack": [
-                56
+                53
             ],
             "txtWidth": [
-                56
+                53
             ],
             "txtX": [
-                56
+                53
             ],
             "txtY": [
-                56
+                53
             ],
             "txt": [
                 86
             ],
             "usm": [
-                56
+                53
             ],
             "usmrad": [
-                25
+                22
             ],
             "vib": [
-                56
+                53
             ],
             "w": [
-                25
+                22
             ],
             "__typename": [
                 86
@@ -1662,25 +1565,25 @@ export default {
         "IntType": {},
         "IntegerFilter": {
             "gt": [
-                56
+                53
             ],
             "lt": [
-                56
+                53
             ],
             "gte": [
-                56
+                53
             ],
             "lte": [
-                56
+                53
             ],
             "exists": [
                 3
             ],
             "eq": [
-                56
+                53
             ],
             "neq": [
-                56
+                53
             ],
             "__typename": [
                 86
@@ -1689,16 +1592,16 @@ export default {
         "ItemId": {},
         "ItemIdFilter": {
             "eq": [
-                58
+                55
             ],
             "neq": [
-                58
+                55
             ],
             "in": [
-                58
+                55
             ],
             "notIn": [
-                58
+                55
             ],
             "__typename": [
                 86
@@ -1708,16 +1611,16 @@ export default {
         "JsonField": {},
         "LinkFilter": {
             "eq": [
-                58
+                55
             ],
             "neq": [
-                58
+                55
             ],
             "in": [
-                58
+                55
             ],
             "notIn": [
-                58
+                55
             ],
             "exists": [
                 3
@@ -1728,16 +1631,16 @@ export default {
         },
         "LinksFilter": {
             "eq": [
-                58
+                55
             ],
             "allIn": [
-                58
+                55
             ],
             "anyIn": [
-                58
+                55
             ],
             "notIn": [
-                58
+                55
             ],
             "exists": [
                 3
@@ -1750,13 +1653,13 @@ export default {
         "MuxThumbnailFormatType": {},
         "NoteBlockRecord": {
             "_createdAt": [
-                16
+                13
             ],
             "_editingUrl": [
                 86
             ],
             "_firstPublishedAt": [
-                16
+                13
             ],
             "_isValid": [
                 3
@@ -1765,10 +1668,10 @@ export default {
                 86
             ],
             "_publicationScheduledAt": [
-                16
+                13
             ],
             "_publishedAt": [
-                16
+                13
             ],
             "_seoMetaTags": [
                 89,
@@ -1779,19 +1682,19 @@ export default {
                 }
             ],
             "_status": [
-                60
+                57
             ],
             "_unpublishingScheduledAt": [
-                16
+                13
             ],
             "_updatedAt": [
-                16
+                13
             ],
             "content": [
-                79
+                76
             ],
             "id": [
-                58
+                55
             ],
             "noteType": [
                 86
@@ -1813,22 +1716,22 @@ export default {
         },
         "PostModelFilter": {
             "_createdAt": [
-                14
+                11
             ],
             "id": [
-                59
+                56
             ],
             "_firstPublishedAt": [
-                72
+                69
             ],
             "_publicationScheduledAt": [
-                72
+                69
             ],
             "_unpublishingScheduledAt": [
-                72
+                69
             ],
             "_publishedAt": [
-                72
+                69
             ],
             "_status": [
                 85
@@ -1840,7 +1743,7 @@ export default {
                 2
             ],
             "routePaths": [
-                63
+                60
             ],
             "slug": [
                 84
@@ -1849,10 +1752,10 @@ export default {
                 87
             ],
             "OR": [
-                68
+                65
             ],
             "AND": [
-                68
+                65
             ],
             "__typename": [
                 86
@@ -1860,16 +1763,16 @@ export default {
         },
         "PostModelModularContentField": {
             "on_ImageBlockRecord": [
-                29
+                26
             ],
             "on_NoteBlockRecord": [
-                66
+                63
             ],
             "on_RichTextBlockRecord": [
-                79
+                76
             ],
             "on_RecordInterface": [
-                74
+                71
             ],
             "__typename": [
                 86
@@ -1878,13 +1781,13 @@ export default {
         "PostModelOrderBy": {},
         "PostRecord": {
             "_createdAt": [
-                16
+                13
             ],
             "_editingUrl": [
                 86
             ],
             "_firstPublishedAt": [
-                16
+                13
             ],
             "_isValid": [
                 3
@@ -1893,10 +1796,10 @@ export default {
                 86
             ],
             "_publicationScheduledAt": [
-                16
+                13
             ],
             "_publishedAt": [
-                16
+                13
             ],
             "_seoMetaTags": [
                 89,
@@ -1907,25 +1810,25 @@ export default {
                 }
             ],
             "_status": [
-                60
+                57
             ],
             "_unpublishingScheduledAt": [
-                16
+                13
             ],
             "_updatedAt": [
-                16
+                13
             ],
             "cta": [
                 4
             ],
             "id": [
-                58
+                55
             ],
             "modularContent": [
-                69
+                66
             ],
             "routePaths": [
-                7
+                79
             ],
             "seo": [
                 80
@@ -1942,22 +1845,22 @@ export default {
         },
         "PublishedAtFilter": {
             "gt": [
-                16
+                13
             ],
             "lt": [
-                16
+                13
             ],
             "gte": [
-                16
+                13
             ],
             "lte": [
-                16
+                13
             ],
             "eq": [
-                16
+                13
             ],
             "neq": [
-                16
+                13
             ],
             "exists": [
                 3
@@ -1967,52 +1870,52 @@ export default {
             ]
         },
         "Query": {
-            "_allCategoriesMeta": [
-                8,
-                {
-                    "locale": [
-                        83
-                    ],
-                    "filter": [
-                        5
-                    ]
-                }
-            ],
             "_allCoursesMeta": [
-                8,
+                5,
                 {
                     "locale": [
                         83
                     ],
                     "filter": [
-                        11
+                        8
                     ]
                 }
             ],
             "_allFaqItemsMeta": [
-                8,
+                5,
                 {
                     "locale": [
                         83
                     ],
                     "filter": [
-                        18
+                        15
                     ]
                 }
             ],
             "_allPostsMeta": [
-                8,
+                5,
                 {
                     "locale": [
                         83
                     ],
                     "filter": [
-                        68
+                        65
+                    ]
+                }
+            ],
+            "_allRoutePathsMeta": [
+                5,
+                {
+                    "locale": [
+                        83
+                    ],
+                    "filter": [
+                        77
                     ]
                 }
             ],
             "_allUploadsMeta": [
-                8,
+                5,
                 {
                     "locale": [
                         83
@@ -2034,33 +1937,8 @@ export default {
                     ]
                 }
             ],
-            "allCategories": [
-                7,
-                {
-                    "locale": [
-                        83
-                    ],
-                    "fallbackLocales": [
-                        83,
-                        "[SiteLocale!]"
-                    ],
-                    "skip": [
-                        56
-                    ],
-                    "first": [
-                        56
-                    ],
-                    "filter": [
-                        5
-                    ],
-                    "orderBy": [
-                        6,
-                        "[CategoryModelOrderBy]"
-                    ]
-                }
-            ],
             "allCourses": [
-                13,
+                10,
                 {
                     "locale": [
                         83
@@ -2070,22 +1948,22 @@ export default {
                         "[SiteLocale!]"
                     ],
                     "skip": [
-                        56
+                        53
                     ],
                     "first": [
-                        56
+                        53
                     ],
                     "filter": [
-                        11
+                        8
                     ],
                     "orderBy": [
-                        12,
+                        9,
                         "[CourseModelOrderBy]"
                     ]
                 }
             ],
             "allFaqItems": [
-                20,
+                17,
                 {
                     "locale": [
                         83
@@ -2095,22 +1973,22 @@ export default {
                         "[SiteLocale!]"
                     ],
                     "skip": [
-                        56
+                        53
                     ],
                     "first": [
-                        56
+                        53
                     ],
                     "filter": [
-                        18
+                        15
                     ],
                     "orderBy": [
-                        19,
+                        16,
                         "[FaqItemModelOrderBy]"
                     ]
                 }
             ],
             "allPosts": [
-                71,
+                68,
                 {
                     "locale": [
                         83
@@ -2120,22 +1998,22 @@ export default {
                         "[SiteLocale!]"
                     ],
                     "skip": [
-                        56
+                        53
                     ],
                     "first": [
-                        56
+                        53
                     ],
                     "filter": [
-                        68
+                        65
                     ],
                     "orderBy": [
-                        70,
+                        67,
                         "[PostModelOrderBy]"
                     ]
                 }
             ],
-            "allUploads": [
-                22,
+            "allRoutePaths": [
+                79,
                 {
                     "locale": [
                         83
@@ -2145,10 +2023,35 @@ export default {
                         "[SiteLocale!]"
                     ],
                     "skip": [
-                        56
+                        53
                     ],
                     "first": [
-                        56
+                        53
+                    ],
+                    "filter": [
+                        77
+                    ],
+                    "orderBy": [
+                        78,
+                        "[RoutePathModelOrderBy]"
+                    ]
+                }
+            ],
+            "allUploads": [
+                19,
+                {
+                    "locale": [
+                        83
+                    ],
+                    "fallbackLocales": [
+                        83,
+                        "[SiteLocale!]"
+                    ],
+                    "skip": [
+                        53
+                    ],
+                    "first": [
+                        53
                     ],
                     "filter": [
                         100
@@ -2159,27 +2062,8 @@ export default {
                     ]
                 }
             ],
-            "category": [
-                7,
-                {
-                    "locale": [
-                        83
-                    ],
-                    "fallbackLocales": [
-                        83,
-                        "[SiteLocale!]"
-                    ],
-                    "filter": [
-                        5
-                    ],
-                    "orderBy": [
-                        6,
-                        "[CategoryModelOrderBy]"
-                    ]
-                }
-            ],
             "course": [
-                13,
+                10,
                 {
                     "locale": [
                         83
@@ -2189,16 +2073,16 @@ export default {
                         "[SiteLocale!]"
                     ],
                     "filter": [
-                        11
+                        8
                     ],
                     "orderBy": [
-                        12,
+                        9,
                         "[CourseModelOrderBy]"
                     ]
                 }
             ],
             "faqItem": [
-                20,
+                17,
                 {
                     "locale": [
                         83
@@ -2208,16 +2092,16 @@ export default {
                         "[SiteLocale!]"
                     ],
                     "filter": [
-                        18
+                        15
                     ],
                     "orderBy": [
-                        19,
+                        16,
                         "[FaqItemModelOrderBy]"
                     ]
                 }
             ],
             "homepage": [
-                28,
+                25,
                 {
                     "locale": [
                         83
@@ -2229,7 +2113,7 @@ export default {
                 }
             ],
             "post": [
-                71,
+                68,
                 {
                     "locale": [
                         83
@@ -2239,16 +2123,35 @@ export default {
                         "[SiteLocale!]"
                     ],
                     "filter": [
-                        68
+                        65
                     ],
                     "orderBy": [
-                        70,
+                        67,
                         "[PostModelOrderBy]"
                     ]
                 }
             ],
+            "routePath": [
+                79,
+                {
+                    "locale": [
+                        83
+                    ],
+                    "fallbackLocales": [
+                        83,
+                        "[SiteLocale!]"
+                    ],
+                    "filter": [
+                        77
+                    ],
+                    "orderBy": [
+                        78,
+                        "[RoutePathModelOrderBy]"
+                    ]
+                }
+            ],
             "upload": [
-                22,
+                19,
                 {
                     "locale": [
                         83
@@ -2272,13 +2175,13 @@ export default {
         },
         "RecordInterface": {
             "_createdAt": [
-                16
+                13
             ],
             "_editingUrl": [
                 86
             ],
             "_firstPublishedAt": [
-                16
+                13
             ],
             "_isValid": [
                 3
@@ -2287,10 +2190,10 @@ export default {
                 86
             ],
             "_publicationScheduledAt": [
-                16
+                13
             ],
             "_publishedAt": [
-                16
+                13
             ],
             "_seoMetaTags": [
                 89,
@@ -2301,16 +2204,16 @@ export default {
                 }
             ],
             "_status": [
-                60
+                57
             ],
             "_unpublishingScheduledAt": [
-                16
+                13
             ],
             "_updatedAt": [
-                16
+                13
             ],
             "id": [
-                58
+                55
             ],
             "on_ActionBlockRecord": [
                 0
@@ -2318,34 +2221,34 @@ export default {
             "on_CardBlockRecord": [
                 4
             ],
-            "on_CategoryRecord": [
-                7
-            ],
             "on_CourseRecord": [
-                13
+                10
             ],
             "on_FaqBlockRecord": [
-                17
+                14
             ],
             "on_FaqItemRecord": [
-                20
+                17
             ],
             "on_HeadingBlockRecord": [
-                27
+                24
             ],
             "on_HomepageRecord": [
-                28
+                25
             ],
             "on_ImageBlockRecord": [
-                29
+                26
             ],
             "on_NoteBlockRecord": [
-                66
+                63
             ],
             "on_PostRecord": [
-                71
+                68
             ],
             "on_RichTextBlockRecord": [
+                76
+            ],
+            "on_RoutePathRecord": [
                 79
             ],
             "on_SeoBlockRecord": [
@@ -2360,16 +2263,16 @@ export default {
         },
         "ResolutionFilter": {
             "eq": [
-                76
+                73
             ],
             "neq": [
-                76
+                73
             ],
             "in": [
-                76
+                73
             ],
             "notIn": [
-                76
+                73
             ],
             "__typename": [
                 86
@@ -2381,7 +2284,7 @@ export default {
                 86
             ],
             "aspectRatio": [
-                25
+                22
             ],
             "base64": [
                 86
@@ -2390,7 +2293,7 @@ export default {
                 86
             ],
             "height": [
-                56
+                53
             ],
             "sizes": [
                 86
@@ -2408,7 +2311,7 @@ export default {
                 86
             ],
             "width": [
-                56
+                53
             ],
             "__typename": [
                 86
@@ -2422,7 +2325,7 @@ export default {
                 86
             ],
             "value": [
-                61
+                58
             ],
             "__typename": [
                 86
@@ -2430,13 +2333,13 @@ export default {
         },
         "RichTextBlockRecord": {
             "_createdAt": [
-                16
+                13
             ],
             "_editingUrl": [
                 86
             ],
             "_firstPublishedAt": [
-                16
+                13
             ],
             "_isValid": [
                 3
@@ -2445,10 +2348,10 @@ export default {
                 86
             ],
             "_publicationScheduledAt": [
-                16
+                13
             ],
             "_publishedAt": [
-                16
+                13
             ],
             "_seoMetaTags": [
                 89,
@@ -2459,19 +2362,116 @@ export default {
                 }
             ],
             "_status": [
-                60
+                57
             ],
             "_unpublishingScheduledAt": [
-                16
+                13
             ],
             "_updatedAt": [
-                16
+                13
             ],
             "id": [
-                58
+                55
             ],
             "richText": [
-                78
+                75
+            ],
+            "__typename": [
+                86
+            ]
+        },
+        "RoutePathModelFilter": {
+            "_createdAt": [
+                11
+            ],
+            "id": [
+                56
+            ],
+            "_firstPublishedAt": [
+                69
+            ],
+            "_publicationScheduledAt": [
+                69
+            ],
+            "_unpublishingScheduledAt": [
+                69
+            ],
+            "_publishedAt": [
+                69
+            ],
+            "_status": [
+                85
+            ],
+            "_updatedAt": [
+                92
+            ],
+            "_isValid": [
+                2
+            ],
+            "name": [
+                87
+            ],
+            "slug": [
+                84
+            ],
+            "OR": [
+                77
+            ],
+            "AND": [
+                77
+            ],
+            "__typename": [
+                86
+            ]
+        },
+        "RoutePathModelOrderBy": {},
+        "RoutePathRecord": {
+            "_createdAt": [
+                13
+            ],
+            "_editingUrl": [
+                86
+            ],
+            "_firstPublishedAt": [
+                13
+            ],
+            "_isValid": [
+                3
+            ],
+            "_modelApiKey": [
+                86
+            ],
+            "_publicationScheduledAt": [
+                13
+            ],
+            "_publishedAt": [
+                13
+            ],
+            "_seoMetaTags": [
+                89,
+                {
+                    "locale": [
+                        83
+                    ]
+                }
+            ],
+            "_status": [
+                57
+            ],
+            "_unpublishingScheduledAt": [
+                13
+            ],
+            "_updatedAt": [
+                13
+            ],
+            "id": [
+                55
+            ],
+            "name": [
+                86
+            ],
+            "slug": [
+                86
             ],
             "__typename": [
                 86
@@ -2479,13 +2479,13 @@ export default {
         },
         "SeoBlockRecord": {
             "_createdAt": [
-                16
+                13
             ],
             "_editingUrl": [
                 86
             ],
             "_firstPublishedAt": [
-                16
+                13
             ],
             "_isValid": [
                 3
@@ -2494,10 +2494,10 @@ export default {
                 86
             ],
             "_publicationScheduledAt": [
-                16
+                13
             ],
             "_publishedAt": [
-                16
+                13
             ],
             "_seoMetaTags": [
                 89,
@@ -2508,16 +2508,16 @@ export default {
                 }
             ],
             "_status": [
-                60
+                57
             ],
             "_unpublishingScheduledAt": [
-                16
+                13
             ],
             "_updatedAt": [
-                16
+                13
             ],
             "id": [
-                58
+                55
             ],
             "seoBlock": [
                 81
@@ -2531,7 +2531,7 @@ export default {
                 86
             ],
             "image": [
-                22
+                19
             ],
             "noIndex": [
                 3
@@ -2548,19 +2548,19 @@ export default {
         },
         "Site": {
             "favicon": [
-                22
+                19
             ],
             "faviconMetaTags": [
                 89,
                 {
                     "variants": [
-                        21,
+                        18,
                         "[FaviconType]"
                     ]
                 }
             ],
             "globalSeo": [
-                26,
+                23,
                 {
                     "locale": [
                         83
@@ -2601,16 +2601,16 @@ export default {
         },
         "StatusFilter": {
             "eq": [
-                60
+                57
             ],
             "neq": [
-                60
+                57
             ],
             "in": [
-                60
+                57
             ],
             "notIn": [
-                60
+                57
             ],
             "__typename": [
                 86
@@ -2665,7 +2665,7 @@ export default {
         },
         "Tag": {
             "attributes": [
-                64
+                61
             ],
             "content": [
                 86
@@ -2679,13 +2679,13 @@ export default {
         },
         "TestimonialBlockRecord": {
             "_createdAt": [
-                16
+                13
             ],
             "_editingUrl": [
                 86
             ],
             "_firstPublishedAt": [
-                16
+                13
             ],
             "_isValid": [
                 3
@@ -2694,10 +2694,10 @@ export default {
                 86
             ],
             "_publicationScheduledAt": [
-                16
+                13
             ],
             "_publishedAt": [
-                16
+                13
             ],
             "_seoMetaTags": [
                 89,
@@ -2708,13 +2708,13 @@ export default {
                 }
             ],
             "_status": [
-                60
+                57
             ],
             "_unpublishingScheduledAt": [
-                16
+                13
             ],
             "_updatedAt": [
-                16
+                13
             ],
             "author": [
                 86
@@ -2723,13 +2723,13 @@ export default {
                 86
             ],
             "content": [
-                79
+                76
             ],
             "id": [
-                58
+                55
             ],
             "image": [
-                22
+                19
             ],
             "role": [
                 86
@@ -2760,22 +2760,22 @@ export default {
         },
         "UpdatedAtFilter": {
             "gt": [
-                16
+                13
             ],
             "lt": [
-                16
+                13
             ],
             "gte": [
-                16
+                13
             ],
             "lte": [
-                16
+                13
             ],
             "eq": [
-                16
+                13
             ],
             "neq": [
-                16
+                13
             ],
             "exists": [
                 3
@@ -2837,19 +2837,19 @@ export default {
         },
         "UploadColorsFilter": {
             "contains": [
-                9
+                6
             ],
             "allIn": [
-                9
+                6
             ],
             "anyIn": [
-                9
+                6
             ],
             "notIn": [
-                9
+                6
             ],
             "eq": [
-                9
+                6
             ],
             "__typename": [
                 86
@@ -2871,22 +2871,22 @@ export default {
         },
         "UploadCreatedAtFilter": {
             "eq": [
-                16
+                13
             ],
             "neq": [
-                16
+                13
             ],
             "lt": [
-                16
+                13
             ],
             "lte": [
-                16
+                13
             ],
             "gt": [
-                16
+                13
             ],
             "gte": [
-                16
+                13
             ],
             "__typename": [
                 86
@@ -2908,10 +2908,10 @@ export default {
                 91
             ],
             "inUse": [
-                54
+                51
             ],
             "resolution": [
-                75
+                72
             ],
             "size": [
                 110
@@ -2926,7 +2926,7 @@ export default {
                 96
             ],
             "orientation": [
-                67
+                64
             ],
             "id": [
                 104
@@ -3002,22 +3002,22 @@ export default {
         },
         "UploadHeightFilter": {
             "gt": [
-                56
+                53
             ],
             "lt": [
-                56
+                53
             ],
             "gte": [
-                56
+                53
             ],
             "lte": [
-                56
+                53
             ],
             "eq": [
-                56
+                53
             ],
             "neq": [
-                56
+                53
             ],
             "__typename": [
                 86
@@ -3099,22 +3099,22 @@ export default {
         "UploadOrientation": {},
         "UploadSizeFilter": {
             "gt": [
-                56
+                53
             ],
             "lt": [
-                56
+                53
             ],
             "gte": [
-                56
+                53
             ],
             "lte": [
-                56
+                53
             ],
             "eq": [
-                56
+                53
             ],
             "neq": [
-                56
+                53
             ],
             "__typename": [
                 86
@@ -3169,22 +3169,22 @@ export default {
         "UploadType": {},
         "UploadUpdatedAtFilter": {
             "eq": [
-                16
+                13
             ],
             "neq": [
-                16
+                13
             ],
             "lt": [
-                16
+                13
             ],
             "lte": [
-                16
+                13
             ],
             "gt": [
-                16
+                13
             ],
             "gte": [
-                16
+                13
             ],
             "__typename": [
                 86
@@ -3192,10 +3192,10 @@ export default {
         },
         "UploadVideoField": {
             "duration": [
-                55
+                52
             ],
             "framerate": [
-                55
+                52
             ],
             "mp4Url": [
                 86,
@@ -3221,7 +3221,7 @@ export default {
                 86,
                 {
                     "format": [
-                        65
+                        62
                     ]
                 }
             ],
@@ -3231,22 +3231,22 @@ export default {
         },
         "UploadWidthFilter": {
             "gt": [
-                56
+                53
             ],
             "lt": [
-                56
+                53
             ],
             "gte": [
-                56
+                53
             ],
             "lte": [
-                56
+                53
             ],
             "eq": [
-                56
+                53
             ],
             "neq": [
-                56
+                53
             ],
             "__typename": [
                 86
@@ -3255,10 +3255,10 @@ export default {
         "VideoMp4Res": {},
         "focalPoint": {
             "x": [
-                25
+                22
             ],
             "y": [
-                25
+                22
             ],
             "__typename": [
                 86
