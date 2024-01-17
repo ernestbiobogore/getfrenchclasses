@@ -1,5 +1,33 @@
 import { client } from '$lib/graphql/client';
 
+const getBlogPostsSlugs = async () => {
+	const { allPosts } = await client.query({
+		allPosts: {
+			slug: true,
+			_updatedAt: true,
+			routePaths: {
+				slug: true
+			}
+		}
+	});
+
+
+	return allPosts;
+
+};
+
+const getAllBlogPosts = async () => {
+	const {allPosts} = await client.query({
+		allPosts: {
+			id: true,
+			slug: true,
+			title: true,
+		}
+	});
+
+	return allPosts;
+}
+
 const getSingleBlogPost = async (slug: string) => {
 	const { post } = await client.query({
 		post: {
@@ -31,7 +59,7 @@ const getSingleBlogPost = async (slug: string) => {
 			},
 
 			// Category
-			category: {
+			routePaths: {
 				name: true,
 				slug: true
 			},
@@ -82,4 +110,5 @@ const getSingleBlogPost = async (slug: string) => {
 	return post;
 };
 
-export { getSingleBlogPost };
+export { getAllBlogPosts, getBlogPostsSlugs, getSingleBlogPost };
+

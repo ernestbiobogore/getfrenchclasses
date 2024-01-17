@@ -9,7 +9,8 @@ const client = createClient({
 	url: DATOCMS_API_ENDPOINT,
 	headers: {
 		Authorization: `Bearer ${DATOCMS_API_KEY}`,
-		'X-Environment': DATOCMS_ENVIRONMENT_NAME
+		'X-Environment': DATOCMS_ENVIRONMENT_NAME,
+		'X-Exclude-Invalid': 'true'
 	}
 });
 

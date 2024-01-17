@@ -1,5 +1,16 @@
 import { client } from '$lib/graphql/client';
 
+const getCoursesSlugs = async () => {
+	const { allCourses } = await client.query({
+		allCourses: {
+			slug: true,
+			_updatedAt: true
+		}
+	});
+
+	return allCourses;
+};
+
 const getAllCourses = async (first?: number) => {
 	const { allCourses } = await client.query({
 		allCourses: {
@@ -117,4 +128,4 @@ const getCourseBySlug = async (slug: string) => {
 	return course;
 };
 
-export { getAllCourses, getCourseBySlug };
+export { getAllCourses, getCourseBySlug, getCoursesSlugs };

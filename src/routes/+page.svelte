@@ -150,7 +150,7 @@
 </section>
 
 {#if homepageData && homepageData?.multipleTestimonials.length > 0}
-	<HomeTestimonials testimonials={homepageData.multipleTestimonials} />
+	<HomeTestimonials />
 {/if}
 
 <section class="flex flex-col items-center py-24 container-base space-y-11 md:flex-row">
