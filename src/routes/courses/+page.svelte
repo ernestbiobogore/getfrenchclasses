@@ -8,6 +8,10 @@
 	$: ({ allCourses } = data);
 </script>
 
+<svelte:head>
+	<title>All our Courses - GetFrenchClasses</title>
+</svelte:head>
+
 <section class="p-3 md:py-20 container-base text-center space-y-5">
 	<h2 class="tracking-tight text-7xl">
 		Courses to guide to you to a <br /> stronger financial future.
