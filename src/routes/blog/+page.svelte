@@ -14,7 +14,7 @@
 					title: 'Sample Title',
 					description: 'Sample Description',
 					image: {
-						url: 'https://www.example.com/image.jpg',
+						url: 'https://fastly.picsum.photos/id/1047/330/210.jpg?hmac=H8YBXyH-ou3g5H_vh7-HE-4-Cx1llFcaV3GIkqP0S7E',
 						alt: 'Sample Image'
 					}
 				}
@@ -22,6 +22,10 @@
 		]
 	}) as Post[];
 </script>
+
+<svelte:head>
+	<title>Blog - GetFrenchClasses</title>
+</svelte:head>
 
 <div class="container-base py-10">
 	<h2 class="">Featured Blog Posts</h2>
