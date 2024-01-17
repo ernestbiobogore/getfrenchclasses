@@ -1,10 +1,16 @@
 <script lang="ts">
-	import { cn } from '$lib/utils.js';
-	import { StructuredText } from '@datocms/svelte';
+	import RedditIcon from '$lib/icons/reddit.svg?component';
+	import XIcon from '$lib/icons/twitter.svg?component';
+	import { FacebookIcon, LinkedinIcon } from 'lucide-svelte';
 	import { Image } from '@unpic/svelte';
+	import { StructuredText } from '@datocms/svelte';
+	import { cn, generateShareOptions, getShareLinks } from '$lib/utils';
 
 	export let data;
 	$: postCta = data.post?.cta[0];
+	$: shareOptions = generateShareOptions(data.post!);
+	$: ({ twitterShareUrl, facebookShareUrl, linkedInShareUrl, redditShareUrl } =
+		getShareLinks(shareOptions));
 
 	const getNoteClass = (type: string) => {
 		return cn(
@@ -27,8 +33,40 @@
 </svelte:head>
 
 {#if data.post}
-	<header class="py-16 container-base">
+	<header class="max-[300px]:py-16 container-base">
 		<h1>{data.post?.title}</h1>
+
+		<!-- SOCIAL SHARE BUTTONS -->
+		<div class="text-sm flex flex-wrap gap-2 items-center my-4 [&>*]:shrink-none [&>*]:h-[30px]">
+			<a
+				href={twitterShareUrl}
+				class="inline-flex items-center gap-1 px-2 rounded-lg border border-gray-400"
+			>
+				<XIcon class="w-4 h-4" />
+				<span>Share on Twitter</span>
+			</a>
+			<a
+				href={facebookShareUrl}
+				class="inline-flex items-center gap-1 px-1 rounded-lg border border-gray-400"
+			>
+				<FacebookIcon class="w-5" />
+				<span>Share on Facebook</span>
+			</a>
+			<a
+				href={linkedInShareUrl}
+				class="inline-flex items-center gap-1 px-2 rounded-lg border border-gray-400"
+			>
+				<LinkedinIcon class="w-5" />
+				<span>Share on LinkedIn</span>
+			</a>
+			<a
+				href={redditShareUrl}
+				class="inline-flex items-center gap-1 px-2 rounded-lg border border-gray-400"
+			>
+				<RedditIcon class="w-5" />
+				<span>Share on Reddit</span>
+			</a>
+		</div>
 	</header>
 
 	<article class="flex flex-col sm:flex-row gap-8 container-base">
