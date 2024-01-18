@@ -1,4 +1,5 @@
 <script lang="ts">
+	import StructuredText from '$lib/components/dato/StructuredText/index.svelte';
 	import HomeTestimonials from '$lib/components/section/HomeTestimonials.svelte';
 	import Accordion from '$lib/components/ui/Accordion.svelte';
 	import AvatarsGroup from '$lib/components/ui/AvatarsGroup.svelte';
@@ -6,8 +7,6 @@
 	import Circle1 from '$lib/images/circle1.png';
 	import Circle2 from '$lib/images/circle2.png';
 	import Triangle from '$lib/images/triangle.png';
-	import { StructuredText } from '@datocms/svelte';
-
 	import { ChevronRight } from 'lucide-svelte';
 
 	export let data;
@@ -114,7 +113,7 @@
 			{#each homepageData.featureCards as card}
 				<div class="space-y-4">
 					<img src={card.image?.url} alt={card.image?.alt} loading="lazy" class="w-5 h-5" />
-					<StructuredText data={card.content[0].richText?.value} />
+					<StructuredText richText={card.content[0].richText} />
 				</div>
 			{/each}
 		{/if}
@@ -130,7 +129,7 @@
 			</h2>
 
 			<div class="md:w-8/12">
-				<StructuredText data={homepageData?.about[0].content[0].richText?.value} />
+				<StructuredText richText={homepageData?.about[0].content[0].richText} />
 			</div>
 		</div>
 

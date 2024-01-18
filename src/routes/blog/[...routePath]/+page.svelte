@@ -85,21 +85,6 @@
 			<BlogCta props={dummyCTAProps} ctaAction={() => alert('button Clicked')} />
 
 			{#each data.post.modularContent as block}
-				<!-- {#if block.__typename === 'ImageBlockRecord'}
-					<Image
-						src={block.image?.responsiveImage?.src}
-						width={block.image?.responsiveImage?.width}
-						height={block.image?.responsiveImage?.height}
-						alt={block.image?.responsiveImage?.alt}
-					/>
-				{/if}
-
-				{#if block.__typename === 'NoteBlockRecord'}
-					<div class={getNoteClass(block.noteType ?? 'note')}>
-						<StructuredText data={block.content[0].richText?.value} />
-					</div>
-				{/if} -->
-
 				{#if block.__typename === 'RichTextBlockRecord'}
 					<StructuredText richText={block.richText} />
 				{/if}
@@ -114,7 +99,7 @@
 					</div>
 
 					<div class="p-6 space-y-4">
-						<!-- <StructuredText data={postCta.content[0].richText?.value} /> -->
+						<StructuredText richText={postCta.content[0].richText} />
 					</div>
 
 					<div class="p-6 bg-night">

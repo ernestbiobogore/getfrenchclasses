@@ -1,9 +1,9 @@
 <script lang="ts">
+	import StructuredText from '$lib/components/dato/StructuredText/index.svelte';
 	import SingleourseTabs from '$lib/components/section/SingleCourseTabs.svelte';
 	import Accordion from '$lib/components/ui/Accordion.svelte';
 	import AvatarsGroup from '$lib/components/ui/AvatarsGroup.svelte';
 	import { getSampleAvatars } from '$lib/utils';
-	import { StructuredText } from '@datocms/svelte';
 	import { BarChart, Clock, PenSquare } from 'lucide-svelte';
 
 	export let data;
@@ -84,7 +84,7 @@
 	{#each data.course.featuresCards as card}
 		<div class="space-y-4">
 			<img src={card.image?.url} alt={card.image?.alt} loading="lazy" class="w-5 h-5" />
-			<StructuredText data={card.content[0].richText?.value} />
+			<StructuredText richText={card.content[0].richText} />
 		</div>
 	{/each}
 </section>
@@ -100,7 +100,7 @@
 
 		<div class="space-y-5 basis-6/12">
 			<h3>{data.course.singleTestimonial[0].title}</h3>
-			<StructuredText data={data.course?.singleTestimonial[0].content[0].richText?.value} />
+			<StructuredText richText={data.course?.singleTestimonial[0].content[0].richText} />
 			<div>
 				<p>{data.course.singleTestimonial[0].author}</p>
 				<p class="text-xs font-semibold text-savoy-blue">

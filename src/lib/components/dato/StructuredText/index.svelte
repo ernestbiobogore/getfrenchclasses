@@ -11,6 +11,12 @@
 	let className: string | undefined = '';
 </script>
 
-<div class={cn(className)}>
-	<Node {node} {blocks} />
-</div>
+{#if className}
+	<div class={cn(className)}>
+		<Node {node} {blocks} />
+	</div>
+{:else}
+	<div>
+		<Node {node} {blocks} />
+	</div>
+{/if}

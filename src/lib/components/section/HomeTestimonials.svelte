@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import { StructuredText } from '@datocms/svelte';
+	import StructuredText from '$lib/components/dato/StructuredText/index.svelte';
 	import { Tabs } from 'bits-ui';
 	import type { PageData } from '../../../routes/$types';
 
@@ -35,7 +35,7 @@
 
 					<div class="space-y-5 basis-6/12">
 						<h3>{title}</h3>
-						<StructuredText data={content[0].richText?.value} />
+						<StructuredText richText={content[0].richText} />
 						<div>
 							<p>{author}</p>
 							<p class="text-xs font-semibold text-savoy-blue">{role}</p>

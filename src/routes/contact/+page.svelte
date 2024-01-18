@@ -1,7 +1,6 @@
 <script>
-	import { Mail, User, MessageSquare, Phone, MapPin } from 'lucide-svelte';
 	import Accordion from '$lib/components/ui/Accordion.svelte';
-	import { StructuredText } from '@datocms/svelte';
+	import { Mail, MapPin, MessageSquare, Phone, User } from 'lucide-svelte';
 	export let data;
 	$: coursesPageFaq = data.course.faq?.faqBlocks;
 </script>

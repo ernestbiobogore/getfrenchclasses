@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { StructuredText } from '@datocms/svelte';
-	import { createAccordion, melt } from '@melt-ui/svelte';
-	import { Minus, Plus } from 'lucide-svelte';
-	import { slide } from 'svelte/transition';
+		import StructuredText from '$lib/components/dato/StructuredText/index.svelte';
+		import { createAccordion, melt } from '@melt-ui/svelte';
+		import { Minus, Plus } from 'lucide-svelte';
+		import { slide } from 'svelte/transition';
 
 	export let itemIds: string[];
 	export let titles: string[];
@@ -37,7 +37,7 @@
 			</h3>
 			{#if $isSelected(itemId)}
 				<div use:melt={$content(itemId)} transition:slide class="text-left">
-					<StructuredText data={richTexts[i]?.value} />
+					<StructuredText richText={richTexts[i]} />
 				</div>
 			{/if}
 		</div>
