@@ -1,4 +1,5 @@
 import { client } from '$lib/graphql/client';
+import { cardBlockFields } from '$lib/graphql/queries/fields';
 
 const getBlogPostsSlugs = async () => {
 	const { allPosts } = await client.query({
@@ -91,31 +92,7 @@ const getSingleBlogPost = async (slug: string) => {
 								}
 							}
 						},
-						// on_CardBlockRecord: {
-						// 	title: true,
-						// 	cta: {
-						// 		text: true,
-						// 		link: true
-						// 	},
-						// 	media: {
-						// 		responsiveImage: {
-						// 			src: true,
-						// 			width: true,
-						// 			height: true,
-						// 			alt: true,
-						// 			sizes: true
-						// 		},
-						// 		video: {
-						// 			mp4Url: true,
-						// 		},
-						// 		alt: true
-						// 	},
-						// 	content: {
-						// 		richText: {
-						// 			value: true
-						// 		}
-						// 	}
-						// }
+						on_CardBlockRecord: cardBlockFields
 					}
 				}
 			},

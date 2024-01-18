@@ -1,4 +1,5 @@
 import { client } from '$lib/graphql/client';
+import { cardBlockFields } from '$lib/graphql/queries/fields';
 
 const getHomePageData = async () => {
 	const { homepage } = await client.query({
@@ -73,40 +74,10 @@ const getHomePageData = async () => {
 				text: true,
 				link: true
 			},
-			featureCards: {
-				title: true,
-				media: {
-					url: true,
-					alt: true
-				},
-				content: {
-					richText: {
-						value: true
-					}
-				},
-				cta: {
-					text: true,
-					link: true
-				}
-			},
+			featureCards: cardBlockFields,
 
 			// About
-			about: {
-				title: true,
-				media: {
-					url: true,
-					alt: true
-				},
-				content: {
-					richText: {
-						value: true
-					}
-				},
-				cta: {
-					text: true,
-					link: true
-				}
-			},
+			about: cardBlockFields,
 
 			// Multiple testimonials
 			multipleTestimonials: {
