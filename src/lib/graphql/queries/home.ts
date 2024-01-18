@@ -75,7 +75,7 @@ const getHomePageData = async () => {
 			},
 			featureCards: {
 				title: true,
-				image: {
+				media: {
 					url: true,
 					alt: true
 				},
@@ -93,7 +93,7 @@ const getHomePageData = async () => {
 			// About
 			about: {
 				title: true,
-				image: {
+				media: {
 					url: true,
 					alt: true
 				},

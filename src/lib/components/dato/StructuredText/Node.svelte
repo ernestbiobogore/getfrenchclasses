@@ -187,6 +187,5 @@
 {/if}
 
 {#if isBlock(node) && block}
-	<h1>this is a block</h1>
 	<Block {block} />
 {/if}
