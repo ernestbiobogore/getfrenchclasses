@@ -86,7 +86,7 @@
 
 			{#each data.post.modularContent as block}
 				{#if block.__typename === 'RichTextBlockRecord'}
-					<StructuredText richText={block.richText} />
+					<StructuredText richText={block.richText} class="space-y-4" />
 				{/if}
 			{/each}
 		</main>
@@ -98,9 +98,7 @@
 						<p class="text-sm font-bold text-neutral-300">{postCta.title}</p>
 					</div>
 
-					<div class="p-6 space-y-4">
-						<StructuredText richText={postCta.content[0].richText} />
-					</div>
+					<StructuredText richText={postCta.content[0].richText} class="p-6 space-y-4" />
 
 					<div class="p-6 bg-night">
 						<a href={postCta.cta[0].link} class="action-white w-fit text-sm rounded-none"

@@ -36,6 +36,7 @@
 					<div class="space-y-5 basis-6/12">
 						<h3>{title}</h3>
 						<StructuredText richText={content[0].richText} />
+
 						<div>
 							<p>{author}</p>
 							<p class="text-xs font-semibold text-savoy-blue">{role}</p>

@@ -128,8 +128,8 @@
 				{homepageData?.about[0].title}
 			</h2>
 
-			<div class="md:w-8/12">
-				<StructuredText richText={homepageData?.about[0].content[0].richText} />
+			<div>
+				<StructuredText richText={homepageData?.about[0].content[0].richText} class="md:w-8/12" />
 			</div>
 		</div>
 
