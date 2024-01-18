@@ -44,6 +44,7 @@
 		"@melt-ui/svelte": "^0.57.1",
 		"@unpic/svelte": "^0.0.43",
 		"bits-ui": "^0.10.3",
+		"datocms-structured-text-utils": "^3.0.0",
 		"lucide-svelte": "^0.288.0"
 	}
 }

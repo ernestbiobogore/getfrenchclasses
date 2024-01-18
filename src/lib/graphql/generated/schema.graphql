@@ -2360,8 +2360,6 @@ input PostModelFilter {
   AND: [PostModelFilter]
 }
 
-union PostModelModularContentField = ImageBlockRecord | NoteBlockRecord | RichTextBlockRecord
-
 enum PostModelOrderBy {
   _createdAt_ASC
   _createdAt_DESC
@@ -2407,7 +2405,7 @@ type PostRecord implements RecordInterface {
   _updatedAt: DateTime!
   cta: [CardBlockRecord!]!
   id: ItemId!
-  modularContent: [PostModelModularContentField!]!
+  modularContent: [RichTextBlockRecord!]!
   routePaths: [RoutePathRecord!]!
   seo: [SeoBlockRecord!]!
   slug: String
@@ -2730,8 +2728,10 @@ type ResponsiveImage {
   width: IntType!
 }
 
+union RichTextBlockModelRichTextBlocksField = CardBlockRecord | ImageBlockRecord | NoteBlockRecord
+
 type RichTextBlockModelRichTextField {
-  blocks: [String!]!
+  blocks: [RichTextBlockModelRichTextBlocksField!]!
   links: [String!]!
   value: JsonField!
 }

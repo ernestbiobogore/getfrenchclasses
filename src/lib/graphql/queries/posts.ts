@@ -11,22 +11,20 @@ const getBlogPostsSlugs = async () => {
 		}
 	});
 
-
 	return allPosts;
-
 };
 
 const getAllBlogPosts = async () => {
-	const {allPosts} = await client.query({
+	const { allPosts } = await client.query({
 		allPosts: {
 			id: true,
 			slug: true,
-			title: true,
+			title: true
 		}
 	});
 
 	return allPosts;
-}
+};
 
 const getSingleBlogPost = async (slug: string) => {
 	const { post } = await client.query({
@@ -67,27 +65,31 @@ const getSingleBlogPost = async (slug: string) => {
 			// Content
 			modularContent: {
 				__typename: true,
-				on_RichTextBlockRecord: {
-					richText: {
-						value: true
-					}
-				},
-				on_NoteBlockRecord: {
-					noteType: true,
-					content: {
-						richText: {
-							value: true
-						}
-					}
-				},
-				on_ImageBlockRecord: {
-					image: {
-						responsiveImage: {
-							src: true,
-							width: true,
-							height: true,
-							alt: true,
-							sizes: true
+				richText: {
+					value: true,
+					blocks: {
+						on_NoteBlockRecord: {
+							__typename: true,
+							id: true,
+							noteType: true,
+							content: {
+								richText: {
+									value: true
+								}
+							}
+						},
+						on_ImageBlockRecord: {
+							__typename: true,
+							id: true,
+							image: {
+								responsiveImage: {
+									src: true,
+									width: true,
+									height: true,
+									alt: true,
+									sizes: true
+								}
+							}
 						}
 					}
 				}
@@ -111,4 +113,3 @@ const getSingleBlogPost = async (slug: string) => {
 };
 
 export { getAllBlogPosts, getBlogPostsSlugs, getSingleBlogPost };
-

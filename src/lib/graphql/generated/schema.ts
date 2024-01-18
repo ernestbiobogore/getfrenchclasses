@@ -368,8 +368,6 @@ export interface NoteBlockRecord {
     __typename: 'NoteBlockRecord'
 }
 
-export type PostModelModularContentField = (ImageBlockRecord | NoteBlockRecord | RichTextBlockRecord) & { __isUnion?: true }
-
 export type PostModelOrderBy = '_createdAt_ASC' | '_createdAt_DESC' | 'id_ASC' | 'id_DESC' | '_firstPublishedAt_ASC' | '_firstPublishedAt_DESC' | '_publicationScheduledAt_ASC' | '_publicationScheduledAt_DESC' | '_unpublishingScheduledAt_ASC' | '_unpublishingScheduledAt_DESC' | '_publishedAt_ASC' | '_publishedAt_DESC' | '_status_ASC' | '_status_DESC' | '_updatedAt_ASC' | '_updatedAt_DESC' | '_isValid_ASC' | '_isValid_DESC' | 'title_ASC' | 'title_DESC'
 
 
@@ -390,7 +388,7 @@ export interface PostRecord {
     _updatedAt: Scalars['DateTime']
     cta: CardBlockRecord[]
     id: Scalars['ItemId']
-    modularContent: PostModelModularContentField[]
+    modularContent: RichTextBlockRecord[]
     routePaths: RoutePathRecord[]
     seo: SeoBlockRecord[]
     slug: (Scalars['String'] | null)
@@ -457,8 +455,10 @@ export interface ResponsiveImage {
     __typename: 'ResponsiveImage'
 }
 
+export type RichTextBlockModelRichTextBlocksField = (CardBlockRecord | ImageBlockRecord | NoteBlockRecord) & { __isUnion?: true }
+
 export interface RichTextBlockModelRichTextField {
-    blocks: Scalars['String'][]
+    blocks: RichTextBlockModelRichTextBlocksField[]
     links: Scalars['String'][]
     value: Scalars['JsonField']
     __typename: 'RichTextBlockModelRichTextField'
@@ -2372,14 +2372,6 @@ neq?: (UploadOrientation | null)}
 
 export interface PostModelFilter {_createdAt?: (CreatedAtFilter | null),id?: (ItemIdFilter | null),_firstPublishedAt?: (PublishedAtFilter | null),_publicationScheduledAt?: (PublishedAtFilter | null),_unpublishingScheduledAt?: (PublishedAtFilter | null),_publishedAt?: (PublishedAtFilter | null),_status?: (StatusFilter | null),_updatedAt?: (UpdatedAtFilter | null),_isValid?: (BooleanFilter | null),routePaths?: (LinksFilter | null),slug?: (SlugFilter | null),title?: (StringFilter | null),OR?: ((PostModelFilter | null)[] | null),AND?: ((PostModelFilter | null)[] | null)}
 
-export interface PostModelModularContentFieldGenqlSelection{
-    on_ImageBlockRecord?:ImageBlockRecordGenqlSelection,
-    on_NoteBlockRecord?:NoteBlockRecordGenqlSelection,
-    on_RichTextBlockRecord?:RichTextBlockRecordGenqlSelection,
-    on_RecordInterface?: RecordInterfaceGenqlSelection,
-    __typename?: boolean | number
-}
-
 
 /** Record of type Post (post) */
 export interface PostRecordGenqlSelection{
@@ -2400,7 +2392,7 @@ export interface PostRecordGenqlSelection{
     _updatedAt?: boolean | number
     cta?: CardBlockRecordGenqlSelection
     id?: boolean | number
-    modularContent?: PostModelModularContentFieldGenqlSelection
+    modularContent?: RichTextBlockRecordGenqlSelection
     routePaths?: RoutePathRecordGenqlSelection
     seo?: SeoBlockRecordGenqlSelection
     slug?: boolean | number
@@ -2609,8 +2601,16 @@ export interface ResponsiveImageGenqlSelection{
     __scalar?: boolean | number
 }
 
+export interface RichTextBlockModelRichTextBlocksFieldGenqlSelection{
+    on_CardBlockRecord?:CardBlockRecordGenqlSelection,
+    on_ImageBlockRecord?:ImageBlockRecordGenqlSelection,
+    on_NoteBlockRecord?:NoteBlockRecordGenqlSelection,
+    on_RecordInterface?: RecordInterfaceGenqlSelection,
+    __typename?: boolean | number
+}
+
 export interface RichTextBlockModelRichTextFieldGenqlSelection{
-    blocks?: boolean | number
+    blocks?: RichTextBlockModelRichTextBlocksFieldGenqlSelection
     links?: boolean | number
     value?: boolean | number
     __typename?: boolean | number
@@ -3215,14 +3215,6 @@ export interface focalPointGenqlSelection{
     
 
 
-    const PostModelModularContentField_possibleTypes: string[] = ['ImageBlockRecord','NoteBlockRecord','RichTextBlockRecord']
-    export const isPostModelModularContentField = (obj?: { __typename?: any } | null): obj is PostModelModularContentField => {
-      if (!obj?.__typename) throw new Error('__typename is missing in "isPostModelModularContentField"')
-      return PostModelModularContentField_possibleTypes.includes(obj.__typename)
-    }
-    
-
-
     const PostRecord_possibleTypes: string[] = ['PostRecord']
     export const isPostRecord = (obj?: { __typename?: any } | null): obj is PostRecord => {
       if (!obj?.__typename) throw new Error('__typename is missing in "isPostRecord"')
@@ -3251,6 +3243,14 @@ export interface focalPointGenqlSelection{
     export const isResponsiveImage = (obj?: { __typename?: any } | null): obj is ResponsiveImage => {
       if (!obj?.__typename) throw new Error('__typename is missing in "isResponsiveImage"')
       return ResponsiveImage_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const RichTextBlockModelRichTextBlocksField_possibleTypes: string[] = ['CardBlockRecord','ImageBlockRecord','NoteBlockRecord']
+    export const isRichTextBlockModelRichTextBlocksField = (obj?: { __typename?: any } | null): obj is RichTextBlockModelRichTextBlocksField => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isRichTextBlockModelRichTextBlocksField"')
+      return RichTextBlockModelRichTextBlocksField_possibleTypes.includes(obj.__typename)
     }
     
 

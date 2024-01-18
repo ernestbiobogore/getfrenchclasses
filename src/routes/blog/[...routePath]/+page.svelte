@@ -1,10 +1,9 @@
 <script lang="ts">
+	import StructuredText from '$lib/components/dato/StructuredText/index.svelte';
 	import BlogCta, { type CTAProps } from '$lib/components/ui/BlogCTA.svelte';
 	import RedditIcon from '$lib/icons/reddit.svg?component';
 	import XIcon from '$lib/icons/twitter.svg?component';
 	import { cn, generateShareOptions, getShareLinks } from '$lib/utils';
-	import { StructuredText } from '@datocms/svelte';
-	import { Image } from '@unpic/svelte';
 	import { FacebookIcon, LinkedinIcon } from 'lucide-svelte';
 
 	export let data;
@@ -86,7 +85,7 @@
 			<BlogCta props={dummyCTAProps} ctaAction={() => alert('button Clicked')} />
 
 			{#each data.post.modularContent as block}
-				{#if block.__typename === 'ImageBlockRecord'}
+				<!-- {#if block.__typename === 'ImageBlockRecord'}
 					<Image
 						src={block.image?.responsiveImage?.src}
 						width={block.image?.responsiveImage?.width}
@@ -99,12 +98,10 @@
 					<div class={getNoteClass(block.noteType ?? 'note')}>
 						<StructuredText data={block.content[0].richText?.value} />
 					</div>
-				{/if}
+				{/if} -->
 
 				{#if block.__typename === 'RichTextBlockRecord'}
-					<div class="space-y-4">
-						<StructuredText data={block.richText?.value} />
-					</div>
+					<StructuredText richText={block.richText} />
 				{/if}
 			{/each}
 		</main>
@@ -117,7 +114,7 @@
 					</div>
 
 					<div class="p-6 space-y-4">
-						<StructuredText data={postCta.content[0].richText?.value} />
+						<!-- <StructuredText data={postCta.content[0].richText?.value} /> -->
 					</div>
 
 					<div class="p-6 bg-night">

@@ -40,8 +40,8 @@ export default {
         58,
         61,
         62,
-        67,
-        73,
+        66,
+        72,
         78,
         83,
         86,
@@ -212,16 +212,16 @@ export default {
                 56
             ],
             "_firstPublishedAt": [
-                69
+                68
             ],
             "_publicationScheduledAt": [
-                69
+                68
             ],
             "_unpublishingScheduledAt": [
-                69
+                68
             ],
             "_publishedAt": [
-                69
+                68
             ],
             "_status": [
                 85
@@ -440,16 +440,16 @@ export default {
                 56
             ],
             "_firstPublishedAt": [
-                69
+                68
             ],
             "_publicationScheduledAt": [
-                69
+                68
             ],
             "_unpublishingScheduledAt": [
-                69
+                68
             ],
             "_publishedAt": [
-                69
+                68
             ],
             "_status": [
                 85
@@ -633,7 +633,7 @@ export default {
                 86
             ],
             "responsiveImage": [
-                74,
+                73,
                 {
                     "imgixParams": [
                         27
@@ -798,7 +798,7 @@ export default {
                 86
             ],
             "responsiveImage": [
-                74,
+                73,
                 {
                     "imgixParams": [
                         27
@@ -1722,16 +1722,16 @@ export default {
                 56
             ],
             "_firstPublishedAt": [
-                69
+                68
             ],
             "_publicationScheduledAt": [
-                69
+                68
             ],
             "_unpublishingScheduledAt": [
-                69
+                68
             ],
             "_publishedAt": [
-                69
+                68
             ],
             "_status": [
                 85
@@ -1756,23 +1756,6 @@ export default {
             ],
             "AND": [
                 65
-            ],
-            "__typename": [
-                86
-            ]
-        },
-        "PostModelModularContentField": {
-            "on_ImageBlockRecord": [
-                26
-            ],
-            "on_NoteBlockRecord": [
-                63
-            ],
-            "on_RichTextBlockRecord": [
-                76
-            ],
-            "on_RecordInterface": [
-                71
             ],
             "__typename": [
                 86
@@ -1825,7 +1808,7 @@ export default {
                 55
             ],
             "modularContent": [
-                66
+                76
             ],
             "routePaths": [
                 79
@@ -1988,7 +1971,7 @@ export default {
                 }
             ],
             "allPosts": [
-                68,
+                67,
                 {
                     "locale": [
                         83
@@ -2007,7 +1990,7 @@ export default {
                         65
                     ],
                     "orderBy": [
-                        67,
+                        66,
                         "[PostModelOrderBy]"
                     ]
                 }
@@ -2113,7 +2096,7 @@ export default {
                 }
             ],
             "post": [
-                68,
+                67,
                 {
                     "locale": [
                         83
@@ -2126,7 +2109,7 @@ export default {
                         65
                     ],
                     "orderBy": [
-                        67,
+                        66,
                         "[PostModelOrderBy]"
                     ]
                 }
@@ -2243,7 +2226,7 @@ export default {
                 63
             ],
             "on_PostRecord": [
-                68
+                67
             ],
             "on_RichTextBlockRecord": [
                 76
@@ -2263,16 +2246,16 @@ export default {
         },
         "ResolutionFilter": {
             "eq": [
-                73
+                72
             ],
             "neq": [
-                73
+                72
             ],
             "in": [
-                73
+                72
             ],
             "notIn": [
-                73
+                72
             ],
             "__typename": [
                 86
@@ -2317,9 +2300,26 @@ export default {
                 86
             ]
         },
+        "RichTextBlockModelRichTextBlocksField": {
+            "on_CardBlockRecord": [
+                4
+            ],
+            "on_ImageBlockRecord": [
+                26
+            ],
+            "on_NoteBlockRecord": [
+                63
+            ],
+            "on_RecordInterface": [
+                70
+            ],
+            "__typename": [
+                86
+            ]
+        },
         "RichTextBlockModelRichTextField": {
             "blocks": [
-                86
+                74
             ],
             "links": [
                 86
@@ -2388,16 +2388,16 @@ export default {
                 56
             ],
             "_firstPublishedAt": [
-                69
+                68
             ],
             "_publicationScheduledAt": [
-                69
+                68
             ],
             "_unpublishingScheduledAt": [
-                69
+                68
             ],
             "_publishedAt": [
-                69
+                68
             ],
             "_status": [
                 85
@@ -2911,7 +2911,7 @@ export default {
                 51
             ],
             "resolution": [
-                72
+                71
             ],
             "size": [
                 110
