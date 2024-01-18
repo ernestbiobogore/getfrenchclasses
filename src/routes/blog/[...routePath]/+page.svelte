@@ -2,10 +2,10 @@
 	import BlogCta, { type CTAProps } from '$lib/components/ui/BlogCTA.svelte';
 	import RedditIcon from '$lib/icons/reddit.svg?component';
 	import XIcon from '$lib/icons/twitter.svg?component';
-	import { FacebookIcon, LinkedinIcon } from 'lucide-svelte';
-	import { Image } from '@unpic/svelte';
-	import { StructuredText } from '@datocms/svelte';
 	import { cn, generateShareOptions, getShareLinks } from '$lib/utils';
+	import { StructuredText } from '@datocms/svelte';
+	import { Image } from '@unpic/svelte';
+	import { FacebookIcon, LinkedinIcon } from 'lucide-svelte';
 
 	export let data;
 	$: postCta = data.post?.cta[0];
@@ -81,7 +81,7 @@
 		</div>
 	</header>
 
-	<article class="flex flex-col sm:flex-row gap-8 container-base">
+	<article class="flex flex-col sm:flex-row gap-8 container-base mt-8">
 		<main class="space-y-8 basis-9/12">
 			<BlogCta props={dummyCTAProps} ctaAction={() => alert('button Clicked')} />
 
