@@ -1,4 +1,5 @@
 <script lang="ts">
+	import BlogCta, { type CTAProps } from '$lib/components/ui/BlogCTA.svelte';
 	import RedditIcon from '$lib/icons/reddit.svg?component';
 	import XIcon from '$lib/icons/twitter.svg?component';
 	import { FacebookIcon, LinkedinIcon } from 'lucide-svelte';
@@ -11,6 +12,17 @@
 	$: shareOptions = generateShareOptions(data.post!);
 	$: ({ twitterShareUrl, facebookShareUrl, linkedInShareUrl, redditShareUrl } =
 		getShareLinks(shareOptions));
+
+	const dummyCTAProps: CTAProps = {
+		video:
+			'https://cdn.discordapp.com/attachments/1181304981576486962/1196953201669324901/Screen_Recording_2024-01-16_at_11.01.18_pm.mov?ex=65b98089&is=65a70b89&hm=2fbbd8a97dadc3e2b8fae343e65da65aa9bef9c0f863d77c370f92725af06402&',
+		buttonText: 'Start learning french with as low as $8 per day',
+		heading: 'Take your french from A1 (Beginner) to C1 (Intermediate) in 4 months',
+		subtext: 'Finally a way to learn a new language without paying tutors $80+ per hour.',
+		buttonSubtext:
+			'and 4570+ other learners went from noob to fluent french speakers with our programs.',
+		peopleImages: ['', '', '']
+	};
 
 	const getNoteClass = (type: string) => {
 		return cn(
@@ -71,6 +83,8 @@
 
 	<article class="flex flex-col sm:flex-row gap-8 container-base">
 		<main class="space-y-8 basis-9/12">
+			<BlogCta props={dummyCTAProps} ctaAction={() => alert('button Clicked')} />
+
 			{#each data.post.modularContent as block}
 				{#if block.__typename === 'ImageBlockRecord'}
 					<Image
