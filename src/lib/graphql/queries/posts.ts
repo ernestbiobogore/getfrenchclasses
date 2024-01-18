@@ -68,9 +68,11 @@ const getSingleBlogPost = async (slug: string) => {
 				richText: {
 					value: true,
 					blocks: {
-						on_NoteBlockRecord: {
+						on_RecordInterface: {
 							__typename: true,
-							id: true,
+							id: true
+						},
+						on_NoteBlockRecord: {
 							noteType: true,
 							content: {
 								richText: {
@@ -79,8 +81,6 @@ const getSingleBlogPost = async (slug: string) => {
 							}
 						},
 						on_ImageBlockRecord: {
-							__typename: true,
-							id: true,
 							image: {
 								responsiveImage: {
 									src: true,
@@ -88,6 +88,31 @@ const getSingleBlogPost = async (slug: string) => {
 									height: true,
 									alt: true,
 									sizes: true
+								}
+							}
+						},
+						on_CardBlockRecord: {
+							title: true,
+							cta: {
+								text: true,
+								link: true
+							},
+							media: {
+								responsiveImage: {
+									src: true,
+									width: true,
+									height: true,
+									alt: true,
+									sizes: true
+								},
+								video: {
+									mp4Url: true,
+								},
+								alt: true
+							},
+							content: {
+								richText: {
+									value: true
 								}
 							}
 						}

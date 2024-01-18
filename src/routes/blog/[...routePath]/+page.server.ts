@@ -1,6 +1,8 @@
 import { getSingleBlogPost } from '$lib/graphql/queries/posts';
 import { error } from '@sveltejs/kit';
 
+// TODO: prerender
+
 export const load = async ({ params, url }) => {
 	const { routePath } = params;
 	const parts = routePath.split('/');

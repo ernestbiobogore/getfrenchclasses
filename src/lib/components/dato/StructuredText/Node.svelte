@@ -18,8 +18,7 @@
 	export let node: Node;
 	export let blocks: RichTextBlockModelRichTextBlocksField[] | undefined;
 
-	$: block =
-		(isBlock(node) && (blocks || []).find(({ id }) => isBlock(node) && id === node.item)) || null;
+	$: block = isBlock(node) && (blocks || []).find(({ id }) => isBlock(node) && id === node.item);
 </script>
 
 {#if isRoot(node)}
@@ -188,5 +187,6 @@
 {/if}
 
 {#if isBlock(node) && block}
+	<h1>this is a block</h1>
 	<Block {block} />
 {/if}

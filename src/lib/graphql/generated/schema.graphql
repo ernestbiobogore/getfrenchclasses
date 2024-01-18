@@ -55,7 +55,7 @@ type CardBlockRecord implements RecordInterface {
   content: [RichTextBlockRecord!]!
   cta: [ActionBlockRecord!]!
   id: ItemId!
-  image: FileField
+  media: FileField
   title: String
 }
 
