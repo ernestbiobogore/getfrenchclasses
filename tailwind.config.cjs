@@ -1,6 +1,8 @@
+const plugin = require('tailwindcss/plugin');
+
 /** @type {import('tailwindcss').Config}*/
 const config = {
-	content: ["./src/**/*.{html,js,svelte,ts}"],
+	content: ['./src/**/*.{html,js,svelte,ts}'],
 
 	theme: {
 		fontFamily: {
@@ -16,7 +18,12 @@ const config = {
 		}
 	},
 
-	plugins: []
+	plugins: [
+		plugin(({ addVariant }) => {
+			addVariant('not-first', '&:not(:first-child)');
+			addVariant('not-last', '&:not(:last-child)');
+		})
+	]
 };
 
 module.exports = config;
