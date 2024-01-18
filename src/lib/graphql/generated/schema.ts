@@ -60,7 +60,7 @@ export interface CardBlockRecord {
     content: RichTextBlockRecord[]
     cta: ActionBlockRecord[]
     id: Scalars['ItemId']
-    image: (FileField | null)
+    media: (FileField | null)
     title: (Scalars['String'] | null)
     __typename: 'CardBlockRecord'
 }
@@ -660,7 +660,7 @@ export interface CardBlockRecordGenqlSelection{
     content?: RichTextBlockRecordGenqlSelection
     cta?: ActionBlockRecordGenqlSelection
     id?: boolean | number
-    image?: FileFieldGenqlSelection
+    media?: FileFieldGenqlSelection
     title?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number

@@ -162,7 +162,7 @@ export default {
             "id": [
                 55
             ],
-            "image": [
+            "media": [
                 19
             ],
             "title": [
