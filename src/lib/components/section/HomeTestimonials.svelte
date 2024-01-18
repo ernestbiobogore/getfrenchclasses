@@ -6,7 +6,7 @@
 
 	$: testimonials = ($page.data as PageData).homepageData?.multipleTestimonials;
 
-	const triggers = testimonials?.map((testimonial) => ({
+	$: triggers = testimonials?.map((testimonial) => ({
 		id: testimonial.id,
 		author: testimonial.author,
 		image: {
@@ -16,6 +16,7 @@
 		role: testimonial.role
 	}));
 </script>
+
 
 {#if testimonials}
 	<Tabs.Root class="space-y-5 sm:space-y-10 container-sm">
