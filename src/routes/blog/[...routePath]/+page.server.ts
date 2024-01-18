@@ -13,11 +13,19 @@ export const load = async ({ params, url }) => {
 		throw error(404, 'Post not found');
 	}
 
+	// Blog post has route paths, but the URL is missing them
 	if (post.routePaths.length > 0 && parts.length < post.routePaths.length + 1) {
 		return {
 			correctUrl: `${url.origin}/blog/${post.routePaths.map((path) => path.slug).join('/')}/${
 				post.slug
 			}`
+		};
+	}
+
+	// Blog post has not route paths, but the URL has them
+	if (post.routePaths.length === 0 && parts.length > 1) {
+		return {
+			correctUrl: `${url.origin}/blog/${post.slug}`
 		};
 	}
 
