@@ -84,7 +84,7 @@ const getCourseBySlug = async (slug: string) => {
 
 			// Features
 			featuresCards: {
-				image: {
+				media: {
 					url: true,
 					alt: true
 				},

@@ -1,20 +1,9 @@
-import { sveltekit } from '@sveltejs/kit/vite';
-import { defineConfig } from 'vite';
-import svg from '@poppanator/sveltekit-svg';
+import { sveltekit } from "@sveltejs/kit/vite";
+import type { UserConfig } from "vite";
+import unocss from "unocss/vite";
 
-export default defineConfig({
-	plugins: [
-		sveltekit(),
-		svg({
-			includePaths: ['./src/lib/icons/'],
-			svgoOptions: {
-				plugins: [
-					{
-						name: 'preset-default',
-						params: { overrides: { removeViewBox: false } }
-					}
-				]
-			}
-		})
-	]
-});
+const config: UserConfig = {
+  plugins: [unocss(), sveltekit()],
+};
+
+export default config;
