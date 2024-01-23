@@ -11,85 +11,62 @@ export const myPreset: Preset = {
     [
       // flex-s stands for flex-shortcut
       // to avoid mixups with default flex utilities like flex-wrap
-      /^(inline-)?flex-s-(start|center|between|evenly|around|end)(-(start|center|baseline|end))?$/,
-      ([, inline, justify, align]) =>
-        `${inline || ""}flex justify-${justify} items${align || "-center"}`,
+      /^(inline-)?flex-s-(start|center|between|evenly|around|end)(-(start|center|baseline|end))?(\|(col))?$/,
+      ([, i, justify, align, , col]) =>
+        `${i || ""}flex justify-${justify} items${align || "-center"} ${col ? "flex-col" : ""}`,
       { layer: "default" },
     ],
     // use when width and height values are the same
     [/^s-(.*)$/, ([, v]) => `h-${v} w-${v}`, { layer: "utilities" }],
     [
       /^scrollbar-f-(thin)-(.*)$/,
-      ([, size, colors]) =>
-        `[scrollbar-width:${size}] [scrollbar-color:${colors}]`,
+      ([, size, colors]) => `[scrollbar-width:${size}] [scrollbar-color:${colors}]`,
       { layer: "utilities" },
     ],
   ],
 
   variants: [
     {
-      // adds support for "@min-[width]:class" and "@min-h-[width]:class"
+      // adds support for "min-[width]:class" and "min-h-[width]:class"
       // or
-      // "@min-width:class" and "@min-h-width:class"
+      // "min-width:class" and "min-h-width:class"
       name: "arbitrary-media-query",
       match(matcher, { theme }) {
         // prefix with @ to specify that it's a media query
-        const minVariant = variantGetParameter("@min-", matcher, [":", "-"]);
-        const maxVariant = variantGetParameter("@max-", matcher, [":", "-"]);
-        const minHeightVariant = variantGetParameter("@min-h-", matcher, [
-          ":",
-          "-",
-        ]);
-        const maxHeightVariant = variantGetParameter("@max-h-", matcher, [
-          ":",
-          "-",
-        ]);
+        const minVariant = variantGetParameter("min-", matcher, [":", "-"]);
+        const maxVariant = variantGetParameter("max-", matcher, [":", "-"]);
+        const minHeightVariant = variantGetParameter("min-h-", matcher, [":", "-"]);
+        const maxHeightVariant = variantGetParameter("max-h-", matcher, [":", "-"]);
 
         // the order that we check the variants is important
         // because we want to match the most specific one
-        const matched =
-          (minHeightVariant && {
-            type: "min-h",
-            variant: minHeightVariant,
-          }) ||
-          (maxHeightVariant && {
-            type: "max-h",
-            variant: maxHeightVariant,
-          }) ||
-          (minVariant && {
-            type: "min",
-            variant: minVariant,
-          }) ||
-          (maxVariant && {
-            type: "max",
-            variant: maxVariant,
-          });
+        const matched = minHeightVariant
+          ? { type: "min-h", variant: minHeightVariant }
+          : maxHeightVariant
+            ? { type: "max-h", variant: maxHeightVariant }
+            : minVariant
+              ? { type: "min", variant: minVariant }
+              : maxVariant
+                ? { type: "max", variant: maxVariant }
+                : null;
 
         if (matched?.variant) {
           const [match, rest] = matched.variant;
           // this is for extracting the value from the match and
           // makes sure it either has no brackets or has brackets
           const extractedValue =
-            h.bracket(match) ||
-            (!match.startsWith("[") && !match.endsWith("]") && match) ||
-            "";
+            h.bracket(match) || (!match.startsWith("[") && !match.endsWith("]") && match) || "";
           const endsWithUnit = /^\d+(em|px|rem)$/.test(extractedValue);
           const isOnlyNum = /^\d+$/.test(extractedValue);
 
-          if (
-            endsWithUnit ||
-            isOnlyNum ||
-            theme["breakpoints"][extractedValue]
-          ) {
+          if (endsWithUnit || isOnlyNum || theme["breakpoints"][extractedValue]) {
             return {
               matcher: rest,
               layer: "utilities",
               handle: (input, next) =>
                 next({
                   ...input,
-                  parent: `${
-                    input.parent ? `${input.parent} $$ ` : ""
-                  }@media (${
+                  parent: `${input.parent ? `${input.parent} $$ ` : ""}@media (${
                     matched.type == "min"
                       ? "min-width"
                       : matched.type == "max"
@@ -121,20 +98,14 @@ export const myPreset: Preset = {
             handle: (input, next) =>
               next({
                 ...input,
-                parent: `${
-                  input.parent ? `${input.parent} $$ ` : ""
-                }@-moz-document url-prefix()`,
+                parent: `${input.parent ? `${input.parent} $$ ` : ""}@-moz-document url-prefix()`,
               }),
           };
         }
       },
     },
     matcher => {
-      const [m1, m2, m3] = [
-        "scrollbar:",
-        "scrollbar-track:",
-        "scrollbar-thumb:",
-      ];
+      const [m1, m2, m3] = ["scrollbar:", "scrollbar-track:", "scrollbar-thumb:"];
       let matchedStr = "";
 
       if (matcher.startsWith(m1)) {
@@ -159,9 +130,7 @@ export const myPreset: Preset = {
   ],
 };
 
-export function convertPalleteToHSL<
-  T extends Record<string, Record<string, string>>,
->(obj: T) {
+export function convertPalleteToHSL<T extends Record<string, Record<string, string>>>(obj: T) {
   const temp: Record<string, Record<string, string>> = {};
   for (const colorKey in obj) {
     for (const colorShadeKey in obj[colorKey]) {

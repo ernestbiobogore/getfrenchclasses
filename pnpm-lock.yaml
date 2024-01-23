@@ -17,6 +17,9 @@ dependencies:
   datocms-structured-text-utils:
     specifier: ^3.0.0
     version: 3.0.0
+  lucide-svelte:
+    specifier: ^0.314.0
+    version: 0.314.0(svelte@4.2.8)
 
 devDependencies:
   '@iconify/json':
@@ -2507,6 +2510,14 @@ packages:
     dependencies:
       yallist: 4.0.0
     dev: true
+
+  /lucide-svelte@0.314.0(svelte@4.2.8):
+    resolution: {integrity: sha512-w7oPy6aU7ybjopT9k65S1S5y/XgFVL6i6Qm0MT9pSjvORfWEdaI7cvonx5D2w3+Ty8+0jVRm4k8U/txhEpwLOg==}
+    peerDependencies:
+      svelte: '>=3 <5'
+    dependencies:
+      svelte: 4.2.8
+    dev: false
 
   /magic-string@0.30.5:
     resolution: {integrity: sha512-7xlpfBaQaP/T6Vh8MO/EqXSW5En6INHEvEXQiuff7Gku0PWjU3uf6w/j9o7O+SpB5fOAkrI5HeoNgwjEO0pFsA==}

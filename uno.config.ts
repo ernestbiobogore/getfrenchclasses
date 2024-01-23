@@ -6,6 +6,7 @@ import {
   presetWebFonts,
   transformerDirectives,
   transformerVariantGroup,
+  transformerCompileClass,
 } from "unocss";
 import { myPreset } from "./my-preset";
 import { fontFamily } from "@unocss/preset-mini/theme";
@@ -51,12 +52,12 @@ export default defineConfig({
   presets: [
     myPreset,
     presetUno(),
-    presetIcons({ scale: 1.2 }),
+    presetIcons(),
     presetWebFonts({
       fonts: {
         inter: "Inter:400;500;600;700;800",
       },
     }),
   ],
-  transformers: [transformerDirectives(), transformerVariantGroup()],
+  transformers: [transformerDirectives(), transformerVariantGroup(), transformerCompileClass()],
 });

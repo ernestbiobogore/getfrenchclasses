@@ -38,6 +38,7 @@
     "@genql/runtime": "^2.10.0",
     "bits-ui": "^0.15.1",
     "clsx": "^2.1.0",
-    "datocms-structured-text-utils": "^3.0.0"
+    "datocms-structured-text-utils": "^3.0.0",
+    "lucide-svelte": "^0.314.0"
   }
 }
