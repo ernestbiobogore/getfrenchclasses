@@ -10,7 +10,7 @@
   };
 </script>
 
-<div class="p-8 space-y-4 bg-white rounded-2xl">
+<div class="p-8 flex flex-col gap-y-4 bg-white rounded-2xl">
   <img
     src={updatedCourse.seo?.image?.url}
     alt={updatedCourse.seo?.image?.alt}
@@ -45,9 +45,7 @@
     {updatedCourse.seo?.description}
   </p>
 
-  <p>
-    <span class="text-2xl">$ {updatedCourse.price} USD</span>
-  </p>
+  <div class="text-2xl mt-a">$ {updatedCourse.price} USD</div>
 
   <div class="flex justify-between">
     <a href="/courses/{updatedCourse.slug}" class="text-xs action-base w-fit">Read More</a>
