@@ -123,7 +123,7 @@
     financial freedom.
   </h2>
 
-  <section class="container-base relative">
+  <section class="container-base relative px-0">
     <div class=" m-auto space-y-5 bg-night rounded-2xl h-96 w-full">
       <div class="p-12 flex flex-col gap-10 md-(p-8 w-34rem)">
         <h2 class="text-(white 2xl) sm-(break-words w-5/12) md-(text-2.75rem/3.3rem w-full)">
