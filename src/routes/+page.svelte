@@ -2,7 +2,7 @@
   import FaqAccordion from "$lib/components/FaqAccordion.svelte";
   import AvatarsGroup from "$lib/components/AvatarsGroup.svelte";
   import CourseCard from "$lib/components/CourseCard.svelte";
-  import HomeTestimonials from "./components/HomeTestimonials.svelte";
+  import HomeTestimonials from "./_components/HomeTestimonials.svelte";
   import StructuredText from "$lib/components/dato/StructuredText/index.svelte";
 
   import Circle1 from "$lib/images/circle1.png";
