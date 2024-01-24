@@ -23,6 +23,9 @@ export const myPreset: Preset = {
       ([, size, colors]) => `[scrollbar-width:${size}] [scrollbar-color:${colors}]`,
       { layer: "utilities" },
     ],
+    {
+      "flex|col": "flex flex-col",
+    },
   ],
 
   variants: [

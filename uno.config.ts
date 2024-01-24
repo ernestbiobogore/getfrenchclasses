@@ -29,7 +29,7 @@ export default defineConfig({
   rules: [],
   shortcuts: [
     {
-      action: "flex-s-center px-6 py-3 text-xs font-medium rounded-lg",
+      action: "flex-s-center px-6 py-3 text-xs fw-medium rd-lg",
       "action-base": "text-white bg-night action",
       "action-white": "text-night bg-white action",
       "container-base": "px-4 mx-auto max-w-7xl",

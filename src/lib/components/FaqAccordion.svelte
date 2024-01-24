@@ -16,7 +16,6 @@
           class="flex-s-between w-full fw-medium [&[data-state=open]>.plus]:hidden [&[data-state=closed]>.minus]:hidden"
         >
           <span class="text-(base left) basis-11/12">{titles[i]}</span>
-
           <div class="i-lucide-minus minus text-2xl"></div>
           <div class="i-lucide-plus plus text-2xl"></div>
         </Accordion.Trigger>

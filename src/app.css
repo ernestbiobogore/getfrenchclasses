@@ -2,6 +2,11 @@ body {
   @apply font-inter bg-magnolia text-night;
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--scroll-padding-top, 162px);
+}
+
 h1 {
   @apply text-2.5rem/2.75rem -tracking-0.175rem md:text-4.375rem/5.25rem font-medium md:-tracking-0.25rem;
 }

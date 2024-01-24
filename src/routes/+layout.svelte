@@ -15,7 +15,7 @@
   </p>
 </header>
 
-<nav class="py flex-s-between px-5 sticky top-0 z-10 bg-magnolia b-b">
+<nav class="py flex-s-between container-base sticky top-0 z-10 bg-magnolia b-b">
   <a href="/" class="text-xs font-bold md-text-xl">Get French Classes</a>
 
   <!-- MENU BUTTON / MENU -->
@@ -30,7 +30,8 @@
       transition={flyAndScale}
       sideOffset={16}
     >
-      <div class=":uno: flex flex-col [&_a]-(px-3 py-2 b-b-gray-2)">
+      <!-- NOTE: :uno: prefix temporarily removed because it's buggy in dev -->
+      <div class="flex flex-col [&_a]-(px-3 py-2 b-b-gray-2)">
         <a class="b-b" href="/courses">Courses</a>
         <a class="b-b" href="/about">About</a>
         <a class="b-b" href="/#faq">FAQ's</a>
@@ -40,7 +41,8 @@
     </Popover.Content>
   </Popover.Root>
 
-  <div class=":uno: hidden [&_a]-(px-3 py-2 fw-medium rounded-lg) md-block">
+  <!-- NOTE: :uno: prefix temporarily removed because it's buggy in dev -->
+  <div class="hidden [&_a]-(px-3 py-2 fw-medium rounded-lg) md-block">
     <a class="hover-bg-gray-3" href="/courses">Courses</a>
     <a class="hover-bg-gray-3" href="/about">About</a>
     <a class="hover-bg-gray-3" href="/#faq">FAQ's</a>
