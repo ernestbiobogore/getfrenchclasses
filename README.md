@@ -22,3 +22,5 @@ to install all the dependencies.
 ```bash
 pnpm dev
 ```
+
+## Icons are all gotten from https://icones.js.org

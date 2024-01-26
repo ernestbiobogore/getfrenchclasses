@@ -6,7 +6,10 @@ import { sveltekit } from "@sveltejs/kit/vite";
 export default defineConfig({
   plugins: [
     sveltekit(),
+    
+    // icons are gotten from https://icones.js.org/
     Icons({ compiler: "svelte", scale: 1 }),
+
     svg({
       includePaths: ["./src/lib/icons/"],
       svgoOptions: {
