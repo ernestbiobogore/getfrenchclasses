@@ -14,14 +14,14 @@
       author: "John Doe",
       content:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
-      rotate: "lg-rotate--4",
+      rotate: /*tw*/ "lg:-rotate-[4deg]",
     },
 
     {
       id: crypto.randomUUID(),
       author: "John Doe",
       content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. .",
-      rotate: "lg-rotate-2",
+      rotate: /*tw*/ "lg:rotate-2",
     },
 
     {
@@ -29,7 +29,7 @@
       author: "John Doe",
       content:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
-      rotate: "lg-rotate-0",
+      rotate: /*tw*/ "lg:-rotate-6",
     },
 
     {
@@ -37,7 +37,7 @@
       author: "John Doe",
       content:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. adipisicing elit. Quisquam, voluptatum.",
-      rotate: "lg-rotate-1",
+      rotate: /*tw*/ "lg:rotate-1",
     },
   ];
 </script>
@@ -50,9 +50,9 @@
   <div>
     <Masonry gridGap="20px">
       {#each testimonials as testimonial}
-        <div class="bg-pink-2 p-4 {testimonial.rotate}">
+        <div class="bg-pink-200 p-4 {testimonial.rotate}">
           <div class="flex-s-start gap-2">
-            <div class="s-28px bg-red-6 rd-full">
+            <div class="size-[28px] bg-red-600 rounded-full">
               <img src="" alt="" />
             </div>
             <div class="">{testimonial.author}</div>

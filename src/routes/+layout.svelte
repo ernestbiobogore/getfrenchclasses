@@ -1,37 +1,48 @@
 <script lang="ts">
-  import "@unocss/reset/tailwind.css";
+  import "@fontsource-variable/inter";
+  import "nprogress/nprogress.css";
   import "../app.css";
-  import "uno.css";
 
-  import { flyAndScale } from "$lib/utils";
+  import AlignJustify from "virtual:icons/lucide/align-justify";
+  import BiFacebook from "virtual:icons/bi/facebook";
+  import LucideInstagram from "virtual:icons/lucide/instagram";
+  import BiTwitter from "virtual:icons/bi/twitter";
+  import BiYoutube from "virtual:icons/bi/youtube";
+  import BiLinkedin from "virtual:icons/bi/linkedin";
+
+  import NProgress from "nprogress";
   import { Popover } from "bits-ui";
+  import { flyAndScale } from "$lib/utils";
+  import { navigating } from "$app/stores";
+
+  NProgress.configure({ showSpinner: false, minimum: 0.16 });
+  $: $navigating ? NProgress.start() : NProgress.done();
 </script>
 
-<header class="bg-indigo-6 py-2 md-py-4">
-  <p class="text-(11px center white) md-text-sm">
-    Get a free starter guide when you sign up for any of our <a href="/" class="fw-bold underline"
+<header class="bg-indigo-600 py-2 md:py-4">
+  <p class="text-[11px] text-center text-white md:text-sm">
+    Get a free starter guide when you sign up for any of our <a href="/" class="font-bold underline"
       >courses</a
     >.
   </p>
 </header>
 
-<nav class="py flex-s-between container-base sticky top-0 z-10 bg-magnolia b-b">
-  <a href="/" class="text-xs font-bold md-text-xl">Get French Classes</a>
+<nav class="py-4 flex-s-between container-base sticky top-0 z-10 bg-magnolia border-b">
+  <a href="/" class="text-xs font-bold md:text-xl">Get French Classes</a>
 
   <!-- MENU BUTTON / MENU -->
   <Popover.Root>
-    <Popover.Trigger class="md-hidden">
-      <div class="i-lucide-align-justify text-xl"></div>
+    <Popover.Trigger class="md:hidden">
+      <AlignJustify class="text-xl"></AlignJustify>
       <span class="sr-only">Open Popover</span>
     </Popover.Trigger>
 
     <Popover.Content
-      class="w-full max-w-229px bg-white rounded-xl z-10 shadow-2xl"
+      class="w-full max-w-[229px] bg-white rounded-xl z-10 shadow-2xl"
       transition={flyAndScale}
       sideOffset={16}
     >
-      <!-- NOTE: :uno: prefix temporarily removed because it's buggy in dev -->
-      <div class="flex flex-col [&_a]-(px-3 py-2 b-b-gray-2)">
+      <div class="flex flex-col [&_a]:px-3 [&_a]:py-2 [&_a]:border-b-gray-200">
         <a class="b-b" href="/courses">Courses</a>
         <a class="b-b" href="/about">About</a>
         <a class="b-b" href="/#faq">FAQ's</a>
@@ -41,13 +52,12 @@
     </Popover.Content>
   </Popover.Root>
 
-  <!-- NOTE: :uno: prefix temporarily removed because it's buggy in dev -->
-  <div class="hidden [&_a]-(px-3 py-2 fw-medium rounded-lg) md-block">
-    <a class="hover-bg-gray-3" href="/courses">Courses</a>
-    <a class="hover-bg-gray-3" href="/about">About</a>
-    <a class="hover-bg-gray-3" href="/#faq">FAQ's</a>
-    <a class="hover-bg-gray-3" href="/blog">Blog</a>
-    <a class="hover-bg-gray-3" href="/contact">Contact</a>
+  <div class="hidden [&_a]:px-3 [&_a]:py-2 [&_a]:font-medium [&_a]:rounded-lg md:block">
+    <a class="hover-bg-gray-300" href="/courses">Courses</a>
+    <a class="hover-bg-gray-300" href="/about">About</a>
+    <a class="hover-bg-gray-300" href="/#faq">FAQ's</a>
+    <a class="hover-bg-gray-300" href="/blog">Blog</a>
+    <a class="hover-bg-gray-300" href="/contact">Contact</a>
   </div>
 
   <a href="/" class="text-xs action-base">Get Started</a>
@@ -65,11 +75,11 @@
       </p>
 
       <div class="flex gap-2 text-2xl">
-        <div class="i-lucide-instagram" />
-        <div class="i-bi-facebook" />
-        <div class="i-bi-twitter" />
-        <div class="i-bi-youtube" />
-        <div class="i-bi-linkedin" />
+        <LucideInstagram />
+        <BiFacebook />
+        <BiTwitter />
+        <BiYoutube />
+        <BiLinkedin />
       </div>
     </div>
     <div class="flex gap-5 md:gap-20 basis-3/12 flex-col md:flex-row">

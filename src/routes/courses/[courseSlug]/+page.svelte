@@ -4,7 +4,21 @@
   import CourseSyllabus from "./components/CourseSyllabus.svelte";
   import FaqAccordion from "$lib/components/FaqAccordion.svelte";
   import Testimonials from "$lib/components/Testimonials.svelte";
-  import { BarChart, Clock, PenSquare } from "lucide-svelte";
+
+  import Clock from "virtual:icons/lucide/clock";
+  import PenSquare from "virtual:icons/lucide/pen-square";
+  import BarChart from "virtual:icons/lucide/bar-chart";
+  import Check from "virtual:icons/lucide/check";
+  import VideoCamera from "virtual:icons/ph/video-camera";
+  import KeyLight from "virtual:icons/ph/key-light";
+  import BookOpen from "virtual:icons/ph/book-open";
+  import ChalkboardTeacher from "virtual:icons/ph/chalkboard-teacher";
+  import Wrench from "virtual:icons/ph/wrench";
+  import LightbulbLight from "virtual:icons/ph/lightbulb-light";
+  import UsersThree from "virtual:icons/ph/users-three";
+  import GraduationCap from "virtual:icons/ph/graduation-cap";
+  import ArrowRight from "virtual:icons/lucide/arrow-right";
+
   import { getSampleAvatars } from "$lib/utils";
 
   export let data;
@@ -23,19 +37,19 @@
     <div class="space-y-4">
       <h2>{data.course.name}</h2>
 
-      <div class="flex-s-between gap-4 md-justify-start">
+      <div class="flex-s-between gap-4 md:justify-start">
         <div class="flex-s-center gap-2">
-          <Clock class="s-4 stroke-gray-400" />
+          <Clock class="text-gray-400" />
           <p class="text-xs text-gray-500">{data.course.duration} hours</p>
         </div>
 
         <div class="flex-s-center gap-2">
-          <PenSquare class="s-4 stroke-gray-400" />
+          <PenSquare class="text-gray-400" />
           <p class="text-xs text-gray-500">{data.course.numberOfSections} sections</p>
         </div>
 
         <div class="flex-s-center gap-2">
-          <BarChart class="s-4 stroke-gray-400" />
+          <BarChart class="text-gray-400" />
           <p class="text-xs text-gray-500">{data.course.level} level</p>
         </div>
       </div>
@@ -47,7 +61,7 @@
 
     <!-- INSTRUCTORS -->
     <div class="py-5">
-      <div class="text-(xs gray-500) uppercase mb-2">Hosted By</div>
+      <div class="text-xs text-gray-500 uppercase mb-2">Hosted By</div>
 
       <div
         class="grid gap-4 w-full"
@@ -55,12 +69,12 @@
       >
         {#each instructors as _}
           <a href="/courses/{data.course.slug}#instructor" class="flex-s-start gap-3">
-            <div class="s-64px bg-red rd-xl">
+            <div class="size-[64px] bg-red-400 rounded-xl">
               <img src="" alt="" />
             </div>
             <div class="flex-1">
-              <p class="fw-semibold">Name</p>
-              <p class="text-sm max-w-46ch">
+              <p class="font-semibold">Name</p>
+              <p class="text-sm max-w-[46ch]">
                 Lead product designer at Gusto, ex Uber. Teaching 70k designers on Youtube
               </p>
             </div>
@@ -76,14 +90,14 @@
       <br />
 
       <!-- CARDS -->
-      <div class="grid sm-grid-cols-2 gap-4">
+      <div class="grid sm:grid-cols-2 gap-4">
         {#each [...Array(4)] as _, i}
-          <div class="p-4 rd-lg b b-gray flex|col gap-3">
-            <div class="bg-white text-gray-8 s-40px rd-full flex-s-center">
+          <div class="p-4 rounded-lg border border-gray-400 flex flex-col gap-3">
+            <div class="bg-white text-gray-800 size-[40px] rounded-full flex-s-center">
               0{i + 1}
             </div>
 
-            <div class="fw-semibold">Experienced designers</div>
+            <div class="font-semibold">Experienced designers</div>
 
             <p class="text-sm">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, odio sint neque quasi
@@ -102,17 +116,17 @@
       <br />
 
       <!-- CARDS -->
-      <div class="flex|col gap-4 max-w-2xl">
+      <div class="flex flex-col gap-4 max-w-2xl">
         {#each [...Array(4)] as _, i}
           <div class="flex-s-start-start">
             <div>
-              <div class="bg-green-6 s-20px text-white rd-full flex-s-center">
-                <div class="i-lucide-check"></div>
+              <div class="bg-green-600 size-[20px] text-white rounded-full flex-s-center">
+                <Check />
               </div>
             </div>
 
             <div class="ml-3">
-              <div class="fw-semibold">Experienced designers</div>
+              <div class="font-semibold">Experienced designers</div>
 
               <p class="text-sm">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, odio sint neque quasi
@@ -132,37 +146,37 @@
       <br />
 
       <!-- CARDS -->
-      <div class="grid md-grid-cols-2 gap-4 max-w-2xl">
+      <div class="grid md:grid-cols-2 gap-4 max-w-2xl">
         <div class="flex-s-start gap-2">
-          <div class="i-ph-video-camera text-xl"></div>
+          <VideoCamera class="text-xl" />
           <p>Live sessions with instructor</p>
         </div>
         <div class="flex-s-start gap-2">
-          <div class="i-ph-key-light text-xl"></div>
+          <KeyLight class="text-xl" />
           <p>Lifetime access to course materials</p>
         </div>
         <div class="flex-s-start gap-2">
-          <div class="i-ph-book-open text-xl"></div>
+          <BookOpen class="text-xl" />
           <p>74 in-depth lesson</p>
         </div>
         <div class="flex-s-start gap-2">
-          <div class="i-ph-chalkboard-teacher text-xl"></div>
+          <ChalkboardTeacher class="text-xl" />
           <p>Direct access to instructor</p>
         </div>
         <div class="flex-s-start gap-2">
-          <div class="i-ph-wrench text-xl"></div>
+          <Wrench class="text-xl" />
           <p>7 projects to apply learnings</p>
         </div>
         <div class="flex-s-start gap-2">
-          <div class="i-ph-lightbulb-light text-xl"></div>
+          <LightbulbLight class="text-xl" />
           <p>Guided feedback & reflection</p>
         </div>
         <div class="flex-s-start gap-2">
-          <div class="i-ph-users-three text-xl"></div>
+          <UsersThree class="text-xl" />
           <p>Private community of peers</p>
         </div>
         <div class="flex-s-start gap-2">
-          <div class="i-ph-graduation-cap text-xl"></div>
+          <GraduationCap class="text-xl" />
           <p>Course certificate upon completion</p>
         </div>
       </div>
@@ -170,17 +184,17 @@
   </div>
 
   <!-- RIGHT SIDE -->
-  <div class="md-flex-[0.7] lg-flex-[0.5] relative">
-    <div class="bg-white shadow-lg rd-xl overflow-hidden sticky top-23">
+  <div class="md:flex-[0.7] lg:flex-[0.5] relative">
+    <div class="bg-white shadow-lg rounded-xl overflow-hidden sticky top-[5.75rem]">
       <!--  -->
-      <div class="bg-red aspect-video w-full">
-        <!-- TEMPORARY -->
-        <div class="s-full flex-s-center">Image / Video</div>
+      <div class="bg-red-400 aspect-video w-full">
+        <!-- NOTE: TEMPORARY -->
+        <div class="size-full flex-s-center">Image / Video</div>
       </div>
 
-      <div class="px-5 py">
+      <div class="px-5 py-4">
         <div class="flex-s-between mb-1">
-          <div class="fw-semibold">${data.course.price} USD</div>
+          <div class="font-semibold">${data.course.price} USD</div>
 
           <div class="flex-s-start">
             <AvatarsGroup avatars={getSampleAvatars()} size={20} />
@@ -188,9 +202,9 @@
           </div>
         </div>
         <div class="text-sm">
-          <a href="/" class="underline fw-medium">Get reimbursed</a>
+          <a href="/" class="underline font-medium">Get reimbursed</a>
           <span>|</span>
-          <a href="/" class="underline fw-medium">Bulk purchases</a>
+          <a href="/" class="underline font-medium">Bulk purchases</a>
         </div>
 
         <div class="py-6">
@@ -198,18 +212,18 @@
         </div>
 
         <div>
-          <p class="text-(xs gray) uppercase fw-medium">CTA subtext</p>
-          <p class="text-(sm gray-8)">Main Text</p>
+          <p class="text-xs text-gray-400 uppercase font-medium">CTA subtext</p>
+          <p class="text-sm text-gray-800">Main Text</p>
 
           <div class="w-full relative mt-3">
             <input
-              class="flex-1 py-3 pl-3 pr-14 w-full text-sm b rd-lg"
+              class="flex-1 py-3 pl-3 pr-14 w-full text-sm border rounded-lg"
               type="text"
               placeholder="Your email"
             />
-            <div class="abs right-0 top-0 h-full flex-s-center pr-1">
-              <button class="bg-night px-3 flex-s-center rd-lg h-80% text-(xl white)">
-                <div class="i-lucide-arrow-right"></div>
+            <div class="absolute right-0 top-0 h-full flex-s-center pr-1">
+              <button class="bg-night px-3 flex-s-center rounded-lg h-[80%] text-xl text-white">
+                <ArrowRight />
               </button>
             </div>
           </div>
@@ -230,13 +244,13 @@
   <h2 class="text-center">Meet your instructor</h2>
   <br /><br />
 
-  <div class="max-md-space-y-4 md-flex-s-start w-full max-w-2xl mx-a gap-4" id="instructor">
-    <div class="s-60px bg-red rd-xl md-(h-300px! w-250px!)">
+  <div class="max-md:space-y-4 md:flex-s-start w-full max-w-2xl mx-auto gap-4" id="instructor">
+    <div class="size-[60px] bg-red-400 rounded-xl md:!h-[300px] md:!w-[250px]">
       <img src="" alt="" />
     </div>
 
     <div class="flex-1">
-      <div class="fw-semibold mb-2 text-lg">Femke</div>
+      <div class="font-semibold mb-2 text-lg">Femke</div>
       <div>
         <p>
           Hi, I'm Femke! I am a design manager that worked as a product designer for over 5 years at
@@ -257,7 +271,7 @@
 <section class="max-w-2xl mx-auto my-12 px-4">
   <h2 class="text-3xl font-bold text-center mb-6">Course schedule</h2>
   <div class="flex items-center justify-center mb-4">
-    <div class="i-lucide-clock text-gray-500 mr-2" />
+    <Clock class="text-gray-500 mr-2" />
     <span class="text-gray-500">3-4 hours per week</span>
   </div>
 
@@ -294,7 +308,7 @@
 
 <CourseCtaBanner />
 
-<section class="max-w-2xl mx-a py-10" id="faq">
+<section class="max-w-2xl mx-auto py-10" id="faq">
   <h2 class="mb-8">Frequently Asked Questions</h2>
 
   {#if coursesPageFaq && coursesPageFaq.length > 0}

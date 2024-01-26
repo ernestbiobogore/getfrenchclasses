@@ -5,6 +5,8 @@
   import HomeTestimonials from "./_components/HomeTestimonials.svelte";
   import StructuredText from "$lib/components/dato/StructuredText/index.svelte";
 
+  import ChevronRight from "virtual:icons/lucide/chevron-right";
+
   import Circle1 from "$lib/images/circle1.png";
   import Circle2 from "$lib/images/circle2.png";
   import Triangle from "$lib/images/triangle.png";
@@ -18,10 +20,10 @@
 </svelte:head>
 
 <!-- Hero -->
-<section class="p-3 md-py-20 container-base">
-  <div class="w-full mx-auto space-y-8 md-w-8/12">
+<section class="p-3 md:py-20 container-base">
+  <div class="w-full mx-auto space-y-8 md:w-8/12">
     <h1 class="text-center">{homepageData?.heroTitle}</h1>
-    <p class="w-full mx-auto text-center md-w-7/12">
+    <p class="w-full mx-auto text-center md:w-7/12">
       {@html homepageData?.heroSubtitle}
     </p>
     <div class="flex-s-center">
@@ -50,16 +52,16 @@
 
       <a
         href="/courses"
-        class="flex-s-end w-4/12 gap-2 px-3 py-2 text-xs rounded-lg sm-w-auto hover-bg-gray-300"
+        class="flex-s-end w-4/12 gap-2 px-3 py-2 text-xs rounded-lg sm:w-auto hover-bg-gray-300"
       >
         <span>View All</span>
-        <div class="p-0.125rem bg-gray-900 rounded-full">
-          <div class="i-lucide-chevron-right text-white" />
+        <div class="p-[0.125rem] bg-gray-900 rounded-full">
+          <ChevronRight class="text-white" />
         </div>
       </a>
     </div>
 
-    <div class="grid gap-8 grid-cols-1 md-grid-cols-2 lg-grid-cols-3">
+    <div class="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
       {#each homepageData.popularCoursesRecords as course (course.id)}
         <CourseCard {course} />
       {/each}
@@ -75,11 +77,11 @@
 
       <a
         href="/courses"
-        class="flex-s-end w-4/12 gap-2 px-3 py-2 text-xs rounded-lg sm-w-auto hover-bg-gray-300"
+        class="flex-s-end w-4/12 gap-2 px-3 py-2 text-xs rounded-lg sm:w-auto hover-bg-gray-300"
       >
         <span>View All</span>
-        <div class="p-0.125rem bg-gray-900 rounded-full">
-          <div class="i-lucide-chevron-right stroke-white" />
+        <div class="p-[0.125rem] bg-gray-900 rounded-full">
+          <ChevronRight class="text-white" />
         </div>
       </a>
     </div>
@@ -97,7 +99,7 @@
   <div class="space-y-5 container-base">
     <h2 class="text-center">{homepageData?.featuresHeading[0].heading}</h2>
 
-    <p class="mx-auto text-(sm center) md-w-4/12">
+    <p class="mx-auto text-sm text-center md:w-4/12">
       {@html homepageData?.featuresHeading[0].subheading}
     </p>
 
@@ -108,11 +110,11 @@
     </div>
   </div>
 
-  <div class="grid grid-cols-2 gap-8 sm:gap-16 lg:grid-cols-3 container-sm">
+  <div class="container-sm grid grid-cols-2 gap-8 sm:gap-16 lg:grid-cols-3">
     {#if homepageData && homepageData?.featureCards.length > 0}
       {#each homepageData.featureCards as card}
         <div class="space-y-4">
-          <img src={card.media?.url} alt={card.media?.alt} loading="lazy" class="w-5 h-5" />
+          <img src={card.media?.url} alt={card.media?.alt} loading="lazy" class="size-5" />
 
           <!-- TODO: FIGURE OUT THE CAUSE OF THIS TYPE ERROR -->
           <!-- prettier-ignore -->
@@ -128,10 +130,10 @@
 </section>
 
 <!-- Learn About Us  -->
-<section class="flex flex-col items-center justify-between gap-24 py-24 sm:flex-row container-base">
+<section class="container-base flex flex-col items-center justify-between gap-24 py-24 sm:flex-row">
   <div class="flex flex-col gap-4 space-y-6">
     <div class="w-full space-y-5">
-      <h2 class="md-(tracking-tighter w-1/2)">
+      <h2 class="md:tracking-tighter md:w-1/2">
         {homepageData?.about[0].title}
       </h2>
 
@@ -164,12 +166,12 @@
   <HomeTestimonials />
 {/if}
 
-<section class="flex flex-col items-center py-24 container-base space-y-11 md-flex-row">
-  <div class="space-y-3 md-(space-y-6 w-1/2)">
-    <h2 class="md-(text-7xl tracking-tighter)">
+<section class="flex flex-col items-center py-24 container-base space-y-11 md:flex-row">
+  <div class="space-y-3 md:space-y-6 md:w-1/2">
+    <h2 class="md:text-7xl md:tracking-tighter">
       {homepageData?.statsHeading?.[0]?.heading}
     </h2>
-    <a href={homepageData?.statsAction[0].link} class="action-base w-fit md-text-base">
+    <a href={homepageData?.statsAction[0].link} class="action-base w-fit md:text-base">
       {homepageData?.statsAction[0].text}
     </a>
   </div>
@@ -198,13 +200,13 @@
   <div class="space-y-5">
     <h2>{homepageData?.faqHeading[0].heading}</h2>
 
-    <p class="mx-auto text-sm md-w-4/12">
+    <p class="mx-auto text-sm md:w-4/12">
       {@html homepageData?.faqHeading[0].subheading}
     </p>
   </div>
 
   {#if homepageData && homepageData.faq?.faqBlocks && homepageData.faq.faqBlocks.length > 0}
-    <div class="mx-auto md-w-6/12">
+    <div class="mx-auto md:w-6/12">
       <FaqAccordion
         itemIds={homepageData.faq.faqBlocks.map(faq => faq.id)}
         titles={homepageData.faq.faqBlocks.map(faq => faq.question || "")}
@@ -216,9 +218,9 @@
 
 <!-- CTA -->
 <section class="container-base relative">
-  <div class="m-auto space-y-5 bg-night rounded-2xl h-96 w-full">
-    <div class="p-12 flex flex-col gap-10 md-(p-8 w-34rem)">
-      <h2 class="text-(white 2xl) sm-(break-words w-5/12) md-(text-2.75rem/3.3rem w-full)">
+  <div class=" m-auto space-y-5 bg-night rounded-2xl h-96 w-full">
+    <div class="p-12 flex flex-col gap-10 md:p-8 md:w-34rem">
+      <h2 class="w-full text-white text-2xl sm:break-words sm:w-5/12 md:text-[2.75rem]/[3.3rem]">
         Empower your financial future, today.
       </h2>
       <a href="/" class="action-white w-fit">View our courses</a>
@@ -226,17 +228,17 @@
     <img
       src={Circle1}
       alt="Circle 1"
-      class="absolute s-16 bottom-3 left-20 md-(left-28rem top-20 s-20) lg-left-50rem"
+      class="absolute size-16 bottom-3 left-20 md:left-[28rem] md:top-20 md:size-20 lg:left-[50rem]"
     />
     <img
       src={Circle2}
       alt="Circle 2"
-      class="absolute s-20 bottom-28 right-24 md-(top-48 right-36 s-28) lg-(right-48 top-40)"
+      class="absolute size-20 bottom-28 right-24 md:top-48 md:right-36 md:s-28 lg:right-48 lg:top-40"
     />
     <img
       src={Triangle}
       alt="Triangle"
-      class="absolute w-24 h-28 bottom-0 right-4 md-(s-40 right-4)"
+      class="absolute w-24 h-28 bottom-0 right-4 md:s-40 md:right-4"
     />
   </div>
 </section>

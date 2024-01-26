@@ -48,26 +48,29 @@
     <div class="text-sm flex flex-wrap gap-2 items-center my-4 [&>*]:shrink-none [&>*]:h-[30px]">
       <a
         href={twitterShareUrl}
-        class="inline-flex-s-center gap-1 px-2 rounded-lg b border-gray-400"
+        class="inline-flex-s-center gap-1 px-2 rounded-lg border border-gray-400"
       >
         <div class="i-fa6-brands-x-twitter" />
         <span>Share on Twitter</span>
       </a>
       <a
         href={facebookShareUrl}
-        class="inline-flex-s-center gap-1 px-1 rounded-lg b border-gray-400"
+        class="inline-flex-s-center gap-1 px-1 rounded-lg border border-gray-400"
       >
         <div class="i-lucide-facebook text-lg" />
         <span>Share on Facebook</span>
       </a>
       <a
         href={linkedInShareUrl}
-        class="inline-flex-s-center gap-1 px-2 rounded-lg b border-gray-400"
+        class="inline-flex-s-center gap-1 px-2 rounded-lg border border-gray-400"
       >
         <div class="i-lucide-linkedin text-lg" />
         <span>Share on LinkedIn</span>
       </a>
-      <a href={redditShareUrl} class="inline-flex-s-center gap-1 px-2 rounded-lg b border-gray-400">
+      <a
+        href={redditShareUrl}
+        class="inline-flex-s-center gap-1 px-2 rounded-lg border border-gray-400"
+      >
         <div class="i-ph-reddit-logo-bold text-lg" />
         <span>Share on Reddit</span>
       </a>

@@ -1,6 +1,12 @@
 <script>
   import FaqAccordion from "$lib/components/FaqAccordion.svelte";
-  import { Mail, MapPin, MessageSquare, Phone, User } from "lucide-svelte";
+
+  import Mail from "virtual:icons/lucide/mail";
+  import MapPin from "virtual:icons/lucide/map-pin";
+  import MessageSquare from "virtual:icons/lucide/message-square";
+  import Phone from "virtual:icons/lucide/phone";
+  import User from "virtual:icons/lucide/user";
+
   export let data;
   $: coursesPageFaq = data.course.faq?.faqBlocks;
 </script>

@@ -3,6 +3,9 @@
   import { Accordion } from "bits-ui";
   import { slide } from "svelte/transition";
 
+  import Plus from "virtual:icons/lucide/plus";
+  import Minus from "virtual:icons/lucide/minus";
+
   export let itemIds: string[];
   export let titles: string[];
   export let richTexts: any[];
@@ -13,11 +16,11 @@
     <Accordion.Item value={itemIds[i]} class="px-6 py-4 space-y-4 bg-white rounded-xl">
       <h3>
         <Accordion.Trigger
-          class="flex-s-between w-full fw-medium [&[data-state=open]>.plus]:hidden [&[data-state=closed]>.minus]:hidden"
+          class="flex-s-between w-full font-medium [&[data-state=open]>.plus]:hidden [&[data-state=closed]>.minus]:hidden"
         >
-          <span class="text-(base left) basis-11/12">{titles[i]}</span>
-          <div class="i-lucide-minus minus text-2xl"></div>
-          <div class="i-lucide-plus plus text-2xl"></div>
+          <span class="text-base text-left basis-11/12">{titles[i]}</span>
+          <Minus class="minus text-2xl"></Minus>
+          <Plus class="plus text-2xl"></Plus>
         </Accordion.Trigger>
       </h3>
 

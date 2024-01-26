@@ -11,7 +11,7 @@
 
   <br />
 
-  <div class="max-w-2xl mx-a flex|col gap-8">
+  <div class="max-w-2xl mx-auto flex flex-col gap-8">
     <SyllabusSection />
     <SyllabusSection week={2} start="feb 12" end="feb 18" />
   </div>

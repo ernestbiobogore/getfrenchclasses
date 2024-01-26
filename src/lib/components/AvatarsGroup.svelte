@@ -17,7 +17,7 @@
   <!-- People images -->
   {#each avatars as avatar, i}
     <img
-      class="rd-full b-2 b-white first-ml-0!"
+      class="rounded-full border-2 border-white first:!ml-0"
       src={avatar.src}
       alt={avatar.alt}
       width={size}
