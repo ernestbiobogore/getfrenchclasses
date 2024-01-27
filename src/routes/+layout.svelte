@@ -53,11 +53,11 @@
   </Popover.Root>
 
   <div class="hidden [&_a]:px-3 [&_a]:py-2 [&_a]:font-medium [&_a]:rounded-lg md:block">
-    <a class="hover-bg-gray-300" href="/courses">Courses</a>
-    <a class="hover-bg-gray-300" href="/about">About</a>
-    <a class="hover-bg-gray-300" href="/#faq">FAQ's</a>
-    <a class="hover-bg-gray-300" href="/blog">Blog</a>
-    <a class="hover-bg-gray-300" href="/contact">Contact</a>
+    <a class="hover:bg-gray-300" href="/courses">Courses</a>
+    <a class="hover:bg-gray-300" href="/about">About</a>
+    <a class="hover:bg-gray-300" href="/#faq">FAQ's</a>
+    <a class="hover:bg-gray-300" href="/blog">Blog</a>
+    <a class="hover:bg-gray-300" href="/contact">Contact</a>
   </div>
 
   <a href="/" class="text-xs action-base">Get Started</a>
