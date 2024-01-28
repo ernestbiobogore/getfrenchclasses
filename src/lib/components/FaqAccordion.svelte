@@ -3,8 +3,8 @@
   import { Accordion } from "bits-ui";
   import { slide } from "svelte/transition";
 
-  import Plus from "virtual:icons/lucide/plus";
-  import Minus from "virtual:icons/lucide/minus";
+  import Plus from "~icons/lucide/plus";
+  import Minus from "~icons/lucide/minus";
 
   export let itemIds: string[];
   export let titles: string[];

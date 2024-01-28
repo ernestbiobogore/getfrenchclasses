@@ -2,9 +2,9 @@
   import AvatarsGroup from "$lib/components/AvatarsGroup.svelte";
   import type { getAllCourses } from "$lib/graphql/queries/courses";
   import { getSampleAvatars } from "$lib/utils";
-  import Clock from "virtual:icons/lucide/clock";
-  import PenSquare from "virtual:icons/lucide/pen-square";
-  import BarChart from "virtual:icons/lucide/bar-chart";
+  import Clock from "~icons/lucide/clock";
+  import PenSquare from "~icons/lucide/pen-square";
+  import BarChart from "~icons/lucide/bar-chart";
 
   export let course: Awaited<ReturnType<typeof getAllCourses>>[number];
   const updatedCourse = {

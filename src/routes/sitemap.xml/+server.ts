@@ -1,46 +1,46 @@
-import { getCoursesSlugs } from '$lib/graphql/queries/courses';
-import { getBlogPostsSlugs } from '$lib/graphql/queries/posts';
+import { getCoursesSlugs } from "$lib/graphql/queries/courses";
+import { getBlogPostsSlugs } from "$lib/graphql/queries/posts";
 
 export const GET = async ({ url }) => {
-	const siteURL = url.origin;
-	const priority = 0.6;
-	const frequency = 'daily';
+  const siteURL = url.origin;
+  const priority = 0.6;
+  const frequency = "daily";
 
-	const allPosts = await getBlogPostsSlugs();
+  const allPosts = await getBlogPostsSlugs();
 
-	const postsEntries = allPosts.map(({ slug, routePaths, _updatedAt }) => {
-		const pathComponents = routePaths.map((path) => path.slug);
-		const pathString = pathComponents.length > 0 ? `/${pathComponents.join('/')}` : '';
-		const postFullPath = `${siteURL}/blog${pathString}/${slug}`;
+  const postsEntries = allPosts.map(({ slug, routePaths, _updatedAt }) => {
+    const pathComponents = routePaths.map(path => path.slug);
+    const pathString = pathComponents.length > 0 ? `/${pathComponents.join("/")}` : "";
+    const postFullPath = `${siteURL}/blog${pathString}/${slug}`;
 
-		return {
-			url: postFullPath,
-			lastmod: new Date(_updatedAt).toISOString(),
-			priority,
-			frequency
-		};
-	});
+    return {
+      url: postFullPath,
+      lastmod: new Date(_updatedAt).toISOString(),
+      priority,
+      frequency,
+    };
+  });
 
-	const coursesEntries = (await getCoursesSlugs()).map(({ slug, _updatedAt }) => ({
-		url: `${siteURL}/courses/${slug}`,
-		lastmod: new Date(_updatedAt).toISOString(),
-		priority,
-		frequency
-	}));
+  const coursesEntries = (await getCoursesSlugs()).map(({ slug, _updatedAt }) => ({
+    url: `${siteURL}/courses/${slug}`,
+    lastmod: new Date(_updatedAt).toISOString(),
+    priority,
+    frequency,
+  }));
 
-	const entries = [
-		{
-			url: siteURL,
-			lastmod: new Date().toISOString(),
-			frequency,
-			priority
-		},
-		...postsEntries,
-		...coursesEntries
-	];
+  const entries = [
+    {
+      url: siteURL,
+      lastmod: new Date().toISOString(),
+      frequency,
+      priority,
+    },
+    ...postsEntries,
+    ...coursesEntries,
+  ];
 
-	const entriesXml = entries.map(({ url, lastmod, priority, frequency }) => {
-		return `
+  const entriesXml = entries.map(({ url, lastmod, priority, frequency }) => {
+    return `
 			<url>
 				<loc>${url}</loc>
 				<lastmod>${lastmod}</lastmod>
@@ -48,9 +48,9 @@ export const GET = async ({ url }) => {
 				<changefreq>${frequency}</changefreq>
 			</url>
 		`;
-	});
+  });
 
-	const xml = `
+  const xml = `
 		<urlset
 			xmlns="https://www.sitemaps.org/schemas/sitemap/0.9"
 			xmlns:news="https://www.google.com/schemas/sitemap-news/0.9"
@@ -59,14 +59,14 @@ export const GET = async ({ url }) => {
 			xmlns:image="https://www.google.com/schemas/sitemap-image/1.1"
 			xmlns:video="https://www.google.com/schemas/sitemap-video/1.1"
 		>
-			${entriesXml.join('')}
+			${entriesXml.join("")}
 		</urlset>
 	`;
 
-	return new Response(xml, {
-		headers: {
-			'Cache-Control': 'max-age=0, s-maxage=3600',
-			'Content-Type': 'application/xml'
-		}
-	});
+  return new Response(xml, {
+    headers: {
+      "Cache-Control": "max-age=0, s-maxage=3600",
+      "Content-Type": "application/xml",
+    },
+  });
 };

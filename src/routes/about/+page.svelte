@@ -1,8 +1,8 @@
 <script>
-  import HelpingHand from "virtual:icons/lucide/helping-hand";
-  import Globe2 from "virtual:icons/lucide/globe-2";
-  import Lightbulb from "virtual:icons/lucide/lightbulb";
-  import File from "virtual:icons/lucide/file";
+  import HelpingHand from "~icons/lucide/helping-hand";
+  import Globe2 from "~icons/lucide/globe-2";
+  import Lightbulb from "~icons/lucide/lightbulb";
+  import File from "~icons/lucide/file";
 
   import SupportImage from "$lib/images/supportImage.png";
   import Teacher1 from "$lib/images/teacher1.png";

@@ -1,6 +1,6 @@
 <script lang="ts" context="module">
   import type { getSingleBlogPost } from "$lib/graphql/queries/posts";
-  import Tag from "virtual:icons/lucide/tag";
+  import Tag from "~icons/lucide/tag";
 
   type CMSPost = Awaited<ReturnType<typeof getSingleBlogPost>>;
 

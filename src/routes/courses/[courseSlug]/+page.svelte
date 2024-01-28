@@ -5,19 +5,19 @@
   import FaqAccordion from "$lib/components/FaqAccordion.svelte";
   import Testimonials from "$lib/components/Testimonials.svelte";
 
-  import Clock from "virtual:icons/lucide/clock";
-  import PenSquare from "virtual:icons/lucide/pen-square";
-  import BarChart from "virtual:icons/lucide/bar-chart";
-  import Check from "virtual:icons/lucide/check";
-  import VideoCamera from "virtual:icons/ph/video-camera";
-  import KeyLight from "virtual:icons/ph/key-light";
-  import BookOpen from "virtual:icons/ph/book-open";
-  import ChalkboardTeacher from "virtual:icons/ph/chalkboard-teacher";
-  import Wrench from "virtual:icons/ph/wrench";
-  import LightbulbLight from "virtual:icons/ph/lightbulb-light";
-  import UsersThree from "virtual:icons/ph/users-three";
-  import GraduationCap from "virtual:icons/ph/graduation-cap";
-  import ArrowRight from "virtual:icons/lucide/arrow-right";
+  import Clock from "~icons/lucide/clock";
+  import PenSquare from "~icons/lucide/pen-square";
+  import BarChart from "~icons/lucide/bar-chart";
+  import Check from "~icons/lucide/check";
+  import VideoCamera from "~icons/ph/video-camera";
+  import KeyLight from "~icons/ph/key-light";
+  import BookOpen from "~icons/ph/book-open";
+  import ChalkboardTeacher from "~icons/ph/chalkboard-teacher";
+  import Wrench from "~icons/ph/wrench";
+  import LightbulbLight from "~icons/ph/lightbulb-light";
+  import UsersThree from "~icons/ph/users-three";
+  import GraduationCap from "~icons/ph/graduation-cap";
+  import ArrowRight from "~icons/lucide/arrow-right";
 
   import { getSampleAvatars } from "$lib/utils";
 

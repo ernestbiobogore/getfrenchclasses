@@ -3,12 +3,12 @@
   import "nprogress/nprogress.css";
   import "../app.css";
 
-  import AlignJustify from "virtual:icons/lucide/align-justify";
-  import BiFacebook from "virtual:icons/bi/facebook";
-  import LucideInstagram from "virtual:icons/lucide/instagram";
-  import BiTwitter from "virtual:icons/bi/twitter";
-  import BiYoutube from "virtual:icons/bi/youtube";
-  import BiLinkedin from "virtual:icons/bi/linkedin";
+  import AlignJustify from "~icons/lucide/align-justify";
+  import BiFacebook from "~icons/bi/facebook";
+  import LucideInstagram from "~icons/lucide/instagram";
+  import BiTwitter from "~icons/bi/twitter";
+  import BiYoutube from "~icons/bi/youtube";
+  import BiLinkedin from "~icons/bi/linkedin";
 
   import NProgress from "nprogress";
   import { Popover } from "bits-ui";

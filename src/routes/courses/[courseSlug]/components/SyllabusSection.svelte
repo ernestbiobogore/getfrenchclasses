@@ -17,7 +17,7 @@
   import { Accordion } from "bits-ui";
   import { tick } from "svelte";
 
-  import ChevronRight from "virtual:icons/lucide/chevron-right";
+  import ChevronRight from "~icons/lucide/chevron-right";
 
   const mockModule: Module = {
     id: crypto.randomUUID(),
