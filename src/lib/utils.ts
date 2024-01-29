@@ -1,9 +1,10 @@
 import type { PostShareOptions } from "./types";
 import type { TransitionConfig } from "svelte/transition";
-import { clsx } from "clsx";
+import { clsx, type ClassValue } from "clsx";
 import { cubicOut } from "svelte/easing";
 import { get } from "svelte/store";
 import { page } from "$app/stores";
+import { twMerge } from "tailwind-merge";
 
 const getSampleAvatars = (n = 3) => {
   return Array.from({ length: n }, () => {
@@ -15,6 +16,10 @@ const getSampleAvatars = (n = 3) => {
     };
   });
 };
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
 
 export function generateShareOptions(post: {
   slug: string | null;
@@ -107,4 +112,4 @@ export const flyAndScale = (
   };
 };
 
-export { clsx as cn, getSampleAvatars };
+export { getSampleAvatars };

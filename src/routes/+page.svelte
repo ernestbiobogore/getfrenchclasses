@@ -1,36 +1,79 @@
 <script lang="ts">
-  import FaqAccordion from "$lib/components/FaqAccordion.svelte";
+  import "./+page.css"; // simpler than using <style> tags with global selectors
+
   import AvatarsGroup from "$lib/components/AvatarsGroup.svelte";
-  import CourseCard from "$lib/components/CourseCard.svelte";
+  import FaqAccordion from "$lib/components/FaqAccordion.svelte";
   import HomeTestimonials from "./_components/HomeTestimonials.svelte";
   import StructuredText from "$lib/components/dato/StructuredText/index.svelte";
+  import TestimonialCardList from "$lib/components/TestimonialCardList.svelte";
+  import TestimonialCta from "./_components/TestimonialCta.svelte";
+  import { cn, getSampleAvatars } from "$lib/utils";
 
-  import ChevronRight from "~icons/lucide/chevron-right";
-
-  import Circle1 from "$lib/images/circle1.png";
-  import Circle2 from "$lib/images/circle2.png";
-  import Triangle from "$lib/images/triangle.png";
+  import PhSmiley from "~icons/ph/smiley";
 
   export let data;
   $: ({ homepageData } = data);
+
+  type TargetAudienceData = {
+    icon: any;
+    title: string;
+    description: string;
+  };
+
+  const dummyVideo =
+    "https://cdn.discordapp.com/attachments/1181304981576486962/1196953201669324901/Screen_Recording_2024-01-16_at_11.01.18_pm.mov?ex=65b98089&is=65a70b89&hm=2fbbd8a97dadc3e2b8fae343e65da65aa9bef9c0f863d77c370f92725af06402&";
+  const dummyDesc =
+    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas distinctio dicta accusamus, explicabo similique recusandae?";
+
+  let targetAudienceData: TargetAudienceData[] = [
+    { icon: PhSmiley, title: "Students", description: dummyDesc },
+    { icon: PhSmiley, title: "Professionals", description: dummyDesc },
+    { icon: PhSmiley, title: "Travelers", description: dummyDesc },
+    { icon: PhSmiley, title: "Students", description: dummyDesc },
+    { icon: PhSmiley, title: "Professionals", description: dummyDesc },
+    { icon: PhSmiley, title: "Travelers", description: dummyDesc },
+  ];
+
+  const howWeHelpYou: any[] = Array.from({ length: 3 }).fill({
+    img: "",
+    title: "Get high quality articles in minutes, not weeks",
+  });
+
+  const dummyTestimonialCta = {
+    author: {
+      name: "Filipa Canelas",
+      avatar: getSampleAvatars()[0].src,
+      title: "Founder",
+      companies: ["Able-Academy"],
+    },
+    quote: `I've tried Jasper, CopyAI, ChatGPT and Rytr.
+    Penfriend is 10x better. The output from Penfriend
+    gives me a really solid foundation of content depth
+    that I can improve upon, in 80% less time.
+    The title suggestions are incredible, the outline is
+    really solid and the content length and depth is
+    IMPRESSIVE!`,
+
+    video: dummyVideo,
+  };
 </script>
 
 <svelte:head>
   <title>Get French Classes</title>
 </svelte:head>
 
-<!-- Hero -->
+<!-- HERO -->
 <section class="p-3 md:py-20 container-base">
-  <div class="w-full mx-auto space-y-8 md:w-8/12">
-    <h1 class="text-center">{homepageData?.heroTitle}</h1>
-    <p class="w-full mx-auto text-center md:w-7/12">
+  <div class="w-full mx-auto space-y-6 md:max-w-3xl">
+    <h1 class="text-">{homepageData?.heroTitle}</h1>
+    <p class="hero-subtitle">
       {@html homepageData?.heroSubtitle}
     </p>
-    <div class="flex-s-center">
-      <a href={homepageData?.heroCta[0].link} class="action-base w-fit"
-        >{homepageData?.heroCta[0].text}</a
-      >
-    </div>
+
+    <!-- CTA BUTTON -->
+    <a href={homepageData?.heroCta[0].link} class="action-base w-full text-lg"
+      >{homepageData?.heroCta[0].text}</a
+    >
 
     <div class="flex-s-center gap-4">
       <AvatarsGroup
@@ -44,55 +87,107 @@
   </div>
 </section>
 
-<!-- Popular Courses -->
-{#if homepageData && homepageData?.popularCoursesRecords.length > 0}
-  <section class="py-24 container-base space-y-11">
-    <div class="flex-s-between gap-x-7">
-      <h2>{homepageData?.popularCoursesTitle}</h2>
+<!-- TESTIMONIAL VIDEO -->
+<!-- TODO: ADD ARROW WITH TEXT DESCRIPTION POINTING TO VIDEO -->
+<section class="container-sm max-w-3xl relative">
+  <div class="p-2 bg-white shadow-2xl rounded-xl">
+    <video class="w-full h-full rounded-lg" src={dummyVideo} controls>
+      <track kind="captions" />
+    </video>
+  </div>
+</section>
 
-      <a
-        href="/courses"
-        class="flex-s-end w-4/12 gap-2 px-3 py-2 text-xs rounded-lg sm:w-auto hover-bg-gray-300"
-      >
-        <span>View All</span>
-        <div class="p-[0.125rem] bg-gray-900 rounded-full">
-          <ChevronRight class="text-white" />
+<!-- TARGET AUDIENCE -->
+<section class="container-base flex flex-col gap-6 py-20">
+  <h2 class="text-center">Who is GetFrenchClasses for?</h2>
+  <p class="text-center mx-auto max-w-[46ch] md:max-w-[64ch]">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio alias numquam cupiditate soluta?
+    Placeat accusamus iste eum deserunt explicabo. Quos!
+  </p>
+
+  <!-- CARDS LIST -->
+  <div class="grid gap-6 max-md:max-w-sm max-md:mx-auto md:mt-8 md:grid-cols-2 lg:grid-cols-3">
+    {#each targetAudienceData as info}
+      <!-- CARD -->
+      <div class="bg-white p-4 rounded-xl md:p-5">
+        <!-- ICON -->
+        <div class="relative mb-2">
+          <!-- <div class="absolute top-0 left-0 -translate-y-8 md:-translate-y-9"> -->
+          <svelte:component this={info.icon} class="text-3xl text-[#3EAED0]" />
+          <!-- </div> -->
         </div>
-      </a>
-    </div>
 
-    <div class="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-      {#each homepageData.popularCoursesRecords as course (course.id)}
-        <CourseCard {course} />
-      {/each}
-    </div>
-  </section>
-{/if}
+        <div class="font-semibold mb-2 text-lg">{info.title}</div>
+        <p class="text-gray-600">{info.description}</p>
+      </div>
+    {/each}
+  </div>
+</section>
+<TestimonialCta {...dummyTestimonialCta} />
 
-<!-- New Courses -->
-{#if homepageData && homepageData?.newCoursesRecords.length > 0}
-  <section class="py-24 container-base space-y-11">
-    <div class="flex-s-between gap-x-7">
-      <h2>{homepageData?.newCoursesTitle}</h2>
+<section class="container-base">
+  <TestimonialCardList />
+</section>
 
-      <a
-        href="/courses"
-        class="flex-s-end w-4/12 gap-2 px-3 py-2 text-xs rounded-lg sm:w-auto hover-bg-gray-300"
+<section class="container-base py-20 flex flex-col gap-6">
+  <h2 class="text-center">How GetFrenchClasses helps you</h2>
+  <p class="text-center mb-10 max-w-[46ch] md:max-w-[64ch] mx-auto">
+    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Inventore rerum sapiente nulla quasi
+    assumenda.
+  </p>
+
+  <div class="max-md:max-w-sm max-md:mx-auto">
+    {#each howWeHelpYou as item, i}
+      <div
+        class={cn(
+          "flex flex-col max-md:gap-5 md:flex-row md:items-stretch",
+          i % 2 !== 0 && "md:flex-row-reverse"
+        )}
       >
-        <span>View All</span>
-        <div class="p-[0.125rem] bg-gray-900 rounded-full">
-          <ChevronRight class="text-white" />
+        <div class="flex-1 flex-s-center">
+          <div class="bg-red-400 lg:size-[400px]">
+            <img
+              class="object-cover object-center size-full"
+              src="https://picsum.photos/200/300"
+              alt=""
+            />
+          </div>
         </div>
-      </a>
-    </div>
 
-    <div class="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-      {#each homepageData.newCoursesRecords as course (course.id)}
-        <CourseCard {course} />
-      {/each}
-    </div>
-  </section>
-{/if}
+        <div class="flex-1 flex items-center">
+          <div>
+            <h3>{item.title}</h3>
+            <br />
+            <p>
+              Excellent freelance writers are rare, expensive, busy, and not dedicated to your
+              company.
+            </p>
+
+            <p>
+              Excellent freelance writers are rare, expensive, busy, and not dedicated to your
+              company.
+            </p>
+
+            <p>
+              Excellent freelance writers are rare, expensive, busy, and not dedicated to your
+              company.
+            </p>
+          </div>
+        </div>
+      </div>
+    {/each}
+  </div>
+</section>
+
+<TestimonialCta {...dummyTestimonialCta} />
+
+<section class="container-base py-20 flex flex-col gap-6">
+  <h2 class="text-center">Why choose GetFrenchClasses</h2>
+  <p class="text-center mx-auto max-w-[46ch] md:max-w-[64ch]">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio alias numquam cupiditate soluta?
+    Placeat accusamus iste eum deserunt explicabo. Quos!
+  </p>
+</section>
 
 <!-- Features -->
 <section class="py-24 space-y-11">
@@ -216,29 +311,4 @@
   {/if}
 </section>
 
-<!-- CTA -->
-<section class="container-base relative">
-  <div class=" m-auto space-y-5 bg-night rounded-2xl h-96 w-full">
-    <div class="p-12 flex flex-col gap-10 md:p-8 md:w-[34rem]">
-      <h2 class="text-2xl text-white sm:break-words sm:w-5/12 md:text-[2.75rem]/[3.3rem] md:w-full">
-        Empower your financial future, today.
-      </h2>
-      <a href="/" class="action-white w-fit">View our courses</a>
-    </div>
-    <img
-      src={Circle1}
-      alt="Circle 1"
-      class="absolute size-16 bottom-3 left-20 md:left-[28rem] md:top-20 md:size-20 lg:left-[50rem]"
-    />
-    <img
-      src={Circle2}
-      alt="Circle 2"
-      class="absolute size-20 bottom-28 right-24 md:top-48 md:right-36 md:size-28 lg:right-48 lg:top-40"
-    />
-    <img
-      src={Triangle}
-      alt="Triangle"
-      class="absolute w-24 h-28 bottom-0 right-4 md:size-40 md:right-4"
-    />
-  </div>
-</section>
+<TestimonialCta {...dummyTestimonialCta} />

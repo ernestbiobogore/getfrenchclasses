@@ -3,7 +3,7 @@
   import CourseCtaBanner from "./components/CourseCtaBanner.svelte";
   import CourseSyllabus from "./components/CourseSyllabus.svelte";
   import FaqAccordion from "$lib/components/FaqAccordion.svelte";
-  import Testimonials from "$lib/components/Testimonials.svelte";
+  import TestimonialCardList from "$lib/components/TestimonialCardList.svelte";
 
   import Clock from "~icons/lucide/clock";
   import PenSquare from "~icons/lucide/pen-square";
@@ -235,7 +235,13 @@
 
 <CourseSyllabus />
 
-<Testimonials />
+<section class="container-base py-20">
+  <h2 class="text-center">What people say</h2>
+  <br />
+  <div>
+    <TestimonialCardList />
+  </div>
+</section>
 
 <CourseCtaBanner />
 
