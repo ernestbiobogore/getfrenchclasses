@@ -10,6 +10,7 @@
 	import { cn, getSampleAvatars } from "$lib/utils";
 
 	import PhSmiley from "~icons/ph/smiley";
+	import PhArrowBendDownLeftFill from "~icons/ph/arrow-bend-down-left-fill";
 
 	export let data;
 	$: ({ homepageData } = data);
@@ -89,11 +90,24 @@
 
 <!-- TESTIMONIAL VIDEO -->
 <!-- TODO: ADD ARROW WITH TEXT DESCRIPTION POINTING TO VIDEO -->
-<section class="container-sm max-w-3xl relative">
-	<div class="p-2 bg-white shadow-2xl rounded-xl">
+<section class="container-sm max-w-3xl md:p-0">
+	<div class="p-2 bg-white shadow-2xl rounded-xl relative md:max-w-lg lg:max-w-xl">
 		<video class="w-full h-full rounded-lg" src={dummyVideo} controls>
 			<track kind="captions" />
 		</video>
+
+		<div
+			class="max-md:hidden absolute left-full top-1/2 -translate-y-[45%] h-[100px] w-[400px] flex items-center"
+		>
+			<div>
+				<h3
+					class="absolute text-center translate-x-[10px] -translate-y-[30px] max-w-[16ch] text-2xl italic"
+				>
+					This took 9 mins to write and only cost $12
+				</h3>
+				<PhArrowBendDownLeftFill class="text-[100px] text-[#3EAED0] rotate-[20deg]" />
+			</div>
+		</div>
 	</div>
 </section>
 
@@ -130,6 +144,7 @@
 	<TestimonialCardList />
 </section>
 
+<!-- HOW WE HELP YOU -->
 <section class="container-base py-20 flex flex-col gap-6">
 	<h2 class="text-center">How GetFrenchClasses helps you</h2>
 	<p class="text-center mb-10 max-w-[46ch] md:max-w-[64ch] mx-auto">
@@ -180,31 +195,13 @@
 	</div>
 </section>
 
-<TestimonialCta {...dummyTestimonialCta} />
-
+<!-- WHY CHOOSE GFC -->
 <section class="container-base py-20 flex flex-col gap-6">
 	<h2 class="text-center">Why choose GetFrenchClasses</h2>
 	<p class="text-center mx-auto max-w-[46ch] md:max-w-[64ch]">
 		Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio alias numquam cupiditate soluta?
 		Placeat accusamus iste eum deserunt explicabo. Quos!
 	</p>
-</section>
-
-<!-- Features -->
-<section class="py-24 space-y-11">
-	<div class="space-y-5 container-base">
-		<h2 class="text-center">{homepageData?.featuresHeading[0].heading}</h2>
-
-		<p class="mx-auto text-sm text-center md:w-4/12">
-			{@html homepageData?.featuresHeading[0].subheading}
-		</p>
-
-		<div class="flex-s-center">
-			<a href={homepageData?.featuresCta[0].link} class="action-base w-fit"
-				>{homepageData?.featuresCta[0].text}</a
-			>
-		</div>
-	</div>
 
 	<div class="container-sm grid grid-cols-2 gap-8 sm:gap-16 lg:grid-cols-3">
 		{#if homepageData && homepageData?.featureCards.length > 0}
@@ -225,71 +222,59 @@
 	</div>
 </section>
 
-<!-- Learn About Us  -->
-<section class="container-base flex flex-col items-center justify-between gap-24 py-24 sm:flex-row">
-	<div class="flex flex-col gap-4 space-y-6">
-		<div class="w-full space-y-5">
-			<h2 class="md:tracking-tighter md:w-1/2">
-				{homepageData?.about[0].title}
-			</h2>
+<TestimonialCta {...dummyTestimonialCta} />
 
-			<div>
-				<!-- TODO: FIGURE OUT THE CAUSE OF THIS TYPE ERROR -->
-				<!-- prettier-ignore -->
-				<StructuredText richText={homepageData?.about[0].content[0]
-        // @ts-ignore
-        .richText} class="md:w-8/12" />
-			</div>
-		</div>
+<section class="container-base py-20 flex flex-col gap-6">
+	<h2 class="text-center">How it works</h2>
+	<p class="text-center mx-auto max-w-[46ch] md:max-w-[64ch]">
+		Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio alias numquam cupiditate soluta?
+		Placeat accusamus iste eum deserunt explicabo. Quos!
+	</p>
 
-		<a href={homepageData?.about[0].cta[0].link} class="action-base w-fit">
-			{homepageData?.about[0].cta[0].text}
-		</a>
-	</div>
-
-	<div class="">
-		<!-- TODO: UNCOMMENT THIS -->
-		<!-- <img
-      src={homepageData?.about[0].media?.url}
-      alt={homepageData?.about[0].media?.alt}
-      loading="lazy"
-      class=""
-    /> -->
-	</div>
-</section>
-
-{#if homepageData && homepageData?.multipleTestimonials.length > 0}
-	<HomeTestimonials />
-{/if}
-
-<section class="flex flex-col items-center py-24 container-base space-y-11 md:flex-row">
-	<div class="space-y-3 md:space-y-6 md:w-1/2">
-		<h2 class="md:text-7xl md:tracking-tighter">
-			{homepageData?.statsHeading?.[0]?.heading}
-		</h2>
-		<a href={homepageData?.statsAction[0].link} class="action-base w-fit md:text-base">
-			{homepageData?.statsAction[0].text}
-		</a>
-	</div>
-
-	{#if homepageData && homepageData?.statsData.length > 0}
-		<div class="space-y-12">
-			{#each homepageData.statsData as stat, i}
-				<div class="flex-s-evenly {i % 2 !== 0 ? 'flex-row-reverse' : ''}">
-					<img
-						class="w-5/12"
-						src={homepageData.statsImages[i].url}
-						alt={homepageData.statsImages[i].alt}
-					/>
-					<p>
-						<span class="text-2xl">{stat.heading}</span>
-						{@html stat.subheading}
-					</p>
+	<div class="max-md:max-w-sm max-md:mx-auto">
+		{#each howWeHelpYou as item, i}
+			<div
+				class={cn(
+					"flex flex-col max-md:gap-5 md:flex-row md:items-stretch",
+					i % 2 !== 0 && "md:flex-row-reverse"
+				)}
+			>
+				<div class="flex-1 flex-s-center">
+					<div class="bg-red-400 lg:size-[400px]">
+						<img
+							class="object-cover object-center size-full"
+							src="https://picsum.photos/200/300"
+							alt=""
+						/>
+					</div>
 				</div>
-			{/each}
-		</div>
-	{/if}
+
+				<div class="flex-1 flex items-center">
+					<div>
+						<h3>{item.title}</h3>
+						<br />
+						<p>
+							Excellent freelance writers are rare, expensive, busy, and not dedicated to your
+							company.
+						</p>
+
+						<p>
+							Excellent freelance writers are rare, expensive, busy, and not dedicated to your
+							company.
+						</p>
+
+						<p>
+							Excellent freelance writers are rare, expensive, busy, and not dedicated to your
+							company.
+						</p>
+					</div>
+				</div>
+			</div>
+		{/each}
+	</div>
 </section>
+
+<TestimonialCta {...dummyTestimonialCta} />
 
 <!-- FAQ -->
 <section class="py-24 text-center space-y-11 container-base" id="faq">
