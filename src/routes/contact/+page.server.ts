@@ -2,16 +2,16 @@ import { getCourseBySlug } from "$lib/graphql/queries/courses";
 import { error } from "@sveltejs/kit";
 
 export const load = async ({ params }) => {
-  const course = await getCourseBySlug(params.Course);
+	const course = await getCourseBySlug(params.Course);
 
-  if (!course) {
-    throw error(404, "Course not found");
-  }
+	if (!course) {
+		throw error(404, "Course not found");
+	}
 
-  return {
-    course: {
-      ...course,
-      seo: course.seo[0].seoBlock,
-    },
-  };
+	return {
+		course: {
+			...course,
+			seo: course.seo[0].seoBlock,
+		},
+	};
 };

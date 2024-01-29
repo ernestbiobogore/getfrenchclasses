@@ -4,22 +4,22 @@ import { defineConfig } from "vite";
 import { sveltekit } from "@sveltejs/kit/vite";
 
 export default defineConfig({
-  plugins: [
-    sveltekit(),
+	plugins: [
+		sveltekit(),
 
-    // icons are gotten from https://icones.js.org/
-    Icons({ compiler: "svelte", scale: 1 }),
+		// icons are gotten from https://icones.js.org/
+		Icons({ compiler: "svelte", scale: 1 }),
 
-    svg({
-      includePaths: ["./src/lib/icons/"],
-      svgoOptions: {
-        plugins: [
-          {
-            name: "preset-default",
-            params: { overrides: { removeViewBox: false } },
-          },
-        ],
-      },
-    }),
-  ],
+		svg({
+			includePaths: ["./src/lib/icons/"],
+			svgoOptions: {
+				plugins: [
+					{
+						name: "preset-default",
+						params: { overrides: { removeViewBox: false } },
+					},
+				],
+			},
+		}),
+	],
 });
