@@ -1,0 +1,107 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#nprogress .bar {
+  @apply !bg-night;
+}
+
+@layer base {
+  body {
+    @apply font-inter bg-magnolia text-night relative overflow-x-hidden;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: var(--scroll-padding-top, 162px);
+  }
+
+  /* Headings */
+  h1 {
+    @apply text-[2.5rem]/[2.75rem] -tracking-[0.175rem] md:text-[4.375rem]/[5.25rem] font-medium md:-tracking-[0.25rem];
+  }
+
+  h2 {
+    @apply text-2xl/[2.1rem] -tracking-[0.15rem] font-medium md:text-[2.75rem]/[3.3rem] md:-tracking-[0.1rem];
+  }
+
+  h3 {
+    @apply text-2xl/[2.275rem] sm:text-[1.75rem]/[2.275rem] -tracking-[0.1rem];
+  }
+
+  /* Paragraphs */
+  p {
+    @apply text-base leading-[1.6875rem] -tracking-[0.03rem];
+  }
+
+  /* Lists */
+  ul {
+    @apply pl-8;
+  }
+
+  .flex-s-center {
+    @apply flex justify-center items-center;
+  }
+
+  .flex-s-start {
+    @apply flex items-center;
+  }
+
+  .flex-s-between {
+    @apply flex justify-between items-center;
+  }
+
+  .flex-s-evenly {
+    @apply flex justify-evenly items-center;
+  }
+
+  .flex-s-end {
+    @apply flex justify-end items-center;
+  }
+
+  .flex-s-center-start {
+    @apply flex justify-center items-start;
+  }
+
+  .flex-s-start-start {
+    @apply flex justify-start items-start;
+  }
+}
+
+@layer components {
+  /* Actions */
+  .action {
+    @apply flex items-center justify-center px-6 py-3 text-xs font-medium rounded-lg;
+  }
+
+  .action-base {
+    @apply text-white bg-night action;
+  }
+
+  .action-white {
+    @apply text-night bg-white action;
+  }
+
+  /* Containers */
+  .container-base {
+    @apply px-4 mx-auto max-w-7xl;
+  }
+
+  .container-sm {
+    @apply max-w-5xl px-4 mx-auto;
+  }
+
+  .about-hero-images {
+    display: grid;
+    gap: 4rem;
+    grid-template-rows: auto auto;
+    grid-template-columns: 1fr 1.5fr 1fr;
+    grid-auto-columns: 1fr;
+    align-items: center;
+  }
+  .center-image {
+    grid-column-start: 1;
+    grid-row-start: 1;
+    grid-row-end: 2;
+  }
+}

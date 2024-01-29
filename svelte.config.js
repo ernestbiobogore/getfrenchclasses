@@ -1,19 +1,22 @@
-import { preprocessMeltUI } from '@melt-ui/pp';
-import adapter from '@sveltejs/adapter-vercel';
-import { vitePreprocess } from '@sveltejs/kit/vite';
-import sequence from 'svelte-sequential-preprocessor';
+import adapter from "@sveltejs/adapter-vercel";
+import { vitePreprocess } from "@sveltejs/vite-plugin-svelte";
 
-/** @type {import('@sveltejs/kit').Config}*/
+/** @type {import('@sveltejs/kit').Config} */
 const config = {
-	preprocess: sequence([vitePreprocess({}), preprocessMeltUI()]),
-	kit: {
-		adapter: adapter(),
-		alias: {
-			$styles: 'src/styles'
-		}
-	},
-	vitePlugin: {
-		inspector: true
-	}
+  // Consult https://kit.svelte.dev/docs/integrations#preprocessors
+  // for more information about preprocessors
+  preprocess: vitePreprocess(),
+
+  kit: {
+    adapter: adapter(),
+    alias: {
+      $styles: "src/styles",
+    },
+  },
+
+  vitePlugin: {
+    inspector: true,
+  },
 };
+
 export default config;
