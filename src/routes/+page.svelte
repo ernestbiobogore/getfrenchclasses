@@ -3,7 +3,6 @@
 
 	import AvatarsGroup from "$lib/components/AvatarsGroup.svelte";
 	import FaqAccordion from "$lib/components/FaqAccordion.svelte";
-	import HomeTestimonials from "./_components/HomeTestimonials.svelte";
 	import StructuredText from "$lib/components/dato/StructuredText/index.svelte";
 	import TestimonialCardList from "$lib/components/TestimonialCardList.svelte";
 	import TestimonialCta from "./_components/TestimonialCta.svelte";

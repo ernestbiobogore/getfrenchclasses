@@ -15,7 +15,7 @@
 
 <div class="flex">
 	<!-- People images -->
-	{#each avatars as avatar, i}
+	{#each avatars as avatar}
 		<img
 			class="rounded-full border-2 border-white first:!ml-0"
 			src={avatar.src}
