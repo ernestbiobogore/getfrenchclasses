@@ -22,7 +22,8 @@
 		{
 			id: crypto.randomUUID(),
 			author: "John Doe",
-			content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. .",
+			content:
+				"Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.  <br /> <br /> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
 			rotate: /*tw*/ "lg:rotate-2",
 		},
 
@@ -44,19 +45,32 @@
 	];
 </script>
 
-<Masonry gridGap="20px">
+<Masonry gridGap="24px">
 	{#each testimonials as testimonial}
-		<div class="bg-pink-200 p-4 {testimonial.rotate}">
+		<div class="card {testimonial.rotate}">
 			<div class="flex-s-start gap-2">
-				<div class="size-[28px] bg-red-600 rounded-full">
-					<img src="" alt="" />
+				<div class="bg-red-600 rounded-full">
+					<img class="rounded-full" src="" alt="" width="32" height="32" />
 				</div>
 				<div class="">{testimonial.author}</div>
 			</div>
 
 			<p>
-				{testimonial.content}
+				{@html testimonial.content}
 			</p>
 		</div>
 	{/each}
 </Masonry>
+
+<style>
+	.card {
+		@apply rounded-lg space-y-2 bg-[#FFECEF] p-4;
+		border: 1px solid #415462;
+		box-shadow:
+			25px 25px 0px 0px rgba(255, 240, 245, 0.1),
+			20px 20px 0px 0px rgba(255, 192, 203, 0.3),
+			15px 15px 0px 0px rgba(255, 182, 193, 0.5),
+			10px 10px 0px 0px rgba(255, 105, 180, 0.7),
+			5px 5px 0px 0px rgba(247, 54, 249, 0.7);
+	}
+</style>

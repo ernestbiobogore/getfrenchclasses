@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { onMount, onDestroy, getContext, setContext, tick } from "svelte";
 	export let stretchFirst = false,
 		gridGap = "0.5em",
@@ -7,7 +7,7 @@
 	let grids = [],
 		masonryElement;
 
-	export let reset;
+	export let reset = false; // reset the layout
 	$: if (reset) {
 		masonryElement = masonryElement;
 	}
