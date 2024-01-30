@@ -89,9 +89,8 @@
 </section>
 
 <!-- TESTIMONIAL VIDEO -->
-<!-- TODO: ADD ARROW WITH TEXT DESCRIPTION POINTING TO VIDEO -->
 <section class="container-sm max-w-3xl md:p-0">
-	<div class="p-2 bg-white shadow-2xl rounded-xl relative md:max-w-lg lg:max-w-xl">
+	<div class="p-1 bg-white shadow-2xl rounded-xl relative md:max-w-lg lg:max-w-xl">
 		<video class="w-full h-full rounded-lg" src={dummyVideo} controls>
 			<track kind="captions" />
 		</video>
