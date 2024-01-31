@@ -3,6 +3,8 @@
 	import Circle1 from "$lib/images/circle1.png";
 	import Circle2 from "$lib/images/circle2.png";
 	import Triangle from "$lib/images/triangle.png";
+	import CourseSectionDivider from "./CourseSectionDivider.svelte";
+	import FilterCourses from "./FilterCourses.svelte";
 
 	export let data;
 	$: ({ allCourses } = data);
@@ -17,15 +19,44 @@
 		Courses to guide to you to a <br /> stronger financial future.
 	</h2>
 	<p>Explore our comprehensive range of financial courses</p>
-</section>
 
-<section class="gap-8 container-base py-7">
-	<div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-		{#each allCourses as course}
-			<CourseCard {course} />
-		{/each}
+	<div class="max-w-3xl mx-auto">
+		<!-- CTA BUTTON -->
+		<a href={"/"} class="action-base w-full text-base md:text-lg"
+			>Take a language assessment course</a
+		>
 	</div>
 </section>
+
+<section class="container-base pt-10">
+	<FilterCourses />
+</section>
+
+<section>
+	<CourseSectionDivider label="Beginner" />
+
+	<div class="gap-8 container-base">
+		<div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+			{#each allCourses as course}
+				<CourseCard {course} />
+			{/each}
+		</div>
+	</div>
+</section>
+
+<section>
+	<CourseSectionDivider label="Advanced" />
+
+	<div class="gap-8 container-base">
+		<div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+			{#each allCourses as course}
+				<CourseCard {course} />
+			{/each}
+		</div>
+	</div>
+</section>
+
+<br /><br />
 
 <section class="container-base relative">
 	<div class=" m-auto space-y-5 bg-night rounded-2xl h-96 w-full">
