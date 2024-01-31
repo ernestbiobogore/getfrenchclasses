@@ -3,13 +3,13 @@
 
 	import AvatarsGroup from "$lib/components/AvatarsGroup.svelte";
 	import FaqAccordion from "$lib/components/FaqAccordion.svelte";
-	import StructuredText from "$lib/components/dato/StructuredText/index.svelte";
 	import TestimonialCardList from "$lib/components/TestimonialCardList.svelte";
-	import TestimonialCta from "./_components/TestimonialCta.svelte";
+	import StructuredText from "$lib/components/dato/StructuredText/index.svelte";
 	import { cn, getSampleAvatars } from "$lib/utils";
+	import TestimonialCta from "./_components/TestimonialCta.svelte";
 
-	import PhSmiley from "~icons/ph/smiley";
 	import PhArrowBendDownLeftFill from "~icons/ph/arrow-bend-down-left-fill";
+	import PhSmiley from "~icons/ph/smiley";
 
 	export let data;
 	$: ({ homepageData } = data);
@@ -65,7 +65,7 @@
 <!-- HERO -->
 <section class="p-3 md:py-20 container-base">
 	<div class="w-full mx-auto space-y-6 md:max-w-3xl">
-		<h1 class="text-">{homepageData?.heroTitle}</h1>
+		<h1>{homepageData?.heroTitle}</h1>
 		<p class="hero-subtitle">
 			{@html homepageData?.heroSubtitle}
 		</p>
