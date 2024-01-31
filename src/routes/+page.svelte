@@ -65,7 +65,7 @@
 <!-- HERO -->
 <section class="p-3 md:py-20 container-base">
 	<div class="w-full mx-auto space-y-6 md:max-w-3xl">
-		<h1 class="text-">{homepageData?.heroTitle}</h1>
+		<h1>{homepageData?.heroTitle}</h1>
 		<p class="hero-subtitle">
 			{@html homepageData?.heroSubtitle}
 		</p>

@@ -14,10 +14,10 @@
 	<title>All our Courses - GetFrenchClasses</title>
 </svelte:head>
 
-<section class="p-3 md:py-20 container-base text-center space-y-5">
-	<h2 class="tracking-tight text-7xl">
+<section class="p-3 md:py-20 container-base md:text-center space-y-5">
+	<h1>
 		Courses to guide to you to a <br /> stronger financial future.
-	</h2>
+	</h1>
 	<p>Explore our comprehensive range of financial courses</p>
 
 	<div class="max-w-3xl mx-auto">

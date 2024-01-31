@@ -15,7 +15,6 @@
 	};
 </script>
 
-<!-- TODO: FIGURE OUT A WAY TO MAKE LABELS TRIGGER SELECT -->
 <Select.Root multiple onSelectedChange={selected => {}}>
 	<Select.Trigger
 		class="inline-flex h-[3rem] min-w-[229px] gap-2 items-center rounded-[9px] border border-1 bg-white px-[11px] text-sm transition-colors"
