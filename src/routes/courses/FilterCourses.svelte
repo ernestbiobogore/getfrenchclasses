@@ -1,9 +1,9 @@
 <script lang="ts">
+	import { flyAndScale } from "$lib/utils";
+	import { Select } from "bits-ui";
 	import Check from "~icons/lucide/check";
 	import ChevronUpDown from "~icons/lucide/chevrons-up-down";
 	import ListFilter from "~icons/lucide/list-filter";
-	import { Select } from "bits-ui";
-	import { flyAndScale } from "$lib/utils";
 
 	const options = {
 		levels: [
