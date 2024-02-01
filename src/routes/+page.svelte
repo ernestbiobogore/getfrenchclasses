@@ -5,8 +5,8 @@
 	import FaqAccordion from "$lib/components/FaqAccordion.svelte";
 	import TestimonialCardList from "$lib/components/TestimonialCardList.svelte";
 	import StructuredText from "$lib/components/dato/StructuredText/index.svelte";
+	import TestimonialCta from "$lib/components/cta-section/TestimonialCta.svelte";
 	import { cn, getSampleAvatars } from "$lib/utils";
-	import TestimonialCta from "./_components/TestimonialCta.svelte";
 
 	import PhArrowBendDownLeftFill from "~icons/ph/arrow-bend-down-left-fill";
 	import PhSmiley from "~icons/ph/smiley";

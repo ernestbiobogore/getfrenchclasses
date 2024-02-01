@@ -1,6 +1,6 @@
 <script lang="ts">
 	import AvatarsGroup from "$lib/components/AvatarsGroup.svelte";
-	import CourseCtaBanner from "./components/CourseCtaBanner.svelte";
+	import CourseCtaBanner from "$lib/components/cta-section/CourseCtaBanner.svelte";
 	import CourseSyllabus from "./components/CourseSyllabus.svelte";
 	import FaqAccordion from "$lib/components/FaqAccordion.svelte";
 	import TestimonialCardList from "$lib/components/TestimonialCardList.svelte";

@@ -1,7 +1,12 @@
 <script lang="ts">
 	import StructuredText from "$lib/components/dato/StructuredText/index.svelte";
-	import BlogCta, { type CTAProps } from "$lib/components/BlogCTA.svelte";
+	import BlogCta, { type CTAProps } from "$lib/components/cta-section/BlogCta.svelte";
 	import { cn, generateShareOptions, getSampleAvatars, getShareLinks } from "$lib/utils";
+
+	import Fa6BrandsXTwitter from "~icons/fa6-brands/x-twitter";
+	import LucideFacebook from "~icons/lucide/facebook";
+	import LucideLinkedin from "~icons/lucide/linkedin";
+	import PhRedditLogoBold from "~icons/ph/reddit-logo-bold";
 
 	export let data;
 	$: postCta = data.post?.cta[0];
@@ -50,28 +55,28 @@
 				href={twitterShareUrl}
 				class="inline-flex-s-center gap-1 px-2 rounded-lg border border-gray-400"
 			>
-				<div class="i-fa6-brands-x-twitter" />
+				<Fa6BrandsXTwitter />
 				<span>Share on Twitter</span>
 			</a>
 			<a
 				href={facebookShareUrl}
 				class="inline-flex-s-center gap-1 px-1 rounded-lg border border-gray-400"
 			>
-				<div class="i-lucide-facebook text-lg" />
+				<LucideFacebook class="text-lg" />
 				<span>Share on Facebook</span>
 			</a>
 			<a
 				href={linkedInShareUrl}
 				class="inline-flex-s-center gap-1 px-2 rounded-lg border border-gray-400"
 			>
-				<div class="i-lucide-linkedin text-lg" />
+				<LucideLinkedin class="text-lg" />
 				<span>Share on LinkedIn</span>
 			</a>
 			<a
 				href={redditShareUrl}
 				class="inline-flex-s-center gap-1 px-2 rounded-lg border border-gray-400"
 			>
-				<div class="i-ph-reddit-logo-bold text-lg" />
+				<PhRedditLogoBold class="text-lg" />
 				<span>Share on Reddit</span>
 			</a>
 		</div>
@@ -90,7 +95,7 @@
 
 		<aside class="basis-3/12">
 			{#if postCta}
-				<div class="b-2 h-fit rounded-md border-gray-500 lg:(sticky top-20)">
+				<div class="border-2 h-fit rounded-md border-gray-500 lg:sticky lg:top-20">
 					<div class="p-6 bg-night">
 						<p class="text-(sm neutral-300) font-bold">{postCta.title}</p>
 					</div>
