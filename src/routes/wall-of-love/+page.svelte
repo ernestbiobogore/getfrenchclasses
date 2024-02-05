@@ -3,6 +3,10 @@
 	import GenericCta from "$lib/components/cta-section/GenericCta.svelte";
 </script>
 
+<svelte:head>
+	<title>Wall of Love - GetFrenchClasses</title>
+</svelte:head>
+
 <section class="container-base py-10">
 	<div class="text-center pb-10">
 		<h1>Wall of love</h1>
