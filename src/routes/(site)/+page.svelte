@@ -4,8 +4,8 @@
 	import AvatarsGroup from "$lib/components/AvatarsGroup.svelte";
 	import FaqAccordion from "$lib/components/FaqAccordion.svelte";
 	import TestimonialCardList from "$lib/components/TestimonialCardList.svelte";
-	import StructuredText from "$lib/components/dato/StructuredText/index.svelte";
 	import TestimonialCta from "$lib/components/cta-section/TestimonialCta.svelte";
+	import StructuredText from "$lib/components/dato/StructuredText/index.svelte";
 	import { cn, getSampleAvatars } from "$lib/utils";
 
 	import PhArrowBendDownLeftFill from "~icons/ph/arrow-bend-down-left-fill";
@@ -63,7 +63,7 @@
 </svelte:head>
 
 <!-- HERO -->
-<section class="p-3 md:py-20 container-base">
+<section class="p-3 py-20 container-base">
 	<div class="w-full mx-auto space-y-6 md:max-w-3xl">
 		<h1>{homepageData?.heroTitle}</h1>
 		<p class="hero-subtitle">
@@ -71,8 +71,8 @@
 		</p>
 
 		<!-- CTA BUTTON -->
-		<a href={homepageData?.heroCta[0].link} class="action-base w-full text-lg"
-			>{homepageData?.heroCta[0].text}</a
+		<a href={homepageData?.heroCta?.link} class="action-base w-full text-lg"
+			>{homepageData?.heroCta?.text}</a
 		>
 
 		<div class="flex-s-center gap-4">
@@ -88,57 +88,58 @@
 </section>
 
 <!-- TESTIMONIAL VIDEO -->
-<section class="container-sm max-w-3xl md:p-0">
-	<div class="p-1 bg-white shadow-2xl rounded-xl relative md:max-w-lg lg:max-w-xl">
-		<video class="w-full h-full rounded-lg" src={dummyVideo} controls>
-			<track kind="captions" />
-		</video>
+{#if homepageData?.heroVideo?.url}
+	<section class="container-sm max-w-3xl md:p-0">
+		<div class="p-1 bg-white shadow-2xl rounded-xl relative md:max-w-lg lg:max-w-xl">
+			<video class="w-full h-full rounded-lg" src={homepageData?.heroVideo?.url} controls>
+				<track kind="captions" />
+			</video>
 
-		<div
-			class="max-md:hidden absolute left-full top-1/2 -translate-y-[45%] h-[100px] w-[400px] flex items-center"
-		>
-			<div>
-				<h3
-					class="absolute text-center translate-x-[10px] -translate-y-[30px] max-w-[16ch] text-2xl italic"
-				>
-					This took 9 mins to write and only cost $12
-				</h3>
-				<PhArrowBendDownLeftFill class="text-[100px] text-[#3EAED0] rotate-[20deg]" />
+			<div
+				class="max-md:hidden absolute left-full top-1/2 -translate-y-[45%] h-[100px] w-[400px] flex items-center"
+			>
+				<div>
+					<h3
+						class="absolute text-center translate-x-[10px] -translate-y-[30px] max-w-[16ch] text-2xl italic"
+					>
+						{homepageData?.heroVideoText}
+					</h3>
+					<PhArrowBendDownLeftFill class="text-[100px] text-[#3EAED0] rotate-[20deg]" />
+				</div>
 			</div>
 		</div>
-	</div>
-</section>
+	</section>
+{/if}
 
 <!-- TARGET AUDIENCE -->
-<section class="container-base flex flex-col gap-6 py-20">
-	<h2 class="text-center">Who is GetFrenchClasses for?</h2>
-	<p class="text-center mx-auto max-w-[46ch] md:max-w-[64ch]">
-		Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio alias numquam cupiditate soluta?
-		Placeat accusamus iste eum deserunt explicabo. Quos!
-	</p>
+{#if homepageData?.targetAudiences && homepageData.targetAudiences.length > 0}
+	<section class="container-base flex flex-col gap-6 py-20">
+		<h2 class="text-center">{homepageData?.targetAudienceHeading?.heading}</h2>
+		<p class="text-center mx-auto max-w-[46ch] md:max-w-[64ch]">
+			{@html homepageData?.targetAudienceHeading?.subheading}
+		</p>
 
-	<!-- CARDS LIST -->
-	<div class="grid gap-6 max-md:max-w-sm max-md:mx-auto md:mt-8 md:grid-cols-2 lg:grid-cols-3">
-		{#each targetAudienceData as info}
-			<!-- CARD -->
-			<div class="bg-white p-4 rounded-xl md:p-5">
-				<!-- ICON -->
-				<div class="relative mb-2">
-					<!-- <div class="absolute top-0 left-0 -translate-y-8 md:-translate-y-9"> -->
-					<svelte:component this={info.icon} class="text-3xl text-[#3EAED0]" />
-					<!-- </div> -->
+		<!-- CARDS LIST -->
+		<div class="grid gap-6 max-md:max-w-sm max-md:mx-auto md:mt-8 md:grid-cols-2 lg:grid-cols-3">
+			{#each homepageData.targetAudiences as info}
+				<!-- CARD -->
+				<div class="bg-white p-4 rounded-xl md:p-5">
+					<!-- ICON -->
+					<div class="relative mb-2">
+						<img src={info.media?.url} alt={info.media?.alt} class="w-12 h-12" />
+					</div>
+
+					<div class="font-semibold mb-2 text-lg">{info.title}</div>
+					<StructuredText richText={info.content?.richText} />
 				</div>
-
-				<div class="font-semibold mb-2 text-lg">{info.title}</div>
-				<p class="text-gray-600">{info.description}</p>
-			</div>
-		{/each}
-	</div>
-</section>
+			{/each}
+		</div>
+	</section>
+{/if}
 
 <TestimonialCta {...dummyTestimonialCta} />
 
-<section class="container-base">
+<section class="container-base py-20">
 	<TestimonialCardList />
 </section>
 
@@ -205,15 +206,11 @@
 		{#if homepageData && homepageData?.featureCards.length > 0}
 			{#each homepageData.featureCards as card}
 				<div class="space-y-4">
-					<img src={card.media?.url} alt={card.media?.alt} loading="lazy" class="size-5" />
+					{#if card.media?.url}
+						<img src={card.media.url} alt={card.media.alt} loading="lazy" class="size-5" />
+					{/if}
 
-					<!-- TODO: FIGURE OUT THE CAUSE OF THIS TYPE ERROR -->
-					<!-- prettier-ignore -->
-					<StructuredText
-            richText={card.content[0]
-            // @ts-ignore            
-            .richText}
-          />
+					<StructuredText richText={card.content?.richText} />
 				</div>
 			{/each}
 		{/if}
@@ -275,7 +272,7 @@
 <TestimonialCta {...dummyTestimonialCta} />
 
 <!-- FAQ -->
-<section class="py-24 text-center space-y-11 container-base" id="faq">
+<section class="py-20 text-center space-y-11 container-base" id="faq">
 	<div class="space-y-5">
 		<h2>{homepageData?.faqHeading[0].heading}</h2>
 

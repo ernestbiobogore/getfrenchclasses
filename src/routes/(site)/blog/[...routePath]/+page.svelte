@@ -1,6 +1,6 @@
 <script lang="ts">
-	import StructuredText from "$lib/components/dato/StructuredText/index.svelte";
 	import BlogCta, { type CTAProps } from "$lib/components/cta-section/BlogCta.svelte";
+	import StructuredText from "$lib/components/dato/StructuredText/index.svelte";
 	import { cn, generateShareOptions, getSampleAvatars, getShareLinks } from "$lib/utils";
 
 	import Fa6BrandsXTwitter from "~icons/fa6-brands/x-twitter";
@@ -100,7 +100,7 @@
 						<p class="text-(sm neutral-300) font-bold">{postCta.title}</p>
 					</div>
 
-					<StructuredText richText={postCta.content[0].richText} class="p-6 space-y-4" />
+					<StructuredText richText={postCta.content?.richText} class="p-6 space-y-4" />
 
 					<div class="p-6 bg-night">
 						<a href={postCta.cta[0].link} class="action-white w-fit text-sm rounded-none"
