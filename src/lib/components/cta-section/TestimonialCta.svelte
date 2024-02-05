@@ -8,15 +8,18 @@
 </script>
 
 <script lang="ts">
-	import CarbonQuotes from "~icons/carbon/quotes";
 	import { cn } from "$lib/utils";
+	import CarbonQuotes from "~icons/carbon/quotes";
 
 	export let author: Author;
 	export let quote = "";
 	export let video = "";
+	export { className as class };
+
+	let className: string | undefined = "";
 </script>
 
-<section class="container-base py-10">
+<section class={cn("container-base py-20", className)}>
 	<div
 		class="p-5 flex flex-col gap-5 md:p-8 md:gap-8 lg:p-12"
 		style="border-radius: 20px;

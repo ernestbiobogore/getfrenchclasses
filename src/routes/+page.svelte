@@ -4,8 +4,8 @@
 	import AvatarsGroup from "$lib/components/AvatarsGroup.svelte";
 	import FaqAccordion from "$lib/components/FaqAccordion.svelte";
 	import TestimonialCardList from "$lib/components/TestimonialCardList.svelte";
-	import StructuredText from "$lib/components/dato/StructuredText/index.svelte";
 	import TestimonialCta from "$lib/components/cta-section/TestimonialCta.svelte";
+	import StructuredText from "$lib/components/dato/StructuredText/index.svelte";
 	import { cn, getSampleAvatars } from "$lib/utils";
 
 	import PhArrowBendDownLeftFill from "~icons/ph/arrow-bend-down-left-fill";
@@ -63,7 +63,7 @@
 </svelte:head>
 
 <!-- HERO -->
-<section class="p-3 md:py-20 container-base">
+<section class="p-3 py-20 container-base">
 	<div class="w-full mx-auto space-y-6 md:max-w-3xl">
 		<h1>{homepageData?.heroTitle}</h1>
 		<p class="hero-subtitle">
@@ -138,7 +138,7 @@
 
 <TestimonialCta {...dummyTestimonialCta} />
 
-<section class="container-base">
+<section class="container-base py-20">
 	<TestimonialCardList />
 </section>
 
@@ -275,7 +275,7 @@
 <TestimonialCta {...dummyTestimonialCta} />
 
 <!-- FAQ -->
-<section class="py-24 text-center space-y-11 container-base" id="faq">
+<section class="py-20 text-center space-y-11 container-base" id="faq">
 	<div class="space-y-5">
 		<h2>{homepageData?.faqHeading[0].heading}</h2>
 
