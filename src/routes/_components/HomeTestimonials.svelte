@@ -1,8 +1,8 @@
 <script lang="ts">
-	import StructuredText from "$lib/components/dato/StructuredText/index.svelte";
-	import type { PageData } from "../$types";
-	import { Tabs } from "bits-ui";
 	import { page } from "$app/stores";
+	import StructuredText from "$lib/components/dato/StructuredText/index.svelte";
+	import { Tabs } from "bits-ui";
+	import type { PageData } from "../$types";
 
 	$: testimonials = ($page.data as PageData).homepageData?.multipleTestimonials;
 
@@ -35,7 +35,7 @@
 
 					<div class="space-y-5 basis-6/12">
 						<h3>{title}</h3>
-						<StructuredText richText={content[0].richText} />
+						<StructuredText richText={content?.richText} />
 
 						<div>
 							<p>{author}</p>

@@ -2981,7 +2981,7 @@ type TestimonialBlockRecord implements RecordInterface {
   _updatedAt: DateTime!
   author: String
   company: String
-  content: [RichTextBlockRecord!]!
+  content: RichTextBlockRecord
   id: ItemId!
   image: FileField
   role: String

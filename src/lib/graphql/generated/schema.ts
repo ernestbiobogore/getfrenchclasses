@@ -577,7 +577,7 @@ export interface TestimonialBlockRecord {
     _updatedAt: Scalars['DateTime']
     author: (Scalars['String'] | null)
     company: (Scalars['String'] | null)
-    content: RichTextBlockRecord[]
+    content: (RichTextBlockRecord | null)
     id: Scalars['ItemId']
     image: (FileField | null)
     role: (Scalars['String'] | null)
