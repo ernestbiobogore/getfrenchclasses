@@ -12,7 +12,7 @@
 	<title>All our Courses - GetFrenchClasses</title>
 </svelte:head>
 
-<section class="p-3 md:py-20 container-base md:text-center space-y-5">
+<section class="container-base p-3 space-y-5 md:py-20 md:text-center">
 	<h1>
 		Courses to guide to you to a <br /> stronger financial future.
 	</h1>

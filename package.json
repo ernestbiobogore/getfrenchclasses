@@ -44,6 +44,8 @@
 		"clsx": "^2.1.0",
 		"datocms-structured-text-utils": "^3.0.0",
 		"nprogress": "^0.2.0",
-		"tailwind-merge": "^2.2.1"
+		"svelte-legos": "^0.2.2",
+		"tailwind-merge": "^2.2.1",
+		"tailwind-variants": "^0.1.20"
 	}
 }
