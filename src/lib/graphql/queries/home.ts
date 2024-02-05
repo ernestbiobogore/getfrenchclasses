@@ -20,6 +20,10 @@ const getHomePageData = async () => {
         url: true,
         alt: true,
       },
+      heroVideo: {
+        url: true,
+      },
+      heroVideoText: true,
 
       // Popular courses
       popularCoursesTitle: true,

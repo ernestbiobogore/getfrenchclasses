@@ -71,8 +71,8 @@
 		</p>
 
 		<!-- CTA BUTTON -->
-		<a href={homepageData?.heroCta[0].link} class="action-base w-full text-lg"
-			>{homepageData?.heroCta[0].text}</a
+		<a href={homepageData?.heroCta?.link} class="action-base w-full text-lg"
+			>{homepageData?.heroCta?.text}</a
 		>
 
 		<div class="flex-s-center gap-4">
@@ -88,26 +88,28 @@
 </section>
 
 <!-- TESTIMONIAL VIDEO -->
-<section class="container-sm max-w-3xl md:p-0">
-	<div class="p-1 bg-white shadow-2xl rounded-xl relative md:max-w-lg lg:max-w-xl">
-		<video class="w-full h-full rounded-lg" src={dummyVideo} controls>
-			<track kind="captions" />
-		</video>
+{#if homepageData?.heroVideo?.url}
+	<section class="container-sm max-w-3xl md:p-0">
+		<div class="p-1 bg-white shadow-2xl rounded-xl relative md:max-w-lg lg:max-w-xl">
+			<video class="w-full h-full rounded-lg" src={homepageData?.heroVideo?.url} controls>
+				<track kind="captions" />
+			</video>
 
-		<div
-			class="max-md:hidden absolute left-full top-1/2 -translate-y-[45%] h-[100px] w-[400px] flex items-center"
-		>
-			<div>
-				<h3
-					class="absolute text-center translate-x-[10px] -translate-y-[30px] max-w-[16ch] text-2xl italic"
-				>
-					This took 9 mins to write and only cost $12
-				</h3>
-				<PhArrowBendDownLeftFill class="text-[100px] text-[#3EAED0] rotate-[20deg]" />
+			<div
+				class="max-md:hidden absolute left-full top-1/2 -translate-y-[45%] h-[100px] w-[400px] flex items-center"
+			>
+				<div>
+					<h3
+						class="absolute text-center translate-x-[10px] -translate-y-[30px] max-w-[16ch] text-2xl italic"
+					>
+						{homepageData?.heroVideoText}
+					</h3>
+					<PhArrowBendDownLeftFill class="text-[100px] text-[#3EAED0] rotate-[20deg]" />
+				</div>
 			</div>
 		</div>
-	</div>
-</section>
+	</section>
+{/if}
 
 <!-- TARGET AUDIENCE -->
 <section class="container-base flex flex-col gap-6 py-20">
