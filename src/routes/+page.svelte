@@ -207,10 +207,10 @@
 		{#if homepageData && homepageData?.featureCards.length > 0}
 			{#each homepageData.featureCards as card}
 				<div class="space-y-4">
-					<img src={card.media?.url} alt={card.media?.alt} loading="lazy" class="size-5" />
+					{#if card.media?.url}
+						<img src={card.media.url} alt={card.media.alt} loading="lazy" class="size-5" />
+					{/if}
 
-					<!-- TODO: FIGURE OUT THE CAUSE OF THIS TYPE ERROR -->
-					<!-- prettier-ignore -->
 					<StructuredText richText={card.content?.richText} />
 				</div>
 			{/each}
