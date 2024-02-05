@@ -57,7 +57,7 @@ export interface CardBlockRecord {
     _status: ItemStatus
     _unpublishingScheduledAt: (Scalars['DateTime'] | null)
     _updatedAt: Scalars['DateTime']
-    content: RichTextBlockRecord[]
+    content: (RichTextBlockRecord | null)
     cta: ActionBlockRecord[]
     id: Scalars['ItemId']
     media: (FileField | null)

@@ -52,7 +52,7 @@ type CardBlockRecord implements RecordInterface {
   _status: ItemStatus!
   _unpublishingScheduledAt: DateTime
   _updatedAt: DateTime!
-  content: [RichTextBlockRecord!]!
+  content: RichTextBlockRecord
   cta: [ActionBlockRecord!]!
   id: ItemId!
   media: FileField

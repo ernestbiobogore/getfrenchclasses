@@ -211,11 +211,7 @@
 
 					<!-- TODO: FIGURE OUT THE CAUSE OF THIS TYPE ERROR -->
 					<!-- prettier-ignore -->
-					<StructuredText
-            richText={card.content[0]
-            // @ts-ignore            
-            .richText}
-          />
+					<StructuredText richText={card.content?.richText} />
 				</div>
 			{/each}
 		{/if}
