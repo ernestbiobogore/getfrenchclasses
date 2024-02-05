@@ -1,244 +1,298 @@
 <script lang="ts">
-  import FaqAccordion from "$lib/components/FaqAccordion.svelte";
-  import AvatarsGroup from "$lib/components/AvatarsGroup.svelte";
-  import CourseCard from "$lib/components/CourseCard.svelte";
-  import HomeTestimonials from "./_components/HomeTestimonials.svelte";
-  import StructuredText from "$lib/components/dato/StructuredText/index.svelte";
+	import "./+page.css"; // simpler than using <style> tags with global selectors
 
-  import ChevronRight from "~icons/lucide/chevron-right";
+	import AvatarsGroup from "$lib/components/AvatarsGroup.svelte";
+	import FaqAccordion from "$lib/components/FaqAccordion.svelte";
+	import StructuredText from "$lib/components/dato/StructuredText/index.svelte";
+	import TestimonialCardList from "$lib/components/TestimonialCardList.svelte";
+	import TestimonialCta from "./_components/TestimonialCta.svelte";
+	import { cn, getSampleAvatars } from "$lib/utils";
 
-  import Circle1 from "$lib/images/circle1.png";
-  import Circle2 from "$lib/images/circle2.png";
-  import Triangle from "$lib/images/triangle.png";
+	import PhSmiley from "~icons/ph/smiley";
+	import PhArrowBendDownLeftFill from "~icons/ph/arrow-bend-down-left-fill";
 
-  export let data;
-  $: ({ homepageData } = data);
+	export let data;
+	$: ({ homepageData } = data);
+
+	type TargetAudienceData = {
+		icon: any;
+		title: string;
+		description: string;
+	};
+
+	const dummyVideo =
+		"https://cdn.discordapp.com/attachments/1181304981576486962/1196953201669324901/Screen_Recording_2024-01-16_at_11.01.18_pm.mov?ex=65b98089&is=65a70b89&hm=2fbbd8a97dadc3e2b8fae343e65da65aa9bef9c0f863d77c370f92725af06402&";
+	const dummyDesc =
+		"Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas distinctio dicta accusamus, explicabo similique recusandae?";
+
+	let targetAudienceData: TargetAudienceData[] = [
+		{ icon: PhSmiley, title: "Students", description: dummyDesc },
+		{ icon: PhSmiley, title: "Professionals", description: dummyDesc },
+		{ icon: PhSmiley, title: "Travelers", description: dummyDesc },
+		{ icon: PhSmiley, title: "Students", description: dummyDesc },
+		{ icon: PhSmiley, title: "Professionals", description: dummyDesc },
+		{ icon: PhSmiley, title: "Travelers", description: dummyDesc },
+	];
+
+	const howWeHelpYou: any[] = Array.from({ length: 3 }).fill({
+		img: "",
+		title: "Get high quality articles in minutes, not weeks",
+	});
+
+	const dummyTestimonialCta = {
+		author: {
+			name: "Filipa Canelas",
+			avatar: getSampleAvatars()[0].src,
+			title: "Founder",
+			companies: ["Able-Academy"],
+		},
+		quote: `I've tried Jasper, CopyAI, ChatGPT and Rytr.
+    Penfriend is 10x better. The output from Penfriend
+    gives me a really solid foundation of content depth
+    that I can improve upon, in 80% less time.
+    The title suggestions are incredible, the outline is
+    really solid and the content length and depth is
+    IMPRESSIVE!`,
+
+		video: dummyVideo,
+	};
 </script>
 
 <svelte:head>
-  <title>Get French Classes</title>
+	<title>Get French Classes</title>
 </svelte:head>
 
-<!-- Hero -->
+<!-- HERO -->
 <section class="p-3 md:py-20 container-base">
-  <div class="w-full mx-auto space-y-8 md:w-8/12">
-    <h1 class="text-center">{homepageData?.heroTitle}</h1>
-    <p class="w-full mx-auto text-center md:w-7/12">
-      {@html homepageData?.heroSubtitle}
-    </p>
-    <div class="flex-s-center">
-      <a href={homepageData?.heroCta[0].link} class="action-base w-fit"
-        >{homepageData?.heroCta[0].text}</a
-      >
-    </div>
+	<div class="w-full mx-auto space-y-6 md:max-w-3xl">
+		<h1 class="text-">{homepageData?.heroTitle}</h1>
+		<p class="hero-subtitle">
+			{@html homepageData?.heroSubtitle}
+		</p>
 
-    <div class="flex-s-center gap-4">
-      <AvatarsGroup
-        avatars={homepageData?.heroTestimonialPictures.map(picture => ({
-          src: picture.url,
-          alt: String(picture.alt),
-        }))}
-      />
-      <p class="text-xs">{homepageData?.heroTestimonialTitle}</p>
-    </div>
-  </div>
+		<!-- CTA BUTTON -->
+		<a href={homepageData?.heroCta[0].link} class="action-base w-full text-lg"
+			>{homepageData?.heroCta[0].text}</a
+		>
+
+		<div class="flex-s-center gap-4">
+			<AvatarsGroup
+				avatars={homepageData?.heroTestimonialPictures.map(picture => ({
+					src: picture.url,
+					alt: String(picture.alt),
+				}))}
+			/>
+			<p class="text-xs">{homepageData?.heroTestimonialTitle}</p>
+		</div>
+	</div>
 </section>
 
-<!-- Popular Courses -->
-{#if homepageData && homepageData?.popularCoursesRecords.length > 0}
-  <section class="py-24 container-base space-y-11">
-    <div class="flex-s-between gap-x-7">
-      <h2>{homepageData?.popularCoursesTitle}</h2>
+<!-- TESTIMONIAL VIDEO -->
+<section class="container-sm max-w-3xl md:p-0">
+	<div class="p-1 bg-white shadow-2xl rounded-xl relative md:max-w-lg lg:max-w-xl">
+		<video class="w-full h-full rounded-lg" src={dummyVideo} controls>
+			<track kind="captions" />
+		</video>
 
-      <a
-        href="/courses"
-        class="flex-s-end w-4/12 gap-2 px-3 py-2 text-xs rounded-lg sm:w-auto hover-bg-gray-300"
-      >
-        <span>View All</span>
-        <div class="p-[0.125rem] bg-gray-900 rounded-full">
-          <ChevronRight class="text-white" />
-        </div>
-      </a>
-    </div>
+		<div
+			class="max-md:hidden absolute left-full top-1/2 -translate-y-[45%] h-[100px] w-[400px] flex items-center"
+		>
+			<div>
+				<h3
+					class="absolute text-center translate-x-[10px] -translate-y-[30px] max-w-[16ch] text-2xl italic"
+				>
+					This took 9 mins to write and only cost $12
+				</h3>
+				<PhArrowBendDownLeftFill class="text-[100px] text-[#3EAED0] rotate-[20deg]" />
+			</div>
+		</div>
+	</div>
+</section>
 
-    <div class="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-      {#each homepageData.popularCoursesRecords as course (course.id)}
-        <CourseCard {course} />
-      {/each}
-    </div>
-  </section>
-{/if}
+<!-- TARGET AUDIENCE -->
+<section class="container-base flex flex-col gap-6 py-20">
+	<h2 class="text-center">Who is GetFrenchClasses for?</h2>
+	<p class="text-center mx-auto max-w-[46ch] md:max-w-[64ch]">
+		Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio alias numquam cupiditate soluta?
+		Placeat accusamus iste eum deserunt explicabo. Quos!
+	</p>
 
-<!-- New Courses -->
-{#if homepageData && homepageData?.newCoursesRecords.length > 0}
-  <section class="py-24 container-base space-y-11">
-    <div class="flex-s-between gap-x-7">
-      <h2>{homepageData?.newCoursesTitle}</h2>
+	<!-- CARDS LIST -->
+	<div class="grid gap-6 max-md:max-w-sm max-md:mx-auto md:mt-8 md:grid-cols-2 lg:grid-cols-3">
+		{#each targetAudienceData as info}
+			<!-- CARD -->
+			<div class="bg-white p-4 rounded-xl md:p-5">
+				<!-- ICON -->
+				<div class="relative mb-2">
+					<!-- <div class="absolute top-0 left-0 -translate-y-8 md:-translate-y-9"> -->
+					<svelte:component this={info.icon} class="text-3xl text-[#3EAED0]" />
+					<!-- </div> -->
+				</div>
 
-      <a
-        href="/courses"
-        class="flex-s-end w-4/12 gap-2 px-3 py-2 text-xs rounded-lg sm:w-auto hover-bg-gray-300"
-      >
-        <span>View All</span>
-        <div class="p-[0.125rem] bg-gray-900 rounded-full">
-          <ChevronRight class="text-white" />
-        </div>
-      </a>
-    </div>
+				<div class="font-semibold mb-2 text-lg">{info.title}</div>
+				<p class="text-gray-600">{info.description}</p>
+			</div>
+		{/each}
+	</div>
+</section>
 
-    <div class="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-      {#each homepageData.newCoursesRecords as course (course.id)}
-        <CourseCard {course} />
-      {/each}
-    </div>
-  </section>
-{/if}
+<TestimonialCta {...dummyTestimonialCta} />
 
-<!-- Features -->
-<section class="py-24 space-y-11">
-  <div class="space-y-5 container-base">
-    <h2 class="text-center">{homepageData?.featuresHeading[0].heading}</h2>
+<section class="container-base">
+	<TestimonialCardList />
+</section>
 
-    <p class="mx-auto text-sm text-center md:w-4/12">
-      {@html homepageData?.featuresHeading[0].subheading}
-    </p>
+<!-- HOW WE HELP YOU -->
+<section class="container-base py-20 flex flex-col gap-6">
+	<h2 class="text-center">How GetFrenchClasses helps you</h2>
+	<p class="text-center mb-10 max-w-[46ch] md:max-w-[64ch] mx-auto">
+		Lorem ipsum, dolor sit amet consectetur adipisicing elit. Inventore rerum sapiente nulla quasi
+		assumenda.
+	</p>
 
-    <div class="flex-s-center">
-      <a href={homepageData?.featuresCta[0].link} class="action-base w-fit"
-        >{homepageData?.featuresCta[0].text}</a
-      >
-    </div>
-  </div>
+	<div class="max-md:max-w-sm max-md:mx-auto">
+		{#each howWeHelpYou as item, i}
+			<div
+				class={cn(
+					"flex flex-col max-md:gap-5 md:flex-row md:items-stretch",
+					i % 2 !== 0 && "md:flex-row-reverse"
+				)}
+			>
+				<div class="flex-1 flex-s-center">
+					<div class="bg-red-400 lg:size-[400px]">
+						<img
+							class="object-cover object-center size-full"
+							src="https://picsum.photos/200/300"
+							alt=""
+						/>
+					</div>
+				</div>
 
-  <div class="container-sm grid grid-cols-2 gap-8 sm:gap-16 lg:grid-cols-3">
-    {#if homepageData && homepageData?.featureCards.length > 0}
-      {#each homepageData.featureCards as card}
-        <div class="space-y-4">
-          <img src={card.media?.url} alt={card.media?.alt} loading="lazy" class="size-5" />
+				<div class="flex-1 flex items-center">
+					<div>
+						<h3>{item.title}</h3>
+						<br />
+						<p>
+							Excellent freelance writers are rare, expensive, busy, and not dedicated to your
+							company.
+						</p>
 
-          <!-- TODO: FIGURE OUT THE CAUSE OF THIS TYPE ERROR -->
-          <!-- prettier-ignore -->
-          <StructuredText
+						<p>
+							Excellent freelance writers are rare, expensive, busy, and not dedicated to your
+							company.
+						</p>
+
+						<p>
+							Excellent freelance writers are rare, expensive, busy, and not dedicated to your
+							company.
+						</p>
+					</div>
+				</div>
+			</div>
+		{/each}
+	</div>
+</section>
+
+<!-- WHY CHOOSE GFC -->
+<section class="container-base py-20 flex flex-col gap-6">
+	<h2 class="text-center">Why choose GetFrenchClasses</h2>
+	<p class="text-center mx-auto max-w-[46ch] md:max-w-[64ch]">
+		Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio alias numquam cupiditate soluta?
+		Placeat accusamus iste eum deserunt explicabo. Quos!
+	</p>
+
+	<div class="container-sm grid grid-cols-2 gap-8 sm:gap-16 lg:grid-cols-3">
+		{#if homepageData && homepageData?.featureCards.length > 0}
+			{#each homepageData.featureCards as card}
+				<div class="space-y-4">
+					<img src={card.media?.url} alt={card.media?.alt} loading="lazy" class="size-5" />
+
+					<!-- TODO: FIGURE OUT THE CAUSE OF THIS TYPE ERROR -->
+					<!-- prettier-ignore -->
+					<StructuredText
             richText={card.content[0]
             // @ts-ignore            
             .richText}
           />
-        </div>
-      {/each}
-    {/if}
-  </div>
+				</div>
+			{/each}
+		{/if}
+	</div>
 </section>
 
-<!-- Learn About Us  -->
-<section class="container-base flex flex-col items-center justify-between gap-24 py-24 sm:flex-row">
-  <div class="flex flex-col gap-4 space-y-6">
-    <div class="w-full space-y-5">
-      <h2 class="md:tracking-tighter md:w-1/2">
-        {homepageData?.about[0].title}
-      </h2>
+<TestimonialCta {...dummyTestimonialCta} />
 
-      <div>
-        <!-- TODO: FIGURE OUT THE CAUSE OF THIS TYPE ERROR -->
-        <!-- prettier-ignore -->
-        <StructuredText richText={homepageData?.about[0].content[0]
-        // @ts-ignore
-        .richText} class="md:w-8/12" />
-      </div>
-    </div>
+<section class="container-base py-20 flex flex-col gap-6">
+	<h2 class="text-center">How it works</h2>
+	<p class="text-center mx-auto max-w-[46ch] md:max-w-[64ch]">
+		Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio alias numquam cupiditate soluta?
+		Placeat accusamus iste eum deserunt explicabo. Quos!
+	</p>
 
-    <a href={homepageData?.about[0].cta[0].link} class="action-base w-fit">
-      {homepageData?.about[0].cta[0].text}
-    </a>
-  </div>
+	<div class="max-md:max-w-sm max-md:mx-auto">
+		{#each howWeHelpYou as item, i}
+			<div
+				class={cn(
+					"flex flex-col max-md:gap-5 md:flex-row md:items-stretch",
+					i % 2 !== 0 && "md:flex-row-reverse"
+				)}
+			>
+				<div class="flex-1 flex-s-center">
+					<div class="bg-red-400 lg:size-[400px]">
+						<img
+							class="object-cover object-center size-full"
+							src="https://picsum.photos/200/300"
+							alt=""
+						/>
+					</div>
+				</div>
 
-  <div class="">
-    <!-- TODO: UNCOMMENT THIS -->
-    <!-- <img
-      src={homepageData?.about[0].media?.url}
-      alt={homepageData?.about[0].media?.alt}
-      loading="lazy"
-      class=""
-    /> -->
-  </div>
+				<div class="flex-1 flex items-center">
+					<div>
+						<h3>{item.title}</h3>
+						<br />
+						<p>
+							Excellent freelance writers are rare, expensive, busy, and not dedicated to your
+							company.
+						</p>
+
+						<p>
+							Excellent freelance writers are rare, expensive, busy, and not dedicated to your
+							company.
+						</p>
+
+						<p>
+							Excellent freelance writers are rare, expensive, busy, and not dedicated to your
+							company.
+						</p>
+					</div>
+				</div>
+			</div>
+		{/each}
+	</div>
 </section>
 
-{#if homepageData && homepageData?.multipleTestimonials.length > 0}
-  <HomeTestimonials />
-{/if}
-
-<section class="flex flex-col items-center py-24 container-base space-y-11 md:flex-row">
-  <div class="space-y-3 md:space-y-6 md:w-1/2">
-    <h2 class="md:text-7xl md:tracking-tighter">
-      {homepageData?.statsHeading?.[0]?.heading}
-    </h2>
-    <a href={homepageData?.statsAction[0].link} class="action-base w-fit md:text-base">
-      {homepageData?.statsAction[0].text}
-    </a>
-  </div>
-
-  {#if homepageData && homepageData?.statsData.length > 0}
-    <div class="space-y-12">
-      {#each homepageData.statsData as stat, i}
-        <div class="flex-s-evenly {i % 2 !== 0 ? 'flex-row-reverse' : ''}">
-          <img
-            class="w-5/12"
-            src={homepageData.statsImages[i].url}
-            alt={homepageData.statsImages[i].alt}
-          />
-          <p>
-            <span class="text-2xl">{stat.heading}</span>
-            {@html stat.subheading}
-          </p>
-        </div>
-      {/each}
-    </div>
-  {/if}
-</section>
+<TestimonialCta {...dummyTestimonialCta} />
 
 <!-- FAQ -->
 <section class="py-24 text-center space-y-11 container-base" id="faq">
-  <div class="space-y-5">
-    <h2>{homepageData?.faqHeading[0].heading}</h2>
+	<div class="space-y-5">
+		<h2>{homepageData?.faqHeading[0].heading}</h2>
 
-    <p class="mx-auto text-sm md:w-4/12">
-      {@html homepageData?.faqHeading[0].subheading}
-    </p>
-  </div>
+		<p class="mx-auto text-sm md:w-4/12">
+			{@html homepageData?.faqHeading[0].subheading}
+		</p>
+	</div>
 
-  {#if homepageData && homepageData.faq?.faqBlocks && homepageData.faq.faqBlocks.length > 0}
-    <div class="mx-auto md:w-6/12">
-      <FaqAccordion
-        itemIds={homepageData.faq.faqBlocks.map(faq => faq.id)}
-        titles={homepageData.faq.faqBlocks.map(faq => faq.question || "")}
-        richTexts={homepageData.faq.faqBlocks.map(faq => faq.answer[0].richText)}
-      />
-    </div>
-  {/if}
+	{#if homepageData && homepageData.faq?.faqBlocks && homepageData.faq.faqBlocks.length > 0}
+		<div class="mx-auto md:w-6/12">
+			<FaqAccordion
+				itemIds={homepageData.faq.faqBlocks.map(faq => faq.id)}
+				titles={homepageData.faq.faqBlocks.map(faq => faq.question || "")}
+				richTexts={homepageData.faq.faqBlocks.map(faq => faq.answer[0].richText)}
+			/>
+		</div>
+	{/if}
 </section>
 
-<!-- CTA -->
-<section class="container-base relative">
-  <div class=" m-auto space-y-5 bg-night rounded-2xl h-96 w-full">
-    <div class="p-12 flex flex-col gap-10 md:p-8 md:w-[34rem]">
-      <h2 class="text-2xl text-white sm:break-words sm:w-5/12 md:text-[2.75rem]/[3.3rem] md:w-full">
-        Empower your financial future, today.
-      </h2>
-      <a href="/" class="action-white w-fit">View our courses</a>
-    </div>
-    <img
-      src={Circle1}
-      alt="Circle 1"
-      class="absolute size-16 bottom-3 left-20 md:left-[28rem] md:top-20 md:size-20 lg:left-[50rem]"
-    />
-    <img
-      src={Circle2}
-      alt="Circle 2"
-      class="absolute size-20 bottom-28 right-24 md:top-48 md:right-36 md:size-28 lg:right-48 lg:top-40"
-    />
-    <img
-      src={Triangle}
-      alt="Triangle"
-      class="absolute w-24 h-28 bottom-0 right-4 md:size-40 md:right-4"
-    />
-  </div>
-</section>
+<TestimonialCta {...dummyTestimonialCta} />
