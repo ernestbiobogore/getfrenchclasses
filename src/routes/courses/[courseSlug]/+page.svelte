@@ -1,6 +1,6 @@
 <script lang="ts">
 	import AvatarsGroup from "$lib/components/AvatarsGroup.svelte";
-	import CourseCtaBanner from "./components/CourseCtaBanner.svelte";
+	import CourseCtaBanner from "$lib/components/cta-section/CourseCtaBanner.svelte";
 	import CourseSyllabus from "./components/CourseSyllabus.svelte";
 	import FaqAccordion from "$lib/components/FaqAccordion.svelte";
 	import TestimonialCardList from "$lib/components/TestimonialCardList.svelte";
@@ -35,7 +35,7 @@
 	<!-- LEFT SIDE -->
 	<div class="space-y-5 flex-1">
 		<div class="space-y-4">
-			<h2>{data.course.name}</h2>
+			<h1>{data.course.name}</h1>
 
 			<div class="flex-s-between gap-4 md:justify-start">
 				<div class="flex-s-center gap-2">
@@ -85,7 +85,7 @@
 
 		<!-- WHO THE COURSE IS FOR -->
 		<div class="py-5">
-			<h3>Who is this course for?</h3>
+			<h2>Who is this course for?</h2>
 
 			<br />
 
@@ -111,7 +111,7 @@
 
 		<!-- WHAT YOU'LL GET -->
 		<div class="py-5">
-			<h3>What you'll get</h3>
+			<h2>What you'll get</h2>
 
 			<br />
 
@@ -141,7 +141,7 @@
 
 		<!-- THIS COURSE INCLUDES -->
 		<div class="py-5">
-			<h3>This course includes</h3>
+			<h2>This course includes</h2>
 
 			<br />
 
@@ -315,7 +315,7 @@
 <CourseCtaBanner />
 
 <section class="max-w-2xl mx-auto py-10" id="faq">
-	<h2 class="mb-8">Frequently Asked Questions</h2>
+	<h2 class="mb-8 text-center">Frequently Asked Questions</h2>
 
 	{#if coursesPageFaq && coursesPageFaq.length > 0}
 		<FaqAccordion

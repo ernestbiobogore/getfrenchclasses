@@ -66,6 +66,34 @@
 	.flex-s-start-start {
 		@apply flex justify-start items-start;
 	}
+
+	.inline-flex-s-center {
+		@apply inline-flex justify-center items-center;
+	}
+
+	.inline-flex-s-start {
+		@apply inline-flex items-center;
+	}
+
+	.inline-flex-s-between {
+		@apply inline-flex justify-between items-center;
+	}
+
+	.inline-flex-s-evenly {
+		@apply inline-flex justify-evenly items-center;
+	}
+
+	.inline-flex-s-end {
+		@apply inline-flex justify-end items-center;
+	}
+
+	.inline-flex-s-center-start {
+		@apply inline-flex justify-center items-start;
+	}
+
+	.inline-flex-s-start-start {
+		@apply inline-flex justify-start items-start;
+	}
 }
 
 @layer components {

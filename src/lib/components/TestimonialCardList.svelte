@@ -1,8 +1,12 @@
 <script lang="ts" context="module">
 	export type Testimonial = {
+		/** The unique identifier of the testimonial. */
 		id: string;
+		/** The name of the author of the testimonial. */
 		author: string;
+		/** The content of the testimonial. */
 		content: string;
+		/** Optional rotation value for the testimonial (deg) */
 		rotate?: string;
 	};
 </script>
