@@ -7,6 +7,8 @@ const cardBlockFields: CardBlockRecordGenqlSelection = {
 		link: true,
 	},
 	media: {
+		url: true,
+		alt: true,
 		responsiveImage: {
 			src: true,
 			width: true,
@@ -17,7 +19,6 @@ const cardBlockFields: CardBlockRecordGenqlSelection = {
 		video: {
 			mp4Url: true,
 		},
-		alt: true,
 	},
 	content: {
 		richText: {

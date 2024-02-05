@@ -605,6 +605,8 @@ type HomepageRecord implements RecordInterface {
   statsData: [HeadingBlockRecord!]!
   statsHeading: [HeadingBlockRecord!]!
   statsImages: [FileField!]!
+  targetAudienceHeading: HeadingBlockRecord
+  targetAudiences: [CardBlockRecord!]!
   title: String
 }
 

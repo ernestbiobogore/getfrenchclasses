@@ -112,31 +112,30 @@
 {/if}
 
 <!-- TARGET AUDIENCE -->
-<section class="container-base flex flex-col gap-6 py-20">
-	<h2 class="text-center">Who is GetFrenchClasses for?</h2>
-	<p class="text-center mx-auto max-w-[46ch] md:max-w-[64ch]">
-		Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio alias numquam cupiditate soluta?
-		Placeat accusamus iste eum deserunt explicabo. Quos!
-	</p>
+{#if homepageData?.targetAudiences && homepageData.targetAudiences.length > 0}
+	<section class="container-base flex flex-col gap-6 py-20">
+		<h2 class="text-center">{homepageData?.targetAudienceHeading?.heading}</h2>
+		<p class="text-center mx-auto max-w-[46ch] md:max-w-[64ch]">
+			{@html homepageData?.targetAudienceHeading?.subheading}
+		</p>
 
-	<!-- CARDS LIST -->
-	<div class="grid gap-6 max-md:max-w-sm max-md:mx-auto md:mt-8 md:grid-cols-2 lg:grid-cols-3">
-		{#each targetAudienceData as info}
-			<!-- CARD -->
-			<div class="bg-white p-4 rounded-xl md:p-5">
-				<!-- ICON -->
-				<div class="relative mb-2">
-					<!-- <div class="absolute top-0 left-0 -translate-y-8 md:-translate-y-9"> -->
-					<svelte:component this={info.icon} class="text-3xl text-[#3EAED0]" />
-					<!-- </div> -->
+		<!-- CARDS LIST -->
+		<div class="grid gap-6 max-md:max-w-sm max-md:mx-auto md:mt-8 md:grid-cols-2 lg:grid-cols-3">
+			{#each homepageData.targetAudiences as info}
+				<!-- CARD -->
+				<div class="bg-white p-4 rounded-xl md:p-5">
+					<!-- ICON -->
+					<div class="relative mb-2">
+						<img src={info.media?.url} alt={info.media?.alt} class="w-12 h-12" />
+					</div>
+
+					<div class="font-semibold mb-2 text-lg">{info.title}</div>
+					<StructuredText richText={info.content?.richText} />
 				</div>
-
-				<div class="font-semibold mb-2 text-lg">{info.title}</div>
-				<p class="text-gray-600">{info.description}</p>
-			</div>
-		{/each}
-	</div>
-</section>
+			{/each}
+		</div>
+	</section>
+{/if}
 
 <TestimonialCta {...dummyTestimonialCta} />
 

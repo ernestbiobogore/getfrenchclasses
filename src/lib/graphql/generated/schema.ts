@@ -273,6 +273,8 @@ export interface HomepageRecord {
     statsData: HeadingBlockRecord[]
     statsHeading: HeadingBlockRecord[]
     statsImages: FileField[]
+    targetAudienceHeading: (HeadingBlockRecord | null)
+    targetAudiences: CardBlockRecord[]
     title: (Scalars['String'] | null)
     __typename: 'HomepageRecord'
 }
@@ -1014,6 +1016,8 @@ export interface HomepageRecordGenqlSelection{
     statsData?: HeadingBlockRecordGenqlSelection
     statsHeading?: HeadingBlockRecordGenqlSelection
     statsImages?: FileFieldGenqlSelection
+    targetAudienceHeading?: HeadingBlockRecordGenqlSelection
+    targetAudiences?: CardBlockRecordGenqlSelection
     title?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number

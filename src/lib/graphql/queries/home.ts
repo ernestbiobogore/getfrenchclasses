@@ -25,6 +25,25 @@ const getHomePageData = async () => {
 			},
 			heroVideoText: true,
 
+			// Target audience
+			targetAudienceHeading: {
+				heading: true,
+				subheading: true,
+			},
+			targetAudiences: {
+				title: true,
+				media: {
+					url: true,
+					alt: true,
+				},
+				content: {
+					richText: {
+						__typename: true,
+						value: true,
+					},
+				},
+			},
+
 			// Popular courses
 			popularCoursesTitle: true,
 			popularCoursesRecords: {

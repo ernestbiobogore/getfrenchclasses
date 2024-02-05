@@ -1061,6 +1061,12 @@ export default {
             "statsImages": [
                 19
             ],
+            "targetAudienceHeading": [
+                24
+            ],
+            "targetAudiences": [
+                4
+            ],
             "title": [
                 86
             ],
