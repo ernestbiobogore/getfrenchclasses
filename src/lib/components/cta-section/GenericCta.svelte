@@ -2,13 +2,15 @@
 	import Circle1 from "$lib/images/circle1.png";
 	import Circle2 from "$lib/images/circle2.png";
 	import Triangle from "$lib/images/triangle.png";
+
+	export let text = "Empower your financial future, today.";
 </script>
 
 <section class="container-base relative">
 	<div class=" m-auto space-y-5 bg-night rounded-2xl h-96 w-full">
 		<div class="p-12 flex flex-col gap-10 md:p-8 md:w-34rem">
 			<h2 class="w-full text-white text-2xl sm:break-words sm:w-5/12 md:text-[2.75rem]/[3.3rem]">
-				Empower your financial future, today.
+				{text}
 			</h2>
 			<a href="/" class="action-white w-fit">View our courses</a>
 		</div>
