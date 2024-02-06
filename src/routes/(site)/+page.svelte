@@ -9,30 +9,9 @@
 	import { cn, getSampleAvatars } from "$lib/utils";
 
 	import PhArrowBendDownLeftFill from "~icons/ph/arrow-bend-down-left-fill";
-	import PhSmiley from "~icons/ph/smiley";
 
 	export let data;
 	$: ({ homepageData } = data);
-
-	type TargetAudienceData = {
-		icon: any;
-		title: string;
-		description: string;
-	};
-
-	const dummyVideo =
-		"https://cdn.discordapp.com/attachments/1181304981576486962/1196953201669324901/Screen_Recording_2024-01-16_at_11.01.18_pm.mov?ex=65b98089&is=65a70b89&hm=2fbbd8a97dadc3e2b8fae343e65da65aa9bef9c0f863d77c370f92725af06402&";
-	const dummyDesc =
-		"Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas distinctio dicta accusamus, explicabo similique recusandae?";
-
-	let targetAudienceData: TargetAudienceData[] = [
-		{ icon: PhSmiley, title: "Students", description: dummyDesc },
-		{ icon: PhSmiley, title: "Professionals", description: dummyDesc },
-		{ icon: PhSmiley, title: "Travelers", description: dummyDesc },
-		{ icon: PhSmiley, title: "Students", description: dummyDesc },
-		{ icon: PhSmiley, title: "Professionals", description: dummyDesc },
-		{ icon: PhSmiley, title: "Travelers", description: dummyDesc },
-	];
 
 	const howWeHelpYou: any[] = Array.from({ length: 3 }).fill({
 		img: "",
@@ -53,8 +32,6 @@
     The title suggestions are incredible, the outline is
     really solid and the content length and depth is
     IMPRESSIVE!`,
-
-		video: dummyVideo,
 	};
 </script>
 

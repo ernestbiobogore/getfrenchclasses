@@ -10,36 +10,38 @@
 
 		<!-- MENU BUTTON / MENU -->
 		<Popover.Root>
-			<Popover.Trigger class="md:hidden">
+			<Popover.Trigger class="lg:hidden">
 				<AlignJustify class="text-xl"></AlignJustify>
 				<span class="sr-only">Open Popover</span>
 			</Popover.Trigger>
 
 			<Popover.Content
-				class="w-full max-w-[229px] bg-white rounded-xl z-10 shadow-2xl"
+				class="w-full max-w-[229px] bg-white rounded-xl overflow-hidden z-10 shadow-2xl"
 				transition={flyAndScale}
 				sideOffset={16}
 			>
 				<div class="flex flex-col [&_a]:px-3 [&_a]:py-2 [&_a]:border-b-gray-200">
-					<a class="b-b" href="/courses">Courses</a>
-					<a class="b-b" href="/about">About</a>
-					<a class="b-b" href="/#faq">FAQ's</a>
-					<a class="b-b" href="/blog">Blog</a>
-					<a class="b-b" href="/wall-of-love">Wall of Love</a>
-					<a class="b-b" href="/resources">Resources</a>
+					<a class="border-b hover:bg-gray-100" href="/courses">Courses</a>
+					<a class="border-b hover:bg-gray-100" href="/about">About</a>
+					<a class="border-b hover:bg-gray-100" href="/#faq">FAQ's</a>
+					<a class="border-b hover:bg-gray-100" href="/blog">Blog</a>
+					<a class="border-b hover:bg-gray-100" href="/wall-of-love">Wall of Love</a>
+					<a class="border-b hover:bg-gray-100" href="/resources">Resources</a>
+					<a class="border-b hover:bg-gray-100" href="/business">Business</a>
 					<a href="/contact">Contact</a>
 				</div>
 			</Popover.Content>
 		</Popover.Root>
 
-		<div class="hidden [&_a]:px-3 [&_a]:py-2 [&_a]:font-medium [&_a]:rounded-lg md:block">
-			<a class="hover:bg-gray-300" href="/courses">Courses</a>
-			<a class="hover:bg-gray-300" href="/about">About</a>
-			<a class="hover:bg-gray-300" href="/#faq">FAQ's</a>
-			<a class="hover:bg-gray-300" href="/blog">Blog</a>
-			<a class="hover:bg-gray-300" href="/wall-of-love">Wall of Love</a>
-			<a class="hover:bg-gray-300" href="/resources">Resources</a>
-			<a class="hover:bg-gray-300" href="/contact">Contact</a>
+		<div class="hidden gap-4 [&_a]:py-2 [&_a]:font-medium [&_a]:rounded-lg lg:flex">
+			<a class="hover:underline" href="/courses">Courses</a>
+			<a class="hover:underline" href="/about">About</a>
+			<a class="hover:underline" href="/#faq">FAQ's</a>
+			<a class="hover:underline" href="/blog">Blog</a>
+			<a class="hover:underline" href="/wall-of-love">Wall of Love</a>
+			<a class="hover:underline" href="/resources">Resources</a>
+			<a class="hover:underline" href="/business">Business</a>
+			<a class="hover:underline" href="/contact">Contact</a>
 		</div>
 
 		<a href="/" class="text-xs action-base">Get Started</a>
