@@ -27,13 +27,14 @@
 		{ name: "How to Say", routePath: "how-to-say" },
 		{ name: "Grammar", routePath: "grammar" },
 		{ name: "Vocabulary", routePath: "vocabulary" },
-	];
+	] as const;
 
-	let currentFilter = "all";
-
+	let currentFilter = "all" as (typeof filters)[number]["routePath"] | "all";
 	let filteredPosts: Post[] = [];
 
-	function filterPosts(currentFilter: string, allPosts: Post[]) {
+	$: filteredPosts = filterPosts(currentFilter);
+
+	function filterPosts(currentFilter: string) {
 		if (currentFilter === "all") {
 			return allPosts;
 		} else {
@@ -41,11 +42,13 @@
 				...post,
 				title: `${post?.title} - ${currentFilter}`,
 				slug: `${currentFilter}/${post?.slug}`,
+				category: {
+					name: currentFilter,
+					slug: currentFilter,
+				},
 			}));
 		}
 	}
-
-	$: filteredPosts = filterPosts(currentFilter, allPosts);
 </script>
 
 <svelte:head>
