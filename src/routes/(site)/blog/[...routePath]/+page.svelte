@@ -26,15 +26,19 @@
 	};
 
 	const getNoteClass = (type: string) => {
-		return cn(
-			"border-l-4",
-			{
-				"bg-red-100 border-red-400": type === "important",
-				"bg-blue-100 border-blue-400": type === "note",
-				"bg-yellow-100 border-yellow-400": type === "warning",
-			},
-			"p-4"
-		);
+		return cn("border-l-4 p-4", {
+			"bg-[#ccccff] border-[#86608e]": type === "important",
+			"bg-[#1569c7] border-[#040720]": type === "note",
+			"bg-[#eaeee9] border-[#d4a017]": type === "warning",
+		});
+	};
+
+	const getNoteTitleClass = (type: string) => {
+		return cn("font-semibold", {
+			"text-[#86608e]": type === "important",
+			"text-[#040720]": type === "note",
+			"text-[#d4a017]": type === "warning",
+		});
 	};
 </script>
 
@@ -81,6 +85,28 @@
 			</a>
 		</div>
 	</header>
+
+	<!-- CALLOUT /NOTE SECTION -->
+	<section class="container-base">
+		<div class={getNoteClass(postCta?.type || "important")}>
+			{#if postCta?.title}
+				<h3 class={getNoteTitleClass(postCta?.type || "important")}>{postCta.title}</h3>
+			{/if}
+			{#if postCta?.content?.richText}
+				<StructuredText richText={postCta.content.richText} />
+			{/if}
+			{#if postCta?.video}
+				<video controls src={postCta.video} class="w-full mt-4"></video>
+			{/if}
+			{#if postCta?.items}
+				<ul>
+					{#each postCta.items as item}
+						<li>{item}</li>
+					{/each}
+				</ul>
+			{/if}
+		</div>
+	</section>
 
 	<article class="flex flex-col sm:flex-row gap-8 container-base mt-8">
 		<main class="space-y-8 basis-9/12">
