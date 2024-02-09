@@ -38,62 +38,6 @@
 	ul {
 		@apply pl-8;
 	}
-
-	.flex-s-center {
-		@apply flex justify-center items-center;
-	}
-
-	.flex-s-start {
-		@apply flex items-center;
-	}
-
-	.flex-s-between {
-		@apply flex justify-between items-center;
-	}
-
-	.flex-s-evenly {
-		@apply flex justify-evenly items-center;
-	}
-
-	.flex-s-end {
-		@apply flex justify-end items-center;
-	}
-
-	.flex-s-center-start {
-		@apply flex justify-center items-start;
-	}
-
-	.flex-s-start-start {
-		@apply flex justify-start items-start;
-	}
-
-	.inline-flex-s-center {
-		@apply inline-flex justify-center items-center;
-	}
-
-	.inline-flex-s-start {
-		@apply inline-flex items-center;
-	}
-
-	.inline-flex-s-between {
-		@apply inline-flex justify-between items-center;
-	}
-
-	.inline-flex-s-evenly {
-		@apply inline-flex justify-evenly items-center;
-	}
-
-	.inline-flex-s-end {
-		@apply inline-flex justify-end items-center;
-	}
-
-	.inline-flex-s-center-start {
-		@apply inline-flex justify-center items-start;
-	}
-
-	.inline-flex-s-start-start {
-		@apply inline-flex justify-start items-start;
-	}
 }
 
 @layer components {
