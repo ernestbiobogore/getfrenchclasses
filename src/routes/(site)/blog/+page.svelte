@@ -40,6 +40,7 @@
 			return allPosts.map(post => ({
 				...post,
 				title: `${post?.title} - ${currentFilter}`,
+				slug: `${currentFilter}/${post?.slug}`,
 			}));
 		}
 	}

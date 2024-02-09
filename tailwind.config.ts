@@ -86,13 +86,17 @@ const config: Config = {
 				".flex-s-end": createFlexUtilClass("flex", "flex-end", "center"),
 				".flex-s-center-start": createFlexUtilClass("flex", "center", "flex-start"),
 				".flex-s-start-start": createFlexUtilClass("flex", "flex-start", "flex-start"),
-				"inline-flex-s-center": createFlexUtilClass("inline-flex", "center", "center"),
-				"inline-flex-s-start": createFlexUtilClass("inline-flex", "flex-start", "center"),
-				"inline-flex-s-between": createFlexUtilClass("inline-flex", "space-between", "center"),
-				"inline-flex-s-evenly": createFlexUtilClass("inline-flex", "space-evenly", "center"),
-				"inline-flex-s-end": createFlexUtilClass("inline-flex", "flex-end", "center"),
-				"inline-flex-s-center-start": createFlexUtilClass("inline-flex", "center", "flex-start"),
-				"inline-flex-s-start-start": createFlexUtilClass("inline-flex", "flex-start", "flex-start"),
+				".inline-flex-s-center": createFlexUtilClass("inline-flex", "center", "center"),
+				".inline-flex-s-start": createFlexUtilClass("inline-flex", "flex-start", "center"),
+				".inline-flex-s-between": createFlexUtilClass("inline-flex", "space-between", "center"),
+				".inline-flex-s-evenly": createFlexUtilClass("inline-flex", "space-evenly", "center"),
+				".inline-flex-s-end": createFlexUtilClass("inline-flex", "flex-end", "center"),
+				".inline-flex-s-center-start": createFlexUtilClass("inline-flex", "center", "flex-start"),
+				".inline-flex-s-start-start": createFlexUtilClass(
+					"inline-flex",
+					"flex-start",
+					"flex-start"
+				),
 			});
 
 			addVariant("not-first", "&:not(:first-child)");
