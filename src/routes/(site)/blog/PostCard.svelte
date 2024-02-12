@@ -1,14 +1,10 @@
 <script lang="ts" context="module">
-	import type { getAllBlogPosts } from "$lib/graphql/queries/posts";
+	import type { SinglePostFromAll } from "$lib/types";
 	import Tag from "~icons/lucide/tag";
-
-	type CMSPost = Awaited<ReturnType<typeof getAllBlogPosts>>[number];
-
-	export type Post = Partial<CMSPost>;
 </script>
 
 <script lang="ts">
-	export let post: Post;
+	export let post: SinglePostFromAll;
 </script>
 
 <div class="p-8 space-y-4 bg-white rounded-2xl">
@@ -22,7 +18,7 @@
 	/>
 
 	<h3>
-		<a href="/blog/{post?.slug}" class="hover:underline">{post?.title}</a>
+		<a href={post.path} class="hover:underline">{post?.title}</a>
 	</h3>
 
 	{#if post.category}
@@ -36,5 +32,5 @@
 		{post?.seo?.seoBlock?.description}
 	</p>
 
-	<a href="/blog/{post?.slug}" class="text-xs action-base w-fit">Read More</a>
+	<a href={post.path} class="text-xs action-base w-fit">Read More</a>
 </div>

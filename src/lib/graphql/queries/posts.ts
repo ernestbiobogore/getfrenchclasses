@@ -1,6 +1,15 @@
 import { client } from "$lib/graphql/client";
+import type { PostRecordGenqlSelection } from "$lib/graphql/generated";
 import { cardBlockFields } from "$lib/graphql/queries/fields";
-import type { PostRecordGenqlSelection } from "../generated";
+
+const getPostFullPath = (
+	postRoutePathSlugs: (string | null)[],
+	postSlug: string,
+	postsBasePath = "/blog"
+) => {
+	const pathString = postRoutePathSlugs.length > 0 ? `/${postRoutePathSlugs.join("/")}` : "";
+	return `${postsBasePath}${pathString}/${postSlug}`;
+};
 
 const postSeoBlock = {
 	seoBlock: {
@@ -39,13 +48,22 @@ const getAllBlogPosts = async () => {
 			slug: true,
 			title: true,
 			category: postCategoryBlock,
+			routePaths: {
+				slug: true,
+			},
 
 			// SEO
 			seo: postSeoBlock,
 		},
 	});
 
-	return allPosts;
+	return allPosts.map(post => ({
+		...post,
+		path: getPostFullPath(
+			post.routePaths.map(path => path.slug),
+			String(post.slug)
+		),
+	}));
 };
 
 const getSingleBlogPost = async (slug: string) => {
@@ -126,4 +144,4 @@ const getSingleBlogPost = async (slug: string) => {
 	return post;
 };
 
-export { getAllBlogPosts, getBlogPostsSlugs, getSingleBlogPost };
+export { getAllBlogPosts, getBlogPostsSlugs, getPostFullPath, getSingleBlogPost };
