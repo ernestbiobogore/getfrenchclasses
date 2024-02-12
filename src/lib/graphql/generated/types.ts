@@ -1800,8 +1800,8 @@ export default {
             "_updatedAt": [
                 16
             ],
-            "content": [
-                79
+            "card": [
+                4
             ],
             "id": [
                 58

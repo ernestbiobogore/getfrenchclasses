@@ -1,7 +1,7 @@
 <script lang="ts">
 	import BlogCta, { type CTAProps } from "$lib/components/cta-section/BlogCta.svelte";
 	import StructuredText from "$lib/components/dato/StructuredText/index.svelte";
-	import { cn, generateShareOptions, getSampleAvatars, getShareLinks } from "$lib/utils";
+	import { generateShareOptions, getSampleAvatars, getShareLinks } from "$lib/utils";
 
 	import Fa6BrandsXTwitter from "~icons/fa6-brands/x-twitter";
 	import LucideFacebook from "~icons/lucide/facebook";
@@ -29,22 +29,6 @@
 		buttonSubtext:
 			"and 4570+ other learners went from noob to fluent french speakers with our programs.",
 		peopleImages: getSampleAvatars(),
-	};
-
-	const getNoteClass = (type: string) => {
-		return cn("border-l-4 p-4", {
-			"bg-[#ccccff] border-[#86608e]": type === "important",
-			"bg-[#1569c7] border-[#040720]": type === "note",
-			"bg-[#eaeee9] border-[#d4a017]": type === "warning",
-		});
-	};
-
-	const getNoteTitleClass = (type: string) => {
-		return cn("font-semibold", {
-			"text-[#86608e]": type === "important",
-			"text-[#040720]": type === "note",
-			"text-[#d4a017]": type === "warning",
-		});
 	};
 </script>
 
@@ -91,28 +75,6 @@
 			</a>
 		</div>
 	</header>
-
-	<!-- CALLOUT /NOTE SECTION -->
-	<section class="container-base">
-		<div class={getNoteClass(postCta?.type || "important")}>
-			{#if postCta?.title}
-				<h3 class={getNoteTitleClass(postCta?.type || "important")}>{postCta.title}</h3>
-			{/if}
-			{#if postCta?.content?.richText}
-				<StructuredText richText={postCta.content.richText} />
-			{/if}
-			{#if postCta?.video}
-				<video controls src={postCta.video} class="w-full mt-4"></video>
-			{/if}
-			{#if postCta?.items}
-				<ul>
-					{#each postCta.items as item}
-						<li>{item}</li>
-					{/each}
-				</ul>
-			{/if}
-		</div>
-	</section>
 
 	<article class="flex flex-col sm:flex-row gap-8 container-base mt-8">
 		<main class="space-y-8 basis-9/12">

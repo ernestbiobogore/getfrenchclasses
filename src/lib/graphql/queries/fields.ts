@@ -1,6 +1,9 @@
-import type { CardBlockRecordGenqlSelection } from "$lib/graphql/generated";
+import type {
+	CardBlockRecordGenqlSelection,
+	PostRecordGenqlSelection,
+} from "$lib/graphql/generated";
 
-const cardBlockFields: CardBlockRecordGenqlSelection = {
+const cardBlockFields = {
 	title: true,
 	cta: {
 		text: true,
@@ -26,6 +29,23 @@ const cardBlockFields: CardBlockRecordGenqlSelection = {
 			value: true,
 		},
 	},
-};
+} satisfies CardBlockRecordGenqlSelection;
 
-export { cardBlockFields };
+const postSeoBlockFields = {
+	seoBlock: {
+		title: true,
+		description: true,
+		image: {
+			url: true,
+			alt: true,
+		},
+	},
+} satisfies PostRecordGenqlSelection["seo"];
+
+const postCategoryBlockFields = {
+	name: true,
+	slug: true,
+} satisfies PostRecordGenqlSelection["category"];
+
+export { cardBlockFields, postCategoryBlockFields, postSeoBlockFields };
+

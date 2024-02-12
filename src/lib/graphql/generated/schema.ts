@@ -390,7 +390,7 @@ export interface NoteBlockRecord {
     _status: ItemStatus
     _unpublishingScheduledAt: (Scalars['DateTime'] | null)
     _updatedAt: Scalars['DateTime']
-    content: RichTextBlockRecord[]
+    card: (CardBlockRecord | null)
     id: Scalars['ItemId']
     noteType: (Scalars['String'] | null)
     __typename: 'NoteBlockRecord'
@@ -2421,7 +2421,7 @@ export interface NoteBlockRecordGenqlSelection{
     _status?: boolean | number
     _unpublishingScheduledAt?: boolean | number
     _updatedAt?: boolean | number
-    content?: RichTextBlockRecordGenqlSelection
+    card?: CardBlockRecordGenqlSelection
     id?: boolean | number
     noteType?: boolean | number
     __typename?: boolean | number

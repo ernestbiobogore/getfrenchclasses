@@ -1,6 +1,9 @@
 import { client } from "$lib/graphql/client";
-import type { PostRecordGenqlSelection } from "$lib/graphql/generated";
-import { cardBlockFields } from "$lib/graphql/queries/fields";
+import {
+	cardBlockFields,
+	postCategoryBlockFields,
+	postSeoBlockFields,
+} from "$lib/graphql/queries/fields";
 
 const getPostFullPath = (
 	postRoutePathSlugs: (string | null)[],
@@ -10,22 +13,6 @@ const getPostFullPath = (
 	const pathString = postRoutePathSlugs.length > 0 ? `/${postRoutePathSlugs.join("/")}` : "";
 	return `${postsBasePath}${pathString}/${postSlug}`;
 };
-
-const postSeoBlock = {
-	seoBlock: {
-		title: true,
-		description: true,
-		image: {
-			url: true,
-			alt: true,
-		},
-	},
-} satisfies PostRecordGenqlSelection["seo"];
-
-const postCategoryBlock = {
-	name: true,
-	slug: true,
-} satisfies PostRecordGenqlSelection["category"];
 
 const getBlogPostsSlugs = async () => {
 	const { allPosts } = await client.query({
@@ -47,13 +34,13 @@ const getAllBlogPosts = async () => {
 			id: true,
 			slug: true,
 			title: true,
-			category: postCategoryBlock,
+			category: postCategoryBlockFields,
 			routePaths: {
 				slug: true,
 			},
 
 			// SEO
-			seo: postSeoBlock,
+			seo: postSeoBlockFields,
 		},
 	});
 
@@ -114,11 +101,7 @@ const getSingleBlogPost = async (slug: string) => {
 						},
 						on_NoteBlockRecord: {
 							noteType: true,
-							content: {
-								richText: {
-									value: true,
-								},
-							},
+							card: cardBlockFields,
 						},
 						on_ImageBlockRecord: {
 							image: {
@@ -137,7 +120,7 @@ const getSingleBlogPost = async (slug: string) => {
 			},
 
 			// SEO
-			seo: postSeoBlock,
+			seo: postSeoBlockFields,
 		},
 	});
 

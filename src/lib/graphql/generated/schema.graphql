@@ -2397,7 +2397,7 @@ type NoteBlockRecord implements RecordInterface {
   _status: ItemStatus!
   _unpublishingScheduledAt: DateTime
   _updatedAt: DateTime!
-  content: [RichTextBlockRecord!]!
+  card: CardBlockRecord
   id: ItemId!
   noteType: String
 }
