@@ -65,6 +65,30 @@ export interface CardBlockRecord {
     __typename: 'CardBlockRecord'
 }
 
+export type CategoryModelOrderBy = '_createdAt_ASC' | '_createdAt_DESC' | 'id_ASC' | 'id_DESC' | '_firstPublishedAt_ASC' | '_firstPublishedAt_DESC' | '_publicationScheduledAt_ASC' | '_publicationScheduledAt_DESC' | '_unpublishingScheduledAt_ASC' | '_unpublishingScheduledAt_DESC' | '_publishedAt_ASC' | '_publishedAt_DESC' | '_status_ASC' | '_status_DESC' | '_updatedAt_ASC' | '_updatedAt_DESC' | '_isValid_ASC' | '_isValid_DESC' | 'name_ASC' | 'name_DESC'
+
+
+/** Record of type Category (category) */
+export interface CategoryRecord {
+    _createdAt: Scalars['DateTime']
+    /** Editing URL */
+    _editingUrl: (Scalars['String'] | null)
+    _firstPublishedAt: (Scalars['DateTime'] | null)
+    _isValid: Scalars['BooleanType']
+    _modelApiKey: Scalars['String']
+    _publicationScheduledAt: (Scalars['DateTime'] | null)
+    _publishedAt: (Scalars['DateTime'] | null)
+    /** Generates SEO and Social card meta tags to be used in your frontend */
+    _seoMetaTags: Tag[]
+    _status: ItemStatus
+    _unpublishingScheduledAt: (Scalars['DateTime'] | null)
+    _updatedAt: Scalars['DateTime']
+    id: Scalars['ItemId']
+    name: (Scalars['String'] | null)
+    slug: (Scalars['String'] | null)
+    __typename: 'CategoryRecord'
+}
+
 export interface CollectionMetadata {
     count: Scalars['IntType']
     __typename: 'CollectionMetadata'
@@ -390,11 +414,12 @@ export interface PostRecord {
     _status: ItemStatus
     _unpublishingScheduledAt: (Scalars['DateTime'] | null)
     _updatedAt: Scalars['DateTime']
+    category: (CategoryRecord | null)
     cta: CardBlockRecord[]
     id: Scalars['ItemId']
     modularContent: RichTextBlockRecord[]
     routePaths: RoutePathRecord[]
-    seo: SeoBlockRecord[]
+    seo: (SeoBlockRecord | null)
     slug: (Scalars['String'] | null)
     title: (Scalars['String'] | null)
     __typename: 'PostRecord'
@@ -403,6 +428,8 @@ export interface PostRecord {
 
 /** The query root for this schema */
 export interface Query {
+    /** Returns meta information regarding a record collection */
+    _allCategoriesMeta: CollectionMetadata
     /** Returns meta information regarding a record collection */
     _allCoursesMeta: CollectionMetadata
     /** Returns meta information regarding a record collection */
@@ -416,6 +443,8 @@ export interface Query {
     /** Returns the single instance record */
     _site: Site
     /** Returns a collection of records */
+    allCategories: CategoryRecord[]
+    /** Returns a collection of records */
     allCourses: CourseRecord[]
     /** Returns a collection of records */
     allFaqItems: FaqItemRecord[]
@@ -425,6 +454,8 @@ export interface Query {
     allRoutePaths: RoutePathRecord[]
     /** Returns a collection of assets */
     allUploads: FileField[]
+    /** Returns a specific record */
+    category: (CategoryRecord | null)
     /** Returns a specific record */
     course: (CourseRecord | null)
     /** Returns a specific record */
@@ -440,7 +471,7 @@ export interface Query {
     __typename: 'Query'
 }
 
-export type RecordInterface = (ActionBlockRecord | CardBlockRecord | CourseRecord | FaqBlockRecord | FaqItemRecord | HeadingBlockRecord | HomepageRecord | ImageBlockRecord | NoteBlockRecord | PostRecord | RichTextBlockRecord | RoutePathRecord | SeoBlockRecord | TestimonialBlockRecord) & { __isUnion?: true }
+export type RecordInterface = (ActionBlockRecord | CardBlockRecord | CategoryRecord | CourseRecord | FaqBlockRecord | FaqItemRecord | HeadingBlockRecord | HomepageRecord | ImageBlockRecord | NoteBlockRecord | PostRecord | RichTextBlockRecord | RoutePathRecord | SeoBlockRecord | TestimonialBlockRecord) & { __isUnion?: true }
 
 export type ResolutionType = 'icon' | 'small' | 'medium' | 'large'
 
@@ -666,6 +697,33 @@ export interface CardBlockRecordGenqlSelection{
     id?: boolean | number
     media?: FileFieldGenqlSelection
     title?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+export interface CategoryModelFilter {_createdAt?: (CreatedAtFilter | null),id?: (ItemIdFilter | null),_firstPublishedAt?: (PublishedAtFilter | null),_publicationScheduledAt?: (PublishedAtFilter | null),_unpublishingScheduledAt?: (PublishedAtFilter | null),_publishedAt?: (PublishedAtFilter | null),_status?: (StatusFilter | null),_updatedAt?: (UpdatedAtFilter | null),_isValid?: (BooleanFilter | null),name?: (StringFilter | null),slug?: (SlugFilter | null),OR?: ((CategoryModelFilter | null)[] | null),AND?: ((CategoryModelFilter | null)[] | null)}
+
+
+/** Record of type Category (category) */
+export interface CategoryRecordGenqlSelection{
+    _createdAt?: boolean | number
+    /** Editing URL */
+    _editingUrl?: boolean | number
+    _firstPublishedAt?: boolean | number
+    _isValid?: boolean | number
+    _modelApiKey?: boolean | number
+    _publicationScheduledAt?: boolean | number
+    _publishedAt?: boolean | number
+    /** Generates SEO and Social card meta tags to be used in your frontend */
+    _seoMetaTags?: (TagGenqlSelection & { __args?: {
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null)} })
+    _status?: boolean | number
+    _unpublishingScheduledAt?: boolean | number
+    _updatedAt?: boolean | number
+    id?: boolean | number
+    name?: boolean | number
+    slug?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -2378,7 +2436,7 @@ eq?: (UploadOrientation | null),
 /** Exclude uploads with the specified orientation */
 neq?: (UploadOrientation | null)}
 
-export interface PostModelFilter {_createdAt?: (CreatedAtFilter | null),id?: (ItemIdFilter | null),_firstPublishedAt?: (PublishedAtFilter | null),_publicationScheduledAt?: (PublishedAtFilter | null),_unpublishingScheduledAt?: (PublishedAtFilter | null),_publishedAt?: (PublishedAtFilter | null),_status?: (StatusFilter | null),_updatedAt?: (UpdatedAtFilter | null),_isValid?: (BooleanFilter | null),routePaths?: (LinksFilter | null),slug?: (SlugFilter | null),title?: (StringFilter | null),OR?: ((PostModelFilter | null)[] | null),AND?: ((PostModelFilter | null)[] | null)}
+export interface PostModelFilter {_createdAt?: (CreatedAtFilter | null),id?: (ItemIdFilter | null),_firstPublishedAt?: (PublishedAtFilter | null),_publicationScheduledAt?: (PublishedAtFilter | null),_unpublishingScheduledAt?: (PublishedAtFilter | null),_publishedAt?: (PublishedAtFilter | null),_status?: (StatusFilter | null),_updatedAt?: (UpdatedAtFilter | null),_isValid?: (BooleanFilter | null),category?: (LinkFilter | null),routePaths?: (LinksFilter | null),slug?: (SlugFilter | null),title?: (StringFilter | null),OR?: ((PostModelFilter | null)[] | null),AND?: ((PostModelFilter | null)[] | null)}
 
 
 /** Record of type Post (post) */
@@ -2398,6 +2456,7 @@ export interface PostRecordGenqlSelection{
     _status?: boolean | number
     _unpublishingScheduledAt?: boolean | number
     _updatedAt?: boolean | number
+    category?: CategoryRecordGenqlSelection
     cta?: CardBlockRecordGenqlSelection
     id?: boolean | number
     modularContent?: RichTextBlockRecordGenqlSelection
@@ -2431,6 +2490,10 @@ exists?: (Scalars['BooleanType'] | null)}
 /** The query root for this schema */
 export interface QueryGenqlSelection{
     /** Returns meta information regarding a record collection */
+    _allCategoriesMeta?: (CollectionMetadataGenqlSelection & { __args?: {
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null), filter?: (CategoryModelFilter | null)} })
+    /** Returns meta information regarding a record collection */
     _allCoursesMeta?: (CollectionMetadataGenqlSelection & { __args?: {
     /** The locale to use to fetch the field's content */
     locale?: (SiteLocale | null), filter?: (CourseModelFilter | null)} })
@@ -2456,6 +2519,16 @@ export interface QueryGenqlSelection{
     locale?: (SiteLocale | null), 
     /** If you want to fallback to a default translation when a translation has not been found */
     fallbackLocales?: (SiteLocale[] | null)} })
+    /** Returns a collection of records */
+    allCategories?: (CategoryRecordGenqlSelection & { __args?: {
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null), 
+    /** If you want to fallback to a default translation when a translation has not been found */
+    fallbackLocales?: (SiteLocale[] | null), 
+    /** Skip the first results */
+    skip?: (Scalars['IntType'] | null), 
+    /** Limit the number of results */
+    first?: (Scalars['IntType'] | null), filter?: (CategoryModelFilter | null), orderBy?: ((CategoryModelOrderBy | null)[] | null)} })
     /** Returns a collection of records */
     allCourses?: (CourseRecordGenqlSelection & { __args?: {
     /** The locale to use to fetch the field's content */
@@ -2506,6 +2579,12 @@ export interface QueryGenqlSelection{
     skip?: (Scalars['IntType'] | null), 
     /** Limit the number of results */
     first?: (Scalars['IntType'] | null), filter?: (UploadFilter | null), orderBy?: ((UploadOrderBy | null)[] | null)} })
+    /** Returns a specific record */
+    category?: (CategoryRecordGenqlSelection & { __args?: {
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null), 
+    /** If you want to fallback to a default translation when a translation has not been found */
+    fallbackLocales?: (SiteLocale[] | null), filter?: (CategoryModelFilter | null), orderBy?: ((CategoryModelOrderBy | null)[] | null)} })
     /** Returns a specific record */
     course?: (CourseRecordGenqlSelection & { __args?: {
     /** The locale to use to fetch the field's content */
@@ -2565,6 +2644,7 @@ export interface RecordInterfaceGenqlSelection{
     id?: boolean | number
     on_ActionBlockRecord?: ActionBlockRecordGenqlSelection
     on_CardBlockRecord?: CardBlockRecordGenqlSelection
+    on_CategoryRecord?: CategoryRecordGenqlSelection
     on_CourseRecord?: CourseRecordGenqlSelection
     on_FaqBlockRecord?: FaqBlockRecordGenqlSelection
     on_FaqItemRecord?: FaqItemRecordGenqlSelection
@@ -3127,6 +3207,14 @@ export interface focalPointGenqlSelection{
     
 
 
+    const CategoryRecord_possibleTypes: string[] = ['CategoryRecord']
+    export const isCategoryRecord = (obj?: { __typename?: any } | null): obj is CategoryRecord => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isCategoryRecord"')
+      return CategoryRecord_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
     const CollectionMetadata_possibleTypes: string[] = ['CollectionMetadata']
     export const isCollectionMetadata = (obj?: { __typename?: any } | null): obj is CollectionMetadata => {
       if (!obj?.__typename) throw new Error('__typename is missing in "isCollectionMetadata"')
@@ -3239,7 +3327,7 @@ export interface focalPointGenqlSelection{
     
 
 
-    const RecordInterface_possibleTypes: string[] = ['ActionBlockRecord','CardBlockRecord','CourseRecord','FaqBlockRecord','FaqItemRecord','HeadingBlockRecord','HomepageRecord','ImageBlockRecord','NoteBlockRecord','PostRecord','RichTextBlockRecord','RoutePathRecord','SeoBlockRecord','TestimonialBlockRecord']
+    const RecordInterface_possibleTypes: string[] = ['ActionBlockRecord','CardBlockRecord','CategoryRecord','CourseRecord','FaqBlockRecord','FaqItemRecord','HeadingBlockRecord','HomepageRecord','ImageBlockRecord','NoteBlockRecord','PostRecord','RichTextBlockRecord','RoutePathRecord','SeoBlockRecord','TestimonialBlockRecord']
     export const isRecordInterface = (obj?: { __typename?: any } | null): obj is RecordInterface => {
       if (!obj?.__typename) throw new Error('__typename is missing in "isRecordInterface"')
       return RecordInterface_possibleTypes.includes(obj.__typename)
@@ -3341,6 +3429,29 @@ export interface focalPointGenqlSelection{
       return focalPoint_possibleTypes.includes(obj.__typename)
     }
     
+
+export const enumCategoryModelOrderBy = {
+   _createdAt_ASC: '_createdAt_ASC' as const,
+   _createdAt_DESC: '_createdAt_DESC' as const,
+   id_ASC: 'id_ASC' as const,
+   id_DESC: 'id_DESC' as const,
+   _firstPublishedAt_ASC: '_firstPublishedAt_ASC' as const,
+   _firstPublishedAt_DESC: '_firstPublishedAt_DESC' as const,
+   _publicationScheduledAt_ASC: '_publicationScheduledAt_ASC' as const,
+   _publicationScheduledAt_DESC: '_publicationScheduledAt_DESC' as const,
+   _unpublishingScheduledAt_ASC: '_unpublishingScheduledAt_ASC' as const,
+   _unpublishingScheduledAt_DESC: '_unpublishingScheduledAt_DESC' as const,
+   _publishedAt_ASC: '_publishedAt_ASC' as const,
+   _publishedAt_DESC: '_publishedAt_DESC' as const,
+   _status_ASC: '_status_ASC' as const,
+   _status_DESC: '_status_DESC' as const,
+   _updatedAt_ASC: '_updatedAt_ASC' as const,
+   _updatedAt_DESC: '_updatedAt_DESC' as const,
+   _isValid_ASC: '_isValid_ASC' as const,
+   _isValid_DESC: '_isValid_DESC' as const,
+   name_ASC: 'name_ASC' as const,
+   name_DESC: 'name_DESC' as const
+}
 
 export const enumColorBucketType = {
    red: 'red' as const,

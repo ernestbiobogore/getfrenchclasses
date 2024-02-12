@@ -1,52 +1,20 @@
 <script lang="ts">
-	import PostCard, { type Post } from "./PostCard.svelte";
 	import { Button } from "$lib/components/shadcn/ui/button";
+	import PostCard from "./PostCard.svelte";
 
-	const allPosts = Array.from({ length: 6 }).fill({
-		title: "How to build a successful business",
-		category: {
-			name: "Business",
-			slug: "business",
-		},
-		slug: "skype-french-lessons",
-		seo: [
-			{
-				seoBlock: {
-					title: "Sample Title",
-					description: "Sample Description",
-					image: {
-						url: "https://fastly.picsum.photos/id/1047/330/210.jpg?hmac=H8YBXyH-ou3g5H_vh7-HE-4-Cx1llFcaV3GIkqP0S7E",
-						alt: "Sample Image",
-					},
-				},
-			},
-		],
-	}) as Post[];
+	export let data;
+	const categories = data.allPosts.map(post => post.category);
 
-	const filters = [
-		{ name: "How to Say", routePath: "how-to-say" },
-		{ name: "Grammar", routePath: "grammar" },
-		{ name: "Vocabulary", routePath: "vocabulary" },
-	] as const;
-
-	let currentFilter = "all" as (typeof filters)[number]["routePath"] | "all";
-	let filteredPosts: Post[] = [];
+	let currentFilter = "all" as string;
+	let filteredPosts: typeof data.allPosts = [];
 
 	$: filteredPosts = filterPosts(currentFilter);
 
 	function filterPosts(currentFilter: string) {
 		if (currentFilter === "all") {
-			return allPosts;
+			return data.allPosts;
 		} else {
-			return allPosts.map(post => ({
-				...post,
-				title: `${post?.title} - ${currentFilter}`,
-				slug: `${currentFilter}/${post?.slug}`,
-				category: {
-					name: currentFilter,
-					slug: currentFilter,
-				},
-			}));
+			return data.allPosts.filter(post => post.category?.slug === currentFilter);
 		}
 	}
 </script>
@@ -62,15 +30,28 @@
 	</p>
 
 	<div class="flex-s-start overflow-y-auto py-3 md:flex-s-center">
-		{#each filters as filter}
-			<Button
-				variant={currentFilter === filter.routePath ? "default" : "outline"}
-				class="rounded-none border shrink-0 not-first:border-r first:rounded-l-lg last:rounded-r-lg"
-				on:click={() => (currentFilter = filter.routePath)}
-			>
-				{filter.name}
-			</Button>
-		{/each}
+		<Button
+			variant="outline"
+			class="rounded-none border shrink-0 not-first:border-r first:rounded-l-lg last:rounded-r-lg"
+			on:click={() => (currentFilter = "all")}
+			disabled={currentFilter === "all"}
+		>
+			All
+		</Button>
+
+		{#if categories && categories.length > 0}
+			{#each categories as category}
+				{#if category}
+					<Button
+						variant={currentFilter === category?.slug ? "default" : "outline"}
+						class="rounded-none border shrink-0 not-first:border-r first:rounded-l-lg last:rounded-r-lg"
+						on:click={() => (currentFilter = String(category?.slug))}
+					>
+						{category?.name}
+					</Button>
+				{/if}
+			{/each}
+		{/if}
 	</div>
 </section>
 
@@ -96,7 +77,7 @@
 
 	<div class="container-base py-5">
 		<div class="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-			{#each allPosts as post}
+			{#each data.allPosts as post}
 				<PostCard {post} />
 			{/each}
 		</div>
@@ -109,7 +90,7 @@
 
 	<div class="container-base py-5">
 		<div class="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-			{#each allPosts as post}
+			{#each data.allPosts as post}
 				<PostCard {post} />
 			{/each}
 		</div>
@@ -122,7 +103,7 @@
 
 	<div class="container-base py-5">
 		<div class="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-			{#each allPosts as post}
+			{#each data.allPosts as post}
 				<PostCard {post} />
 			{/each}
 		</div>

@@ -1,5 +1,5 @@
 import { getCoursesSlugs } from "$lib/graphql/queries/courses";
-import { getBlogPostsSlugs } from "$lib/graphql/queries/posts";
+import { getBlogPostsSlugs, getPostFullPath } from "$lib/graphql/queries/posts";
 
 export const GET = async ({ url }) => {
 	const siteURL = url.origin;
@@ -9,9 +9,11 @@ export const GET = async ({ url }) => {
 	const allPosts = await getBlogPostsSlugs();
 
 	const postsEntries = allPosts.map(({ slug, routePaths, _updatedAt }) => {
-		const pathComponents = routePaths.map(path => path.slug);
-		const pathString = pathComponents.length > 0 ? `/${pathComponents.join("/")}` : "";
-		const postFullPath = `${siteURL}/blog${pathString}/${slug}`;
+		const path = getPostFullPath(
+			routePaths.map(path => path.slug),
+			String(slug)
+		);
+		const postFullPath = `${siteURL}${path}`;
 
 		return {
 			url: postFullPath,
