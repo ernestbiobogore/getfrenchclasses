@@ -22,7 +22,6 @@
 
 <script lang="ts">
 	export let block: RichTextBlockModelRichTextBlocksField;
-	console.log({ block });
 </script>
 
 {#if block.__typename === "NoteBlockRecord"}
