@@ -36,7 +36,11 @@
 
 	/* Lists */
 	ul {
-		@apply pl-8;
+		@apply pl-8 list-disc;
+	}
+
+	ol {
+		@apply pl-8 list-decimal;
 	}
 }
 
