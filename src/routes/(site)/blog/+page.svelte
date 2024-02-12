@@ -1,12 +1,12 @@
 <script lang="ts">
 	import { Button } from "$lib/components/shadcn/ui/button";
-	import PostCard, { type Post } from "./PostCard.svelte";
+	import PostCard from "./PostCard.svelte";
 
 	export let data;
 	const categories = data.allPosts.map(post => post.category);
 
 	let currentFilter = "all" as string;
-	let filteredPosts: Post[] = [];
+	let filteredPosts: typeof data.allPosts = [];
 
 	$: filteredPosts = filterPosts(currentFilter);
 
