@@ -59,6 +59,70 @@ type CardBlockRecord implements RecordInterface {
   title: String
 }
 
+input CategoryModelFilter {
+  _createdAt: CreatedAtFilter
+  id: ItemIdFilter
+  _firstPublishedAt: PublishedAtFilter
+  _publicationScheduledAt: PublishedAtFilter
+  _unpublishingScheduledAt: PublishedAtFilter
+  _publishedAt: PublishedAtFilter
+  _status: StatusFilter
+  _updatedAt: UpdatedAtFilter
+  _isValid: BooleanFilter
+  name: StringFilter
+  slug: SlugFilter
+  OR: [CategoryModelFilter]
+  AND: [CategoryModelFilter]
+}
+
+enum CategoryModelOrderBy {
+  _createdAt_ASC
+  _createdAt_DESC
+  id_ASC
+  id_DESC
+  _firstPublishedAt_ASC
+  _firstPublishedAt_DESC
+  _publicationScheduledAt_ASC
+  _publicationScheduledAt_DESC
+  _unpublishingScheduledAt_ASC
+  _unpublishingScheduledAt_DESC
+  _publishedAt_ASC
+  _publishedAt_DESC
+  _status_ASC
+  _status_DESC
+  _updatedAt_ASC
+  _updatedAt_DESC
+  _isValid_ASC
+  _isValid_DESC
+  name_ASC
+  name_DESC
+}
+
+"""Record of type Category (category)"""
+type CategoryRecord implements RecordInterface {
+  _createdAt: DateTime!
+
+  """Editing URL"""
+  _editingUrl: String
+  _firstPublishedAt: DateTime
+  _isValid: BooleanType!
+  _modelApiKey: String!
+  _publicationScheduledAt: DateTime
+  _publishedAt: DateTime
+
+  """Generates SEO and Social card meta tags to be used in your frontend"""
+  _seoMetaTags(
+    """The locale to use to fetch the field's content"""
+    locale: SiteLocale
+  ): [Tag!]!
+  _status: ItemStatus!
+  _unpublishingScheduledAt: DateTime
+  _updatedAt: DateTime!
+  id: ItemId!
+  name: String
+  slug: String
+}
+
 type CollectionMetadata {
   count: IntType!
 }
@@ -2357,6 +2421,7 @@ input PostModelFilter {
   _status: StatusFilter
   _updatedAt: UpdatedAtFilter
   _isValid: BooleanFilter
+  category: LinkFilter
   routePaths: LinksFilter
   slug: SlugFilter
   title: StringFilter
@@ -2407,11 +2472,12 @@ type PostRecord implements RecordInterface {
   _status: ItemStatus!
   _unpublishingScheduledAt: DateTime
   _updatedAt: DateTime!
+  category: CategoryRecord
   cta: [CardBlockRecord!]!
   id: ItemId!
   modularContent: [RichTextBlockRecord!]!
   routePaths: [RoutePathRecord!]!
-  seo: [SeoBlockRecord!]!
+  seo: SeoBlockRecord
   slug: String
   title: String
 }
@@ -2457,6 +2523,13 @@ input PublishedAtFilter {
 """The query root for this schema"""
 type Query {
   """Returns meta information regarding a record collection"""
+  _allCategoriesMeta(
+    """The locale to use to fetch the field's content"""
+    locale: SiteLocale
+    filter: CategoryModelFilter
+  ): CollectionMetadata!
+
+  """Returns meta information regarding a record collection"""
   _allCoursesMeta(
     """The locale to use to fetch the field's content"""
     locale: SiteLocale
@@ -2501,6 +2574,25 @@ type Query {
     """
     fallbackLocales: [SiteLocale!]
   ): Site!
+
+  """Returns a collection of records"""
+  allCategories(
+    """The locale to use to fetch the field's content"""
+    locale: SiteLocale
+
+    """
+    If you want to fallback to a default translation when a translation has not been found
+    """
+    fallbackLocales: [SiteLocale!]
+
+    """Skip the first results"""
+    skip: IntType
+
+    """Limit the number of results"""
+    first: IntType = 20
+    filter: CategoryModelFilter
+    orderBy: [CategoryModelOrderBy] = [_updatedAt_DESC]
+  ): [CategoryRecord!]!
 
   """Returns a collection of records"""
   allCourses(
@@ -2596,6 +2688,19 @@ type Query {
     filter: UploadFilter
     orderBy: [UploadOrderBy] = [_createdAt_DESC]
   ): [FileField!]!
+
+  """Returns a specific record"""
+  category(
+    """The locale to use to fetch the field's content"""
+    locale: SiteLocale
+
+    """
+    If you want to fallback to a default translation when a translation has not been found
+    """
+    fallbackLocales: [SiteLocale!]
+    filter: CategoryModelFilter
+    orderBy: [CategoryModelOrderBy] = [_updatedAt_DESC]
+  ): CategoryRecord
 
   """Returns a specific record"""
   course(

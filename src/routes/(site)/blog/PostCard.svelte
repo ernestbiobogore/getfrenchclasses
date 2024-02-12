@@ -1,8 +1,8 @@
 <script lang="ts" context="module">
-	import type { getSingleBlogPost } from "$lib/graphql/queries/posts";
+	import type { getAllBlogPosts } from "$lib/graphql/queries/posts";
 	import Tag from "~icons/lucide/tag";
 
-	type CMSPost = Awaited<ReturnType<typeof getSingleBlogPost>>;
+	type CMSPost = Awaited<ReturnType<typeof getAllBlogPosts>>[number];
 
 	export type Post = Partial<CMSPost>;
 </script>
@@ -13,8 +13,8 @@
 
 <div class="p-8 space-y-4 bg-white rounded-2xl">
 	<img
-		src={post?.seo?.[0]?.seoBlock?.image?.url}
-		alt={post?.seo?.[0]?.seoBlock?.image?.alt}
+		src={post?.seo?.seoBlock?.image?.url}
+		alt={post?.seo?.seoBlock?.image?.alt}
 		width="310"
 		height="210"
 		loading="lazy"
@@ -25,13 +25,15 @@
 		<a href="/blog/{post?.slug}" class="hover:underline">{post?.title}</a>
 	</h3>
 
-	<div class="flex items-center gap-2">
-		<Tag class="text-gray-400" />
-		<p class="text-xs text-gray-500">{post?.category?.name}</p>
-	</div>
+	{#if post.category}
+		<div class="flex items-center gap-2">
+			<Tag class="text-gray-400" />
+			<p class="text-xs text-gray-500">{post?.category?.name}</p>
+		</div>
+	{/if}
 
 	<p>
-		{post?.seo?.[0]?.seoBlock?.description}
+		{post?.seo?.seoBlock?.description}
 	</p>
 
 	<a href="/blog/{post?.slug}" class="text-xs action-base w-fit">Read More</a>

@@ -32,7 +32,7 @@ export const load = async ({ params, url }) => {
 	return {
 		post: {
 			...post,
-			seo: post.seo[0].seoBlock,
+			seo: post.seo?.seoBlock,
 		},
 	};
 };

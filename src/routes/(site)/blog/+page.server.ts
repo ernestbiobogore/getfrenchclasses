@@ -1,3 +1,7 @@
+import { getAllBlogPosts } from "$lib/graphql/queries/posts";
+
 export async function load() {
-	return {};
+	return {
+		allPosts: await getAllBlogPosts(),
+	};
 }
