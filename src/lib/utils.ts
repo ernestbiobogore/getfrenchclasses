@@ -1,10 +1,10 @@
-import type { PostShareOptions } from "./types";
-import type { TransitionConfig } from "svelte/transition";
+import { page } from "$app/stores";
 import { clsx, type ClassValue } from "clsx";
 import { cubicOut } from "svelte/easing";
 import { get } from "svelte/store";
-import { page } from "$app/stores";
+import type { TransitionConfig } from "svelte/transition";
 import { twMerge } from "tailwind-merge";
+import type { PostShareOptions } from "./types";
 
 const getSampleAvatars = (n = 3) => {
 	return Array.from({ length: n }, () => {
@@ -21,24 +21,30 @@ export function cn(...inputs: ClassValue[]) {
 	return twMerge(clsx(inputs));
 }
 
-export function generateShareOptions(post: {
-	slug: string | null;
-	seo: { title: string | null; description: string | null } | null;
-}): PostShareOptions {
+
+type GenerateShareOptionsParams = {
+	slug: string;
+	title: string;
+	description: string;
+}
+
+export function generateShareOptions(
+	shareOptions: GenerateShareOptionsParams
+): PostShareOptions {
 	return {
 		// for whatsapp and twitter and facebook and Web Share API
-		title: post?.seo?.title || "",
+		title: shareOptions.title,
 		text: `Check out this article on Get French Classes`,
-		url: `${get(page).url.origin}/blog/${post?.slug}`,
+		url: `${get(page).url.origin}/blog/${shareOptions.slug}`,
 
 		// for mail`
-		subject: post?.seo?.title || "",
+		subject: shareOptions.title,
 		body: `Check out this article on Get French Classes: ${
 			get(page).url.origin
-		}/blog/${post?.slug}`,
+		}/blog/${shareOptions.slug}`,
 
 		// for linkedin
-		summary: post?.seo?.description || "",
+		summary: shareOptions.description,
 		source: "Get French Classes",
 	};
 }

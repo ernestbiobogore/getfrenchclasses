@@ -10,7 +10,13 @@
 
 	export let data;
 	$: postCta = data.post?.cta[0];
-	$: shareOptions = generateShareOptions(data.post!);
+
+	$: shareOptions = generateShareOptions({
+		slug: data.post?.slug || "",
+		title: data.post?.seo?.title || "",
+		description: data.post?.seo?.description || "",
+	});
+
 	$: ({ twitterShareUrl, facebookShareUrl, linkedInShareUrl, redditShareUrl } =
 		getShareLinks(shareOptions));
 
