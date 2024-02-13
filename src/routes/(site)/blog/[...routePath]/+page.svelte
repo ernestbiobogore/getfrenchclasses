@@ -1,12 +1,14 @@
 <script lang="ts">
 	import BlogCta, { type CTAProps } from "$lib/components/cta-section/BlogCta.svelte";
 	import StructuredText from "$lib/components/dato/StructuredText/index.svelte";
+	import { Button } from "$lib/components/shadcn/ui/button";
 	import { generateShareOptions, getSampleAvatars, getShareLinks } from "$lib/utils";
 
 	import Fa6BrandsXTwitter from "~icons/fa6-brands/x-twitter";
 	import LucideFacebook from "~icons/lucide/facebook";
 	import LucideLinkedin from "~icons/lucide/linkedin";
 	import PhRedditLogoBold from "~icons/ph/reddit-logo-bold";
+	import AvatarsGroup from "$lib/components/AvatarsGroup.svelte";
 
 	export let data;
 	$: postCta = data.post?.cta[0];
@@ -76,7 +78,7 @@
 		</div>
 	</header>
 
-	<article class="flex flex-col sm:flex-row gap-8 container-base mt-8">
+	<article class="flex flex-col lg:flex-row gap-6 container-base mt-8">
 		<main class="space-y-8 basis-9/12">
 			<BlogCta props={dummyCTAProps} ctaAction={() => alert("button Clicked")} />
 
@@ -89,17 +91,17 @@
 
 		<aside class="basis-3/12">
 			{#if postCta}
-				<div class="border-2 h-fit rounded-md border-gray-500 lg:sticky lg:top-20">
-					<div class="p-6 bg-night">
-						<p class="text-(sm neutral-300) font-bold">{postCta.title}</p>
-					</div>
-
-					<StructuredText richText={postCta.content?.richText} class="p-6 space-y-4" />
-
-					<div class="p-6 bg-night">
-						<a href={postCta.cta[0].link} class="action-white w-fit text-sm rounded-none"
-							>{postCta.cta[0].text}</a
-						>
+				<div class="rounded-lg bg-white p-6 shadow-lg max-w-[400px] mx-auto flex flex-col gap-4">
+					<h1 class="text-xl font-semibold tracking-tight">{postCta.title}</h1>
+					<StructuredText richText={postCta.content?.richText} class="space-y-4" />
+					<Button href={postCta.cta[0].link} class="w-full bg-savoy-blue text-white">
+						{postCta.cta[0].text}
+					</Button>
+					<div class="flex-s-center gap-3 text-center">
+						<AvatarsGroup avatars={getSampleAvatars(2)} size={20} />
+						<span class="text-[9px] max-w-[36ch]">
+							and 4570+ learners went from noob to fluent French speakers with our programs.
+						</span>
 					</div>
 				</div>
 			{/if}

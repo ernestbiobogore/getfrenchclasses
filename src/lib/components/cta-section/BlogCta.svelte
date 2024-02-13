@@ -39,7 +39,7 @@
 			</p>
 
 			<div>
-				<button class="bg-[#5E62D0] text-center px-8 py-2 mx-auto rounded-lg" on:click={ctaAction}>
+				<button class="bg-savoy-blue text-center px-8 py-2 mx-auto rounded-lg" on:click={ctaAction}>
 					<p class="text-white tracking-tight font-bold leading-tight max-w-[17ch]">
 						{props.buttonText}
 					</p>
