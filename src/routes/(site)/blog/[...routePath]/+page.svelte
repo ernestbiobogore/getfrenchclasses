@@ -91,7 +91,9 @@
 
 		<aside class="basis-3/12">
 			{#if postCta}
-				<div class="rounded-lg bg-white p-6 shadow-lg max-w-[400px] mx-auto flex flex-col gap-4">
+				<div
+					class="rounded-lg border-savoy-blue border-2 bg-white p-6 shadow-lg max-w-[400px] mx-auto flex flex-col gap-4"
+				>
 					<h1 class="text-xl font-semibold tracking-tight">{postCta.title}</h1>
 					<StructuredText richText={postCta.content?.richText} class="space-y-4" />
 					<Button href={postCta.cta[0].link} class="w-full bg-savoy-blue text-white">
