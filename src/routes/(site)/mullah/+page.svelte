@@ -46,9 +46,7 @@
 	<div class="container-base space-y-10">
 		<h2 class="text-center tracking-tight md:text-4xl">What You Get as an Affiliate Partner</h2>
 
-		<div
-			class="max-w-7xl mx-auto grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-16 px-4 sm:px-6 lg:px-8"
-		>
+		<div class="max-w-7xl mx-auto grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:px-8">
 			{#each [...Array(3)] as _}
 				<Card.Root class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md">
 					<Card.Content class="flex flex-col items-center text-center">
@@ -71,9 +69,7 @@
 	<div class="container-base space-y-10">
 		<h2 class="text-center tracking-tight md:text-4xl">How It Works</h2>
 
-		<div
-			class="max-w-7xl mx-auto grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-16 px-4 sm:px-6 lg:px-8"
-		>
+		<div class="max-w-7xl mx-auto grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:px-8">
 			{#each [...Array(3)] as _}
 				<Card.Root class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md">
 					<Card.Content class="flex flex-col items-center text-center">
@@ -92,7 +88,7 @@
 </section>
 
 {#if homepageData && homepageData.faq?.faqBlocks && homepageData.faq.faqBlocks.length > 0}
-	<section class="max-w-2xl mx-auto py-10 md:pt-20" id="faq">
+	<section class="max-w-2xl px-4 mx-auto py-10 md:pt-20" id="faq">
 		<h2 class="mb-8 text-center">Frequently Asked Questions</h2>
 		<FaqAccordion
 			itemIds={homepageData.faq.faqBlocks.map(faq => faq.id)}
