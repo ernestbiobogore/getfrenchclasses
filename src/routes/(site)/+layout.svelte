@@ -28,6 +28,7 @@
 					<a class="border-b hover:bg-gray-100" href="/wall-of-love">Wall of Love</a>
 					<a class="border-b hover:bg-gray-100" href="/resources">Resources</a>
 					<a class="border-b hover:bg-gray-100" href="/business">Business</a>
+					<a class="border-b hover:bg-gray-100" href="/mullah">Affiliate</a>
 					<a href="/contact">Contact</a>
 				</div>
 			</Popover.Content>
@@ -41,6 +42,7 @@
 			<a class="hover:underline" href="/wall-of-love">Wall of Love</a>
 			<a class="hover:underline" href="/resources">Resources</a>
 			<a class="hover:underline" href="/business">Business</a>
+			<a class="hover:underline" href="/mullah">Affiliate</a>
 			<a class="hover:underline" href="/contact">Contact</a>
 		</div>
 
