@@ -3,9 +3,9 @@
 	import BarChartIcon from "~icons/lucide/bar-chart";
 	import FaqAccordion from "$lib/components/FaqAccordion.svelte";
 	import LinkIcon from "~icons/lucide/link";
+	import TestimonialCta from "$lib/components/cta-section/TestimonialCta.svelte";
 	import { Button } from "$lib/components/shadcn/ui/button";
 	import { getSampleAvatars } from "$lib/utils";
-	import TestimonialCta from "$lib/components/cta-section/TestimonialCta.svelte";
 
 	export let data;
 

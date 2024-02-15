@@ -1,4 +1,9 @@
 <script>
+	import * as Card from "$lib/components/shadcn/ui/card";
+	import TestimonialCta, {
+		dummyTestimonialCta,
+	} from "$lib/components/cta-section/TestimonialCta.svelte";
+
 	import HelpingHand from "~icons/lucide/helping-hand";
 	import Globe2 from "~icons/lucide/globe-2";
 	import Lightbulb from "~icons/lucide/lightbulb";
@@ -9,9 +14,6 @@
 	import Teacher2 from "$lib/images/teacher2.png";
 	import Teacher3 from "$lib/images/teacher3.png";
 	import Teacher4 from "$lib/images/teacher4.png";
-	import Circle1 from "$lib/images/circle1.png";
-	import Circle2 from "$lib/images/circle2.png";
-	import Triangle from "$lib/images/triangle.png";
 	import Teacher5 from "$lib/images/Teacher5.png";
 </script>
 
@@ -99,8 +101,35 @@
 		</div>
 	</div>
 </section>
-<!-- testimony -->
 
+<!-- MEET THE TEAM -->
+<section class="container-base">
+	<div class="space-y-3 text-center">
+		<h2 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Meet Our Team</h2>
+		<p
+			class="mx-auto max-w-[700px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400"
+		>
+			Our team of language experts and instructors are dedicated to providing the best learning
+			experience.
+		</p>
+	</div>
+
+	<div class="grid w-full py-10 grid-cols-1 md:grid-cols-3 items-start justify-center gap-6">
+		{#each [...Array(6)] as _}
+			<Card.Root class="rounded-none">
+				<Card.Content class="flex-s-start gap-6 p-4">
+					<img src={Teacher1} alt="Teacher1" class="size-32 rounded-full" />
+					<div>
+						<h3 class="text-xl font-semibold">John Roberts</h3>
+						<p class="text-gray-500">Founder & CEO</p>
+					</div>
+				</Card.Content>
+			</Card.Root>
+		{/each}
+	</div>
+</section>
+
+<!-- testimony -->
 <section class="flex flex-col items-center gap-20 py-24 container-sm sm:flex-row">
 	<div class="basis-6/12">
 		<img src={Teacher5} alt="Teacher5" />
@@ -121,35 +150,11 @@
 </section>
 
 <!-- before footer -->
-<section class="py-24 container-base">
+<div class="container-base">
 	<h2 class="py-20 tracking-tight text-4xl w-2/3">
 		Equipping the next generation of individuals with the knowledge and skills needed to achieve
 		financial freedom.
 	</h2>
+</div>
 
-	<section class="container-base relative px-0">
-		<div class=" m-auto space-y-5 bg-night rounded-2xl h-96 w-full">
-			<div class="p-12 flex flex-col gap-10 md:p-8 md:w-34rem">
-				<h2 class="w-full text-white text-2xl sm:break-words sm:w-5/12 md:text-[2.75rem]/[3.3rem]">
-					Empower your financial future, today.
-				</h2>
-				<a href="/" class="action-white w-fit">View our courses</a>
-			</div>
-			<img
-				src={Circle1}
-				alt="Circle 1"
-				class="absolute size-16 bottom-3 left-20 md:left-[28rem] md:top-20 md:size-20 lg:left-[50rem]"
-			/>
-			<img
-				src={Circle2}
-				alt="Circle 2"
-				class="absolute size-20 bottom-28 right-24 md:top-48 md:right-36 md:s-28 lg:right-48 lg:top-40"
-			/>
-			<img
-				src={Triangle}
-				alt="Triangle"
-				class="absolute w-24 h-28 bottom-0 right-4 md:s-40 md:right-4"
-			/>
-		</div>
-	</section>
-</section>
+<TestimonialCta {...dummyTestimonialCta} />

@@ -4,9 +4,11 @@
 	import AvatarsGroup from "$lib/components/AvatarsGroup.svelte";
 	import FaqAccordion from "$lib/components/FaqAccordion.svelte";
 	import TestimonialCardList from "$lib/components/TestimonialCardList.svelte";
-	import TestimonialCta from "$lib/components/cta-section/TestimonialCta.svelte";
+	import TestimonialCta, {
+		dummyTestimonialCta,
+	} from "$lib/components/cta-section/TestimonialCta.svelte";
 	import StructuredText from "$lib/components/dato/StructuredText/index.svelte";
-	import { cn, getSampleAvatars } from "$lib/utils";
+	import { cn } from "$lib/utils";
 
 	import PhArrowBendDownLeftFill from "~icons/ph/arrow-bend-down-left-fill";
 
@@ -17,22 +19,6 @@
 		img: "",
 		title: "Get high quality articles in minutes, not weeks",
 	});
-
-	const dummyTestimonialCta = {
-		author: {
-			name: "Filipa Canelas",
-			avatar: getSampleAvatars()[0].src,
-			title: "Founder",
-			companies: ["Able-Academy"],
-		},
-		quote: `I've tried Jasper, CopyAI, ChatGPT and Rytr.
-    Penfriend is 10x better. The output from Penfriend
-    gives me a really solid foundation of content depth
-    that I can improve upon, in 80% less time.
-    The title suggestions are incredible, the outline is
-    really solid and the content length and depth is
-    IMPRESSIVE!`,
-	};
 </script>
 
 <svelte:head>

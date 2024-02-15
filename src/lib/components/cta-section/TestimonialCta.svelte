@@ -5,10 +5,26 @@
 		title: string;
 		companies: string[];
 	};
+
+	export const dummyTestimonialCta = {
+		author: {
+			name: "Filipa Canelas",
+			avatar: getSampleAvatars()[0].src,
+			title: "Founder",
+			companies: ["Able-Academy"],
+		},
+		quote: `I've tried Jasper, CopyAI, ChatGPT and Rytr.
+    Penfriend is 10x better. The output from Penfriend
+    gives me a really solid foundation of content depth
+    that I can improve upon, in 80% less time.
+    The title suggestions are incredible, the outline is
+    really solid and the content length and depth is
+    IMPRESSIVE!`,
+	};
 </script>
 
 <script lang="ts">
-	import { cn } from "$lib/utils";
+	import { cn, getSampleAvatars } from "$lib/utils";
 	import CarbonQuotes from "~icons/carbon/quotes";
 
 	export let author: Author;
