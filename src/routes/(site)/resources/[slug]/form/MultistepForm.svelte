@@ -1,10 +1,10 @@
 <script lang="ts">
-	import * as Dialog from "$lib/components/shadcn/ui/dialog";
+	import * as Dialog from "$shadcn/dialog";
 	import ProgressBar from "./ProgressBar.svelte";
 	import { Dialog as DialogPrimitive } from "bits-ui";
-	import { Button, buttonVariants } from "$lib/components/shadcn/ui/button";
-	import { Input } from "$lib/components/shadcn/ui/input";
-	import { Label } from "$lib/components/shadcn/ui/label";
+	import { Button, buttonVariants } from "$shadcn/button";
+	import { Input } from "$shadcn/input";
+	import { Label } from "$shadcn/label";
 
 	let steps = ["Name", "Email & Phone", "Company", "Confirmation"];
 	let currentActive = 1;

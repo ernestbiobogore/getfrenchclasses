@@ -1,7 +1,7 @@
 <script lang="ts">
 	import ArrowRight from "~icons/lucide/arrow-right";
 	import type { VariantProps } from "tailwind-variants";
-	import { Button, type Props, buttonVariants } from "$lib/components/shadcn/ui/button/index.js";
+	import { Button, type Props, buttonVariants } from "$shadcn/button/index.js";
 	import { cn } from "$lib/utils";
 	import { getEmblaContext } from "./context.js";
 
