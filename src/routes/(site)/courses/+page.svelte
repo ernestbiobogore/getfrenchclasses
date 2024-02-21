@@ -1,11 +1,20 @@
 <script>
 	import CourseCard from "$lib/components/CourseCard.svelte";
+	import CustomMultiselect from "$lib/components/CustomMultiselect.svelte";
 	import GenericCta from "$lib/components/cta-section/GenericCta.svelte";
 	import CourseSectionDivider from "./CourseSectionDivider.svelte";
-	import FilterCourses from "./FilterCourses.svelte";
 
 	export let data;
 	$: ({ allCourses } = data);
+
+	const filterOptions = {
+		levels: [
+			{ value: "beginner", label: "Beginner" },
+			{ value: "intermediate", label: "Intermediate" },
+			{ value: "advanced", label: "Advanced" },
+		],
+		bundles: [{ value: "starter", label: "Starter" }],
+	};
 </script>
 
 <svelte:head>
@@ -27,7 +36,7 @@
 </section>
 
 <section class="container-base pt-10">
-	<FilterCourses />
+	<CustomMultiselect placeholder="Filter by Level or Bundle" options={filterOptions} />
 </section>
 
 <section>

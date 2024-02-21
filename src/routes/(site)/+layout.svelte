@@ -9,6 +9,7 @@
 
 		<div class="hidden gap-4 [&_a]:py-2 [&_a]:font-medium [&_a]:rounded-lg lg:flex">
 			<a class="hover:underline" href="/courses">Courses</a>
+			<a class="hover:underline" href="/tutors">Tutors</a>
 			<a class="hover:underline" href="/about">About</a>
 			<a class="hover:underline" href="/#faq">FAQ's</a>
 			<a class="hover:underline" href="/blog">Blog</a>
@@ -37,6 +38,7 @@
 					class="flex flex-col [&>button]:text-start [&_a]:inline-block [&_a]:px-4 [&_a]:py-2 [&_a]:border-b-gray-200"
 				>
 					<Sheet.Close><a class="hover:opacity-50" href="/courses">Courses</a></Sheet.Close>
+					<Sheet.Close><a class="hover:opacity-50" href="/tutors">Tutors</a></Sheet.Close>
 					<Sheet.Close><a class="hover:opacity-50" href="/about">About</a></Sheet.Close>
 					<Sheet.Close><a class="hover:opacity-50" href="/#faq">FAQ's</a></Sheet.Close>
 					<Sheet.Close><a class="hover:opacity-50" href="/blog">Blog</a></Sheet.Close>
