@@ -1,6 +1,6 @@
 <script lang="ts">
 	import LucideSearch from "~icons/lucide/search";
-	import { Input } from "$lib/components/shadcn/ui/input";
+	import { Input } from "$shadcn/input";
 	import { Label } from "bits-ui";
 
 	const topics = ["Grammar", "Vocabulary", "Listening", "Reading", "Writing", "Speaking"];

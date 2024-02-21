@@ -1,11 +1,11 @@
 <script lang="ts">
-	import * as Card from "$lib/components/shadcn/ui/card";
-	import * as Carousel from "$lib/components/shadcn/ui/carousel";
+	import * as Card from "$shadcn/card";
+	import * as Carousel from "$shadcn/carousel";
 	import CheckCircleRounded from "~icons/material-symbols/check-circle-rounded";
 	import FaqAccordion from "$lib/components/FaqAccordion.svelte";
 	import GenericCta from "$lib/components/cta-section/GenericCta.svelte";
 	import MultistepForm from "./form/MultistepForm.svelte";
-	import { Badge } from "$lib/components/shadcn/ui/badge";
+	import { Badge } from "$shadcn/badge";
 
 	export let data;
 

@@ -1,6 +1,6 @@
 <script lang="ts">
-	import * as Card from "$lib/components/shadcn/ui/card";
-	import * as Pagination from "$lib/components/shadcn/ui/pagination";
+	import * as Card from "$shadcn/card";
+	import * as Pagination from "$shadcn/pagination";
 	import ChevronRight from "~icons/lucide/chevron-right";
 	import ChevronLeft from "~icons/lucide/chevron-left";
 	import ResourcesSearchFilter from "./ResourcesSearchFilter.svelte";

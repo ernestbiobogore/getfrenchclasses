@@ -1,7 +1,7 @@
 <script lang="ts">
 	import BlogCta, { type CTAProps } from "$lib/components/cta-section/BlogCta.svelte";
 	import StructuredText from "$lib/components/dato/StructuredText/index.svelte";
-	import { Button } from "$lib/components/shadcn/ui/button";
+	import { Button } from "$shadcn/button";
 	import { generateShareOptions, getSampleAvatars, getShareLinks } from "$lib/utils";
 
 	import Fa6BrandsXTwitter from "~icons/fa6-brands/x-twitter";

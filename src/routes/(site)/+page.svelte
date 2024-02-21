@@ -26,7 +26,7 @@
 </svelte:head>
 
 <!-- HERO -->
-<section class="p-3 py-20 container-base">
+<section class="p-3 py-10 md:py-20 container-base">
 	<div class="w-full mx-auto space-y-6 md:max-w-3xl">
 		<h1>{homepageData?.heroTitle}</h1>
 		<p class="hero-subtitle">

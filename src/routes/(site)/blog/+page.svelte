@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Button } from "$lib/components/shadcn/ui/button";
+	import { Button } from "$shadcn/button";
 	import PostCard from "./PostCard.svelte";
 
 	export let data;

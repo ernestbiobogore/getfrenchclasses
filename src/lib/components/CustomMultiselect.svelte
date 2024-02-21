@@ -1,26 +1,25 @@
+<script lang="ts" context="module">
+	export type SelectChangeHandler = (selected: Selected<unknown>[] | undefined) => void;
+</script>
+
 <script lang="ts">
-	import { flyAndScale } from "$lib/utils";
-	import { Select } from "bits-ui";
 	import Check from "~icons/lucide/check";
 	import ChevronUpDown from "~icons/lucide/chevrons-up-down";
 	import ListFilter from "~icons/lucide/list-filter";
+	import { Select, type Selected } from "bits-ui";
+	import { flyAndScale } from "$lib/utils";
 
-	const options = {
-		levels: [
-			{ value: "beginner", label: "Beginner" },
-			{ value: "intermediate", label: "Intermediate" },
-			{ value: "advanced", label: "Advanced" },
-		],
-		bundles: [{ value: "starter", label: "Starter" }],
-	};
+	export let options = {} as Record<string, { value: string; label: string }[]>;
+	export let onSelectedChange: SelectChangeHandler = () => {};
+	export let placeholder: string;
 </script>
 
-<Select.Root multiple onSelectedChange={selected => {}}>
+<Select.Root {onSelectedChange} multiple>
 	<Select.Trigger
 		class="inline-flex h-[3rem] min-w-[229px] gap-2 items-center rounded-[9px] border border-1 bg-white px-[11px] text-sm transition-colors"
 	>
 		<ListFilter />
-		<Select.Value class="text-gray-600" placeholder="Filter by Level or Bundle" />
+		<Select.Value class="text-gray-600" {placeholder} />
 		<ChevronUpDown class="ml-auto" />
 	</Select.Trigger>
 	<Select.Content
@@ -33,8 +32,7 @@
 				<Select.Label class="capitalize font-medium">{key}</Select.Label>
 				{#each arr as level}
 					<Select.Item
-						class="flex h-10 w-full select-none items-center rounded py-3 pl-3 pr-1.5 text-sm
-						text-gray-700 outline-none transition-all duration-75 data-[highlighted]:bg-magnolia/80"
+						class="flex h-10 w-full select-none items-center rounded py-3 pl-3 pr-1.5 text-sm text-gray-700 outline-none transition-all duration-75 data-[highlighted]:bg-magnolia/80"
 						value={level.value}
 						label={level.label}
 					>

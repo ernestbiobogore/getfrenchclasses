@@ -1,5 +1,5 @@
 <script>
-	import * as Card from "$lib/components/shadcn/ui/card";
+	import * as Card from "$shadcn/card";
 	import TestimonialCta, {
 		dummyTestimonialCta,
 	} from "$lib/components/cta-section/TestimonialCta.svelte";
