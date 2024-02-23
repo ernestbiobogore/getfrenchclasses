@@ -170,12 +170,10 @@ const getHomePageData = async () => {
 				subheading: true,
 			},
 			faq: {
-				title: true,
 				faqBlocks: {
-					id: true,
-					question: true,
-					answer: {
-						richText: {
+					faq: {
+						heading: true,
+						subheading: {
 							value: true,
 						},
 					},

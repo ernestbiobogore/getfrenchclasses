@@ -2,7 +2,6 @@
 	import "./+page.css"; // simpler than using <style> tags with global selectors
 
 	import AvatarsGroup from "$lib/components/AvatarsGroup.svelte";
-	import FaqAccordion from "$lib/components/FaqAccordion.svelte";
 	import TestimonialCardList from "$lib/components/TestimonialCardList.svelte";
 	import TestimonialCta, {
 		dummyTestimonialCta,
@@ -14,6 +13,7 @@
 
 	export let data;
 	$: ({ homepageData } = data);
+	$: console.log(homepageData);
 
 	const howWeHelpYou: any[] = Array.from({ length: 3 }).fill({
 		img: "",
@@ -236,7 +236,7 @@
 
 <!-- FAQ -->
 <section class="py-20 text-center space-y-11 container-base" id="faq">
-	<div class="space-y-5">
+	<!-- <div class="space-y-5">
 		<h2>{homepageData?.faqHeading[0].heading}</h2>
 
 		<p class="mx-auto text-sm md:w-4/12">
@@ -252,7 +252,7 @@
 				richTexts={homepageData.faq.faqBlocks.map(faq => faq.answer[0].richText)}
 			/>
 		</div>
-	{/if}
+	{/if} -->
 </section>
 
 <TestimonialCta {...dummyTestimonialCta} />
