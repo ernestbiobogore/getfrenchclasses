@@ -424,7 +424,7 @@ export interface HeroSectionRecord {
     _unpublishingScheduledAt: (Scalars['DateTime'] | null)
     _updatedAt: Scalars['DateTime']
     cta: (ActionBlockRecord | null)
-    heding: (HeadingBlockNewRecord | null)
+    heading: (HeadingBlockNewRecord | null)
     id: Scalars['ItemId']
     testimonialPictures: AltFileField[]
     testimonialTitle: (Scalars['String'] | null)
@@ -915,7 +915,7 @@ export interface TestimonialsSectionRecord {
     _status: ItemStatus
     _unpublishingScheduledAt: (Scalars['DateTime'] | null)
     _updatedAt: Scalars['DateTime']
-    heading: (HeadingBlockRecord | null)
+    heading: (HeadingBlockNewRecord | null)
     id: Scalars['ItemId']
     testimonials: TestimonialsSectionModelTestimonialsField[]
     __typename: 'TestimonialsSectionRecord'
@@ -1631,7 +1631,7 @@ export interface HeroSectionRecordGenqlSelection{
     _unpublishingScheduledAt?: boolean | number
     _updatedAt?: boolean | number
     cta?: ActionBlockRecordGenqlSelection
-    heding?: HeadingBlockNewRecordGenqlSelection
+    heading?: HeadingBlockNewRecordGenqlSelection
     id?: boolean | number
     testimonialPictures?: AltFileFieldGenqlSelection
     testimonialTitle?: boolean | number
@@ -3672,7 +3672,7 @@ export interface TestimonialsSectionRecordGenqlSelection{
     _status?: boolean | number
     _unpublishingScheduledAt?: boolean | number
     _updatedAt?: boolean | number
-    heading?: HeadingBlockRecordGenqlSelection
+    heading?: HeadingBlockNewRecordGenqlSelection
     id?: boolean | number
     testimonials?: TestimonialsSectionModelTestimonialsFieldGenqlSelection
     __typename?: boolean | number

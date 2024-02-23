@@ -1531,7 +1531,7 @@ export default {
             "cta": [
                 0
             ],
-            "heding": [
+            "heading": [
                 33
             ],
             "id": [
@@ -3855,7 +3855,7 @@ export default {
                 19
             ],
             "heading": [
-                34
+                33
             ],
             "id": [
                 66

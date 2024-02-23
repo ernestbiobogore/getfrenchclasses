@@ -872,7 +872,7 @@ type HeroSectionRecord implements RecordInterface {
   _unpublishingScheduledAt: DateTime
   _updatedAt: DateTime!
   cta: ActionBlockRecord
-  heding: HeadingBlockNewRecord
+  heading: HeadingBlockNewRecord
   id: ItemId!
   testimonialPictures: [AltFileField!]!
   testimonialTitle: String
@@ -3556,7 +3556,7 @@ type TestimonialsSectionRecord implements RecordInterface {
   _status: ItemStatus!
   _unpublishingScheduledAt: DateTime
   _updatedAt: DateTime!
-  heading: HeadingBlockRecord
+  heading: HeadingBlockNewRecord
   id: ItemId!
   testimonials: [TestimonialsSectionModelTestimonialsField!]!
 }
