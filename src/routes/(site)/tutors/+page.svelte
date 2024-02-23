@@ -1,25 +1,24 @@
 <script lang="ts">
-	import * as Avatar from "$shadcn/avatar";
-	import * as Card from "$shadcn/card";
-	import CourseSectionDivider from "$routes/(site)/courses/CourseSectionDivider.svelte";
 	import CustomMultiselect, {
 		type SelectChangeHandler,
 	} from "$lib/components/CustomMultiselect.svelte";
 	import TestimonialCta, {
 		dummyTestimonialCta,
 	} from "$lib/components/cta-section/TestimonialCta.svelte";
-	import type { Selected } from "bits-ui";
+	import * as Avatar from "$shadcn/avatar";
 	import { Button } from "$shadcn/button";
+	import * as Card from "$shadcn/card";
+	import type { Selected } from "bits-ui";
 
-	import StarFillIcon from "~icons/solar/star-bold";
-	import UserIcon from "~icons/lucide/user";
+	import FaqAccordion from "$lib/components/FaqAccordion.svelte";
+	import TestimonialCardList from "$lib/components/TestimonialCardList.svelte";
 	import LayersIcon from "~icons/lucide/layers";
 	import LocateIcon from "~icons/lucide/locate";
-	import PhoneIcon from "~icons/lucide/phone";
-	import VideoIcon from "~icons/lucide/video";
 	import MessageCircleIcon from "~icons/lucide/message-circle";
-	import TestimonialCardList from "$lib/components/TestimonialCardList.svelte";
-	import FaqAccordion from "$lib/components/FaqAccordion.svelte";
+	import PhoneIcon from "~icons/lucide/phone";
+	import UserIcon from "~icons/lucide/user";
+	import VideoIcon from "~icons/lucide/video";
+	import StarFillIcon from "~icons/solar/star-bold";
 
 	export let data;
 	$: homepageData = data?.homepageData;
@@ -267,9 +266,13 @@
 	<section class="max-w-2xl px-4 mx-auto py-10 md:pt-20" id="faq">
 		<h2 class="mb-8 text-center">Frequently Asked Questions</h2>
 		<FaqAccordion
-			itemIds={homepageData.faq.faqBlocks.map(faq => faq.id)}
-			titles={homepageData.faq.faqBlocks.map(faq => faq.question || "")}
-			richTexts={homepageData.faq.faqBlocks.map(faq => faq.answer[0].richText)}
+			faqs={homepageData.faq.faqBlocks.map(block => ({
+				id: block.id,
+				faq: {
+					heading: block.faq?.heading || "",
+					subheading: block.faq?.subheading || {},
+				},
+			}))}
 		/>
 	</section>
 {/if}
