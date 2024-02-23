@@ -1,7 +1,18 @@
 import type {
 	CardBlockRecordGenqlSelection,
+	FaqBlockNewRecordGenqlSelection,
 	PostRecordGenqlSelection,
 } from "$lib/graphql/generated";
+
+const faqBlockSelection = {
+	id: true,
+	faq: {
+		heading: true,
+		subheading: {
+			value: true,
+		},
+	},
+} satisfies FaqBlockNewRecordGenqlSelection;
 
 const cardBlockFields = {
 	title: true,
@@ -47,5 +58,5 @@ const postCategoryBlockFields = {
 	slug: true,
 } satisfies PostRecordGenqlSelection["category"];
 
-export { cardBlockFields, postCategoryBlockFields, postSeoBlockFields };
+export { cardBlockFields, faqBlockSelection, postCategoryBlockFields, postSeoBlockFields };
 
