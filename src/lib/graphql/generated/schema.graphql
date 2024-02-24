@@ -32,6 +32,32 @@ input BooleanFilter {
 """Represents `true` or `false` values."""
 scalar BooleanType
 
+"""Block of type Card Block (New) (card_block_new)"""
+type CardBlockNewRecord implements RecordInterface {
+  _createdAt: DateTime!
+
+  """Editing URL"""
+  _editingUrl: String
+  _firstPublishedAt: DateTime
+  _isValid: BooleanType!
+  _modelApiKey: String!
+  _publicationScheduledAt: DateTime
+  _publishedAt: DateTime
+
+  """Generates SEO and Social card meta tags to be used in your frontend"""
+  _seoMetaTags(
+    """The locale to use to fetch the field's content"""
+    locale: SiteLocale
+  ): [Tag!]!
+  _status: ItemStatus!
+  _unpublishingScheduledAt: DateTime
+  _updatedAt: DateTime!
+  cta: [ActionBlockRecord!]!
+  heading: HeadingBlockNewRecord
+  id: ItemId!
+  media: FileField
+}
+
 """Block of type Card Block (card_block)"""
 type CardBlockRecord implements RecordInterface {
   _createdAt: DateTime!
@@ -57,6 +83,32 @@ type CardBlockRecord implements RecordInterface {
   id: ItemId!
   media: FileField
   title: String
+}
+
+"""Block of type Cards Section (cards_section)"""
+type CardsSectionRecord implements RecordInterface {
+  _createdAt: DateTime!
+
+  """Editing URL"""
+  _editingUrl: String
+  _firstPublishedAt: DateTime
+  _isValid: BooleanType!
+  _modelApiKey: String!
+  _publicationScheduledAt: DateTime
+  _publishedAt: DateTime
+
+  """Generates SEO and Social card meta tags to be used in your frontend"""
+  _seoMetaTags(
+    """The locale to use to fetch the field's content"""
+    locale: SiteLocale
+  ): [Tag!]!
+  _status: ItemStatus!
+  _unpublishingScheduledAt: DateTime
+  _updatedAt: DateTime!
+  cards: [CardBlockNewRecord!]!
+  heading: HeadingBlockNewRecord
+  id: ItemId!
+  sectionType: String
 }
 
 input CategoryModelFilter {
@@ -287,6 +339,30 @@ scalar CustomData
 """A ISO 8601 compliant datetime value"""
 scalar DateTime
 
+"""Block of type FAQ Block (New) (faq_block_new)"""
+type FaqBlockNewRecord implements RecordInterface {
+  _createdAt: DateTime!
+
+  """Editing URL"""
+  _editingUrl: String
+  _firstPublishedAt: DateTime
+  _isValid: BooleanType!
+  _modelApiKey: String!
+  _publicationScheduledAt: DateTime
+  _publishedAt: DateTime
+
+  """Generates SEO and Social card meta tags to be used in your frontend"""
+  _seoMetaTags(
+    """The locale to use to fetch the field's content"""
+    locale: SiteLocale
+  ): [Tag!]!
+  _status: ItemStatus!
+  _unpublishingScheduledAt: DateTime
+  _updatedAt: DateTime!
+  faq: HeadingBlockNewRecord
+  id: ItemId!
+}
+
 """Block of type FAQ Block (faq_block)"""
 type FaqBlockRecord implements RecordInterface {
   _createdAt: DateTime!
@@ -370,9 +446,34 @@ type FaqItemRecord implements RecordInterface {
   _status: ItemStatus!
   _unpublishingScheduledAt: DateTime
   _updatedAt: DateTime!
-  faqBlocks: [FaqBlockRecord!]!
+  faqBlocks: [FaqBlockNewRecord!]!
   id: ItemId!
   title: String
+}
+
+"""Block of type FAQ Section (faq_section)"""
+type FaqSectionRecord implements RecordInterface {
+  _createdAt: DateTime!
+
+  """Editing URL"""
+  _editingUrl: String
+  _firstPublishedAt: DateTime
+  _isValid: BooleanType!
+  _modelApiKey: String!
+  _publicationScheduledAt: DateTime
+  _publishedAt: DateTime
+
+  """Generates SEO and Social card meta tags to be used in your frontend"""
+  _seoMetaTags(
+    """The locale to use to fetch the field's content"""
+    locale: SiteLocale
+  ): [Tag!]!
+  _status: ItemStatus!
+  _unpublishingScheduledAt: DateTime
+  _updatedAt: DateTime!
+  faq: FaqItemRecord
+  heading: HeadingBlockNewRecord
+  id: ItemId!
 }
 
 enum FaviconType {
@@ -592,6 +693,37 @@ type GlobalSeoField {
   twitterAccount: String
 }
 
+type HeadingBlockNewModelSubheadingField {
+  blocks: [String!]!
+  links: [String!]!
+  value: JsonField!
+}
+
+"""Block of type Heading Block (New) (heading_block_new)"""
+type HeadingBlockNewRecord implements RecordInterface {
+  _createdAt: DateTime!
+
+  """Editing URL"""
+  _editingUrl: String
+  _firstPublishedAt: DateTime
+  _isValid: BooleanType!
+  _modelApiKey: String!
+  _publicationScheduledAt: DateTime
+  _publishedAt: DateTime
+
+  """Generates SEO and Social card meta tags to be used in your frontend"""
+  _seoMetaTags(
+    """The locale to use to fetch the field's content"""
+    locale: SiteLocale
+  ): [Tag!]!
+  _status: ItemStatus!
+  _unpublishingScheduledAt: DateTime
+  _updatedAt: DateTime!
+  heading: String
+  id: ItemId!
+  subheading: HeadingBlockNewModelSubheadingField
+}
+
 """Block of type Heading block (heading_block)"""
 type HeadingBlockRecord implements RecordInterface {
   _createdAt: DateTime!
@@ -620,7 +752,36 @@ type HeadingBlockRecord implements RecordInterface {
   ): String
 }
 
-"""Record of type Homepage (homepage)"""
+"""Block of type Hero Section (hero_section)"""
+type HeroSectionRecord implements RecordInterface {
+  _createdAt: DateTime!
+
+  """Editing URL"""
+  _editingUrl: String
+  _firstPublishedAt: DateTime
+  _isValid: BooleanType!
+  _modelApiKey: String!
+  _publicationScheduledAt: DateTime
+  _publishedAt: DateTime
+
+  """Generates SEO and Social card meta tags to be used in your frontend"""
+  _seoMetaTags(
+    """The locale to use to fetch the field's content"""
+    locale: SiteLocale
+  ): [Tag!]!
+  _status: ItemStatus!
+  _unpublishingScheduledAt: DateTime
+  _updatedAt: DateTime!
+  cta: ActionBlockRecord
+  heding: HeadingBlockNewRecord
+  id: ItemId!
+  testimonialPictures: [FileField!]!
+  testimonialTitle: String
+  video: FileField
+  videoText: String
+}
+
+"""Record of type 🏠 Homepage (homepage)"""
 type HomepageRecord implements RecordInterface {
   _createdAt: DateTime!
 
@@ -2371,6 +2532,76 @@ input LinksFilter {
 
 scalar MetaTagAttributes
 
+input ModularPageModelFilter {
+  _createdAt: CreatedAtFilter
+  id: ItemIdFilter
+  _firstPublishedAt: PublishedAtFilter
+  _publicationScheduledAt: PublishedAtFilter
+  _unpublishingScheduledAt: PublishedAtFilter
+  _publishedAt: PublishedAtFilter
+  _status: StatusFilter
+  _updatedAt: UpdatedAtFilter
+  _isValid: BooleanFilter
+  routePaths: LinksFilter
+  slug: SlugFilter
+  title: StringFilter
+  OR: [ModularPageModelFilter]
+  AND: [ModularPageModelFilter]
+}
+
+union ModularPageModelModularContentField = CardsSectionRecord | FaqSectionRecord | HeroSectionRecord | TestimonialsSectionRecord
+
+enum ModularPageModelOrderBy {
+  _createdAt_ASC
+  _createdAt_DESC
+  id_ASC
+  id_DESC
+  _firstPublishedAt_ASC
+  _firstPublishedAt_DESC
+  _publicationScheduledAt_ASC
+  _publicationScheduledAt_DESC
+  _unpublishingScheduledAt_ASC
+  _unpublishingScheduledAt_DESC
+  _publishedAt_ASC
+  _publishedAt_DESC
+  _status_ASC
+  _status_DESC
+  _updatedAt_ASC
+  _updatedAt_DESC
+  _isValid_ASC
+  _isValid_DESC
+  title_ASC
+  title_DESC
+}
+
+"""Record of type ⚙️ Modular Page (modular_page)"""
+type ModularPageRecord implements RecordInterface {
+  _createdAt: DateTime!
+
+  """Editing URL"""
+  _editingUrl: String
+  _firstPublishedAt: DateTime
+  _isValid: BooleanType!
+  _modelApiKey: String!
+  _publicationScheduledAt: DateTime
+  _publishedAt: DateTime
+
+  """Generates SEO and Social card meta tags to be used in your frontend"""
+  _seoMetaTags(
+    """The locale to use to fetch the field's content"""
+    locale: SiteLocale
+  ): [Tag!]!
+  _status: ItemStatus!
+  _unpublishingScheduledAt: DateTime
+  _updatedAt: DateTime!
+  id: ItemId!
+  modularContent: [ModularPageModelModularContentField!]!
+  routePaths: [RoutePathRecord!]!
+  seo: SeoBlockRecord
+  slug: String
+  title: String
+}
+
 enum MuxThumbnailFormatType {
   jpg
   png
@@ -2544,6 +2775,13 @@ type Query {
   ): CollectionMetadata!
 
   """Returns meta information regarding a record collection"""
+  _allModularPagesMeta(
+    """The locale to use to fetch the field's content"""
+    locale: SiteLocale
+    filter: ModularPageModelFilter
+  ): CollectionMetadata!
+
+  """Returns meta information regarding a record collection"""
   _allPostsMeta(
     """The locale to use to fetch the field's content"""
     locale: SiteLocale
@@ -2631,6 +2869,25 @@ type Query {
     filter: FaqItemModelFilter
     orderBy: [FaqItemModelOrderBy] = [_updatedAt_DESC]
   ): [FaqItemRecord!]!
+
+  """Returns a collection of records"""
+  allModularPages(
+    """The locale to use to fetch the field's content"""
+    locale: SiteLocale
+
+    """
+    If you want to fallback to a default translation when a translation has not been found
+    """
+    fallbackLocales: [SiteLocale!]
+
+    """Skip the first results"""
+    skip: IntType
+
+    """Limit the number of results"""
+    first: IntType = 20
+    filter: ModularPageModelFilter
+    orderBy: [ModularPageModelOrderBy] = [_updatedAt_DESC]
+  ): [ModularPageRecord!]!
 
   """Returns a collection of records"""
   allPosts(
@@ -2738,6 +2995,19 @@ type Query {
     """
     fallbackLocales: [SiteLocale!]
   ): HomepageRecord
+
+  """Returns a specific record"""
+  modularPage(
+    """The locale to use to fetch the field's content"""
+    locale: SiteLocale
+
+    """
+    If you want to fallback to a default translation when a translation has not been found
+    """
+    fallbackLocales: [SiteLocale!]
+    filter: ModularPageModelFilter
+    orderBy: [ModularPageModelOrderBy] = [_updatedAt_DESC]
+  ): ModularPageRecord
 
   """Returns a specific record"""
   post(
@@ -3066,6 +3336,76 @@ type Tag {
   tag: String!
 }
 
+type TestimonialBlockCtaModelHighlightField {
+  blocks: [String!]!
+  links: [String!]!
+  value: JsonField!
+}
+
+"""Block of type Testimonial Block (CTA) (testimonial_block_cta)"""
+type TestimonialBlockCtaRecord implements RecordInterface {
+  _createdAt: DateTime!
+
+  """Editing URL"""
+  _editingUrl: String
+  _firstPublishedAt: DateTime
+  _isValid: BooleanType!
+  _modelApiKey: String!
+  _publicationScheduledAt: DateTime
+  _publishedAt: DateTime
+
+  """Generates SEO and Social card meta tags to be used in your frontend"""
+  _seoMetaTags(
+    """The locale to use to fetch the field's content"""
+    locale: SiteLocale
+  ): [Tag!]!
+  _status: ItemStatus!
+  _unpublishingScheduledAt: DateTime
+  _updatedAt: DateTime!
+  author: String
+  company: String
+  content: HeadingBlockNewRecord
+  cta: ActionBlockRecord
+  highlight: TestimonialBlockCtaModelHighlightField
+  id: ItemId!
+  picture: FileField
+  role: String
+}
+
+type TestimonialBlockDefaultModelContentField {
+  blocks: [String!]!
+  links: [String!]!
+  value: JsonField!
+}
+
+"""Block of type Testimonial Block (Default) (testimonial_block_default)"""
+type TestimonialBlockDefaultRecord implements RecordInterface {
+  _createdAt: DateTime!
+
+  """Editing URL"""
+  _editingUrl: String
+  _firstPublishedAt: DateTime
+  _isValid: BooleanType!
+  _modelApiKey: String!
+  _publicationScheduledAt: DateTime
+  _publishedAt: DateTime
+
+  """Generates SEO and Social card meta tags to be used in your frontend"""
+  _seoMetaTags(
+    """The locale to use to fetch the field's content"""
+    locale: SiteLocale
+  ): [Tag!]!
+  _status: ItemStatus!
+  _unpublishingScheduledAt: DateTime
+  _updatedAt: DateTime!
+  author: String
+  company: String
+  content: TestimonialBlockDefaultModelContentField
+  id: ItemId!
+  picture: FileField
+  role: String
+}
+
 """Block of type Testimonial Block (testimonial_block)"""
 type TestimonialBlockRecord implements RecordInterface {
   _createdAt: DateTime!
@@ -3093,6 +3433,33 @@ type TestimonialBlockRecord implements RecordInterface {
   image: FileField
   role: String
   title: String
+}
+
+union TestimonialsSectionModelTestimonialsField = TestimonialBlockCtaRecord | TestimonialBlockDefaultRecord
+
+"""Block of type Testimonials Section (testimonials_section)"""
+type TestimonialsSectionRecord implements RecordInterface {
+  _createdAt: DateTime!
+
+  """Editing URL"""
+  _editingUrl: String
+  _firstPublishedAt: DateTime
+  _isValid: BooleanType!
+  _modelApiKey: String!
+  _publicationScheduledAt: DateTime
+  _publishedAt: DateTime
+
+  """Generates SEO and Social card meta tags to be used in your frontend"""
+  _seoMetaTags(
+    """The locale to use to fetch the field's content"""
+    locale: SiteLocale
+  ): [Tag!]!
+  _status: ItemStatus!
+  _unpublishingScheduledAt: DateTime
+  _updatedAt: DateTime!
+  heading: HeadingBlockRecord
+  id: ItemId!
+  testimonials: [TestimonialsSectionModelTestimonialsField!]!
 }
 
 """Specifies how to filter by upload type"""
@@ -3527,8 +3894,34 @@ input UploadUpdatedAtFilter {
 }
 
 type UploadVideoField {
+  alt(
+    """The locale to use to fetch the field's content"""
+    locale: SiteLocale
+
+    """
+    If you want to fallback to a default translation when a translation has not been found
+    """
+    fallbackLocales: [SiteLocale!]
+  ): String
+  blurUpThumb(
+    """
+    Controls the "punch" value (~contrast) of the blurhash decoding algorithm (defaults to 1.0)
+    """
+    punch: Float! = 1
+
+    """Maximum image dimension (defaults to 24px)"""
+    size: Int! = 24
+
+    """Image quality (defaults to 70%)"""
+    quality: Int! = 70
+
+    """Imgix transformations to apply to the image"""
+    imgixParams: ImgixParams
+  ): String
+  blurhash: String
   duration: Int
   framerate: Int
+  height: IntType!
   mp4Url(
     """Pick highest resolution available up to the specified argument"""
     res: VideoMp4Res
@@ -3539,12 +3932,23 @@ type UploadVideoField {
   muxAssetId: String!
   muxPlaybackId: String!
   streamingUrl: String!
+  thumbhash: String
   thumbnailUrl(
     """
     The file extension of the requested image format. Either png, jpg or gif
     """
     format: MuxThumbnailFormatType = jpg
   ): String!
+  title(
+    """The locale to use to fetch the field's content"""
+    locale: SiteLocale
+
+    """
+    If you want to fallback to a default translation when a translation has not been found
+    """
+    fallbackLocales: [SiteLocale!]
+  ): String
+  width: IntType!
 }
 
 """Specifies how to filter by width"""

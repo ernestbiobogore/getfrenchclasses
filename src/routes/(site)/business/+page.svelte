@@ -284,9 +284,13 @@
 	{#if homepageData && homepageData.faq?.faqBlocks && homepageData.faq.faqBlocks.length > 0}
 		<div class="mx-auto md:w-6/12">
 			<FaqAccordion
-				itemIds={homepageData.faq.faqBlocks.map(faq => faq.id)}
-				titles={homepageData.faq.faqBlocks.map(faq => faq.question || "")}
-				richTexts={homepageData.faq.faqBlocks.map(faq => faq.answer[0].richText)}
+				faqs={homepageData.faq.faqBlocks.map(block => ({
+					id: block.id,
+					faq: {
+						heading: block.faq?.heading || "",
+						subheading: block.faq?.subheading || {},
+					},
+				}))}
 			/>
 		</div>
 	{/if}

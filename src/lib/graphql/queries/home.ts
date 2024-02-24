@@ -1,5 +1,5 @@
 import { client } from "$lib/graphql/client";
-import { cardBlockFields } from "$lib/graphql/queries/fields";
+import { cardBlockFields, faqBlockSelection } from "$lib/graphql/queries/fields";
 
 const getHomePageData = async () => {
 	const { homepage } = await client.query({
@@ -170,16 +170,7 @@ const getHomePageData = async () => {
 				subheading: true,
 			},
 			faq: {
-				title: true,
-				faqBlocks: {
-					id: true,
-					question: true,
-					answer: {
-						richText: {
-							value: true,
-						},
-					},
-				},
+				faqBlocks: faqBlockSelection
 			},
 
 			// CTA

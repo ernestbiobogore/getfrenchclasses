@@ -2,7 +2,6 @@
 	import "./+page.css"; // simpler than using <style> tags with global selectors
 
 	import AvatarsGroup from "$lib/components/AvatarsGroup.svelte";
-	import FaqAccordion from "$lib/components/FaqAccordion.svelte";
 	import TestimonialCardList from "$lib/components/TestimonialCardList.svelte";
 	import TestimonialCta, {
 		dummyTestimonialCta,
@@ -10,6 +9,7 @@
 	import StructuredText from "$lib/components/dato/StructuredText/index.svelte";
 	import { cn } from "$lib/utils";
 
+	import FaqAccordion from "$lib/components/FaqAccordion.svelte";
 	import PhArrowBendDownLeftFill from "~icons/ph/arrow-bend-down-left-fill";
 
 	export let data;
@@ -247,9 +247,13 @@
 	{#if homepageData && homepageData.faq?.faqBlocks && homepageData.faq.faqBlocks.length > 0}
 		<div class="mx-auto md:w-6/12">
 			<FaqAccordion
-				itemIds={homepageData.faq.faqBlocks.map(faq => faq.id)}
-				titles={homepageData.faq.faqBlocks.map(faq => faq.question || "")}
-				richTexts={homepageData.faq.faqBlocks.map(faq => faq.answer[0].richText)}
+				faqs={homepageData.faq.faqBlocks.map(block => ({
+					id: block.id,
+					faq: {
+						heading: block.faq?.heading || "",
+						subheading: block.faq?.subheading || {},
+					},
+				}))}
 			/>
 		</div>
 	{/if}

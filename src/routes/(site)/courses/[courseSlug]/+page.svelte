@@ -1,23 +1,23 @@
 <script lang="ts">
 	import AvatarsGroup from "$lib/components/AvatarsGroup.svelte";
-	import CourseCtaBanner from "$lib/components/cta-section/CourseCtaBanner.svelte";
-	import CourseSyllabus from "./components/CourseSyllabus.svelte";
 	import FaqAccordion from "$lib/components/FaqAccordion.svelte";
 	import TestimonialCardList from "$lib/components/TestimonialCardList.svelte";
+	import CourseCtaBanner from "$lib/components/cta-section/CourseCtaBanner.svelte";
+	import CourseSyllabus from "./components/CourseSyllabus.svelte";
 
-	import Clock from "~icons/lucide/clock";
-	import PenSquare from "~icons/lucide/pen-square";
+	import ArrowRight from "~icons/lucide/arrow-right";
 	import BarChart from "~icons/lucide/bar-chart";
 	import Check from "~icons/lucide/check";
-	import VideoCamera from "~icons/ph/video-camera";
-	import KeyLight from "~icons/ph/key-light";
+	import Clock from "~icons/lucide/clock";
+	import PenSquare from "~icons/lucide/pen-square";
 	import BookOpen from "~icons/ph/book-open";
 	import ChalkboardTeacher from "~icons/ph/chalkboard-teacher";
-	import Wrench from "~icons/ph/wrench";
+	import GraduationCap from "~icons/ph/graduation-cap";
+	import KeyLight from "~icons/ph/key-light";
 	import LightbulbLight from "~icons/ph/lightbulb-light";
 	import UsersThree from "~icons/ph/users-three";
-	import GraduationCap from "~icons/ph/graduation-cap";
-	import ArrowRight from "~icons/lucide/arrow-right";
+	import VideoCamera from "~icons/ph/video-camera";
+	import Wrench from "~icons/ph/wrench";
 
 	import { getSampleAvatars } from "$lib/utils";
 
@@ -319,9 +319,13 @@
 
 	{#if coursesPageFaq && coursesPageFaq.length > 0}
 		<FaqAccordion
-			itemIds={coursesPageFaq.map(faq => faq.id)}
-			titles={coursesPageFaq.map(faq => faq.question || "")}
-			richTexts={coursesPageFaq.map(faq => faq.answer[0].richText)}
+			faqs={coursesPageFaq.map(block => ({
+				id: block.id,
+				faq: {
+					heading: block.faq?.heading || "",
+					subheading: block.faq?.subheading || {},
+				},
+			}))}
 		/>
 	{/if}
 </section>

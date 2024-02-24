@@ -95,9 +95,13 @@
 	<div class="text-center space-y-11 md:basis-1/2" id="faq">
 		{#if coursesPageFaq && coursesPageFaq.length > 0}
 			<FaqAccordion
-				itemIds={coursesPageFaq.map(faq => faq.id)}
-				titles={coursesPageFaq.map(faq => faq.question || "")}
-				richTexts={coursesPageFaq.map(faq => faq.answer[0].richText)}
+				faqs={coursesPageFaq.map(block => ({
+					id: block.id,
+					faq: {
+						heading: block.faq?.heading || "",
+						subheading: block.faq?.subheading || {},
+					},
+				}))}
 			/>
 		{/if}
 	</div>

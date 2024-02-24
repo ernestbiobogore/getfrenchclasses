@@ -1,11 +1,11 @@
 <script lang="ts">
+	import FaqAccordion from "$lib/components/FaqAccordion.svelte";
+	import TestimonialCta from "$lib/components/cta-section/TestimonialCta.svelte";
+	import { getSampleAvatars } from "$lib/utils";
+	import { Button } from "$shadcn/button";
 	import * as Card from "$shadcn/card";
 	import BarChartIcon from "~icons/lucide/bar-chart";
-	import FaqAccordion from "$lib/components/FaqAccordion.svelte";
 	import LinkIcon from "~icons/lucide/link";
-	import TestimonialCta from "$lib/components/cta-section/TestimonialCta.svelte";
-	import { Button } from "$shadcn/button";
-	import { getSampleAvatars } from "$lib/utils";
 
 	export let data;
 
@@ -91,9 +91,13 @@
 	<section class="max-w-2xl px-4 mx-auto py-10 md:pt-20" id="faq">
 		<h2 class="mb-8 text-center">Frequently Asked Questions</h2>
 		<FaqAccordion
-			itemIds={homepageData.faq.faqBlocks.map(faq => faq.id)}
-			titles={homepageData.faq.faqBlocks.map(faq => faq.question || "")}
-			richTexts={homepageData.faq.faqBlocks.map(faq => faq.answer[0].richText)}
+			faqs={homepageData.faq.faqBlocks.map(block => ({
+				id: block.id,
+				faq: {
+					heading: block.faq?.heading || "",
+					subheading: block.faq?.subheading || {},
+				},
+			}))}
 		/>
 	</section>
 {/if}

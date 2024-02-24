@@ -1,11 +1,11 @@
 <script lang="ts">
+	import FaqAccordion from "$lib/components/FaqAccordion.svelte";
+	import GenericCta from "$lib/components/cta-section/GenericCta.svelte";
+	import { Badge } from "$shadcn/badge";
 	import * as Card from "$shadcn/card";
 	import * as Carousel from "$shadcn/carousel";
 	import CheckCircleRounded from "~icons/material-symbols/check-circle-rounded";
-	import FaqAccordion from "$lib/components/FaqAccordion.svelte";
-	import GenericCta from "$lib/components/cta-section/GenericCta.svelte";
 	import MultistepForm from "./form/MultistepForm.svelte";
-	import { Badge } from "$shadcn/badge";
 
 	export let data;
 
@@ -132,9 +132,13 @@
 	{#if homepageData && homepageData.faq?.faqBlocks && homepageData.faq.faqBlocks.length > 0}
 		<div class="mx-auto md:w-6/12">
 			<FaqAccordion
-				itemIds={homepageData.faq.faqBlocks.map(faq => faq.id)}
-				titles={homepageData.faq.faqBlocks.map(faq => faq.question || "")}
-				richTexts={homepageData.faq.faqBlocks.map(faq => faq.answer[0].richText)}
+				faqs={homepageData.faq.faqBlocks.map(block => ({
+					id: block.id,
+					faq: {
+						heading: block.faq?.heading || "",
+						subheading: block.faq?.subheading || {},
+					},
+				}))}
 			/>
 		</div>
 	{/if}
