@@ -5,6 +5,8 @@
 	import CustomMultiselect, {
 		type SelectChangeHandler,
 	} from "$lib/components/CustomMultiselect.svelte";
+	import FaqAccordion from "$lib/components/FaqAccordion.svelte";
+	import TestimonialCardList from "$lib/components/TestimonialCardList.svelte";
 	import TestimonialCta, {
 		dummyTestimonialCta,
 	} from "$lib/components/cta-section/TestimonialCta.svelte";
@@ -18,8 +20,6 @@
 	import PhoneIcon from "~icons/lucide/phone";
 	import VideoIcon from "~icons/lucide/video";
 	import MessageCircleIcon from "~icons/lucide/message-circle";
-	import TestimonialCardList from "$lib/components/TestimonialCardList.svelte";
-	import FaqAccordion from "$lib/components/FaqAccordion.svelte";
 
 	export let data;
 	$: homepageData = data?.homepageData;
