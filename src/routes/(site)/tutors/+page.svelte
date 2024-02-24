@@ -2,8 +2,6 @@
 	import CustomMultiselect, {
 		type SelectChangeHandler,
 	} from "$lib/components/CustomMultiselect.svelte";
-	import FaqAccordion from "$lib/components/FaqAccordion.svelte";
-	import TestimonialCardList from "$lib/components/TestimonialCardList.svelte";
 	import TestimonialCta, {
 		dummyTestimonialCta,
 	} from "$lib/components/cta-section/TestimonialCta.svelte";
