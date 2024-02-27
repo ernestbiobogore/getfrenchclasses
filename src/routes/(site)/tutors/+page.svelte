@@ -62,6 +62,7 @@
 
 	import FaqAccordion from "$lib/components/FaqAccordion.svelte";
 	import TestimonialCardList from "$lib/components/TestimonialCardList.svelte";
+	import { goto } from "$app/navigation";
 
 	export let data;
 	$: homepageData = data?.homepageData;
@@ -145,7 +146,14 @@
 
 	<div class="grid gap-5 sm:grid-cols-2 md:grid-cols-3 lg:gap-8 lg:grid-cols-4">
 		{#each filteredTutors as tutor}
-			<TutorCard {tutor}></TutorCard>
+			<div
+				role="button"
+				tabindex="0"
+				on:keydown={e => e.key === "Enter" && goto("/tutors/andy")}
+				on:click={() => goto("/tutors/andy")}
+			>
+				<TutorCard {tutor}></TutorCard>
+			</div>
 		{/each}
 	</div>
 
