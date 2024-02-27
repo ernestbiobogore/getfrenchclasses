@@ -129,7 +129,7 @@
 		grid-template-rows: masonry;
 		justify-content: center;
 		grid-gap: var(--grid-gap);
-		padding: var(--grid-gap);
+		padding: var(--padding, var(--grid-gap));
 	}
 	:global(.__grid--masonry > *) {
 		align-self: start;

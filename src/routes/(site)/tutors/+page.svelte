@@ -1,28 +1,4 @@
-<script lang="ts">
-	import CustomMultiselect, {
-		type SelectChangeHandler,
-	} from "$lib/components/CustomMultiselect.svelte";
-	import TestimonialCta, {
-		dummyTestimonialCta,
-	} from "$lib/components/cta-section/TestimonialCta.svelte";
-	import * as Avatar from "$shadcn/avatar";
-	import { Button } from "$shadcn/button";
-	import * as Card from "$shadcn/card";
-	import type { Selected } from "bits-ui";
-
-	import FaqAccordion from "$lib/components/FaqAccordion.svelte";
-	import TestimonialCardList from "$lib/components/TestimonialCardList.svelte";
-	import LayersIcon from "~icons/lucide/layers";
-	import LocateIcon from "~icons/lucide/locate";
-	import MessageCircleIcon from "~icons/lucide/message-circle";
-	import PhoneIcon from "~icons/lucide/phone";
-	import UserIcon from "~icons/lucide/user";
-	import VideoIcon from "~icons/lucide/video";
-	import StarFillIcon from "~icons/solar/star-bold";
-
-	export let data;
-	$: homepageData = data?.homepageData;
-
+<script lang="ts" context="module">
 	const filterOptions = {
 		levels: [
 			{ value: "beginner", label: "Beginner" },
@@ -35,21 +11,7 @@
 		],
 	} as const;
 
-	type LevelOptionValue = (typeof filterOptions)["levels"][number]["label"];
-	type TypeOptionValue = (typeof filterOptions)["type"][number]["label"];
-	type TutorSelected = Selected<LevelOptionValue | TypeOptionValue>[];
-
-	type Tutor = {
-		name: string;
-		short_description: string;
-		rating: number;
-		audience: TypeOptionValue[];
-		levels: LevelOptionValue[];
-		location: string;
-		price: number;
-	};
-
-	let tutors = Array.from({ length: 6 })
+	export const tutorsDummyData = Array.from({ length: 6 })
 		.fill({
 			name: "Kevin L.",
 			short_description: "French lessons with a native speaker with 40+ years of experience",
@@ -80,17 +42,41 @@
 			},
 		]) as Tutor[];
 
-	let filteredTutors: Tutor[] = tutors;
+	export type LevelOptionValue = (typeof filterOptions)["levels"][number]["label"];
+	export type TypeOptionValue = (typeof filterOptions)["type"][number]["label"];
+	export type TutorSelected = Selected<LevelOptionValue | TypeOptionValue>[];
+</script>
+
+<script lang="ts">
+	import TutorCard, { type Tutor } from "./TutorCard.svelte";
+
+	import CustomMultiselect, {
+		type SelectChangeHandler,
+	} from "$lib/components/CustomMultiselect.svelte";
+	import TestimonialCta, {
+		dummyTestimonialCta,
+	} from "$lib/components/cta-section/TestimonialCta.svelte";
+	import { Button } from "$shadcn/button";
+	import * as Card from "$shadcn/card";
+	import type { Selected } from "bits-ui";
+
+	import FaqAccordion from "$lib/components/FaqAccordion.svelte";
+	import TestimonialCardList from "$lib/components/TestimonialCardList.svelte";
+
+	export let data;
+	$: homepageData = data?.homepageData;
+
+	let filteredTutors: Tutor[] = tutorsDummyData;
 
 	const handleFilterChange: SelectChangeHandler = selected => {
 		if (!selected || selected.length === 0) {
-			filteredTutors = tutors;
+			filteredTutors = tutorsDummyData;
 			return;
 		}
 
 		const tutorSelected = selected as TutorSelected;
 
-		filteredTutors = tutors.filter(tutor => {
+		filteredTutors = tutorsDummyData.filter(tutor => {
 			const levelSelected = tutorSelected.some(option => isLevelOptionValue(option.label));
 			const typeSelected = tutorSelected.some(option => isTypeOptionValue(option.label));
 
@@ -159,57 +145,7 @@
 
 	<div class="grid gap-5 sm:grid-cols-2 md:grid-cols-3 lg:gap-8 lg:grid-cols-4">
 		{#each filteredTutors as tutor}
-			<Card.Root class="bg-white shadow-lg rounded-lg overflow-hidden">
-				<img
-					alt="Banner"
-					class="w-full h-20 object-fill"
-					height="100"
-					src="/placeholder.svg"
-					style="aspect-ratio: 1 / 1; object-fit: cover;"
-					width="350"
-				/>
-				<Card.Content class="p-4">
-					<div class="flex items-center space-x-3 mb-6">
-						<Avatar.Root class="w-14 h-14 border-4 border-white">
-							<Avatar.Image alt={tutor.name} src="/placeholder.svg?height=40&width=40" />
-							<Avatar.Fallback>KL</Avatar.Fallback>
-						</Avatar.Root>
-						<div>
-							<div class="font-semibold text-lg text-gray-900">{tutor.name}</div>
-							<div class="flex items-center">
-								<StarFillIcon class="text-yellow-400" />
-								<span class="ml-1 mr-2 text-gray-900">5.0</span>
-								<span class="text-sm text-gray-500">(7)</span>
-							</div>
-						</div>
-					</div>
-					<div class="text-lg font-medium mb-6 text-gray-900">
-						{tutor.short_description}
-					</div>
-					<div class="flex items-center space-x-2 text-sm text-gray-600 mb-6">
-						<UserIcon class="w-5 h-5" />
-						<span>{tutor.audience.join(", ")}</span>
-					</div>
-					<div class="flex items-center space-x-2 text-sm text-gray-600 mb-6">
-						<LayersIcon class="w-5 h-5" />
-						<span>
-							{tutor.levels.join(", ")}
-						</span>
-					</div>
-					<div class="flex items-center space-x-2 text-sm text-gray-600 mb-6">
-						<LocateIcon class="w-5 h-5" />
-						<span>{tutor.location}</span>
-					</div>
-					<div class="flex items-center justify-between">
-						<div class="text-xl font-semibold text-blue-600">${tutor.price}/hr</div>
-						<div class="flex-s-center gap-2 text-lg text-gray-600">
-							<PhoneIcon />
-							<VideoIcon />
-							<MessageCircleIcon />
-						</div>
-					</div>
-				</Card.Content>
-			</Card.Root>
+			<TutorCard {tutor}></TutorCard>
 		{/each}
 	</div>
 
