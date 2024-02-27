@@ -6,11 +6,13 @@
 	import SharpVerifired from "~icons/ic/sharp-verified";
 	import FaqAccordion from "$lib/components/FaqAccordion.svelte";
 	import TestimonialCardList from "$lib/components/TestimonialCardList.svelte";
+	import CourseCard from "$lib/components/CourseCard.svelte";
 
 	export let data;
 	let homepageData = data.homepageData;
+	let allCourses = data.allCourses;
 
-	$: ({ homepageData } = data);
+	$: ({ homepageData, allCourses } = data);
 
 	const tutor = tutorsDummyData[0];
 </script>
@@ -59,9 +61,15 @@
 		</div>
 
 		<!-- TODO: GET CLARIFICATION -->
-		<!-- <div>
+		<div class="space-y-4">
 			<h2>Qualified to teach</h2>
-		</div> -->
+
+			<div class="grid gap-8 md:grid-cols-2">
+				{#each allCourses.splice(0, 3) as course}
+					<CourseCard {course} />
+				{/each}
+			</div>
+		</div>
 
 		<div class="space-y-4">
 			<h2>Reviews</h2>
