@@ -9,6 +9,10 @@
 	$: console.log(data);
 </script>
 
+<svelte:head>
+	<title>{data.modularPage?.title} - GetFrenchClasses</title>
+</svelte:head>
+
 {#if data.modularPage?.modularContent && data.modularPage.modularContent.length > 0}
 	{#each data.modularPage.modularContent as record (record.id)}
 		{#if record.__typename === "HeroSectionRecord"}
