@@ -1,18 +1,50 @@
 import type {
+	ActionBlockRecordGenqlSelection,
+	CardBlockNewRecordGenqlSelection,
 	CardBlockRecordGenqlSelection,
 	FaqBlockNewRecordGenqlSelection,
+	HeadingBlockNewRecordGenqlSelection,
 	PostRecordGenqlSelection,
+	ResponsiveImageGenqlSelection,
+	SeoFieldGenqlSelection,
 } from "$lib/graphql/generated";
 
-const faqBlockSelection = {
+const headingFieldSelection = {
+	heading: true,
+	subheading: {
+		value: true,
+	},
+} satisfies HeadingBlockNewRecordGenqlSelection;
+
+const faqBlockFieldSelection = {
 	id: true,
-	faq: {
-		heading: true,
-		subheading: {
-			value: true,
+	faq: headingFieldSelection,
+} satisfies FaqBlockNewRecordGenqlSelection;
+
+const actionBlockFieldSelection = {
+	text: true,
+	link: true,
+} satisfies ActionBlockRecordGenqlSelection;
+
+const responsiveImageFieldSelection = {
+	src: true,
+	width: true,
+	height: true,
+	alt: true,
+	sizes: true,
+} satisfies ResponsiveImageGenqlSelection;
+
+const cardBlockFieldSelection = {
+	heading: headingFieldSelection,
+	cta: actionBlockFieldSelection,
+	media: {
+		responsiveImage: responsiveImageFieldSelection,
+		video: {
+			mp4Url: true,
+			alt: true,
 		},
 	},
-} satisfies FaqBlockNewRecordGenqlSelection;
+} satisfies CardBlockNewRecordGenqlSelection;
 
 const cardBlockFields = {
 	title: true,
@@ -42,20 +74,27 @@ const cardBlockFields = {
 	},
 } satisfies CardBlockRecordGenqlSelection;
 
-const postSeoBlockFields = {
-	seoBlock: {
-		title: true,
-		description: true,
-		image: {
-			url: true,
-			alt: true,
-		},
+const seoFieldsSelection = {
+	title: true,
+	description: true,
+	image: {
+		url: true,
+		alt: true,
 	},
-} satisfies PostRecordGenqlSelection["seo"];
+} satisfies SeoFieldGenqlSelection;
 
 const postCategoryBlockFields = {
 	name: true,
 	slug: true,
 } satisfies PostRecordGenqlSelection["category"];
 
-export { cardBlockFields, faqBlockSelection, postCategoryBlockFields, postSeoBlockFields };
+export {
+	actionBlockFieldSelection,
+	cardBlockFieldSelection,
+	cardBlockFields,
+	faqBlockFieldSelection,
+	headingFieldSelection,
+	postCategoryBlockFields,
+	responsiveImageFieldSelection,
+	seoFieldsSelection,
+};
