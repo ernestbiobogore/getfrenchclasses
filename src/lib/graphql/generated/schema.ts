@@ -36,9 +36,43 @@ export interface ActionBlockRecord {
     _unpublishingScheduledAt: (Scalars['DateTime'] | null)
     _updatedAt: Scalars['DateTime']
     id: Scalars['ItemId']
-    link: (Scalars['String'] | null)
-    text: (Scalars['String'] | null)
+    link: Scalars['String']
+    text: Scalars['String']
     __typename: 'ActionBlockRecord'
+}
+
+export interface AltFileField {
+    _createdAt: Scalars['DateTime']
+    /** The DatoCMS URL where you can edit this entity. To use this field, you need to set a X-Base-Editing-Url header in the request */
+    _editingUrl: (Scalars['String'] | null)
+    _updatedAt: Scalars['DateTime']
+    alt: Scalars['String']
+    author: (Scalars['String'] | null)
+    basename: Scalars['String']
+    blurUpThumb: (Scalars['String'] | null)
+    blurhash: (Scalars['String'] | null)
+    colors: ColorField[]
+    copyright: (Scalars['String'] | null)
+    customData: Scalars['CustomData']
+    exifInfo: Scalars['CustomData']
+    filename: Scalars['String']
+    focalPoint: (focalPoint | null)
+    format: Scalars['String']
+    height: (Scalars['IntType'] | null)
+    id: Scalars['UploadId']
+    md5: Scalars['String']
+    mimeType: Scalars['String']
+    notes: (Scalars['String'] | null)
+    responsiveImage: (ResponsiveImage | null)
+    size: Scalars['IntType']
+    smartTags: Scalars['String'][]
+    tags: Scalars['String'][]
+    thumbhash: (Scalars['String'] | null)
+    title: (Scalars['String'] | null)
+    url: Scalars['String']
+    video: (UploadVideoField | null)
+    width: (Scalars['IntType'] | null)
+    __typename: 'AltFileField'
 }
 
 
@@ -58,7 +92,7 @@ export interface CardBlockNewRecord {
     _unpublishingScheduledAt: (Scalars['DateTime'] | null)
     _updatedAt: Scalars['DateTime']
     cta: ActionBlockRecord[]
-    heading: (HeadingBlockNewRecord | null)
+    heading: HeadingBlockNewRecord
     id: Scalars['ItemId']
     media: (FileField | null)
     __typename: 'CardBlockNewRecord'
@@ -83,7 +117,7 @@ export interface CardBlockRecord {
     content: (RichTextBlockRecord | null)
     cta: ActionBlockRecord[]
     id: Scalars['ItemId']
-    media: (FileField | null)
+    media: (AltFileField | null)
     title: (Scalars['String'] | null)
     __typename: 'CardBlockRecord'
 }
@@ -107,7 +141,7 @@ export interface CardsSectionRecord {
     cards: CardBlockNewRecord[]
     heading: (HeadingBlockNewRecord | null)
     id: Scalars['ItemId']
-    sectionType: (Scalars['String'] | null)
+    sectionType: Scalars['String']
     __typename: 'CardsSectionRecord'
 }
 
@@ -130,8 +164,8 @@ export interface CategoryRecord {
     _unpublishingScheduledAt: (Scalars['DateTime'] | null)
     _updatedAt: Scalars['DateTime']
     id: Scalars['ItemId']
-    name: (Scalars['String'] | null)
-    slug: (Scalars['String'] | null)
+    name: Scalars['String']
+    slug: Scalars['String']
     __typename: 'CategoryRecord'
 }
 
@@ -170,18 +204,18 @@ export interface CourseRecord {
     _status: ItemStatus
     _unpublishingScheduledAt: (Scalars['DateTime'] | null)
     _updatedAt: Scalars['DateTime']
-    duration: (Scalars['IntType'] | null)
+    duration: Scalars['IntType']
     faq: (FaqItemRecord | null)
     featuresCards: CardBlockRecord[]
     id: Scalars['ItemId']
-    level: (Scalars['String'] | null)
-    name: (Scalars['String'] | null)
-    numberOfEnrolledStudents: (Scalars['IntType'] | null)
-    numberOfSections: (Scalars['IntType'] | null)
-    price: (Scalars['IntType'] | null)
+    level: Scalars['String']
+    name: Scalars['String']
+    numberOfEnrolledStudents: Scalars['IntType']
+    numberOfSections: Scalars['IntType']
+    price: Scalars['IntType']
     seo: SeoBlockRecord[]
     singleTestimonial: TestimonialBlockRecord[]
-    slug: (Scalars['String'] | null)
+    slug: Scalars['String']
     tag: (Scalars['String'] | null)
     __typename: 'CourseRecord'
 }
@@ -202,7 +236,7 @@ export interface FaqBlockNewRecord {
     _status: ItemStatus
     _unpublishingScheduledAt: (Scalars['DateTime'] | null)
     _updatedAt: Scalars['DateTime']
-    faq: (HeadingBlockNewRecord | null)
+    faq: HeadingBlockNewRecord
     id: Scalars['ItemId']
     __typename: 'FaqBlockNewRecord'
 }
@@ -225,7 +259,7 @@ export interface FaqBlockRecord {
     _updatedAt: Scalars['DateTime']
     answer: RichTextBlockRecord[]
     id: Scalars['ItemId']
-    question: (Scalars['String'] | null)
+    question: Scalars['String']
     __typename: 'FaqBlockRecord'
 }
 
@@ -249,7 +283,7 @@ export interface FaqItemRecord {
     _updatedAt: Scalars['DateTime']
     faqBlocks: FaqBlockNewRecord[]
     id: Scalars['ItemId']
-    title: (Scalars['String'] | null)
+    title: Scalars['String']
     __typename: 'FaqItemRecord'
 }
 
@@ -311,7 +345,7 @@ export interface FileField {
     __typename: 'FileField'
 }
 
-export type FileFieldInterface = (FileField) & { __isUnion?: true }
+export type FileFieldInterface = (AltFileField | FileField | VideoAltFileField | VideoFileField) & { __isUnion?: true }
 
 export interface GlobalSeoField {
     facebookPageUrl: (Scalars['String'] | null)
@@ -390,11 +424,11 @@ export interface HeroSectionRecord {
     _unpublishingScheduledAt: (Scalars['DateTime'] | null)
     _updatedAt: Scalars['DateTime']
     cta: (ActionBlockRecord | null)
-    heding: (HeadingBlockNewRecord | null)
+    heading: (HeadingBlockNewRecord | null)
     id: Scalars['ItemId']
-    testimonialPictures: FileField[]
+    testimonialPictures: AltFileField[]
     testimonialTitle: (Scalars['String'] | null)
-    video: (FileField | null)
+    video: (VideoFileField | null)
     videoText: (Scalars['String'] | null)
     __typename: 'HeroSectionRecord'
 }
@@ -418,32 +452,32 @@ export interface HomepageRecord {
     about: CardBlockRecord[]
     ctaAction: ActionBlockRecord[]
     ctaHeading: HeadingBlockRecord[]
-    faq: (FaqItemRecord | null)
+    faq: FaqItemRecord
     faqHeading: HeadingBlockRecord[]
     featureCards: CardBlockRecord[]
     featuresCta: ActionBlockRecord[]
     featuresHeading: HeadingBlockRecord[]
     heroCta: (ActionBlockRecord | null)
-    heroSubtitle: (Scalars['String'] | null)
-    heroTestimonialPictures: FileField[]
-    heroTestimonialTitle: (Scalars['String'] | null)
-    heroTitle: (Scalars['String'] | null)
-    heroVideo: (FileField | null)
+    heroSubtitle: Scalars['String']
+    heroTestimonialPictures: AltFileField[]
+    heroTestimonialTitle: Scalars['String']
+    heroTitle: Scalars['String']
+    heroVideo: (VideoAltFileField | null)
     heroVideoText: (Scalars['String'] | null)
     id: Scalars['ItemId']
     multipleTestimonials: TestimonialBlockRecord[]
     newCoursesRecords: CourseRecord[]
-    newCoursesTitle: (Scalars['String'] | null)
+    newCoursesTitle: Scalars['String']
     popularCoursesRecords: CourseRecord[]
-    popularCoursesTitle: (Scalars['String'] | null)
+    popularCoursesTitle: Scalars['String']
     seo: SeoBlockRecord[]
     statsAction: ActionBlockRecord[]
     statsData: HeadingBlockRecord[]
     statsHeading: HeadingBlockRecord[]
-    statsImages: FileField[]
+    statsImages: AltFileField[]
     targetAudienceHeading: (HeadingBlockRecord | null)
     targetAudiences: CardBlockRecord[]
-    title: (Scalars['String'] | null)
+    title: Scalars['String']
     __typename: 'HomepageRecord'
 }
 
@@ -464,7 +498,7 @@ export interface ImageBlockRecord {
     _unpublishingScheduledAt: (Scalars['DateTime'] | null)
     _updatedAt: Scalars['DateTime']
     id: Scalars['ItemId']
-    image: (FileField | null)
+    image: AltFileField
     __typename: 'ImageBlockRecord'
 }
 
@@ -540,8 +574,8 @@ export interface ModularPageRecord {
     modularContent: ModularPageModelModularContentField[]
     routePaths: RoutePathRecord[]
     seo: (SeoBlockRecord | null)
-    slug: (Scalars['String'] | null)
-    title: (Scalars['String'] | null)
+    slug: Scalars['String']
+    title: Scalars['String']
     __typename: 'ModularPageRecord'
 }
 
@@ -563,7 +597,7 @@ export interface NoteBlockRecord {
     _status: ItemStatus
     _unpublishingScheduledAt: (Scalars['DateTime'] | null)
     _updatedAt: Scalars['DateTime']
-    card: (CardBlockRecord | null)
+    card: CardBlockRecord
     id: Scalars['ItemId']
     noteType: (Scalars['String'] | null)
     __typename: 'NoteBlockRecord'
@@ -593,8 +627,8 @@ export interface PostRecord {
     modularContent: RichTextBlockRecord[]
     routePaths: RoutePathRecord[]
     seo: (SeoBlockRecord | null)
-    slug: (Scalars['String'] | null)
-    title: (Scalars['String'] | null)
+    slug: Scalars['String']
+    title: Scalars['String']
     __typename: 'PostRecord'
 }
 
@@ -718,8 +752,8 @@ export interface RoutePathRecord {
     _unpublishingScheduledAt: (Scalars['DateTime'] | null)
     _updatedAt: Scalars['DateTime']
     id: Scalars['ItemId']
-    name: (Scalars['String'] | null)
-    slug: (Scalars['String'] | null)
+    name: Scalars['String']
+    slug: Scalars['String']
     __typename: 'RoutePathRecord'
 }
 
@@ -794,13 +828,13 @@ export interface TestimonialBlockCtaRecord {
     _status: ItemStatus
     _unpublishingScheduledAt: (Scalars['DateTime'] | null)
     _updatedAt: Scalars['DateTime']
-    author: (Scalars['String'] | null)
+    author: Scalars['String']
     company: (Scalars['String'] | null)
-    content: (HeadingBlockNewRecord | null)
+    content: HeadingBlockNewRecord
     cta: (ActionBlockRecord | null)
     highlight: (TestimonialBlockCtaModelHighlightField | null)
     id: Scalars['ItemId']
-    picture: (FileField | null)
+    picture: (AltFileField | null)
     role: (Scalars['String'] | null)
     __typename: 'TestimonialBlockCtaRecord'
 }
@@ -828,11 +862,11 @@ export interface TestimonialBlockDefaultRecord {
     _status: ItemStatus
     _unpublishingScheduledAt: (Scalars['DateTime'] | null)
     _updatedAt: Scalars['DateTime']
-    author: (Scalars['String'] | null)
+    author: Scalars['String']
     company: (Scalars['String'] | null)
     content: (TestimonialBlockDefaultModelContentField | null)
     id: Scalars['ItemId']
-    picture: (FileField | null)
+    picture: (AltFileField | null)
     role: (Scalars['String'] | null)
     __typename: 'TestimonialBlockDefaultRecord'
 }
@@ -857,7 +891,7 @@ export interface TestimonialBlockRecord {
     company: (Scalars['String'] | null)
     content: (RichTextBlockRecord | null)
     id: Scalars['ItemId']
-    image: (FileField | null)
+    image: (AltFileField | null)
     role: (Scalars['String'] | null)
     title: (Scalars['String'] | null)
     __typename: 'TestimonialBlockRecord'
@@ -881,7 +915,7 @@ export interface TestimonialsSectionRecord {
     _status: ItemStatus
     _unpublishingScheduledAt: (Scalars['DateTime'] | null)
     _updatedAt: Scalars['DateTime']
-    heading: (HeadingBlockRecord | null)
+    heading: (HeadingBlockNewRecord | null)
     id: Scalars['ItemId']
     testimonials: TestimonialsSectionModelTestimonialsField[]
     __typename: 'TestimonialsSectionRecord'
@@ -909,6 +943,74 @@ export interface UploadVideoField {
     title: (Scalars['String'] | null)
     width: Scalars['IntType']
     __typename: 'UploadVideoField'
+}
+
+export interface VideoAltFileField {
+    _createdAt: Scalars['DateTime']
+    /** The DatoCMS URL where you can edit this entity. To use this field, you need to set a X-Base-Editing-Url header in the request */
+    _editingUrl: (Scalars['String'] | null)
+    _updatedAt: Scalars['DateTime']
+    alt: Scalars['String']
+    author: (Scalars['String'] | null)
+    basename: Scalars['String']
+    blurUpThumb: (Scalars['String'] | null)
+    blurhash: (Scalars['String'] | null)
+    colors: ColorField[]
+    copyright: (Scalars['String'] | null)
+    customData: Scalars['CustomData']
+    exifInfo: Scalars['CustomData']
+    filename: Scalars['String']
+    focalPoint: (focalPoint | null)
+    format: Scalars['String']
+    height: Scalars['IntType']
+    id: Scalars['UploadId']
+    md5: Scalars['String']
+    mimeType: Scalars['String']
+    notes: (Scalars['String'] | null)
+    responsiveImage: (ResponsiveImage | null)
+    size: Scalars['IntType']
+    smartTags: Scalars['String'][]
+    tags: Scalars['String'][]
+    thumbhash: (Scalars['String'] | null)
+    title: (Scalars['String'] | null)
+    url: Scalars['String']
+    video: UploadVideoField
+    width: Scalars['IntType']
+    __typename: 'VideoAltFileField'
+}
+
+export interface VideoFileField {
+    _createdAt: Scalars['DateTime']
+    /** The DatoCMS URL where you can edit this entity. To use this field, you need to set a X-Base-Editing-Url header in the request */
+    _editingUrl: (Scalars['String'] | null)
+    _updatedAt: Scalars['DateTime']
+    alt: (Scalars['String'] | null)
+    author: (Scalars['String'] | null)
+    basename: Scalars['String']
+    blurUpThumb: (Scalars['String'] | null)
+    blurhash: (Scalars['String'] | null)
+    colors: ColorField[]
+    copyright: (Scalars['String'] | null)
+    customData: Scalars['CustomData']
+    exifInfo: Scalars['CustomData']
+    filename: Scalars['String']
+    focalPoint: (focalPoint | null)
+    format: Scalars['String']
+    height: Scalars['IntType']
+    id: Scalars['UploadId']
+    md5: Scalars['String']
+    mimeType: Scalars['String']
+    notes: (Scalars['String'] | null)
+    responsiveImage: (ResponsiveImage | null)
+    size: Scalars['IntType']
+    smartTags: Scalars['String'][]
+    tags: Scalars['String'][]
+    thumbhash: (Scalars['String'] | null)
+    title: (Scalars['String'] | null)
+    url: Scalars['String']
+    video: UploadVideoField
+    width: Scalars['IntType']
+    __typename: 'VideoFileField'
 }
 
 export type VideoMp4Res = 'low' | 'medium' | 'high'
@@ -940,6 +1042,75 @@ export interface ActionBlockRecordGenqlSelection{
     id?: boolean | number
     link?: boolean | number
     text?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+export interface AltFileFieldGenqlSelection{
+    _createdAt?: boolean | number
+    /** The DatoCMS URL where you can edit this entity. To use this field, you need to set a X-Base-Editing-Url header in the request */
+    _editingUrl?: boolean | number
+    _updatedAt?: boolean | number
+    alt?: { __args: {
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null), 
+    /** If you want to fallback to a default translation when a translation has not been found */
+    fallbackLocales?: (SiteLocale[] | null)} } | boolean | number
+    author?: boolean | number
+    basename?: boolean | number
+    blurUpThumb?: { __args: {
+    /** Controls the "punch" value (~contrast) of the blurhash decoding algorithm (defaults to 1.0) */
+    punch: Scalars['Float'], 
+    /** Maximum image dimension (defaults to 24px) */
+    size: Scalars['Int'], 
+    /** Image quality (defaults to 70%) */
+    quality: Scalars['Int'], 
+    /** Imgix transformations to apply to the image */
+    imgixParams?: (ImgixParams | null)} }
+    blurhash?: boolean | number
+    colors?: ColorFieldGenqlSelection
+    copyright?: boolean | number
+    customData?: { __args: {
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null), 
+    /** If you want to fallback to a default translation when a translation has not been found */
+    fallbackLocales?: (SiteLocale[] | null)} } | boolean | number
+    exifInfo?: boolean | number
+    filename?: boolean | number
+    focalPoint?: (focalPointGenqlSelection & { __args?: {
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null), 
+    /** If you want to fallback to a default translation when a translation has not been found */
+    fallbackLocales?: (SiteLocale[] | null)} })
+    format?: boolean | number
+    height?: boolean | number
+    id?: boolean | number
+    md5?: boolean | number
+    mimeType?: boolean | number
+    notes?: boolean | number
+    responsiveImage?: (ResponsiveImageGenqlSelection & { __args?: {
+    /** Imgix transformations to apply to the image */
+    imgixParams?: (ImgixParams | null), 
+    /** Specify a custom `sizes` attribute for the image */
+    sizes?: (Scalars['String'] | null), 
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null), 
+    /** If you want to fallback to a default translation when a translation has not been found */
+    fallbackLocales?: (SiteLocale[] | null)} })
+    size?: boolean | number
+    smartTags?: boolean | number
+    tags?: boolean | number
+    thumbhash?: boolean | number
+    title?: { __args: {
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null), 
+    /** If you want to fallback to a default translation when a translation has not been found */
+    fallbackLocales?: (SiteLocale[] | null)} } | boolean | number
+    url?: { __args: {
+    /** Imgix transformations to apply to the image */
+    imgixParams?: (ImgixParams | null)} } | boolean | number
+    video?: UploadVideoFieldGenqlSelection
+    width?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -997,7 +1168,7 @@ export interface CardBlockRecordGenqlSelection{
     content?: RichTextBlockRecordGenqlSelection
     cta?: ActionBlockRecordGenqlSelection
     id?: boolean | number
-    media?: FileFieldGenqlSelection
+    media?: AltFileFieldGenqlSelection
     title?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
@@ -1363,7 +1534,10 @@ export interface FileFieldInterfaceGenqlSelection{
     imgixParams?: (ImgixParams | null)} } | boolean | number
     video?: UploadVideoFieldGenqlSelection
     width?: boolean | number
+    on_AltFileField?: AltFileFieldGenqlSelection
     on_FileField?: FileFieldGenqlSelection
+    on_VideoAltFileField?: VideoAltFileFieldGenqlSelection
+    on_VideoFileField?: VideoFileFieldGenqlSelection
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -1457,11 +1631,11 @@ export interface HeroSectionRecordGenqlSelection{
     _unpublishingScheduledAt?: boolean | number
     _updatedAt?: boolean | number
     cta?: ActionBlockRecordGenqlSelection
-    heding?: HeadingBlockNewRecordGenqlSelection
+    heading?: HeadingBlockNewRecordGenqlSelection
     id?: boolean | number
-    testimonialPictures?: FileFieldGenqlSelection
+    testimonialPictures?: AltFileFieldGenqlSelection
     testimonialTitle?: boolean | number
-    video?: FileFieldGenqlSelection
+    video?: VideoFileFieldGenqlSelection
     videoText?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
@@ -1497,10 +1671,10 @@ export interface HomepageRecordGenqlSelection{
     heroSubtitle?: { __args: {
     /** Process content as markdown */
     markdown?: (Scalars['Boolean'] | null)} } | boolean | number
-    heroTestimonialPictures?: FileFieldGenqlSelection
+    heroTestimonialPictures?: AltFileFieldGenqlSelection
     heroTestimonialTitle?: boolean | number
     heroTitle?: boolean | number
-    heroVideo?: FileFieldGenqlSelection
+    heroVideo?: VideoAltFileFieldGenqlSelection
     heroVideoText?: boolean | number
     id?: boolean | number
     multipleTestimonials?: TestimonialBlockRecordGenqlSelection
@@ -1512,7 +1686,7 @@ export interface HomepageRecordGenqlSelection{
     statsAction?: ActionBlockRecordGenqlSelection
     statsData?: HeadingBlockRecordGenqlSelection
     statsHeading?: HeadingBlockRecordGenqlSelection
-    statsImages?: FileFieldGenqlSelection
+    statsImages?: AltFileFieldGenqlSelection
     targetAudienceHeading?: HeadingBlockRecordGenqlSelection
     targetAudiences?: CardBlockRecordGenqlSelection
     title?: boolean | number
@@ -1539,7 +1713,7 @@ export interface ImageBlockRecordGenqlSelection{
     _unpublishingScheduledAt?: boolean | number
     _updatedAt?: boolean | number
     id?: boolean | number
-    image?: FileFieldGenqlSelection
+    image?: AltFileFieldGenqlSelection
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -3402,7 +3576,7 @@ export interface TestimonialBlockCtaRecordGenqlSelection{
     cta?: ActionBlockRecordGenqlSelection
     highlight?: TestimonialBlockCtaModelHighlightFieldGenqlSelection
     id?: boolean | number
-    picture?: FileFieldGenqlSelection
+    picture?: AltFileFieldGenqlSelection
     role?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
@@ -3438,7 +3612,7 @@ export interface TestimonialBlockDefaultRecordGenqlSelection{
     company?: boolean | number
     content?: TestimonialBlockDefaultModelContentFieldGenqlSelection
     id?: boolean | number
-    picture?: FileFieldGenqlSelection
+    picture?: AltFileFieldGenqlSelection
     role?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
@@ -3466,7 +3640,7 @@ export interface TestimonialBlockRecordGenqlSelection{
     company?: boolean | number
     content?: RichTextBlockRecordGenqlSelection
     id?: boolean | number
-    image?: FileFieldGenqlSelection
+    image?: AltFileFieldGenqlSelection
     role?: boolean | number
     title?: boolean | number
     __typename?: boolean | number
@@ -3498,7 +3672,7 @@ export interface TestimonialsSectionRecordGenqlSelection{
     _status?: boolean | number
     _unpublishingScheduledAt?: boolean | number
     _updatedAt?: boolean | number
-    heading?: HeadingBlockRecordGenqlSelection
+    heading?: HeadingBlockNewRecordGenqlSelection
     id?: boolean | number
     testimonials?: TestimonialsSectionModelTestimonialsFieldGenqlSelection
     __typename?: boolean | number
@@ -3820,6 +3994,144 @@ eq?: (Scalars['IntType'] | null),
 /** Search assets that do not have the specified width */
 neq?: (Scalars['IntType'] | null)}
 
+export interface VideoAltFileFieldGenqlSelection{
+    _createdAt?: boolean | number
+    /** The DatoCMS URL where you can edit this entity. To use this field, you need to set a X-Base-Editing-Url header in the request */
+    _editingUrl?: boolean | number
+    _updatedAt?: boolean | number
+    alt?: { __args: {
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null), 
+    /** If you want to fallback to a default translation when a translation has not been found */
+    fallbackLocales?: (SiteLocale[] | null)} } | boolean | number
+    author?: boolean | number
+    basename?: boolean | number
+    blurUpThumb?: { __args: {
+    /** Controls the "punch" value (~contrast) of the blurhash decoding algorithm (defaults to 1.0) */
+    punch: Scalars['Float'], 
+    /** Maximum image dimension (defaults to 24px) */
+    size: Scalars['Int'], 
+    /** Image quality (defaults to 70%) */
+    quality: Scalars['Int'], 
+    /** Imgix transformations to apply to the image */
+    imgixParams?: (ImgixParams | null)} }
+    blurhash?: boolean | number
+    colors?: ColorFieldGenqlSelection
+    copyright?: boolean | number
+    customData?: { __args: {
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null), 
+    /** If you want to fallback to a default translation when a translation has not been found */
+    fallbackLocales?: (SiteLocale[] | null)} } | boolean | number
+    exifInfo?: boolean | number
+    filename?: boolean | number
+    focalPoint?: (focalPointGenqlSelection & { __args?: {
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null), 
+    /** If you want to fallback to a default translation when a translation has not been found */
+    fallbackLocales?: (SiteLocale[] | null)} })
+    format?: boolean | number
+    height?: boolean | number
+    id?: boolean | number
+    md5?: boolean | number
+    mimeType?: boolean | number
+    notes?: boolean | number
+    responsiveImage?: (ResponsiveImageGenqlSelection & { __args?: {
+    /** Imgix transformations to apply to the image */
+    imgixParams?: (ImgixParams | null), 
+    /** Specify a custom `sizes` attribute for the image */
+    sizes?: (Scalars['String'] | null), 
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null), 
+    /** If you want to fallback to a default translation when a translation has not been found */
+    fallbackLocales?: (SiteLocale[] | null)} })
+    size?: boolean | number
+    smartTags?: boolean | number
+    tags?: boolean | number
+    thumbhash?: boolean | number
+    title?: { __args: {
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null), 
+    /** If you want to fallback to a default translation when a translation has not been found */
+    fallbackLocales?: (SiteLocale[] | null)} } | boolean | number
+    url?: { __args: {
+    /** Imgix transformations to apply to the image */
+    imgixParams?: (ImgixParams | null)} } | boolean | number
+    video?: UploadVideoFieldGenqlSelection
+    width?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+export interface VideoFileFieldGenqlSelection{
+    _createdAt?: boolean | number
+    /** The DatoCMS URL where you can edit this entity. To use this field, you need to set a X-Base-Editing-Url header in the request */
+    _editingUrl?: boolean | number
+    _updatedAt?: boolean | number
+    alt?: { __args: {
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null), 
+    /** If you want to fallback to a default translation when a translation has not been found */
+    fallbackLocales?: (SiteLocale[] | null)} } | boolean | number
+    author?: boolean | number
+    basename?: boolean | number
+    blurUpThumb?: { __args: {
+    /** Controls the "punch" value (~contrast) of the blurhash decoding algorithm (defaults to 1.0) */
+    punch: Scalars['Float'], 
+    /** Maximum image dimension (defaults to 24px) */
+    size: Scalars['Int'], 
+    /** Image quality (defaults to 70%) */
+    quality: Scalars['Int'], 
+    /** Imgix transformations to apply to the image */
+    imgixParams?: (ImgixParams | null)} }
+    blurhash?: boolean | number
+    colors?: ColorFieldGenqlSelection
+    copyright?: boolean | number
+    customData?: { __args: {
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null), 
+    /** If you want to fallback to a default translation when a translation has not been found */
+    fallbackLocales?: (SiteLocale[] | null)} } | boolean | number
+    exifInfo?: boolean | number
+    filename?: boolean | number
+    focalPoint?: (focalPointGenqlSelection & { __args?: {
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null), 
+    /** If you want to fallback to a default translation when a translation has not been found */
+    fallbackLocales?: (SiteLocale[] | null)} })
+    format?: boolean | number
+    height?: boolean | number
+    id?: boolean | number
+    md5?: boolean | number
+    mimeType?: boolean | number
+    notes?: boolean | number
+    responsiveImage?: (ResponsiveImageGenqlSelection & { __args?: {
+    /** Imgix transformations to apply to the image */
+    imgixParams?: (ImgixParams | null), 
+    /** Specify a custom `sizes` attribute for the image */
+    sizes?: (Scalars['String'] | null), 
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null), 
+    /** If you want to fallback to a default translation when a translation has not been found */
+    fallbackLocales?: (SiteLocale[] | null)} })
+    size?: boolean | number
+    smartTags?: boolean | number
+    tags?: boolean | number
+    thumbhash?: boolean | number
+    title?: { __args: {
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null), 
+    /** If you want to fallback to a default translation when a translation has not been found */
+    fallbackLocales?: (SiteLocale[] | null)} } | boolean | number
+    url?: { __args: {
+    /** Imgix transformations to apply to the image */
+    imgixParams?: (ImgixParams | null)} } | boolean | number
+    video?: UploadVideoFieldGenqlSelection
+    width?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
 export interface focalPointGenqlSelection{
     x?: boolean | number
     y?: boolean | number
@@ -3832,6 +4144,14 @@ export interface focalPointGenqlSelection{
     export const isActionBlockRecord = (obj?: { __typename?: any } | null): obj is ActionBlockRecord => {
       if (!obj?.__typename) throw new Error('__typename is missing in "isActionBlockRecord"')
       return ActionBlockRecord_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const AltFileField_possibleTypes: string[] = ['AltFileField']
+    export const isAltFileField = (obj?: { __typename?: any } | null): obj is AltFileField => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isAltFileField"')
+      return AltFileField_possibleTypes.includes(obj.__typename)
     }
     
 
@@ -3932,7 +4252,7 @@ export interface focalPointGenqlSelection{
     
 
 
-    const FileFieldInterface_possibleTypes: string[] = ['FileField']
+    const FileFieldInterface_possibleTypes: string[] = ['AltFileField','FileField','VideoAltFileField','VideoFileField']
     export const isFileFieldInterface = (obj?: { __typename?: any } | null): obj is FileFieldInterface => {
       if (!obj?.__typename) throw new Error('__typename is missing in "isFileFieldInterface"')
       return FileFieldInterface_possibleTypes.includes(obj.__typename)
@@ -4176,6 +4496,22 @@ export interface focalPointGenqlSelection{
     export const isUploadVideoField = (obj?: { __typename?: any } | null): obj is UploadVideoField => {
       if (!obj?.__typename) throw new Error('__typename is missing in "isUploadVideoField"')
       return UploadVideoField_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const VideoAltFileField_possibleTypes: string[] = ['VideoAltFileField']
+    export const isVideoAltFileField = (obj?: { __typename?: any } | null): obj is VideoAltFileField => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isVideoAltFileField"')
+      return VideoAltFileField_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const VideoFileField_possibleTypes: string[] = ['VideoFileField']
+    export const isVideoFileField = (obj?: { __typename?: any } | null): obj is VideoFileField => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isVideoFileField"')
+      return VideoFileField_possibleTypes.includes(obj.__typename)
     }
     
 

@@ -2,7 +2,7 @@ import { client } from "$lib/graphql/client";
 import {
 	cardBlockFields,
 	postCategoryBlockFields,
-	postSeoBlockFields,
+	seoFieldsSelection,
 } from "$lib/graphql/queries/fields";
 
 const getPostFullPath = (
@@ -40,7 +40,9 @@ const getAllBlogPosts = async () => {
 			},
 
 			// SEO
-			seo: postSeoBlockFields,
+			seo: {
+				seoBlock: seoFieldsSelection,
+			},
 		},
 	});
 
@@ -120,7 +122,9 @@ const getSingleBlogPost = async (slug: string) => {
 			},
 
 			// SEO
-			seo: postSeoBlockFields,
+			seo: {
+				seoBlock: seoFieldsSelection,
+			},
 		},
 	});
 
