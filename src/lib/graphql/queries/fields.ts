@@ -59,4 +59,3 @@ const postCategoryBlockFields = {
 } satisfies PostRecordGenqlSelection["category"];
 
 export { cardBlockFields, faqBlockSelection, postCategoryBlockFields, postSeoBlockFields };
-

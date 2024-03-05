@@ -14,4 +14,3 @@ type SinglePost = Awaited<ReturnType<typeof getSingleBlogPost>>;
 type SinglePostFromAll = Awaited<ReturnType<typeof getAllBlogPosts>>[0];
 
 export type { PostShareOptions, SinglePost, SinglePostFromAll };
-

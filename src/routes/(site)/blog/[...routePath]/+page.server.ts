@@ -15,7 +15,10 @@ export const load = async ({ params, url }) => {
 
 	// Blog post has route paths, but the URL is missing them
 	if (post.routePaths.length > 0 && parts.length < post.routePaths.length + 1) {
-		const path = getPostFullPath(post.routePaths.map(path => path.slug), String(post.slug));
+		const path = getPostFullPath(
+			post.routePaths.map(path => path.slug),
+			String(post.slug)
+		);
 
 		return {
 			correctUrl: `${url.origin}${path}`,

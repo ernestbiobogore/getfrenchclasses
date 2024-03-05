@@ -170,7 +170,7 @@ const getHomePageData = async () => {
 				subheading: true,
 			},
 			faq: {
-				faqBlocks: faqBlockSelection
+				faqBlocks: faqBlockSelection,
 			},
 
 			// CTA

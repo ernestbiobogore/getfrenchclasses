@@ -5,6 +5,7 @@ import { get } from "svelte/store";
 import type { TransitionConfig } from "svelte/transition";
 import { twMerge } from "tailwind-merge";
 import type { PostShareOptions } from "./types";
+import type { Action } from "svelte/action";
 
 const getSampleAvatars = (n = 3) => {
 	return Array.from({ length: n }, () => {
@@ -21,16 +22,13 @@ export function cn(...inputs: ClassValue[]) {
 	return twMerge(clsx(inputs));
 }
 
-
 type GenerateShareOptionsParams = {
 	slug: string;
 	title: string;
 	description: string;
-}
+};
 
-export function generateShareOptions(
-	shareOptions: GenerateShareOptionsParams
-): PostShareOptions {
+export function generateShareOptions(shareOptions: GenerateShareOptionsParams): PostShareOptions {
 	return {
 		// for whatsapp and twitter and facebook and Web Share API
 		title: shareOptions.title,
@@ -39,9 +37,9 @@ export function generateShareOptions(
 
 		// for mail`
 		subject: shareOptions.title,
-		body: `Check out this article on Get French Classes: ${
-			get(page).url.origin
-		}/blog/${shareOptions.slug}`,
+		body: `Check out this article on Get French Classes: ${get(page).url.origin}/blog/${
+			shareOptions.slug
+		}`,
 
 		// for linkedin
 		summary: shareOptions.description,
@@ -76,6 +74,22 @@ export function getShareLinks(opts: PostShareOptions) {
 		)}&title=${encodeURIComponent(title)}`,
 	};
 }
+
+export const addOverflowShadow: Action<HTMLDivElement, { style: string }> = (node, params) => {
+	const update = () => {
+		const isOverflow = node.scrollWidth > node.clientWidth;
+		node.style.boxShadow = isOverflow ? params.style : "";
+	};
+
+	update();
+	window.addEventListener("resize", update);
+
+	return {
+		destroy() {
+			window.removeEventListener("resize", update);
+		},
+	};
+};
 
 type FlyAndScaleParams = {
 	y?: number;

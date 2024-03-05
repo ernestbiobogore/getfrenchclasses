@@ -1,6 +1,4 @@
 <script lang="ts">
-	import "./+page.css"; // simpler than using <style> tags with global selectors
-
 	import AvatarsGroup from "$lib/components/AvatarsGroup.svelte";
 	import FaqAccordion from "$lib/components/FaqAccordion.svelte";
 	import TestimonialCardList from "$lib/components/TestimonialCardList.svelte";
@@ -297,3 +295,9 @@
 </section>
 
 <TestimonialCta {...dummyTestimonialCta} />
+
+<style>
+	.hero-subtitle :global(p) {
+		@apply text-lg md:text-2xl;
+	}
+</style>
