@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Block from "$lib/components/dato/StructuredText/Block.svelte";
 	import type { RichTextBlockModelRichTextBlocksField } from "$lib/graphql/generated";
+	import { cn } from "$lib/utils";
 	import {
 		isBlock,
 		isBlockquote,
@@ -14,11 +15,15 @@
 		isSpan,
 		type Node,
 	} from "datocms-structured-text-utils";
+	import { getContext } from "svelte";
+	import type { ElementsClasses } from "./types";
 
 	export let node: Node;
 	export let blocks: RichTextBlockModelRichTextBlocksField[] | undefined;
 
 	$: block = isBlock(node) && (blocks || []).find(({ id }) => isBlock(node) && id === node.item);
+
+	const elementClasses = getContext<ElementsClasses | undefined>("elementClasses");
 </script>
 
 {#if isRoot(node)}
@@ -28,7 +33,7 @@
 {/if}
 
 {#if isParagraph(node)}
-	<p>
+	<p class={cn(elementClasses?.p)}>
 		{#each node.children as child}
 			<svelte:self node={child} {blocks} />
 		{/each}
