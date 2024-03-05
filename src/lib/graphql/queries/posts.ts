@@ -5,6 +5,13 @@ import {
 	seoFieldsSelection,
 } from "$lib/graphql/queries/fields";
 
+/**
+ * Returns the full path of a post based on its route path slugs and slug.
+ * @param postRoutePathSlugs - An array of route path slugs for the post.
+ * @param postSlug - The slug of the post.
+ * @param postsBasePath - The base path for all posts (default: "/blog").
+ * @returns The full path of the post.
+ */
 const getPostFullPath = (
 	postRoutePathSlugs: (string | null)[],
 	postSlug: string,

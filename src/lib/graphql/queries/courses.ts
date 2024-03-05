@@ -2,123 +2,123 @@ import { client } from "$lib/graphql/client";
 import { faqBlockFieldSelection } from "./fields";
 
 const getCoursesSlugs = async () => {
-  const { allCourses } = await client.query({
-    allCourses: {
-      slug: true,
-      _updatedAt: true,
-    },
-  });
+	const { allCourses } = await client.query({
+		allCourses: {
+			slug: true,
+			_updatedAt: true,
+		},
+	});
 
-  return allCourses;
+	return allCourses;
 };
 
 const getAllCourses = async (first?: number) => {
-  const { allCourses } = await client.query({
-    allCourses: {
-      __args: {
-        first,
-      },
-      id: true,
-      name: true,
-      slug: true,
+	const { allCourses } = await client.query({
+		allCourses: {
+			__args: {
+				first,
+			},
+			id: true,
+			name: true,
+			slug: true,
 
-      // Info
-      price: true,
-      duration: true,
-      numberOfSections: true,
-      level: true,
-      numberOfEnrolledStudents: true,
-      tag: true,
+			// Info
+			price: true,
+			duration: true,
+			numberOfSections: true,
+			level: true,
+			numberOfEnrolledStudents: true,
+			tag: true,
 
-      // SEO
-      seo: {
-        seoBlock: {
-          title: true,
-          description: true,
-          image: {
-            url: true,
-            alt: true,
-          },
-        },
-      },
-    },
-  });
+			// SEO
+			seo: {
+				seoBlock: {
+					title: true,
+					description: true,
+					image: {
+						url: true,
+						alt: true,
+					},
+				},
+			},
+		},
+	});
 
-  return allCourses;
+	return allCourses;
 };
 
 const getCourseBySlug = async (slug: string) => {
-  const { course } = await client.query({
-    course: {
-      __args: {
-        filter: {
-          slug: {
-            eq: slug,
-          },
-        },
-      },
-      id: true,
-      name: true,
-      slug: true,
+	const { course } = await client.query({
+		course: {
+			__args: {
+				filter: {
+					slug: {
+						eq: slug,
+					},
+				},
+			},
+			id: true,
+			name: true,
+			slug: true,
 
-      // Info
-      price: true,
-      duration: true,
-      numberOfSections: true,
-      level: true,
-      numberOfEnrolledStudents: true,
-      tag: true,
+			// Info
+			price: true,
+			duration: true,
+			numberOfSections: true,
+			level: true,
+			numberOfEnrolledStudents: true,
+			tag: true,
 
-      // FAQ
-      faq: {
-        title: true,
-        faqBlocks: faqBlockFieldSelection
-      },
+			// FAQ
+			faq: {
+				title: true,
+				faqBlocks: faqBlockFieldSelection,
+			},
 
-      // Features
-      featuresCards: {
-        media: {
-          url: true,
-          alt: true,
-        },
-        content: {
-          richText: {
-            value: true,
-          },
-        },
-      },
+			// Features
+			featuresCards: {
+				media: {
+					url: true,
+					alt: true,
+				},
+				content: {
+					richText: {
+						value: true,
+					},
+				},
+			},
 
-      // Single testimonial
-      singleTestimonial: {
-        title: true,
-        image: {
-          url: true,
-          alt: true,
-        },
-        content: {
-          richText: {
-            value: true,
-          },
-        },
-        author: true,
-        company: true,
-      },
+			// Single testimonial
+			singleTestimonial: {
+				title: true,
+				image: {
+					url: true,
+					alt: true,
+				},
+				content: {
+					richText: {
+						value: true,
+					},
+				},
+				author: true,
+				company: true,
+			},
 
-      // SEO
-      seo: {
-        seoBlock: {
-          title: true,
-          description: true,
-          image: {
-            url: true,
-            alt: true,
-          },
-        },
-      },
-    },
-  });
+			// SEO
+			seo: {
+				seoBlock: {
+					title: true,
+					description: true,
+					image: {
+						url: true,
+						alt: true,
+					},
+				},
+			},
+		},
+	});
 
-  return course;
+	return course;
 };
 
 export { getAllCourses, getCourseBySlug, getCoursesSlugs };

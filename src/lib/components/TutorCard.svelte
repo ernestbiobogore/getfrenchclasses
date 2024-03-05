@@ -1,5 +1,5 @@
 <script lang="ts" context="module">
-	import type { TypeOptionValue, LevelOptionValue } from "./+page.svelte";
+	import type { TypeOptionValue, LevelOptionValue } from "$routes/(site)/tutors/+page.svelte";
 	export type Tutor = {
 		name: string;
 		short_description: string;
@@ -7,7 +7,8 @@
 		audience: TypeOptionValue[];
 		levels: LevelOptionValue[];
 		location: string;
-		price: number;
+		price?: number;
+		lessons: string[];
 	};
 </script>
 
@@ -19,15 +20,14 @@
 
 	import LayersIcon from "~icons/lucide/layers";
 	import LocateIcon from "~icons/lucide/locate";
-	import MessageCircleIcon from "~icons/lucide/message-circle";
-	import PhoneIcon from "~icons/lucide/phone";
 	import UserIcon from "~icons/lucide/user";
-	import VideoIcon from "~icons/lucide/video";
 	import StarFillIcon from "~icons/solar/star-bold";
 	import SharpVerifired from "~icons/ic/sharp-verified";
+	import BookOpen from "~icons/lucide/book-open";
 
 	import { Button } from "$shadcn/button";
-	import { goto } from "$app/navigation";
+	import { Badge } from "$shadcn/badge";
+	import { addOverflowShadow } from "$lib/utils";
 
 	export let tutor: Tutor;
 	export let withVerifiedBadge = false;
@@ -43,8 +43,8 @@
 		style="aspect-ratio: 1 / 1; object-fit: cover;"
 		width="350"
 	/>
-	<Card.Content class="p-4">
-		<div class="flex items-center space-x-3 mb-6">
+	<Card.Content class="p-4 flex flex-col gap-4">
+		<div class="flex items-center gap-3">
 			<Avatar.Root class="w-14 h-14 border-4 border-white">
 				<Avatar.Image alt={tutor.name} src="/placeholder.svg?height=40&width=40" />
 				<Avatar.Fallback>KL</Avatar.Fallback>
@@ -85,29 +85,34 @@
 			</Dialog.Root>
 		{/if}
 
-		<div class="text-lg font-medium mb-6 text-gray-900">
+		<div class="text-lg font-medium text-gray-900">
 			{tutor.short_description}
 		</div>
-		<div class="flex items-center space-x-2 text-sm text-gray-600 mb-6">
+		<div class="flex items-center gap-2 text-sm text-gray-600">
 			<UserIcon class="w-5 h-5" />
 			<span>{tutor.audience.join(", ")}</span>
 		</div>
-		<div class="flex items-center space-x-2 text-sm text-gray-600 mb-6">
+		<div class="flex items-center gap-2 text-sm text-gray-600">
 			<LayersIcon class="w-5 h-5" />
 			<span>
 				{tutor.levels.join(", ")}
 			</span>
 		</div>
-		<div class="flex items-center space-x-2 text-sm text-gray-600 mb-6">
+		<div class="flex items-center gap-2 text-sm text-gray-600">
 			<LocateIcon class="w-5 h-5" />
 			<span>{tutor.location}</span>
 		</div>
-		<div class="flex items-center justify-between">
-			<div class="text-xl font-semibold text-blue-600">${tutor.price}/hr</div>
-			<div class="flex-s-center gap-2 text-lg text-gray-600">
-				<PhoneIcon />
-				<VideoIcon />
-				<MessageCircleIcon />
+		<div class="flex items-center gap-2 w-full text-gray-600">
+			<div class="">
+				<BookOpen class="w-5 h-5" />
+			</div>
+			<div
+				use:addOverflowShadow={{ style: "inset -5px 0 5px -5px rgba(0, 0, 0, 0.2)" }}
+				class="text-xs flex-1 flex overflow-x-auto gap-1 py-1 pr-2"
+			>
+				{#each tutor?.lessons as lesson}
+					<Badge variant="secondary" class="text-xs">{lesson}</Badge>
+				{/each}
 			</div>
 		</div>
 	</Card.Content>

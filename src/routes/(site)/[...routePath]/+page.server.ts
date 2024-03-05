@@ -1,10 +1,14 @@
 import { getSingleModularPage } from "$lib/graphql/queries/modular";
 import { getRecordFullPath } from "$lib/graphql/queries/utils";
-import { error } from "@sveltejs/kit";
+import { error, redirect } from "@sveltejs/kit";
 
 export const load = async ({ params, url }) => {
 	const { routePath } = params;
 	const parts = routePath.split("/");
+
+	if (parts.length === 1) {
+		redirect(301, "/courses");
+	}
 
 	const modularPage = await getSingleModularPage(parts[parts.length - 1]);
 
