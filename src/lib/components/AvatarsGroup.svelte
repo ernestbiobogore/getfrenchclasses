@@ -6,6 +6,8 @@
 </script>
 
 <script lang="ts">
+	import * as ShadcnAvatar from "$lib/components/shadcn/ui/avatar";
+
 	export let avatars: Avatar[] = [];
 	export let size = 32;
 	export let loading: "lazy" | "eager" = "eager";
@@ -14,16 +16,9 @@
 </script>
 
 <div class="flex">
-	<!-- People images -->
 	{#each avatars as avatar}
-		<img
-			class="rounded-full border-2 border-white first:!ml-0"
-			src={avatar.src}
-			alt={avatar.alt}
-			width={size}
-			height={size}
-			{loading}
-			style="margin-left: -{margin}px;"
-		/>
+		<ShadcnAvatar.Root style="margin-left: -{margin}px;">
+			<ShadcnAvatar.Image src={avatar.src} alt={avatar.alt} {loading} />
+		</ShadcnAvatar.Root>
 	{/each}
 </div>

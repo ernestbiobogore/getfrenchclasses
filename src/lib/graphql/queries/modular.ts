@@ -43,9 +43,21 @@ const getSingleModularPage = async (slug: string) => {
 						responsiveImage: responsiveImageFieldSelection,
 					},
 					video: {
-						url: true,
-						alt: true,
+						video: {
+							muxPlaybackId: true,
+							title: true,
+							width: true,
+							height: true,
+							blurUpThumb: {
+								__args: {
+									punch: 1,
+									size: 48,
+									quality: 100,
+								},
+							},
+						},
 					},
+					videoText: true,
 				},
 
 				on_FaqSectionRecord: {
