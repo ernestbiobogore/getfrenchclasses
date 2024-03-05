@@ -19,7 +19,7 @@
 			audience: ["Adults"],
 			levels: ["Intermediate", "Advanced"],
 			location: "Richboro, PA (Online, In person)",
-			price: 24,
+			lessons: ["Grammar", "Vocabulary", "Pronunciation"],
 		})
 		.concat([
 			{
@@ -29,7 +29,7 @@
 				audience: ["Kids"],
 				levels: ["Beginner"],
 				location: "Richboro, PA (Online, In person)",
-				price: 24,
+				lessons: ["Grammar", "Vocabulary", "Pronunciation"],
 			},
 			{
 				name: "Kevin L.",
@@ -38,7 +38,7 @@
 				audience: ["Kids"],
 				levels: ["Beginner"],
 				location: "Richboro, PA (Online, In person)",
-				price: 24,
+				lessons: ["Grammar", "Vocabulary", "Pronunciation"],
 			},
 		]) as Tutor[];
 
@@ -48,7 +48,7 @@
 </script>
 
 <script lang="ts">
-	import TutorCard, { type Tutor } from "./TutorCard.svelte";
+	import TutorCard, { type Tutor } from "$lib/components/TutorCard.svelte";
 
 	import CustomMultiselect, {
 		type SelectChangeHandler,
@@ -149,8 +149,8 @@
 			<div
 				role="button"
 				tabindex="0"
-				on:keydown={e => e.key === "Enter" && goto("/tutors/andy")}
-				on:click={() => goto("/tutors/andy")}
+				on:keydown={e => e.key === "Enter" && goto("/tutor/andy")}
+				on:click={() => goto("/tutor/andy")}
 			>
 				<TutorCard {tutor}></TutorCard>
 			</div>

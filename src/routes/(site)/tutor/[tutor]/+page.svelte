@@ -1,12 +1,15 @@
 <script lang="ts">
 	import { Badge } from "$shadcn/badge";
-	import { tutorsDummyData } from "../+page.svelte";
-	import TutorCard from "../TutorCard.svelte";
+	import { tutorsDummyData } from "$routes/(site)/tutors/+page.svelte";
+	import TutorCard from "$lib/components/TutorCard.svelte";
 	import VideoCam from "~icons/material-symbols/videocam-outline-rounded";
 	import SharpVerifired from "~icons/ic/sharp-verified";
 	import FaqAccordion from "$lib/components/FaqAccordion.svelte";
 	import TestimonialCardList from "$lib/components/TestimonialCardList.svelte";
 	import CourseCard from "$lib/components/CourseCard.svelte";
+	import InternalLinks, {
+		type Section as InternalLinkSection,
+	} from "$lib/components/InternalLinks.svelte";
 
 	export let data;
 	let homepageData = data.homepageData;
@@ -15,6 +18,33 @@
 	$: ({ homepageData, allCourses } = data);
 
 	const tutor = tutorsDummyData[0];
+
+	const internalLinkSections: InternalLinkSection[] = [
+		{
+			title: "By City",
+			links: [
+				{ label: "New York", path: "/new-york" },
+				{ label: "Washington", path: "/new-york/washington" },
+				{ label: "Ohio", path: "/florida/ohio" },
+			],
+		},
+		{
+			title: "Section 2",
+			links: [
+				{ label: "Link 4", path: "/link4" },
+				{ label: "Link 5", path: "/link5" },
+				{ label: "Link 6", path: "/link6" },
+			],
+		},
+		{
+			title: "Section 3",
+			links: [
+				{ label: "Link 7", path: "/link7" },
+				{ label: "Link 8", path: "/link8" },
+				{ label: "Link 9", path: "/link9" },
+			],
+		},
+	];
 </script>
 
 <section
@@ -115,3 +145,5 @@
 		{/each}
 	</div>
 </section>
+
+<InternalLinks basePath="/tutors" sections={internalLinkSections} />

@@ -101,6 +101,5 @@ export {
 	headingFieldSelection,
 	postCategoryBlockFields,
 	responsiveImageFieldSelection,
-	seoFieldsSelection
+	seoFieldsSelection,
 };
-

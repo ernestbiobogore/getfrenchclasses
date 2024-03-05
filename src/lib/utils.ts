@@ -5,6 +5,7 @@ import { get } from "svelte/store";
 import type { TransitionConfig } from "svelte/transition";
 import { twMerge } from "tailwind-merge";
 import type { PostShareOptions } from "./types";
+import type { Action } from "svelte/action";
 
 const getSampleAvatars = (n = 3) => {
 	return Array.from({ length: n }, () => {
@@ -21,16 +22,13 @@ export function cn(...inputs: ClassValue[]) {
 	return twMerge(clsx(inputs));
 }
 
-
 type GenerateShareOptionsParams = {
 	slug: string;
 	title: string;
 	description: string;
-}
+};
 
-export function generateShareOptions(
-	shareOptions: GenerateShareOptionsParams
-): PostShareOptions {
+export function generateShareOptions(shareOptions: GenerateShareOptionsParams): PostShareOptions {
 	return {
 		// for whatsapp and twitter and facebook and Web Share API
 		title: shareOptions.title,
@@ -39,9 +37,9 @@ export function generateShareOptions(
 
 		// for mail`
 		subject: shareOptions.title,
-		body: `Check out this article on Get French Classes: ${
-			get(page).url.origin
-		}/blog/${shareOptions.slug}`,
+		body: `Check out this article on Get French Classes: ${get(page).url.origin}/blog/${
+			shareOptions.slug
+		}`,
 
 		// for linkedin
 		summary: shareOptions.description,
@@ -76,6 +74,54 @@ export function getShareLinks(opts: PostShareOptions) {
 		)}&title=${encodeURIComponent(title)}`,
 	};
 }
+
+export const addOverflowShadow: Action<HTMLDivElement, { style: string }> = (node, params) => {
+	const update = () => {
+		const isOverflow = node.scrollWidth > node.clientWidth;
+		node.style.boxShadow = isOverflow ? params.style : "";
+	};
+
+	update();
+	window.addEventListener("resize", update);
+
+	return {
+		destroy() {
+			window.removeEventListener("resize", update);
+		},
+	};
+};
+
+/**
+ * Applies an on-screen transition effect to an HTML element.
+ * @param node The HTML element to observe for intersection.
+ * @param params The parameters for the on-screen transition effect.
+ * @param params.onEnter The callback function to be called when the element enters the screen.
+ * @param params.onExit The callback function to be called when the element exits the screen.
+ * @returns An object with a `destroy` method that can be used to disconnect the observer.
+ */
+export const onScreenTransition: Action<
+	HTMLElement,
+	{ onEnter: (node: HTMLElement) => void; onExit: (node: HTMLElement) => void }
+> = (node, params) => {
+	const observer = new IntersectionObserver(
+		entries => {
+			entries.forEach(entry => {
+				if (entry.isIntersecting && entry.intersectionRatio === 1) {
+					params.onEnter(node);
+				} else if (entry.intersectionRatio < 1) {
+					params.onExit(node);
+				}
+			});
+		},
+		{ threshold: [0, 1, 1] }
+	);
+	observer.observe(node);
+	return {
+		destroy() {
+			observer.disconnect();
+		},
+	};
+};
 
 type FlyAndScaleParams = {
 	y?: number;
