@@ -1,7 +1,5 @@
 <script lang="ts" context="module">
-	import type {
-		HeadingBlockNewRecord
-	} from "$lib/graphql/generated";
+	import type { HeadingBlockNewRecord } from "$lib/graphql/generated";
 
 	export type FaqItems = {
 		id: string;
