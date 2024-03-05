@@ -2,7 +2,8 @@
 	import AvatarsGroup from "$lib/components/AvatarsGroup.svelte";
 	import StructuredText from "$lib/components/dato/StructuredText/index.svelte";
 	import { Button } from "$lib/components/shadcn/ui/button";
-	import { VideoPlayer } from "@datocms/svelte";
+	import * as Card from "$lib/components/shadcn/ui/card";
+	import { Image, VideoPlayer } from "@datocms/svelte";
 	import PhArrowBendDownLeftFill from "~icons/ph/arrow-bend-down-left-fill";
 
 	export let data;
@@ -42,7 +43,7 @@
 			</section>
 
 			{#if record.video}
-				<section class="container-sm max-w-3xl md:p-0">
+				<section class="container-sm max-w-3xl pb-20">
 					<div class="relative md:max-w-lg lg:max-w-xl">
 						<VideoPlayer
 							data={record.video.video}
@@ -64,6 +65,41 @@
 					</div>
 				</section>
 			{/if}
+		{/if}
+
+		{#if record.__typename === "CardsSectionRecord"}
+			<section class="container-base flex flex-col gap-6 py-20">
+				<h2 class="text-center">{record.heading?.heading}</h2>
+				<StructuredText
+					richText={record.heading?.subheading}
+					class="text-center mx-auto max-w-[46ch] md:max-w-[64ch]"
+				/>
+
+				{#if record.cards.length > 0}
+					<div
+						class="grid gap-6 max-md:max-w-sm max-md:mx-auto md:mt-8 md:grid-cols-2 lg:grid-cols-3"
+					>
+						{#each record.cards as card}
+							<Card.Root>
+								<Card.Header class="space-y-8">
+									{#if card.media?.format === "svg"}
+										{#if card.media.url}
+											<img src={card.media?.url} alt={card.media?.alt} class="w-12 h-12" />
+										{/if}
+									{:else if card.media?.responsiveImage}
+										<Image data={card.media.responsiveImage} />
+									{/if}
+
+									<Card.Title>{card.heading.heading}</Card.Title>
+								</Card.Header>
+								<Card.Content>
+									<StructuredText richText={card.heading.subheading} />
+								</Card.Content>
+							</Card.Root>
+						{/each}
+					</div>
+				{/if}
+			</section>
 		{/if}
 	{/each}
 {/if}
