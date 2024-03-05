@@ -31,6 +31,8 @@ const responsiveImageFieldSelection = {
 	width: true,
 	height: true,
 	alt: true,
+	base64: true,
+	bgColor: true,
 	sizes: true,
 } satisfies ResponsiveImageGenqlSelection;
 
@@ -38,6 +40,9 @@ const cardBlockFieldSelection = {
 	heading: headingFieldSelection,
 	cta: actionBlockFieldSelection,
 	media: {
+		format: true,
+		url: true,
+		alt: true,
 		responsiveImage: responsiveImageFieldSelection,
 		video: {
 			mp4Url: true,
