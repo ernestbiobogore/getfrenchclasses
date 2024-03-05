@@ -91,6 +91,38 @@ export const addOverflowShadow: Action<HTMLDivElement, { style: string }> = (nod
 	};
 };
 
+/**
+ * Applies an on-screen transition effect to an HTML element.
+ * @param node The HTML element to observe for intersection.
+ * @param params The parameters for the on-screen transition effect.
+ * @param params.onEnter The callback function to be called when the element enters the screen.
+ * @param params.onExit The callback function to be called when the element exits the screen.
+ * @returns An object with a `destroy` method that can be used to disconnect the observer.
+ */
+export const onScreenTransition: Action<
+	HTMLElement,
+	{ onEnter: (node: HTMLElement) => void; onExit: (node: HTMLElement) => void }
+> = (node, params) => {
+	const observer = new IntersectionObserver(
+		entries => {
+			entries.forEach(entry => {
+				if (entry.isIntersecting && entry.intersectionRatio === 1) {
+					params.onEnter(node);
+				} else if (entry.intersectionRatio < 1) {
+					params.onExit(node);
+				}
+			});
+		},
+		{ threshold: [0, 1, 1] }
+	);
+	observer.observe(node);
+	return {
+		destroy() {
+			observer.disconnect();
+		},
+	};
+};
+
 type FlyAndScaleParams = {
 	y?: number;
 	x?: number;
