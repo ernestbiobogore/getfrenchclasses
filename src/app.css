@@ -8,7 +8,7 @@
 
 @layer base {
 	body {
-		@apply font-inter bg-magnolia text-night relative overflow-x-hidden;
+		@apply relative overflow-x-hidden font-inter bg-magnolia text-night;
 	}
 
 	html {
@@ -55,7 +55,7 @@
 	}
 
 	.action-white {
-		@apply text-night bg-white action;
+		@apply bg-white text-night action;
 	}
 
 	/* Containers */
