@@ -48,24 +48,22 @@
 </script>
 
 <script lang="ts">
-	import TutorCard, { type Tutor } from "./TutorCard.svelte";
-
+	import { goto } from "$app/navigation";
 	import CustomMultiselect, {
 		type SelectChangeHandler,
 	} from "$lib/components/CustomMultiselect.svelte";
+	import TestimonialCardList from "$lib/components/TestimonialCardList.svelte";
 	import TestimonialCta, {
 		dummyTestimonialCta,
 	} from "$lib/components/cta-section/TestimonialCta.svelte";
+	import FAQItems from "$lib/components/dato/blocks/FAQItems.svelte";
+	import Heading from "$lib/components/dato/blocks/Heading.svelte";
 	import { Button } from "$shadcn/button";
 	import * as Card from "$shadcn/card";
 	import type { Selected } from "bits-ui";
-
-	import FaqAccordion from "$lib/components/FaqAccordion.svelte";
-	import TestimonialCardList from "$lib/components/TestimonialCardList.svelte";
-	import { goto } from "$app/navigation";
+	import TutorCard, { type Tutor } from "./TutorCard.svelte";
 
 	export let data;
-	$: homepageData = data?.homepageData;
 
 	let filteredTutors: Tutor[] = tutorsDummyData;
 
@@ -119,7 +117,7 @@
 	<title>All our Courses - GetFrenchClasses</title>
 </svelte:head>
 
-<section class="container-base p-3 space-y-5 md:py-20 md:text-center">
+<section class="p-3 space-y-5 container-base md:py-20 md:text-center">
 	<h1>
 		French Tutors to guide to you to a <br /> better understanding of the language.
 	</h1>
@@ -127,13 +125,13 @@
 
 	<div class="max-w-3xl mx-auto">
 		<!-- CTA BUTTON -->
-		<a href={"/"} class="action-base w-full text-base md:text-lg"
+		<a href={"/"} class="w-full text-base action-base md:text-lg"
 			>Take a language assessment course</a
 		>
 	</div>
 </section>
 
-<section class="container-base pt-10">
+<section class="pt-10 container-base">
 	<CustomMultiselect
 		onSelectedChange={handleFilterChange}
 		placeholder="Filter by Level or Type"
@@ -141,7 +139,7 @@
 	/>
 </section>
 
-<section class="container-base py-20">
+<section class="py-20 container-base">
 	<!-- <CourseSectionDivider label="Beginner" /> -->
 
 	<div class="grid gap-5 sm:grid-cols-2 md:grid-cols-3 lg:gap-8 lg:grid-cols-4">
@@ -157,24 +155,24 @@
 		{/each}
 	</div>
 
-	<div class="flex-s-center mt-10">
+	<div class="mt-10 flex-s-center">
 		<Button class="">See More</Button>
 	</div>
 </section>
 
 <!-- HOW IT WORKS -->
-<section class="container-base py-10">
+<section class="py-10 container-base">
 	<h2 class="text-center">How it works</h2>
 	<p class="text-center mx-auto max-w-[46ch] md:max-w-[64ch]">
 		Lorem ipsum, dolor sit amet consectetur adipisicing elit. Inventore rerum sapiente nulla quasi
 		assumenda.
 	</p>
 
-	<div class="mt-10 grid gap-4 sm:grid-cols-2 md:grid-cols-3">
+	<div class="grid gap-4 mt-10 sm:grid-cols-2 md:grid-cols-3">
 		{#each [...Array(3)] as _}
-			<Card.Root class="shadow-none bg-transparent border-none">
+			<Card.Root class="bg-transparent border-none shadow-none">
 				<img
-					class="w-full h-48 object-cover rounded-lg"
+					class="object-cover w-full h-48 rounded-lg"
 					height="200"
 					src="/placeholder.svg"
 					style="aspect-ratio: 300/200; object-fit: cover;"
@@ -194,7 +192,7 @@
 	</div>
 </section>
 
-<section class="container-base py-20">
+<section class="py-20 container-base">
 	<h2 class="text-center">What people say</h2>
 	<p class="text-center mx-auto max-w-[46ch] md:max-w-[64ch]">
 		Lorem ipsum, dolor sit amet consectetur adipisicing elit. Inventore rerum sapiente nulla quasi
@@ -206,19 +204,10 @@
 	</div>
 </section>
 
-{#if homepageData && homepageData.faq?.faqBlocks && homepageData.faq.faqBlocks.length > 0}
-	<section class="max-w-2xl px-4 mx-auto py-10 md:pt-20" id="faq">
-		<h2 class="mb-8 text-center">Frequently Asked Questions</h2>
-		<FaqAccordion
-			faqs={homepageData.faq.faqBlocks.map(block => ({
-				id: block.id,
-				faq: {
-					heading: block.faq?.heading || "",
-					subheading: block.faq?.subheading || {},
-				},
-			}))}
-		/>
-	</section>
-{/if}
+<!-- FAQ -->
+<section class="py-20 space-y-12 container-base">
+	<Heading defaultHeading="Frequently Asked Questions" useDefaultHeading />
+	<FAQItems items={data.homeFaqBlocks} />
+</section>
 
 <TestimonialCta {...dummyTestimonialCta} />
