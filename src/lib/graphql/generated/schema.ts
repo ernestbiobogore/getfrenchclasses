@@ -283,6 +283,7 @@ export interface FaqItemRecord {
     _updatedAt: Scalars['DateTime']
     faqBlocks: FaqBlockNewRecord[]
     id: Scalars['ItemId']
+    slug: Scalars['String']
     title: Scalars['String']
     __typename: 'FaqItemRecord'
 }
@@ -1348,7 +1349,7 @@ export interface FaqBlockRecordGenqlSelection{
     __scalar?: boolean | number
 }
 
-export interface FaqItemModelFilter {_createdAt?: (CreatedAtFilter | null),id?: (ItemIdFilter | null),_firstPublishedAt?: (PublishedAtFilter | null),_publicationScheduledAt?: (PublishedAtFilter | null),_unpublishingScheduledAt?: (PublishedAtFilter | null),_publishedAt?: (PublishedAtFilter | null),_status?: (StatusFilter | null),_updatedAt?: (UpdatedAtFilter | null),_isValid?: (BooleanFilter | null),title?: (StringFilter | null),OR?: ((FaqItemModelFilter | null)[] | null),AND?: ((FaqItemModelFilter | null)[] | null)}
+export interface FaqItemModelFilter {_createdAt?: (CreatedAtFilter | null),id?: (ItemIdFilter | null),_firstPublishedAt?: (PublishedAtFilter | null),_publicationScheduledAt?: (PublishedAtFilter | null),_unpublishingScheduledAt?: (PublishedAtFilter | null),_publishedAt?: (PublishedAtFilter | null),_status?: (StatusFilter | null),_updatedAt?: (UpdatedAtFilter | null),_isValid?: (BooleanFilter | null),slug?: (SlugFilter | null),title?: (StringFilter | null),OR?: ((FaqItemModelFilter | null)[] | null),AND?: ((FaqItemModelFilter | null)[] | null)}
 
 
 /** Record of type FAQ Item (faq_item) */
@@ -1370,6 +1371,7 @@ export interface FaqItemRecordGenqlSelection{
     _updatedAt?: boolean | number
     faqBlocks?: FaqBlockNewRecordGenqlSelection
     id?: boolean | number
+    slug?: boolean | number
     title?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number

@@ -1,6 +1,7 @@
 <script lang="ts">
-	import FaqAccordion from "$lib/components/FaqAccordion.svelte";
 	import GenericCta from "$lib/components/cta-section/GenericCta.svelte";
+	import FAQItems from "$lib/components/dato/blocks/FAQItems.svelte";
+	import Heading from "$lib/components/dato/blocks/Heading.svelte";
 	import { Badge } from "$shadcn/badge";
 	import * as Card from "$shadcn/card";
 	import * as Carousel from "$shadcn/carousel";
@@ -10,16 +11,13 @@
 	export let data;
 
 	const dummyImage = "/placeholder.svg";
-	let homepageData = data.homepageData;
-
-	$: ({ homepageData } = data);
 </script>
 
 <svelte:head>
 	<title>Grammar Tips / Free language learning resources</title>
 </svelte:head>
 
-<nav class="py-4 sticky top-0 z-10 bg-magnolia border-b">
+<nav class="sticky top-0 z-10 py-4 border-b bg-magnolia">
 	<div class="container-base flex-s-center">
 		<a href="/" class="text-xs font-bold md:text-xl">Get French Classes</a>
 	</div>
@@ -27,7 +25,7 @@
 
 <!-- Hero -->
 <section class="py-10 md:py-20">
-	<div class="container-sm flex gap-5 max-md:flex-col-reverse">
+	<div class="flex gap-5 container-sm max-md:flex-col-reverse">
 		<div class="flex-1 space-y-6">
 			<Badge>Free French Resources</Badge>
 			<h1>Free Grammar Tips for Learning French</h1>
@@ -44,12 +42,12 @@
 </section>
 
 <!-- WHAT'S CONTAINED IN THE DOCUMENT -->
-<section class="py-20 md:py-32 bg-white">
-	<div class="container-sm flex flex-col-reverse gap-5 md:grid md:grid-cols-2">
+<section class="py-20 bg-white md:py-32">
+	<div class="flex flex-col-reverse gap-5 container-sm md:grid md:grid-cols-2">
 		<div class="bg-blue-60">
 			<h3>What's contained in the document</h3>
 
-			<ul class="px-0 flex flex-col gap-4 mt-4">
+			<ul class="flex flex-col gap-4 px-0 mt-4">
 				{#each [...Array(5)] as _}
 					<li class="flex-s-start-start gap-2 max-w-[46ch]">
 						<div>
@@ -75,7 +73,7 @@
 										<img
 											src={dummyImage}
 											alt="French Grammar Tips"
-											class="w-full h-full object-cover"
+											class="object-cover w-full h-full"
 										/>
 									</Card.Content>
 								</Card.Root>
@@ -94,8 +92,8 @@
 </section>
 
 <!-- SEO SECTION -->
-<section class="bg-white pb-20 md:pb-32">
-	<div class="container-sm md:grid grid-cols-2">
+<section class="pb-20 bg-white md:pb-32">
+	<div class="grid-cols-2 container-sm md:grid">
 		<h3 class="max-md:mb-4">Want to learn some French Grammar Tips? Look no further</h3>
 
 		<div class="grid gap-2">
@@ -120,28 +118,9 @@
 </section>
 
 <!-- FAQ -->
-<section class="py-24 text-center space-y-11 container-base" id="faq">
-	<div class="space-y-5">
-		<h2>{homepageData?.faqHeading[0].heading}</h2>
-
-		<p class="mx-auto text-sm md:w-4/12">
-			{@html homepageData?.faqHeading[0].subheading}
-		</p>
-	</div>
-
-	{#if homepageData && homepageData.faq?.faqBlocks && homepageData.faq.faqBlocks.length > 0}
-		<div class="mx-auto md:w-6/12">
-			<FaqAccordion
-				faqs={homepageData.faq.faqBlocks.map(block => ({
-					id: block.id,
-					faq: {
-						heading: block.faq?.heading || "",
-						subheading: block.faq?.subheading || {},
-					},
-				}))}
-			/>
-		</div>
-	{/if}
+<section class="py-20 space-y-12 container-base">
+	<Heading defaultHeading="Frequently Asked Questions" useDefaultHeading />
+	<FAQItems items={data.homeFaqBlocks} />
 </section>
 
 <GenericCta text="Start learning more Grammar Tips Today" />

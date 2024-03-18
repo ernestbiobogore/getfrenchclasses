@@ -5,8 +5,10 @@
 		HeadingBlockNewRecord,
 	} from "$lib/graphql/generated";
 
-	export let heading: HeadingBlockNewRecord;
+	export let heading: HeadingBlockNewRecord | undefined = undefined;
 	export let titleTag: "h1" | "h2" = "h2";
+	export let defaultHeading: string | undefined = undefined;
+	export let useDefaultHeading = false;
 
 	const isEmptySubHeading = (subHeading: HeadingBlockNewModelSubheadingField) => {
 		return (
@@ -17,9 +19,13 @@
 </script>
 
 <div class="space-y-4">
-	<svelte:element this={titleTag} class="text-center">{heading.heading}</svelte:element>
+	{#if useDefaultHeading}
+		<svelte:element this={titleTag} class="text-center">{defaultHeading}</svelte:element>
+	{:else if heading}
+		<svelte:element this={titleTag} class="text-center">{heading.heading}</svelte:element>
+	{/if}
 
-	{#if heading.subheading && !isEmptySubHeading(heading.subheading)}
+	{#if heading && heading.subheading && !isEmptySubHeading(heading.subheading)}
 		<StructuredText
 			richText={heading.subheading}
 			class="text-center mx-auto max-w-[46ch] md:max-w-[64ch]"

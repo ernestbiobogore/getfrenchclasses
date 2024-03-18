@@ -883,6 +883,9 @@ export default {
             "_isValid": [
                 3
             ],
+            "slug": [
+                99
+            ],
             "title": [
                 102
             ],
@@ -941,6 +944,9 @@ export default {
             ],
             "id": [
                 66
+            ],
+            "slug": [
+                101
             ],
             "title": [
                 101

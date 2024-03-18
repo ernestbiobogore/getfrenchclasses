@@ -1,7 +1,7 @@
-import { getHomePageData } from "$lib/graphql/queries/home";
+import { getFaqItemBySlug } from "$lib/graphql/queries/faq";
 
 export async function load() {
 	return {
-		homepageData: await getHomePageData(),
+		homeFaqBlocks: (await getFaqItemBySlug("homepage-faq"))?.faqBlocks,
 	};
 }

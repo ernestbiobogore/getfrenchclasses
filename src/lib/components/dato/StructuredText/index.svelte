@@ -16,12 +16,12 @@
 	setContext<ElementsClasses | undefined>("elementClasses", elementClasses);
 </script>
 
-{#if className}
-	<div class={cn(className)}>
-		<Node {node} {blocks} />
-	</div>
-{:else}
-	<div>
-		<Node {node} {blocks} />
-	</div>
-{/if}
+<div class={cn("structured-text", className)}>
+	<Node {node} {blocks} />
+</div>
+
+<style>
+	:global(.structured-text a) {
+		@apply underline;
+	}
+</style>
