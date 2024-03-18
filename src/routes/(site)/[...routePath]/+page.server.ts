@@ -1,6 +1,6 @@
 import { getSingleModularPage } from "$lib/graphql/queries/modular";
 import { getRecordFullPath } from "$lib/graphql/queries/utils";
-import { error } from "@sveltejs/kit";
+import { error, redirect } from "@sveltejs/kit";
 
 export const load = async ({ params, url }) => {
 	const { routePath } = params;
@@ -29,6 +29,11 @@ export const load = async ({ params, url }) => {
 		return {
 			correctUrl: `${url.origin}/${modularPage.slug}`,
 		};
+	}
+
+	// Modular page slug is "get-french-classes"
+	if (modularPage.slug === "get-french-classes") {
+		redirect(301, "/");
 	}
 
 	return {
