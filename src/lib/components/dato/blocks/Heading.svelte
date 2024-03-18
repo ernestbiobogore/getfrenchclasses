@@ -16,11 +16,13 @@
 	};
 </script>
 
-<svelte:element this={titleTag} class="text-center">{heading.heading}</svelte:element>
+<div class="space-y-4">
+	<svelte:element this={titleTag} class="text-center">{heading.heading}</svelte:element>
 
-{#if heading.subheading && !isEmptySubHeading(heading.subheading)}
-	<StructuredText
-		richText={heading.subheading}
-		class="text-center mx-auto max-w-[46ch] md:max-w-[64ch]"
-	/>
-{/if}
+	{#if heading.subheading && !isEmptySubHeading(heading.subheading)}
+		<StructuredText
+			richText={heading.subheading}
+			class="text-center mx-auto max-w-[46ch] md:max-w-[64ch]"
+		/>
+	{/if}
+</div>
