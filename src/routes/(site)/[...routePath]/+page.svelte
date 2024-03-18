@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Cards from "./sections/Cards.svelte";
+	import FAQ from "./sections/FAQ.svelte";
 	import Hero from "./sections/Hero.svelte";
 	import Testimonials from "./sections/Testimonials.svelte";
 
@@ -22,6 +23,10 @@
 
 		{#if record.__typename === "TestimonialsSectionRecord"}
 			<Testimonials {record} />
+		{/if}
+
+		{#if record.__typename === 'FaqSectionRecord'}
+			<FAQ {record} />
 		{/if}
 	{/each}
 {/if}

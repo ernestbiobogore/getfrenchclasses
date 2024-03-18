@@ -19,8 +19,6 @@
 	$: defaultTestimonials = record.testimonials.filter(
 		testimonial => testimonial.__typename === "TestimonialBlockDefaultRecord"
 	) as TestimonialBlockDefaultRecord[] | undefined;
-
-	$: console.log(defaultTestimonials);
 </script>
 
 {#if testimonialsWithCta && testimonialsWithCta.length > 0}
