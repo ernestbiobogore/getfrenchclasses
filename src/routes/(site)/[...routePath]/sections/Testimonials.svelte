@@ -83,7 +83,7 @@
 {/if}
 
 {#if defaultTestimonials && defaultTestimonials.length > 0}
-	<section class="grid gap-8 grid-cols-3 container-base py-20">
+	<section class="grid gap-8 md:grid-cols-3 container-base py-20">
 		{#each defaultTestimonials as testimonial}
 			<Card.Root class="single-testimonial">
 				<div class="flex-s-start gap-2">

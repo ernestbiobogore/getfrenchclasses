@@ -49,7 +49,7 @@
 		{#if record.cards.length > 0}
 			<div class="space-y-10">
 				{#each record.cards as card, index}
-					<Card.Root class={cn("flex items-center gap-8 bg-transparent border-none shadow-none", index % 2 === 0 ? "flex-row-reverse" : "flex-row")}>
+					<Card.Root class={cn("md:flex items-center gap-8 bg-transparent border-none shadow-none", index % 2 === 0 ? "flex-row-reverse" : "flex-row")}>
 						<Card.Header class="p-0 space-y-8 basis-6/12">
 							{#if card.media?.format === "svg"}
 								{#if card.media.url}
