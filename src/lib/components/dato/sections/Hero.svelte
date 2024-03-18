@@ -12,7 +12,7 @@
 <section class="p-3 py-20 container-base">
 	<div class="w-full mx-auto space-y-6 md:max-w-3xl">
 		{#if record.heading}
-			<Heading heading={record.heading} titleTag="h1" titleClass="text-left" />
+			<Heading heading={record.heading} titleTag="h1" />
 		{/if}
 
 		{#if record.cta}

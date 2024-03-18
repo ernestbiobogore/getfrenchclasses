@@ -4,11 +4,9 @@
 		HeadingBlockNewModelSubheadingField,
 		HeadingBlockNewRecord,
 	} from "$lib/graphql/generated";
-	import { cn } from "$lib/utils";
 
 	export let heading: HeadingBlockNewRecord;
 	export let titleTag: "h1" | "h2" = "h2";
-	export let titleClass: string = "text-center";
 
 	const isEmptySubHeading = (subHeading: HeadingBlockNewModelSubheadingField) => {
 		return (
@@ -18,9 +16,7 @@
 	};
 </script>
 
-<svelte:element this={titleTag} class={cn(titleClass)}
-	>{heading.heading}</svelte:element
->
+<svelte:element this={titleTag} class="text-center">{heading.heading}</svelte:element>
 
 {#if heading.subheading && !isEmptySubHeading(heading.subheading)}
 	<StructuredText
