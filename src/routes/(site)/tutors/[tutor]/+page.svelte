@@ -1,29 +1,26 @@
 <script lang="ts">
+	import CourseCard from "$lib/components/CourseCard.svelte";
+	import TestimonialCardList from "$lib/components/TestimonialCardList.svelte";
+	import FAQItems from "$lib/components/dato/blocks/FAQItems.svelte";
+	import Heading from "$lib/components/dato/blocks/Heading.svelte";
 	import { Badge } from "$shadcn/badge";
+	import SharpVerifired from "~icons/ic/sharp-verified";
+	import VideoCam from "~icons/material-symbols/videocam-outline-rounded";
 	import { tutorsDummyData } from "../+page.svelte";
 	import TutorCard from "../TutorCard.svelte";
-	import VideoCam from "~icons/material-symbols/videocam-outline-rounded";
-	import SharpVerifired from "~icons/ic/sharp-verified";
-	import FaqAccordion from "$lib/components/FaqAccordion.svelte";
-	import TestimonialCardList from "$lib/components/TestimonialCardList.svelte";
-	import CourseCard from "$lib/components/CourseCard.svelte";
 
 	export let data;
-	let homepageData = data.homepageData;
-	let allCourses = data.allCourses;
-
-	$: ({ homepageData, allCourses } = data);
 
 	const tutor = tutorsDummyData[0];
 </script>
 
 <section
-	class="container-base flex flex-col-reverse justify-between gap-10 py-8 md-gap-24 md:flex-row lg:py-20"
+	class="flex flex-col-reverse justify-between gap-10 py-8 container-base md-gap-24 md:flex-row lg:py-20"
 >
 	<!-- LEFT SIDE -->
-	<div class="gap-10 flex flex-col flex-1">
+	<div class="flex flex-col flex-1 gap-10">
 		<div class="space-y-5">
-			<div class="flex-s-start gap-4 overflow-x-scroll py-4">
+			<div class="gap-4 py-4 overflow-x-scroll flex-s-start">
 				{#each [...Array(5)] as _}
 					<Badge class="px-5 py-1.5" variant="secondary">French</Badge>
 				{/each}
@@ -33,15 +30,15 @@
 
 			<p class="text-2xl font-medium">Lesson Location</p>
 
-			<div class="border border-primary rounded-full px-5 py-2 gap-2 inline-flex-s-center">
+			<div class="gap-2 px-5 py-2 border rounded-full border-primary inline-flex-s-center">
 				<VideoCam class="text-lg" />
 				<span class="text-sm font-medium">Online</span>
 			</div>
 
-			<div class="p-4 rounded-xl bg-pink-200">
-				<div class="text-2xl mb-2 flex-s-start gap-2">
+			<div class="p-4 bg-pink-200 rounded-xl">
+				<div class="gap-2 mb-2 text-2xl flex-s-start">
 					<SharpVerifired />
-					<span class="text- font-bold">Verified</span>
+					<span class="font-bold text-">Verified</span>
 				</div>
 				<p class="text-sm font-medium">
 					One of our best tutors. Quality profile, experience in their field, verified
@@ -65,7 +62,7 @@
 			<h2>Qualified to teach</h2>
 
 			<div class="grid gap-8 md:grid-cols-2">
-				{#each allCourses.splice(0, 3) as course}
+				{#each data.allCourses as course}
 					<CourseCard {course} />
 				{/each}
 			</div>
@@ -79,23 +76,10 @@
 			</div>
 		</div>
 
-		<div class="space-y-4 mt-10">
-			<h2>Find more about {tutor.name}</h2>
-
-			{#if homepageData && homepageData.faq?.faqBlocks && homepageData.faq.faqBlocks.length > 0}
-				<div class="lg:w-2/3">
-					<FaqAccordion
-						faqs={homepageData.faq.faqBlocks.map(block => ({
-							id: block.id,
-							faq: {
-								heading: block.faq?.heading || "",
-								subheading: block.faq?.subheading || {},
-							},
-						}))}
-					/>
-				</div>
-			{/if}
-		</div>
+		<section class="py-20 space-y-12 lg:w-2/3">
+			<Heading defaultHeading="Find more about {tutor.name}" useDefaultHeading />
+			<FAQItems items={data.homeFaqBlocks} />
+		</section>
 	</div>
 
 	<!-- RIGHT SIDE -->
@@ -106,7 +90,7 @@
 	</div>
 </section>
 
-<section class="container-base space-y-4">
+<section class="space-y-4 container-base">
 	<h2>Other tutors</h2>
 
 	<div class="grid gap-5 sm:grid-cols-2 md:grid-cols-3 lg:gap-8 lg:grid-cols-4">
