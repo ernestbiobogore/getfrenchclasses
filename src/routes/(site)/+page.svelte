@@ -5,7 +5,7 @@
 </script>
 
 <svelte:head>
-	<title>{data.modularPage?.title} || GetFrenchClasses</title>
+	<title>{data.modularPage?.title || "GetFrenchClasses"}</title>
 </svelte:head>
 
 {#if data.modularPage}
