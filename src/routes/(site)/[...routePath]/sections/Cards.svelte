@@ -4,28 +4,25 @@
 	import type { CardsSectionRecord } from "$lib/graphql/generated";
 	import { cn } from "$lib/utils";
 	import { Image } from "@datocms/svelte";
+	import CardMedia from "../blocks/CardMedia.svelte";
 	import Heading from "../blocks/Heading.svelte";
 
 	export let record: CardsSectionRecord;
 </script>
 
-<section class="py-20 space-y-12 container-base">
-	{#if record.heading}
-		<Heading heading={record.heading} />
-	{/if}
+{#if record.sectionType === "default"}
+	<section class="py-20 space-y-12 container-base">
+		{#if record.heading}
+			<Heading heading={record.heading} />
+		{/if}
 
-	{#if record.sectionType === "default"}
 		{#if record.cards.length > 0}
 			<div class="grid gap-6 max-md:max-w-sm max-md:mx-auto md:mt-8 md:grid-cols-2 lg:grid-cols-3">
 				{#each record.cards as card}
 					<Card.Root>
 						<Card.Header class="space-y-8">
-							{#if card.media?.format === "svg"}
-								{#if card.media.url}
-									<img src={card.media?.url} alt={card.media?.alt} class="w-12 h-12" />
-								{/if}
-							{:else if card.media?.responsiveImage}
-								<Image data={card.media.responsiveImage} />
+							{#if card.media}
+								<CardMedia media={card.media} />
 							{/if}
 
 							{#if card.heading.heading}
@@ -42,9 +39,15 @@
 				{/each}
 			</div>
 		{/if}
-	{/if}
+	</section>
+{/if}
 
-	{#if record.sectionType === "left_and_right"}
+{#if record.sectionType === "left_and_right"}
+	<section class="py-20 space-y-12 container-base">
+		{#if record.heading}
+			<Heading heading={record.heading} />
+		{/if}
+
 		{#if record.cards.length > 0}
 			<div class="space-y-10">
 				{#each record.cards as card, index}
@@ -80,7 +83,23 @@
 				{/each}
 			</div>
 		{/if}
-	{/if}
+	</section>
+{/if}
 
-	{#if record.sectionType === "companies_logos"}{/if}
-</section>
+{#if record.sectionType === "companies_logos"}
+	<section class="py-20 space-y-12 bg-gray-900 text-white">
+		{#if record.heading}
+			<Heading heading={record.heading} />
+		{/if}
+
+		{#if record.cards.length > 0}
+			<div class="container-base grid grid-cols-2 sm:grid-cols-4 gap-4">
+				{#each record.cards as { media }}
+					{#if media}
+						<CardMedia {media} />
+					{/if}
+				{/each}
+			</div>
+		{/if}
+	</section>
+{/if}
