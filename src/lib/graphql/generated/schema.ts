@@ -346,7 +346,7 @@ export interface FileField {
     __typename: 'FileField'
 }
 
-export type FileFieldInterface = (AltFileField | FileField | VideoAltFileField | VideoFileField) & { __isUnion?: true }
+export type FileFieldInterface = (AltFileField | FileField | VideoFileField) & { __isUnion?: true }
 
 export interface GlobalSeoField {
     facebookPageUrl: (Scalars['String'] | null)
@@ -432,54 +432,6 @@ export interface HeroSectionRecord {
     video: (VideoFileField | null)
     videoText: (Scalars['String'] | null)
     __typename: 'HeroSectionRecord'
-}
-
-
-/** Record of type 🏠 Homepage (homepage) */
-export interface HomepageRecord {
-    _createdAt: Scalars['DateTime']
-    /** Editing URL */
-    _editingUrl: (Scalars['String'] | null)
-    _firstPublishedAt: (Scalars['DateTime'] | null)
-    _isValid: Scalars['BooleanType']
-    _modelApiKey: Scalars['String']
-    _publicationScheduledAt: (Scalars['DateTime'] | null)
-    _publishedAt: (Scalars['DateTime'] | null)
-    /** Generates SEO and Social card meta tags to be used in your frontend */
-    _seoMetaTags: Tag[]
-    _status: ItemStatus
-    _unpublishingScheduledAt: (Scalars['DateTime'] | null)
-    _updatedAt: Scalars['DateTime']
-    about: CardBlockRecord[]
-    ctaAction: ActionBlockRecord[]
-    ctaHeading: HeadingBlockRecord[]
-    faq: FaqItemRecord
-    faqHeading: HeadingBlockRecord[]
-    featureCards: CardBlockRecord[]
-    featuresCta: ActionBlockRecord[]
-    featuresHeading: HeadingBlockRecord[]
-    heroCta: (ActionBlockRecord | null)
-    heroSubtitle: Scalars['String']
-    heroTestimonialPictures: AltFileField[]
-    heroTestimonialTitle: Scalars['String']
-    heroTitle: Scalars['String']
-    heroVideo: (VideoAltFileField | null)
-    heroVideoText: (Scalars['String'] | null)
-    id: Scalars['ItemId']
-    multipleTestimonials: TestimonialBlockRecord[]
-    newCoursesRecords: CourseRecord[]
-    newCoursesTitle: Scalars['String']
-    popularCoursesRecords: CourseRecord[]
-    popularCoursesTitle: Scalars['String']
-    seo: SeoBlockRecord[]
-    statsAction: ActionBlockRecord[]
-    statsData: HeadingBlockRecord[]
-    statsHeading: HeadingBlockRecord[]
-    statsImages: AltFileField[]
-    targetAudienceHeading: (HeadingBlockRecord | null)
-    targetAudiences: CardBlockRecord[]
-    title: Scalars['String']
-    __typename: 'HomepageRecord'
 }
 
 
@@ -672,8 +624,6 @@ export interface Query {
     course: (CourseRecord | null)
     /** Returns a specific record */
     faqItem: (FaqItemRecord | null)
-    /** Returns the single instance record */
-    homepage: (HomepageRecord | null)
     /** Returns a specific record */
     modularPage: (ModularPageRecord | null)
     /** Returns a specific record */
@@ -685,7 +635,7 @@ export interface Query {
     __typename: 'Query'
 }
 
-export type RecordInterface = (ActionBlockRecord | CardBlockNewRecord | CardBlockRecord | CardsSectionRecord | CategoryRecord | CourseRecord | FaqBlockNewRecord | FaqBlockRecord | FaqItemRecord | FaqSectionRecord | HeadingBlockNewRecord | HeadingBlockRecord | HeroSectionRecord | HomepageRecord | ImageBlockRecord | ModularPageRecord | NoteBlockRecord | PostRecord | RichTextBlockRecord | RoutePathRecord | SeoBlockRecord | TestimonialBlockCtaRecord | TestimonialBlockDefaultRecord | TestimonialBlockRecord | TestimonialsSectionRecord) & { __isUnion?: true }
+export type RecordInterface = (ActionBlockRecord | CardBlockNewRecord | CardBlockRecord | CardsSectionRecord | CategoryRecord | CourseRecord | FaqBlockNewRecord | FaqBlockRecord | FaqItemRecord | FaqSectionRecord | HeadingBlockNewRecord | HeadingBlockRecord | HeroSectionRecord | ImageBlockRecord | ModularPageRecord | NoteBlockRecord | PostRecord | RichTextBlockRecord | RoutePathRecord | SeoBlockRecord | TestimonialBlockCtaRecord | TestimonialBlockDefaultRecord | TestimonialBlockRecord | TestimonialsSectionRecord) & { __isUnion?: true }
 
 export type ResolutionType = 'icon' | 'small' | 'medium' | 'large'
 
@@ -944,40 +894,6 @@ export interface UploadVideoField {
     title: (Scalars['String'] | null)
     width: Scalars['IntType']
     __typename: 'UploadVideoField'
-}
-
-export interface VideoAltFileField {
-    _createdAt: Scalars['DateTime']
-    /** The DatoCMS URL where you can edit this entity. To use this field, you need to set a X-Base-Editing-Url header in the request */
-    _editingUrl: (Scalars['String'] | null)
-    _updatedAt: Scalars['DateTime']
-    alt: Scalars['String']
-    author: (Scalars['String'] | null)
-    basename: Scalars['String']
-    blurUpThumb: (Scalars['String'] | null)
-    blurhash: (Scalars['String'] | null)
-    colors: ColorField[]
-    copyright: (Scalars['String'] | null)
-    customData: Scalars['CustomData']
-    exifInfo: Scalars['CustomData']
-    filename: Scalars['String']
-    focalPoint: (focalPoint | null)
-    format: Scalars['String']
-    height: Scalars['IntType']
-    id: Scalars['UploadId']
-    md5: Scalars['String']
-    mimeType: Scalars['String']
-    notes: (Scalars['String'] | null)
-    responsiveImage: (ResponsiveImage | null)
-    size: Scalars['IntType']
-    smartTags: Scalars['String'][]
-    tags: Scalars['String'][]
-    thumbhash: (Scalars['String'] | null)
-    title: (Scalars['String'] | null)
-    url: Scalars['String']
-    video: UploadVideoField
-    width: Scalars['IntType']
-    __typename: 'VideoAltFileField'
 }
 
 export interface VideoFileField {
@@ -1538,7 +1454,6 @@ export interface FileFieldInterfaceGenqlSelection{
     width?: boolean | number
     on_AltFileField?: AltFileFieldGenqlSelection
     on_FileField?: FileFieldGenqlSelection
-    on_VideoAltFileField?: VideoAltFileFieldGenqlSelection
     on_VideoFileField?: VideoFileFieldGenqlSelection
     __typename?: boolean | number
     __scalar?: boolean | number
@@ -1639,59 +1554,6 @@ export interface HeroSectionRecordGenqlSelection{
     testimonialTitle?: boolean | number
     video?: VideoFileFieldGenqlSelection
     videoText?: boolean | number
-    __typename?: boolean | number
-    __scalar?: boolean | number
-}
-
-
-/** Record of type 🏠 Homepage (homepage) */
-export interface HomepageRecordGenqlSelection{
-    _createdAt?: boolean | number
-    /** Editing URL */
-    _editingUrl?: boolean | number
-    _firstPublishedAt?: boolean | number
-    _isValid?: boolean | number
-    _modelApiKey?: boolean | number
-    _publicationScheduledAt?: boolean | number
-    _publishedAt?: boolean | number
-    /** Generates SEO and Social card meta tags to be used in your frontend */
-    _seoMetaTags?: (TagGenqlSelection & { __args?: {
-    /** The locale to use to fetch the field's content */
-    locale?: (SiteLocale | null)} })
-    _status?: boolean | number
-    _unpublishingScheduledAt?: boolean | number
-    _updatedAt?: boolean | number
-    about?: CardBlockRecordGenqlSelection
-    ctaAction?: ActionBlockRecordGenqlSelection
-    ctaHeading?: HeadingBlockRecordGenqlSelection
-    faq?: FaqItemRecordGenqlSelection
-    faqHeading?: HeadingBlockRecordGenqlSelection
-    featureCards?: CardBlockRecordGenqlSelection
-    featuresCta?: ActionBlockRecordGenqlSelection
-    featuresHeading?: HeadingBlockRecordGenqlSelection
-    heroCta?: ActionBlockRecordGenqlSelection
-    heroSubtitle?: { __args: {
-    /** Process content as markdown */
-    markdown?: (Scalars['Boolean'] | null)} } | boolean | number
-    heroTestimonialPictures?: AltFileFieldGenqlSelection
-    heroTestimonialTitle?: boolean | number
-    heroTitle?: boolean | number
-    heroVideo?: VideoAltFileFieldGenqlSelection
-    heroVideoText?: boolean | number
-    id?: boolean | number
-    multipleTestimonials?: TestimonialBlockRecordGenqlSelection
-    newCoursesRecords?: CourseRecordGenqlSelection
-    newCoursesTitle?: boolean | number
-    popularCoursesRecords?: CourseRecordGenqlSelection
-    popularCoursesTitle?: boolean | number
-    seo?: SeoBlockRecordGenqlSelection
-    statsAction?: ActionBlockRecordGenqlSelection
-    statsData?: HeadingBlockRecordGenqlSelection
-    statsHeading?: HeadingBlockRecordGenqlSelection
-    statsImages?: AltFileFieldGenqlSelection
-    targetAudienceHeading?: HeadingBlockRecordGenqlSelection
-    targetAudiences?: CardBlockRecordGenqlSelection
-    title?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -3265,12 +3127,6 @@ export interface QueryGenqlSelection{
     locale?: (SiteLocale | null), 
     /** If you want to fallback to a default translation when a translation has not been found */
     fallbackLocales?: (SiteLocale[] | null), filter?: (FaqItemModelFilter | null), orderBy?: ((FaqItemModelOrderBy | null)[] | null)} })
-    /** Returns the single instance record */
-    homepage?: (HomepageRecordGenqlSelection & { __args?: {
-    /** The locale to use to fetch the field's content */
-    locale?: (SiteLocale | null), 
-    /** If you want to fallback to a default translation when a translation has not been found */
-    fallbackLocales?: (SiteLocale[] | null)} })
     /** Returns a specific record */
     modularPage?: (ModularPageRecordGenqlSelection & { __args?: {
     /** The locale to use to fetch the field's content */
@@ -3329,7 +3185,6 @@ export interface RecordInterfaceGenqlSelection{
     on_HeadingBlockNewRecord?: HeadingBlockNewRecordGenqlSelection
     on_HeadingBlockRecord?: HeadingBlockRecordGenqlSelection
     on_HeroSectionRecord?: HeroSectionRecordGenqlSelection
-    on_HomepageRecord?: HomepageRecordGenqlSelection
     on_ImageBlockRecord?: ImageBlockRecordGenqlSelection
     on_ModularPageRecord?: ModularPageRecordGenqlSelection
     on_NoteBlockRecord?: NoteBlockRecordGenqlSelection
@@ -3996,75 +3851,6 @@ eq?: (Scalars['IntType'] | null),
 /** Search assets that do not have the specified width */
 neq?: (Scalars['IntType'] | null)}
 
-export interface VideoAltFileFieldGenqlSelection{
-    _createdAt?: boolean | number
-    /** The DatoCMS URL where you can edit this entity. To use this field, you need to set a X-Base-Editing-Url header in the request */
-    _editingUrl?: boolean | number
-    _updatedAt?: boolean | number
-    alt?: { __args: {
-    /** The locale to use to fetch the field's content */
-    locale?: (SiteLocale | null), 
-    /** If you want to fallback to a default translation when a translation has not been found */
-    fallbackLocales?: (SiteLocale[] | null)} } | boolean | number
-    author?: boolean | number
-    basename?: boolean | number
-    blurUpThumb?: { __args: {
-    /** Controls the "punch" value (~contrast) of the blurhash decoding algorithm (defaults to 1.0) */
-    punch: Scalars['Float'], 
-    /** Maximum image dimension (defaults to 24px) */
-    size: Scalars['Int'], 
-    /** Image quality (defaults to 70%) */
-    quality: Scalars['Int'], 
-    /** Imgix transformations to apply to the image */
-    imgixParams?: (ImgixParams | null)} }
-    blurhash?: boolean | number
-    colors?: ColorFieldGenqlSelection
-    copyright?: boolean | number
-    customData?: { __args: {
-    /** The locale to use to fetch the field's content */
-    locale?: (SiteLocale | null), 
-    /** If you want to fallback to a default translation when a translation has not been found */
-    fallbackLocales?: (SiteLocale[] | null)} } | boolean | number
-    exifInfo?: boolean | number
-    filename?: boolean | number
-    focalPoint?: (focalPointGenqlSelection & { __args?: {
-    /** The locale to use to fetch the field's content */
-    locale?: (SiteLocale | null), 
-    /** If you want to fallback to a default translation when a translation has not been found */
-    fallbackLocales?: (SiteLocale[] | null)} })
-    format?: boolean | number
-    height?: boolean | number
-    id?: boolean | number
-    md5?: boolean | number
-    mimeType?: boolean | number
-    notes?: boolean | number
-    responsiveImage?: (ResponsiveImageGenqlSelection & { __args?: {
-    /** Imgix transformations to apply to the image */
-    imgixParams?: (ImgixParams | null), 
-    /** Specify a custom `sizes` attribute for the image */
-    sizes?: (Scalars['String'] | null), 
-    /** The locale to use to fetch the field's content */
-    locale?: (SiteLocale | null), 
-    /** If you want to fallback to a default translation when a translation has not been found */
-    fallbackLocales?: (SiteLocale[] | null)} })
-    size?: boolean | number
-    smartTags?: boolean | number
-    tags?: boolean | number
-    thumbhash?: boolean | number
-    title?: { __args: {
-    /** The locale to use to fetch the field's content */
-    locale?: (SiteLocale | null), 
-    /** If you want to fallback to a default translation when a translation has not been found */
-    fallbackLocales?: (SiteLocale[] | null)} } | boolean | number
-    url?: { __args: {
-    /** Imgix transformations to apply to the image */
-    imgixParams?: (ImgixParams | null)} } | boolean | number
-    video?: UploadVideoFieldGenqlSelection
-    width?: boolean | number
-    __typename?: boolean | number
-    __scalar?: boolean | number
-}
-
 export interface VideoFileFieldGenqlSelection{
     _createdAt?: boolean | number
     /** The DatoCMS URL where you can edit this entity. To use this field, you need to set a X-Base-Editing-Url header in the request */
@@ -4254,7 +4040,7 @@ export interface focalPointGenqlSelection{
     
 
 
-    const FileFieldInterface_possibleTypes: string[] = ['AltFileField','FileField','VideoAltFileField','VideoFileField']
+    const FileFieldInterface_possibleTypes: string[] = ['AltFileField','FileField','VideoFileField']
     export const isFileFieldInterface = (obj?: { __typename?: any } | null): obj is FileFieldInterface => {
       if (!obj?.__typename) throw new Error('__typename is missing in "isFileFieldInterface"')
       return FileFieldInterface_possibleTypes.includes(obj.__typename)
@@ -4298,14 +4084,6 @@ export interface focalPointGenqlSelection{
     export const isHeroSectionRecord = (obj?: { __typename?: any } | null): obj is HeroSectionRecord => {
       if (!obj?.__typename) throw new Error('__typename is missing in "isHeroSectionRecord"')
       return HeroSectionRecord_possibleTypes.includes(obj.__typename)
-    }
-    
-
-
-    const HomepageRecord_possibleTypes: string[] = ['HomepageRecord']
-    export const isHomepageRecord = (obj?: { __typename?: any } | null): obj is HomepageRecord => {
-      if (!obj?.__typename) throw new Error('__typename is missing in "isHomepageRecord"')
-      return HomepageRecord_possibleTypes.includes(obj.__typename)
     }
     
 
@@ -4358,7 +4136,7 @@ export interface focalPointGenqlSelection{
     
 
 
-    const RecordInterface_possibleTypes: string[] = ['ActionBlockRecord','CardBlockNewRecord','CardBlockRecord','CardsSectionRecord','CategoryRecord','CourseRecord','FaqBlockNewRecord','FaqBlockRecord','FaqItemRecord','FaqSectionRecord','HeadingBlockNewRecord','HeadingBlockRecord','HeroSectionRecord','HomepageRecord','ImageBlockRecord','ModularPageRecord','NoteBlockRecord','PostRecord','RichTextBlockRecord','RoutePathRecord','SeoBlockRecord','TestimonialBlockCtaRecord','TestimonialBlockDefaultRecord','TestimonialBlockRecord','TestimonialsSectionRecord']
+    const RecordInterface_possibleTypes: string[] = ['ActionBlockRecord','CardBlockNewRecord','CardBlockRecord','CardsSectionRecord','CategoryRecord','CourseRecord','FaqBlockNewRecord','FaqBlockRecord','FaqItemRecord','FaqSectionRecord','HeadingBlockNewRecord','HeadingBlockRecord','HeroSectionRecord','ImageBlockRecord','ModularPageRecord','NoteBlockRecord','PostRecord','RichTextBlockRecord','RoutePathRecord','SeoBlockRecord','TestimonialBlockCtaRecord','TestimonialBlockDefaultRecord','TestimonialBlockRecord','TestimonialsSectionRecord']
     export const isRecordInterface = (obj?: { __typename?: any } | null): obj is RecordInterface => {
       if (!obj?.__typename) throw new Error('__typename is missing in "isRecordInterface"')
       return RecordInterface_possibleTypes.includes(obj.__typename)
@@ -4498,14 +4276,6 @@ export interface focalPointGenqlSelection{
     export const isUploadVideoField = (obj?: { __typename?: any } | null): obj is UploadVideoField => {
       if (!obj?.__typename) throw new Error('__typename is missing in "isUploadVideoField"')
       return UploadVideoField_possibleTypes.includes(obj.__typename)
-    }
-    
-
-
-    const VideoAltFileField_possibleTypes: string[] = ['VideoAltFileField']
-    export const isVideoAltFileField = (obj?: { __typename?: any } | null): obj is VideoAltFileField => {
-      if (!obj?.__typename) throw new Error('__typename is missing in "isVideoAltFileField"')
-      return VideoAltFileField_possibleTypes.includes(obj.__typename)
     }
     
 
