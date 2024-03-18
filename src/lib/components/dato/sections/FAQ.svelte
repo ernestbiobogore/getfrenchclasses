@@ -1,11 +1,11 @@
 <script lang="ts">
 	import StructuredText from "$lib/components/dato/StructuredText/index.svelte";
+	import Heading from "$lib/components/dato/blocks/Heading.svelte";
 	import type { FaqSectionRecord } from "$lib/graphql/generated";
 	import { Accordion } from "bits-ui";
 	import { slide } from "svelte/transition";
 	import Minus from "~icons/lucide/minus";
 	import Plus from "~icons/lucide/plus";
-	import Heading from "../blocks/Heading.svelte";
 
 	export let record: FaqSectionRecord;
 </script>

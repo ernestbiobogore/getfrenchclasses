@@ -1,11 +1,11 @@
 <script lang="ts">
 	import StructuredText from "$lib/components/dato/StructuredText/index.svelte";
+	import CardMedia from "$lib/components/dato/blocks/CardMedia.svelte";
+	import Heading from "$lib/components/dato/blocks/Heading.svelte";
 	import * as Card from "$lib/components/shadcn/ui/card";
 	import type { CardsSectionRecord } from "$lib/graphql/generated";
 	import { cn } from "$lib/utils";
 	import { Image } from "@datocms/svelte";
-	import CardMedia from "../blocks/CardMedia.svelte";
-	import Heading from "../blocks/Heading.svelte";
 
 	export let record: CardsSectionRecord;
 </script>

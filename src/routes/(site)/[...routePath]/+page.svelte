@@ -1,8 +1,8 @@
 <script lang="ts">
-	import Cards from "./sections/Cards.svelte";
-	import FAQ from "./sections/FAQ.svelte";
-	import Hero from "./sections/Hero.svelte";
-	import Testimonials from "./sections/Testimonials.svelte";
+	import Cards from "$lib/components/dato/sections/Cards.svelte";
+	import FAQ from "$lib/components/dato/sections/FAQ.svelte";
+	import Hero from "$lib/components/dato/sections/Hero.svelte";
+	import Testimonials from "$lib/components/dato/sections/Testimonials.svelte";
 
 	export let data;
 </script>
