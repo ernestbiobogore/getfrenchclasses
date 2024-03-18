@@ -315,7 +315,7 @@
 <CourseCtaBanner />
 
 {#if data.course.faq?.faqBlocks && data.course.faq?.faqBlocks.length > 0}
-	<section class="max-w-2xl py-10 mx-auto" id="faq">
+	<section class="max-w-2xl py-10 mx-auto space-y-12" id="faq">
 		<Heading defaultHeading="Frequently Asked Questions" useDefaultHeading />
 		<FAQItems items={data.course.faq.faqBlocks || []} />
 	</section>
