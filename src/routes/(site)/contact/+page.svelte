@@ -1,6 +1,6 @@
 <script>
-	import FaqAccordion from "$lib/components/FaqAccordion.svelte";
-
+	import FAQItems from "$lib/components/dato/blocks/FAQItems.svelte";
+	import Heading from "$lib/components/dato/blocks/Heading.svelte";
 	import Mail from "~icons/lucide/mail";
 	import MapPin from "~icons/lucide/map-pin";
 	import MessageSquare from "~icons/lucide/message-square";
@@ -8,7 +8,6 @@
 	import User from "~icons/lucide/user";
 
 	export let data;
-	$: coursesPageFaq = data.course.faq?.faqBlocks;
 </script>
 
 <section class="py-12 text-center">
@@ -17,8 +16,8 @@
 		Fill out the form below and we will get back to you as soon as possible.
 	</p>
 	<div class="form p-7">
-		<form method="" class=" flex flex-col gap-5 m-auto md:w-1/2 lg:w-1/3" id="contact-form">
-			<div class="flex flex-row bg-white rounded-md gap-4 p-2 md:p-4 items-center">
+		<form method="" class="flex flex-col gap-5 m-auto  md:w-1/2 lg:w-1/3" id="contact-form">
+			<div class="flex flex-row items-center gap-4 p-2 bg-white rounded-md md:p-4">
 				<User color="grey" class="w-4 h-4" />
 				<input
 					id="name"
@@ -26,83 +25,75 @@
 					type="text"
 					placeholder="Enter your name"
 					autocomplete="name"
-					class="text-xs border-none w-full p-2"
+					class="w-full p-2 text-xs border-none"
 				/>
 			</div>
-			<div class="flex flex-row bg-white rounded-md gap-4 p-2 md:p-4 items-center">
+			<div class="flex flex-row items-center gap-4 p-2 bg-white rounded-md md:p-4">
 				<Mail color="grey" class="w-4 h-4" />
 				<input
 					id="email"
 					name="email"
 					placeholder="Enter your Email"
 					autocomplete="email"
-					class="text-xs border-none w-full p-2"
+					class="w-full p-2 text-xs border-none"
 				/>
 			</div>
 
-			<div class="flex flex-row bg-white rounded-md gap-4 p-2 md:p-4">
+			<div class="flex flex-row gap-4 p-2 bg-white rounded-md md:p-4">
 				<MessageSquare color="grey" class="w-4 h-4" />
 				<textarea
 					cols="25"
 					rows="4"
 					placeholder="Example Text"
-					class="text-xs border-none w-full p-2"
+					class="w-full p-2 text-xs border-none"
 				/>
 			</div>
 
-			<button type="submit" class="bg-black text-white p-2 rounded-lg text-right self-end"
+			<button type="submit" class="self-end p-2 text-right text-white bg-black rounded-lg"
 				>Submit Form</button
 			>
 		</form>
 	</div>
 </section>
 
-<section class="py-24 px-12 md:flex flex-row gap-16">
+<section class="flex-row gap-16 px-12 py-24 md:flex">
 	<div class="md:w-1/2">
-		<div class="text-center space-y-5">
+		<div class="space-y-5 text-center">
 			<h2 class="tracking-normal">Our most frequently asked questions.</h2>
 			<p class="text-sm">
 				If we have not been able to answer your question and you do not want to fill out a form, you
 				can contact us through the methods below.
 			</p>
 		</div>
-		<div class="py-4 flex flex-col items-center md:flex-row justify-evenly flex-start">
-			<button class="flex flex-row items-center gap-4 border-2 p-6 bg-white rounded-lg">
+		<div class="flex flex-col items-center py-4 md:flex-row justify-evenly flex-start">
+			<button class="flex flex-row items-center gap-4 p-6 bg-white border-2 rounded-lg">
 				<Mail color="#5e62d1" />
-				<a href="mailto:info.learn.com" class="whitespace-pre-line text-left text-xs">
+				<a href="mailto:info.learn.com" class="text-xs text-left whitespace-pre-line">
 					<span>info.learn.com</span>
 					Email our support team
 				</a>
 			</button>
 
-			<button class="flex flex-row items-center gap-4 border-2 p-6 bg-white rounded-lg">
+			<button class="flex flex-row items-center gap-4 p-6 bg-white border-2 rounded-lg">
 				<Phone color="#5e62d1" />
-				<a href="tel:+1-8000-808" class="whitespace-pre-line text-left text-xs">
+				<a href="tel:+1-8000-808" class="text-xs text-left whitespace-pre-line">
 					<span>+1-800-080-8</span>
 					Call our support team
 				</a>
 			</button>
 
-			<button class="flex flex-row items-center gap-4 border-2 p-6 bg-white rounded-lg">
+			<button class="flex flex-row items-center gap-4 p-6 bg-white border-2 rounded-lg">
 				<MapPin color="#5e62d1" />
-				<a href="mailto:info.learn.com" class="whitespace-pre-line text-left text-xs">
+				<a href="mailto:info.learn.com" class="text-xs text-left whitespace-pre-line">
 					<span>Miami. Fl</span>
 					Contact our support team
 				</a>
 			</button>
 		</div>
 	</div>
-	<div class="text-center space-y-11 md:basis-1/2" id="faq">
-		{#if coursesPageFaq && coursesPageFaq.length > 0}
-			<FaqAccordion
-				faqs={coursesPageFaq.map(block => ({
-					id: block.id,
-					faq: {
-						heading: block.faq?.heading || "",
-						subheading: block.faq?.subheading || {},
-					},
-				}))}
-			/>
-		{/if}
+
+	<div class="py-20 space-y-12 md:basis-1/2">
+		<Heading defaultHeading="Frequently Asked Questions" useDefaultHeading />
+		<FAQItems items={data.homeFaqBlocks} />
 	</div>
 </section>

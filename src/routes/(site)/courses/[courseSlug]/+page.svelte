@@ -1,10 +1,9 @@
 <script lang="ts">
 	import AvatarsGroup from "$lib/components/AvatarsGroup.svelte";
-	import FaqAccordion from "$lib/components/FaqAccordion.svelte";
 	import TestimonialCardList from "$lib/components/TestimonialCardList.svelte";
 	import CourseCtaBanner from "$lib/components/cta-section/CourseCtaBanner.svelte";
-	import CourseSyllabus from "./components/CourseSyllabus.svelte";
-
+	import FAQItems from "$lib/components/dato/blocks/FAQItems.svelte";
+	import Heading from "$lib/components/dato/blocks/Heading.svelte";
 	import ArrowRight from "~icons/lucide/arrow-right";
 	import BarChart from "~icons/lucide/bar-chart";
 	import Check from "~icons/lucide/check";
@@ -18,6 +17,7 @@
 	import UsersThree from "~icons/ph/users-three";
 	import VideoCamera from "~icons/ph/video-camera";
 	import Wrench from "~icons/ph/wrench";
+	import CourseSyllabus from "./components/CourseSyllabus.svelte";
 
 	import { getSampleAvatars } from "$lib/utils";
 
@@ -33,22 +33,22 @@
 
 <section class="flex flex-col justify-between gap-24 py-8 md:flex-row container-base">
 	<!-- LEFT SIDE -->
-	<div class="space-y-5 flex-1">
+	<div class="flex-1 space-y-5">
 		<div class="space-y-4">
 			<h1>{data.course.name}</h1>
 
-			<div class="flex-s-between gap-4 md:justify-start">
-				<div class="flex-s-center gap-2">
+			<div class="gap-4 flex-s-between md:justify-start">
+				<div class="gap-2 flex-s-center">
 					<Clock class="text-gray-400" />
 					<p class="text-xs text-gray-500">{data.course.duration} hours</p>
 				</div>
 
-				<div class="flex-s-center gap-2">
+				<div class="gap-2 flex-s-center">
 					<PenSquare class="text-gray-400" />
 					<p class="text-xs text-gray-500">{data.course.numberOfSections} sections</p>
 				</div>
 
-				<div class="flex-s-center gap-2">
+				<div class="gap-2 flex-s-center">
 					<BarChart class="text-gray-400" />
 					<p class="text-xs text-gray-500">{data.course.level} level</p>
 				</div>
@@ -61,14 +61,14 @@
 
 		<!-- INSTRUCTORS -->
 		<div class="py-5">
-			<div class="text-xs text-gray-500 uppercase mb-2">Hosted By</div>
+			<div class="mb-2 text-xs text-gray-500 uppercase">Hosted By</div>
 
 			<div
-				class="grid gap-4 w-full"
+				class="grid w-full gap-4"
 				style="grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));"
 			>
 				{#each instructors as _}
-					<a href="/courses/{data.course.slug}#instructor" class="flex-s-start gap-3">
+					<a href="/courses/{data.course.slug}#instructor" class="gap-3 flex-s-start">
 						<div class="size-[64px] bg-red-400 rounded-xl">
 							<img src="" alt="" />
 						</div>
@@ -90,9 +90,9 @@
 			<br />
 
 			<!-- CARDS -->
-			<div class="grid sm:grid-cols-2 gap-4">
+			<div class="grid gap-4 sm:grid-cols-2">
 				{#each [...Array(4)] as _, i}
-					<div class="p-4 rounded-lg border border-gray-400 flex flex-col gap-3">
+					<div class="flex flex-col gap-3 p-4 border border-gray-400 rounded-lg">
 						<div class="bg-white text-gray-800 size-[40px] rounded-full flex-s-center">
 							0{i + 1}
 						</div>
@@ -116,7 +116,7 @@
 			<br />
 
 			<!-- CARDS -->
-			<div class="flex flex-col gap-4 max-w-2xl">
+			<div class="flex flex-col max-w-2xl gap-4">
 				{#each [...Array(4)] as _, i}
 					<div class="flex-s-start-start">
 						<div>
@@ -146,36 +146,36 @@
 			<br />
 
 			<!-- CARDS -->
-			<div class="grid md:grid-cols-2 gap-4 max-w-2xl">
-				<div class="flex-s-start gap-2">
+			<div class="grid max-w-2xl gap-4 md:grid-cols-2">
+				<div class="gap-2 flex-s-start">
 					<VideoCamera class="text-xl" />
 					<p>Live sessions with instructor</p>
 				</div>
-				<div class="flex-s-start gap-2">
+				<div class="gap-2 flex-s-start">
 					<KeyLight class="text-xl" />
 					<p>Lifetime access to course materials</p>
 				</div>
-				<div class="flex-s-start gap-2">
+				<div class="gap-2 flex-s-start">
 					<BookOpen class="text-xl" />
 					<p>74 in-depth lesson</p>
 				</div>
-				<div class="flex-s-start gap-2">
+				<div class="gap-2 flex-s-start">
 					<ChalkboardTeacher class="text-xl" />
 					<p>Direct access to instructor</p>
 				</div>
-				<div class="flex-s-start gap-2">
+				<div class="gap-2 flex-s-start">
 					<Wrench class="text-xl" />
 					<p>7 projects to apply learnings</p>
 				</div>
-				<div class="flex-s-start gap-2">
+				<div class="gap-2 flex-s-start">
 					<LightbulbLight class="text-xl" />
 					<p>Guided feedback & reflection</p>
 				</div>
-				<div class="flex-s-start gap-2">
+				<div class="gap-2 flex-s-start">
 					<UsersThree class="text-xl" />
 					<p>Private community of peers</p>
 				</div>
-				<div class="flex-s-start gap-2">
+				<div class="gap-2 flex-s-start">
 					<GraduationCap class="text-xl" />
 					<p>Course certificate upon completion</p>
 				</div>
@@ -187,13 +187,13 @@
 	<div class="md:flex-[0.7] lg:flex-[0.5] relative">
 		<div class="bg-white shadow-lg rounded-xl overflow-hidden sticky top-[5.75rem]">
 			<!--  -->
-			<div class="bg-red-400 aspect-video w-full">
+			<div class="w-full bg-red-400 aspect-video">
 				<!-- NOTE: TEMPORARY -->
 				<div class="size-full flex-s-center">Image / Video</div>
 			</div>
 
 			<div class="px-5 py-4">
-				<div class="flex-s-between mb-1">
+				<div class="mb-1 flex-s-between">
 					<div class="font-semibold">${data.course.price} USD</div>
 
 					<div class="flex-s-start">
@@ -202,26 +202,26 @@
 					</div>
 				</div>
 				<div class="text-sm">
-					<a href="/" class="underline font-medium">Get reimbursed</a>
+					<a href="/" class="font-medium underline">Get reimbursed</a>
 					<span>|</span>
-					<a href="/" class="underline font-medium">Bulk purchases</a>
+					<a href="/" class="font-medium underline">Bulk purchases</a>
 				</div>
 
 				<div class="py-6">
-					<a href="/" class="action-base w-full">Enroll</a>
+					<a href="/" class="w-full action-base">Enroll</a>
 				</div>
 
 				<div>
-					<p class="text-xs text-gray-400 uppercase font-medium">CTA subtext</p>
+					<p class="text-xs font-medium text-gray-400 uppercase">CTA subtext</p>
 					<p class="text-sm text-gray-800">Main Text</p>
 
-					<div class="w-full relative mt-3">
+					<div class="relative w-full mt-3">
 						<input
-							class="flex-1 py-3 pl-3 pr-14 w-full text-sm border rounded-lg"
+							class="flex-1 w-full py-3 pl-3 text-sm border rounded-lg pr-14"
 							type="text"
 							placeholder="Your email"
 						/>
-						<div class="absolute right-0 top-0 h-full flex-s-center pr-1">
+						<div class="absolute top-0 right-0 h-full pr-1 flex-s-center">
 							<button class="bg-night px-3 flex-s-center rounded-lg h-[80%] text-xl text-white">
 								<ArrowRight />
 							</button>
@@ -235,7 +235,7 @@
 
 <CourseSyllabus />
 
-<section class="container-base py-20">
+<section class="py-20 container-base">
 	<h2 class="text-center">What people say</h2>
 	<br />
 	<div>
@@ -246,17 +246,17 @@
 <CourseCtaBanner />
 
 <!-- INSTRUCTOR BIO -->
-<section class="container-base py-20">
+<section class="py-20 container-base">
 	<h2 class="text-center">Meet your instructor</h2>
 	<br /><br />
 
-	<div class="max-md:space-y-4 md:flex-s-start w-full max-w-2xl mx-auto gap-4" id="instructor">
+	<div class="w-full max-w-2xl gap-4 mx-auto max-md:space-y-4 md:flex-s-start" id="instructor">
 		<div class="size-[60px] bg-red-400 rounded-xl md:!h-[300px] md:!w-[250px]">
 			<img src="" alt="" />
 		</div>
 
 		<div class="flex-1">
-			<div class="font-semibold mb-2 text-lg">Femke</div>
+			<div class="mb-2 text-lg font-semibold">Femke</div>
 			<div>
 				<p>
 					Hi, I'm Femke! I am a design manager that worked as a product designer for over 5 years at
@@ -274,37 +274,37 @@
 	</div>
 </section>
 
-<section class="max-w-2xl mx-auto my-12 px-4">
-	<h2 class="text-3xl font-bold text-center mb-6">Course schedule</h2>
+<section class="max-w-2xl px-4 mx-auto my-12">
+	<h2 class="mb-6 text-3xl font-bold text-center">Course schedule</h2>
 	<div class="flex items-center justify-center mb-4">
-		<Clock class="text-gray-500 mr-2" />
+		<Clock class="mr-2 text-gray-500" />
 		<span class="text-gray-500">3-4 hours per week</span>
 	</div>
 
-	<div class="border-l-2 border-gray-400 pl-4 border-dashed">
-		<h3 class="text-xl font-semibold mt-4 mb-2">Office hours</h3>
-		<p class="text-gray-700 mb-2">
+	<div class="pl-4 border-l-2 border-gray-400 border-dashed">
+		<h3 class="mt-4 mb-2 text-xl font-semibold">Office hours</h3>
+		<p class="mb-2 text-gray-700">
 			<strong>Wednesdays or Fridays</strong>
 		</p>
-		<p class="text-gray-700 mb-4">
+		<p class="mb-4 text-gray-700">
 			Join Femke and course alumni mentors once a week on Wednesday's or Friday's for live sessions
 			to get your burning questions answered while working through worksheets with your peers.
 		</p>
-		<p class="text-gray-700 mb-4">Sessions will run at Europe & North America friendly times.</p>
-		<h3 class="text-xl font-semibold mt-4 mb-2">Self-paced modules</h3>
-		<p class="text-gray-700 mb-2">
+		<p class="mb-4 text-gray-700">Sessions will run at Europe & North America friendly times.</p>
+		<h3 class="mt-4 mb-2 text-xl font-semibold">Self-paced modules</h3>
+		<p class="mb-2 text-gray-700">
 			<strong>2 hours per week</strong>
 		</p>
-		<p class="text-gray-700 mb-4">
+		<p class="mb-4 text-gray-700">
 			Work through 2 modules a week with an accompanying video. This format was created to ensure
 			you understand concepts, and provide you with tools to implement what you learned as a next
 			step.
 		</p>
-		<h3 class="text-xl font-semibold mt-4 mb-2">Resources, templates & worksheets</h3>
-		<p class="text-gray-700 mb-2">
+		<h3 class="mt-4 mb-2 text-xl font-semibold">Resources, templates & worksheets</h3>
+		<p class="mb-2 text-gray-700">
 			<strong>2 hours per week</strong>
 		</p>
-		<p class="text-gray-700 mb-4">
+		<p class="mb-4 text-gray-700">
 			Tried and true templates, resources and worksheets you can use at work to advocate for your
 			ideas, feel empowered to have strategic influence within your team and get included in product
 			strategy conversations.
@@ -314,18 +314,9 @@
 
 <CourseCtaBanner />
 
-<section class="max-w-2xl mx-auto py-10" id="faq">
-	<h2 class="mb-8 text-center">Frequently Asked Questions</h2>
-
-	{#if coursesPageFaq && coursesPageFaq.length > 0}
-		<FaqAccordion
-			faqs={coursesPageFaq.map(block => ({
-				id: block.id,
-				faq: {
-					heading: block.faq?.heading || "",
-					subheading: block.faq?.subheading || {},
-				},
-			}))}
-		/>
-	{/if}
-</section>
+{#if data.course.faq?.faqBlocks && data.course.faq?.faqBlocks.length > 0}
+	<section class="max-w-2xl py-10 mx-auto" id="faq">
+		<Heading defaultHeading="Frequently Asked Questions" useDefaultHeading />
+		<FAQItems items={data.course.faq.faqBlocks || []} />
+	</section>
+{/if}

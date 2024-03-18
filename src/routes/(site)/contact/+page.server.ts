@@ -1,17 +1,7 @@
-import { getCourseBySlug } from "$lib/graphql/queries/courses";
-import { error } from "@sveltejs/kit";
+import { getFaqItemBySlug } from "$lib/graphql/queries/faq";
 
-export const load = async ({ params }) => {
-	const course = await getCourseBySlug(params.Course);
-
-	if (!course) {
-		throw error(404, "Course not found");
-	}
-
+export const load = async () => {
 	return {
-		course: {
-			...course,
-			seo: course.seo[0].seoBlock,
-		},
+		homeFaqBlocks: (await getFaqItemBySlug("homepage-faq"))?.faqBlocks,
 	};
 };
