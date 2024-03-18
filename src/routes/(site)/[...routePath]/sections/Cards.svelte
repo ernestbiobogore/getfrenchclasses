@@ -4,16 +4,15 @@
 	import type { CardsSectionRecord } from "$lib/graphql/generated";
 	import { cn } from "$lib/utils";
 	import { Image } from "@datocms/svelte";
+	import Heading from "../blocks/Heading.svelte";
 
 	export let record: CardsSectionRecord;
 </script>
 
 <section class="py-20 space-y-12 container-base">
-	<h2 class="text-center">{record.heading?.heading}</h2>
-	<StructuredText
-		richText={record.heading?.subheading}
-		class="text-center mx-auto max-w-[46ch] md:max-w-[64ch]"
-	/>
+	{#if record.heading}
+		<Heading heading={record.heading} />
+	{/if}
 
 	{#if record.sectionType === "default"}
 		{#if record.cards.length > 0}
@@ -49,7 +48,12 @@
 		{#if record.cards.length > 0}
 			<div class="space-y-10">
 				{#each record.cards as card, index}
-					<Card.Root class={cn("md:flex items-center gap-8 bg-transparent border-none shadow-none", index % 2 === 0 ? "flex-row-reverse" : "flex-row")}>
+					<Card.Root
+						class={cn(
+							"md:flex items-center gap-8 bg-transparent border-none shadow-none",
+							index % 2 === 0 ? "flex-row-reverse" : "flex-row"
+						)}
+					>
 						<Card.Header class="p-0 space-y-8 basis-6/12">
 							{#if card.media?.format === "svg"}
 								{#if card.media.url}
@@ -63,7 +67,10 @@
 						{#if card.heading.subheading}
 							<Card.Content class="p-0 space-y-4">
 								{#if card.heading.heading}
-									<Card.Title class="text-2xl/[2.275rem] sm:text-[1.75rem]/[2.275rem] -tracking-[0.1rem]">{card.heading.heading}</Card.Title>
+									<Card.Title
+										class="text-2xl/[2.275rem] sm:text-[1.75rem]/[2.275rem] -tracking-[0.1rem]"
+										>{card.heading.heading}</Card.Title
+									>
 								{/if}
 
 								<StructuredText richText={card.heading.subheading} />
@@ -74,4 +81,6 @@
 			</div>
 		{/if}
 	{/if}
+
+	{#if record.sectionType === "companies_logos"}{/if}
 </section>

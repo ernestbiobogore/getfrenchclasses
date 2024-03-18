@@ -1,20 +1,19 @@
 <script lang="ts">
 	import AvatarsGroup from "$lib/components/AvatarsGroup.svelte";
-	import StructuredText from "$lib/components/dato/StructuredText/index.svelte";
 	import { Button } from "$lib/components/shadcn/ui/button";
 	import type { HeroSectionRecord } from "$lib/graphql/generated";
 	import { VideoPlayer } from "@datocms/svelte";
 	import PhArrowBendDownLeftFill from "~icons/ph/arrow-bend-down-left-fill";
+	import Heading from "../blocks/Heading.svelte";
 
 	export let record: HeroSectionRecord;
 </script>
 
 <section class="p-3 py-20 container-base">
 	<div class="w-full mx-auto space-y-6 md:max-w-3xl">
-		<h1>{record.heading?.heading}</h1>
-		<p class="hero-subtitle">
-			<StructuredText richText={record.heading?.subheading} />
-		</p>
+		{#if record.heading}
+			<Heading heading={record.heading} titleTag="h1" titleClass="text-left" />
+		{/if}
 
 		{#if record.cta}
 			<Button size="lg" href={record.cta.link} class="w-full">{record.cta.text}</Button>

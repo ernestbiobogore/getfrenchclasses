@@ -5,16 +5,15 @@
 	import { slide } from "svelte/transition";
 	import Minus from "~icons/lucide/minus";
 	import Plus from "~icons/lucide/plus";
+	import Heading from "../blocks/Heading.svelte";
 
 	export let record: FaqSectionRecord;
 </script>
 
 <section class="py-20 space-y-12 container-base">
-	<h2 class="text-center">{record.heading?.heading}</h2>
-	<StructuredText
-		richText={record.heading?.subheading}
-		class="text-center mx-auto max-w-[46ch] md:max-w-[64ch]"
-	/>
+	{#if record.heading}
+		<Heading heading={record.heading} />
+	{/if}
 
 	{#if record.faq?.faqBlocks && record.faq.faqBlocks.length > 0}
 		<Accordion.Root class="space-y-4" value={record.faq.faqBlocks[0].id}>
