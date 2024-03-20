@@ -1,5 +1,4 @@
 <script lang="ts">
-	import StructuredText from "$lib/components/dato/StructuredText/index.svelte";
 	import * as Avatar from "$shadcn/avatar";
 	import * as Card from "$shadcn/card";
 	import * as Dialog from "$shadcn/dialog";
@@ -15,10 +14,10 @@
 	import StarFillIcon from "~icons/solar/star-bold";
 
 	import { Button } from "$shadcn/button";
-	import { type FormattedTutorMeta } from "./types";
+	import { type FormattedSingleTutor, type FormattedTutorMeta } from "./types";
 	import { deSlugify } from "./utils.client";
 
-	export let tutor: FormattedTutorMeta;
+	export let tutor: FormattedTutorMeta | FormattedSingleTutor;
 	export let withVerifiedBadge = false;
 	export let withCTA = false;
 </script>
@@ -77,12 +76,7 @@
 				</Dialog.Root>
 			{/if}
 
-			<StructuredText
-				richText={tutor.summary}
-				elementClasses={{
-					p: "text-lg font-medium mb-6 text-gray-900",
-				}}
-			/>
+			<p class="text-lg font-medium mb-6 text-gray-900">{tutor.summary}</p>
 
 			<div class="flex items-center space-x-2 text-sm text-gray-600 mb-6">
 				<UserIcon class="w-5 h-5" />

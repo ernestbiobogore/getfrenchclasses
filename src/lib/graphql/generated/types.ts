@@ -47,12 +47,12 @@ export default {
         94,
         99,
         102,
-        115,
-        130,
-        135,
-        136,
-        140,
-        145
+        114,
+        128,
+        133,
+        134,
+        138,
+        143
     ],
     "types": {
         "ActionBlockRecord": {
@@ -78,7 +78,7 @@ export default {
                 19
             ],
             "_seoMetaTags": [
-                106,
+                105,
                 {
                     "locale": [
                         99
@@ -183,7 +183,7 @@ export default {
                 102
             ],
             "focalPoint": [
-                146,
+                144,
                 {
                     "locale": [
                         99
@@ -201,7 +201,7 @@ export default {
                 64
             ],
             "id": [
-                130
+                128
             ],
             "md5": [
                 102
@@ -263,7 +263,7 @@ export default {
                 }
             ],
             "video": [
-                142
+                140
             ],
             "width": [
                 64
@@ -305,7 +305,7 @@ export default {
                 19
             ],
             "_seoMetaTags": [
-                106,
+                105,
                 {
                     "locale": [
                         99
@@ -360,7 +360,7 @@ export default {
                 19
             ],
             "_seoMetaTags": [
-                106,
+                105,
                 {
                     "locale": [
                         99
@@ -418,7 +418,7 @@ export default {
                 19
             ],
             "_seoMetaTags": [
-                106,
+                105,
                 {
                     "locale": [
                         99
@@ -473,7 +473,7 @@ export default {
                 101
             ],
             "_updatedAt": [
-                119
+                117
             ],
             "_isValid": [
                 3
@@ -518,7 +518,7 @@ export default {
                 19
             ],
             "_seoMetaTags": [
-                106,
+                105,
                 {
                     "locale": [
                         99
@@ -602,7 +602,7 @@ export default {
                 101
             ],
             "_updatedAt": [
-                119
+                117
             ],
             "_isValid": [
                 3
@@ -668,7 +668,7 @@ export default {
                 19
             ],
             "_seoMetaTags": [
-                106,
+                105,
                 {
                     "locale": [
                         99
@@ -715,7 +715,7 @@ export default {
                 96
             ],
             "singleTestimonial": [
-                111
+                110
             ],
             "slug": [
                 102
@@ -778,7 +778,7 @@ export default {
                 19
             ],
             "_seoMetaTags": [
-                106,
+                105,
                 {
                     "locale": [
                         99
@@ -827,7 +827,7 @@ export default {
                 19
             ],
             "_seoMetaTags": [
-                106,
+                105,
                 {
                     "locale": [
                         99
@@ -879,7 +879,7 @@ export default {
                 101
             ],
             "_updatedAt": [
-                119
+                117
             ],
             "_isValid": [
                 3
@@ -924,7 +924,7 @@ export default {
                 19
             ],
             "_seoMetaTags": [
-                106,
+                105,
                 {
                     "locale": [
                         99
@@ -979,7 +979,7 @@ export default {
                 19
             ],
             "_seoMetaTags": [
-                106,
+                105,
                 {
                     "locale": [
                         99
@@ -1085,7 +1085,7 @@ export default {
                 102
             ],
             "focalPoint": [
-                146,
+                144,
                 {
                     "locale": [
                         99
@@ -1103,7 +1103,7 @@ export default {
                 64
             ],
             "id": [
-                130
+                128
             ],
             "md5": [
                 102
@@ -1165,7 +1165,7 @@ export default {
                 }
             ],
             "video": [
-                142
+                140
             ],
             "width": [
                 64
@@ -1250,7 +1250,7 @@ export default {
                 102
             ],
             "focalPoint": [
-                146,
+                144,
                 {
                     "locale": [
                         99
@@ -1268,7 +1268,7 @@ export default {
                 64
             ],
             "id": [
-                130
+                128
             ],
             "md5": [
                 102
@@ -1330,7 +1330,7 @@ export default {
                 }
             ],
             "video": [
-                142
+                140
             ],
             "width": [
                 64
@@ -1342,7 +1342,7 @@ export default {
                 27
             ],
             "on_VideoFileField": [
-                144
+                142
             ],
             "__typename": [
                 102
@@ -1433,7 +1433,7 @@ export default {
                 19
             ],
             "_seoMetaTags": [
-                106,
+                105,
                 {
                     "locale": [
                         99
@@ -1485,7 +1485,7 @@ export default {
                 19
             ],
             "_seoMetaTags": [
-                106,
+                105,
                 {
                     "locale": [
                         99
@@ -1542,7 +1542,7 @@ export default {
                 19
             ],
             "_seoMetaTags": [
-                106,
+                105,
                 {
                     "locale": [
                         99
@@ -1574,7 +1574,7 @@ export default {
                 102
             ],
             "video": [
-                144
+                142
             ],
             "videoText": [
                 102
@@ -1606,7 +1606,7 @@ export default {
                 19
             ],
             "_seoMetaTags": [
-                106,
+                105,
                 {
                     "locale": [
                         99
@@ -2202,7 +2202,7 @@ export default {
                 101
             ],
             "_updatedAt": [
-                119
+                117
             ],
             "_isValid": [
                 3
@@ -2237,7 +2237,7 @@ export default {
                 36
             ],
             "on_TestimonialsSectionRecord": [
-                113
+                112
             ],
             "on_RecordInterface": [
                 86
@@ -2270,7 +2270,7 @@ export default {
                 19
             ],
             "_seoMetaTags": [
-                106,
+                105,
                 {
                     "locale": [
                         99
@@ -2332,7 +2332,7 @@ export default {
                 19
             ],
             "_seoMetaTags": [
-                106,
+                105,
                 {
                     "locale": [
                         99
@@ -2363,10 +2363,10 @@ export default {
         },
         "OrientationFilter": {
             "eq": [
-                136
+                134
             ],
             "neq": [
-                136
+                134
             ],
             "__typename": [
                 102
@@ -2395,7 +2395,7 @@ export default {
                 101
             ],
             "_updatedAt": [
-                119
+                117
             ],
             "_isValid": [
                 3
@@ -2446,7 +2446,7 @@ export default {
                 19
             ],
             "_seoMetaTags": [
-                106,
+                105,
                 {
                     "locale": [
                         99
@@ -2590,7 +2590,7 @@ export default {
                         99
                     ],
                     "filter": [
-                        114
+                        113
                     ]
                 }
             ],
@@ -2601,7 +2601,7 @@ export default {
                         99
                     ],
                     "filter": [
-                        127
+                        125
                     ]
                 }
             ],
@@ -2768,7 +2768,7 @@ export default {
                 }
             ],
             "allTutors": [
-                117,
+                115,
                 {
                     "locale": [
                         99
@@ -2784,10 +2784,10 @@ export default {
                         64
                     ],
                     "filter": [
-                        114
+                        113
                     ],
                     "orderBy": [
-                        115,
+                        114,
                         "[TutorModelOrderBy]"
                     ]
                 }
@@ -2809,10 +2809,10 @@ export default {
                         64
                     ],
                     "filter": [
-                        127
+                        125
                     ],
                     "orderBy": [
-                        135,
+                        133,
                         "[UploadOrderBy]"
                     ]
                 }
@@ -2932,7 +2932,7 @@ export default {
                 }
             ],
             "tutor": [
-                117,
+                115,
                 {
                     "locale": [
                         99
@@ -2942,10 +2942,10 @@ export default {
                         "[SiteLocale!]"
                     ],
                     "filter": [
-                        114
+                        113
                     ],
                     "orderBy": [
-                        115,
+                        114,
                         "[TutorModelOrderBy]"
                     ]
                 }
@@ -2961,10 +2961,10 @@ export default {
                         "[SiteLocale!]"
                     ],
                     "filter": [
-                        127
+                        125
                     ],
                     "orderBy": [
-                        135,
+                        133,
                         "[UploadOrderBy]"
                     ]
                 }
@@ -2996,7 +2996,7 @@ export default {
                 19
             ],
             "_seoMetaTags": [
-                106,
+                105,
                 {
                     "locale": [
                         99
@@ -3076,19 +3076,19 @@ export default {
                 96
             ],
             "on_TestimonialBlockCtaRecord": [
-                108
+                107
             ],
             "on_TestimonialBlockDefaultRecord": [
-                110
+                109
             ],
             "on_TestimonialBlockRecord": [
-                111
+                110
             ],
             "on_TestimonialsSectionRecord": [
-                113
+                112
             ],
             "on_TutorRecord": [
-                117
+                115
             ],
             "__typename": [
                 102
@@ -3204,7 +3204,7 @@ export default {
                 19
             ],
             "_seoMetaTags": [
-                106,
+                105,
                 {
                     "locale": [
                         99
@@ -3253,7 +3253,7 @@ export default {
                 101
             ],
             "_updatedAt": [
-                119
+                117
             ],
             "_isValid": [
                 3
@@ -3298,7 +3298,7 @@ export default {
                 19
             ],
             "_seoMetaTags": [
-                106,
+                105,
                 {
                     "locale": [
                         99
@@ -3350,7 +3350,7 @@ export default {
                 19
             ],
             "_seoMetaTags": [
-                106,
+                105,
                 {
                     "locale": [
                         99
@@ -3401,7 +3401,7 @@ export default {
                 27
             ],
             "faviconMetaTags": [
-                106,
+                105,
                 {
                     "variants": [
                         26,
@@ -3513,26 +3513,6 @@ export default {
                 102
             ]
         },
-        "StructuredTextFilter": {
-            "matches": [
-                104
-            ],
-            "notMatches": [
-                104
-            ],
-            "isBlank": [
-                4
-            ],
-            "isPresent": [
-                4
-            ],
-            "exists": [
-                4
-            ],
-            "__typename": [
-                102
-            ]
-        },
         "Tag": {
             "attributes": [
                 73
@@ -3584,7 +3564,7 @@ export default {
                 19
             ],
             "_seoMetaTags": [
-                106,
+                105,
                 {
                     "locale": [
                         99
@@ -3613,7 +3593,7 @@ export default {
                 0
             ],
             "highlight": [
-                107
+                106
             ],
             "id": [
                 66
@@ -3665,7 +3645,7 @@ export default {
                 19
             ],
             "_seoMetaTags": [
-                106,
+                105,
                 {
                     "locale": [
                         99
@@ -3688,7 +3668,7 @@ export default {
                 102
             ],
             "content": [
-                109
+                108
             ],
             "id": [
                 66
@@ -3726,7 +3706,7 @@ export default {
                 19
             ],
             "_seoMetaTags": [
-                106,
+                105,
                 {
                     "locale": [
                         99
@@ -3769,10 +3749,10 @@ export default {
         },
         "TestimonialsSectionModelTestimonialsField": {
             "on_TestimonialBlockCtaRecord": [
-                108
+                107
             ],
             "on_TestimonialBlockDefaultRecord": [
-                110
+                109
             ],
             "on_RecordInterface": [
                 86
@@ -3804,7 +3784,7 @@ export default {
                 19
             ],
             "_seoMetaTags": [
-                106,
+                105,
                 {
                     "locale": [
                         99
@@ -3827,7 +3807,7 @@ export default {
                 66
             ],
             "testimonials": [
-                112
+                111
             ],
             "__typename": [
                 102
@@ -3856,7 +3836,7 @@ export default {
                 101
             ],
             "_updatedAt": [
-                119
+                117
             ],
             "_isValid": [
                 3
@@ -3895,33 +3875,19 @@ export default {
                 100
             ],
             "summary": [
-                105
+                103
             ],
             "OR": [
-                114
+                113
             ],
             "AND": [
-                114
+                113
             ],
             "__typename": [
                 102
             ]
         },
         "TutorModelOrderBy": {},
-        "TutorModelSummaryField": {
-            "blocks": [
-                102
-            ],
-            "links": [
-                102
-            ],
-            "value": [
-                69
-            ],
-            "__typename": [
-                102
-            ]
-        },
         "TutorRecord": {
             "_createdAt": [
                 19
@@ -3945,7 +3911,7 @@ export default {
                 19
             ],
             "_seoMetaTags": [
-                106,
+                105,
                 {
                     "locale": [
                         99
@@ -3998,7 +3964,7 @@ export default {
                 102
             ],
             "summary": [
-                116
+                102
             ],
             "__typename": [
                 102
@@ -4006,16 +3972,16 @@ export default {
         },
         "TypeFilter": {
             "eq": [
-                140
+                138
             ],
             "neq": [
-                140
+                138
             ],
             "in": [
-                140
+                138
             ],
             "notIn": [
-                140
+                138
             ],
             "__typename": [
                 102
@@ -4168,7 +4134,7 @@ export default {
         },
         "UploadFilter": {
             "type": [
-                118
+                116
             ],
             "inUse": [
                 62
@@ -4177,70 +4143,70 @@ export default {
                 87
             ],
             "size": [
-                137
+                135
             ],
             "tags": [
-                138
+                136
             ],
             "smartTags": [
-                138
+                136
             ],
             "colors": [
-                123
+                121
             ],
             "orientation": [
                 80
             ],
             "id": [
-                131
-            ],
-            "mimeType": [
-                133
-            ],
-            "format": [
-                128
-            ],
-            "height": [
                 129
             ],
-            "width": [
-                143
+            "mimeType": [
+                131
             ],
-            "alt": [
-                120
-            ],
-            "title": [
-                139
-            ],
-            "notes": [
-                134
-            ],
-            "md5": [
-                132
-            ],
-            "author": [
-                121
-            ],
-            "copyright": [
-                124
-            ],
-            "basename": [
-                122
-            ],
-            "filename": [
+            "format": [
                 126
             ],
-            "_createdAt": [
-                125
+            "height": [
+                127
             ],
-            "_updatedAt": [
+            "width": [
                 141
             ],
+            "alt": [
+                118
+            ],
+            "title": [
+                137
+            ],
+            "notes": [
+                132
+            ],
+            "md5": [
+                130
+            ],
+            "author": [
+                119
+            ],
+            "copyright": [
+                122
+            ],
+            "basename": [
+                120
+            ],
+            "filename": [
+                124
+            ],
+            "_createdAt": [
+                123
+            ],
+            "_updatedAt": [
+                139
+            ],
             "OR": [
-                127
+                125
             ],
             "AND": [
-                127
+                125
             ],
             "__typename": [
                 102
@@ -4289,16 +4255,16 @@ export default {
         "UploadId": {},
         "UploadIdFilter": {
             "eq": [
-                130
+                128
             ],
             "neq": [
-                130
+                128
             ],
             "in": [
-                130
+                128
             ],
             "notIn": [
-                130
+                128
             ],
             "__typename": [
                 102
@@ -4502,10 +4468,10 @@ export default {
                 102,
                 {
                     "res": [
-                        145
+                        143
                     ],
                     "exactRes": [
-                        145
+                        143
                     ]
                 }
             ],
@@ -4647,7 +4613,7 @@ export default {
                 102
             ],
             "focalPoint": [
-                146,
+                144,
                 {
                     "locale": [
                         99
@@ -4665,7 +4631,7 @@ export default {
                 64
             ],
             "id": [
-                130
+                128
             ],
             "md5": [
                 102
@@ -4727,7 +4693,7 @@ export default {
                 }
             ],
             "video": [
-                142
+                140
             ],
             "width": [
                 64

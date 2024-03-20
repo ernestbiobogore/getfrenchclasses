@@ -1,4 +1,4 @@
-import { getAllTutorsMetas } from "$lib/graphql/queries/tutors";
+import { getAllTutorsMetas, getTutorBySlug } from "$lib/graphql/queries/tutors";
 import type { Audience, Level, RemoteStatus } from "./types";
 
 const formatTutorMeta = (tutor: Awaited<ReturnType<typeof getAllTutorsMetas>>[0]) => {
@@ -10,4 +10,14 @@ const formatTutorMeta = (tutor: Awaited<ReturnType<typeof getAllTutorsMetas>>[0]
 	};
 };
 
-export { formatTutorMeta };
+const formatSingleTutor = (tutor: NonNullable<Awaited<ReturnType<typeof getTutorBySlug>>>) => {
+	return {
+		...tutor,
+		levels: tutor.levels as Level[],
+		audiences: tutor.audiences as Audience[],
+		remoteStatus: tutor.remoteStatus as RemoteStatus[],
+	};
+};
+
+export { formatSingleTutor, formatTutorMeta };
+

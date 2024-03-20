@@ -1,12 +1,12 @@
 <script lang="ts">
 	import AvatarsGroup from "$lib/components/AvatarsGroup.svelte";
-	import type { getAllCourses } from "$lib/graphql/queries/courses";
+	import type { getAllCoursesMetas } from "$lib/graphql/queries/courses";
 	import { getSampleAvatars } from "$lib/utils";
+	import BarChart from "~icons/lucide/bar-chart";
 	import Clock from "~icons/lucide/clock";
 	import PenSquare from "~icons/lucide/pen-square";
-	import BarChart from "~icons/lucide/bar-chart";
 
-	export let course: Awaited<ReturnType<typeof getAllCourses>>[number];
+	export let course: Awaited<ReturnType<typeof getAllCoursesMetas>>[number];
 	const updatedCourse = {
 		...course,
 		seo: course.seo[0]?.seoBlock,

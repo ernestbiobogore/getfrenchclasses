@@ -878,14 +878,7 @@ export interface TestimonialsSectionRecord {
     __typename: 'TestimonialsSectionRecord'
 }
 
-export type TutorModelOrderBy = '_createdAt_ASC' | '_createdAt_DESC' | 'id_ASC' | 'id_DESC' | '_firstPublishedAt_ASC' | '_firstPublishedAt_DESC' | '_publicationScheduledAt_ASC' | '_publicationScheduledAt_DESC' | '_unpublishingScheduledAt_ASC' | '_unpublishingScheduledAt_DESC' | '_publishedAt_ASC' | '_publishedAt_DESC' | '_status_ASC' | '_status_DESC' | '_updatedAt_ASC' | '_updatedAt_DESC' | '_isValid_ASC' | '_isValid_DESC' | 'location_ASC' | 'location_DESC' | 'name_ASC' | 'name_DESC' | 'numberOfRatings_ASC' | 'numberOfRatings_DESC' | 'rate_ASC' | 'rate_DESC' | 'rating_ASC' | 'rating_DESC'
-
-export interface TutorModelSummaryField {
-    blocks: Scalars['String'][]
-    links: Scalars['String'][]
-    value: Scalars['JsonField']
-    __typename: 'TutorModelSummaryField'
-}
+export type TutorModelOrderBy = '_createdAt_ASC' | '_createdAt_DESC' | 'id_ASC' | 'id_DESC' | '_firstPublishedAt_ASC' | '_firstPublishedAt_DESC' | '_publicationScheduledAt_ASC' | '_publicationScheduledAt_DESC' | '_unpublishingScheduledAt_ASC' | '_unpublishingScheduledAt_DESC' | '_publishedAt_ASC' | '_publishedAt_DESC' | '_status_ASC' | '_status_DESC' | '_updatedAt_ASC' | '_updatedAt_DESC' | '_isValid_ASC' | '_isValid_DESC' | 'location_ASC' | 'location_DESC' | 'name_ASC' | 'name_DESC' | 'numberOfRatings_ASC' | 'numberOfRatings_DESC' | 'rate_ASC' | 'rate_DESC' | 'rating_ASC' | 'rating_DESC' | 'summary_ASC' | 'summary_DESC'
 
 
 /** Record of type 🧑‍🏫 Tutor (tutor) */
@@ -915,7 +908,7 @@ export interface TutorRecord {
     rating: Scalars['FloatType']
     remoteStatus: Scalars['JsonField']
     slug: Scalars['String']
-    summary: (TutorModelSummaryField | null)
+    summary: Scalars['String']
     __typename: 'TutorRecord'
 }
 
@@ -3485,20 +3478,6 @@ exists?: (Scalars['BooleanType'] | null)}
 
 export interface StringMatchesFilter {pattern: Scalars['String'],caseSensitive?: (Scalars['BooleanType'] | null),regexp?: (Scalars['BooleanType'] | null)}
 
-
-/** Specifies how to filter Structured Text fields values */
-export interface StructuredTextFilter {
-/** Filter records based on a regular expression */
-matches?: (StringMatchesFilter | null),
-/** Exclude records based on a regular expression */
-notMatches?: (StringMatchesFilter | null),
-/** Filter records with the specified field set as blank (null or single empty paragraph) */
-isBlank?: (Scalars['BooleanType'] | null),
-/** Filter records with the specified field present (neither null, nor empty string) */
-isPresent?: (Scalars['BooleanType'] | null),
-/** Filter records with the specified field defined (i.e. with any value) or not [DEPRECATED] */
-exists?: (Scalars['BooleanType'] | null)}
-
 export interface TagGenqlSelection{
     attributes?: boolean | number
     content?: boolean | number
@@ -3642,15 +3621,7 @@ export interface TestimonialsSectionRecordGenqlSelection{
     __scalar?: boolean | number
 }
 
-export interface TutorModelFilter {_createdAt?: (CreatedAtFilter | null),id?: (ItemIdFilter | null),_firstPublishedAt?: (PublishedAtFilter | null),_publicationScheduledAt?: (PublishedAtFilter | null),_unpublishingScheduledAt?: (PublishedAtFilter | null),_publishedAt?: (PublishedAtFilter | null),_status?: (StatusFilter | null),_updatedAt?: (UpdatedAtFilter | null),_isValid?: (BooleanFilter | null),audiences?: (JsonFilter | null),faq?: (LinkFilter | null),levels?: (JsonFilter | null),location?: (StringFilter | null),name?: (StringFilter | null),numberOfRatings?: (IntegerFilter | null),qualifiedCourses?: (LinksFilter | null),rate?: (IntegerFilter | null),rating?: (FloatFilter | null),remoteStatus?: (JsonFilter | null),slug?: (SlugFilter | null),summary?: (StructuredTextFilter | null),OR?: ((TutorModelFilter | null)[] | null),AND?: ((TutorModelFilter | null)[] | null)}
-
-export interface TutorModelSummaryFieldGenqlSelection{
-    blocks?: boolean | number
-    links?: boolean | number
-    value?: boolean | number
-    __typename?: boolean | number
-    __scalar?: boolean | number
-}
+export interface TutorModelFilter {_createdAt?: (CreatedAtFilter | null),id?: (ItemIdFilter | null),_firstPublishedAt?: (PublishedAtFilter | null),_publicationScheduledAt?: (PublishedAtFilter | null),_unpublishingScheduledAt?: (PublishedAtFilter | null),_publishedAt?: (PublishedAtFilter | null),_status?: (StatusFilter | null),_updatedAt?: (UpdatedAtFilter | null),_isValid?: (BooleanFilter | null),audiences?: (JsonFilter | null),faq?: (LinkFilter | null),levels?: (JsonFilter | null),location?: (StringFilter | null),name?: (StringFilter | null),numberOfRatings?: (IntegerFilter | null),qualifiedCourses?: (LinksFilter | null),rate?: (IntegerFilter | null),rating?: (FloatFilter | null),remoteStatus?: (JsonFilter | null),slug?: (SlugFilter | null),summary?: (StringFilter | null),OR?: ((TutorModelFilter | null)[] | null),AND?: ((TutorModelFilter | null)[] | null)}
 
 
 /** Record of type 🧑‍🏫 Tutor (tutor) */
@@ -3682,7 +3653,7 @@ export interface TutorRecordGenqlSelection{
     rating?: boolean | number
     remoteStatus?: boolean | number
     slug?: boolean | number
-    summary?: TutorModelSummaryFieldGenqlSelection
+    summary?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -4423,14 +4394,6 @@ export interface focalPointGenqlSelection{
     
 
 
-    const TutorModelSummaryField_possibleTypes: string[] = ['TutorModelSummaryField']
-    export const isTutorModelSummaryField = (obj?: { __typename?: any } | null): obj is TutorModelSummaryField => {
-      if (!obj?.__typename) throw new Error('__typename is missing in "isTutorModelSummaryField"')
-      return TutorModelSummaryField_possibleTypes.includes(obj.__typename)
-    }
-    
-
-
     const TutorRecord_possibleTypes: string[] = ['TutorRecord']
     export const isTutorRecord = (obj?: { __typename?: any } | null): obj is TutorRecord => {
       if (!obj?.__typename) throw new Error('__typename is missing in "isTutorRecord"')
@@ -4863,7 +4826,9 @@ export const enumTutorModelOrderBy = {
    rate_ASC: 'rate_ASC' as const,
    rate_DESC: 'rate_DESC' as const,
    rating_ASC: 'rating_ASC' as const,
-   rating_DESC: 'rating_DESC' as const
+   rating_DESC: 'rating_DESC' as const,
+   summary_ASC: 'summary_ASC' as const,
+   summary_DESC: 'summary_DESC' as const
 }
 
 export const enumUploadOrderBy = {

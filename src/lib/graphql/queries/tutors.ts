@@ -1,6 +1,5 @@
 import { client } from "$lib/graphql/client";
-
-
+import { courseMetaFields, tutorMetaFields } from "./fields";
 
 const getAllTutorsMetas = async (first?: number) => {
 	const { allTutors } = await client.query({
@@ -8,19 +7,7 @@ const getAllTutorsMetas = async (first?: number) => {
 			__args: {
 				first,
 			},
-			id: true,
-			name: true,
-			slug: true,
-			summary: {
-				value: true,
-			},
-			rate: true,
-			rating: true,
-			numberOfRatings: true,
-            levels: true,
-			audiences: true,
-            location: true,
-            remoteStatus: true,
+			...tutorMetaFields,
 		},
 	});
 
@@ -37,9 +24,8 @@ const getTutorBySlug = async (slug: string) => {
 					},
 				},
 			},
-			id: true,
-			name: true,
-			slug: true,
+			...tutorMetaFields,
+			qualifiedCourses: courseMetaFields,
 		},
 	});
 

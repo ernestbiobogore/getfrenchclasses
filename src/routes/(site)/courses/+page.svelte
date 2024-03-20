@@ -5,7 +5,7 @@
 	import CourseSectionDivider from "./CourseSectionDivider.svelte";
 
 	export let data;
-	$: ({ allCourses } = data);
+	$: ({ allCoursesMetas } = data);
 
 	const filterOptions = {
 		levels: [
@@ -44,7 +44,7 @@
 
 	<div class="gap-8 container-base">
 		<div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-			{#each allCourses as course}
+			{#each allCoursesMetas as course}
 				<CourseCard {course} />
 			{/each}
 		</div>
@@ -56,7 +56,7 @@
 
 	<div class="gap-8 container-base">
 		<div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-			{#each allCourses as course}
+			{#each allCoursesMetas as course}
 				<CourseCard {course} />
 			{/each}
 		</div>

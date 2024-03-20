@@ -2,11 +2,13 @@ import type {
 	ActionBlockRecordGenqlSelection,
 	CardBlockNewRecordGenqlSelection,
 	CardBlockRecordGenqlSelection,
+	CourseRecordGenqlSelection,
 	FaqBlockNewRecordGenqlSelection,
 	HeadingBlockNewRecordGenqlSelection,
 	PostRecordGenqlSelection,
 	ResponsiveImageGenqlSelection,
 	SeoFieldGenqlSelection,
+	TutorRecordGenqlSelection,
 } from "$lib/graphql/generated";
 
 const headingFieldSelection = {
@@ -93,14 +95,51 @@ const postCategoryBlockFields = {
 	slug: true,
 } satisfies PostRecordGenqlSelection["category"];
 
+const tutorMetaFields = {
+	id: true,
+	name: true,
+	slug: true,
+	summary: true,
+	rate: true,
+	rating: true,
+	numberOfRatings: true,
+	levels: true,
+	audiences: true,
+	location: true,
+	remoteStatus: true,
+} satisfies TutorRecordGenqlSelection;
+
+const courseMetaFields = {
+	id: true,
+	slug: true,
+	name: true,
+	duration: true,
+	numberOfSections: true,
+	numberOfEnrolledStudents: true,
+	level: true,
+	price: true,
+	seo: {
+		seoBlock: {
+			title: true,
+			description: true,
+			image: {
+				url: true,
+				alt: true,
+			},
+		},
+	},
+} satisfies CourseRecordGenqlSelection;
+
 export {
 	actionBlockFieldSelection,
 	cardBlockFieldSelection,
 	cardBlockFields,
+	courseMetaFields,
 	faqBlockFieldSelection,
 	headingFieldSelection,
 	postCategoryBlockFields,
 	responsiveImageFieldSelection,
-	seoFieldsSelection
+	seoFieldsSelection,
+	tutorMetaFields
 };
 

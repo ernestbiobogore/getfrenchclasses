@@ -1,5 +1,5 @@
 import { client } from "$lib/graphql/client";
-import { faqBlockFieldSelection } from "./fields";
+import { courseMetaFields, faqBlockFieldSelection } from "./fields";
 
 const getCoursesSlugs = async () => {
 	const { allCourses } = await client.query({
@@ -41,6 +41,19 @@ const getAllCourses = async (first?: number) => {
 					},
 				},
 			},
+		},
+	});
+
+	return allCourses;
+};
+
+const getAllCoursesMetas = async (first?: number) => {
+	const { allCourses } = await client.query({
+		allCourses: {
+			__args: {
+				first,
+			},
+			...courseMetaFields,
 		},
 	});
 
@@ -121,4 +134,4 @@ const getCourseBySlug = async (slug: string) => {
 	return course;
 };
 
-export { getAllCourses, getCourseBySlug, getCoursesSlugs };
+export { getAllCourses, getAllCoursesMetas, getCourseBySlug, getCoursesSlugs };

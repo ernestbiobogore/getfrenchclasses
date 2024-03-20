@@ -3445,30 +3445,6 @@ input StringMatchesFilter {
   regexp: BooleanType = true
 }
 
-"""Specifies how to filter Structured Text fields values"""
-input StructuredTextFilter {
-  """Filter records based on a regular expression"""
-  matches: StringMatchesFilter
-
-  """Exclude records based on a regular expression"""
-  notMatches: StringMatchesFilter
-
-  """
-  Filter records with the specified field set as blank (null or single empty paragraph)
-  """
-  isBlank: BooleanType
-
-  """
-  Filter records with the specified field present (neither null, nor empty string)
-  """
-  isPresent: BooleanType
-
-  """
-  Filter records with the specified field defined (i.e. with any value) or not [DEPRECATED]
-  """
-  exists: BooleanType
-}
-
 type Tag {
   attributes: MetaTagAttributes
   content: String
@@ -3622,7 +3598,7 @@ input TutorModelFilter {
   rating: FloatFilter
   remoteStatus: JsonFilter
   slug: SlugFilter
-  summary: StructuredTextFilter
+  summary: StringFilter
   OR: [TutorModelFilter]
   AND: [TutorModelFilter]
 }
@@ -3656,12 +3632,8 @@ enum TutorModelOrderBy {
   rate_DESC
   rating_ASC
   rating_DESC
-}
-
-type TutorModelSummaryField {
-  blocks: [String!]!
-  links: [String!]!
-  value: JsonField!
+  summary_ASC
+  summary_DESC
 }
 
 """Record of type 🧑‍🏫 Tutor (tutor)"""
@@ -3696,7 +3668,7 @@ type TutorRecord implements RecordInterface {
   rating: FloatType!
   remoteStatus: JsonField!
   slug: String!
-  summary: TutorModelSummaryField
+  summary: String!
 }
 
 """Specifies how to filter by upload type"""

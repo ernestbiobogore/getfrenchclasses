@@ -1,9 +1,9 @@
-import { getAllCourses } from "$lib/graphql/queries/courses";
+import { getAllCoursesMetas } from "$lib/graphql/queries/courses";
 
 export const load = async () => {
-	const allCourses = await getAllCourses();
+	const allCoursesMetas = await getAllCoursesMetas();
 
 	return {
-		allCourses,
+		allCoursesMetas,
 	};
 };
