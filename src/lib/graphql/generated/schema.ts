@@ -878,6 +878,13 @@ export interface TestimonialsSectionRecord {
     __typename: 'TestimonialsSectionRecord'
 }
 
+export interface TutorModelAboutField {
+    blocks: Scalars['String'][]
+    links: Scalars['String'][]
+    value: Scalars['JsonField']
+    __typename: 'TutorModelAboutField'
+}
+
 export type TutorModelOrderBy = '_createdAt_ASC' | '_createdAt_DESC' | 'id_ASC' | 'id_DESC' | '_firstPublishedAt_ASC' | '_firstPublishedAt_DESC' | '_publicationScheduledAt_ASC' | '_publicationScheduledAt_DESC' | '_unpublishingScheduledAt_ASC' | '_unpublishingScheduledAt_DESC' | '_publishedAt_ASC' | '_publishedAt_DESC' | '_status_ASC' | '_status_DESC' | '_updatedAt_ASC' | '_updatedAt_DESC' | '_isValid_ASC' | '_isValid_DESC' | 'location_ASC' | 'location_DESC' | 'name_ASC' | 'name_DESC' | 'numberOfRatings_ASC' | 'numberOfRatings_DESC' | 'rate_ASC' | 'rate_DESC' | 'rating_ASC' | 'rating_DESC' | 'summary_ASC' | 'summary_DESC'
 
 
@@ -896,6 +903,7 @@ export interface TutorRecord {
     _status: ItemStatus
     _unpublishingScheduledAt: (Scalars['DateTime'] | null)
     _updatedAt: Scalars['DateTime']
+    about: (TutorModelAboutField | null)
     audiences: Scalars['JsonField']
     faq: (FaqItemRecord | null)
     id: Scalars['ItemId']
@@ -907,6 +915,7 @@ export interface TutorRecord {
     rate: Scalars['IntType']
     rating: Scalars['FloatType']
     remoteStatus: Scalars['JsonField']
+    reviews: TestimonialBlockDefaultRecord[]
     slug: Scalars['String']
     summary: Scalars['String']
     __typename: 'TutorRecord'
@@ -3478,6 +3487,20 @@ exists?: (Scalars['BooleanType'] | null)}
 
 export interface StringMatchesFilter {pattern: Scalars['String'],caseSensitive?: (Scalars['BooleanType'] | null),regexp?: (Scalars['BooleanType'] | null)}
 
+
+/** Specifies how to filter Structured Text fields values */
+export interface StructuredTextFilter {
+/** Filter records based on a regular expression */
+matches?: (StringMatchesFilter | null),
+/** Exclude records based on a regular expression */
+notMatches?: (StringMatchesFilter | null),
+/** Filter records with the specified field set as blank (null or single empty paragraph) */
+isBlank?: (Scalars['BooleanType'] | null),
+/** Filter records with the specified field present (neither null, nor empty string) */
+isPresent?: (Scalars['BooleanType'] | null),
+/** Filter records with the specified field defined (i.e. with any value) or not [DEPRECATED] */
+exists?: (Scalars['BooleanType'] | null)}
+
 export interface TagGenqlSelection{
     attributes?: boolean | number
     content?: boolean | number
@@ -3621,7 +3644,15 @@ export interface TestimonialsSectionRecordGenqlSelection{
     __scalar?: boolean | number
 }
 
-export interface TutorModelFilter {_createdAt?: (CreatedAtFilter | null),id?: (ItemIdFilter | null),_firstPublishedAt?: (PublishedAtFilter | null),_publicationScheduledAt?: (PublishedAtFilter | null),_unpublishingScheduledAt?: (PublishedAtFilter | null),_publishedAt?: (PublishedAtFilter | null),_status?: (StatusFilter | null),_updatedAt?: (UpdatedAtFilter | null),_isValid?: (BooleanFilter | null),audiences?: (JsonFilter | null),faq?: (LinkFilter | null),levels?: (JsonFilter | null),location?: (StringFilter | null),name?: (StringFilter | null),numberOfRatings?: (IntegerFilter | null),qualifiedCourses?: (LinksFilter | null),rate?: (IntegerFilter | null),rating?: (FloatFilter | null),remoteStatus?: (JsonFilter | null),slug?: (SlugFilter | null),summary?: (StringFilter | null),OR?: ((TutorModelFilter | null)[] | null),AND?: ((TutorModelFilter | null)[] | null)}
+export interface TutorModelAboutFieldGenqlSelection{
+    blocks?: boolean | number
+    links?: boolean | number
+    value?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+export interface TutorModelFilter {_createdAt?: (CreatedAtFilter | null),id?: (ItemIdFilter | null),_firstPublishedAt?: (PublishedAtFilter | null),_publicationScheduledAt?: (PublishedAtFilter | null),_unpublishingScheduledAt?: (PublishedAtFilter | null),_publishedAt?: (PublishedAtFilter | null),_status?: (StatusFilter | null),_updatedAt?: (UpdatedAtFilter | null),_isValid?: (BooleanFilter | null),about?: (StructuredTextFilter | null),audiences?: (JsonFilter | null),faq?: (LinkFilter | null),levels?: (JsonFilter | null),location?: (StringFilter | null),name?: (StringFilter | null),numberOfRatings?: (IntegerFilter | null),qualifiedCourses?: (LinksFilter | null),rate?: (IntegerFilter | null),rating?: (FloatFilter | null),remoteStatus?: (JsonFilter | null),slug?: (SlugFilter | null),summary?: (StringFilter | null),OR?: ((TutorModelFilter | null)[] | null),AND?: ((TutorModelFilter | null)[] | null)}
 
 
 /** Record of type 🧑‍🏫 Tutor (tutor) */
@@ -3641,6 +3672,7 @@ export interface TutorRecordGenqlSelection{
     _status?: boolean | number
     _unpublishingScheduledAt?: boolean | number
     _updatedAt?: boolean | number
+    about?: TutorModelAboutFieldGenqlSelection
     audiences?: boolean | number
     faq?: FaqItemRecordGenqlSelection
     id?: boolean | number
@@ -3652,6 +3684,7 @@ export interface TutorRecordGenqlSelection{
     rate?: boolean | number
     rating?: boolean | number
     remoteStatus?: boolean | number
+    reviews?: TestimonialBlockDefaultRecordGenqlSelection
     slug?: boolean | number
     summary?: boolean | number
     __typename?: boolean | number
@@ -4390,6 +4423,14 @@ export interface focalPointGenqlSelection{
     export const isTestimonialsSectionRecord = (obj?: { __typename?: any } | null): obj is TestimonialsSectionRecord => {
       if (!obj?.__typename) throw new Error('__typename is missing in "isTestimonialsSectionRecord"')
       return TestimonialsSectionRecord_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const TutorModelAboutField_possibleTypes: string[] = ['TutorModelAboutField']
+    export const isTutorModelAboutField = (obj?: { __typename?: any } | null): obj is TutorModelAboutField => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isTutorModelAboutField"')
+      return TutorModelAboutField_possibleTypes.includes(obj.__typename)
     }
     
 

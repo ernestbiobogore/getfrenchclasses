@@ -3,6 +3,7 @@
 	import * as Card from "$lib/components/shadcn/ui/card";
 	import type { TestimonialBlockDefaultRecord } from "$lib/graphql/generated";
 	import { Image } from "@datocms/svelte";
+	import "./styles/testimonial.css";
 
 	export let testimonial: TestimonialBlockDefaultRecord;
 </script>

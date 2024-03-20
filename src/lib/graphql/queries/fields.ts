@@ -9,6 +9,8 @@ import type {
 	PostRecordGenqlSelection,
 	ResponsiveImageGenqlSelection,
 	SeoFieldGenqlSelection,
+	TestimonialBlockCtaRecordGenqlSelection,
+	TestimonialBlockDefaultRecordGenqlSelection,
 	TutorRecordGenqlSelection,
 } from "$lib/graphql/generated";
 
@@ -138,11 +140,43 @@ const faqItemFieldsSelection = {
 	faqBlocks: faqBlockFieldSelection,
 } satisfies FaqItemRecordGenqlSelection;
 
+const defaultTestimonialFieldsSelection = {
+	__typename: true,
+	id: true,
+	author: true,
+	role: true,
+	company: true,
+	picture: {
+		responsiveImage: responsiveImageFieldSelection,
+	},
+	content: {
+		value: true,
+	},
+} satisfies TestimonialBlockDefaultRecordGenqlSelection;
+
+const ctaTestimonialFieldsSelection = {
+	__typename: true,
+	id: true,
+	author: true,
+	role: true,
+	company: true,
+	picture: {
+		responsiveImage: responsiveImageFieldSelection,
+	},
+	highlight: {
+		value: true,
+	},
+	content: headingFieldSelection,
+	cta: actionBlockFieldSelection,
+} satisfies TestimonialBlockCtaRecordGenqlSelection;
+
 export {
 	actionBlockFieldSelection,
 	cardBlockFieldSelection,
 	cardBlockFields,
 	courseMetaFields,
+	ctaTestimonialFieldsSelection,
+	defaultTestimonialFieldsSelection,
 	faqBlockFieldSelection,
 	faqItemFieldsSelection,
 	headingFieldSelection,

@@ -2,6 +2,8 @@ import { client } from "$lib/graphql/client";
 import {
 	actionBlockFieldSelection,
 	cardBlockFieldSelection,
+	ctaTestimonialFieldsSelection,
+	defaultTestimonialFieldsSelection,
 	faqBlockFieldSelection,
 	headingFieldSelection,
 	responsiveImageFieldSelection,
@@ -76,36 +78,8 @@ const getSingleModularPage = async (slug: string) => {
 				on_TestimonialsSectionRecord: {
 					heading: headingFieldSelection,
 					testimonials: {
-						on_RecordInterface: {
-							__typename: true,
-							id: true,
-						},
-
-						on_TestimonialBlockDefaultRecord: {
-							author: true,
-							role: true,
-							company: true,
-							picture: {
-								responsiveImage: responsiveImageFieldSelection,
-							},
-							content: {
-								value: true,
-							},
-						},
-
-						on_TestimonialBlockCtaRecord: {
-							author: true,
-							role: true,
-							company: true,
-							picture: {
-								responsiveImage: responsiveImageFieldSelection,
-							},
-							highlight: {
-								value: true,
-							},
-							content: headingFieldSelection,
-							cta: actionBlockFieldSelection,
-						},
+						on_TestimonialBlockDefaultRecord: defaultTestimonialFieldsSelection,
+						on_TestimonialBlockCtaRecord: ctaTestimonialFieldsSelection,
 					},
 				},
 			},

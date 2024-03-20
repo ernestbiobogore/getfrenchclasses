@@ -7,7 +7,6 @@
 	} from "$lib/graphql/generated";
 	import CtaTestimonial from "../blocks/CtaTestimonial.svelte";
 	import DefaultTestimonial from "../blocks/DefaultTestimonial.svelte";
-	import "../blocks/styles/testimonial.css";
 
 	export let record: TestimonialsSectionRecord;
 

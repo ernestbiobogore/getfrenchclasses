@@ -1,6 +1,7 @@
 <script lang="ts">
 	import CourseCard from "$lib/components/CourseCard.svelte";
-	import TestimonialCardList from "$lib/components/TestimonialCardList.svelte";
+	import StructuredText from "$lib/components/dato/StructuredText/index.svelte";
+	import DefaultTestimonial from "$lib/components/dato/blocks/DefaultTestimonial.svelte";
 	import FAQItems from "$lib/components/dato/blocks/FAQItems.svelte";
 	import Heading from "$lib/components/dato/blocks/Heading.svelte";
 	import { Badge } from "$shadcn/badge";
@@ -55,11 +56,7 @@
 
 		<div>
 			<h2>About {data.tutor.name}</h2>
-			<p>
-				I love teaching languages, it's my passion! I work with adults and young people, I like
-				building genuine relationships with my students. I have lived and worked in many mdifferent
-				countries and I can speak five languages: Italian, French, English, Spanish and...latin !
-			</p>
+			<StructuredText richText={data.tutor.about} />
 		</div>
 
 		<!-- TODO: GET CLARIFICATION -->
@@ -73,13 +70,17 @@
 			</div>
 		</div>
 
-		<div class="space-y-4">
-			<h2>Reviews</h2>
+		{#if data.tutor.reviews && data.tutor.reviews.length > 0}
+			<div class="space-y-4">
+				<h2>Reviews</h2>
 
-			<div class="" style:--padding="0">
-				<TestimonialCardList />
+				<div class="grid gap-8 py-20 md:grid-cols-2">
+					{#each data.tutor.reviews as testimonial (testimonial.id)}
+						<DefaultTestimonial {testimonial} />
+					{/each}
+				</div>
 			</div>
-		</div>
+		{/if}
 
 		<section class="py-20 space-y-12 lg:w-2/3">
 			<Heading defaultHeading="Find more about {data.tutor.name}" useDefaultHeading />
@@ -95,12 +96,14 @@
 	</div>
 </section>
 
-<section class="space-y-4 container-base">
-	<h2>Other tutors</h2>
+{#if data.tutorsMetas && data.tutorsMetas.length > 0}
+	<section class="space-y-4 container-base">
+		<h2>Other tutors</h2>
 
-	<!-- <div class="grid gap-5 sm:grid-cols-2 md:grid-cols-3 lg:gap-8 lg:grid-cols-4">
-		{#each tutorsDummyData.splice(0, 4) as tutor}
-			<TutorCard {tutor}></TutorCard>
-		{/each}
-	</div> -->
-</section>
+		<div class="grid gap-5 sm:grid-cols-2 md:grid-cols-3 lg:gap-8 lg:grid-cols-4">
+			{#each data.tutorsMetas.splice(0, 4) as tutor}
+				<TutorCard {tutor}></TutorCard>
+			{/each}
+		</div>
+	</section>
+{/if}
