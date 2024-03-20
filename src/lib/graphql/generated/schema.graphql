@@ -781,6 +781,38 @@ interface FileFieldInterface {
   width: IntType
 }
 
+"""Specifies how to filter Floating-point fields"""
+input FloatFilter {
+  """
+  Filter records with a value that's strictly greater than the one specified
+  """
+  gt: FloatType
+
+  """Filter records with a value that's less than the one specified"""
+  lt: FloatType
+
+  """
+  Filter records with a value that's greater than or equal to the one specified
+  """
+  gte: FloatType
+
+  """
+  Filter records with a value that's less or equal than the one specified
+  """
+  lte: FloatType
+
+  """
+  Filter records with the specified field defined (i.e. with any value) or not
+  """
+  exists: BooleanType
+
+  """Search for records with an exact match"""
+  eq: FloatType
+
+  """Exclude records with an exact match"""
+  neq: FloatType
+}
+
 """
 Represents signed double-precision fractional values as specified by [IEEE 754](http://en.wikipedia.org/wiki/IEEE_floating_point).
 """
@@ -2525,6 +2557,14 @@ enum ItemStatus {
 
 scalar JsonField
 
+"""Specifies how to filter JSON fields"""
+input JsonFilter {
+  """
+  Filter records with the specified field defined (i.e. with any value) or not
+  """
+  exists: BooleanType
+}
+
 """Specifies how to filter Single-link fields"""
 input LinkFilter {
   """
@@ -3571,9 +3611,16 @@ input TutorModelFilter {
   _status: StatusFilter
   _updatedAt: UpdatedAtFilter
   _isValid: BooleanFilter
+  audiences: JsonFilter
   faq: LinkFilter
+  levels: JsonFilter
+  location: StringFilter
   name: StringFilter
+  numberOfRatings: IntegerFilter
   qualifiedCourses: LinksFilter
+  rate: IntegerFilter
+  rating: FloatFilter
+  remoteStatus: JsonFilter
   slug: SlugFilter
   summary: StructuredTextFilter
   OR: [TutorModelFilter]
@@ -3599,8 +3646,16 @@ enum TutorModelOrderBy {
   _updatedAt_DESC
   _isValid_ASC
   _isValid_DESC
+  location_ASC
+  location_DESC
   name_ASC
   name_DESC
+  numberOfRatings_ASC
+  numberOfRatings_DESC
+  rate_ASC
+  rate_DESC
+  rating_ASC
+  rating_DESC
 }
 
 type TutorModelSummaryField {
@@ -3629,10 +3684,17 @@ type TutorRecord implements RecordInterface {
   _status: ItemStatus!
   _unpublishingScheduledAt: DateTime
   _updatedAt: DateTime!
+  audiences: JsonField!
   faq: FaqItemRecord
   id: ItemId!
+  levels: JsonField!
+  location: String!
   name: String!
+  numberOfRatings: IntType!
   qualifiedCourses: [CourseRecord!]!
+  rate: IntType!
+  rating: FloatType!
+  remoteStatus: JsonField!
   slug: String!
   summary: TutorModelSummaryField
 }

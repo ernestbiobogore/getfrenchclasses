@@ -5,46 +5,27 @@
 			{ value: "intermediate", label: "Intermediate" },
 			{ value: "advanced", label: "Advanced" },
 		],
-		type: [
+		audiences: [
 			{ value: "kids", label: "Kids" },
 			{ value: "adults", label: "Adults" },
 		],
 	} as const;
 
-	export const tutorsDummyData = Array.from({ length: 6 })
-		.fill({
-			name: "Kevin L.",
-			short_description: "French lessons with a native speaker with 40+ years of experience",
-			rating: 5.0,
-			audience: ["Adults"],
-			levels: ["Intermediate", "Advanced"],
-			location: "Richboro, PA (Online, In person)",
-			price: 24,
-		})
-		.concat([
-			{
-				name: "Kevin L.",
-				short_description: "French lessons with a native speaker with 40+ years of experience",
-				rating: 5.0,
-				audience: ["Kids"],
-				levels: ["Beginner"],
-				location: "Richboro, PA (Online, In person)",
-				price: 24,
-			},
-			{
-				name: "Kevin L.",
-				short_description: "French lessons with a native speaker with 40+ years of experience",
-				rating: 5.0,
-				audience: ["Kids"],
-				levels: ["Beginner"],
-				location: "Richboro, PA (Online, In person)",
-				price: 24,
-			},
-		]) as Tutor[];
+	function isLevelOptionValue(value: string | undefined): value is LevelOptionValue {
+		return filterOptions.levels.some(option => option.label === value);
+	}
 
-	export type LevelOptionValue = (typeof filterOptions)["levels"][number]["label"];
-	export type TypeOptionValue = (typeof filterOptions)["type"][number]["label"];
-	export type TutorSelected = Selected<LevelOptionValue | TypeOptionValue>[];
+	function isAudienceOptionValue(value: string | undefined): value is AudienceOptionValue {
+		return filterOptions.audiences.some(option => option.label === value);
+	}
+
+	function castAsRecord(t: any) {
+		return t as Record<string, { value: string; label: string }[]>;
+	}
+
+	export type LevelOptionValue = (typeof filterOptions)["levels"][number]["value"];
+	export type AudienceOptionValue = (typeof filterOptions)["audiences"][number]["value"];
+	export type SelectedTutorOptions = Selected<LevelOptionValue | AudienceOptionValue>[];
 </script>
 
 <script lang="ts">
@@ -56,65 +37,58 @@
 	import TestimonialCta, {
 		dummyTestimonialCta,
 	} from "$lib/components/cta-section/TestimonialCta.svelte";
-	import FAQItems from "$lib/components/dato/blocks/FAQItems.svelte";
 	import Heading from "$lib/components/dato/blocks/Heading.svelte";
 	import { Button } from "$shadcn/button";
 	import * as Card from "$shadcn/card";
 	import type { Selected } from "bits-ui";
-	import TutorCard, { type Tutor } from "./TutorCard.svelte";
+	import TutorCard from "./TutorCard.svelte";
 
 	export let data;
 
-	let filteredTutors: Tutor[] = tutorsDummyData;
+	$: filteredTutors = data.tutorsMetas;
 
 	const handleFilterChange: SelectChangeHandler = selected => {
 		if (!selected || selected.length === 0) {
-			filteredTutors = tutorsDummyData;
+			filteredTutors = data.tutorsMetas;
 			return;
 		}
 
-		const tutorSelected = selected as TutorSelected;
+		const selectedTutorOptions = selected as SelectedTutorOptions;
 
-		filteredTutors = tutorsDummyData.filter(tutor => {
-			const levelSelected = tutorSelected.some(option => isLevelOptionValue(option.label));
-			const typeSelected = tutorSelected.some(option => isTypeOptionValue(option.label));
+		filteredTutors = data.tutorsMetas.filter(tutor => {
+			const levelSelected = selectedTutorOptions.some(option => isLevelOptionValue(option.label));
+			const audienceSelected = selectedTutorOptions.some(option =>
+				isAudienceOptionValue(option.label)
+			);
 
-			if (levelSelected && typeSelected) {
+			if (levelSelected && audienceSelected) {
 				return (
-					tutor.levels.some(level => tutorSelected.some(option => option.label === level)) ||
-					tutor.audience.some(audience => tutorSelected.some(option => option.label === audience))
+					tutor.levels.some(level => selectedTutorOptions.some(option => option.value === level)) ||
+					tutor.audiences.some(audience =>
+						selectedTutorOptions.some(option => option.value === audience)
+					)
 				);
 			}
 
 			if (levelSelected) {
-				return tutor.levels.some(level => tutorSelected.some(option => option.label === level));
+				return tutor.levels.some(level =>
+					selectedTutorOptions.some(option => option.value === level)
+				);
 			}
 
-			if (typeSelected) {
-				return tutor.audience.some(audience =>
-					tutorSelected.some(option => option.label === audience)
+			if (audienceSelected) {
+				return tutor.audiences.some(audience =>
+					selectedTutorOptions.some(option => option.value === audience)
 				);
 			}
 
 			return false;
 		});
 	};
-
-	function isLevelOptionValue(value: string | undefined): value is LevelOptionValue {
-		return filterOptions.levels.some(option => option.label === value);
-	}
-
-	function isTypeOptionValue(value: string | undefined): value is TypeOptionValue {
-		return filterOptions.type.some(option => option.label === value);
-	}
-
-	function castAsRecord(t: any) {
-		return t as Record<string, { value: string; label: string }[]>;
-	}
 </script>
 
 <svelte:head>
-	<title>All our Courses - GetFrenchClasses</title>
+	<title>All our tutors - GetFrenchClasses</title>
 </svelte:head>
 
 <section class="p-3 space-y-5 container-base md:py-20 md:text-center">
@@ -134,7 +108,7 @@
 <section class="pt-10 container-base">
 	<CustomMultiselect
 		onSelectedChange={handleFilterChange}
-		placeholder="Filter by Level or Type"
+		placeholder="Filter by Level or Audience"
 		options={castAsRecord(filterOptions)}
 	/>
 </section>
@@ -207,7 +181,7 @@
 <!-- FAQ -->
 <section class="py-20 space-y-12 container-base">
 	<Heading defaultHeading="Frequently Asked Questions" useDefaultHeading />
-	<FAQItems items={data.homeFaqBlocks} />
+	<!-- <FAQItems items={data.homeFaqBlocks} /> -->
 </section>
 
 <TestimonialCta {...dummyTestimonialCta} />

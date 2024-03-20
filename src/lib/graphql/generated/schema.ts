@@ -9,9 +9,9 @@ export type Scalars = {
     CustomData: any,
     DateTime: any,
     Float: number,
-    FloatType: any,
+    FloatType: number,
     Int: number,
-    IntType: any,
+    IntType: number,
     ItemId: any,
     JsonField: any,
     MetaTagAttributes: any,
@@ -878,7 +878,7 @@ export interface TestimonialsSectionRecord {
     __typename: 'TestimonialsSectionRecord'
 }
 
-export type TutorModelOrderBy = '_createdAt_ASC' | '_createdAt_DESC' | 'id_ASC' | 'id_DESC' | '_firstPublishedAt_ASC' | '_firstPublishedAt_DESC' | '_publicationScheduledAt_ASC' | '_publicationScheduledAt_DESC' | '_unpublishingScheduledAt_ASC' | '_unpublishingScheduledAt_DESC' | '_publishedAt_ASC' | '_publishedAt_DESC' | '_status_ASC' | '_status_DESC' | '_updatedAt_ASC' | '_updatedAt_DESC' | '_isValid_ASC' | '_isValid_DESC' | 'name_ASC' | 'name_DESC'
+export type TutorModelOrderBy = '_createdAt_ASC' | '_createdAt_DESC' | 'id_ASC' | 'id_DESC' | '_firstPublishedAt_ASC' | '_firstPublishedAt_DESC' | '_publicationScheduledAt_ASC' | '_publicationScheduledAt_DESC' | '_unpublishingScheduledAt_ASC' | '_unpublishingScheduledAt_DESC' | '_publishedAt_ASC' | '_publishedAt_DESC' | '_status_ASC' | '_status_DESC' | '_updatedAt_ASC' | '_updatedAt_DESC' | '_isValid_ASC' | '_isValid_DESC' | 'location_ASC' | 'location_DESC' | 'name_ASC' | 'name_DESC' | 'numberOfRatings_ASC' | 'numberOfRatings_DESC' | 'rate_ASC' | 'rate_DESC' | 'rating_ASC' | 'rating_DESC'
 
 export interface TutorModelSummaryField {
     blocks: Scalars['String'][]
@@ -903,10 +903,17 @@ export interface TutorRecord {
     _status: ItemStatus
     _unpublishingScheduledAt: (Scalars['DateTime'] | null)
     _updatedAt: Scalars['DateTime']
+    audiences: Scalars['JsonField']
     faq: (FaqItemRecord | null)
     id: Scalars['ItemId']
+    levels: Scalars['JsonField']
+    location: Scalars['String']
     name: Scalars['String']
+    numberOfRatings: Scalars['IntType']
     qualifiedCourses: CourseRecord[]
+    rate: Scalars['IntType']
+    rating: Scalars['FloatType']
+    remoteStatus: Scalars['JsonField']
     slug: Scalars['String']
     summary: (TutorModelSummaryField | null)
     __typename: 'TutorRecord'
@@ -1498,6 +1505,24 @@ export interface FileFieldInterfaceGenqlSelection{
     __typename?: boolean | number
     __scalar?: boolean | number
 }
+
+
+/** Specifies how to filter Floating-point fields */
+export interface FloatFilter {
+/** Filter records with a value that's strictly greater than the one specified */
+gt?: (Scalars['FloatType'] | null),
+/** Filter records with a value that's less than the one specified */
+lt?: (Scalars['FloatType'] | null),
+/** Filter records with a value that's greater than or equal to the one specified */
+gte?: (Scalars['FloatType'] | null),
+/** Filter records with a value that's less or equal than the one specified */
+lte?: (Scalars['FloatType'] | null),
+/** Filter records with the specified field defined (i.e. with any value) or not */
+exists?: (Scalars['BooleanType'] | null),
+/** Search for records with an exact match */
+eq?: (Scalars['FloatType'] | null),
+/** Exclude records with an exact match */
+neq?: (Scalars['FloatType'] | null)}
 
 export interface GlobalSeoFieldGenqlSelection{
     facebookPageUrl?: boolean | number
@@ -2893,6 +2918,12 @@ in?: ((Scalars['ItemId'] | null)[] | null),
 notIn?: ((Scalars['ItemId'] | null)[] | null)}
 
 
+/** Specifies how to filter JSON fields */
+export interface JsonFilter {
+/** Filter records with the specified field defined (i.e. with any value) or not */
+exists?: (Scalars['BooleanType'] | null)}
+
+
 /** Specifies how to filter Single-link fields */
 export interface LinkFilter {
 /** Search for records with an exact match. The specified value must be a Record ID */
@@ -3611,7 +3642,7 @@ export interface TestimonialsSectionRecordGenqlSelection{
     __scalar?: boolean | number
 }
 
-export interface TutorModelFilter {_createdAt?: (CreatedAtFilter | null),id?: (ItemIdFilter | null),_firstPublishedAt?: (PublishedAtFilter | null),_publicationScheduledAt?: (PublishedAtFilter | null),_unpublishingScheduledAt?: (PublishedAtFilter | null),_publishedAt?: (PublishedAtFilter | null),_status?: (StatusFilter | null),_updatedAt?: (UpdatedAtFilter | null),_isValid?: (BooleanFilter | null),faq?: (LinkFilter | null),name?: (StringFilter | null),qualifiedCourses?: (LinksFilter | null),slug?: (SlugFilter | null),summary?: (StructuredTextFilter | null),OR?: ((TutorModelFilter | null)[] | null),AND?: ((TutorModelFilter | null)[] | null)}
+export interface TutorModelFilter {_createdAt?: (CreatedAtFilter | null),id?: (ItemIdFilter | null),_firstPublishedAt?: (PublishedAtFilter | null),_publicationScheduledAt?: (PublishedAtFilter | null),_unpublishingScheduledAt?: (PublishedAtFilter | null),_publishedAt?: (PublishedAtFilter | null),_status?: (StatusFilter | null),_updatedAt?: (UpdatedAtFilter | null),_isValid?: (BooleanFilter | null),audiences?: (JsonFilter | null),faq?: (LinkFilter | null),levels?: (JsonFilter | null),location?: (StringFilter | null),name?: (StringFilter | null),numberOfRatings?: (IntegerFilter | null),qualifiedCourses?: (LinksFilter | null),rate?: (IntegerFilter | null),rating?: (FloatFilter | null),remoteStatus?: (JsonFilter | null),slug?: (SlugFilter | null),summary?: (StructuredTextFilter | null),OR?: ((TutorModelFilter | null)[] | null),AND?: ((TutorModelFilter | null)[] | null)}
 
 export interface TutorModelSummaryFieldGenqlSelection{
     blocks?: boolean | number
@@ -3639,10 +3670,17 @@ export interface TutorRecordGenqlSelection{
     _status?: boolean | number
     _unpublishingScheduledAt?: boolean | number
     _updatedAt?: boolean | number
+    audiences?: boolean | number
     faq?: FaqItemRecordGenqlSelection
     id?: boolean | number
+    levels?: boolean | number
+    location?: boolean | number
     name?: boolean | number
+    numberOfRatings?: boolean | number
     qualifiedCourses?: CourseRecordGenqlSelection
+    rate?: boolean | number
+    rating?: boolean | number
+    remoteStatus?: boolean | number
     slug?: boolean | number
     summary?: TutorModelSummaryFieldGenqlSelection
     __typename?: boolean | number
@@ -4816,8 +4854,16 @@ export const enumTutorModelOrderBy = {
    _updatedAt_DESC: '_updatedAt_DESC' as const,
    _isValid_ASC: '_isValid_ASC' as const,
    _isValid_DESC: '_isValid_DESC' as const,
+   location_ASC: 'location_ASC' as const,
+   location_DESC: 'location_DESC' as const,
    name_ASC: 'name_ASC' as const,
-   name_DESC: 'name_DESC' as const
+   name_DESC: 'name_DESC' as const,
+   numberOfRatings_ASC: 'numberOfRatings_ASC' as const,
+   numberOfRatings_DESC: 'numberOfRatings_DESC' as const,
+   rate_ASC: 'rate_ASC' as const,
+   rate_DESC: 'rate_DESC' as const,
+   rating_ASC: 'rating_ASC' as const,
+   rating_DESC: 'rating_DESC' as const
 }
 
 export const enumUploadOrderBy = {

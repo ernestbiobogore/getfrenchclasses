@@ -3,11 +3,11 @@
 </script>
 
 <script lang="ts">
+	import { flyAndScale } from "$lib/utils";
+	import { Select, type Selected } from "bits-ui";
 	import Check from "~icons/lucide/check";
 	import ChevronUpDown from "~icons/lucide/chevrons-up-down";
 	import ListFilter from "~icons/lucide/list-filter";
-	import { Select, type Selected } from "bits-ui";
-	import { flyAndScale } from "$lib/utils";
 
 	export let options = {} as Record<string, { value: string; label: string }[]>;
 	export let onSelectedChange: SelectChangeHandler = () => {};

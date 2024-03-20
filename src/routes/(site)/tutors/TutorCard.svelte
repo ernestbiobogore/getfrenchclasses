@@ -1,22 +1,11 @@
-<script lang="ts" context="module">
-	import type { TypeOptionValue, LevelOptionValue } from "./+page.svelte";
-	export type Tutor = {
-		name: string;
-		short_description: string;
-		rating: number;
-		audience: TypeOptionValue[];
-		levels: LevelOptionValue[];
-		location: string;
-		price: number;
-	};
-</script>
-
 <script lang="ts">
+	import StructuredText from "$lib/components/dato/StructuredText/index.svelte";
 	import * as Avatar from "$shadcn/avatar";
 	import * as Card from "$shadcn/card";
 	import * as Dialog from "$shadcn/dialog";
 	import * as Tooltip from "$shadcn/tooltip";
 
+	import SharpVerifired from "~icons/ic/sharp-verified";
 	import LayersIcon from "~icons/lucide/layers";
 	import LocateIcon from "~icons/lucide/locate";
 	import MessageCircleIcon from "~icons/lucide/message-circle";
@@ -24,12 +13,12 @@
 	import UserIcon from "~icons/lucide/user";
 	import VideoIcon from "~icons/lucide/video";
 	import StarFillIcon from "~icons/solar/star-bold";
-	import SharpVerifired from "~icons/ic/sharp-verified";
 
 	import { Button } from "$shadcn/button";
-	import { goto } from "$app/navigation";
+	import { type FormattedTutorMeta } from "./types";
+	import { deSlugify } from "./utils.client";
 
-	export let tutor: Tutor;
+	export let tutor: FormattedTutorMeta;
 	export let withVerifiedBadge = false;
 	export let withCTA = false;
 </script>
@@ -66,8 +55,8 @@
 				</div>
 				<div class="flex items-center">
 					<StarFillIcon class="text-yellow-400" />
-					<span class="ml-1 mr-2 text-gray-900">5.0</span>
-					<span class="text-sm text-gray-500">(7)</span>
+					<span class="ml-1 mr-2 text-gray-900">{tutor.rating}</span>
+					<span class="text-sm text-gray-500">({tutor.numberOfRatings})</span>
 				</div>
 			</div>
 		</div>
@@ -85,25 +74,32 @@
 			</Dialog.Root>
 		{/if}
 
-		<div class="text-lg font-medium mb-6 text-gray-900">
-			{tutor.short_description}
-		</div>
+		<StructuredText
+			richText={tutor.summary}
+			elementClasses={{
+				p: "text-lg font-medium mb-6 text-gray-900",
+			}}
+		/>
+
 		<div class="flex items-center space-x-2 text-sm text-gray-600 mb-6">
 			<UserIcon class="w-5 h-5" />
-			<span>{tutor.audience.join(", ")}</span>
+			<span>{tutor.audiences.map(audience => deSlugify(audience)).join(", ")}</span>
 		</div>
 		<div class="flex items-center space-x-2 text-sm text-gray-600 mb-6">
 			<LayersIcon class="w-5 h-5" />
 			<span>
-				{tutor.levels.join(", ")}
+				{tutor.levels.map(level => deSlugify(level)).join(", ")}
 			</span>
 		</div>
 		<div class="flex items-center space-x-2 text-sm text-gray-600 mb-6">
 			<LocateIcon class="w-5 h-5" />
-			<span>{tutor.location}</span>
+			<span>
+				{tutor.location}
+				({tutor.remoteStatus.map(status => deSlugify(status)).join(", ")})
+			</span>
 		</div>
 		<div class="flex items-center justify-between">
-			<div class="text-xl font-semibold text-blue-600">${tutor.price}/hr</div>
+			<div class="text-xl font-semibold text-blue-600">${tutor.rate}/hr</div>
 			<div class="flex-s-center gap-2 text-lg text-gray-600">
 				<PhoneIcon />
 				<VideoIcon />
