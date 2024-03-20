@@ -11,6 +11,8 @@
 	import { deSlugify } from "../utils.client";
 
 	export let data;
+	$: allTutorsMeta = data.tutorsMetas;
+	$: otherTutors = allTutorsMeta.filter(tutor => tutor.slug !== data.tutor.slug);
 </script>
 
 <svelte:head>
@@ -96,12 +98,12 @@
 	</div>
 </section>
 
-{#if data.tutorsMetas && data.tutorsMetas.length > 0}
+{#if otherTutors && otherTutors.length > 0}
 	<section class="space-y-4 container-base">
 		<h2>Other tutors</h2>
 
 		<div class="grid gap-5 sm:grid-cols-2 md:grid-cols-3 lg:gap-8 lg:grid-cols-4">
-			{#each data.tutorsMetas.splice(0, 4) as tutor}
+			{#each otherTutors.splice(0, 4) as tutor}
 				<TutorCard {tutor}></TutorCard>
 			{/each}
 		</div>

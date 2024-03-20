@@ -45,17 +45,18 @@
 
 	export let data;
 
-	$: filteredTutors = data.tutorsMetas;
+	$: allTutorsMeta = data.tutorsMetas;
+	$: filteredTutors = allTutorsMeta;
 
 	const handleFilterChange: SelectChangeHandler = selected => {
 		if (!selected || selected.length === 0) {
-			filteredTutors = data.tutorsMetas;
+			filteredTutors = allTutorsMeta;
 			return;
 		}
 
 		const selectedTutorOptions = selected as SelectedTutorOptions;
 
-		filteredTutors = data.tutorsMetas.filter(tutor => {
+		filteredTutors = allTutorsMeta.filter(tutor => {
 			const levelSelected = selectedTutorOptions.some(option => isLevelOptionValue(option.label));
 			const audienceSelected = selectedTutorOptions.some(option =>
 				isAudienceOptionValue(option.label)
