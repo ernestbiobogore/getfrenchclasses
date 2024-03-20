@@ -29,7 +29,6 @@
 </script>
 
 <script lang="ts">
-	import { goto } from "$app/navigation";
 	import CustomMultiselect, {
 		type SelectChangeHandler,
 	} from "$lib/components/CustomMultiselect.svelte";
@@ -118,14 +117,7 @@
 
 	<div class="grid gap-5 sm:grid-cols-2 md:grid-cols-3 lg:gap-8 lg:grid-cols-4">
 		{#each filteredTutors as tutor}
-			<div
-				role="button"
-				tabindex="0"
-				on:keydown={e => e.key === "Enter" && goto("/tutors/andy")}
-				on:click={() => goto("/tutors/andy")}
-			>
-				<TutorCard {tutor}></TutorCard>
-			</div>
+			<TutorCard {tutor}></TutorCard>
 		{/each}
 	</div>
 
