@@ -120,7 +120,7 @@
 <!-- FAQ -->
 <section class="py-20 space-y-12 container-base">
 	<Heading defaultHeading="Frequently Asked Questions" useDefaultHeading />
-	<FAQItems items={data.homeFaqBlocks} />
+	<FAQItems items={data.homeFaq} />
 </section>
 
 <GenericCta text="Start learning more Grammar Tips Today" />

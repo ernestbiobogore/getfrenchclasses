@@ -36,6 +36,7 @@
 	import TestimonialCta, {
 		dummyTestimonialCta,
 	} from "$lib/components/cta-section/TestimonialCta.svelte";
+	import FAQItems from "$lib/components/dato/blocks/FAQItems.svelte";
 	import Heading from "$lib/components/dato/blocks/Heading.svelte";
 	import { Button } from "$shadcn/button";
 	import * as Card from "$shadcn/card";
@@ -173,7 +174,7 @@
 <!-- FAQ -->
 <section class="py-20 space-y-12 container-base">
 	<Heading defaultHeading="Frequently Asked Questions" useDefaultHeading />
-	<!-- <FAQItems items={data.homeFaqBlocks} /> -->
+	<FAQItems items={data.homeFaq} />
 </section>
 
 <TestimonialCta {...dummyTestimonialCta} />

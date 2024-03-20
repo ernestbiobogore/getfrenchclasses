@@ -94,6 +94,6 @@
 
 	<div class="py-20 space-y-12 md:basis-1/2">
 		<Heading defaultHeading="Frequently Asked Questions" useDefaultHeading />
-		<FAQItems items={data.homeFaqBlocks} />
+		<FAQItems items={data.homeFaq} />
 	</div>
 </section>
