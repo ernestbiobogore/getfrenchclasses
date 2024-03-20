@@ -4,6 +4,7 @@ import type {
 	CardBlockRecordGenqlSelection,
 	CourseRecordGenqlSelection,
 	FaqBlockNewRecordGenqlSelection,
+	FaqItemRecordGenqlSelection,
 	HeadingBlockNewRecordGenqlSelection,
 	PostRecordGenqlSelection,
 	ResponsiveImageGenqlSelection,
@@ -130,12 +131,20 @@ const courseMetaFields = {
 	},
 } satisfies CourseRecordGenqlSelection;
 
+const faqItemFieldsSelection = {
+	id: true,
+	title: true,
+	slug: true,
+	faqBlocks: faqBlockFieldSelection,
+} satisfies FaqItemRecordGenqlSelection;
+
 export {
 	actionBlockFieldSelection,
 	cardBlockFieldSelection,
 	cardBlockFields,
 	courseMetaFields,
 	faqBlockFieldSelection,
+	faqItemFieldsSelection,
 	headingFieldSelection,
 	postCategoryBlockFields,
 	responsiveImageFieldSelection,

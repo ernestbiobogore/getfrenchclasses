@@ -1,5 +1,5 @@
 import { client } from "$lib/graphql/client";
-import { courseMetaFields, tutorMetaFields } from "./fields";
+import { courseMetaFields, faqItemFieldsSelection, tutorMetaFields } from "./fields";
 
 const getAllTutorsMetas = async (first?: number) => {
 	const { allTutors } = await client.query({
@@ -26,6 +26,7 @@ const getTutorBySlug = async (slug: string) => {
 			},
 			...tutorMetaFields,
 			qualifiedCourses: courseMetaFields,
+			faq: faqItemFieldsSelection
 		},
 	});
 

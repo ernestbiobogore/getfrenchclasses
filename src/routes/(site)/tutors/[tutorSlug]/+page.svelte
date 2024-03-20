@@ -83,7 +83,7 @@
 
 		<section class="py-20 space-y-12 lg:w-2/3">
 			<Heading defaultHeading="Find more about {data.tutor.name}" useDefaultHeading />
-			<FAQItems items={data.homeFaqBlocks} />
+			<FAQItems items={data.tutor.faq} />
 		</section>
 	</div>
 

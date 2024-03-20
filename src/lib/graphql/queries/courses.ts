@@ -1,5 +1,5 @@
 import { client } from "$lib/graphql/client";
-import { courseMetaFields, faqBlockFieldSelection } from "./fields";
+import { courseMetaFields, faqItemFieldsSelection } from "./fields";
 
 const getCoursesSlugs = async () => {
 	const { allCourses } = await client.query({
@@ -83,10 +83,7 @@ const getCourseBySlug = async (slug: string) => {
 			tag: true,
 
 			// FAQ
-			faq: {
-				title: true,
-				faqBlocks: faqBlockFieldSelection,
-			},
+			faq: faqItemFieldsSelection,
 
 			// Features
 			featuresCards: {

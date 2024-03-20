@@ -1,5 +1,5 @@
 import { client } from "$lib/graphql/client";
-import { faqBlockFieldSelection } from "./fields";
+import { faqItemFieldsSelection } from "./fields";
 
 const getFaqItemBySlug = async (slug: string) => {
 	const { faqItem } = await client.query({
@@ -11,9 +11,7 @@ const getFaqItemBySlug = async (slug: string) => {
 					},
 				},
 			},
-			title: true,
-			slug: true,
-			faqBlocks: faqBlockFieldSelection,
+			...faqItemFieldsSelection,
 		},
 	});
 

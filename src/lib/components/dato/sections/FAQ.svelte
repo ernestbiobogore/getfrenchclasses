@@ -12,6 +12,6 @@
 	{/if}
 
 	{#if record.faq?.faqBlocks && record.faq.faqBlocks.length > 0}
-		<FAQItems items={record.faq.faqBlocks} />
+		<FAQItems items={record.faq} />
 	{/if}
 </section>
