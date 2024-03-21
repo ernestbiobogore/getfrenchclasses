@@ -36,6 +36,10 @@ const getTutorBySlug = async (slug: string) => {
 			},
 			faq: faqItemFieldsSelection,
 			reviews: defaultTestimonialFieldsSelection,
+			verified: true,
+			verifiedDescription: {
+				value: true,
+			}
 		},
 	});
 

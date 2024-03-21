@@ -13,12 +13,12 @@
 	import VideoIcon from "~icons/lucide/video";
 	import StarFillIcon from "~icons/solar/star-bold";
 
+	import StructuredText from "$lib/components/dato/StructuredText/index.svelte";
 	import { Button } from "$shadcn/button";
 	import { type FormattedSingleTutor, type FormattedTutorMeta } from "./types";
-	import { deSlugify } from "./utils.client";
+	import { DEFAULT_VERIFIED_DESCRIPTION, deSlugify } from "./utils.client";
 
 	export let tutor: FormattedTutorMeta | FormattedSingleTutor;
-	export let withVerifiedBadge = false;
 	export let withCTA = false;
 </script>
 
@@ -43,14 +43,29 @@
 					<div class="flex-s-start">
 						<div class="font-semibold text-lg text-gray-900">{tutor.name}</div>
 
-						{#if withVerifiedBadge}
+						{#if "verified" in tutor && tutor.verified}
 							<Tooltip.Root openDelay={100}>
 								<Tooltip.Trigger class="ml-2"><SharpVerifired /></Tooltip.Trigger>
-								<Tooltip.Content side="bottom" class="max-w-[300px]"
+								<!-- <Tooltip.Content side="bottom" class="max-w-[300px]"
 									>One of our best tutors. Quality profile, experience in their field, verified
 									qualifications and a great response time. Anna will be happy to arrange your first
 									French lesson.</Tooltip.Content
-								>
+								> -->
+
+								{#if "verifiedDescription" in tutor && tutor.verifiedDescription}
+									<Tooltip.Content side="bottom" class="max-w-[300px]">
+										<StructuredText
+											richText={tutor.verifiedDescription}
+											elementClasses={{
+												p: "text-sm font-medium",
+											}}
+										/>
+									</Tooltip.Content>
+								{:else}
+									<p class="text-sm font-medium">
+										{DEFAULT_VERIFIED_DESCRIPTION}
+									</p>
+								{/if}
 							</Tooltip.Root>
 						{/if}
 					</div>

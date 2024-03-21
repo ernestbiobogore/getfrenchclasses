@@ -885,7 +885,14 @@ export interface TutorModelAboutField {
     __typename: 'TutorModelAboutField'
 }
 
-export type TutorModelOrderBy = '_createdAt_ASC' | '_createdAt_DESC' | 'id_ASC' | 'id_DESC' | '_firstPublishedAt_ASC' | '_firstPublishedAt_DESC' | '_publicationScheduledAt_ASC' | '_publicationScheduledAt_DESC' | '_unpublishingScheduledAt_ASC' | '_unpublishingScheduledAt_DESC' | '_publishedAt_ASC' | '_publishedAt_DESC' | '_status_ASC' | '_status_DESC' | '_updatedAt_ASC' | '_updatedAt_DESC' | '_isValid_ASC' | '_isValid_DESC' | 'location_ASC' | 'location_DESC' | 'name_ASC' | 'name_DESC' | 'numberOfRatings_ASC' | 'numberOfRatings_DESC' | 'rate_ASC' | 'rate_DESC' | 'rating_ASC' | 'rating_DESC' | 'summary_ASC' | 'summary_DESC'
+export type TutorModelOrderBy = '_createdAt_ASC' | '_createdAt_DESC' | 'id_ASC' | 'id_DESC' | '_firstPublishedAt_ASC' | '_firstPublishedAt_DESC' | '_publicationScheduledAt_ASC' | '_publicationScheduledAt_DESC' | '_unpublishingScheduledAt_ASC' | '_unpublishingScheduledAt_DESC' | '_publishedAt_ASC' | '_publishedAt_DESC' | '_status_ASC' | '_status_DESC' | '_updatedAt_ASC' | '_updatedAt_DESC' | '_isValid_ASC' | '_isValid_DESC' | 'location_ASC' | 'location_DESC' | 'name_ASC' | 'name_DESC' | 'numberOfRatings_ASC' | 'numberOfRatings_DESC' | 'rate_ASC' | 'rate_DESC' | 'rating_ASC' | 'rating_DESC' | 'summary_ASC' | 'summary_DESC' | 'verified_ASC' | 'verified_DESC'
+
+export interface TutorModelVerifiedDescriptionField {
+    blocks: Scalars['String'][]
+    links: Scalars['String'][]
+    value: Scalars['JsonField']
+    __typename: 'TutorModelVerifiedDescriptionField'
+}
 
 
 /** Record of type 🧑‍🏫 Tutor (tutor) */
@@ -911,6 +918,7 @@ export interface TutorRecord {
     location: Scalars['String']
     name: Scalars['String']
     numberOfRatings: Scalars['IntType']
+    profilePicture: (AltFileField | null)
     qualifiedCourses: CourseRecord[]
     rate: Scalars['IntType']
     rating: Scalars['FloatType']
@@ -918,6 +926,8 @@ export interface TutorRecord {
     reviews: TestimonialBlockDefaultRecord[]
     slug: Scalars['String']
     summary: Scalars['String']
+    verified: (Scalars['BooleanType'] | null)
+    verifiedDescription: (TutorModelVerifiedDescriptionField | null)
     __typename: 'TutorRecord'
 }
 
@@ -1507,6 +1517,20 @@ export interface FileFieldInterfaceGenqlSelection{
     __typename?: boolean | number
     __scalar?: boolean | number
 }
+
+
+/** Specifies how to filter Single-file/image fields */
+export interface FileFilter {
+/** Search for records with an exact match. The specified value must be an Upload ID */
+eq?: (Scalars['UploadId'] | null),
+/** Exclude records with an exact match. The specified value must be an Upload ID */
+neq?: (Scalars['UploadId'] | null),
+/** Filter records that have one of the specified uploads */
+in?: ((Scalars['UploadId'] | null)[] | null),
+/** Filter records that do not have one of the specified uploads */
+notIn?: ((Scalars['UploadId'] | null)[] | null),
+/** Filter records with the specified field defined (i.e. with any value) or not */
+exists?: (Scalars['BooleanType'] | null)}
 
 
 /** Specifies how to filter Floating-point fields */
@@ -2881,7 +2905,13 @@ vib?: (Scalars['IntType'] | null),
  * 
  * [Open Imgix reference »](https://docs.imgix.com/apis/url/size/w)
  */
-w?: (Scalars['FloatType'] | null)}
+w?: (Scalars['FloatType'] | null),
+/**
+ * Bypasses any [DatoCMS Automatic Image Optimization](https://www.datocms.com/docs/cdn-settings/advanced-asset-settings) that might be set up for the project.
+ * 
+ * Exercise caution when using this parameter, as it could significantly increase your bandwidth costs.
+ */
+skipDefaultOptimizations?: (Scalars['BooleanType'] | null)}
 
 
 /** Specifies how to filter by usage */
@@ -3652,7 +3682,15 @@ export interface TutorModelAboutFieldGenqlSelection{
     __scalar?: boolean | number
 }
 
-export interface TutorModelFilter {_createdAt?: (CreatedAtFilter | null),id?: (ItemIdFilter | null),_firstPublishedAt?: (PublishedAtFilter | null),_publicationScheduledAt?: (PublishedAtFilter | null),_unpublishingScheduledAt?: (PublishedAtFilter | null),_publishedAt?: (PublishedAtFilter | null),_status?: (StatusFilter | null),_updatedAt?: (UpdatedAtFilter | null),_isValid?: (BooleanFilter | null),about?: (StructuredTextFilter | null),audiences?: (JsonFilter | null),faq?: (LinkFilter | null),levels?: (JsonFilter | null),location?: (StringFilter | null),name?: (StringFilter | null),numberOfRatings?: (IntegerFilter | null),qualifiedCourses?: (LinksFilter | null),rate?: (IntegerFilter | null),rating?: (FloatFilter | null),remoteStatus?: (JsonFilter | null),slug?: (SlugFilter | null),summary?: (StringFilter | null),OR?: ((TutorModelFilter | null)[] | null),AND?: ((TutorModelFilter | null)[] | null)}
+export interface TutorModelFilter {_createdAt?: (CreatedAtFilter | null),id?: (ItemIdFilter | null),_firstPublishedAt?: (PublishedAtFilter | null),_publicationScheduledAt?: (PublishedAtFilter | null),_unpublishingScheduledAt?: (PublishedAtFilter | null),_publishedAt?: (PublishedAtFilter | null),_status?: (StatusFilter | null),_updatedAt?: (UpdatedAtFilter | null),_isValid?: (BooleanFilter | null),about?: (StructuredTextFilter | null),audiences?: (JsonFilter | null),faq?: (LinkFilter | null),levels?: (JsonFilter | null),location?: (StringFilter | null),name?: (StringFilter | null),numberOfRatings?: (IntegerFilter | null),profilePicture?: (FileFilter | null),qualifiedCourses?: (LinksFilter | null),rate?: (IntegerFilter | null),rating?: (FloatFilter | null),remoteStatus?: (JsonFilter | null),slug?: (SlugFilter | null),summary?: (StringFilter | null),verified?: (BooleanFilter | null),verifiedDescription?: (StructuredTextFilter | null),OR?: ((TutorModelFilter | null)[] | null),AND?: ((TutorModelFilter | null)[] | null)}
+
+export interface TutorModelVerifiedDescriptionFieldGenqlSelection{
+    blocks?: boolean | number
+    links?: boolean | number
+    value?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
 
 
 /** Record of type 🧑‍🏫 Tutor (tutor) */
@@ -3680,6 +3718,7 @@ export interface TutorRecordGenqlSelection{
     location?: boolean | number
     name?: boolean | number
     numberOfRatings?: boolean | number
+    profilePicture?: AltFileFieldGenqlSelection
     qualifiedCourses?: CourseRecordGenqlSelection
     rate?: boolean | number
     rating?: boolean | number
@@ -3687,6 +3726,8 @@ export interface TutorRecordGenqlSelection{
     reviews?: TestimonialBlockDefaultRecordGenqlSelection
     slug?: boolean | number
     summary?: boolean | number
+    verified?: boolean | number
+    verifiedDescription?: TutorModelVerifiedDescriptionFieldGenqlSelection
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -4435,6 +4476,14 @@ export interface focalPointGenqlSelection{
     
 
 
+    const TutorModelVerifiedDescriptionField_possibleTypes: string[] = ['TutorModelVerifiedDescriptionField']
+    export const isTutorModelVerifiedDescriptionField = (obj?: { __typename?: any } | null): obj is TutorModelVerifiedDescriptionField => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isTutorModelVerifiedDescriptionField"')
+      return TutorModelVerifiedDescriptionField_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
     const TutorRecord_possibleTypes: string[] = ['TutorRecord']
     export const isTutorRecord = (obj?: { __typename?: any } | null): obj is TutorRecord => {
       if (!obj?.__typename) throw new Error('__typename is missing in "isTutorRecord"')
@@ -4869,7 +4918,9 @@ export const enumTutorModelOrderBy = {
    rating_ASC: 'rating_ASC' as const,
    rating_DESC: 'rating_DESC' as const,
    summary_ASC: 'summary_ASC' as const,
-   summary_DESC: 'summary_DESC' as const
+   summary_DESC: 'summary_DESC' as const,
+   verified_ASC: 'verified_ASC' as const,
+   verified_DESC: 'verified_DESC' as const
 }
 
 export const enumUploadOrderBy = {

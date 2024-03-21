@@ -8,7 +8,7 @@
 	import SharpVerifired from "~icons/ic/sharp-verified";
 	import VideoCam from "~icons/material-symbols/videocam-outline-rounded";
 	import TutorCard from "../TutorCard.svelte";
-	import { deSlugify } from "../utils.client";
+	import { DEFAULT_VERIFIED_DESCRIPTION, deSlugify } from "../utils.client";
 
 	export let data;
 	$: allTutorsMeta = data.tutorsMetas;
@@ -43,17 +43,27 @@
 				>
 			</div>
 
-			<div class="p-4 bg-pink-200 rounded-xl">
-				<div class="gap-2 mb-2 text-2xl flex-s-start">
-					<SharpVerifired />
-					<span class="font-bold text-">Verified</span>
+			{#if data.tutor.verified}
+				<div class="p-4 bg-pink-200 rounded-xl">
+					<div class="gap-2 mb-2 text-2xl flex-s-start">
+						<SharpVerifired />
+						<span class="font-bold text-">Verified</span>
+					</div>
+
+					{#if data.tutor.verifiedDescription}
+						<StructuredText
+							richText={data.tutor.verifiedDescription}
+							elementClasses={{
+								p: "text-sm font-medium",
+							}}
+						/>
+					{:else}
+						<p class="text-sm font-medium">
+							{DEFAULT_VERIFIED_DESCRIPTION}
+						</p>
+					{/if}
 				</div>
-				<p class="text-sm font-medium">
-					One of our best tutors. Quality profile, experience in their field, verified
-					qualifications and a great response time. Anna will be happy to arrange your first French
-					lesson.
-				</p>
-			</div>
+			{/if}
 		</div>
 
 		<div>
@@ -93,7 +103,7 @@
 	<!-- RIGHT SIDE -->
 	<div class="md:flex-[0.7] lg:flex-[0.5] relative">
 		<div class="sticky top-[5.75rem]">
-			<TutorCard tutor={data.tutor} withVerifiedBadge withCTA />
+			<TutorCard tutor={data.tutor} withCTA />
 		</div>
 	</div>
 </section>
