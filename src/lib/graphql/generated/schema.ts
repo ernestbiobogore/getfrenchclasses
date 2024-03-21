@@ -346,7 +346,7 @@ export interface FileField {
     __typename: 'FileField'
 }
 
-export type FileFieldInterface = (AltFileField | FileField | VideoFileField) & { __isUnion?: true }
+export type FileFieldInterface = (AltFileField | FileField | VideoAltFileField | VideoFileField) & { __isUnion?: true }
 
 export interface GlobalSeoField {
     facebookPageUrl: (Scalars['String'] | null)
@@ -912,6 +912,7 @@ export interface TutorRecord {
     _updatedAt: Scalars['DateTime']
     about: (TutorModelAboutField | null)
     audiences: Scalars['JsonField']
+    coverMedia: (VideoAltFileField | null)
     faq: (FaqItemRecord | null)
     id: Scalars['ItemId']
     levels: Scalars['JsonField']
@@ -953,6 +954,40 @@ export interface UploadVideoField {
     title: (Scalars['String'] | null)
     width: Scalars['IntType']
     __typename: 'UploadVideoField'
+}
+
+export interface VideoAltFileField {
+    _createdAt: Scalars['DateTime']
+    /** The DatoCMS URL where you can edit this entity. To use this field, you need to set a X-Base-Editing-Url header in the request */
+    _editingUrl: (Scalars['String'] | null)
+    _updatedAt: Scalars['DateTime']
+    alt: Scalars['String']
+    author: (Scalars['String'] | null)
+    basename: Scalars['String']
+    blurUpThumb: (Scalars['String'] | null)
+    blurhash: (Scalars['String'] | null)
+    colors: ColorField[]
+    copyright: (Scalars['String'] | null)
+    customData: Scalars['CustomData']
+    exifInfo: Scalars['CustomData']
+    filename: Scalars['String']
+    focalPoint: (focalPoint | null)
+    format: Scalars['String']
+    height: Scalars['IntType']
+    id: Scalars['UploadId']
+    md5: Scalars['String']
+    mimeType: Scalars['String']
+    notes: (Scalars['String'] | null)
+    responsiveImage: (ResponsiveImage | null)
+    size: Scalars['IntType']
+    smartTags: Scalars['String'][]
+    tags: Scalars['String'][]
+    thumbhash: (Scalars['String'] | null)
+    title: (Scalars['String'] | null)
+    url: Scalars['String']
+    video: UploadVideoField
+    width: Scalars['IntType']
+    __typename: 'VideoAltFileField'
 }
 
 export interface VideoFileField {
@@ -1513,6 +1548,7 @@ export interface FileFieldInterfaceGenqlSelection{
     width?: boolean | number
     on_AltFileField?: AltFileFieldGenqlSelection
     on_FileField?: FileFieldGenqlSelection
+    on_VideoAltFileField?: VideoAltFileFieldGenqlSelection
     on_VideoFileField?: VideoFileFieldGenqlSelection
     __typename?: boolean | number
     __scalar?: boolean | number
@@ -3682,7 +3718,7 @@ export interface TutorModelAboutFieldGenqlSelection{
     __scalar?: boolean | number
 }
 
-export interface TutorModelFilter {_createdAt?: (CreatedAtFilter | null),id?: (ItemIdFilter | null),_firstPublishedAt?: (PublishedAtFilter | null),_publicationScheduledAt?: (PublishedAtFilter | null),_unpublishingScheduledAt?: (PublishedAtFilter | null),_publishedAt?: (PublishedAtFilter | null),_status?: (StatusFilter | null),_updatedAt?: (UpdatedAtFilter | null),_isValid?: (BooleanFilter | null),about?: (StructuredTextFilter | null),audiences?: (JsonFilter | null),faq?: (LinkFilter | null),levels?: (JsonFilter | null),location?: (StringFilter | null),name?: (StringFilter | null),numberOfRatings?: (IntegerFilter | null),profilePicture?: (FileFilter | null),qualifiedCourses?: (LinksFilter | null),rate?: (IntegerFilter | null),rating?: (FloatFilter | null),remoteStatus?: (JsonFilter | null),slug?: (SlugFilter | null),summary?: (StringFilter | null),verified?: (BooleanFilter | null),verifiedDescription?: (StructuredTextFilter | null),OR?: ((TutorModelFilter | null)[] | null),AND?: ((TutorModelFilter | null)[] | null)}
+export interface TutorModelFilter {_createdAt?: (CreatedAtFilter | null),id?: (ItemIdFilter | null),_firstPublishedAt?: (PublishedAtFilter | null),_publicationScheduledAt?: (PublishedAtFilter | null),_unpublishingScheduledAt?: (PublishedAtFilter | null),_publishedAt?: (PublishedAtFilter | null),_status?: (StatusFilter | null),_updatedAt?: (UpdatedAtFilter | null),_isValid?: (BooleanFilter | null),about?: (StructuredTextFilter | null),audiences?: (JsonFilter | null),coverMedia?: (FileFilter | null),faq?: (LinkFilter | null),levels?: (JsonFilter | null),location?: (StringFilter | null),name?: (StringFilter | null),numberOfRatings?: (IntegerFilter | null),profilePicture?: (FileFilter | null),qualifiedCourses?: (LinksFilter | null),rate?: (IntegerFilter | null),rating?: (FloatFilter | null),remoteStatus?: (JsonFilter | null),slug?: (SlugFilter | null),summary?: (StringFilter | null),verified?: (BooleanFilter | null),verifiedDescription?: (StructuredTextFilter | null),OR?: ((TutorModelFilter | null)[] | null),AND?: ((TutorModelFilter | null)[] | null)}
 
 export interface TutorModelVerifiedDescriptionFieldGenqlSelection{
     blocks?: boolean | number
@@ -3712,6 +3748,7 @@ export interface TutorRecordGenqlSelection{
     _updatedAt?: boolean | number
     about?: TutorModelAboutFieldGenqlSelection
     audiences?: boolean | number
+    coverMedia?: VideoAltFileFieldGenqlSelection
     faq?: FaqItemRecordGenqlSelection
     id?: boolean | number
     levels?: boolean | number
@@ -4047,6 +4084,75 @@ eq?: (Scalars['IntType'] | null),
 /** Search assets that do not have the specified width */
 neq?: (Scalars['IntType'] | null)}
 
+export interface VideoAltFileFieldGenqlSelection{
+    _createdAt?: boolean | number
+    /** The DatoCMS URL where you can edit this entity. To use this field, you need to set a X-Base-Editing-Url header in the request */
+    _editingUrl?: boolean | number
+    _updatedAt?: boolean | number
+    alt?: { __args: {
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null), 
+    /** If you want to fallback to a default translation when a translation has not been found */
+    fallbackLocales?: (SiteLocale[] | null)} } | boolean | number
+    author?: boolean | number
+    basename?: boolean | number
+    blurUpThumb?: { __args: {
+    /** Controls the "punch" value (~contrast) of the blurhash decoding algorithm (defaults to 1.0) */
+    punch: Scalars['Float'], 
+    /** Maximum image dimension (defaults to 24px) */
+    size: Scalars['Int'], 
+    /** Image quality (defaults to 70%) */
+    quality: Scalars['Int'], 
+    /** Imgix transformations to apply to the image */
+    imgixParams?: (ImgixParams | null)} }
+    blurhash?: boolean | number
+    colors?: ColorFieldGenqlSelection
+    copyright?: boolean | number
+    customData?: { __args: {
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null), 
+    /** If you want to fallback to a default translation when a translation has not been found */
+    fallbackLocales?: (SiteLocale[] | null)} } | boolean | number
+    exifInfo?: boolean | number
+    filename?: boolean | number
+    focalPoint?: (focalPointGenqlSelection & { __args?: {
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null), 
+    /** If you want to fallback to a default translation when a translation has not been found */
+    fallbackLocales?: (SiteLocale[] | null)} })
+    format?: boolean | number
+    height?: boolean | number
+    id?: boolean | number
+    md5?: boolean | number
+    mimeType?: boolean | number
+    notes?: boolean | number
+    responsiveImage?: (ResponsiveImageGenqlSelection & { __args?: {
+    /** Imgix transformations to apply to the image */
+    imgixParams?: (ImgixParams | null), 
+    /** Specify a custom `sizes` attribute for the image */
+    sizes?: (Scalars['String'] | null), 
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null), 
+    /** If you want to fallback to a default translation when a translation has not been found */
+    fallbackLocales?: (SiteLocale[] | null)} })
+    size?: boolean | number
+    smartTags?: boolean | number
+    tags?: boolean | number
+    thumbhash?: boolean | number
+    title?: { __args: {
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null), 
+    /** If you want to fallback to a default translation when a translation has not been found */
+    fallbackLocales?: (SiteLocale[] | null)} } | boolean | number
+    url?: { __args: {
+    /** Imgix transformations to apply to the image */
+    imgixParams?: (ImgixParams | null)} } | boolean | number
+    video?: UploadVideoFieldGenqlSelection
+    width?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
 export interface VideoFileFieldGenqlSelection{
     _createdAt?: boolean | number
     /** The DatoCMS URL where you can edit this entity. To use this field, you need to set a X-Base-Editing-Url header in the request */
@@ -4236,7 +4342,7 @@ export interface focalPointGenqlSelection{
     
 
 
-    const FileFieldInterface_possibleTypes: string[] = ['AltFileField','FileField','VideoFileField']
+    const FileFieldInterface_possibleTypes: string[] = ['AltFileField','FileField','VideoAltFileField','VideoFileField']
     export const isFileFieldInterface = (obj?: { __typename?: any } | null): obj is FileFieldInterface => {
       if (!obj?.__typename) throw new Error('__typename is missing in "isFileFieldInterface"')
       return FileFieldInterface_possibleTypes.includes(obj.__typename)
@@ -4496,6 +4602,14 @@ export interface focalPointGenqlSelection{
     export const isUploadVideoField = (obj?: { __typename?: any } | null): obj is UploadVideoField => {
       if (!obj?.__typename) throw new Error('__typename is missing in "isUploadVideoField"')
       return UploadVideoField_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const VideoAltFileField_possibleTypes: string[] = ['VideoAltFileField']
+    export const isVideoAltFileField = (obj?: { __typename?: any } | null): obj is VideoAltFileField => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isVideoAltFileField"')
+      return VideoAltFileField_possibleTypes.includes(obj.__typename)
     }
     
 

@@ -110,6 +110,25 @@ const tutorMetaFields = {
 	audiences: true,
 	location: true,
 	remoteStatus: true,
+	profilePicture: {
+		responsiveImage: responsiveImageFieldSelection,
+	},
+	coverMedia: {
+		video: {
+			muxPlaybackId: true,
+			title: true,
+			width: true,
+			height: true,
+			mp4Url: true,
+			blurUpThumb: {
+				__args: {
+					punch: 1,
+					size: 48,
+					quality: 100,
+				},
+			},
+		},
+	},
 } satisfies TutorRecordGenqlSelection;
 
 const courseMetaFields = {

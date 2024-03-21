@@ -52,7 +52,7 @@ export default {
         137,
         138,
         142,
-        147
+        148
     ],
     "types": {
         "ActionBlockRecord": {
@@ -183,7 +183,7 @@ export default {
                 103
             ],
             "focalPoint": [
-                148,
+                149,
                 {
                     "locale": [
                         100
@@ -1085,7 +1085,7 @@ export default {
                 103
             ],
             "focalPoint": [
-                148,
+                149,
                 {
                     "locale": [
                         100
@@ -1250,7 +1250,7 @@ export default {
                 103
             ],
             "focalPoint": [
-                148,
+                149,
                 {
                     "locale": [
                         100
@@ -1341,8 +1341,11 @@ export default {
             "on_FileField": [
                 27
             ],
-            "on_VideoFileField": [
+            "on_VideoAltFileField": [
                 146
+            ],
+            "on_VideoFileField": [
+                147
             ],
             "__typename": [
                 103
@@ -1594,7 +1597,7 @@ export default {
                 103
             ],
             "video": [
-                146
+                147
             ],
             "videoText": [
                 103
@@ -3904,6 +3907,9 @@ export default {
             "audiences": [
                 71
             ],
+            "coverMedia": [
+                29
+            ],
             "faq": [
                 72
             ],
@@ -4015,6 +4021,9 @@ export default {
             ],
             "audiences": [
                 70
+            ],
+            "coverMedia": [
+                146
             ],
             "faq": [
                 24
@@ -4566,10 +4575,10 @@ export default {
                 103,
                 {
                     "res": [
-                        147
+                        148
                     ],
                     "exactRes": [
-                        147
+                        148
                     ]
                 }
             ],
@@ -4629,6 +4638,171 @@ export default {
                 65
             ],
             "neq": [
+                65
+            ],
+            "__typename": [
+                103
+            ]
+        },
+        "VideoAltFileField": {
+            "_createdAt": [
+                19
+            ],
+            "_editingUrl": [
+                103
+            ],
+            "_updatedAt": [
+                19
+            ],
+            "alt": [
+                103,
+                {
+                    "locale": [
+                        100
+                    ],
+                    "fallbackLocales": [
+                        100,
+                        "[SiteLocale!]"
+                    ]
+                }
+            ],
+            "author": [
+                103
+            ],
+            "basename": [
+                103
+            ],
+            "blurUpThumb": [
+                103,
+                {
+                    "punch": [
+                        30,
+                        "Float!"
+                    ],
+                    "size": [
+                        64,
+                        "Int!"
+                    ],
+                    "quality": [
+                        64,
+                        "Int!"
+                    ],
+                    "imgixParams": [
+                        39
+                    ]
+                }
+            ],
+            "blurhash": [
+                103
+            ],
+            "colors": [
+                13
+            ],
+            "copyright": [
+                103
+            ],
+            "customData": [
+                18,
+                {
+                    "locale": [
+                        100
+                    ],
+                    "fallbackLocales": [
+                        100,
+                        "[SiteLocale!]"
+                    ]
+                }
+            ],
+            "exifInfo": [
+                18
+            ],
+            "filename": [
+                103
+            ],
+            "focalPoint": [
+                149,
+                {
+                    "locale": [
+                        100
+                    ],
+                    "fallbackLocales": [
+                        100,
+                        "[SiteLocale!]"
+                    ]
+                }
+            ],
+            "format": [
+                103
+            ],
+            "height": [
+                65
+            ],
+            "id": [
+                132
+            ],
+            "md5": [
+                103
+            ],
+            "mimeType": [
+                103
+            ],
+            "notes": [
+                103
+            ],
+            "responsiveImage": [
+                90,
+                {
+                    "imgixParams": [
+                        39
+                    ],
+                    "sizes": [
+                        103
+                    ],
+                    "locale": [
+                        100
+                    ],
+                    "fallbackLocales": [
+                        100,
+                        "[SiteLocale!]"
+                    ]
+                }
+            ],
+            "size": [
+                65
+            ],
+            "smartTags": [
+                103
+            ],
+            "tags": [
+                103
+            ],
+            "thumbhash": [
+                103
+            ],
+            "title": [
+                103,
+                {
+                    "locale": [
+                        100
+                    ],
+                    "fallbackLocales": [
+                        100,
+                        "[SiteLocale!]"
+                    ]
+                }
+            ],
+            "url": [
+                103,
+                {
+                    "imgixParams": [
+                        39
+                    ]
+                }
+            ],
+            "video": [
+                144
+            ],
+            "width": [
                 65
             ],
             "__typename": [
@@ -4711,7 +4885,7 @@ export default {
                 103
             ],
             "focalPoint": [
-                148,
+                149,
                 {
                     "locale": [
                         100

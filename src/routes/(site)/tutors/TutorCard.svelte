@@ -14,16 +14,30 @@
 	import StarFillIcon from "~icons/solar/star-bold";
 
 	import StructuredText from "$lib/components/dato/StructuredText/index.svelte";
+	import { type VideoFileField } from "$lib/graphql/generated/schema";
 	import { Button } from "$shadcn/button";
 	import { type FormattedSingleTutor, type FormattedTutorMeta } from "./types";
 	import { DEFAULT_VERIFIED_DESCRIPTION, deSlugify } from "./utils.client";
 
 	export let tutor: FormattedTutorMeta | FormattedSingleTutor;
 	export let withCTA = false;
+
+	const getInitials = (name: string) => {
+		return name
+			.split(" ")
+			.map(word => word[0])
+			.join("");
+	};
+
+	$: coverMedia = "coverMedia" in tutor ? (tutor.coverMedia as VideoFileField) : undefined;
 </script>
 
 <Card.Root class="bg-white shadow-lg rounded-lg overflow-hidden cursor-pointer">
-	<a href="/tutors/{tutor.slug}">
+	{#if coverMedia}
+		<video class="w-full h-20" src={coverMedia.video.mp4Url} controls>
+			<track kind="captions" />
+		</video>
+	{:else}
 		<img
 			alt="Banner"
 			class="w-full h-20 object-fill"
@@ -32,11 +46,14 @@
 			style="aspect-ratio: 1 / 1; object-fit: cover;"
 			width="350"
 		/>
+	{/if}
+
+	<a href="/tutors/{tutor.slug}">
 		<Card.Content class="p-4">
 			<div class="flex items-center space-x-3 mb-6">
 				<Avatar.Root class="w-14 h-14 border-4 border-white">
-					<Avatar.Image alt={tutor.name} src="/placeholder.svg?height=40&width=40" />
-					<Avatar.Fallback>KL</Avatar.Fallback>
+					<Avatar.Image alt={tutor.name} src={tutor.profilePicture?.responsiveImage?.src} />
+					<Avatar.Fallback>{getInitials(tutor.name)}</Avatar.Fallback>
 				</Avatar.Root>
 
 				<div>
@@ -46,11 +63,6 @@
 						{#if "verified" in tutor && tutor.verified}
 							<Tooltip.Root openDelay={100}>
 								<Tooltip.Trigger class="ml-2"><SharpVerifired /></Tooltip.Trigger>
-								<!-- <Tooltip.Content side="bottom" class="max-w-[300px]"
-									>One of our best tutors. Quality profile, experience in their field, verified
-									qualifications and a great response time. Anna will be happy to arrange your first
-									French lesson.</Tooltip.Content
-								> -->
 
 								{#if "verifiedDescription" in tutor && tutor.verifiedDescription}
 									<Tooltip.Content side="bottom" class="max-w-[300px]">

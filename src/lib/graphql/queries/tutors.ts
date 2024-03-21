@@ -39,7 +39,7 @@ const getTutorBySlug = async (slug: string) => {
 			verified: true,
 			verifiedDescription: {
 				value: true,
-			}
+			},
 		},
 	});
 
