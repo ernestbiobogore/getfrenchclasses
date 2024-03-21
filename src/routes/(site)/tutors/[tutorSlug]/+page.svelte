@@ -73,7 +73,7 @@
 
 		<!-- TODO: GET CLARIFICATION -->
 		<div class="space-y-4">
-			<h2>Qualified to teach</h2>
+			<h2>{data.tutor.qualifiedCoursesTitle}</h2>
 
 			<div class="grid gap-8 md:grid-cols-2">
 				{#each data.tutor.qualifiedCourses as course}
@@ -84,7 +84,7 @@
 
 		{#if data.tutor.reviews && data.tutor.reviews.length > 0}
 			<div class="space-y-4">
-				<h2>Reviews</h2>
+				<h2>{data.tutor.reviewsTitle}</h2>
 
 				<div class="grid gap-8 py-20 md:grid-cols-2">
 					{#each data.tutor.reviews as testimonial (testimonial.id)}
@@ -95,7 +95,11 @@
 		{/if}
 
 		<section class="py-20 space-y-12 lg:w-2/3">
-			<Heading defaultHeading="Find more about {data.tutor.name}" useDefaultHeading />
+			<Heading
+				defaultHeading={data.tutor.faqTitle || "Find more about {data.tutor.name}"}
+				useDefaultHeading
+				class="text-left"
+			/>
 			<FAQItems items={data.tutor.faq} />
 		</section>
 	</div>

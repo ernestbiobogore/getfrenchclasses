@@ -885,7 +885,7 @@ export interface TutorModelAboutField {
     __typename: 'TutorModelAboutField'
 }
 
-export type TutorModelOrderBy = '_createdAt_ASC' | '_createdAt_DESC' | 'id_ASC' | 'id_DESC' | '_firstPublishedAt_ASC' | '_firstPublishedAt_DESC' | '_publicationScheduledAt_ASC' | '_publicationScheduledAt_DESC' | '_unpublishingScheduledAt_ASC' | '_unpublishingScheduledAt_DESC' | '_publishedAt_ASC' | '_publishedAt_DESC' | '_status_ASC' | '_status_DESC' | '_updatedAt_ASC' | '_updatedAt_DESC' | '_isValid_ASC' | '_isValid_DESC' | 'location_ASC' | 'location_DESC' | 'name_ASC' | 'name_DESC' | 'numberOfRatings_ASC' | 'numberOfRatings_DESC' | 'rate_ASC' | 'rate_DESC' | 'rating_ASC' | 'rating_DESC' | 'summary_ASC' | 'summary_DESC' | 'verified_ASC' | 'verified_DESC'
+export type TutorModelOrderBy = '_createdAt_ASC' | '_createdAt_DESC' | 'id_ASC' | 'id_DESC' | '_firstPublishedAt_ASC' | '_firstPublishedAt_DESC' | '_publicationScheduledAt_ASC' | '_publicationScheduledAt_DESC' | '_unpublishingScheduledAt_ASC' | '_unpublishingScheduledAt_DESC' | '_publishedAt_ASC' | '_publishedAt_DESC' | '_status_ASC' | '_status_DESC' | '_updatedAt_ASC' | '_updatedAt_DESC' | '_isValid_ASC' | '_isValid_DESC' | 'faqTitle_ASC' | 'faqTitle_DESC' | 'location_ASC' | 'location_DESC' | 'name_ASC' | 'name_DESC' | 'numberOfRatings_ASC' | 'numberOfRatings_DESC' | 'qualifiedCoursesTitle_ASC' | 'qualifiedCoursesTitle_DESC' | 'rate_ASC' | 'rate_DESC' | 'rating_ASC' | 'rating_DESC' | 'reviewsTitle_ASC' | 'reviewsTitle_DESC' | 'summary_ASC' | 'summary_DESC' | 'verified_ASC' | 'verified_DESC'
 
 export interface TutorModelVerifiedDescriptionField {
     blocks: Scalars['String'][]
@@ -914,6 +914,7 @@ export interface TutorRecord {
     audiences: Scalars['JsonField']
     coverMedia: (VideoAltFileField | null)
     faq: (FaqItemRecord | null)
+    faqTitle: (Scalars['String'] | null)
     id: Scalars['ItemId']
     levels: Scalars['JsonField']
     location: Scalars['String']
@@ -921,10 +922,12 @@ export interface TutorRecord {
     numberOfRatings: Scalars['IntType']
     profilePicture: (AltFileField | null)
     qualifiedCourses: CourseRecord[]
+    qualifiedCoursesTitle: (Scalars['String'] | null)
     rate: Scalars['IntType']
     rating: Scalars['FloatType']
     remoteStatus: Scalars['JsonField']
     reviews: TestimonialBlockDefaultRecord[]
+    reviewsTitle: (Scalars['String'] | null)
     slug: Scalars['String']
     summary: Scalars['String']
     verified: (Scalars['BooleanType'] | null)
@@ -3718,7 +3721,7 @@ export interface TutorModelAboutFieldGenqlSelection{
     __scalar?: boolean | number
 }
 
-export interface TutorModelFilter {_createdAt?: (CreatedAtFilter | null),id?: (ItemIdFilter | null),_firstPublishedAt?: (PublishedAtFilter | null),_publicationScheduledAt?: (PublishedAtFilter | null),_unpublishingScheduledAt?: (PublishedAtFilter | null),_publishedAt?: (PublishedAtFilter | null),_status?: (StatusFilter | null),_updatedAt?: (UpdatedAtFilter | null),_isValid?: (BooleanFilter | null),about?: (StructuredTextFilter | null),audiences?: (JsonFilter | null),coverMedia?: (FileFilter | null),faq?: (LinkFilter | null),levels?: (JsonFilter | null),location?: (StringFilter | null),name?: (StringFilter | null),numberOfRatings?: (IntegerFilter | null),profilePicture?: (FileFilter | null),qualifiedCourses?: (LinksFilter | null),rate?: (IntegerFilter | null),rating?: (FloatFilter | null),remoteStatus?: (JsonFilter | null),slug?: (SlugFilter | null),summary?: (StringFilter | null),verified?: (BooleanFilter | null),verifiedDescription?: (StructuredTextFilter | null),OR?: ((TutorModelFilter | null)[] | null),AND?: ((TutorModelFilter | null)[] | null)}
+export interface TutorModelFilter {_createdAt?: (CreatedAtFilter | null),id?: (ItemIdFilter | null),_firstPublishedAt?: (PublishedAtFilter | null),_publicationScheduledAt?: (PublishedAtFilter | null),_unpublishingScheduledAt?: (PublishedAtFilter | null),_publishedAt?: (PublishedAtFilter | null),_status?: (StatusFilter | null),_updatedAt?: (UpdatedAtFilter | null),_isValid?: (BooleanFilter | null),about?: (StructuredTextFilter | null),audiences?: (JsonFilter | null),coverMedia?: (FileFilter | null),faq?: (LinkFilter | null),faqTitle?: (StringFilter | null),levels?: (JsonFilter | null),location?: (StringFilter | null),name?: (StringFilter | null),numberOfRatings?: (IntegerFilter | null),profilePicture?: (FileFilter | null),qualifiedCourses?: (LinksFilter | null),qualifiedCoursesTitle?: (StringFilter | null),rate?: (IntegerFilter | null),rating?: (FloatFilter | null),remoteStatus?: (JsonFilter | null),reviewsTitle?: (StringFilter | null),slug?: (SlugFilter | null),summary?: (StringFilter | null),verified?: (BooleanFilter | null),verifiedDescription?: (StructuredTextFilter | null),OR?: ((TutorModelFilter | null)[] | null),AND?: ((TutorModelFilter | null)[] | null)}
 
 export interface TutorModelVerifiedDescriptionFieldGenqlSelection{
     blocks?: boolean | number
@@ -3750,6 +3753,7 @@ export interface TutorRecordGenqlSelection{
     audiences?: boolean | number
     coverMedia?: VideoAltFileFieldGenqlSelection
     faq?: FaqItemRecordGenqlSelection
+    faqTitle?: boolean | number
     id?: boolean | number
     levels?: boolean | number
     location?: boolean | number
@@ -3757,10 +3761,12 @@ export interface TutorRecordGenqlSelection{
     numberOfRatings?: boolean | number
     profilePicture?: AltFileFieldGenqlSelection
     qualifiedCourses?: CourseRecordGenqlSelection
+    qualifiedCoursesTitle?: boolean | number
     rate?: boolean | number
     rating?: boolean | number
     remoteStatus?: boolean | number
     reviews?: TestimonialBlockDefaultRecordGenqlSelection
+    reviewsTitle?: boolean | number
     slug?: boolean | number
     summary?: boolean | number
     verified?: boolean | number
@@ -5021,16 +5027,22 @@ export const enumTutorModelOrderBy = {
    _updatedAt_DESC: '_updatedAt_DESC' as const,
    _isValid_ASC: '_isValid_ASC' as const,
    _isValid_DESC: '_isValid_DESC' as const,
+   faqTitle_ASC: 'faqTitle_ASC' as const,
+   faqTitle_DESC: 'faqTitle_DESC' as const,
    location_ASC: 'location_ASC' as const,
    location_DESC: 'location_DESC' as const,
    name_ASC: 'name_ASC' as const,
    name_DESC: 'name_DESC' as const,
    numberOfRatings_ASC: 'numberOfRatings_ASC' as const,
    numberOfRatings_DESC: 'numberOfRatings_DESC' as const,
+   qualifiedCoursesTitle_ASC: 'qualifiedCoursesTitle_ASC' as const,
+   qualifiedCoursesTitle_DESC: 'qualifiedCoursesTitle_DESC' as const,
    rate_ASC: 'rate_ASC' as const,
    rate_DESC: 'rate_DESC' as const,
    rating_ASC: 'rating_ASC' as const,
    rating_DESC: 'rating_DESC' as const,
+   reviewsTitle_ASC: 'reviewsTitle_ASC' as const,
+   reviewsTitle_DESC: 'reviewsTitle_DESC' as const,
    summary_ASC: 'summary_ASC' as const,
    summary_DESC: 'summary_DESC' as const,
    verified_ASC: 'verified_ASC' as const,

@@ -30,12 +30,20 @@ const getTutorBySlug = async (slug: string) => {
 				},
 			},
 			...tutorMetaFields,
+
+			qualifiedCoursesTitle: true,
 			qualifiedCourses: courseMetaFields,
+
 			about: {
 				value: true,
 			},
+
+			faqTitle: true,
 			faq: faqItemFieldsSelection,
+
+			reviewsTitle: true,
 			reviews: defaultTestimonialFieldsSelection,
+
 			verified: true,
 			verifiedDescription: {
 				value: true,

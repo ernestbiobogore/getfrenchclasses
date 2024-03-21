@@ -4,11 +4,15 @@
 		HeadingBlockNewModelSubheadingField,
 		HeadingBlockNewRecord,
 	} from "$lib/graphql/generated";
+	import { cn } from "$lib/utils";
+
+	let className: string | undefined | null = undefined;
 
 	export let heading: HeadingBlockNewRecord | undefined = undefined;
 	export let titleTag: "h1" | "h2" = "h2";
 	export let defaultHeading: string | undefined = undefined;
 	export let useDefaultHeading = false;
+	export { className as class };
 
 	const isEmptySubHeading = (subHeading: HeadingBlockNewModelSubheadingField) => {
 		return (
@@ -20,9 +24,13 @@
 
 <div class="space-y-4">
 	{#if useDefaultHeading}
-		<svelte:element this={titleTag} class="text-center">{defaultHeading}</svelte:element>
+		<svelte:element this={titleTag} class={cn("text-center", className)}
+			>{defaultHeading}</svelte:element
+		>
 	{:else if heading}
-		<svelte:element this={titleTag} class="text-center">{heading.heading}</svelte:element>
+		<svelte:element this={titleTag} class={cn("text-center", className)}
+			>{heading.heading}</svelte:element
+		>
 	{/if}
 
 	{#if heading && heading.subheading && !isEmptySubHeading(heading.subheading)}

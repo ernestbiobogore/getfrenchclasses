@@ -3913,6 +3913,9 @@ export default {
             "faq": [
                 72
             ],
+            "faqTitle": [
+                104
+            ],
             "levels": [
                 71
             ],
@@ -3931,6 +3934,9 @@ export default {
             "qualifiedCourses": [
                 73
             ],
+            "qualifiedCoursesTitle": [
+                104
+            ],
             "rate": [
                 66
             ],
@@ -3939,6 +3945,9 @@ export default {
             ],
             "remoteStatus": [
                 71
+            ],
+            "reviewsTitle": [
+                104
             ],
             "slug": [
                 101
@@ -4028,6 +4037,9 @@ export default {
             "faq": [
                 24
             ],
+            "faqTitle": [
+                103
+            ],
             "id": [
                 67
             ],
@@ -4049,6 +4061,9 @@ export default {
             "qualifiedCourses": [
                 16
             ],
+            "qualifiedCoursesTitle": [
+                103
+            ],
             "rate": [
                 65
             ],
@@ -4060,6 +4075,9 @@ export default {
             ],
             "reviews": [
                 111
+            ],
+            "reviewsTitle": [
+                103
             ],
             "slug": [
                 103

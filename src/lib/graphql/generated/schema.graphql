@@ -3652,15 +3652,18 @@ input TutorModelFilter {
   audiences: JsonFilter
   coverMedia: FileFilter
   faq: LinkFilter
+  faqTitle: StringFilter
   levels: JsonFilter
   location: StringFilter
   name: StringFilter
   numberOfRatings: IntegerFilter
   profilePicture: FileFilter
   qualifiedCourses: LinksFilter
+  qualifiedCoursesTitle: StringFilter
   rate: IntegerFilter
   rating: FloatFilter
   remoteStatus: JsonFilter
+  reviewsTitle: StringFilter
   slug: SlugFilter
   summary: StringFilter
   verified: BooleanFilter
@@ -3688,16 +3691,22 @@ enum TutorModelOrderBy {
   _updatedAt_DESC
   _isValid_ASC
   _isValid_DESC
+  faqTitle_ASC
+  faqTitle_DESC
   location_ASC
   location_DESC
   name_ASC
   name_DESC
   numberOfRatings_ASC
   numberOfRatings_DESC
+  qualifiedCoursesTitle_ASC
+  qualifiedCoursesTitle_DESC
   rate_ASC
   rate_DESC
   rating_ASC
   rating_DESC
+  reviewsTitle_ASC
+  reviewsTitle_DESC
   summary_ASC
   summary_DESC
   verified_ASC
@@ -3734,6 +3743,7 @@ type TutorRecord implements RecordInterface {
   audiences: JsonField!
   coverMedia: VideoAltFileField
   faq: FaqItemRecord
+  faqTitle: String
   id: ItemId!
   levels: JsonField!
   location: String!
@@ -3741,10 +3751,12 @@ type TutorRecord implements RecordInterface {
   numberOfRatings: IntType!
   profilePicture: AltFileField
   qualifiedCourses: [CourseRecord!]!
+  qualifiedCoursesTitle: String
   rate: IntType!
   rating: FloatType!
   remoteStatus: JsonField!
   reviews: [TestimonialBlockDefaultRecord!]!
+  reviewsTitle: String
   slug: String!
   summary: String!
   verified: BooleanType
