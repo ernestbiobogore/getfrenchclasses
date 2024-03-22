@@ -49,6 +49,10 @@ const getTutorBySlug = async (slug: string) => {
 				value: true,
 			},
 
+			topics: {
+				text: true,
+			},
+
 			otherTutors: tutorMetaFields,
 		},
 	});

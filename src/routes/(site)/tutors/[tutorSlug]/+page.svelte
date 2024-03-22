@@ -24,11 +24,13 @@
 	<!-- LEFT SIDE -->
 	<div class="flex flex-col flex-1 gap-10">
 		<div class="space-y-5">
-			<div class="gap-4 py-4 overflow-x-scroll flex-s-start">
-				{#each [...Array(5)] as _}
-					<Badge class="px-5 py-1.5" variant="secondary">French</Badge>
-				{/each}
-			</div>
+			{#if data.tutor.topics && data.tutor.topics.length > 0}
+				<div class="gap-4 py-4 overflow-x-scroll flex-s-start">
+					{#each data.tutor.topics as topic}
+						<Badge class="px-5 py-1.5" variant="secondary">{topic.text}</Badge>
+					{/each}
+				</div>
+			{/if}
 
 			<h1>{data.tutor.summary}</h1>
 

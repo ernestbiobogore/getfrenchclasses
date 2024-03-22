@@ -556,6 +556,27 @@ export interface NoteBlockRecord {
     __typename: 'NoteBlockRecord'
 }
 
+
+/** Block of type Plain Text Block (plain_text_block) */
+export interface PlainTextBlockRecord {
+    _createdAt: Scalars['DateTime']
+    /** Editing URL */
+    _editingUrl: (Scalars['String'] | null)
+    _firstPublishedAt: (Scalars['DateTime'] | null)
+    _isValid: Scalars['BooleanType']
+    _modelApiKey: Scalars['String']
+    _publicationScheduledAt: (Scalars['DateTime'] | null)
+    _publishedAt: (Scalars['DateTime'] | null)
+    /** Generates SEO and Social card meta tags to be used in your frontend */
+    _seoMetaTags: Tag[]
+    _status: ItemStatus
+    _unpublishingScheduledAt: (Scalars['DateTime'] | null)
+    _updatedAt: Scalars['DateTime']
+    id: Scalars['ItemId']
+    text: Scalars['String']
+    __typename: 'PlainTextBlockRecord'
+}
+
 export type PostModelOrderBy = '_createdAt_ASC' | '_createdAt_DESC' | 'id_ASC' | 'id_DESC' | '_firstPublishedAt_ASC' | '_firstPublishedAt_DESC' | '_publicationScheduledAt_ASC' | '_publicationScheduledAt_DESC' | '_unpublishingScheduledAt_ASC' | '_unpublishingScheduledAt_DESC' | '_publishedAt_ASC' | '_publishedAt_DESC' | '_status_ASC' | '_status_DESC' | '_updatedAt_ASC' | '_updatedAt_DESC' | '_isValid_ASC' | '_isValid_DESC' | 'title_ASC' | 'title_DESC'
 
 
@@ -641,7 +662,7 @@ export interface Query {
     __typename: 'Query'
 }
 
-export type RecordInterface = (ActionBlockRecord | CardBlockNewRecord | CardBlockRecord | CardsSectionRecord | CategoryRecord | CourseRecord | FaqBlockNewRecord | FaqBlockRecord | FaqItemRecord | FaqSectionRecord | HeadingBlockNewRecord | HeadingBlockRecord | HeroSectionRecord | ImageBlockRecord | ModularPageRecord | NoteBlockRecord | PostRecord | RichTextBlockRecord | RoutePathRecord | SeoBlockRecord | TestimonialBlockCtaRecord | TestimonialBlockDefaultRecord | TestimonialBlockRecord | TestimonialsSectionRecord | TutorRecord) & { __isUnion?: true }
+export type RecordInterface = (ActionBlockRecord | CardBlockNewRecord | CardBlockRecord | CardsSectionRecord | CategoryRecord | CourseRecord | FaqBlockNewRecord | FaqBlockRecord | FaqItemRecord | FaqSectionRecord | HeadingBlockNewRecord | HeadingBlockRecord | HeroSectionRecord | ImageBlockRecord | ModularPageRecord | NoteBlockRecord | PlainTextBlockRecord | PostRecord | RichTextBlockRecord | RoutePathRecord | SeoBlockRecord | TestimonialBlockCtaRecord | TestimonialBlockDefaultRecord | TestimonialBlockRecord | TestimonialsSectionRecord | TutorRecord) & { __isUnion?: true }
 
 export type ResolutionType = 'icon' | 'small' | 'medium' | 'large'
 
@@ -931,6 +952,7 @@ export interface TutorRecord {
     reviewsTitle: (Scalars['String'] | null)
     slug: Scalars['String']
     summary: Scalars['String']
+    topics: PlainTextBlockRecord[]
     verified: (Scalars['BooleanType'] | null)
     verifiedDescription: (TutorModelVerifiedDescriptionField | null)
     __typename: 'TutorRecord'
@@ -3095,6 +3117,30 @@ eq?: (UploadOrientation | null),
 /** Exclude uploads with the specified orientation */
 neq?: (UploadOrientation | null)}
 
+
+/** Block of type Plain Text Block (plain_text_block) */
+export interface PlainTextBlockRecordGenqlSelection{
+    _createdAt?: boolean | number
+    /** Editing URL */
+    _editingUrl?: boolean | number
+    _firstPublishedAt?: boolean | number
+    _isValid?: boolean | number
+    _modelApiKey?: boolean | number
+    _publicationScheduledAt?: boolean | number
+    _publishedAt?: boolean | number
+    /** Generates SEO and Social card meta tags to be used in your frontend */
+    _seoMetaTags?: (TagGenqlSelection & { __args?: {
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null)} })
+    _status?: boolean | number
+    _unpublishingScheduledAt?: boolean | number
+    _updatedAt?: boolean | number
+    id?: boolean | number
+    text?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
 export interface PostModelFilter {_createdAt?: (CreatedAtFilter | null),id?: (ItemIdFilter | null),_firstPublishedAt?: (PublishedAtFilter | null),_publicationScheduledAt?: (PublishedAtFilter | null),_unpublishingScheduledAt?: (PublishedAtFilter | null),_publishedAt?: (PublishedAtFilter | null),_status?: (StatusFilter | null),_updatedAt?: (UpdatedAtFilter | null),_isValid?: (BooleanFilter | null),category?: (LinkFilter | null),routePaths?: (LinksFilter | null),slug?: (SlugFilter | null),title?: (StringFilter | null),OR?: ((PostModelFilter | null)[] | null),AND?: ((PostModelFilter | null)[] | null)}
 
 
@@ -3351,6 +3397,7 @@ export interface RecordInterfaceGenqlSelection{
     on_ImageBlockRecord?: ImageBlockRecordGenqlSelection
     on_ModularPageRecord?: ModularPageRecordGenqlSelection
     on_NoteBlockRecord?: NoteBlockRecordGenqlSelection
+    on_PlainTextBlockRecord?: PlainTextBlockRecordGenqlSelection
     on_PostRecord?: PostRecordGenqlSelection
     on_RichTextBlockRecord?: RichTextBlockRecordGenqlSelection
     on_RoutePathRecord?: RoutePathRecordGenqlSelection
@@ -3771,6 +3818,7 @@ export interface TutorRecordGenqlSelection{
     reviewsTitle?: boolean | number
     slug?: boolean | number
     summary?: boolean | number
+    topics?: PlainTextBlockRecordGenqlSelection
     verified?: boolean | number
     verifiedDescription?: TutorModelVerifiedDescriptionFieldGenqlSelection
     __typename?: boolean | number
@@ -4430,6 +4478,14 @@ export interface focalPointGenqlSelection{
     
 
 
+    const PlainTextBlockRecord_possibleTypes: string[] = ['PlainTextBlockRecord']
+    export const isPlainTextBlockRecord = (obj?: { __typename?: any } | null): obj is PlainTextBlockRecord => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isPlainTextBlockRecord"')
+      return PlainTextBlockRecord_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
     const PostRecord_possibleTypes: string[] = ['PostRecord']
     export const isPostRecord = (obj?: { __typename?: any } | null): obj is PostRecord => {
       if (!obj?.__typename) throw new Error('__typename is missing in "isPostRecord"')
@@ -4446,7 +4502,7 @@ export interface focalPointGenqlSelection{
     
 
 
-    const RecordInterface_possibleTypes: string[] = ['ActionBlockRecord','CardBlockNewRecord','CardBlockRecord','CardsSectionRecord','CategoryRecord','CourseRecord','FaqBlockNewRecord','FaqBlockRecord','FaqItemRecord','FaqSectionRecord','HeadingBlockNewRecord','HeadingBlockRecord','HeroSectionRecord','ImageBlockRecord','ModularPageRecord','NoteBlockRecord','PostRecord','RichTextBlockRecord','RoutePathRecord','SeoBlockRecord','TestimonialBlockCtaRecord','TestimonialBlockDefaultRecord','TestimonialBlockRecord','TestimonialsSectionRecord','TutorRecord']
+    const RecordInterface_possibleTypes: string[] = ['ActionBlockRecord','CardBlockNewRecord','CardBlockRecord','CardsSectionRecord','CategoryRecord','CourseRecord','FaqBlockNewRecord','FaqBlockRecord','FaqItemRecord','FaqSectionRecord','HeadingBlockNewRecord','HeadingBlockRecord','HeroSectionRecord','ImageBlockRecord','ModularPageRecord','NoteBlockRecord','PlainTextBlockRecord','PostRecord','RichTextBlockRecord','RoutePathRecord','SeoBlockRecord','TestimonialBlockCtaRecord','TestimonialBlockDefaultRecord','TestimonialBlockRecord','TestimonialsSectionRecord','TutorRecord']
     export const isRecordInterface = (obj?: { __typename?: any } | null): obj is RecordInterface => {
       if (!obj?.__typename) throw new Error('__typename is missing in "isRecordInterface"')
       return RecordInterface_possibleTypes.includes(obj.__typename)
