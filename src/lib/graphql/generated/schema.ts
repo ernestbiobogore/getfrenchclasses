@@ -920,6 +920,7 @@ export interface TutorRecord {
     location: Scalars['String']
     name: Scalars['String']
     numberOfRatings: Scalars['IntType']
+    otherTutors: TutorRecord[]
     profilePicture: (AltFileField | null)
     qualifiedCourses: CourseRecord[]
     qualifiedCoursesTitle: (Scalars['String'] | null)
@@ -3721,7 +3722,7 @@ export interface TutorModelAboutFieldGenqlSelection{
     __scalar?: boolean | number
 }
 
-export interface TutorModelFilter {_createdAt?: (CreatedAtFilter | null),id?: (ItemIdFilter | null),_firstPublishedAt?: (PublishedAtFilter | null),_publicationScheduledAt?: (PublishedAtFilter | null),_unpublishingScheduledAt?: (PublishedAtFilter | null),_publishedAt?: (PublishedAtFilter | null),_status?: (StatusFilter | null),_updatedAt?: (UpdatedAtFilter | null),_isValid?: (BooleanFilter | null),about?: (StructuredTextFilter | null),audiences?: (JsonFilter | null),coverMedia?: (FileFilter | null),faq?: (LinkFilter | null),faqTitle?: (StringFilter | null),levels?: (JsonFilter | null),location?: (StringFilter | null),name?: (StringFilter | null),numberOfRatings?: (IntegerFilter | null),profilePicture?: (FileFilter | null),qualifiedCourses?: (LinksFilter | null),qualifiedCoursesTitle?: (StringFilter | null),rate?: (IntegerFilter | null),rating?: (FloatFilter | null),remoteStatus?: (JsonFilter | null),reviewsTitle?: (StringFilter | null),slug?: (SlugFilter | null),summary?: (StringFilter | null),verified?: (BooleanFilter | null),verifiedDescription?: (StructuredTextFilter | null),OR?: ((TutorModelFilter | null)[] | null),AND?: ((TutorModelFilter | null)[] | null)}
+export interface TutorModelFilter {_createdAt?: (CreatedAtFilter | null),id?: (ItemIdFilter | null),_firstPublishedAt?: (PublishedAtFilter | null),_publicationScheduledAt?: (PublishedAtFilter | null),_unpublishingScheduledAt?: (PublishedAtFilter | null),_publishedAt?: (PublishedAtFilter | null),_status?: (StatusFilter | null),_updatedAt?: (UpdatedAtFilter | null),_isValid?: (BooleanFilter | null),about?: (StructuredTextFilter | null),audiences?: (JsonFilter | null),coverMedia?: (FileFilter | null),faq?: (LinkFilter | null),faqTitle?: (StringFilter | null),levels?: (JsonFilter | null),location?: (StringFilter | null),name?: (StringFilter | null),numberOfRatings?: (IntegerFilter | null),otherTutors?: (LinksFilter | null),profilePicture?: (FileFilter | null),qualifiedCourses?: (LinksFilter | null),qualifiedCoursesTitle?: (StringFilter | null),rate?: (IntegerFilter | null),rating?: (FloatFilter | null),remoteStatus?: (JsonFilter | null),reviewsTitle?: (StringFilter | null),slug?: (SlugFilter | null),summary?: (StringFilter | null),verified?: (BooleanFilter | null),verifiedDescription?: (StructuredTextFilter | null),OR?: ((TutorModelFilter | null)[] | null),AND?: ((TutorModelFilter | null)[] | null)}
 
 export interface TutorModelVerifiedDescriptionFieldGenqlSelection{
     blocks?: boolean | number
@@ -3759,6 +3760,7 @@ export interface TutorRecordGenqlSelection{
     location?: boolean | number
     name?: boolean | number
     numberOfRatings?: boolean | number
+    otherTutors?: TutorRecordGenqlSelection
     profilePicture?: AltFileFieldGenqlSelection
     qualifiedCourses?: CourseRecordGenqlSelection
     qualifiedCoursesTitle?: boolean | number

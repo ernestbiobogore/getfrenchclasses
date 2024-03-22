@@ -48,6 +48,8 @@ const getTutorBySlug = async (slug: string) => {
 			verifiedDescription: {
 				value: true,
 			},
+
+			otherTutors: tutorMetaFields,
 		},
 	});
 

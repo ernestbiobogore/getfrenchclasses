@@ -3657,6 +3657,7 @@ input TutorModelFilter {
   location: StringFilter
   name: StringFilter
   numberOfRatings: IntegerFilter
+  otherTutors: LinksFilter
   profilePicture: FileFilter
   qualifiedCourses: LinksFilter
   qualifiedCoursesTitle: StringFilter
@@ -3749,6 +3750,7 @@ type TutorRecord implements RecordInterface {
   location: String!
   name: String!
   numberOfRatings: IntType!
+  otherTutors: [TutorRecord!]!
   profilePicture: AltFileField
   qualifiedCourses: [CourseRecord!]!
   qualifiedCoursesTitle: String
