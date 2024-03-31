@@ -20,8 +20,6 @@
 
 		<StructuredText richText={postCta.content?.richText} class="space-y-4" />
 
-		<hr class="my-4 border-gray-400" />
-
 		<Button href={postCta.cta[0].link} class="w-full text-white bg-savoy-blue">
 			{postCta.cta[0].text}
 		</Button>
