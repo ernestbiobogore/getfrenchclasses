@@ -42,7 +42,7 @@
 			/>
 
 			<div
-				class="max-md:hidden absolute left-full top-1/2 -translate-y-[45%] h-[100px] w-[400px] flex items-center"
+				class="max-md:hidden absolute left-full top-[10%] -translate-y-[45%] h-[100px] w-[400px] flex items-center"
 			>
 				<div>
 					<h3
