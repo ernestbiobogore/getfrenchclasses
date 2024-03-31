@@ -5,7 +5,9 @@
 
 <nav class="py-4 sticky top-0 z-10 bg-magnolia border-b">
 	<div class="container-base flex-s-between">
-		<a href="/" class="text-xs font-bold md:text-xl">Get French Classes</a>
+		<a href="/" class="text-xs font-bold md:text-xl">
+			<img src="/get-french-classes-logo.png" alt="Get French Classes" class="w-12" />
+		</a>
 
 		<div class="hidden gap-4 [&_a]:py-2 [&_a]:font-medium [&_a]:rounded-lg lg:flex">
 			<a class="hover:underline" href="/courses">Courses</a>
