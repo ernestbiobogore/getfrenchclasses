@@ -8,7 +8,7 @@
 
 @layer base {
 	body {
-		@apply relative overflow-x-hidden font-inter bg-magnolia text-night;
+		@apply relative overflow-x-hidden font-ibm-plex-sans bg-magnolia text-night;
 	}
 
 	html {

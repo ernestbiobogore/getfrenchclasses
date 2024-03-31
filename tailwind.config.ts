@@ -1,6 +1,6 @@
-import plugin from "tailwindcss/plugin";
 import type { Config } from "tailwindcss";
 import { fontFamily } from "tailwindcss/defaultTheme";
+import plugin from "tailwindcss/plugin";
 
 const config: Config = {
 	content: ["./src/**/*.{html,js,svelte,ts}"],
@@ -17,7 +17,7 @@ const config: Config = {
 		},
 		extend: {
 			fontFamily: {
-				inter: ["Inter Variable", ...fontFamily.sans],
+				'ibm-plex-sans': ["IBM Plex Sans", ...fontFamily.sans],
 			},
 			colors: {
 				magnolia: "#eeecf1",
