@@ -11,16 +11,15 @@
 </script>
 
 <script lang="ts">
+	import { goto } from "$app/navigation";
 	import { Button } from "$shadcn/button";
 	import PostCard from "./PostCard.svelte";
+	import { JUMPER_LENGTH } from "./utils";
 
-	export let data: PageData;
+	export let data;
 
 	let currentFilter = "all" as string;
-	$: featuredPosts = filterPosts(
-		currentFilter,
-		data.allPosts.filter(post => post.featured)
-	);
+	$: featuredPosts = filterPosts(currentFilter, data.featuredPosts);
 	$: latestPosts = filterPosts(currentFilter, data.allPosts);
 
 	$: individualCategories = data.allPosts.reduce(
@@ -34,22 +33,33 @@
 		},
 		[] as { slug: string; name: string }[]
 	);
+
+	const loadMorePosts = () => {
+		const currentFirst = data.first;
+		const newFirst = currentFirst + JUMPER_LENGTH;
+		const finalFirst =
+			newFirst > data.allNonFeaturedPostsCount ? data.allNonFeaturedPostsCount : newFirst;
+
+		goto(`/blog?first=${finalFirst}`, {
+			noScroll: true,
+		});
+	};
 </script>
 
 <svelte:head>
 	<title>Blog - GetFrenchClasses</title>
 </svelte:head>
 
-<section class="container-base p-3 space-y-5 md:py-20 md:text-center">
+<section class="p-3 space-y-5 container-base md:py-20 md:text-center">
 	<h1><button on:click={() => (currentFilter = "all")}>Blog</button></h1>
 	<p class="md:text-xl max-w-[46ch] md:mx-auto">
 		Our blog covers writing tips, productivity hacks, and lessons learned on our startup journey.
 	</p>
 
-	<div class="flex-s-start overflow-y-auto py-3 md:flex-s-center">
+	<div class="py-3 overflow-y-auto flex-s-start md:flex-s-center">
 		<Button
 			variant="outline"
-			class="rounded-none border shrink-0 not-first:border-r first:rounded-l-lg last:rounded-r-lg"
+			class="border rounded-none shrink-0 not-first:border-r first:rounded-l-lg last:rounded-r-lg"
 			on:click={() => (currentFilter = "all")}
 			disabled={currentFilter === "all"}
 		>
@@ -61,7 +71,7 @@
 				{#if category}
 					<Button
 						variant={currentFilter === category?.slug ? "default" : "outline"}
-						class="rounded-none border shrink-0 not-first:border-r first:rounded-l-lg last:rounded-r-lg"
+						class="border rounded-none shrink-0 not-first:border-r first:rounded-l-lg last:rounded-r-lg"
 						on:click={() => (currentFilter = String(category?.slug))}
 					>
 						{category?.name}
@@ -74,7 +84,7 @@
 
 <hr class="max-md:mt-10" />
 
-<div class="container-base py-10">
+<div class="py-10 container-base">
 	<h2 class="text-center">Featured Blog Posts</h2>
 	<p class="text-center">A curated selection of our best articles</p>
 </div>
@@ -82,8 +92,8 @@
 {#if featuredPosts.length === 0}
 	<p class="text-center">No posts found</p>
 {:else}
-	<div class="container-base py-5">
-		<div class="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+	<div class="py-5 container-base">
+		<div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
 			{#each featuredPosts as post (post.id)}
 				<PostCard {post} />
 			{/each}
@@ -91,7 +101,7 @@
 	</div>
 {/if}
 
-<div class="container-base py-10">
+<div class="py-10 container-base">
 	<h2 class="text-center">Latest Releases</h2>
 	<p class="text-center">Discover some of our most recent articles</p>
 </div>
@@ -99,11 +109,19 @@
 {#if latestPosts.length === 0}
 	<p class="text-center">No posts found</p>
 {:else}
-	<div class="container-base py-5">
-		<div class="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+	<div class="py-5 container-base">
+		<div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
 			{#each latestPosts as post (post.id)}
 				<PostCard {post} />
 			{/each}
 		</div>
+	</div>
+{/if}
+
+{#if latestPosts.length >= JUMPER_LENGTH && data.allNonFeaturedPostsCount > data.first}
+	<div class="flex justify-center py-20">
+		<Button class="bg-indigo-600 hover:bg-indigo-700" on:click={loadMorePosts}
+			>Load More Posts</Button
+		>
 	</div>
 {/if}
