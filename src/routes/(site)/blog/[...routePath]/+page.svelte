@@ -1,17 +1,15 @@
 <script lang="ts">
 	import BlogCta, { type CTAProps } from "$lib/components/cta-section/BlogCta.svelte";
 	import StructuredText from "$lib/components/dato/StructuredText/index.svelte";
-	import { Button } from "$shadcn/button";
 	import { generateShareOptions, getSampleAvatars, getShareLinks } from "$lib/utils";
 
+	import PostCTA from "$lib/components/dato/sections/PostCTA.svelte";
 	import Fa6BrandsXTwitter from "~icons/fa6-brands/x-twitter";
 	import LucideFacebook from "~icons/lucide/facebook";
 	import LucideLinkedin from "~icons/lucide/linkedin";
 	import PhRedditLogoBold from "~icons/ph/reddit-logo-bold";
-	import AvatarsGroup from "$lib/components/AvatarsGroup.svelte";
 
 	export let data;
-	$: postCta = data.post?.cta[0];
 
 	$: shareOptions = generateShareOptions({
 		slug: data.post?.slug || "",
@@ -49,28 +47,28 @@
 		<div class="text-sm flex flex-wrap gap-2 items-center my-4 [&>*]:shrink-none [&>*]:h-[30px]">
 			<a
 				href={twitterShareUrl}
-				class="inline-flex-s-center gap-1 px-2 rounded-lg border border-gray-400"
+				class="gap-1 px-2 border border-gray-400 rounded-lg inline-flex-s-center"
 			>
 				<Fa6BrandsXTwitter />
 				<span>Share on Twitter</span>
 			</a>
 			<a
 				href={facebookShareUrl}
-				class="inline-flex-s-center gap-1 px-1 rounded-lg border border-gray-400"
+				class="gap-1 px-1 border border-gray-400 rounded-lg inline-flex-s-center"
 			>
 				<LucideFacebook class="text-lg" />
 				<span>Share on Facebook</span>
 			</a>
 			<a
 				href={linkedInShareUrl}
-				class="inline-flex-s-center gap-1 px-2 rounded-lg border border-gray-400"
+				class="gap-1 px-2 border border-gray-400 rounded-lg inline-flex-s-center"
 			>
 				<LucideLinkedin class="text-lg" />
 				<span>Share on LinkedIn</span>
 			</a>
 			<a
 				href={redditShareUrl}
-				class="inline-flex-s-center gap-1 px-2 rounded-lg border border-gray-400"
+				class="gap-1 px-2 border border-gray-400 rounded-lg inline-flex-s-center"
 			>
 				<PhRedditLogoBold class="text-lg" />
 				<span>Share on Reddit</span>
@@ -78,7 +76,7 @@
 		</div>
 	</header>
 
-	<article class="flex flex-col lg:flex-row gap-6 container-base mt-8">
+	<article class="flex flex-col gap-6 mt-8 lg:flex-row container-base">
 		<main class="space-y-8 basis-9/12">
 			<BlogCta props={dummyCTAProps} ctaAction={() => alert("button Clicked")} />
 
@@ -90,33 +88,17 @@
 		</main>
 
 		<aside class="basis-3/12">
-			{#if postCta}
-				<div
-					class="rounded-lg border-savoy-blue border-2 bg-white p-6 shadow-lg max-w-[400px] mx-auto flex flex-col gap-4"
-				>
-					<h1 class="text-xl font-semibold tracking-tight">{postCta.title}</h1>
-					<StructuredText richText={postCta.content?.richText} class="space-y-4" />
-					<Button href={postCta.cta[0].link} class="w-full bg-savoy-blue text-white">
-						{postCta.cta[0].text}
-					</Button>
-					<div class="flex-s-center gap-3 text-center">
-						<AvatarsGroup avatars={getSampleAvatars(2)} size={20} />
-						<span class="text-[9px] max-w-[36ch]">
-							and 4570+ learners went from noob to fluent French speakers with our programs.
-						</span>
-					</div>
-				</div>
-			{/if}
+			<PostCTA />
 		</aside>
 	</article>
 {/if}
 
 {#if data.correctUrl}
-	<section class="container-base py-16 space-y-2">
+	<section class="py-16 space-y-2 container-base">
 		<p class="text-xl">It looks like you are trying to access an existing post with a wrong URL.</p>
 		<p class="text-xl break-words">
 			Try this one:
-			<a href={data.correctUrl} class="underline font-semibold">{data.correctUrl}</a>
+			<a href={data.correctUrl} class="font-semibold underline">{data.correctUrl}</a>
 		</p>
 	</section>
 {/if}
