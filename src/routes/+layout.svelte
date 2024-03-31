@@ -4,25 +4,17 @@
 	import "../app.css";
 
 	import BiFacebook from "~icons/bi/facebook";
-	import LucideInstagram from "~icons/lucide/instagram";
+	import BiLinkedin from "~icons/bi/linkedin";
 	import BiTwitter from "~icons/bi/twitter";
 	import BiYoutube from "~icons/bi/youtube";
-	import BiLinkedin from "~icons/bi/linkedin";
+	import LucideInstagram from "~icons/lucide/instagram";
 
-	import NProgress from "nprogress";
 	import { navigating } from "$app/stores";
+	import NProgress from "nprogress";
 
 	NProgress.configure({ showSpinner: false, minimum: 0.16 });
 	$: $navigating ? NProgress.start() : NProgress.done();
 </script>
-
-<header class="bg-indigo-600 py-2 md:py-4">
-	<p class="text-[11px] text-center text-white md:text-sm">
-		Get a free starter guide when you sign up for any of our <a href="/" class="font-bold underline"
-			>courses</a
-		>.
-	</p>
-</header>
 
 <slot />
 
@@ -43,7 +35,7 @@
 				<BiLinkedin />
 			</div>
 		</div>
-		<div class="flex gap-5 md:gap-20 basis-3/12 flex-col md:flex-row">
+		<div class="flex flex-col gap-5 md:gap-20 basis-3/12 md:flex-row">
 			<div class="space-y-4">
 				<p class="font-bold">Company</p>
 				<ul class="space-y-2 text-sm">
