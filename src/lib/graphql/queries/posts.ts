@@ -35,6 +35,7 @@ const getAllBlogPosts = async () => {
 			slug: true,
 			title: true,
 			category: postCategoryBlockFields,
+			featured: true,
 			routePaths: {
 				slug: true,
 			},

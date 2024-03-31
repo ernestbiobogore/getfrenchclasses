@@ -577,7 +577,7 @@ export interface PlainTextBlockRecord {
     __typename: 'PlainTextBlockRecord'
 }
 
-export type PostModelOrderBy = '_createdAt_ASC' | '_createdAt_DESC' | 'id_ASC' | 'id_DESC' | '_firstPublishedAt_ASC' | '_firstPublishedAt_DESC' | '_publicationScheduledAt_ASC' | '_publicationScheduledAt_DESC' | '_unpublishingScheduledAt_ASC' | '_unpublishingScheduledAt_DESC' | '_publishedAt_ASC' | '_publishedAt_DESC' | '_status_ASC' | '_status_DESC' | '_updatedAt_ASC' | '_updatedAt_DESC' | '_isValid_ASC' | '_isValid_DESC' | 'title_ASC' | 'title_DESC'
+export type PostModelOrderBy = '_createdAt_ASC' | '_createdAt_DESC' | 'id_ASC' | 'id_DESC' | '_firstPublishedAt_ASC' | '_firstPublishedAt_DESC' | '_publicationScheduledAt_ASC' | '_publicationScheduledAt_DESC' | '_unpublishingScheduledAt_ASC' | '_unpublishingScheduledAt_DESC' | '_publishedAt_ASC' | '_publishedAt_DESC' | '_status_ASC' | '_status_DESC' | '_updatedAt_ASC' | '_updatedAt_DESC' | '_isValid_ASC' | '_isValid_DESC' | 'featured_ASC' | 'featured_DESC' | 'title_ASC' | 'title_DESC'
 
 
 /** Record of type Post (post) */
@@ -597,6 +597,7 @@ export interface PostRecord {
     _updatedAt: Scalars['DateTime']
     category: (CategoryRecord | null)
     cta: CardBlockRecord[]
+    featured: (Scalars['BooleanType'] | null)
     id: Scalars['ItemId']
     modularContent: RichTextBlockRecord[]
     routePaths: RoutePathRecord[]
@@ -3141,7 +3142,7 @@ export interface PlainTextBlockRecordGenqlSelection{
     __scalar?: boolean | number
 }
 
-export interface PostModelFilter {_createdAt?: (CreatedAtFilter | null),id?: (ItemIdFilter | null),_firstPublishedAt?: (PublishedAtFilter | null),_publicationScheduledAt?: (PublishedAtFilter | null),_unpublishingScheduledAt?: (PublishedAtFilter | null),_publishedAt?: (PublishedAtFilter | null),_status?: (StatusFilter | null),_updatedAt?: (UpdatedAtFilter | null),_isValid?: (BooleanFilter | null),category?: (LinkFilter | null),routePaths?: (LinksFilter | null),slug?: (SlugFilter | null),title?: (StringFilter | null),OR?: ((PostModelFilter | null)[] | null),AND?: ((PostModelFilter | null)[] | null)}
+export interface PostModelFilter {_createdAt?: (CreatedAtFilter | null),id?: (ItemIdFilter | null),_firstPublishedAt?: (PublishedAtFilter | null),_publicationScheduledAt?: (PublishedAtFilter | null),_unpublishingScheduledAt?: (PublishedAtFilter | null),_publishedAt?: (PublishedAtFilter | null),_status?: (StatusFilter | null),_updatedAt?: (UpdatedAtFilter | null),_isValid?: (BooleanFilter | null),category?: (LinkFilter | null),featured?: (BooleanFilter | null),routePaths?: (LinksFilter | null),slug?: (SlugFilter | null),title?: (StringFilter | null),OR?: ((PostModelFilter | null)[] | null),AND?: ((PostModelFilter | null)[] | null)}
 
 
 /** Record of type Post (post) */
@@ -3163,6 +3164,7 @@ export interface PostRecordGenqlSelection{
     _updatedAt?: boolean | number
     category?: CategoryRecordGenqlSelection
     cta?: CardBlockRecordGenqlSelection
+    featured?: boolean | number
     id?: boolean | number
     modularContent?: RichTextBlockRecordGenqlSelection
     routePaths?: RoutePathRecordGenqlSelection
@@ -5028,6 +5030,8 @@ export const enumPostModelOrderBy = {
    _updatedAt_DESC: '_updatedAt_DESC' as const,
    _isValid_ASC: '_isValid_ASC' as const,
    _isValid_DESC: '_isValid_DESC' as const,
+   featured_ASC: 'featured_ASC' as const,
+   featured_DESC: 'featured_DESC' as const,
    title_ASC: 'title_ASC' as const,
    title_DESC: 'title_DESC' as const
 }

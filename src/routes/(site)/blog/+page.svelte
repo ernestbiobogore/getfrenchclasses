@@ -1,22 +1,39 @@
+<script lang="ts" context="module">
+	import type { PageData } from "../blog/$types";
+
+	const filterPosts = (currentFilter: string, posts: PageData["allPosts"]) => {
+		if (currentFilter === "all") {
+			return posts;
+		} else {
+			return posts.filter(post => post.category?.slug === currentFilter);
+		}
+	};
+</script>
+
 <script lang="ts">
 	import { Button } from "$shadcn/button";
 	import PostCard from "./PostCard.svelte";
 
-	export let data;
-	const categories = data.allPosts.map(post => post.category);
+	export let data: PageData;
 
 	let currentFilter = "all" as string;
-	let filteredPosts: typeof data.allPosts = [];
+	$: featuredPosts = filterPosts(
+		currentFilter,
+		data.allPosts.filter(post => post.featured)
+	);
+	$: latestPosts = filterPosts(currentFilter, data.allPosts);
 
-	$: filteredPosts = filterPosts(currentFilter);
-
-	function filterPosts(currentFilter: string) {
-		if (currentFilter === "all") {
-			return data.allPosts;
-		} else {
-			return data.allPosts.filter(post => post.category?.slug === currentFilter);
-		}
-	}
+	$: individualCategories = data.allPosts.reduce(
+		(acc, post) => {
+			if (post.category) {
+				if (!acc.find(c => c.slug === post.category?.slug)) {
+					acc.push({ slug: post.category.slug, name: post.category.name });
+				}
+			}
+			return acc;
+		},
+		[] as { slug: string; name: string }[]
+	);
 </script>
 
 <svelte:head>
@@ -39,8 +56,8 @@
 			All
 		</Button>
 
-		{#if categories && categories.length > 0}
-			{#each categories as category}
+		{#if individualCategories && individualCategories.length > 0}
+			{#each individualCategories as category (category.slug)}
 				{#if category}
 					<Button
 						variant={currentFilter === category?.slug ? "default" : "outline"}
@@ -57,53 +74,34 @@
 
 <hr class="max-md:mt-10" />
 
-{#if currentFilter !== "all"}
-	{#if filteredPosts.length === 0}
-		<p class="text-center">No posts found</p>
-	{:else}
-		<div class="container-base py-5">
-			<div class="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-				{#each filteredPosts as post}
-					<PostCard {post} />
-				{/each}
-			</div>
-		</div>
-	{/if}
+<div class="container-base py-10">
+	<h2 class="text-center">Featured Blog Posts</h2>
+	<p class="text-center">A curated selection of our best articles</p>
+</div>
+
+{#if featuredPosts.length === 0}
+	<p class="text-center">No posts found</p>
 {:else}
-	<div class="container-base py-10">
-		<h2 class="text-center">Featured Blog Posts</h2>
-		<p class="text-center">A curated selection of our best articles</p>
-	</div>
-
 	<div class="container-base py-5">
 		<div class="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-			{#each data.allPosts as post}
+			{#each featuredPosts as post (post.id)}
 				<PostCard {post} />
 			{/each}
 		</div>
 	</div>
+{/if}
 
-	<div class="container-base py-10">
-		<h2 class="text-center">Latest Releases</h2>
-		<p class="text-center">Discover some of our most recent articles</p>
-	</div>
+<div class="container-base py-10">
+	<h2 class="text-center">Latest Releases</h2>
+	<p class="text-center">Discover some of our most recent articles</p>
+</div>
 
+{#if latestPosts.length === 0}
+	<p class="text-center">No posts found</p>
+{:else}
 	<div class="container-base py-5">
 		<div class="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-			{#each data.allPosts as post}
-				<PostCard {post} />
-			{/each}
-		</div>
-	</div>
-
-	<div class="container-base py-10">
-		<h2 class="text-center">Case Studies</h2>
-		<p class="text-center">Read our latest case studies</p>
-	</div>
-
-	<div class="container-base py-5">
-		<div class="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-			{#each data.allPosts as post}
+			{#each latestPosts as post (post.id)}
 				<PostCard {post} />
 			{/each}
 		</div>

@@ -2478,6 +2478,9 @@ export default {
             "category": [
                 72
             ],
+            "featured": [
+                3
+            ],
             "routePaths": [
                 73
             ],
@@ -2542,6 +2545,9 @@ export default {
             ],
             "cta": [
                 6
+            ],
+            "featured": [
+                4
             ],
             "id": [
                 67
