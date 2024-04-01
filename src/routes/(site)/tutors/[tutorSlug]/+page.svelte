@@ -44,21 +44,22 @@
 			</div>
 
 			{#if data.tutor.verified}
-				<div class="p-4 bg-pink-200 rounded-xl">
+				<div class="p-4 bg-indigo-600 rounded-xl">
 					<div class="gap-2 mb-2 text-2xl flex-s-start">
-						<SharpVerifired />
-						<span class="font-bold text-">Verified</span>
+						<SharpVerifired class="text-white" />
+						<span class="font-bold text-white">Verified</span>
 					</div>
 
 					{#if data.tutor.verifiedDescription}
 						<StructuredText
 							richText={data.tutor.verifiedDescription}
+							class="text-white"
 							elementClasses={{
 								p: "text-sm font-medium",
 							}}
 						/>
 					{:else}
-						<p class="text-sm font-medium">
+						<p class="text-sm font-medium text-white">
 							{DEFAULT_VERIFIED_DESCRIPTION}
 						</p>
 					{/if}
