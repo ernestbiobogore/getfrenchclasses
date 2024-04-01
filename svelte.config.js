@@ -10,7 +10,6 @@ const config = {
 	kit: {
 		adapter: adapter(),
 		alias: {
-			$routes: "src/routes",
 			$shadcn: "src/lib/components/shadcn/ui",
 		},
 	},
