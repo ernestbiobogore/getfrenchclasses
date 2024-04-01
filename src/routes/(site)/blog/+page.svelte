@@ -22,16 +22,11 @@
 	$: featuredPosts = filterPosts(currentFilter, data.featuredPosts);
 	$: latestPosts = filterPosts(currentFilter, data.allPosts);
 
-	$: individualCategories = data.allPosts.reduce(
-		(acc, post) => {
-			if (post.category) {
-				if (!acc.find(c => c.slug === post.category?.slug)) {
-					acc.push({ slug: post.category.slug, name: post.category.name });
-				}
-			}
-			return acc;
-		},
-		[] as { slug: string; name: string }[]
+	
+	$: uniqueCategories = Array.from(
+		new Map(
+			data.allPosts.flatMap(item => item.category).map(category => [category?.slug, category])
+		).values()
 	);
 
 	const loadMorePosts = () => {
@@ -66,8 +61,8 @@
 			All
 		</Button>
 
-		{#if individualCategories && individualCategories.length > 0}
-			{#each individualCategories as category (category.slug)}
+		{#if uniqueCategories && uniqueCategories.length > 0}
+			{#each uniqueCategories as category (category?.slug)}
 				{#if category}
 					<Button
 						variant={currentFilter === category?.slug ? "default" : "outline"}

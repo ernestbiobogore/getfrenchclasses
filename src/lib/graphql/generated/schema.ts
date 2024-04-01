@@ -693,6 +693,8 @@ export interface Query {
     /** Returns meta information regarding a record collection */
     _allPostsMeta: CollectionMetadata
     /** Returns meta information regarding a record collection */
+    _allResourceTopicsMeta: CollectionMetadata
+    /** Returns meta information regarding a record collection */
     _allResourcesMeta: CollectionMetadata
     /** Returns meta information regarding a record collection */
     _allRoutePathsMeta: CollectionMetadata
@@ -716,6 +718,8 @@ export interface Query {
     allPostCtas: PostCtaRecord[]
     /** Returns a collection of records */
     allPosts: PostRecord[]
+    /** Returns a collection of records */
+    allResourceTopics: ResourceTopicRecord[]
     /** Returns a collection of records */
     allResources: ResourceRecord[]
     /** Returns a collection of records */
@@ -741,6 +745,8 @@ export interface Query {
     /** Returns a specific record */
     resource: (ResourceRecord | null)
     /** Returns a specific record */
+    resourceTopic: (ResourceTopicRecord | null)
+    /** Returns a specific record */
     routePath: (RoutePathRecord | null)
     /** Returns a specific record */
     tutor: (TutorRecord | null)
@@ -749,7 +755,7 @@ export interface Query {
     __typename: 'Query'
 }
 
-export type RecordInterface = (ActionBlockRecord | CardBlockNewRecord | CardBlockRecord | CardsSectionRecord | CategoryRecord | CourseRecord | FaqBlockNewRecord | FaqBlockRecord | FaqItemRecord | FaqSectionRecord | HeadingBlockNewRecord | HeadingBlockRecord | HeroSectionRecord | ImageBlockRecord | InstructorRecord | ModularPageRecord | NoteBlockRecord | PlainTextBlockRecord | PostCtaRecord | PostRecord | ResourceRecord | RichTextBlockRecord | RoutePathRecord | SeoBlockRecord | TestimonialBlockCtaRecord | TestimonialBlockDefaultRecord | TestimonialBlockRecord | TestimonialsSectionRecord | TutorRecord) & { __isUnion?: true }
+export type RecordInterface = (ActionBlockRecord | CardBlockNewRecord | CardBlockRecord | CardsSectionRecord | CategoryRecord | CourseRecord | FaqBlockNewRecord | FaqBlockRecord | FaqItemRecord | FaqSectionRecord | HeadingBlockNewRecord | HeadingBlockRecord | HeroSectionRecord | ImageBlockRecord | InstructorRecord | ModularPageRecord | NoteBlockRecord | PlainTextBlockRecord | PostCtaRecord | PostRecord | ResourceRecord | ResourceTopicRecord | RichTextBlockRecord | RoutePathRecord | SeoBlockRecord | TestimonialBlockCtaRecord | TestimonialBlockDefaultRecord | TestimonialBlockRecord | TestimonialsSectionRecord | TutorRecord) & { __isUnion?: true }
 
 export type ResolutionType = 'icon' | 'small' | 'medium' | 'large'
 
@@ -796,7 +802,32 @@ export interface ResourceRecord {
     slug: Scalars['String']
     summary: (ResourceModelSummaryField | null)
     title: Scalars['String']
+    topics: ResourceTopicRecord[]
     __typename: 'ResourceRecord'
+}
+
+export type ResourceTopicModelOrderBy = '_createdAt_ASC' | '_createdAt_DESC' | 'id_ASC' | 'id_DESC' | '_firstPublishedAt_ASC' | '_firstPublishedAt_DESC' | '_publicationScheduledAt_ASC' | '_publicationScheduledAt_DESC' | '_unpublishingScheduledAt_ASC' | '_unpublishingScheduledAt_DESC' | '_publishedAt_ASC' | '_publishedAt_DESC' | '_status_ASC' | '_status_DESC' | '_updatedAt_ASC' | '_updatedAt_DESC' | '_isValid_ASC' | '_isValid_DESC' | 'name_ASC' | 'name_DESC'
+
+
+/** Record of type 🌿 Resource Topic (resource_topic) */
+export interface ResourceTopicRecord {
+    _createdAt: Scalars['DateTime']
+    /** Editing URL */
+    _editingUrl: (Scalars['String'] | null)
+    _firstPublishedAt: (Scalars['DateTime'] | null)
+    _isValid: Scalars['BooleanType']
+    _modelApiKey: Scalars['String']
+    _publicationScheduledAt: (Scalars['DateTime'] | null)
+    _publishedAt: (Scalars['DateTime'] | null)
+    /** Generates SEO and Social card meta tags to be used in your frontend */
+    _seoMetaTags: Tag[]
+    _status: ItemStatus
+    _unpublishingScheduledAt: (Scalars['DateTime'] | null)
+    _updatedAt: Scalars['DateTime']
+    id: Scalars['ItemId']
+    name: Scalars['String']
+    slug: Scalars['String']
+    __typename: 'ResourceTopicRecord'
 }
 
 export interface ResponsiveImage {
@@ -3447,6 +3478,10 @@ export interface QueryGenqlSelection{
     /** The locale to use to fetch the field's content */
     locale?: (SiteLocale | null), filter?: (PostModelFilter | null)} })
     /** Returns meta information regarding a record collection */
+    _allResourceTopicsMeta?: (CollectionMetadataGenqlSelection & { __args?: {
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null), filter?: (ResourceTopicModelFilter | null)} })
+    /** Returns meta information regarding a record collection */
     _allResourcesMeta?: (CollectionMetadataGenqlSelection & { __args?: {
     /** The locale to use to fetch the field's content */
     locale?: (SiteLocale | null), filter?: (ResourceModelFilter | null)} })
@@ -3539,6 +3574,16 @@ export interface QueryGenqlSelection{
     /** Limit the number of results */
     first?: (Scalars['IntType'] | null), filter?: (PostModelFilter | null), orderBy?: ((PostModelOrderBy | null)[] | null)} })
     /** Returns a collection of records */
+    allResourceTopics?: (ResourceTopicRecordGenqlSelection & { __args?: {
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null), 
+    /** If you want to fallback to a default translation when a translation has not been found */
+    fallbackLocales?: (SiteLocale[] | null), 
+    /** Skip the first results */
+    skip?: (Scalars['IntType'] | null), 
+    /** Limit the number of results */
+    first?: (Scalars['IntType'] | null), filter?: (ResourceTopicModelFilter | null), orderBy?: ((ResourceTopicModelOrderBy | null)[] | null)} })
+    /** Returns a collection of records */
     allResources?: (ResourceRecordGenqlSelection & { __args?: {
     /** The locale to use to fetch the field's content */
     locale?: (SiteLocale | null), 
@@ -3627,6 +3672,12 @@ export interface QueryGenqlSelection{
     /** If you want to fallback to a default translation when a translation has not been found */
     fallbackLocales?: (SiteLocale[] | null), filter?: (ResourceModelFilter | null), orderBy?: ((ResourceModelOrderBy | null)[] | null)} })
     /** Returns a specific record */
+    resourceTopic?: (ResourceTopicRecordGenqlSelection & { __args?: {
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null), 
+    /** If you want to fallback to a default translation when a translation has not been found */
+    fallbackLocales?: (SiteLocale[] | null), filter?: (ResourceTopicModelFilter | null), orderBy?: ((ResourceTopicModelOrderBy | null)[] | null)} })
+    /** Returns a specific record */
     routePath?: (RoutePathRecordGenqlSelection & { __args?: {
     /** The locale to use to fetch the field's content */
     locale?: (SiteLocale | null), 
@@ -3686,6 +3737,7 @@ export interface RecordInterfaceGenqlSelection{
     on_PostCtaRecord?: PostCtaRecordGenqlSelection
     on_PostRecord?: PostRecordGenqlSelection
     on_ResourceRecord?: ResourceRecordGenqlSelection
+    on_ResourceTopicRecord?: ResourceTopicRecordGenqlSelection
     on_RichTextBlockRecord?: RichTextBlockRecordGenqlSelection
     on_RoutePathRecord?: RoutePathRecordGenqlSelection
     on_SeoBlockRecord?: SeoBlockRecordGenqlSelection
@@ -3718,7 +3770,7 @@ export interface ResourceModelDescriptionContentFieldGenqlSelection{
     __scalar?: boolean | number
 }
 
-export interface ResourceModelFilter {_createdAt?: (CreatedAtFilter | null),id?: (ItemIdFilter | null),_firstPublishedAt?: (PublishedAtFilter | null),_publicationScheduledAt?: (PublishedAtFilter | null),_unpublishingScheduledAt?: (PublishedAtFilter | null),_publishedAt?: (PublishedAtFilter | null),_status?: (StatusFilter | null),_updatedAt?: (UpdatedAtFilter | null),_isValid?: (BooleanFilter | null),contentHeading?: (StringFilter | null),contentMedias?: (GalleryFilter | null),descriptionContent?: (StructuredTextFilter | null),descriptionHeading?: (StringFilter | null),faq?: (LinkFilter | null),featuredImage?: (FileFilter | null),slug?: (SlugFilter | null),summary?: (StructuredTextFilter | null),title?: (StringFilter | null),OR?: ((ResourceModelFilter | null)[] | null),AND?: ((ResourceModelFilter | null)[] | null)}
+export interface ResourceModelFilter {_createdAt?: (CreatedAtFilter | null),id?: (ItemIdFilter | null),_firstPublishedAt?: (PublishedAtFilter | null),_publicationScheduledAt?: (PublishedAtFilter | null),_unpublishingScheduledAt?: (PublishedAtFilter | null),_publishedAt?: (PublishedAtFilter | null),_status?: (StatusFilter | null),_updatedAt?: (UpdatedAtFilter | null),_isValid?: (BooleanFilter | null),contentHeading?: (StringFilter | null),contentMedias?: (GalleryFilter | null),descriptionContent?: (StructuredTextFilter | null),descriptionHeading?: (StringFilter | null),faq?: (LinkFilter | null),featuredImage?: (FileFilter | null),slug?: (SlugFilter | null),summary?: (StructuredTextFilter | null),title?: (StringFilter | null),topics?: (LinksFilter | null),OR?: ((ResourceModelFilter | null)[] | null),AND?: ((ResourceModelFilter | null)[] | null)}
 
 export interface ResourceModelSummaryFieldGenqlSelection{
     blocks?: boolean | number
@@ -3757,6 +3809,34 @@ export interface ResourceRecordGenqlSelection{
     slug?: boolean | number
     summary?: ResourceModelSummaryFieldGenqlSelection
     title?: boolean | number
+    topics?: ResourceTopicRecordGenqlSelection
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+export interface ResourceTopicModelFilter {_createdAt?: (CreatedAtFilter | null),id?: (ItemIdFilter | null),_firstPublishedAt?: (PublishedAtFilter | null),_publicationScheduledAt?: (PublishedAtFilter | null),_unpublishingScheduledAt?: (PublishedAtFilter | null),_publishedAt?: (PublishedAtFilter | null),_status?: (StatusFilter | null),_updatedAt?: (UpdatedAtFilter | null),_isValid?: (BooleanFilter | null),name?: (StringFilter | null),slug?: (SlugFilter | null),OR?: ((ResourceTopicModelFilter | null)[] | null),AND?: ((ResourceTopicModelFilter | null)[] | null)}
+
+
+/** Record of type 🌿 Resource Topic (resource_topic) */
+export interface ResourceTopicRecordGenqlSelection{
+    _createdAt?: boolean | number
+    /** Editing URL */
+    _editingUrl?: boolean | number
+    _firstPublishedAt?: boolean | number
+    _isValid?: boolean | number
+    _modelApiKey?: boolean | number
+    _publicationScheduledAt?: boolean | number
+    _publishedAt?: boolean | number
+    /** Generates SEO and Social card meta tags to be used in your frontend */
+    _seoMetaTags?: (TagGenqlSelection & { __args?: {
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null)} })
+    _status?: boolean | number
+    _unpublishingScheduledAt?: boolean | number
+    _updatedAt?: boolean | number
+    id?: boolean | number
+    name?: boolean | number
+    slug?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -4872,7 +4952,7 @@ export interface focalPointGenqlSelection{
     
 
 
-    const RecordInterface_possibleTypes: string[] = ['ActionBlockRecord','CardBlockNewRecord','CardBlockRecord','CardsSectionRecord','CategoryRecord','CourseRecord','FaqBlockNewRecord','FaqBlockRecord','FaqItemRecord','FaqSectionRecord','HeadingBlockNewRecord','HeadingBlockRecord','HeroSectionRecord','ImageBlockRecord','InstructorRecord','ModularPageRecord','NoteBlockRecord','PlainTextBlockRecord','PostCtaRecord','PostRecord','ResourceRecord','RichTextBlockRecord','RoutePathRecord','SeoBlockRecord','TestimonialBlockCtaRecord','TestimonialBlockDefaultRecord','TestimonialBlockRecord','TestimonialsSectionRecord','TutorRecord']
+    const RecordInterface_possibleTypes: string[] = ['ActionBlockRecord','CardBlockNewRecord','CardBlockRecord','CardsSectionRecord','CategoryRecord','CourseRecord','FaqBlockNewRecord','FaqBlockRecord','FaqItemRecord','FaqSectionRecord','HeadingBlockNewRecord','HeadingBlockRecord','HeroSectionRecord','ImageBlockRecord','InstructorRecord','ModularPageRecord','NoteBlockRecord','PlainTextBlockRecord','PostCtaRecord','PostRecord','ResourceRecord','ResourceTopicRecord','RichTextBlockRecord','RoutePathRecord','SeoBlockRecord','TestimonialBlockCtaRecord','TestimonialBlockDefaultRecord','TestimonialBlockRecord','TestimonialsSectionRecord','TutorRecord']
     export const isRecordInterface = (obj?: { __typename?: any } | null): obj is RecordInterface => {
       if (!obj?.__typename) throw new Error('__typename is missing in "isRecordInterface"')
       return RecordInterface_possibleTypes.includes(obj.__typename)
@@ -4900,6 +4980,14 @@ export interface focalPointGenqlSelection{
     export const isResourceRecord = (obj?: { __typename?: any } | null): obj is ResourceRecord => {
       if (!obj?.__typename) throw new Error('__typename is missing in "isResourceRecord"')
       return ResourceRecord_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const ResourceTopicRecord_possibleTypes: string[] = ['ResourceTopicRecord']
+    export const isResourceTopicRecord = (obj?: { __typename?: any } | null): obj is ResourceTopicRecord => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isResourceTopicRecord"')
+      return ResourceTopicRecord_possibleTypes.includes(obj.__typename)
     }
     
 
@@ -5510,6 +5598,29 @@ export const enumResourceModelOrderBy = {
    descriptionHeading_DESC: 'descriptionHeading_DESC' as const,
    title_ASC: 'title_ASC' as const,
    title_DESC: 'title_DESC' as const
+}
+
+export const enumResourceTopicModelOrderBy = {
+   _createdAt_ASC: '_createdAt_ASC' as const,
+   _createdAt_DESC: '_createdAt_DESC' as const,
+   id_ASC: 'id_ASC' as const,
+   id_DESC: 'id_DESC' as const,
+   _firstPublishedAt_ASC: '_firstPublishedAt_ASC' as const,
+   _firstPublishedAt_DESC: '_firstPublishedAt_DESC' as const,
+   _publicationScheduledAt_ASC: '_publicationScheduledAt_ASC' as const,
+   _publicationScheduledAt_DESC: '_publicationScheduledAt_DESC' as const,
+   _unpublishingScheduledAt_ASC: '_unpublishingScheduledAt_ASC' as const,
+   _unpublishingScheduledAt_DESC: '_unpublishingScheduledAt_DESC' as const,
+   _publishedAt_ASC: '_publishedAt_ASC' as const,
+   _publishedAt_DESC: '_publishedAt_DESC' as const,
+   _status_ASC: '_status_ASC' as const,
+   _status_DESC: '_status_DESC' as const,
+   _updatedAt_ASC: '_updatedAt_ASC' as const,
+   _updatedAt_DESC: '_updatedAt_DESC' as const,
+   _isValid_ASC: '_isValid_ASC' as const,
+   _isValid_DESC: '_isValid_DESC' as const,
+   name_ASC: 'name_ASC' as const,
+   name_DESC: 'name_DESC' as const
 }
 
 export const enumRoutePathModelOrderBy = {

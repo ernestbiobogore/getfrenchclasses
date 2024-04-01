@@ -1,9 +1,21 @@
 <script lang="ts">
-	import LucideSearch from "~icons/lucide/search";
+	import { page } from "$app/stores";
+	import { Button } from "$shadcn/button";
 	import { Input } from "$shadcn/input";
 	import { Label } from "bits-ui";
+	import { queryParam } from "sveltekit-search-params";
+	import LucideSearch from "~icons/lucide/search";
+	import type { PageData } from "../resources/$types";
 
-	const topics = ["Grammar", "Vocabulary", "Listening", "Reading", "Writing", "Speaking"];
+	$: uniqueTopics = Array.from(
+		new Map(
+			($page.data as PageData).allResources
+				.flatMap(item => item.topics)
+				.map(topic => [topic.slug, topic])
+		).values()
+	);
+
+	const topicParam = queryParam("topic");
 </script>
 
 <div class="flex flex-col gap-4">
@@ -18,9 +30,13 @@
 			</div>
 		</div>
 	</div>
-	<div class="flex flex-col gap-2 overflow-y-auto border border-gray-300 rounded-md p-2">
-		{#each topics as topic}
-			<a class="text-sm font-medium hover:underline" href="/freebies">{topic}</a>
+	<div
+		class="flex flex-col items-start gap-2 overflow-y-auto border border-gray-300 rounded-md p-2"
+	>
+		{#each uniqueTopics as topic (topic.slug)}
+			<Button variant="link" class="p-0 h-fit" on:click={() => ($topicParam = topic.slug)}
+				>{topic.name}</Button
+			>
 		{/each}
 	</div>
 </div>

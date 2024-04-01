@@ -1,6 +1,24 @@
 import { client } from "$lib/graphql/client";
 import { responsiveImageFieldSelection } from "./fields";
 
+const getTopicBySlug = async (slug: string) => {
+	const { resourceTopic } = await client.query({
+		resourceTopic: {
+			__args: {
+				filter: {
+					slug: {
+						eq: slug,
+					},
+				},
+			},
+			id: true,
+		},
+	});
+
+	return resourceTopic;
+};
+
+
 const getResourcesCount = async () => {
 	const { _allResourcesMeta } = await client.query({
 		_allResourcesMeta: {
@@ -11,12 +29,22 @@ const getResourcesCount = async () => {
 	return _allResourcesMeta.count;
 };
 
-const getAllResources = async ({ first, skip }: { first?: number; skip?: number }) => {
+type GetAllResourcesParams = {
+	first?: number;
+	skip?: number;
+	topics?: string[];
+};
+const getAllResources = async ({ first, skip, topics }: GetAllResourcesParams) => {
 	const { allResources } = await client.query({
 		allResources: {
 			__args: {
 				first,
 				skip,
+				filter: {
+					topics: {
+						allIn: topics || [],
+					},
+				},
 			},
 			id: true,
 			__typename: true,
@@ -29,10 +57,15 @@ const getAllResources = async ({ first, skip }: { first?: number; skip?: number 
 			summary: {
 				value: true,
 			},
+			topics: {
+				id: true,
+				slug: true,
+				name: true,
+			},
 		},
 	});
 
 	return allResources;
 };
 
-export { getAllResources, getResourcesCount };
+export { getAllResources, getResourcesCount, getTopicBySlug };
