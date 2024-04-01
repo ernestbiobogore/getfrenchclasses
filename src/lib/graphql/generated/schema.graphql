@@ -2795,6 +2795,7 @@ input PostModelFilter {
   _updatedAt: UpdatedAtFilter
   _isValid: BooleanFilter
   category: LinkFilter
+  featured: BooleanFilter
   routePaths: LinksFilter
   slug: SlugFilter
   title: StringFilter
@@ -2821,6 +2822,8 @@ enum PostModelOrderBy {
   _updatedAt_DESC
   _isValid_ASC
   _isValid_DESC
+  featured_ASC
+  featured_DESC
   title_ASC
   title_DESC
 }
@@ -2847,6 +2850,7 @@ type PostRecord implements RecordInterface {
   _updatedAt: DateTime!
   category: CategoryRecord
   cta: [CardBlockRecord!]!
+  featured: BooleanType
   id: ItemId!
   modularContent: [RichTextBlockRecord!]!
   routePaths: [RoutePathRecord!]!
