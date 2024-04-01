@@ -6,7 +6,7 @@ export async function load({ url }) {
 	const count = await getBlogPostsCount({ featured: false });
 
 	const allNonFeaturedPostsCount = count === 0 ? 1 : count;
-	const firstParam = url.searchParams.get("first") || Number(BLOG_JUMPER_LENGTH);
+	const firstParam = url.searchParams.get("first") || BLOG_JUMPER_LENGTH;
 
 	if (Number(firstParam) > allNonFeaturedPostsCount) {
 		redirect(301, `/blog?first=${allNonFeaturedPostsCount}`);

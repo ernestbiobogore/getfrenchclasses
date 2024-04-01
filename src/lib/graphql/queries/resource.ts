@@ -11,11 +11,12 @@ const getResourcesCount = async () => {
 	return _allResourcesMeta.count;
 };
 
-const getAllResources = async (first?: number) => {
+const getAllResources = async ({ first, skip }: { first?: number; skip?: number }) => {
 	const { allResources } = await client.query({
 		allResources: {
 			__args: {
 				first,
+				skip,
 			},
 			id: true,
 			__typename: true,

@@ -1,18 +1,14 @@
 <script lang="ts">
+	import { goto } from "$app/navigation";
 	import StructuredText from "$lib/components/dato/StructuredText/index.svelte";
+	import { RESOURCES_PER_PAGE } from "$lib/constants";
 	import * as Card from "$shadcn/card";
 	import * as Pagination from "$shadcn/pagination";
-	import { mediaQuery } from "svelte-legos";
 	import ChevronLeft from "~icons/lucide/chevron-left";
 	import ChevronRight from "~icons/lucide/chevron-right";
 	import ResourcesSearchFilter from "./ResourcesSearchFilter.svelte";
 
 	export let data;
-
-	const isDesktop = mediaQuery("(min-width: 768px)");
-
-	$: perPage = $isDesktop ? 3 : 8;
-	$: siblingCount = $isDesktop ? 1 : 0;
 </script>
 
 <svelte:head>
@@ -60,14 +56,20 @@
 			</div>
 		{/if}
 
-		<Pagination.Root count={data.resourcesCount} {perPage} {siblingCount} let:pages let:currentPage>
-			<Pagination.Content class="pl-0">
+		<Pagination.Root
+			count={data.resourcesCount}
+			perPage={RESOURCES_PER_PAGE}
+			let:pages
+			let:currentPage
+		>
+			<Pagination.Content>
 				<Pagination.Item>
-					<Pagination.PrevButton>
+					<Pagination.PrevButton on:click={() => goto(`/resources?page=${(currentPage || 1) - 1}`)}>
 						<ChevronLeft class="h-4 w-4" />
 						<span class="hidden sm:block">Previous</span>
 					</Pagination.PrevButton>
 				</Pagination.Item>
+
 				{#each pages as page (page.key)}
 					{#if page.type === "ellipsis"}
 						<Pagination.Item>
@@ -75,14 +77,19 @@
 						</Pagination.Item>
 					{:else}
 						<Pagination.Item>
-							<Pagination.Link {page} isActive={currentPage == page.value}>
+							<Pagination.Link
+								{page}
+								isActive={currentPage === page.value}
+								on:click={() => goto(`/resources?page=${page.value}`)}
+							>
 								{page.value}
 							</Pagination.Link>
 						</Pagination.Item>
 					{/if}
 				{/each}
+
 				<Pagination.Item>
-					<Pagination.NextButton>
+					<Pagination.NextButton on:click={() => goto(`/resources?page=${(currentPage || 1) + 1}`)}>
 						<span class="hidden sm:block">Next</span>
 						<ChevronRight class="h-4 w-4" />
 					</Pagination.NextButton>
