@@ -1,10 +1,11 @@
-import { getAllBlogPosts, getAllFeaturedBlogPostsCount } from "$lib/graphql/queries/posts";
+import { getAllBlogPosts, getBlogPostsCount } from "$lib/graphql/queries/posts";
 import { redirect } from "@sveltejs/kit";
 import { JUMPER_LENGTH } from "./utils";
 
 export async function load({ url }) {
-	const allNonFeaturedPostsCount =
-		(await getAllFeaturedBlogPostsCount()) === 0 ? 1 : await getAllFeaturedBlogPostsCount();
+	const count = await getBlogPostsCount({ featured: false });
+
+	const allNonFeaturedPostsCount = count === 0 ? 1 : count;
 	const firstParam = url.searchParams.get("first") || Number(JUMPER_LENGTH);
 
 	if (Number(firstParam) > allNonFeaturedPostsCount) {

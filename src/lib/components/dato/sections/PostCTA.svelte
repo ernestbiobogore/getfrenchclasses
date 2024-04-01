@@ -1,12 +1,11 @@
 <script lang="ts">
 	import { page } from "$app/stores";
 	import AvatarsGroup from "$lib/components/AvatarsGroup.svelte";
-	import StructuredText from "$lib/components/dato/StructuredText/index.svelte";
 	import { getSampleAvatars } from "$lib/utils";
 	import { Button } from "$shadcn/button";
 	import type { PageData } from "../../../../routes/(site)/blog/[...routePath]/$types";
 
-	$: postCta = ($page.data as PageData).post?.cta[0];
+	$: postCta = ($page.data as PageData).post?.postCta;
 </script>
 
 {#if postCta}
@@ -18,11 +17,13 @@
 			<p class="text-lg font-medium tracking-tight">{postCta.title}</p>
 		</div>
 
-		<StructuredText richText={postCta.content?.richText} class="space-y-4" />
+		<!-- <StructuredText richText={postCta.content?.value} class="space-y-4" /> -->
 
-		<Button href={postCta.cta[0].link} class="w-full text-white bg-savoy-blue">
-			{postCta.cta[0].text}
-		</Button>
+		{#if postCta.cta}
+			<Button href={postCta.cta.link} class="w-full text-white bg-savoy-blue">
+				{postCta.cta.text}
+			</Button>
+		{/if}
 
 		<div class="gap-3 text-center flex-s-center">
 			<AvatarsGroup avatars={getSampleAvatars(2)} size={20} />

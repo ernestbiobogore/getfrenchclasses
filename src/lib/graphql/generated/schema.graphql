@@ -2784,6 +2784,82 @@ type PlainTextBlockRecord implements RecordInterface {
   text: String!
 }
 
+type PostCtaModelContentField {
+  blocks: [String!]!
+  links: [String!]!
+  value: JsonField!
+}
+
+input PostCtaModelFilter {
+  _createdAt: CreatedAtFilter
+  id: ItemIdFilter
+  _firstPublishedAt: PublishedAtFilter
+  _publicationScheduledAt: PublishedAtFilter
+  _unpublishingScheduledAt: PublishedAtFilter
+  _publishedAt: PublishedAtFilter
+  _status: StatusFilter
+  _updatedAt: UpdatedAtFilter
+  _isValid: BooleanFilter
+  content: StructuredTextFilter
+  repeatableTitle: StringFilter
+  title: StringFilter
+  OR: [PostCtaModelFilter]
+  AND: [PostCtaModelFilter]
+}
+
+enum PostCtaModelOrderBy {
+  _createdAt_ASC
+  _createdAt_DESC
+  id_ASC
+  id_DESC
+  _firstPublishedAt_ASC
+  _firstPublishedAt_DESC
+  _publicationScheduledAt_ASC
+  _publicationScheduledAt_DESC
+  _unpublishingScheduledAt_ASC
+  _unpublishingScheduledAt_DESC
+  _publishedAt_ASC
+  _publishedAt_DESC
+  _status_ASC
+  _status_DESC
+  _updatedAt_ASC
+  _updatedAt_DESC
+  _isValid_ASC
+  _isValid_DESC
+  repeatableTitle_ASC
+  repeatableTitle_DESC
+  title_ASC
+  title_DESC
+}
+
+"""Record of type 🔲 Post CTA (post_cta)"""
+type PostCtaRecord implements RecordInterface {
+  _createdAt: DateTime!
+
+  """Editing URL"""
+  _editingUrl: String
+  _firstPublishedAt: DateTime
+  _isValid: BooleanType!
+  _modelApiKey: String!
+  _publicationScheduledAt: DateTime
+  _publishedAt: DateTime
+
+  """Generates SEO and Social card meta tags to be used in your frontend"""
+  _seoMetaTags(
+    """The locale to use to fetch the field's content"""
+    locale: SiteLocale
+  ): [Tag!]!
+  _status: ItemStatus!
+  _unpublishingScheduledAt: DateTime
+  _updatedAt: DateTime!
+  content: PostCtaModelContentField
+  cta: ActionBlockRecord
+  id: ItemId!
+  repeatableList: [PlainTextBlockRecord!]!
+  repeatableTitle: String
+  title: String!
+}
+
 input PostModelFilter {
   _createdAt: CreatedAtFilter
   id: ItemIdFilter
@@ -2796,6 +2872,7 @@ input PostModelFilter {
   _isValid: BooleanFilter
   category: LinkFilter
   featured: BooleanFilter
+  postCta: LinkFilter
   routePaths: LinksFilter
   slug: SlugFilter
   title: StringFilter
@@ -2849,10 +2926,10 @@ type PostRecord implements RecordInterface {
   _unpublishingScheduledAt: DateTime
   _updatedAt: DateTime!
   category: CategoryRecord
-  cta: [CardBlockRecord!]!
   featured: BooleanType
   id: ItemId!
   modularContent: [RichTextBlockRecord!]!
+  postCta: PostCtaRecord
   routePaths: [RoutePathRecord!]!
   seo: SeoBlockRecord
   slug: String!
@@ -2925,6 +3002,13 @@ type Query {
     """The locale to use to fetch the field's content"""
     locale: SiteLocale
     filter: ModularPageModelFilter
+  ): CollectionMetadata!
+
+  """Returns meta information regarding a record collection"""
+  _allPostCtasMeta(
+    """The locale to use to fetch the field's content"""
+    locale: SiteLocale
+    filter: PostCtaModelFilter
   ): CollectionMetadata!
 
   """Returns meta information regarding a record collection"""
@@ -3041,6 +3125,25 @@ type Query {
     filter: ModularPageModelFilter
     orderBy: [ModularPageModelOrderBy] = [_updatedAt_DESC]
   ): [ModularPageRecord!]!
+
+  """Returns a collection of records"""
+  allPostCtas(
+    """The locale to use to fetch the field's content"""
+    locale: SiteLocale
+
+    """
+    If you want to fallback to a default translation when a translation has not been found
+    """
+    fallbackLocales: [SiteLocale!]
+
+    """Skip the first results"""
+    skip: IntType
+
+    """Limit the number of results"""
+    first: IntType = 20
+    filter: PostCtaModelFilter
+    orderBy: [PostCtaModelOrderBy] = [_updatedAt_DESC]
+  ): [PostCtaRecord!]!
 
   """Returns a collection of records"""
   allPosts(
@@ -3182,6 +3285,19 @@ type Query {
     filter: PostModelFilter
     orderBy: [PostModelOrderBy] = [_updatedAt_DESC]
   ): PostRecord
+
+  """Returns a specific record"""
+  postCta(
+    """The locale to use to fetch the field's content"""
+    locale: SiteLocale
+
+    """
+    If you want to fallback to a default translation when a translation has not been found
+    """
+    fallbackLocales: [SiteLocale!]
+    filter: PostCtaModelFilter
+    orderBy: [PostCtaModelOrderBy] = [_updatedAt_DESC]
+  ): PostCtaRecord
 
   """Returns a specific record"""
   routePath(
