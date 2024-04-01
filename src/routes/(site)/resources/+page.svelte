@@ -4,11 +4,18 @@
 	import { RESOURCES_PER_PAGE } from "$lib/constants";
 	import * as Card from "$shadcn/card";
 	import * as Pagination from "$shadcn/pagination";
+	import { queryParam } from "sveltekit-search-params";
 	import ChevronLeft from "~icons/lucide/chevron-left";
 	import ChevronRight from "~icons/lucide/chevron-right";
 	import ResourcesSearchFilter from "./ResourcesSearchFilter.svelte";
 
 	export let data;
+
+	const pageParam = queryParam("page", {
+		encode: (value: number) => value.toString(),
+		decode: (value: string | null) => (value ? parseInt(value) : null),
+		defaultValue: 1,
+	});
 </script>
 
 <svelte:head>
@@ -65,15 +72,10 @@
 			</div>
 		{/if}
 
-		<Pagination.Root
-			count={data.resourcesCount}
-			perPage={RESOURCES_PER_PAGE}
-			let:pages
-			let:currentPage
-		>
+		<Pagination.Root count={data.resourcesCount} perPage={RESOURCES_PER_PAGE} let:pages>
 			<Pagination.Content>
 				<Pagination.Item>
-					<Pagination.PrevButton on:click={() => goto(`/resources?page=${(currentPage || 1) - 1}`)}>
+					<Pagination.PrevButton on:click={() => goto(`/resources?page=${($pageParam || 1) - 1}`)}>
 						<ChevronLeft class="h-4 w-4" />
 						<span class="hidden sm:block">Previous</span>
 					</Pagination.PrevButton>
@@ -88,7 +90,7 @@
 						<Pagination.Item>
 							<Pagination.Link
 								{page}
-								isActive={currentPage === page.value}
+								isActive={$pageParam === page.value}
 								on:click={() => goto(`/resources?page=${page.value}`)}
 							>
 								{page.value}
@@ -98,7 +100,7 @@
 				{/each}
 
 				<Pagination.Item>
-					<Pagination.NextButton on:click={() => goto(`/resources?page=${(currentPage || 1) + 1}`)}>
+					<Pagination.NextButton on:click={() => goto(`/resources?page=${($pageParam || 1) + 1}`)}>
 						<span class="hidden sm:block">Next</span>
 						<ChevronRight class="h-4 w-4" />
 					</Pagination.NextButton>
