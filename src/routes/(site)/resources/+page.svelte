@@ -48,14 +48,14 @@
 								<a href="/resources/{resource.slug}">{resource.title}</a>
 							</Card.Title>
 
-							<div class="flex gap-2 items-center">
+							<!-- <div class="flex gap-2 items-center">
 								{#each resource.topics as topic}
 									<span
 										class="flex items-center px-3 bg-destructive text-destructive-foreground rounded-full text-sm"
 										>{topic.name}</span
 									>
 								{/each}
-							</div>
+							</div> -->
 						</Card.Header>
 						{#if resource.summary}
 							<Card.Content>
