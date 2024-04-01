@@ -1,8 +1,8 @@
 <script lang="ts">
-	import ChevronLeft from "~icons/lucide/chevron-left";
 	import { Pagination as PaginationPrimitive } from "bits-ui";
-	import { Button } from "$shadcn/button";
-	import { cn } from "$lib/utils";
+	import ChevronLeft from "lucide-svelte/icons/chevron-left";
+	import { Button } from "$lib/components/shadcn/ui/button/index.js";
+	import { cn } from "$lib/utils.js";
 
 	type $$Props = PaginationPrimitive.PrevButtonProps;
 	type $$Events = PaginationPrimitive.PrevButtonEvents;
@@ -20,7 +20,7 @@
 		{...$$restProps}
 	>
 		<slot>
-			<ChevronLeft />
+			<ChevronLeft class="h-4 w-4" />
 			<span>Previous</span>
 		</slot>
 	</Button>

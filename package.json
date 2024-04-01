@@ -46,6 +46,7 @@
 		"clsx": "^2.1.0",
 		"datocms-structured-text-utils": "^3.0.0",
 		"embla-carousel-svelte": "8.0.0-rc22",
+		"lucide-svelte": "^0.363.0",
 		"nprogress": "^0.2.0",
 		"svelte-legos": "^0.2.2",
 		"tailwind-merge": "^2.2.1",

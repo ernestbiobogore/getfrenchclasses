@@ -1,7 +1,7 @@
 <script lang="ts">
-	import MoreHorizontal from "~icons/lucide/more-horizontal";
-	import { cn } from "$lib/utils";
+	import Ellipsis from "lucide-svelte/icons/ellipsis";
 	import type { HTMLAttributes } from "svelte/elements";
+	import { cn } from "$lib/utils.js";
 
 	type $$Props = HTMLAttributes<HTMLSpanElement>;
 
@@ -14,6 +14,6 @@
 	class={cn("flex h-9 w-9 items-center justify-center", className)}
 	{...$$restProps}
 >
-	<MoreHorizontal />
+	<Ellipsis class="h-4 w-4" />
 	<span class="sr-only">More pages</span>
 </span>
