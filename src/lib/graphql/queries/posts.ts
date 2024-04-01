@@ -28,12 +28,22 @@ const getBlogPostsSlugs = async () => {
 	return allPosts;
 };
 
-const getAllBlogPostsCount = async ({ featured = false }) => {
+const getAllBlogPostsCount = async () => {
+	const { _allPostsMeta } = await client.query({
+		_allPostsMeta: {
+			count: true,
+		},
+	});
+
+	return _allPostsMeta.count;
+};
+
+const getAllFeaturedBlogPostsCount = async () => {
 	const { _allPostsMeta } = await client.query({
 		_allPostsMeta: {
 			__args: {
 				filter: {
-					featured: { eq: featured },
+					featured: { eq: true },
 				},
 			},
 			count: true,
@@ -162,6 +172,7 @@ const getSingleBlogPost = async (slug: string) => {
 export {
 	getAllBlogPosts,
 	getAllBlogPostsCount,
+	getAllFeaturedBlogPostsCount,
 	getBlogPostsSlugs,
 	getPostFullPath,
 	getSingleBlogPost
