@@ -501,6 +501,40 @@ export type ImgixParamsTxtClip = 'start' | 'middle' | 'end' | 'ellipsis'
 
 export type ImgixParamsTxtFit = 'max'
 
+export interface InstructorModelAboutField {
+    blocks: Scalars['String'][]
+    links: Scalars['String'][]
+    value: Scalars['JsonField']
+    __typename: 'InstructorModelAboutField'
+}
+
+export type InstructorModelOrderBy = '_createdAt_ASC' | '_createdAt_DESC' | 'id_ASC' | 'id_DESC' | '_firstPublishedAt_ASC' | '_firstPublishedAt_DESC' | '_publicationScheduledAt_ASC' | '_publicationScheduledAt_DESC' | '_unpublishingScheduledAt_ASC' | '_unpublishingScheduledAt_DESC' | '_publishedAt_ASC' | '_publishedAt_DESC' | '_status_ASC' | '_status_DESC' | '_updatedAt_ASC' | '_updatedAt_DESC' | '_isValid_ASC' | '_isValid_DESC' | 'name_ASC' | 'name_DESC' | 'summary_ASC' | 'summary_DESC'
+
+
+/** Record of type 👨‍🎓 Instructor (instructor) */
+export interface InstructorRecord {
+    _createdAt: Scalars['DateTime']
+    /** Editing URL */
+    _editingUrl: (Scalars['String'] | null)
+    _firstPublishedAt: (Scalars['DateTime'] | null)
+    _isValid: Scalars['BooleanType']
+    _modelApiKey: Scalars['String']
+    _publicationScheduledAt: (Scalars['DateTime'] | null)
+    _publishedAt: (Scalars['DateTime'] | null)
+    /** Generates SEO and Social card meta tags to be used in your frontend */
+    _seoMetaTags: Tag[]
+    _status: ItemStatus
+    _unpublishingScheduledAt: (Scalars['DateTime'] | null)
+    _updatedAt: Scalars['DateTime']
+    about: (InstructorModelAboutField | null)
+    id: Scalars['ItemId']
+    name: Scalars['String']
+    profilePicture: (AltFileField | null)
+    slug: Scalars['String']
+    summary: Scalars['String']
+    __typename: 'InstructorRecord'
+}
+
 export type ItemStatus = 'draft' | 'updated' | 'published'
 
 export type ModularPageModelModularContentField = (CardsSectionRecord | FaqSectionRecord | HeroSectionRecord | TestimonialsSectionRecord) & { __isUnion?: true }
@@ -651,11 +685,15 @@ export interface Query {
     /** Returns meta information regarding a record collection */
     _allFaqItemsMeta: CollectionMetadata
     /** Returns meta information regarding a record collection */
+    _allInstructorsMeta: CollectionMetadata
+    /** Returns meta information regarding a record collection */
     _allModularPagesMeta: CollectionMetadata
     /** Returns meta information regarding a record collection */
     _allPostCtasMeta: CollectionMetadata
     /** Returns meta information regarding a record collection */
     _allPostsMeta: CollectionMetadata
+    /** Returns meta information regarding a record collection */
+    _allResourcesMeta: CollectionMetadata
     /** Returns meta information regarding a record collection */
     _allRoutePathsMeta: CollectionMetadata
     /** Returns meta information regarding a record collection */
@@ -671,11 +709,15 @@ export interface Query {
     /** Returns a collection of records */
     allFaqItems: FaqItemRecord[]
     /** Returns a collection of records */
+    allInstructors: InstructorRecord[]
+    /** Returns a collection of records */
     allModularPages: ModularPageRecord[]
     /** Returns a collection of records */
     allPostCtas: PostCtaRecord[]
     /** Returns a collection of records */
     allPosts: PostRecord[]
+    /** Returns a collection of records */
+    allResources: ResourceRecord[]
     /** Returns a collection of records */
     allRoutePaths: RoutePathRecord[]
     /** Returns a collection of records */
@@ -689,11 +731,15 @@ export interface Query {
     /** Returns a specific record */
     faqItem: (FaqItemRecord | null)
     /** Returns a specific record */
+    instructor: (InstructorRecord | null)
+    /** Returns a specific record */
     modularPage: (ModularPageRecord | null)
     /** Returns a specific record */
     post: (PostRecord | null)
     /** Returns a specific record */
     postCta: (PostCtaRecord | null)
+    /** Returns a specific record */
+    resource: (ResourceRecord | null)
     /** Returns a specific record */
     routePath: (RoutePathRecord | null)
     /** Returns a specific record */
@@ -703,9 +749,55 @@ export interface Query {
     __typename: 'Query'
 }
 
-export type RecordInterface = (ActionBlockRecord | CardBlockNewRecord | CardBlockRecord | CardsSectionRecord | CategoryRecord | CourseRecord | FaqBlockNewRecord | FaqBlockRecord | FaqItemRecord | FaqSectionRecord | HeadingBlockNewRecord | HeadingBlockRecord | HeroSectionRecord | ImageBlockRecord | ModularPageRecord | NoteBlockRecord | PlainTextBlockRecord | PostCtaRecord | PostRecord | RichTextBlockRecord | RoutePathRecord | SeoBlockRecord | TestimonialBlockCtaRecord | TestimonialBlockDefaultRecord | TestimonialBlockRecord | TestimonialsSectionRecord | TutorRecord) & { __isUnion?: true }
+export type RecordInterface = (ActionBlockRecord | CardBlockNewRecord | CardBlockRecord | CardsSectionRecord | CategoryRecord | CourseRecord | FaqBlockNewRecord | FaqBlockRecord | FaqItemRecord | FaqSectionRecord | HeadingBlockNewRecord | HeadingBlockRecord | HeroSectionRecord | ImageBlockRecord | InstructorRecord | ModularPageRecord | NoteBlockRecord | PlainTextBlockRecord | PostCtaRecord | PostRecord | ResourceRecord | RichTextBlockRecord | RoutePathRecord | SeoBlockRecord | TestimonialBlockCtaRecord | TestimonialBlockDefaultRecord | TestimonialBlockRecord | TestimonialsSectionRecord | TutorRecord) & { __isUnion?: true }
 
 export type ResolutionType = 'icon' | 'small' | 'medium' | 'large'
+
+export interface ResourceModelDescriptionContentField {
+    blocks: Scalars['String'][]
+    links: Scalars['String'][]
+    value: Scalars['JsonField']
+    __typename: 'ResourceModelDescriptionContentField'
+}
+
+export type ResourceModelOrderBy = '_createdAt_ASC' | '_createdAt_DESC' | 'id_ASC' | 'id_DESC' | '_firstPublishedAt_ASC' | '_firstPublishedAt_DESC' | '_publicationScheduledAt_ASC' | '_publicationScheduledAt_DESC' | '_unpublishingScheduledAt_ASC' | '_unpublishingScheduledAt_DESC' | '_publishedAt_ASC' | '_publishedAt_DESC' | '_status_ASC' | '_status_DESC' | '_updatedAt_ASC' | '_updatedAt_DESC' | '_isValid_ASC' | '_isValid_DESC' | 'contentHeading_ASC' | 'contentHeading_DESC' | 'descriptionHeading_ASC' | 'descriptionHeading_DESC' | 'title_ASC' | 'title_DESC'
+
+export interface ResourceModelSummaryField {
+    blocks: Scalars['String'][]
+    links: Scalars['String'][]
+    value: Scalars['JsonField']
+    __typename: 'ResourceModelSummaryField'
+}
+
+
+/** Record of type 🪵 Resource (resource) */
+export interface ResourceRecord {
+    _createdAt: Scalars['DateTime']
+    /** Editing URL */
+    _editingUrl: (Scalars['String'] | null)
+    _firstPublishedAt: (Scalars['DateTime'] | null)
+    _isValid: Scalars['BooleanType']
+    _modelApiKey: Scalars['String']
+    _publicationScheduledAt: (Scalars['DateTime'] | null)
+    _publishedAt: (Scalars['DateTime'] | null)
+    /** Generates SEO and Social card meta tags to be used in your frontend */
+    _seoMetaTags: Tag[]
+    _status: ItemStatus
+    _unpublishingScheduledAt: (Scalars['DateTime'] | null)
+    _updatedAt: Scalars['DateTime']
+    contentHeading: (Scalars['String'] | null)
+    contentItems: PlainTextBlockRecord[]
+    contentMedias: FileField[]
+    descriptionContent: (ResourceModelDescriptionContentField | null)
+    descriptionHeading: (Scalars['String'] | null)
+    faq: (FaqItemRecord | null)
+    featuredImage: (AltFileField | null)
+    id: Scalars['ItemId']
+    slug: Scalars['String']
+    summary: (ResourceModelSummaryField | null)
+    title: Scalars['String']
+    __typename: 'ResourceRecord'
+}
 
 export interface ResponsiveImage {
     alt: (Scalars['String'] | null)
@@ -1652,6 +1744,20 @@ exists?: (Scalars['BooleanType'] | null),
 eq?: (Scalars['FloatType'] | null),
 /** Exclude records with an exact match */
 neq?: (Scalars['FloatType'] | null)}
+
+
+/** Specifies how to filter Multiple files/images field */
+export interface GalleryFilter {
+/** Search for records with an exact match. The specified values must be Upload IDs */
+eq?: ((Scalars['UploadId'] | null)[] | null),
+/** Filter records that have all of the specified uploads. The specified values must be Upload IDs */
+allIn?: ((Scalars['UploadId'] | null)[] | null),
+/** Filter records that have one of the specified uploads. The specified values must be Upload IDs */
+anyIn?: ((Scalars['UploadId'] | null)[] | null),
+/** Filter records that do not have any of the specified uploads. The specified values must be Upload IDs */
+notIn?: ((Scalars['UploadId'] | null)[] | null),
+/** Filter records with the specified field defined (i.e. with any value) or not */
+exists?: (Scalars['BooleanType'] | null)}
 
 export interface GlobalSeoFieldGenqlSelection{
     facebookPageUrl?: boolean | number
@@ -3022,6 +3128,44 @@ export interface InUseFilter {
 /** Search uploads that are currently used by some record or not */
 eq?: (Scalars['BooleanType'] | null)}
 
+export interface InstructorModelAboutFieldGenqlSelection{
+    blocks?: boolean | number
+    links?: boolean | number
+    value?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+export interface InstructorModelFilter {_createdAt?: (CreatedAtFilter | null),id?: (ItemIdFilter | null),_firstPublishedAt?: (PublishedAtFilter | null),_publicationScheduledAt?: (PublishedAtFilter | null),_unpublishingScheduledAt?: (PublishedAtFilter | null),_publishedAt?: (PublishedAtFilter | null),_status?: (StatusFilter | null),_updatedAt?: (UpdatedAtFilter | null),_isValid?: (BooleanFilter | null),about?: (StructuredTextFilter | null),name?: (StringFilter | null),profilePicture?: (FileFilter | null),slug?: (SlugFilter | null),summary?: (StringFilter | null),OR?: ((InstructorModelFilter | null)[] | null),AND?: ((InstructorModelFilter | null)[] | null)}
+
+
+/** Record of type 👨‍🎓 Instructor (instructor) */
+export interface InstructorRecordGenqlSelection{
+    _createdAt?: boolean | number
+    /** Editing URL */
+    _editingUrl?: boolean | number
+    _firstPublishedAt?: boolean | number
+    _isValid?: boolean | number
+    _modelApiKey?: boolean | number
+    _publicationScheduledAt?: boolean | number
+    _publishedAt?: boolean | number
+    /** Generates SEO and Social card meta tags to be used in your frontend */
+    _seoMetaTags?: (TagGenqlSelection & { __args?: {
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null)} })
+    _status?: boolean | number
+    _unpublishingScheduledAt?: boolean | number
+    _updatedAt?: boolean | number
+    about?: InstructorModelAboutFieldGenqlSelection
+    id?: boolean | number
+    name?: boolean | number
+    profilePicture?: AltFileFieldGenqlSelection
+    slug?: boolean | number
+    summary?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
 
 /** Specifies how to filter Integer fields */
 export interface IntegerFilter {
@@ -3287,6 +3431,10 @@ export interface QueryGenqlSelection{
     /** The locale to use to fetch the field's content */
     locale?: (SiteLocale | null), filter?: (FaqItemModelFilter | null)} })
     /** Returns meta information regarding a record collection */
+    _allInstructorsMeta?: (CollectionMetadataGenqlSelection & { __args?: {
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null), filter?: (InstructorModelFilter | null)} })
+    /** Returns meta information regarding a record collection */
     _allModularPagesMeta?: (CollectionMetadataGenqlSelection & { __args?: {
     /** The locale to use to fetch the field's content */
     locale?: (SiteLocale | null), filter?: (ModularPageModelFilter | null)} })
@@ -3298,6 +3446,10 @@ export interface QueryGenqlSelection{
     _allPostsMeta?: (CollectionMetadataGenqlSelection & { __args?: {
     /** The locale to use to fetch the field's content */
     locale?: (SiteLocale | null), filter?: (PostModelFilter | null)} })
+    /** Returns meta information regarding a record collection */
+    _allResourcesMeta?: (CollectionMetadataGenqlSelection & { __args?: {
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null), filter?: (ResourceModelFilter | null)} })
     /** Returns meta information regarding a record collection */
     _allRoutePathsMeta?: (CollectionMetadataGenqlSelection & { __args?: {
     /** The locale to use to fetch the field's content */
@@ -3347,6 +3499,16 @@ export interface QueryGenqlSelection{
     /** Limit the number of results */
     first?: (Scalars['IntType'] | null), filter?: (FaqItemModelFilter | null), orderBy?: ((FaqItemModelOrderBy | null)[] | null)} })
     /** Returns a collection of records */
+    allInstructors?: (InstructorRecordGenqlSelection & { __args?: {
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null), 
+    /** If you want to fallback to a default translation when a translation has not been found */
+    fallbackLocales?: (SiteLocale[] | null), 
+    /** Skip the first results */
+    skip?: (Scalars['IntType'] | null), 
+    /** Limit the number of results */
+    first?: (Scalars['IntType'] | null), filter?: (InstructorModelFilter | null), orderBy?: ((InstructorModelOrderBy | null)[] | null)} })
+    /** Returns a collection of records */
     allModularPages?: (ModularPageRecordGenqlSelection & { __args?: {
     /** The locale to use to fetch the field's content */
     locale?: (SiteLocale | null), 
@@ -3376,6 +3538,16 @@ export interface QueryGenqlSelection{
     skip?: (Scalars['IntType'] | null), 
     /** Limit the number of results */
     first?: (Scalars['IntType'] | null), filter?: (PostModelFilter | null), orderBy?: ((PostModelOrderBy | null)[] | null)} })
+    /** Returns a collection of records */
+    allResources?: (ResourceRecordGenqlSelection & { __args?: {
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null), 
+    /** If you want to fallback to a default translation when a translation has not been found */
+    fallbackLocales?: (SiteLocale[] | null), 
+    /** Skip the first results */
+    skip?: (Scalars['IntType'] | null), 
+    /** Limit the number of results */
+    first?: (Scalars['IntType'] | null), filter?: (ResourceModelFilter | null), orderBy?: ((ResourceModelOrderBy | null)[] | null)} })
     /** Returns a collection of records */
     allRoutePaths?: (RoutePathRecordGenqlSelection & { __args?: {
     /** The locale to use to fetch the field's content */
@@ -3425,6 +3597,12 @@ export interface QueryGenqlSelection{
     /** If you want to fallback to a default translation when a translation has not been found */
     fallbackLocales?: (SiteLocale[] | null), filter?: (FaqItemModelFilter | null), orderBy?: ((FaqItemModelOrderBy | null)[] | null)} })
     /** Returns a specific record */
+    instructor?: (InstructorRecordGenqlSelection & { __args?: {
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null), 
+    /** If you want to fallback to a default translation when a translation has not been found */
+    fallbackLocales?: (SiteLocale[] | null), filter?: (InstructorModelFilter | null), orderBy?: ((InstructorModelOrderBy | null)[] | null)} })
+    /** Returns a specific record */
     modularPage?: (ModularPageRecordGenqlSelection & { __args?: {
     /** The locale to use to fetch the field's content */
     locale?: (SiteLocale | null), 
@@ -3442,6 +3620,12 @@ export interface QueryGenqlSelection{
     locale?: (SiteLocale | null), 
     /** If you want to fallback to a default translation when a translation has not been found */
     fallbackLocales?: (SiteLocale[] | null), filter?: (PostCtaModelFilter | null), orderBy?: ((PostCtaModelOrderBy | null)[] | null)} })
+    /** Returns a specific record */
+    resource?: (ResourceRecordGenqlSelection & { __args?: {
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null), 
+    /** If you want to fallback to a default translation when a translation has not been found */
+    fallbackLocales?: (SiteLocale[] | null), filter?: (ResourceModelFilter | null), orderBy?: ((ResourceModelOrderBy | null)[] | null)} })
     /** Returns a specific record */
     routePath?: (RoutePathRecordGenqlSelection & { __args?: {
     /** The locale to use to fetch the field's content */
@@ -3495,11 +3679,13 @@ export interface RecordInterfaceGenqlSelection{
     on_HeadingBlockRecord?: HeadingBlockRecordGenqlSelection
     on_HeroSectionRecord?: HeroSectionRecordGenqlSelection
     on_ImageBlockRecord?: ImageBlockRecordGenqlSelection
+    on_InstructorRecord?: InstructorRecordGenqlSelection
     on_ModularPageRecord?: ModularPageRecordGenqlSelection
     on_NoteBlockRecord?: NoteBlockRecordGenqlSelection
     on_PlainTextBlockRecord?: PlainTextBlockRecordGenqlSelection
     on_PostCtaRecord?: PostCtaRecordGenqlSelection
     on_PostRecord?: PostRecordGenqlSelection
+    on_ResourceRecord?: ResourceRecordGenqlSelection
     on_RichTextBlockRecord?: RichTextBlockRecordGenqlSelection
     on_RoutePathRecord?: RoutePathRecordGenqlSelection
     on_SeoBlockRecord?: SeoBlockRecordGenqlSelection
@@ -3523,6 +3709,57 @@ neq?: (ResolutionType | null),
 in?: ((ResolutionType | null)[] | null),
 /** Search uploads without the specified resolutions */
 notIn?: ((ResolutionType | null)[] | null)}
+
+export interface ResourceModelDescriptionContentFieldGenqlSelection{
+    blocks?: boolean | number
+    links?: boolean | number
+    value?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+export interface ResourceModelFilter {_createdAt?: (CreatedAtFilter | null),id?: (ItemIdFilter | null),_firstPublishedAt?: (PublishedAtFilter | null),_publicationScheduledAt?: (PublishedAtFilter | null),_unpublishingScheduledAt?: (PublishedAtFilter | null),_publishedAt?: (PublishedAtFilter | null),_status?: (StatusFilter | null),_updatedAt?: (UpdatedAtFilter | null),_isValid?: (BooleanFilter | null),contentHeading?: (StringFilter | null),contentMedias?: (GalleryFilter | null),descriptionContent?: (StructuredTextFilter | null),descriptionHeading?: (StringFilter | null),faq?: (LinkFilter | null),featuredImage?: (FileFilter | null),slug?: (SlugFilter | null),summary?: (StructuredTextFilter | null),title?: (StringFilter | null),OR?: ((ResourceModelFilter | null)[] | null),AND?: ((ResourceModelFilter | null)[] | null)}
+
+export interface ResourceModelSummaryFieldGenqlSelection{
+    blocks?: boolean | number
+    links?: boolean | number
+    value?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Record of type 🪵 Resource (resource) */
+export interface ResourceRecordGenqlSelection{
+    _createdAt?: boolean | number
+    /** Editing URL */
+    _editingUrl?: boolean | number
+    _firstPublishedAt?: boolean | number
+    _isValid?: boolean | number
+    _modelApiKey?: boolean | number
+    _publicationScheduledAt?: boolean | number
+    _publishedAt?: boolean | number
+    /** Generates SEO and Social card meta tags to be used in your frontend */
+    _seoMetaTags?: (TagGenqlSelection & { __args?: {
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null)} })
+    _status?: boolean | number
+    _unpublishingScheduledAt?: boolean | number
+    _updatedAt?: boolean | number
+    contentHeading?: boolean | number
+    contentItems?: PlainTextBlockRecordGenqlSelection
+    contentMedias?: FileFieldGenqlSelection
+    descriptionContent?: ResourceModelDescriptionContentFieldGenqlSelection
+    descriptionHeading?: boolean | number
+    faq?: FaqItemRecordGenqlSelection
+    featuredImage?: AltFileFieldGenqlSelection
+    id?: boolean | number
+    slug?: boolean | number
+    summary?: ResourceModelSummaryFieldGenqlSelection
+    title?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
 
 export interface ResponsiveImageGenqlSelection{
     alt?: boolean | number
@@ -4555,6 +4792,22 @@ export interface focalPointGenqlSelection{
     
 
 
+    const InstructorModelAboutField_possibleTypes: string[] = ['InstructorModelAboutField']
+    export const isInstructorModelAboutField = (obj?: { __typename?: any } | null): obj is InstructorModelAboutField => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isInstructorModelAboutField"')
+      return InstructorModelAboutField_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const InstructorRecord_possibleTypes: string[] = ['InstructorRecord']
+    export const isInstructorRecord = (obj?: { __typename?: any } | null): obj is InstructorRecord => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isInstructorRecord"')
+      return InstructorRecord_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
     const ModularPageModelModularContentField_possibleTypes: string[] = ['CardsSectionRecord','FaqSectionRecord','HeroSectionRecord','TestimonialsSectionRecord']
     export const isModularPageModelModularContentField = (obj?: { __typename?: any } | null): obj is ModularPageModelModularContentField => {
       if (!obj?.__typename) throw new Error('__typename is missing in "isModularPageModelModularContentField"')
@@ -4619,10 +4872,34 @@ export interface focalPointGenqlSelection{
     
 
 
-    const RecordInterface_possibleTypes: string[] = ['ActionBlockRecord','CardBlockNewRecord','CardBlockRecord','CardsSectionRecord','CategoryRecord','CourseRecord','FaqBlockNewRecord','FaqBlockRecord','FaqItemRecord','FaqSectionRecord','HeadingBlockNewRecord','HeadingBlockRecord','HeroSectionRecord','ImageBlockRecord','ModularPageRecord','NoteBlockRecord','PlainTextBlockRecord','PostCtaRecord','PostRecord','RichTextBlockRecord','RoutePathRecord','SeoBlockRecord','TestimonialBlockCtaRecord','TestimonialBlockDefaultRecord','TestimonialBlockRecord','TestimonialsSectionRecord','TutorRecord']
+    const RecordInterface_possibleTypes: string[] = ['ActionBlockRecord','CardBlockNewRecord','CardBlockRecord','CardsSectionRecord','CategoryRecord','CourseRecord','FaqBlockNewRecord','FaqBlockRecord','FaqItemRecord','FaqSectionRecord','HeadingBlockNewRecord','HeadingBlockRecord','HeroSectionRecord','ImageBlockRecord','InstructorRecord','ModularPageRecord','NoteBlockRecord','PlainTextBlockRecord','PostCtaRecord','PostRecord','ResourceRecord','RichTextBlockRecord','RoutePathRecord','SeoBlockRecord','TestimonialBlockCtaRecord','TestimonialBlockDefaultRecord','TestimonialBlockRecord','TestimonialsSectionRecord','TutorRecord']
     export const isRecordInterface = (obj?: { __typename?: any } | null): obj is RecordInterface => {
       if (!obj?.__typename) throw new Error('__typename is missing in "isRecordInterface"')
       return RecordInterface_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const ResourceModelDescriptionContentField_possibleTypes: string[] = ['ResourceModelDescriptionContentField']
+    export const isResourceModelDescriptionContentField = (obj?: { __typename?: any } | null): obj is ResourceModelDescriptionContentField => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isResourceModelDescriptionContentField"')
+      return ResourceModelDescriptionContentField_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const ResourceModelSummaryField_possibleTypes: string[] = ['ResourceModelSummaryField']
+    export const isResourceModelSummaryField = (obj?: { __typename?: any } | null): obj is ResourceModelSummaryField => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isResourceModelSummaryField"')
+      return ResourceModelSummaryField_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const ResourceRecord_possibleTypes: string[] = ['ResourceRecord']
+    export const isResourceRecord = (obj?: { __typename?: any } | null): obj is ResourceRecord => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isResourceRecord"')
+      return ResourceRecord_possibleTypes.includes(obj.__typename)
     }
     
 
@@ -5091,6 +5368,31 @@ export const enumImgixParamsTxtFit = {
    max: 'max' as const
 }
 
+export const enumInstructorModelOrderBy = {
+   _createdAt_ASC: '_createdAt_ASC' as const,
+   _createdAt_DESC: '_createdAt_DESC' as const,
+   id_ASC: 'id_ASC' as const,
+   id_DESC: 'id_DESC' as const,
+   _firstPublishedAt_ASC: '_firstPublishedAt_ASC' as const,
+   _firstPublishedAt_DESC: '_firstPublishedAt_DESC' as const,
+   _publicationScheduledAt_ASC: '_publicationScheduledAt_ASC' as const,
+   _publicationScheduledAt_DESC: '_publicationScheduledAt_DESC' as const,
+   _unpublishingScheduledAt_ASC: '_unpublishingScheduledAt_ASC' as const,
+   _unpublishingScheduledAt_DESC: '_unpublishingScheduledAt_DESC' as const,
+   _publishedAt_ASC: '_publishedAt_ASC' as const,
+   _publishedAt_DESC: '_publishedAt_DESC' as const,
+   _status_ASC: '_status_ASC' as const,
+   _status_DESC: '_status_DESC' as const,
+   _updatedAt_ASC: '_updatedAt_ASC' as const,
+   _updatedAt_DESC: '_updatedAt_DESC' as const,
+   _isValid_ASC: '_isValid_ASC' as const,
+   _isValid_DESC: '_isValid_DESC' as const,
+   name_ASC: 'name_ASC' as const,
+   name_DESC: 'name_DESC' as const,
+   summary_ASC: 'summary_ASC' as const,
+   summary_DESC: 'summary_DESC' as const
+}
+
 export const enumItemStatus = {
    draft: 'draft' as const,
    updated: 'updated' as const,
@@ -5181,6 +5483,33 @@ export const enumResolutionType = {
    small: 'small' as const,
    medium: 'medium' as const,
    large: 'large' as const
+}
+
+export const enumResourceModelOrderBy = {
+   _createdAt_ASC: '_createdAt_ASC' as const,
+   _createdAt_DESC: '_createdAt_DESC' as const,
+   id_ASC: 'id_ASC' as const,
+   id_DESC: 'id_DESC' as const,
+   _firstPublishedAt_ASC: '_firstPublishedAt_ASC' as const,
+   _firstPublishedAt_DESC: '_firstPublishedAt_DESC' as const,
+   _publicationScheduledAt_ASC: '_publicationScheduledAt_ASC' as const,
+   _publicationScheduledAt_DESC: '_publicationScheduledAt_DESC' as const,
+   _unpublishingScheduledAt_ASC: '_unpublishingScheduledAt_ASC' as const,
+   _unpublishingScheduledAt_DESC: '_unpublishingScheduledAt_DESC' as const,
+   _publishedAt_ASC: '_publishedAt_ASC' as const,
+   _publishedAt_DESC: '_publishedAt_DESC' as const,
+   _status_ASC: '_status_ASC' as const,
+   _status_DESC: '_status_DESC' as const,
+   _updatedAt_ASC: '_updatedAt_ASC' as const,
+   _updatedAt_DESC: '_updatedAt_DESC' as const,
+   _isValid_ASC: '_isValid_ASC' as const,
+   _isValid_DESC: '_isValid_DESC' as const,
+   contentHeading_ASC: 'contentHeading_ASC' as const,
+   contentHeading_DESC: 'contentHeading_DESC' as const,
+   descriptionHeading_ASC: 'descriptionHeading_ASC' as const,
+   descriptionHeading_DESC: 'descriptionHeading_DESC' as const,
+   title_ASC: 'title_ASC' as const,
+   title_DESC: 'title_DESC' as const
 }
 
 export const enumRoutePathModelOrderBy = {

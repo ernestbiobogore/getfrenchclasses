@@ -1,10 +1,13 @@
 <script lang="ts">
+	import StructuredText from "$lib/components/dato/StructuredText/index.svelte";
 	import * as Card from "$shadcn/card";
 	import * as Pagination from "$shadcn/pagination";
-	import ChevronRight from "~icons/lucide/chevron-right";
-	import ChevronLeft from "~icons/lucide/chevron-left";
-	import ResourcesSearchFilter from "./ResourcesSearchFilter.svelte";
 	import { mediaQuery } from "svelte-legos";
+	import ChevronLeft from "~icons/lucide/chevron-left";
+	import ChevronRight from "~icons/lucide/chevron-right";
+	import ResourcesSearchFilter from "./ResourcesSearchFilter.svelte";
+
+	export let data;
 
 	const isDesktop = mediaQuery("(min-width: 768px)");
 	let resources = [...Array(4)];
@@ -27,73 +30,37 @@
 	<ResourcesSearchFilter />
 
 	<div class="space-y-10">
-		<div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-			{#each resources as _}
-				<Card.Root>
-					<img
-						alt="Article"
-						class="w-full h-48 object-cover rounded-t-md"
-						height="200"
-						src="/placeholder.svg"
-						style="aspect-ratio: 300/200; object-fit: cover;"
-						width="300"
-					/>
-					<Card.Header>
-						<Card.Title>
-							<a href="/resources/grammar-tips"
-								>Professional Services Guide to Connection in the Age of AI</a
-							>
-						</Card.Title>
-					</Card.Header>
-					<Card.Content>
-						<p class="text-sm text-gray-500 dark:text-gray-400">
-							Learn the intricacies of French grammar and improve your language skills.
-						</p>
-					</Card.Content>
-				</Card.Root>
-			{/each}
-
-			<Card.Root>
-				<img
-					alt="Article"
-					class="w-full h-48 object-cover rounded-t-md"
-					height="200"
-					src="/placeholder.svg"
-					style="aspect-ratio: 300/200; object-fit: cover;"
-					width="300"
-				/>
-				<Card.Header>
-					<Card.Title>
-						<a href="/resources/grammar-tips">French Vocabulary for Beginners</a>
-					</Card.Title>
-				</Card.Header>
-				<Card.Content>
-					<p class="text-sm text-gray-500 dark:text-gray-400">
-						Start your French language journey with these essential vocabulary words.
-					</p>
-				</Card.Content>
-			</Card.Root>
-			<Card.Root>
-				<img
-					alt="Article"
-					class="w-full h-48 object-cover rounded-t-md"
-					height="200"
-					src="/placeholder.svg"
-					style="aspect-ratio: 300/200; object-fit: cover;"
-					width="300"
-				/>
-				<Card.Header>
-					<Card.Title>
-						<a href="/resources/grammar-tips">German Pronunciation Guide</a>
-					</Card.Title>
-				</Card.Header>
-				<Card.Content>
-					<p class="text-sm text-gray-500 dark:text-gray-400">
-						Improve your German pronunciation with this comprehensive guide.
-					</p>
-				</Card.Content>
-			</Card.Root>
-		</div>
+		{#if data.allResources && data.allResources.length > 0}
+			<div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+				{#each data.allResources as resource (resource.id)}
+					<Card.Root>
+						<img
+							alt={resource.featuredImage?.responsiveImage?.alt || resource.title}
+							class="w-full h-48 object-cover rounded-t-md"
+							height="200"
+							src={resource.featuredImage?.responsiveImage?.src || "/placeholder.svg"}
+							style="aspect-ratio: 300/200; object-fit: cover;"
+							width="300"
+						/>
+						<Card.Header>
+							<Card.Title>
+								<a href="/resources/{resource.slug}">{resource.title}</a>
+							</Card.Title>
+						</Card.Header>
+						{#if resource.summary}
+							<Card.Content>
+								<StructuredText
+									richText={resource.summary}
+									elementClasses={{
+										p: "text-sm text-gray-500 dark:text-gray-400",
+									}}
+								/>
+							</Card.Content>
+						{/if}
+					</Card.Root>
+				{/each}
+			</div>
+		{/if}
 
 		<Pagination.Root {count} {perPage} {siblingCount} let:pages let:currentPage>
 			<Pagination.Content class="pl-0">
