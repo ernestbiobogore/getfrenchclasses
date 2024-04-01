@@ -1,6 +1,16 @@
 import { client } from "$lib/graphql/client";
 import { responsiveImageFieldSelection } from "./fields";
 
+const getResourcesCount = async () => {
+	const { _allResourcesMeta } = await client.query({
+		_allResourcesMeta: {
+			count: true,
+		},
+	});
+
+	return _allResourcesMeta.count;
+};
+
 const getAllResources = async (first?: number) => {
 	const { allResources } = await client.query({
 		allResources: {
@@ -24,4 +34,4 @@ const getAllResources = async (first?: number) => {
 	return allResources;
 };
 
-export { getAllResources };
+export { getAllResources, getResourcesCount };

@@ -10,8 +10,6 @@
 	export let data;
 
 	const isDesktop = mediaQuery("(min-width: 768px)");
-	let resources = [...Array(4)];
-	let count = 20;
 
 	$: perPage = $isDesktop ? 3 : 8;
 	$: siblingCount = $isDesktop ? 1 : 0;
@@ -62,7 +60,7 @@
 			</div>
 		{/if}
 
-		<Pagination.Root {count} {perPage} {siblingCount} let:pages let:currentPage>
+		<Pagination.Root count={data.resourcesCount} {perPage} {siblingCount} let:pages let:currentPage>
 			<Pagination.Content class="pl-0">
 				<Pagination.Item>
 					<Pagination.PrevButton>

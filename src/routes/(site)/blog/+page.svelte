@@ -12,9 +12,9 @@
 
 <script lang="ts">
 	import { goto } from "$app/navigation";
+	import { BLOG_JUMPER_LENGTH } from "$lib/constants";
 	import { Button } from "$shadcn/button";
 	import PostCard from "./PostCard.svelte";
-	import { JUMPER_LENGTH } from "./utils";
 
 	export let data;
 
@@ -36,7 +36,7 @@
 
 	const loadMorePosts = () => {
 		const currentFirst = data.first;
-		const newFirst = currentFirst + JUMPER_LENGTH;
+		const newFirst = currentFirst + BLOG_JUMPER_LENGTH;
 		const finalFirst =
 			newFirst > data.allNonFeaturedPostsCount ? data.allNonFeaturedPostsCount : newFirst;
 
@@ -118,7 +118,7 @@
 	</div>
 {/if}
 
-{#if latestPosts.length >= JUMPER_LENGTH && data.allNonFeaturedPostsCount > data.first}
+{#if latestPosts.length >= BLOG_JUMPER_LENGTH && data.allNonFeaturedPostsCount > data.first}
 	<div class="flex justify-center py-20">
 		<Button class="bg-indigo-600 hover:bg-indigo-700" on:click={loadMorePosts}
 			>Load More Posts</Button
