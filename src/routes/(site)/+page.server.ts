@@ -5,7 +5,7 @@ export const load = async () => {
 	const modularPage = await getSingleModularPage("get-french-classes");
 
 	if (!modularPage) {
-		throw error(404, "Page not found");
+		error(404, "Page not found");
 	}
 
 	return {

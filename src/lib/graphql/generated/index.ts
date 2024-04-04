@@ -24,7 +24,7 @@ export interface Client {
 
 export const createClient = function (options?: ClientOptions): Client {
   return createClientOriginal({
-    url: 'https://getfrenchclasses.stellate.sh/',
+    url: 'https://graphql.datocms.com/',
 
     ...options,
     queryRoot: typeMap.Query!,
