@@ -18,7 +18,6 @@ const getTopicBySlug = async (slug: string) => {
 	return resourceTopic;
 };
 
-
 const getResourcesCount = async () => {
 	const { _allResourcesMeta } = await client.query({
 		_allResourcesMeta: {
@@ -32,19 +31,13 @@ const getResourcesCount = async () => {
 type GetAllResourcesParams = {
 	first?: number;
 	skip?: number;
-	topics?: string[];
 };
-const getAllResources = async ({ first, skip, topics }: GetAllResourcesParams) => {
+const getAllResources = async ({ first, skip }: GetAllResourcesParams) => {
 	const { allResources } = await client.query({
 		allResources: {
 			__args: {
 				first,
 				skip,
-				filter: {
-					topics: {
-						allIn: topics || [],
-					},
-				},
 			},
 			id: true,
 			__typename: true,

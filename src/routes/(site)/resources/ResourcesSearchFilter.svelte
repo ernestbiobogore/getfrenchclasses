@@ -3,7 +3,6 @@
 	import { Button } from "$shadcn/button";
 	import { Input } from "$shadcn/input";
 	import { Label } from "bits-ui";
-	import { queryParam } from "sveltekit-search-params";
 	import LucideSearch from "~icons/lucide/search";
 	import type { PageData } from "../resources/$types";
 
@@ -14,8 +13,6 @@
 				.map(topic => [topic.slug, topic])
 		).values()
 	);
-
-	const topicParam = queryParam("topic");
 </script>
 
 <div class="flex flex-col gap-4">
@@ -34,9 +31,7 @@
 		class="flex flex-col items-start gap-2 overflow-y-auto border border-gray-300 rounded-md p-2"
 	>
 		{#each uniqueTopics as topic (topic.slug)}
-			<Button variant="link" class="p-0 h-fit" on:click={() => ($topicParam = topic.slug)}
-				>{topic.name}</Button
-			>
+			<Button variant="link" class="p-0 h-fit">{topic.name}</Button>
 		{/each}
 	</div>
 </div>
