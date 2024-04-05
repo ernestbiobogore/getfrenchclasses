@@ -1,16 +1,16 @@
 <script lang="ts">
+	import { goto } from "$app/navigation";
+	import StructuredText from "$lib/components/dato/StructuredText/index.svelte";
+	import { Badge } from "$shadcn/badge";
 	import * as Card from "$shadcn/card";
 	import * as Select from "$shadcn/select";
-	import { Badge } from "$shadcn/badge";
 	import { Separator } from "$shadcn/separator";
-	import StructuredText from "$lib/components/dato/StructuredText/index.svelte";
 
 	export let data;
 
-	const jobTypes = [
-		{ value: "Job Type 1", label: "Job Type 1" },
-		{ value: "Job Type 2", label: "Job Type 2" },
-	];
+	$: uniqueJobTypes = Array.from(
+		new Map(data.jobs.flatMap(job => job.jobType).map(jobType => [jobType, jobType])).values()
+	);
 </script>
 
 <svelte:head>
@@ -39,34 +39,49 @@
 		<div class="flex flex-col gap-5">
 			<h2>Open Positions</h2>
 
-			<Select.Root>
+			<Select.Root
+				onSelectedChange={obj => {
+					if (obj?.value) {
+						const encodedValue = encodeURIComponent(String(obj.value));
+						goto(`/jobs/?type=${encodedValue}`, {
+							noScroll: true,
+						});
+					}
+				}}
+			>
 				<Select.Trigger class="w-[180px]">
 					<Select.Value placeholder="Any Type" />
 				</Select.Trigger>
 
 				<Select.Content>
-					{#each jobTypes as jobType}
-						<Select.Item value={jobType.value} label={jobType.label}>
-							{jobType.label}
-						</Select.Item>
+					{#each uniqueJobTypes as jobType}
+						{#if jobType}
+							<Select.Item value={jobType} label={jobType}>
+								{jobType}
+							</Select.Item>
+						{/if}
 					{/each}
 				</Select.Content>
 			</Select.Root>
 
 			<div class="grid gap-5 sm:grid-cols-3 lg:grid-cols-4">
-				{#each data.jobs as job}
-					<Card.Root>
-						<a href="/jobs/{job.slug}">
-							<Card.Header>
-								<Card.Title class="mb-2">{job.title}</Card.Title>
-								<Card.Description class="flex gap-2">
-									<Badge class="rounded-md" variant="outline">{job.location}</Badge>
-									<Badge class="rounded-md" variant="outline">{job.jobType}</Badge>
-								</Card.Description>
-							</Card.Header>
-						</a>
-					</Card.Root>
-				{/each}
+				{#if data.jobs && data.jobs.length > 0}
+					{#each data.jobs as job}
+						<Card.Root>
+							<a href="/jobs/{job.slug}">
+								<Card.Header>
+									<Card.Title class="mb-2">{job.title}</Card.Title>
+									<Card.Description class="flex gap-2">
+										<Badge class="rounded-md" variant="outline">{job.location}</Badge>
+										<Badge class="rounded-md" variant="outline">{job.jobType}</Badge>
+									</Card.Description>
+								</Card.Header>
+							</a>
+						</Card.Root>
+					{/each}
+				{:else}
+					<p>No jobs found</p>
+				{/if}
 			</div>
 		</div>
 	</div>

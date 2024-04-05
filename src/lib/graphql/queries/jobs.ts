@@ -1,8 +1,15 @@
 import { client } from "$lib/graphql/client";
 
-export async function getallJobMetas() {
+export async function getallJobMetas(type?: string) {
 	const { allJobs } = await client.query({
 		allJobs: {
+			__args: {
+				filter: {
+					jobType: {
+						eq: type,
+					},
+				},
+			},
 			id: true,
 			title: true,
 			slug: true,
