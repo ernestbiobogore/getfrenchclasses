@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { goto } from "$app/navigation";
 	import StructuredText from "$lib/components/dato/StructuredText/index.svelte";
+	import { Badge } from "$lib/components/shadcn/ui/badge";
 	import { RESOURCES_PER_PAGE } from "$lib/constants";
 	import * as Card from "$shadcn/card";
 	import * as Pagination from "$shadcn/pagination";
@@ -8,8 +9,16 @@
 	import ChevronLeft from "~icons/lucide/chevron-left";
 	import ChevronRight from "~icons/lucide/chevron-right";
 	import ResourcesSearchFilter from "./ResourcesSearchFilter.svelte";
+	import { selectedTopic } from "./stores";
 
 	export let data;
+	$: displayedResources = data.allResources.filter(resource => {
+		if ($selectedTopic) {
+			return resource.topics.some(topic => topic.slug === $selectedTopic);
+		}
+
+		return true;
+	});
 
 	const pageParam = queryParam("page", {
 		encode: (value: number) => value.toString(),
@@ -31,9 +40,9 @@
 	<ResourcesSearchFilter />
 
 	<div class="space-y-10">
-		{#if data.allResources && data.allResources.length > 0}
+		{#if displayedResources && displayedResources.length > 0}
 			<div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-				{#each data.allResources as resource (resource.id)}
+				{#each displayedResources as resource (resource.id)}
 					<Card.Root>
 						<img
 							alt={resource.featuredImage?.responsiveImage?.alt || resource.title}
@@ -50,10 +59,9 @@
 
 							<div class="flex gap-2 items-center">
 								{#each resource.topics as topic}
-									<span
-										class="flex items-center px-3 bg-destructive text-destructive-foreground rounded-full text-sm"
-										>{topic.name}</span
-									>
+									<Badge class="text-xs bg-indigo-600 w-fit justify-center">
+										{topic.name}
+									</Badge>
 								{/each}
 							</div>
 						</Card.Header>
@@ -91,7 +99,10 @@
 							<Pagination.Link
 								{page}
 								isActive={$pageParam === page.value}
-								on:click={() => goto(`/resources?page=${page.value}`)}
+								on:click={() => {
+									$selectedTopic = undefined;
+									goto(`/resources?page=${page.value}`);
+								}}
 							>
 								{page.value}
 							</Pagination.Link>

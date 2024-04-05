@@ -1,10 +1,12 @@
 <script lang="ts">
 	import { page } from "$app/stores";
+	import { Badge } from "$lib/components/shadcn/ui/badge";
 	import { Button } from "$shadcn/button";
 	import { Input } from "$shadcn/input";
 	import { Label } from "bits-ui";
 	import LucideSearch from "~icons/lucide/search";
 	import type { PageData } from "../resources/$types";
+	import { selectedTopic } from "./stores";
 
 	$: uniqueTopics = Array.from(
 		new Map(
@@ -27,11 +29,25 @@
 			</div>
 		</div>
 	</div>
+
+	<Badge class="capitalize w-fit bg-indigo-600">
+		{#if $selectedTopic}
+			{$selectedTopic}
+		{:else}
+			All
+		{/if}
+	</Badge>
+
 	<div
 		class="flex flex-col items-start gap-2 overflow-y-auto border border-gray-300 rounded-md p-2"
 	>
+		<Button variant="link" class="p-0 h-fit" on:click={() => ($selectedTopic = undefined)}>
+			All
+		</Button>
 		{#each uniqueTopics as topic (topic.slug)}
-			<Button variant="link" class="p-0 h-fit">{topic.name}</Button>
+			<Button variant="link" class="p-0 h-fit" on:click={() => ($selectedTopic = topic.slug)}
+				>{topic.name}</Button
+			>
 		{/each}
 	</div>
 </div>
