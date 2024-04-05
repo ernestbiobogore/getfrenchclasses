@@ -537,6 +537,34 @@ export interface InstructorRecord {
 
 export type ItemStatus = 'draft' | 'updated' | 'published'
 
+export type JobModelOrderBy = '_createdAt_ASC' | '_createdAt_DESC' | 'id_ASC' | 'id_DESC' | '_firstPublishedAt_ASC' | '_firstPublishedAt_DESC' | '_publicationScheduledAt_ASC' | '_publicationScheduledAt_DESC' | '_unpublishingScheduledAt_ASC' | '_unpublishingScheduledAt_DESC' | '_publishedAt_ASC' | '_publishedAt_DESC' | '_status_ASC' | '_status_DESC' | '_updatedAt_ASC' | '_updatedAt_DESC' | '_isValid_ASC' | '_isValid_DESC' | 'jobType_ASC' | 'jobType_DESC' | 'location_ASC' | 'location_DESC' | 'title_ASC' | 'title_DESC'
+
+
+/** Record of type Job (job) */
+export interface JobRecord {
+    _createdAt: Scalars['DateTime']
+    /** Editing URL */
+    _editingUrl: (Scalars['String'] | null)
+    _firstPublishedAt: (Scalars['DateTime'] | null)
+    _isValid: Scalars['BooleanType']
+    _modelApiKey: Scalars['String']
+    _publicationScheduledAt: (Scalars['DateTime'] | null)
+    _publishedAt: (Scalars['DateTime'] | null)
+    /** Generates SEO and Social card meta tags to be used in your frontend */
+    _seoMetaTags: Tag[]
+    _status: ItemStatus
+    _unpublishingScheduledAt: (Scalars['DateTime'] | null)
+    _updatedAt: Scalars['DateTime']
+    contentItems: RichTextBlockRecord[]
+    cta: (ActionBlockRecord | null)
+    id: Scalars['ItemId']
+    jobType: (Scalars['String'] | null)
+    location: Scalars['String']
+    slug: Scalars['String']
+    title: Scalars['String']
+    __typename: 'JobRecord'
+}
+
 export type ModularPageModelModularContentField = (CardsSectionRecord | FaqSectionRecord | HeroSectionRecord | TestimonialsSectionRecord) & { __isUnion?: true }
 
 export type ModularPageModelOrderBy = '_createdAt_ASC' | '_createdAt_DESC' | 'id_ASC' | 'id_DESC' | '_firstPublishedAt_ASC' | '_firstPublishedAt_DESC' | '_publicationScheduledAt_ASC' | '_publicationScheduledAt_DESC' | '_unpublishingScheduledAt_ASC' | '_unpublishingScheduledAt_DESC' | '_publishedAt_ASC' | '_publishedAt_DESC' | '_status_ASC' | '_status_DESC' | '_updatedAt_ASC' | '_updatedAt_DESC' | '_isValid_ASC' | '_isValid_DESC' | 'title_ASC' | 'title_DESC'
@@ -687,6 +715,8 @@ export interface Query {
     /** Returns meta information regarding a record collection */
     _allInstructorsMeta: CollectionMetadata
     /** Returns meta information regarding a record collection */
+    _allJobsMeta: CollectionMetadata
+    /** Returns meta information regarding a record collection */
     _allModularPagesMeta: CollectionMetadata
     /** Returns meta information regarding a record collection */
     _allPostCtasMeta: CollectionMetadata
@@ -713,6 +743,8 @@ export interface Query {
     /** Returns a collection of records */
     allInstructors: InstructorRecord[]
     /** Returns a collection of records */
+    allJobs: JobRecord[]
+    /** Returns a collection of records */
     allModularPages: ModularPageRecord[]
     /** Returns a collection of records */
     allPostCtas: PostCtaRecord[]
@@ -737,6 +769,8 @@ export interface Query {
     /** Returns a specific record */
     instructor: (InstructorRecord | null)
     /** Returns a specific record */
+    job: (JobRecord | null)
+    /** Returns a specific record */
     modularPage: (ModularPageRecord | null)
     /** Returns a specific record */
     post: (PostRecord | null)
@@ -755,7 +789,7 @@ export interface Query {
     __typename: 'Query'
 }
 
-export type RecordInterface = (ActionBlockRecord | CardBlockNewRecord | CardBlockRecord | CardsSectionRecord | CategoryRecord | CourseRecord | FaqBlockNewRecord | FaqBlockRecord | FaqItemRecord | FaqSectionRecord | HeadingBlockNewRecord | HeadingBlockRecord | HeroSectionRecord | ImageBlockRecord | InstructorRecord | ModularPageRecord | NoteBlockRecord | PlainTextBlockRecord | PostCtaRecord | PostRecord | ResourceRecord | ResourceTopicRecord | RichTextBlockRecord | RoutePathRecord | SeoBlockRecord | TestimonialBlockCtaRecord | TestimonialBlockDefaultRecord | TestimonialBlockRecord | TestimonialsSectionRecord | TutorRecord) & { __isUnion?: true }
+export type RecordInterface = (ActionBlockRecord | CardBlockNewRecord | CardBlockRecord | CardsSectionRecord | CategoryRecord | CourseRecord | FaqBlockNewRecord | FaqBlockRecord | FaqItemRecord | FaqSectionRecord | HeadingBlockNewRecord | HeadingBlockRecord | HeroSectionRecord | ImageBlockRecord | InstructorRecord | JobRecord | ModularPageRecord | NoteBlockRecord | PlainTextBlockRecord | PostCtaRecord | PostRecord | ResourceRecord | ResourceTopicRecord | RichTextBlockRecord | RoutePathRecord | SeoBlockRecord | TestimonialBlockCtaRecord | TestimonialBlockDefaultRecord | TestimonialBlockRecord | TestimonialsSectionRecord | TutorRecord) & { __isUnion?: true }
 
 export type ResolutionType = 'icon' | 'small' | 'medium' | 'large'
 
@@ -794,6 +828,7 @@ export interface ResourceRecord {
     contentHeading: (Scalars['String'] | null)
     contentItems: PlainTextBlockRecord[]
     contentMedias: FileField[]
+    cta: (ActionBlockRecord | null)
     descriptionContent: (ResourceModelDescriptionContentField | null)
     descriptionHeading: (Scalars['String'] | null)
     faq: (FaqItemRecord | null)
@@ -1261,13 +1296,13 @@ export interface AltFileFieldGenqlSelection{
     basename?: boolean | number
     blurUpThumb?: { __args: {
     /** Controls the "punch" value (~contrast) of the blurhash decoding algorithm (defaults to 1.0) */
-    punch: Scalars['Float'], 
+    punch?: Scalars['Float'], 
     /** Maximum image dimension (defaults to 24px) */
-    size: Scalars['Int'], 
+    size?: Scalars['Int'], 
     /** Image quality (defaults to 70%) */
-    quality: Scalars['Int'], 
+    quality?: Scalars['Int'], 
     /** Imgix transformations to apply to the image */
-    imgixParams?: (ImgixParams | null)} }
+    imgixParams?: (ImgixParams | null)} } | boolean | number
     blurhash?: boolean | number
     colors?: ColorFieldGenqlSelection
     copyright?: boolean | number
@@ -1616,13 +1651,13 @@ export interface FileFieldGenqlSelection{
     basename?: boolean | number
     blurUpThumb?: { __args: {
     /** Controls the "punch" value (~contrast) of the blurhash decoding algorithm (defaults to 1.0) */
-    punch: Scalars['Float'], 
+    punch?: Scalars['Float'], 
     /** Maximum image dimension (defaults to 24px) */
-    size: Scalars['Int'], 
+    size?: Scalars['Int'], 
     /** Image quality (defaults to 70%) */
-    quality: Scalars['Int'], 
+    quality?: Scalars['Int'], 
     /** Imgix transformations to apply to the image */
-    imgixParams?: (ImgixParams | null)} }
+    imgixParams?: (ImgixParams | null)} } | boolean | number
     blurhash?: boolean | number
     colors?: ColorFieldGenqlSelection
     copyright?: boolean | number
@@ -1685,13 +1720,13 @@ export interface FileFieldInterfaceGenqlSelection{
     basename?: boolean | number
     blurUpThumb?: { __args: {
     /** Controls the "punch" value (~contrast) of the blurhash decoding algorithm (defaults to 1.0) */
-    punch: Scalars['Float'], 
+    punch?: Scalars['Float'], 
     /** Maximum image dimension (defaults to 24px) */
-    size: Scalars['Int'], 
+    size?: Scalars['Int'], 
     /** Image quality (defaults to 70%) */
-    quality: Scalars['Int'], 
+    quality?: Scalars['Int'], 
     /** Imgix transformations to apply to the image */
-    imgixParams?: (ImgixParams | null)} }
+    imgixParams?: (ImgixParams | null)} } | boolean | number
     blurhash?: boolean | number
     colors?: ColorFieldGenqlSelection
     copyright?: boolean | number
@@ -3227,6 +3262,37 @@ in?: ((Scalars['ItemId'] | null)[] | null),
 /** Search records that do not have the specified IDs */
 notIn?: ((Scalars['ItemId'] | null)[] | null)}
 
+export interface JobModelFilter {_createdAt?: (CreatedAtFilter | null),id?: (ItemIdFilter | null),_firstPublishedAt?: (PublishedAtFilter | null),_publicationScheduledAt?: (PublishedAtFilter | null),_unpublishingScheduledAt?: (PublishedAtFilter | null),_publishedAt?: (PublishedAtFilter | null),_status?: (StatusFilter | null),_updatedAt?: (UpdatedAtFilter | null),_isValid?: (BooleanFilter | null),jobType?: (StringFilter | null),location?: (StringFilter | null),slug?: (SlugFilter | null),title?: (StringFilter | null),OR?: ((JobModelFilter | null)[] | null),AND?: ((JobModelFilter | null)[] | null)}
+
+
+/** Record of type Job (job) */
+export interface JobRecordGenqlSelection{
+    _createdAt?: boolean | number
+    /** Editing URL */
+    _editingUrl?: boolean | number
+    _firstPublishedAt?: boolean | number
+    _isValid?: boolean | number
+    _modelApiKey?: boolean | number
+    _publicationScheduledAt?: boolean | number
+    _publishedAt?: boolean | number
+    /** Generates SEO and Social card meta tags to be used in your frontend */
+    _seoMetaTags?: (TagGenqlSelection & { __args?: {
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null)} })
+    _status?: boolean | number
+    _unpublishingScheduledAt?: boolean | number
+    _updatedAt?: boolean | number
+    contentItems?: RichTextBlockRecordGenqlSelection
+    cta?: ActionBlockRecordGenqlSelection
+    id?: boolean | number
+    jobType?: boolean | number
+    location?: boolean | number
+    slug?: boolean | number
+    title?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
 
 /** Specifies how to filter JSON fields */
 export interface JsonFilter {
@@ -3466,6 +3532,10 @@ export interface QueryGenqlSelection{
     /** The locale to use to fetch the field's content */
     locale?: (SiteLocale | null), filter?: (InstructorModelFilter | null)} })
     /** Returns meta information regarding a record collection */
+    _allJobsMeta?: (CollectionMetadataGenqlSelection & { __args?: {
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null), filter?: (JobModelFilter | null)} })
+    /** Returns meta information regarding a record collection */
     _allModularPagesMeta?: (CollectionMetadataGenqlSelection & { __args?: {
     /** The locale to use to fetch the field's content */
     locale?: (SiteLocale | null), filter?: (ModularPageModelFilter | null)} })
@@ -3543,6 +3613,16 @@ export interface QueryGenqlSelection{
     skip?: (Scalars['IntType'] | null), 
     /** Limit the number of results */
     first?: (Scalars['IntType'] | null), filter?: (InstructorModelFilter | null), orderBy?: ((InstructorModelOrderBy | null)[] | null)} })
+    /** Returns a collection of records */
+    allJobs?: (JobRecordGenqlSelection & { __args?: {
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null), 
+    /** If you want to fallback to a default translation when a translation has not been found */
+    fallbackLocales?: (SiteLocale[] | null), 
+    /** Skip the first results */
+    skip?: (Scalars['IntType'] | null), 
+    /** Limit the number of results */
+    first?: (Scalars['IntType'] | null), filter?: (JobModelFilter | null), orderBy?: ((JobModelOrderBy | null)[] | null)} })
     /** Returns a collection of records */
     allModularPages?: (ModularPageRecordGenqlSelection & { __args?: {
     /** The locale to use to fetch the field's content */
@@ -3648,6 +3728,12 @@ export interface QueryGenqlSelection{
     /** If you want to fallback to a default translation when a translation has not been found */
     fallbackLocales?: (SiteLocale[] | null), filter?: (InstructorModelFilter | null), orderBy?: ((InstructorModelOrderBy | null)[] | null)} })
     /** Returns a specific record */
+    job?: (JobRecordGenqlSelection & { __args?: {
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null), 
+    /** If you want to fallback to a default translation when a translation has not been found */
+    fallbackLocales?: (SiteLocale[] | null), filter?: (JobModelFilter | null), orderBy?: ((JobModelOrderBy | null)[] | null)} })
+    /** Returns a specific record */
     modularPage?: (ModularPageRecordGenqlSelection & { __args?: {
     /** The locale to use to fetch the field's content */
     locale?: (SiteLocale | null), 
@@ -3731,6 +3817,7 @@ export interface RecordInterfaceGenqlSelection{
     on_HeroSectionRecord?: HeroSectionRecordGenqlSelection
     on_ImageBlockRecord?: ImageBlockRecordGenqlSelection
     on_InstructorRecord?: InstructorRecordGenqlSelection
+    on_JobRecord?: JobRecordGenqlSelection
     on_ModularPageRecord?: ModularPageRecordGenqlSelection
     on_NoteBlockRecord?: NoteBlockRecordGenqlSelection
     on_PlainTextBlockRecord?: PlainTextBlockRecordGenqlSelection
@@ -3801,6 +3888,7 @@ export interface ResourceRecordGenqlSelection{
     contentHeading?: boolean | number
     contentItems?: PlainTextBlockRecordGenqlSelection
     contentMedias?: FileFieldGenqlSelection
+    cta?: ActionBlockRecordGenqlSelection
     descriptionContent?: ResourceModelDescriptionContentFieldGenqlSelection
     descriptionHeading?: boolean | number
     faq?: FaqItemRecordGenqlSelection
@@ -4509,13 +4597,13 @@ export interface UploadVideoFieldGenqlSelection{
     fallbackLocales?: (SiteLocale[] | null)} } | boolean | number
     blurUpThumb?: { __args: {
     /** Controls the "punch" value (~contrast) of the blurhash decoding algorithm (defaults to 1.0) */
-    punch: Scalars['Float'], 
+    punch?: Scalars['Float'], 
     /** Maximum image dimension (defaults to 24px) */
-    size: Scalars['Int'], 
+    size?: Scalars['Int'], 
     /** Image quality (defaults to 70%) */
-    quality: Scalars['Int'], 
+    quality?: Scalars['Int'], 
     /** Imgix transformations to apply to the image */
-    imgixParams?: (ImgixParams | null)} }
+    imgixParams?: (ImgixParams | null)} } | boolean | number
     blurhash?: boolean | number
     duration?: boolean | number
     framerate?: boolean | number
@@ -4572,13 +4660,13 @@ export interface VideoAltFileFieldGenqlSelection{
     basename?: boolean | number
     blurUpThumb?: { __args: {
     /** Controls the "punch" value (~contrast) of the blurhash decoding algorithm (defaults to 1.0) */
-    punch: Scalars['Float'], 
+    punch?: Scalars['Float'], 
     /** Maximum image dimension (defaults to 24px) */
-    size: Scalars['Int'], 
+    size?: Scalars['Int'], 
     /** Image quality (defaults to 70%) */
-    quality: Scalars['Int'], 
+    quality?: Scalars['Int'], 
     /** Imgix transformations to apply to the image */
-    imgixParams?: (ImgixParams | null)} }
+    imgixParams?: (ImgixParams | null)} } | boolean | number
     blurhash?: boolean | number
     colors?: ColorFieldGenqlSelection
     copyright?: boolean | number
@@ -4641,13 +4729,13 @@ export interface VideoFileFieldGenqlSelection{
     basename?: boolean | number
     blurUpThumb?: { __args: {
     /** Controls the "punch" value (~contrast) of the blurhash decoding algorithm (defaults to 1.0) */
-    punch: Scalars['Float'], 
+    punch?: Scalars['Float'], 
     /** Maximum image dimension (defaults to 24px) */
-    size: Scalars['Int'], 
+    size?: Scalars['Int'], 
     /** Image quality (defaults to 70%) */
-    quality: Scalars['Int'], 
+    quality?: Scalars['Int'], 
     /** Imgix transformations to apply to the image */
-    imgixParams?: (ImgixParams | null)} }
+    imgixParams?: (ImgixParams | null)} } | boolean | number
     blurhash?: boolean | number
     colors?: ColorFieldGenqlSelection
     copyright?: boolean | number
@@ -4888,6 +4976,14 @@ export interface focalPointGenqlSelection{
     
 
 
+    const JobRecord_possibleTypes: string[] = ['JobRecord']
+    export const isJobRecord = (obj?: { __typename?: any } | null): obj is JobRecord => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isJobRecord"')
+      return JobRecord_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
     const ModularPageModelModularContentField_possibleTypes: string[] = ['CardsSectionRecord','FaqSectionRecord','HeroSectionRecord','TestimonialsSectionRecord']
     export const isModularPageModelModularContentField = (obj?: { __typename?: any } | null): obj is ModularPageModelModularContentField => {
       if (!obj?.__typename) throw new Error('__typename is missing in "isModularPageModelModularContentField"')
@@ -4952,7 +5048,7 @@ export interface focalPointGenqlSelection{
     
 
 
-    const RecordInterface_possibleTypes: string[] = ['ActionBlockRecord','CardBlockNewRecord','CardBlockRecord','CardsSectionRecord','CategoryRecord','CourseRecord','FaqBlockNewRecord','FaqBlockRecord','FaqItemRecord','FaqSectionRecord','HeadingBlockNewRecord','HeadingBlockRecord','HeroSectionRecord','ImageBlockRecord','InstructorRecord','ModularPageRecord','NoteBlockRecord','PlainTextBlockRecord','PostCtaRecord','PostRecord','ResourceRecord','ResourceTopicRecord','RichTextBlockRecord','RoutePathRecord','SeoBlockRecord','TestimonialBlockCtaRecord','TestimonialBlockDefaultRecord','TestimonialBlockRecord','TestimonialsSectionRecord','TutorRecord']
+    const RecordInterface_possibleTypes: string[] = ['ActionBlockRecord','CardBlockNewRecord','CardBlockRecord','CardsSectionRecord','CategoryRecord','CourseRecord','FaqBlockNewRecord','FaqBlockRecord','FaqItemRecord','FaqSectionRecord','HeadingBlockNewRecord','HeadingBlockRecord','HeroSectionRecord','ImageBlockRecord','InstructorRecord','JobRecord','ModularPageRecord','NoteBlockRecord','PlainTextBlockRecord','PostCtaRecord','PostRecord','ResourceRecord','ResourceTopicRecord','RichTextBlockRecord','RoutePathRecord','SeoBlockRecord','TestimonialBlockCtaRecord','TestimonialBlockDefaultRecord','TestimonialBlockRecord','TestimonialsSectionRecord','TutorRecord']
     export const isRecordInterface = (obj?: { __typename?: any } | null): obj is RecordInterface => {
       if (!obj?.__typename) throw new Error('__typename is missing in "isRecordInterface"')
       return RecordInterface_possibleTypes.includes(obj.__typename)
@@ -5485,6 +5581,33 @@ export const enumItemStatus = {
    draft: 'draft' as const,
    updated: 'updated' as const,
    published: 'published' as const
+}
+
+export const enumJobModelOrderBy = {
+   _createdAt_ASC: '_createdAt_ASC' as const,
+   _createdAt_DESC: '_createdAt_DESC' as const,
+   id_ASC: 'id_ASC' as const,
+   id_DESC: 'id_DESC' as const,
+   _firstPublishedAt_ASC: '_firstPublishedAt_ASC' as const,
+   _firstPublishedAt_DESC: '_firstPublishedAt_DESC' as const,
+   _publicationScheduledAt_ASC: '_publicationScheduledAt_ASC' as const,
+   _publicationScheduledAt_DESC: '_publicationScheduledAt_DESC' as const,
+   _unpublishingScheduledAt_ASC: '_unpublishingScheduledAt_ASC' as const,
+   _unpublishingScheduledAt_DESC: '_unpublishingScheduledAt_DESC' as const,
+   _publishedAt_ASC: '_publishedAt_ASC' as const,
+   _publishedAt_DESC: '_publishedAt_DESC' as const,
+   _status_ASC: '_status_ASC' as const,
+   _status_DESC: '_status_DESC' as const,
+   _updatedAt_ASC: '_updatedAt_ASC' as const,
+   _updatedAt_DESC: '_updatedAt_DESC' as const,
+   _isValid_ASC: '_isValid_ASC' as const,
+   _isValid_DESC: '_isValid_DESC' as const,
+   jobType_ASC: 'jobType_ASC' as const,
+   jobType_DESC: 'jobType_DESC' as const,
+   location_ASC: 'location_ASC' as const,
+   location_DESC: 'location_DESC' as const,
+   title_ASC: 'title_ASC' as const,
+   title_DESC: 'title_DESC' as const
 }
 
 export const enumModularPageModelOrderBy = {

@@ -1,17 +1,17 @@
 import {
-  DATOCMS_API_ENDPOINT,
-  DATOCMS_API_KEY,
-  DATOCMS_ENVIRONMENT_NAME,
+	DATOCMS_API_ENDPOINT,
+	DATOCMS_API_KEY,
+	DATOCMS_ENVIRONMENT_NAME,
 } from "$env/static/private";
 import { createClient } from "$lib/graphql/generated";
 
 const client = createClient({
-  url: DATOCMS_API_ENDPOINT,
-  headers: {
-    Authorization: `Bearer ${DATOCMS_API_KEY}`,
-    "X-Environment": DATOCMS_ENVIRONMENT_NAME,
-    "X-Exclude-Invalid": "true",
-  },
+	url: DATOCMS_API_ENDPOINT,
+	headers: {
+		Authorization: `Bearer ${DATOCMS_API_KEY}`,
+		"X-Environment": DATOCMS_ENVIRONMENT_NAME,
+		"X-Exclude-Invalid": "true",
+	},
 });
 
 export { client };
