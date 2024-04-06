@@ -606,6 +606,7 @@ export interface MenuListBlockRecord {
     _updatedAt: Scalars['DateTime']
     id: Scalars['ItemId']
     items: MenuItemBlockRecord[]
+    name: (Scalars['String'] | null)
     __typename: 'MenuListBlockRecord'
 }
 
@@ -3448,6 +3449,7 @@ export interface MenuListBlockRecordGenqlSelection{
     _updatedAt?: boolean | number
     id?: boolean | number
     items?: MenuItemBlockRecordGenqlSelection
+    name?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
