@@ -25,6 +25,8 @@ const getMenuBySlug = async (slug: string) => {
 			id: true,
 			name: true,
 			menuLists: {
+				id: true,
+				name: true,
 				items: menuItemSelection,
 			},
 		},

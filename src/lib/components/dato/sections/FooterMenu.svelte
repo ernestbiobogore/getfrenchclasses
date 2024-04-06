@@ -9,7 +9,8 @@
 	import LucideInstagram from "~icons/lucide/instagram";
 	import type { LayoutData } from "../../../../routes/(site)/$types";
 
-	$: menu = ($page.data as LayoutData).footerMenu;
+	$: menuLists = ($page.data as LayoutData).footerMenu?.menuLists;
+	$: currentYear = new Date().getFullYear();
 </script>
 
 <footer class="pt-24 pb-6 space-y-8 container-base">
@@ -30,39 +31,29 @@
 			</div>
 		</div>
 		<div class="flex flex-col gap-5 md:gap-20 basis-3/12 md:flex-row">
-			<div class="space-y-4">
-				<p class="font-bold">Company</p>
-				<ul class="space-y-2 text-sm">
-					<li>Courses</li>
-					<li>Features</li>
-					<li>FAQs</li>
-					<li>Reviews</li>
-					<li>About</li>
-					<li>Contact</li>
-				</ul>
-			</div>
+			{#if menuLists && menuLists.length > 0}
+				{#each menuLists as menuList (menuList.id)}
+					{#if menuList.items && menuList.items.length > 0}
+						<div class="space-y-4">
+							{#if menuList.name}
+								<p class="font-bold">{menuList.name}</p>
+							{/if}
 
-			<div class="space-y-4">
-				<p class="font-bold">Account</p>
-				<ul class="space-y-2 text-sm">
-					<li>Login</li>
-					<li>Sign Up</li>
-					<li>Reset Password</li>
-				</ul>
-			</div>
-
-			<div class="space-y-4">
-				<p class="font-bold">Resources</p>
-				<ul class="space-y-2 text-sm">
-					<li>Login</li>
-					<li>Sign Up</li>
-					<li>Reset Password</li>
-				</ul>
-			</div>
+							<ul class="space-y-2 text-sm">
+								{#each menuList.items as item (item.id)}
+									<li>
+										<a href={item.link}>{item.title}</a>
+									</li>
+								{/each}
+							</ul>
+						</div>
+					{/if}
+				{/each}
+			{/if}
 		</div>
 	</div>
 
 	<div>
-		<p class="text-xs">© 2023 Get French Classes.</p>
+		<p class="text-xs">© {currentYear} Get French Classes.</p>
 	</div>
 </footer>
