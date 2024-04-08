@@ -30,7 +30,6 @@
 	};
 
 	$: coverMedia = "coverMedia" in tutor ? (tutor.coverMedia as AltFileField) : undefined;
-	$: console.log(coverMedia);
 </script>
 
 <Card.Root class="overflow-hidden bg-white rounded-lg shadow-lg cursor-pointer">
