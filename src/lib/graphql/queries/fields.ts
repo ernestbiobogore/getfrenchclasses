@@ -130,6 +130,9 @@ const tutorMetaFields = {
 			},
 		},
 	},
+	topics: {
+		text: true,
+	},
 } satisfies TutorRecordGenqlSelection;
 
 const courseMetaFields = {
