@@ -14,7 +14,7 @@
 <Card.Root
 	class="py-20 container-base"
 	style="border-radius: 20px;
-background: linear-gradient(261deg, #FFEFE9 75%, #FFF 100%);
+background: linear-gradient(261deg, #5e62d1 10%, #FFF 100%);
 box-shadow: 0px 8px 12px 0px rgba(0, 0, 0, 0.25);"
 >
 	<Card.Header class="flex flex-col gap-6 md:flex-row lg:gap-8">
@@ -38,11 +38,8 @@ box-shadow: 0px 8px 12px 0px rgba(0, 0, 0, 0.25);"
 			{/if}
 
 			<div>
-				<div class="text-lg font-medium">{testimonial.author}</div>
-				<div class="text-[#3EAED0]">
-					<p class="text-lg font-medium">{testimonial.role}</p>
-					<p>{testimonial.company}</p>
-				</div>
+				<p class="text-lg font-semibold text-white">{testimonial.author}</p>
+				<p class="text-sm font-medium text-white">{testimonial.role} - {testimonial.company}</p>
 			</div>
 		</div>
 	</Card.Header>
