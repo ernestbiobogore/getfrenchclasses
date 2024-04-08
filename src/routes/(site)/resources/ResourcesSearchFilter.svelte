@@ -22,15 +22,15 @@
 		<Label.Root for="search-topics" class="text-sm">Search Topics</Label.Root>
 
 		<div class="relative">
-			<Input class="bg-white pl-3 pr-8 py-2" type="text" placeholder="Search by Title" />
+			<Input class="py-2 pl-3 pr-8 bg-white" type="text" placeholder="Search by Title" />
 
-			<div class="absolute right-0 top-0 pr-3 flex-s-center h-full">
+			<div class="absolute top-0 right-0 h-full pr-3 flex-s-center">
 				<LucideSearch class="text-gray-500" />
 			</div>
 		</div>
 	</div>
 
-	<Badge class="capitalize w-fit bg-indigo-600">
+	<Badge class="capitalize w-fit bg-brand-primary">
 		{#if $selectedTopic}
 			{$selectedTopic}
 		{:else}
@@ -39,7 +39,7 @@
 	</Badge>
 
 	<div
-		class="flex flex-col items-start gap-2 overflow-y-auto border border-gray-300 rounded-md p-2"
+		class="flex flex-col items-start gap-2 p-2 overflow-y-auto border border-gray-300 rounded-md"
 	>
 		<Button variant="link" class="p-0 h-fit" on:click={() => ($selectedTopic = undefined)}>
 			All
