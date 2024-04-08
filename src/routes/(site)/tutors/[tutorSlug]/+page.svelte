@@ -116,7 +116,7 @@
 </section>
 
 {#if data.tutor.otherTutors && data.tutor.otherTutors.length > 0}
-	<section class="space-y-4 container-base">
+	<section class="py-20 space-y-4 container-base">
 		<h2>Other tutors</h2>
 
 		<div class="grid gap-5 sm:grid-cols-2 md:grid-cols-3 lg:gap-8 lg:grid-cols-4">
