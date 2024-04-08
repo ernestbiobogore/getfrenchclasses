@@ -11,6 +11,7 @@
 	import { DEFAULT_VERIFIED_DESCRIPTION, deSlugify } from "../utils.client";
 
 	export let data;
+	console.log(data.tutor.reviews);
 </script>
 
 <svelte:head>
@@ -87,9 +88,11 @@
 			<div class="space-y-4">
 				<h2>{data.tutor.reviewsTitle}</h2>
 
-				<div class="grid gap-8 py-20 md:grid-cols-2">
-					{#each data.tutor.reviews as testimonial (testimonial.id)}
-						<DefaultTestimonial {testimonial} />
+				<div class="grid grid-cols-2 gap-8">
+					{#each data.tutor.reviews as { testimonial } (testimonial.id)}
+						{#if testimonial.__typename === "TestimonialBlockDefaultRecord"}
+							<DefaultTestimonial {testimonial} />
+						{/if}
 					{/each}
 				</div>
 			</div>

@@ -4566,6 +4566,7 @@ input TutorModelFilter {
   rate: IntegerFilter
   rating: FloatFilter
   remoteStatus: JsonFilter
+  reviews: LinksFilter
   reviewsTitle: StringFilter
   slug: SlugFilter
   summary: StringFilter
@@ -4659,7 +4660,7 @@ type TutorRecord implements RecordInterface {
   rate: IntType!
   rating: FloatType!
   remoteStatus: JsonField!
-  reviews: [TestimonialBlockDefaultRecord!]!
+  reviews: [TestimonialRecord!]!
   reviewsTitle: String
   slug: String!
   summary: String!

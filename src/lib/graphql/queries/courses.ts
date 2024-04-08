@@ -1,9 +1,8 @@
 import { client } from "$lib/graphql/client";
 import {
 	courseMetaFields,
-	ctaTestimonialFieldsSelection,
 	defaultTestimonialFieldsSelection,
-	faqItemFieldsSelection,
+	faqItemFieldsSelection
 } from "./fields";
 
 const getCoursesSlugs = async () => {
@@ -107,7 +106,6 @@ const getCourseBySlug = async (slug: string) => {
 			testimonials: {
 				testimonial: {
 					on_TestimonialBlockDefaultRecord: defaultTestimonialFieldsSelection,
-					on_TestimonialBlockCtaRecord: ctaTestimonialFieldsSelection,
 				},
 			},
 

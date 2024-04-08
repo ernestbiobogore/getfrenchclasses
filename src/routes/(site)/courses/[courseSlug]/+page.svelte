@@ -22,7 +22,6 @@
 	import { getSampleAvatars } from "$lib/utils";
 
 	export let data;
-	$: coursesPageFaq = data.course.faq?.faqBlocks;
 
 	const instructors = [...Array(3)];
 </script>

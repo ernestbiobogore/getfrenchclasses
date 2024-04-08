@@ -3,7 +3,7 @@ import {
 	courseMetaFields,
 	defaultTestimonialFieldsSelection,
 	faqItemFieldsSelection,
-	tutorMetaFields,
+	tutorMetaFields
 } from "./fields";
 
 const getAllTutorsMetas = async (first?: number) => {
@@ -42,7 +42,11 @@ const getTutorBySlug = async (slug: string) => {
 			faq: faqItemFieldsSelection,
 
 			reviewsTitle: true,
-			reviews: defaultTestimonialFieldsSelection,
+			reviews: {
+				testimonial: {
+					on_TestimonialBlockDefaultRecord: defaultTestimonialFieldsSelection,
+				},
+			},
 
 			verified: true,
 			verifiedDescription: {

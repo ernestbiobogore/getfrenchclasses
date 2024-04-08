@@ -5402,6 +5402,9 @@ export default {
             "remoteStatus": [
                 79
             ],
+            "reviews": [
+                81
+            ],
             "reviewsTitle": [
                 130
             ],
@@ -5533,7 +5536,7 @@ export default {
                 78
             ],
             "reviews": [
-                137
+                142
             ],
             "reviewsTitle": [
                 129
