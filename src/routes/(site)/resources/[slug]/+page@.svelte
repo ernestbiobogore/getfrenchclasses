@@ -1,17 +1,18 @@
 <script lang="ts">
 	import StructuredText from "$lib/components/dato/StructuredText/index.svelte";
+	import ConvertBoxAction from "$lib/components/dato/blocks/ConvertBoxAction.svelte";
 	import CtaTestimonial from "$lib/components/dato/blocks/CtaTestimonial.svelte";
 	import FAQItems from "$lib/components/dato/blocks/FAQItems.svelte";
 	import Heading from "$lib/components/dato/blocks/Heading.svelte";
 	import { f } from "$lib/utils";
 	import { Badge } from "$shadcn/badge";
-	import { Button } from "$shadcn/button";
 	import * as Card from "$shadcn/card";
 	import * as Carousel from "$shadcn/carousel";
 	import { Image } from "@datocms/svelte";
 	import CheckCircleRounded from "~icons/material-symbols/check-circle-rounded";
 
 	export let data;
+	console.log(data.resource?.cta);
 </script>
 
 <svelte:head>
@@ -33,9 +34,13 @@
 			<p class="max-w-[64ch]">
 				<StructuredText richText={data.resource?.summary} />
 			</p>
-			<Button href={data.resource?.cta?.convertboxId}
-				>{data.resource?.cta?.title || "Download Now"}</Button
-			>
+
+			{#if data.resource?.cta?.convertboxId}
+				<ConvertBoxAction
+					title={data.resource.cta.title || "Download Now"}
+					convertboxId={data.resource.cta.convertboxId}
+				/>
+			{/if}
 		</div>
 		<div class="h-96 bg-gray-100 md:flex-[0.5]">
 			{#if data.resource?.featuredImage?.responsiveImage}
@@ -58,7 +63,7 @@
 				{#each data.resource?.contentItems || [] as { text }}
 					<li class="flex-s-start-start gap-2 max-w-[46ch]">
 						<div>
-							<CheckCircleRounded class="size-6 text-green-500" />
+							<CheckCircleRounded class="text-green-500 size-6" />
 						</div>
 						<div>{text}</div>
 					</li>
