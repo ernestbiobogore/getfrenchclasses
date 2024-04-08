@@ -78,8 +78,10 @@ const getSingleModularPage = async (slug: string) => {
 				on_TestimonialsSectionRecord: {
 					heading: headingFieldSelection,
 					testimonials: {
-						on_TestimonialBlockDefaultRecord: defaultTestimonialFieldsSelection,
-						on_TestimonialBlockCtaRecord: ctaTestimonialFieldsSelection,
+						testimonial: {
+							on_TestimonialBlockDefaultRecord: defaultTestimonialFieldsSelection,
+							on_TestimonialBlockCtaRecord: ctaTestimonialFieldsSelection,
+						},
 					},
 				},
 			},

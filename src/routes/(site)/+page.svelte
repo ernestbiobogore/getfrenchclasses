@@ -1,7 +1,10 @@
 <script lang="ts">
 	import ModularPage from "$lib/components/dato/sections/ModularPage.svelte";
+	import { setContext } from "svelte";
 
 	export let data;
+
+	setContext<boolean>("isHomePage", true);
 </script>
 
 <svelte:head>
