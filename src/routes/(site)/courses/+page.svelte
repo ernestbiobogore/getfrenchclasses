@@ -1,7 +1,7 @@
 <script>
 	import CourseCard from "$lib/components/CourseCard.svelte";
 	import CustomMultiselect from "$lib/components/CustomMultiselect.svelte";
-	import GenericCta from "$lib/components/cta-section/GenericCta.svelte";
+	import CtaTestimonial from "$lib/components/dato/blocks/CtaTestimonial.svelte";
 	import CourseSectionDivider from "./CourseSectionDivider.svelte";
 
 	export let data;
@@ -39,10 +39,10 @@
 	<CustomMultiselect placeholder="Filter by Level or Bundle" options={filterOptions} />
 </section>
 
-<section>
+<section class="container-base py-20">
 	<CourseSectionDivider label="Beginner" />
 
-	<div class="gap-8 container-base">
+	<div class="gap-8">
 		<div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
 			{#each allCoursesMetas as course}
 				<CourseCard {course} />
@@ -51,10 +51,10 @@
 	</div>
 </section>
 
-<section>
+<section class="container-base py-20">
 	<CourseSectionDivider label="Advanced" />
 
-	<div class="gap-8 container-base">
+	<div class="gap-8">
 		<div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
 			{#each allCoursesMetas as course}
 				<CourseCard {course} />
@@ -63,6 +63,10 @@
 	</div>
 </section>
 
-<br /><br />
-
-<GenericCta />
+{#if data.testimonial}
+	{#if data.testimonial.__typename === "TestimonialBlockCtaRecord"}
+		<section class="container-base py-20">
+			<CtaTestimonial testimonial={data.testimonial} />
+		</section>
+	{/if}
+{/if}

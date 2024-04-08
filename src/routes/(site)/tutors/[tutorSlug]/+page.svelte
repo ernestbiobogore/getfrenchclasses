@@ -4,7 +4,6 @@
 	import DefaultTestimonial from "$lib/components/dato/blocks/DefaultTestimonial.svelte";
 	import FAQItems from "$lib/components/dato/blocks/FAQItems.svelte";
 	import Heading from "$lib/components/dato/blocks/Heading.svelte";
-	import { Badge } from "$shadcn/badge";
 	import SharpVerifired from "~icons/ic/sharp-verified";
 	import VideoCam from "~icons/material-symbols/videocam-outline-rounded";
 	import TutorCard from "../TutorCard.svelte";
@@ -24,14 +23,6 @@
 	<!-- LEFT SIDE -->
 	<div class="flex flex-col flex-1 gap-10">
 		<div class="space-y-5">
-			{#if data.tutor.topics && data.tutor.topics.length > 0}
-				<div class="gap-4 py-4 overflow-x-scroll flex-s-start">
-					{#each data.tutor.topics as topic}
-						<Badge class="px-5 py-1.5" variant="secondary">{topic.text}</Badge>
-					{/each}
-				</div>
-			{/if}
-
 			<h1>{data.tutor.summary}</h1>
 
 			<p class="text-2xl font-medium">{data.tutor.location}</p>
@@ -44,7 +35,7 @@
 			</div>
 
 			{#if data.tutor.verified}
-				<div class="p-4 bg-indigo-600 rounded-xl">
+				<div class="p-4 bg-brand-primary rounded-xl">
 					<div class="gap-2 mb-2 text-2xl flex-s-start">
 						<SharpVerifired class="text-white" />
 						<span class="font-bold text-white">Verified</span>
@@ -116,7 +107,7 @@
 </section>
 
 {#if data.tutor.otherTutors && data.tutor.otherTutors.length > 0}
-	<section class="space-y-4 container-base">
+	<section class="py-20 space-y-4 container-base">
 		<h2>Other tutors</h2>
 
 		<div class="grid gap-5 sm:grid-cols-2 md:grid-cols-3 lg:gap-8 lg:grid-cols-4">

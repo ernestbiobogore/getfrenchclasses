@@ -67,7 +67,7 @@
 		</div>
 		<div class="flex flex-col items-center py-4 md:flex-row justify-evenly flex-start">
 			<button class="flex flex-row items-center gap-4 p-6 bg-white border-2 rounded-lg">
-				<Mail color="#5e62d1" />
+				<Mail class="text-brand-primary" />
 				<a href="mailto:info.learn.com" class="text-xs text-left whitespace-pre-line">
 					<span>info.learn.com</span>
 					Email our support team
@@ -75,7 +75,7 @@
 			</button>
 
 			<button class="flex flex-row items-center gap-4 p-6 bg-white border-2 rounded-lg">
-				<Phone color="#5e62d1" />
+				<Phone class="text-brand-primary" />
 				<a href="tel:+1-8000-808" class="text-xs text-left whitespace-pre-line">
 					<span>+1-800-080-8</span>
 					Call our support team
@@ -83,7 +83,7 @@
 			</button>
 
 			<button class="flex flex-row items-center gap-4 p-6 bg-white border-2 rounded-lg">
-				<MapPin color="#5e62d1" />
+				<MapPin class="text-brand-primary" />
 				<a href="mailto:info.learn.com" class="text-xs text-left whitespace-pre-line">
 					<span>Miami. Fl</span>
 					Contact our support team

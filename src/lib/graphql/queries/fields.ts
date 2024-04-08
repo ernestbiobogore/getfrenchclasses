@@ -114,6 +114,7 @@ const tutorMetaFields = {
 		responsiveImage: responsiveImageFieldSelection,
 	},
 	coverMedia: {
+		responsiveImage: responsiveImageFieldSelection,
 		video: {
 			muxPlaybackId: true,
 			title: true,
@@ -128,6 +129,9 @@ const tutorMetaFields = {
 				},
 			},
 		},
+	},
+	topics: {
+		text: true,
 	},
 } satisfies TutorRecordGenqlSelection;
 
