@@ -302,6 +302,31 @@ type ColorField {
   red: IntType!
 }
 
+"""Block of type ConvertBox Block (convertbox_block)"""
+type ConvertboxBlockRecord implements RecordInterface {
+  _createdAt: DateTime!
+
+  """Editing URL"""
+  _editingUrl: String
+  _firstPublishedAt: DateTime
+  _isValid: BooleanType!
+  _modelApiKey: String!
+  _publicationScheduledAt: DateTime
+  _publishedAt: DateTime
+
+  """Generates SEO and Social card meta tags to be used in your frontend"""
+  _seoMetaTags(
+    """The locale to use to fetch the field's content"""
+    locale: SiteLocale
+  ): [Tag!]!
+  _status: ItemStatus!
+  _unpublishingScheduledAt: DateTime
+  _updatedAt: DateTime!
+  convertboxId: String
+  id: ItemId!
+  title: String
+}
+
 input CourseModelFilter {
   _createdAt: CreatedAtFilter
   id: ItemIdFilter
@@ -4000,7 +4025,7 @@ type ResourceRecord implements RecordInterface {
   contentHeading: String
   contentItems: [PlainTextBlockRecord!]!
   contentMedias: [FileField!]!
-  cta: ActionBlockRecord
+  cta: ConvertboxBlockRecord
   descriptionContent: ResourceModelDescriptionContentField
   descriptionHeading: String
   faq: FaqItemRecord

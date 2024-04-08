@@ -1,6 +1,46 @@
 import { client } from "$lib/graphql/client";
 import { responsiveImageFieldSelection } from "./fields";
 
+export async function getResourcePage(slug: string) {
+	const { resource } = await client.query({
+		resource: {
+			__args: {
+				filter: {
+					slug: {
+						eq: slug,
+					},
+				},
+			},
+			id: true,
+			title: true,
+			slug: true,
+			featuredImage: {
+				responsiveImage: responsiveImageFieldSelection,
+			},
+			summary: {
+				value: true,
+			},
+			cta: {
+				title: true,
+				convertboxId: true,
+			},
+			contentHeading: true,
+			contentItems: {
+				text: true,
+			},
+			contentMedias: {
+				responsiveImage: responsiveImageFieldSelection,
+			},
+			descriptionHeading: true,
+			descriptionContent: {
+				value: true,
+			},
+		},
+	});
+
+	return resource;
+}
+
 const getTopicBySlug = async (slug: string) => {
 	const { resourceTopic } = await client.query({
 		resourceTopic: {

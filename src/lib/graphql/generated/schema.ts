@@ -186,6 +186,28 @@ export interface ColorField {
     __typename: 'ColorField'
 }
 
+
+/** Block of type ConvertBox Block (convertbox_block) */
+export interface ConvertboxBlockRecord {
+    _createdAt: Scalars['DateTime']
+    /** Editing URL */
+    _editingUrl: (Scalars['String'] | null)
+    _firstPublishedAt: (Scalars['DateTime'] | null)
+    _isValid: Scalars['BooleanType']
+    _modelApiKey: Scalars['String']
+    _publicationScheduledAt: (Scalars['DateTime'] | null)
+    _publishedAt: (Scalars['DateTime'] | null)
+    /** Generates SEO and Social card meta tags to be used in your frontend */
+    _seoMetaTags: Tag[]
+    _status: ItemStatus
+    _unpublishingScheduledAt: (Scalars['DateTime'] | null)
+    _updatedAt: Scalars['DateTime']
+    convertboxId: (Scalars['String'] | null)
+    id: Scalars['ItemId']
+    title: (Scalars['String'] | null)
+    __typename: 'ConvertboxBlockRecord'
+}
+
 export type CourseModelOrderBy = '_createdAt_ASC' | '_createdAt_DESC' | 'id_ASC' | 'id_DESC' | '_firstPublishedAt_ASC' | '_firstPublishedAt_DESC' | '_publicationScheduledAt_ASC' | '_publicationScheduledAt_DESC' | '_unpublishingScheduledAt_ASC' | '_unpublishingScheduledAt_DESC' | '_publishedAt_ASC' | '_publishedAt_DESC' | '_status_ASC' | '_status_DESC' | '_updatedAt_ASC' | '_updatedAt_DESC' | '_isValid_ASC' | '_isValid_DESC' | 'duration_ASC' | 'duration_DESC' | 'level_ASC' | 'level_DESC' | 'name_ASC' | 'name_DESC' | 'numberOfEnrolledStudents_ASC' | 'numberOfEnrolledStudents_DESC' | 'numberOfSections_ASC' | 'numberOfSections_DESC' | 'price_ASC' | 'price_DESC' | 'tag_ASC' | 'tag_DESC'
 
 
@@ -871,7 +893,7 @@ export interface Query {
     __typename: 'Query'
 }
 
-export type RecordInterface = (ActionBlockRecord | CardBlockNewRecord | CardBlockRecord | CardsSectionRecord | CategoryRecord | CourseRecord | FaqBlockNewRecord | FaqBlockRecord | FaqItemRecord | FaqSectionRecord | HeadingBlockNewRecord | HeadingBlockRecord | HeroSectionRecord | ImageBlockRecord | InstructorRecord | JobRecord | MenuItemBlockRecord | MenuListBlockRecord | MenuRecord | ModularPageRecord | NoteBlockRecord | PlainTextBlockRecord | PostCtaRecord | PostRecord | ResourceRecord | ResourceTopicRecord | RichTextBlockRecord | RoutePathRecord | SeoBlockRecord | TestimonialBlockCtaRecord | TestimonialBlockDefaultRecord | TestimonialBlockRecord | TestimonialRecord | TestimonialsSectionRecord | TutorRecord) & { __isUnion?: true }
+export type RecordInterface = (ActionBlockRecord | CardBlockNewRecord | CardBlockRecord | CardsSectionRecord | CategoryRecord | ConvertboxBlockRecord | CourseRecord | FaqBlockNewRecord | FaqBlockRecord | FaqItemRecord | FaqSectionRecord | HeadingBlockNewRecord | HeadingBlockRecord | HeroSectionRecord | ImageBlockRecord | InstructorRecord | JobRecord | MenuItemBlockRecord | MenuListBlockRecord | MenuRecord | ModularPageRecord | NoteBlockRecord | PlainTextBlockRecord | PostCtaRecord | PostRecord | ResourceRecord | ResourceTopicRecord | RichTextBlockRecord | RoutePathRecord | SeoBlockRecord | TestimonialBlockCtaRecord | TestimonialBlockDefaultRecord | TestimonialBlockRecord | TestimonialRecord | TestimonialsSectionRecord | TutorRecord) & { __isUnion?: true }
 
 export type ResolutionType = 'icon' | 'small' | 'medium' | 'large'
 
@@ -910,7 +932,7 @@ export interface ResourceRecord {
     contentHeading: (Scalars['String'] | null)
     contentItems: PlainTextBlockRecord[]
     contentMedias: FileField[]
-    cta: (ActionBlockRecord | null)
+    cta: (ConvertboxBlockRecord | null)
     descriptionContent: (ResourceModelDescriptionContentField | null)
     descriptionHeading: (Scalars['String'] | null)
     faq: (FaqItemRecord | null)
@@ -1549,6 +1571,31 @@ export interface ColorFieldGenqlSelection{
     green?: boolean | number
     hex?: boolean | number
     red?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Block of type ConvertBox Block (convertbox_block) */
+export interface ConvertboxBlockRecordGenqlSelection{
+    _createdAt?: boolean | number
+    /** Editing URL */
+    _editingUrl?: boolean | number
+    _firstPublishedAt?: boolean | number
+    _isValid?: boolean | number
+    _modelApiKey?: boolean | number
+    _publicationScheduledAt?: boolean | number
+    _publishedAt?: boolean | number
+    /** Generates SEO and Social card meta tags to be used in your frontend */
+    _seoMetaTags?: (TagGenqlSelection & { __args?: {
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null)} })
+    _status?: boolean | number
+    _unpublishingScheduledAt?: boolean | number
+    _updatedAt?: boolean | number
+    convertboxId?: boolean | number
+    id?: boolean | number
+    title?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -3998,6 +4045,7 @@ export interface RecordInterfaceGenqlSelection{
     on_CardBlockRecord?: CardBlockRecordGenqlSelection
     on_CardsSectionRecord?: CardsSectionRecordGenqlSelection
     on_CategoryRecord?: CategoryRecordGenqlSelection
+    on_ConvertboxBlockRecord?: ConvertboxBlockRecordGenqlSelection
     on_CourseRecord?: CourseRecordGenqlSelection
     on_FaqBlockNewRecord?: FaqBlockNewRecordGenqlSelection
     on_FaqBlockRecord?: FaqBlockRecordGenqlSelection
@@ -4083,7 +4131,7 @@ export interface ResourceRecordGenqlSelection{
     contentHeading?: boolean | number
     contentItems?: PlainTextBlockRecordGenqlSelection
     contentMedias?: FileFieldGenqlSelection
-    cta?: ActionBlockRecordGenqlSelection
+    cta?: ConvertboxBlockRecordGenqlSelection
     descriptionContent?: ResourceModelDescriptionContentFieldGenqlSelection
     descriptionHeading?: boolean | number
     faq?: FaqItemRecordGenqlSelection
@@ -5010,6 +5058,14 @@ export interface focalPointGenqlSelection{
     
 
 
+    const ConvertboxBlockRecord_possibleTypes: string[] = ['ConvertboxBlockRecord']
+    export const isConvertboxBlockRecord = (obj?: { __typename?: any } | null): obj is ConvertboxBlockRecord => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isConvertboxBlockRecord"')
+      return ConvertboxBlockRecord_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
     const CourseRecord_possibleTypes: string[] = ['CourseRecord']
     export const isCourseRecord = (obj?: { __typename?: any } | null): obj is CourseRecord => {
       if (!obj?.__typename) throw new Error('__typename is missing in "isCourseRecord"')
@@ -5226,7 +5282,7 @@ export interface focalPointGenqlSelection{
     
 
 
-    const RecordInterface_possibleTypes: string[] = ['ActionBlockRecord','CardBlockNewRecord','CardBlockRecord','CardsSectionRecord','CategoryRecord','CourseRecord','FaqBlockNewRecord','FaqBlockRecord','FaqItemRecord','FaqSectionRecord','HeadingBlockNewRecord','HeadingBlockRecord','HeroSectionRecord','ImageBlockRecord','InstructorRecord','JobRecord','MenuItemBlockRecord','MenuListBlockRecord','MenuRecord','ModularPageRecord','NoteBlockRecord','PlainTextBlockRecord','PostCtaRecord','PostRecord','ResourceRecord','ResourceTopicRecord','RichTextBlockRecord','RoutePathRecord','SeoBlockRecord','TestimonialBlockCtaRecord','TestimonialBlockDefaultRecord','TestimonialBlockRecord','TestimonialRecord','TestimonialsSectionRecord','TutorRecord']
+    const RecordInterface_possibleTypes: string[] = ['ActionBlockRecord','CardBlockNewRecord','CardBlockRecord','CardsSectionRecord','CategoryRecord','ConvertboxBlockRecord','CourseRecord','FaqBlockNewRecord','FaqBlockRecord','FaqItemRecord','FaqSectionRecord','HeadingBlockNewRecord','HeadingBlockRecord','HeroSectionRecord','ImageBlockRecord','InstructorRecord','JobRecord','MenuItemBlockRecord','MenuListBlockRecord','MenuRecord','ModularPageRecord','NoteBlockRecord','PlainTextBlockRecord','PostCtaRecord','PostRecord','ResourceRecord','ResourceTopicRecord','RichTextBlockRecord','RoutePathRecord','SeoBlockRecord','TestimonialBlockCtaRecord','TestimonialBlockDefaultRecord','TestimonialBlockRecord','TestimonialRecord','TestimonialsSectionRecord','TutorRecord']
     export const isRecordInterface = (obj?: { __typename?: any } | null): obj is RecordInterface => {
       if (!obj?.__typename) throw new Error('__typename is missing in "isRecordInterface"')
       return RecordInterface_possibleTypes.includes(obj.__typename)

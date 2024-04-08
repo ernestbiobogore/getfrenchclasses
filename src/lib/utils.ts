@@ -4,7 +4,23 @@ import { cubicOut } from "svelte/easing";
 import { get } from "svelte/store";
 import type { TransitionConfig } from "svelte/transition";
 import { twMerge } from "tailwind-merge";
-import type { PostShareOptions } from "./types";
+import type { PostShareOptions, SomeKeys } from "./types";
+
+/**
+ * Casts a value to a type with non-nullable keys.
+ *
+ * @param x The value to cast.
+ * @returns The value casted to a type with non-nullable keys.
+ *
+ * @example
+ * // return type as NonNullable<string | null | undefined>
+ * const f = <T>(x: T) => x as SomeKeys<T>;
+ *
+ * f<string | null | undefined>(undefined) // type is string
+ * f<string | null | undefined>("bat") // type is string
+ */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export const f = <T, _U>(x: T) => x as SomeKeys<T>;
 
 const getSampleAvatars = (n = 3) => {
 	return Array.from({ length: n }, () => {
@@ -21,16 +37,13 @@ export function cn(...inputs: ClassValue[]) {
 	return twMerge(clsx(inputs));
 }
 
-
 type GenerateShareOptionsParams = {
 	slug: string;
 	title: string;
 	description: string;
-}
+};
 
-export function generateShareOptions(
-	shareOptions: GenerateShareOptionsParams
-): PostShareOptions {
+export function generateShareOptions(shareOptions: GenerateShareOptionsParams): PostShareOptions {
 	return {
 		// for whatsapp and twitter and facebook and Web Share API
 		title: shareOptions.title,
@@ -39,9 +52,9 @@ export function generateShareOptions(
 
 		// for mail`
 		subject: shareOptions.title,
-		body: `Check out this article on Get French Classes: ${
-			get(page).url.origin
-		}/blog/${shareOptions.slug}`,
+		body: `Check out this article on Get French Classes: ${get(page).url.origin}/blog/${
+			shareOptions.slug
+		}`,
 
 		// for linkedin
 		summary: shareOptions.description,

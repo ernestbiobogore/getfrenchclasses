@@ -1,16 +1,18 @@
 <script lang="ts">
-	import GenericCta from "$lib/components/cta-section/GenericCta.svelte";
+	import StructuredText from "$lib/components/dato/StructuredText/index.svelte";
+	import ConvertBoxAction from "$lib/components/dato/blocks/ConvertBoxAction.svelte";
+	import CtaTestimonial from "$lib/components/dato/blocks/CtaTestimonial.svelte";
 	import FAQItems from "$lib/components/dato/blocks/FAQItems.svelte";
 	import Heading from "$lib/components/dato/blocks/Heading.svelte";
+	import { f } from "$lib/utils";
 	import { Badge } from "$shadcn/badge";
 	import * as Card from "$shadcn/card";
 	import * as Carousel from "$shadcn/carousel";
+	import { Image } from "@datocms/svelte";
 	import CheckCircleRounded from "~icons/material-symbols/check-circle-rounded";
-	import MultistepForm from "./form/MultistepForm.svelte";
 
 	export let data;
-
-	const dummyImage = "/placeholder.svg";
+	console.log(data.resource?.cta);
 </script>
 
 <svelte:head>
@@ -28,15 +30,25 @@
 	<div class="flex gap-5 container-sm max-md:flex-col-reverse">
 		<div class="flex-1 space-y-6">
 			<Badge>Free French Resources</Badge>
-			<h1>Free Grammar Tips for Learning French</h1>
+			<h1>{data.resource?.title}</h1>
 			<p class="max-w-[64ch]">
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto inventore repellendus
-				perferendis illum autem, deserunt dignissimos aut.
+				<StructuredText richText={data.resource?.summary} />
 			</p>
-			<MultistepForm />
+
+			{#if data.resource?.cta?.convertboxId}
+				<ConvertBoxAction
+					title={data.resource.cta.title || "Download Now"}
+					convertboxId={data.resource.cta.convertboxId}
+				/>
+			{/if}
 		</div>
-		<div class="h-96 bg-blue-600 md:flex-[0.5]">
-			<img src={dummyImage} alt="French Grammar Tips" class="object-cover w-full h-full" />
+		<div class="h-96 bg-gray-100 md:flex-[0.5]">
+			{#if data.resource?.featuredImage?.responsiveImage}
+				<Image
+					class="object-cover w-full h-full"
+					data={f(data.resource?.featuredImage?.responsiveImage)}
+				/>
+			{/if}
 		</div>
 	</div>
 </section>
@@ -45,18 +57,15 @@
 <section class="py-20 bg-white md:py-32">
 	<div class="flex flex-col-reverse gap-5 container-sm md:grid md:grid-cols-2">
 		<div class="bg-blue-60">
-			<h3>What's contained in the document</h3>
+			<h3>{data.resource?.contentHeading}</h3>
 
 			<ul class="flex flex-col gap-4 px-0 mt-4">
-				{#each [...Array(5)] as _}
+				{#each data.resource?.contentItems || [] as { text }}
 					<li class="flex-s-start-start gap-2 max-w-[46ch]">
 						<div>
-							<CheckCircleRounded class="w-6 h-6 text-green-500" />
+							<CheckCircleRounded class="text-green-500 size-6" />
 						</div>
-						<div>
-							Setting goals, measuring success, and proving the value of Instagram to your
-							executives
-						</div>
+						<div>{text}</div>
 					</li>
 				{/each}
 			</ul>
@@ -65,16 +74,12 @@
 		<div class="bg-red- flex-s-center">
 			<Carousel.Root class="w-full max-w-sm">
 				<Carousel.Content>
-					{#each Array(5) as _, i (i)}
+					{#each data.resource?.contentMedias || [] as { responsiveImage }, i (i)}
 						<Carousel.Item>
 							<div class="p-1">
 								<Card.Root>
 									<Card.Content class="p-0">
-										<img
-											src={dummyImage}
-											alt="French Grammar Tips"
-											class="object-cover w-full h-full"
-										/>
+										<Image class="object-cover size-full" data={f(responsiveImage)} />
 									</Card.Content>
 								</Card.Root>
 							</div>
@@ -94,26 +99,9 @@
 <!-- SEO SECTION -->
 <section class="pb-20 bg-white md:pb-32">
 	<div class="grid-cols-2 container-sm md:grid">
-		<h3 class="max-md:mb-4">Want to learn some French Grammar Tips? Look no further</h3>
+		<h3 class="max-md:mb-4">{data.resource?.descriptionHeading}</h3>
 
-		<div class="grid gap-2">
-			<p>
-				Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aspernatur magnam, atque excepturi
-				vel quos culpa quae suscipit ratione perferendis nisi aliquid blanditiis voluptate doloribus
-				consequatur odio, enim eligendi inventore! Quidem?
-			</p>
-			<p>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis ipsa autem, hic minima eaque
-				odio nostrum possimus et cupiditate impedit asperiores amet debitis magni error maxime, vel
-				eveniet consequuntur architecto quam placeat a quo ad nihil optio? Quibusdam, repellendus
-				perferendis.
-			</p>
-			<p>
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt ipsam, provident, ullam
-				nulla odio sint qui debitis sit saepe eius magnam ducimus totam esse perspiciatis quaerat
-				dolore voluptas recusandae laboriosam.
-			</p>
-		</div>
+		<StructuredText class="grid gap-2" richText={data.resource?.descriptionContent} />
 	</div>
 </section>
 
@@ -123,4 +111,11 @@
 	<FAQItems items={data.homeFaq} />
 </section>
 
-<GenericCta text="Start learning more Grammar Tips Today" />
+<!-- <GenericCta text="Start learning more Grammar Tips Today" /> -->
+<!-- <CtaTestimonial {testimonial} /> -->
+
+{#if data.testimonial && data.testimonial.__typename === "TestimonialBlockCtaRecord"}
+	<section class="py-20 space-y-12 container-base">
+		<CtaTestimonial testimonial={data.testimonial} />
+	</section>
+{/if}

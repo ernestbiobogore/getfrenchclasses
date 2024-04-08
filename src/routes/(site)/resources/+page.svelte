@@ -31,7 +31,7 @@
 	<title>Free language learning resources</title>
 </svelte:head>
 
-<section class="container-base p-3 space-y-5 md:py-20 md:text-center">
+<section class="p-3 space-y-5 container-base md:py-20 md:text-center">
 	<h1>Free language learning resources</h1>
 	<p>Explore our comprehensive range of language resources</p>
 </section>
@@ -46,7 +46,7 @@
 					<Card.Root>
 						<img
 							alt={resource.featuredImage?.responsiveImage?.alt || resource.title}
-							class="w-full h-48 object-cover rounded-t-md"
+							class="object-cover w-full h-48 rounded-t-md"
 							height="200"
 							src={resource.featuredImage?.responsiveImage?.src || "/placeholder.svg"}
 							style="aspect-ratio: 300/200; object-fit: cover;"
@@ -57,9 +57,9 @@
 								<a href="/resources/{resource.slug}">{resource.title}</a>
 							</Card.Title>
 
-							<div class="flex gap-2 items-center">
+							<div class="flex items-center gap-2">
 								{#each resource.topics as topic}
-									<Badge class="text-xs bg-indigo-600 w-fit justify-center">
+									<Badge class="justify-center text-xs bg-brand-primary w-fit">
 										{topic.name}
 									</Badge>
 								{/each}
@@ -84,7 +84,7 @@
 			<Pagination.Content>
 				<Pagination.Item>
 					<Pagination.PrevButton on:click={() => goto(`/resources?page=${($pageParam || 1) - 1}`)}>
-						<ChevronLeft class="h-4 w-4" />
+						<ChevronLeft class="w-4 h-4" />
 						<span class="hidden sm:block">Previous</span>
 					</Pagination.PrevButton>
 				</Pagination.Item>
@@ -113,7 +113,7 @@
 				<Pagination.Item>
 					<Pagination.NextButton on:click={() => goto(`/resources?page=${($pageParam || 1) + 1}`)}>
 						<span class="hidden sm:block">Next</span>
-						<ChevronRight class="h-4 w-4" />
+						<ChevronRight class="w-4 h-4" />
 					</Pagination.NextButton>
 				</Pagination.Item>
 			</Pagination.Content>
