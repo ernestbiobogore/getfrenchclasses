@@ -1,13 +1,13 @@
 import { getFaqItemBySlug } from "$lib/graphql/queries/faq";
 import { getResourcePage } from "$lib/graphql/queries/resource";
-import { getHomeTestomoinialCta } from "$lib/graphql/queries/testimonial.js";
+import { getTestimonialBySlug } from "$lib/graphql/queries/testimonial.js";
 
 export async function load({ params }) {
-	const [homeFaq, resource, homepage] = await Promise.all([
+	const [homeFaq, resource, testimonial] = await Promise.all([
 		getFaqItemBySlug("homepage-faq"),
 		getResourcePage(params.slug),
-		getHomeTestomoinialCta(),
+		getTestimonialBySlug("jane-doe-cta"),
 	]);
 
-	return { homeFaq, resource, homepage };
+	return { homeFaq, resource, testimonial };
 }

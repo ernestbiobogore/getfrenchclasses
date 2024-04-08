@@ -1,40 +1,17 @@
 <script lang="ts">
-	import * as Card from "$shadcn/card";
-	import * as Carousel from "$shadcn/carousel";
-	import CheckCircleRounded from "~icons/material-symbols/check-circle-rounded";
+	import StructuredText from "$lib/components/dato/StructuredText/index.svelte";
 	import CtaTestimonial from "$lib/components/dato/blocks/CtaTestimonial.svelte";
 	import FAQItems from "$lib/components/dato/blocks/FAQItems.svelte";
 	import Heading from "$lib/components/dato/blocks/Heading.svelte";
-	import StructuredText from "$lib/components/dato/StructuredText/index.svelte";
+	import { f } from "$lib/utils";
 	import { Badge } from "$shadcn/badge";
 	import { Button } from "$shadcn/button";
+	import * as Card from "$shadcn/card";
+	import * as Carousel from "$shadcn/carousel";
 	import { Image } from "@datocms/svelte";
-	import { f } from "$lib/utils";
-	import type {
-		TestimonialBlockCtaRecord,
-		TestimonialsSectionRecord,
-	} from "$lib/graphql/generated/schema.js";
+	import CheckCircleRounded from "~icons/material-symbols/check-circle-rounded";
 
 	export let data;
-
-	const testimonialsWithCta = getTestimonialsWithCta();
-
-	function getTestimonialsWithCta() {
-		const testimonialsSections = [] as TestimonialsSectionRecord[];
-
-		for (const section of f(data.homepage?.modularContent)) {
-			if ((section as TestimonialsSectionRecord)?.testimonials) {
-				// @ts-ignore
-				testimonialsSections.push(section);
-			}
-		}
-
-		const testimonialsWithCta = testimonialsSections[0]?.testimonials?.filter(
-			testimonial => testimonial.__typename === "TestimonialBlockCtaRecord"
-		);
-
-		return testimonialsWithCta as TestimonialBlockCtaRecord[] | undefined;
-	}
 </script>
 
 <svelte:head>
@@ -130,10 +107,8 @@
 <!-- <GenericCta text="Start learning more Grammar Tips Today" /> -->
 <!-- <CtaTestimonial {testimonial} /> -->
 
-<section class="py-20 space-y-12 container-base">
-	{#if testimonialsWithCta && testimonialsWithCta.length > 0}
-		{#each testimonialsWithCta as testimonial}
-			<CtaTestimonial {testimonial} />
-		{/each}
-	{/if}
-</section>
+{#if data.testimonial && data.testimonial.__typename === "TestimonialBlockCtaRecord"}
+	<section class="py-20 space-y-12 container-base">
+		<CtaTestimonial testimonial={data.testimonial} />
+	</section>
+{/if}

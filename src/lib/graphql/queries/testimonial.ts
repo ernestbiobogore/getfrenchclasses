@@ -1,25 +1,24 @@
 import { client } from "$lib/graphql/client";
 import { ctaTestimonialFieldsSelection } from "./fields";
 
-export async function getHomeTestomoinialCta() {
-	const { modularPage } = await client.query({
-		modularPage: {
+const getTestimonialBySlug = async (slug: string) => {
+	const { testimonial } = await client.query({
+		testimonial: {
 			__args: {
 				filter: {
 					slug: {
-						eq: "get-french-classes",
+						eq: slug,
 					},
 				},
 			},
-			modularContent: {
-				on_TestimonialsSectionRecord: {
-					testimonials: {
-						on_TestimonialBlockCtaRecord: ctaTestimonialFieldsSelection,
-					},
-				},
+
+			testimonial: {
+				on_TestimonialBlockCtaRecord: ctaTestimonialFieldsSelection,
 			},
 		},
 	});
 
-	return modularPage;
-}
+	return testimonial?.testimonial;
+};
+
+export { getTestimonialBySlug };
