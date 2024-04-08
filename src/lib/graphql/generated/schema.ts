@@ -214,9 +214,9 @@ export interface CourseRecord {
     numberOfSections: Scalars['IntType']
     price: Scalars['IntType']
     seo: SeoBlockRecord[]
-    singleTestimonial: TestimonialBlockRecord[]
     slug: Scalars['String']
     tag: (Scalars['String'] | null)
+    testimonials: TestimonialRecord[]
     __typename: 'CourseRecord'
 }
 
@@ -801,6 +801,8 @@ export interface Query {
     /** Returns meta information regarding a record collection */
     _allRoutePathsMeta: CollectionMetadata
     /** Returns meta information regarding a record collection */
+    _allTestimonialsMeta: CollectionMetadata
+    /** Returns meta information regarding a record collection */
     _allTutorsMeta: CollectionMetadata
     /** Returns meta information regarding an assets collection */
     _allUploadsMeta: CollectionMetadata
@@ -831,6 +833,8 @@ export interface Query {
     /** Returns a collection of records */
     allRoutePaths: RoutePathRecord[]
     /** Returns a collection of records */
+    allTestimonials: TestimonialRecord[]
+    /** Returns a collection of records */
     allTutors: TutorRecord[]
     /** Returns a collection of assets */
     allUploads: FileField[]
@@ -859,13 +863,15 @@ export interface Query {
     /** Returns a specific record */
     routePath: (RoutePathRecord | null)
     /** Returns a specific record */
+    testimonial: (TestimonialRecord | null)
+    /** Returns a specific record */
     tutor: (TutorRecord | null)
     /** Returns a specific asset */
     upload: (FileField | null)
     __typename: 'Query'
 }
 
-export type RecordInterface = (ActionBlockRecord | CardBlockNewRecord | CardBlockRecord | CardsSectionRecord | CategoryRecord | CourseRecord | FaqBlockNewRecord | FaqBlockRecord | FaqItemRecord | FaqSectionRecord | HeadingBlockNewRecord | HeadingBlockRecord | HeroSectionRecord | ImageBlockRecord | InstructorRecord | JobRecord | MenuItemBlockRecord | MenuListBlockRecord | MenuRecord | ModularPageRecord | NoteBlockRecord | PlainTextBlockRecord | PostCtaRecord | PostRecord | ResourceRecord | ResourceTopicRecord | RichTextBlockRecord | RoutePathRecord | SeoBlockRecord | TestimonialBlockCtaRecord | TestimonialBlockDefaultRecord | TestimonialBlockRecord | TestimonialsSectionRecord | TutorRecord) & { __isUnion?: true }
+export type RecordInterface = (ActionBlockRecord | CardBlockNewRecord | CardBlockRecord | CardsSectionRecord | CategoryRecord | CourseRecord | FaqBlockNewRecord | FaqBlockRecord | FaqItemRecord | FaqSectionRecord | HeadingBlockNewRecord | HeadingBlockRecord | HeroSectionRecord | ImageBlockRecord | InstructorRecord | JobRecord | MenuItemBlockRecord | MenuListBlockRecord | MenuRecord | ModularPageRecord | NoteBlockRecord | PlainTextBlockRecord | PostCtaRecord | PostRecord | ResourceRecord | ResourceTopicRecord | RichTextBlockRecord | RoutePathRecord | SeoBlockRecord | TestimonialBlockCtaRecord | TestimonialBlockDefaultRecord | TestimonialBlockRecord | TestimonialRecord | TestimonialsSectionRecord | TutorRecord) & { __isUnion?: true }
 
 export type ResolutionType = 'icon' | 'small' | 'medium' | 'large'
 
@@ -1150,7 +1156,32 @@ export interface TestimonialBlockRecord {
     __typename: 'TestimonialBlockRecord'
 }
 
-export type TestimonialsSectionModelTestimonialsField = (TestimonialBlockCtaRecord | TestimonialBlockDefaultRecord) & { __isUnion?: true }
+export type TestimonialModelOrderBy = '_createdAt_ASC' | '_createdAt_DESC' | 'id_ASC' | 'id_DESC' | '_firstPublishedAt_ASC' | '_firstPublishedAt_DESC' | '_publicationScheduledAt_ASC' | '_publicationScheduledAt_DESC' | '_unpublishingScheduledAt_ASC' | '_unpublishingScheduledAt_DESC' | '_publishedAt_ASC' | '_publishedAt_DESC' | '_status_ASC' | '_status_DESC' | '_updatedAt_ASC' | '_updatedAt_DESC' | '_isValid_ASC' | '_isValid_DESC' | 'title_ASC' | 'title_DESC'
+
+export type TestimonialModelTestimonialField = (TestimonialBlockCtaRecord | TestimonialBlockDefaultRecord) & { __isUnion?: true }
+
+
+/** Record of type 🌟 Testimonial (testimonial) */
+export interface TestimonialRecord {
+    _createdAt: Scalars['DateTime']
+    /** Editing URL */
+    _editingUrl: (Scalars['String'] | null)
+    _firstPublishedAt: (Scalars['DateTime'] | null)
+    _isValid: Scalars['BooleanType']
+    _modelApiKey: Scalars['String']
+    _publicationScheduledAt: (Scalars['DateTime'] | null)
+    _publishedAt: (Scalars['DateTime'] | null)
+    /** Generates SEO and Social card meta tags to be used in your frontend */
+    _seoMetaTags: Tag[]
+    _status: ItemStatus
+    _unpublishingScheduledAt: (Scalars['DateTime'] | null)
+    _updatedAt: Scalars['DateTime']
+    id: Scalars['ItemId']
+    slug: Scalars['String']
+    testimonial: TestimonialModelTestimonialField
+    title: Scalars['String']
+    __typename: 'TestimonialRecord'
+}
 
 
 /** Block of type Testimonials Section (testimonials_section) */
@@ -1170,7 +1201,7 @@ export interface TestimonialsSectionRecord {
     _updatedAt: Scalars['DateTime']
     heading: (HeadingBlockNewRecord | null)
     id: Scalars['ItemId']
-    testimonials: TestimonialsSectionModelTestimonialsField[]
+    testimonials: TestimonialRecord[]
     __typename: 'TestimonialsSectionRecord'
 }
 
@@ -1223,7 +1254,7 @@ export interface TutorRecord {
     rate: Scalars['IntType']
     rating: Scalars['FloatType']
     remoteStatus: Scalars['JsonField']
-    reviews: TestimonialBlockDefaultRecord[]
+    reviews: TestimonialRecord[]
     reviewsTitle: (Scalars['String'] | null)
     slug: Scalars['String']
     summary: Scalars['String']
@@ -1556,7 +1587,7 @@ export interface ColorFieldGenqlSelection{
     __scalar?: boolean | number
 }
 
-export interface CourseModelFilter {_createdAt?: (CreatedAtFilter | null),id?: (ItemIdFilter | null),_firstPublishedAt?: (PublishedAtFilter | null),_publicationScheduledAt?: (PublishedAtFilter | null),_unpublishingScheduledAt?: (PublishedAtFilter | null),_publishedAt?: (PublishedAtFilter | null),_status?: (StatusFilter | null),_updatedAt?: (UpdatedAtFilter | null),_isValid?: (BooleanFilter | null),duration?: (IntegerFilter | null),faq?: (LinkFilter | null),level?: (StringFilter | null),name?: (StringFilter | null),numberOfEnrolledStudents?: (IntegerFilter | null),numberOfSections?: (IntegerFilter | null),price?: (IntegerFilter | null),slug?: (SlugFilter | null),tag?: (StringFilter | null),OR?: ((CourseModelFilter | null)[] | null),AND?: ((CourseModelFilter | null)[] | null)}
+export interface CourseModelFilter {_createdAt?: (CreatedAtFilter | null),id?: (ItemIdFilter | null),_firstPublishedAt?: (PublishedAtFilter | null),_publicationScheduledAt?: (PublishedAtFilter | null),_unpublishingScheduledAt?: (PublishedAtFilter | null),_publishedAt?: (PublishedAtFilter | null),_status?: (StatusFilter | null),_updatedAt?: (UpdatedAtFilter | null),_isValid?: (BooleanFilter | null),duration?: (IntegerFilter | null),faq?: (LinkFilter | null),level?: (StringFilter | null),name?: (StringFilter | null),numberOfEnrolledStudents?: (IntegerFilter | null),numberOfSections?: (IntegerFilter | null),price?: (IntegerFilter | null),slug?: (SlugFilter | null),tag?: (StringFilter | null),testimonials?: (LinksFilter | null),OR?: ((CourseModelFilter | null)[] | null),AND?: ((CourseModelFilter | null)[] | null)}
 
 
 /** Record of type Course (course) */
@@ -1586,9 +1617,9 @@ export interface CourseRecordGenqlSelection{
     numberOfSections?: boolean | number
     price?: boolean | number
     seo?: SeoBlockRecordGenqlSelection
-    singleTestimonial?: TestimonialBlockRecordGenqlSelection
     slug?: boolean | number
     tag?: boolean | number
+    testimonials?: TestimonialRecordGenqlSelection
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -3719,6 +3750,10 @@ export interface QueryGenqlSelection{
     /** The locale to use to fetch the field's content */
     locale?: (SiteLocale | null), filter?: (RoutePathModelFilter | null)} })
     /** Returns meta information regarding a record collection */
+    _allTestimonialsMeta?: (CollectionMetadataGenqlSelection & { __args?: {
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null), filter?: (TestimonialModelFilter | null)} })
+    /** Returns meta information regarding a record collection */
     _allTutorsMeta?: (CollectionMetadataGenqlSelection & { __args?: {
     /** The locale to use to fetch the field's content */
     locale?: (SiteLocale | null), filter?: (TutorModelFilter | null)} })
@@ -3853,6 +3888,16 @@ export interface QueryGenqlSelection{
     /** Limit the number of results */
     first?: (Scalars['IntType'] | null), filter?: (RoutePathModelFilter | null), orderBy?: ((RoutePathModelOrderBy | null)[] | null)} })
     /** Returns a collection of records */
+    allTestimonials?: (TestimonialRecordGenqlSelection & { __args?: {
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null), 
+    /** If you want to fallback to a default translation when a translation has not been found */
+    fallbackLocales?: (SiteLocale[] | null), 
+    /** Skip the first results */
+    skip?: (Scalars['IntType'] | null), 
+    /** Limit the number of results */
+    first?: (Scalars['IntType'] | null), filter?: (TestimonialModelFilter | null), orderBy?: ((TestimonialModelOrderBy | null)[] | null)} })
+    /** Returns a collection of records */
     allTutors?: (TutorRecordGenqlSelection & { __args?: {
     /** The locale to use to fetch the field's content */
     locale?: (SiteLocale | null), 
@@ -3945,6 +3990,12 @@ export interface QueryGenqlSelection{
     /** If you want to fallback to a default translation when a translation has not been found */
     fallbackLocales?: (SiteLocale[] | null), filter?: (RoutePathModelFilter | null), orderBy?: ((RoutePathModelOrderBy | null)[] | null)} })
     /** Returns a specific record */
+    testimonial?: (TestimonialRecordGenqlSelection & { __args?: {
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null), 
+    /** If you want to fallback to a default translation when a translation has not been found */
+    fallbackLocales?: (SiteLocale[] | null), filter?: (TestimonialModelFilter | null), orderBy?: ((TestimonialModelOrderBy | null)[] | null)} })
+    /** Returns a specific record */
     tutor?: (TutorRecordGenqlSelection & { __args?: {
     /** The locale to use to fetch the field's content */
     locale?: (SiteLocale | null), 
@@ -4009,6 +4060,7 @@ export interface RecordInterfaceGenqlSelection{
     on_TestimonialBlockCtaRecord?: TestimonialBlockCtaRecordGenqlSelection
     on_TestimonialBlockDefaultRecord?: TestimonialBlockDefaultRecordGenqlSelection
     on_TestimonialBlockRecord?: TestimonialBlockRecordGenqlSelection
+    on_TestimonialRecord?: TestimonialRecordGenqlSelection
     on_TestimonialsSectionRecord?: TestimonialsSectionRecordGenqlSelection
     on_TutorRecord?: TutorRecordGenqlSelection
     __typename?: boolean | number
@@ -4413,11 +4465,39 @@ export interface TestimonialBlockRecordGenqlSelection{
     __scalar?: boolean | number
 }
 
-export interface TestimonialsSectionModelTestimonialsFieldGenqlSelection{
+export interface TestimonialModelFilter {_createdAt?: (CreatedAtFilter | null),id?: (ItemIdFilter | null),_firstPublishedAt?: (PublishedAtFilter | null),_publicationScheduledAt?: (PublishedAtFilter | null),_unpublishingScheduledAt?: (PublishedAtFilter | null),_publishedAt?: (PublishedAtFilter | null),_status?: (StatusFilter | null),_updatedAt?: (UpdatedAtFilter | null),_isValid?: (BooleanFilter | null),slug?: (SlugFilter | null),title?: (StringFilter | null),OR?: ((TestimonialModelFilter | null)[] | null),AND?: ((TestimonialModelFilter | null)[] | null)}
+
+export interface TestimonialModelTestimonialFieldGenqlSelection{
     on_TestimonialBlockCtaRecord?:TestimonialBlockCtaRecordGenqlSelection,
     on_TestimonialBlockDefaultRecord?:TestimonialBlockDefaultRecordGenqlSelection,
     on_RecordInterface?: RecordInterfaceGenqlSelection,
     __typename?: boolean | number
+}
+
+
+/** Record of type 🌟 Testimonial (testimonial) */
+export interface TestimonialRecordGenqlSelection{
+    _createdAt?: boolean | number
+    /** Editing URL */
+    _editingUrl?: boolean | number
+    _firstPublishedAt?: boolean | number
+    _isValid?: boolean | number
+    _modelApiKey?: boolean | number
+    _publicationScheduledAt?: boolean | number
+    _publishedAt?: boolean | number
+    /** Generates SEO and Social card meta tags to be used in your frontend */
+    _seoMetaTags?: (TagGenqlSelection & { __args?: {
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null)} })
+    _status?: boolean | number
+    _unpublishingScheduledAt?: boolean | number
+    _updatedAt?: boolean | number
+    id?: boolean | number
+    slug?: boolean | number
+    testimonial?: TestimonialModelTestimonialFieldGenqlSelection
+    title?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
 }
 
 
@@ -4440,7 +4520,7 @@ export interface TestimonialsSectionRecordGenqlSelection{
     _updatedAt?: boolean | number
     heading?: HeadingBlockNewRecordGenqlSelection
     id?: boolean | number
-    testimonials?: TestimonialsSectionModelTestimonialsFieldGenqlSelection
+    testimonials?: TestimonialRecordGenqlSelection
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -4453,7 +4533,7 @@ export interface TutorModelAboutFieldGenqlSelection{
     __scalar?: boolean | number
 }
 
-export interface TutorModelFilter {_createdAt?: (CreatedAtFilter | null),id?: (ItemIdFilter | null),_firstPublishedAt?: (PublishedAtFilter | null),_publicationScheduledAt?: (PublishedAtFilter | null),_unpublishingScheduledAt?: (PublishedAtFilter | null),_publishedAt?: (PublishedAtFilter | null),_status?: (StatusFilter | null),_updatedAt?: (UpdatedAtFilter | null),_isValid?: (BooleanFilter | null),about?: (StructuredTextFilter | null),audiences?: (JsonFilter | null),coverMedia?: (FileFilter | null),faq?: (LinkFilter | null),faqTitle?: (StringFilter | null),levels?: (JsonFilter | null),location?: (StringFilter | null),name?: (StringFilter | null),numberOfRatings?: (IntegerFilter | null),otherTutors?: (LinksFilter | null),profilePicture?: (FileFilter | null),qualifiedCourses?: (LinksFilter | null),qualifiedCoursesTitle?: (StringFilter | null),rate?: (IntegerFilter | null),rating?: (FloatFilter | null),remoteStatus?: (JsonFilter | null),reviewsTitle?: (StringFilter | null),slug?: (SlugFilter | null),summary?: (StringFilter | null),verified?: (BooleanFilter | null),verifiedDescription?: (StructuredTextFilter | null),OR?: ((TutorModelFilter | null)[] | null),AND?: ((TutorModelFilter | null)[] | null)}
+export interface TutorModelFilter {_createdAt?: (CreatedAtFilter | null),id?: (ItemIdFilter | null),_firstPublishedAt?: (PublishedAtFilter | null),_publicationScheduledAt?: (PublishedAtFilter | null),_unpublishingScheduledAt?: (PublishedAtFilter | null),_publishedAt?: (PublishedAtFilter | null),_status?: (StatusFilter | null),_updatedAt?: (UpdatedAtFilter | null),_isValid?: (BooleanFilter | null),about?: (StructuredTextFilter | null),audiences?: (JsonFilter | null),coverMedia?: (FileFilter | null),faq?: (LinkFilter | null),faqTitle?: (StringFilter | null),levels?: (JsonFilter | null),location?: (StringFilter | null),name?: (StringFilter | null),numberOfRatings?: (IntegerFilter | null),otherTutors?: (LinksFilter | null),profilePicture?: (FileFilter | null),qualifiedCourses?: (LinksFilter | null),qualifiedCoursesTitle?: (StringFilter | null),rate?: (IntegerFilter | null),rating?: (FloatFilter | null),remoteStatus?: (JsonFilter | null),reviews?: (LinksFilter | null),reviewsTitle?: (StringFilter | null),slug?: (SlugFilter | null),summary?: (StringFilter | null),verified?: (BooleanFilter | null),verifiedDescription?: (StructuredTextFilter | null),OR?: ((TutorModelFilter | null)[] | null),AND?: ((TutorModelFilter | null)[] | null)}
 
 export interface TutorModelVerifiedDescriptionFieldGenqlSelection{
     blocks?: boolean | number
@@ -4498,7 +4578,7 @@ export interface TutorRecordGenqlSelection{
     rate?: boolean | number
     rating?: boolean | number
     remoteStatus?: boolean | number
-    reviews?: TestimonialBlockDefaultRecordGenqlSelection
+    reviews?: TestimonialRecordGenqlSelection
     reviewsTitle?: boolean | number
     slug?: boolean | number
     summary?: boolean | number
@@ -5250,7 +5330,7 @@ export interface focalPointGenqlSelection{
     
 
 
-    const RecordInterface_possibleTypes: string[] = ['ActionBlockRecord','CardBlockNewRecord','CardBlockRecord','CardsSectionRecord','CategoryRecord','CourseRecord','FaqBlockNewRecord','FaqBlockRecord','FaqItemRecord','FaqSectionRecord','HeadingBlockNewRecord','HeadingBlockRecord','HeroSectionRecord','ImageBlockRecord','InstructorRecord','JobRecord','MenuItemBlockRecord','MenuListBlockRecord','MenuRecord','ModularPageRecord','NoteBlockRecord','PlainTextBlockRecord','PostCtaRecord','PostRecord','ResourceRecord','ResourceTopicRecord','RichTextBlockRecord','RoutePathRecord','SeoBlockRecord','TestimonialBlockCtaRecord','TestimonialBlockDefaultRecord','TestimonialBlockRecord','TestimonialsSectionRecord','TutorRecord']
+    const RecordInterface_possibleTypes: string[] = ['ActionBlockRecord','CardBlockNewRecord','CardBlockRecord','CardsSectionRecord','CategoryRecord','CourseRecord','FaqBlockNewRecord','FaqBlockRecord','FaqItemRecord','FaqSectionRecord','HeadingBlockNewRecord','HeadingBlockRecord','HeroSectionRecord','ImageBlockRecord','InstructorRecord','JobRecord','MenuItemBlockRecord','MenuListBlockRecord','MenuRecord','ModularPageRecord','NoteBlockRecord','PlainTextBlockRecord','PostCtaRecord','PostRecord','ResourceRecord','ResourceTopicRecord','RichTextBlockRecord','RoutePathRecord','SeoBlockRecord','TestimonialBlockCtaRecord','TestimonialBlockDefaultRecord','TestimonialBlockRecord','TestimonialRecord','TestimonialsSectionRecord','TutorRecord']
     export const isRecordInterface = (obj?: { __typename?: any } | null): obj is RecordInterface => {
       if (!obj?.__typename) throw new Error('__typename is missing in "isRecordInterface"')
       return RecordInterface_possibleTypes.includes(obj.__typename)
@@ -5402,10 +5482,18 @@ export interface focalPointGenqlSelection{
     
 
 
-    const TestimonialsSectionModelTestimonialsField_possibleTypes: string[] = ['TestimonialBlockCtaRecord','TestimonialBlockDefaultRecord']
-    export const isTestimonialsSectionModelTestimonialsField = (obj?: { __typename?: any } | null): obj is TestimonialsSectionModelTestimonialsField => {
-      if (!obj?.__typename) throw new Error('__typename is missing in "isTestimonialsSectionModelTestimonialsField"')
-      return TestimonialsSectionModelTestimonialsField_possibleTypes.includes(obj.__typename)
+    const TestimonialModelTestimonialField_possibleTypes: string[] = ['TestimonialBlockCtaRecord','TestimonialBlockDefaultRecord']
+    export const isTestimonialModelTestimonialField = (obj?: { __typename?: any } | null): obj is TestimonialModelTestimonialField => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isTestimonialModelTestimonialField"')
+      return TestimonialModelTestimonialField_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const TestimonialRecord_possibleTypes: string[] = ['TestimonialRecord']
+    export const isTestimonialRecord = (obj?: { __typename?: any } | null): obj is TestimonialRecord => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isTestimonialRecord"')
+      return TestimonialRecord_possibleTypes.includes(obj.__typename)
     }
     
 
@@ -5996,6 +6084,29 @@ export const enumRoutePathModelOrderBy = {
 
 export const enumSiteLocale = {
    en: 'en' as const
+}
+
+export const enumTestimonialModelOrderBy = {
+   _createdAt_ASC: '_createdAt_ASC' as const,
+   _createdAt_DESC: '_createdAt_DESC' as const,
+   id_ASC: 'id_ASC' as const,
+   id_DESC: 'id_DESC' as const,
+   _firstPublishedAt_ASC: '_firstPublishedAt_ASC' as const,
+   _firstPublishedAt_DESC: '_firstPublishedAt_DESC' as const,
+   _publicationScheduledAt_ASC: '_publicationScheduledAt_ASC' as const,
+   _publicationScheduledAt_DESC: '_publicationScheduledAt_DESC' as const,
+   _unpublishingScheduledAt_ASC: '_unpublishingScheduledAt_ASC' as const,
+   _unpublishingScheduledAt_DESC: '_unpublishingScheduledAt_DESC' as const,
+   _publishedAt_ASC: '_publishedAt_ASC' as const,
+   _publishedAt_DESC: '_publishedAt_DESC' as const,
+   _status_ASC: '_status_ASC' as const,
+   _status_DESC: '_status_DESC' as const,
+   _updatedAt_ASC: '_updatedAt_ASC' as const,
+   _updatedAt_DESC: '_updatedAt_DESC' as const,
+   _isValid_ASC: '_isValid_ASC' as const,
+   _isValid_DESC: '_isValid_DESC' as const,
+   title_ASC: 'title_ASC' as const,
+   title_DESC: 'title_DESC' as const
 }
 
 export const enumTutorModelOrderBy = {

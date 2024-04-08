@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { goto } from "$app/navigation";
 	import StructuredText from "$lib/components/dato/StructuredText/index.svelte";
+	import Testimonials from "$lib/components/dato/sections/Testimonials.svelte";
 	import { Badge } from "$shadcn/badge";
 	import * as Card from "$shadcn/card";
 	import * as Select from "$shadcn/select";
@@ -10,6 +11,10 @@
 
 	$: uniqueJobTypes = Array.from(
 		new Map(data.jobs.flatMap(job => job.jobType).map(jobType => [jobType, jobType])).values()
+	);
+
+	$: testimonialSections = data.modularPage.modularContent.filter(
+		section => section.__typename === "TestimonialsSectionRecord"
 	);
 </script>
 
@@ -86,6 +91,14 @@
 		</div>
 	</div>
 </section>
+
+{#if data.modularPage?.modularContent && data.modularPage.modularContent.length > 0}
+	{#each data.modularPage.modularContent as record (record.id)}
+		{#if record.__typename === "TestimonialsSectionRecord"}
+			<Testimonials {record} class="container-sm" />
+		{/if}
+	{/each}
+{/if}
 
 <style lang="scss">
 	.max-w-lg {
