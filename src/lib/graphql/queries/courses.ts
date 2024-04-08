@@ -1,5 +1,10 @@
 import { client } from "$lib/graphql/client";
-import { courseMetaFields, faqItemFieldsSelection } from "./fields";
+import {
+	courseMetaFields,
+	ctaTestimonialFieldsSelection,
+	defaultTestimonialFieldsSelection,
+	faqItemFieldsSelection,
+} from "./fields";
 
 const getCoursesSlugs = async () => {
 	const { allCourses } = await client.query({
@@ -98,20 +103,12 @@ const getCourseBySlug = async (slug: string) => {
 				},
 			},
 
-			// Single testimonial
-			singleTestimonial: {
-				title: true,
-				image: {
-					url: true,
-					alt: true,
+			// Testimonialss
+			testimonials: {
+				testimonial: {
+					on_TestimonialBlockDefaultRecord: defaultTestimonialFieldsSelection,
+					on_TestimonialBlockCtaRecord: ctaTestimonialFieldsSelection,
 				},
-				content: {
-					richText: {
-						value: true,
-					},
-				},
-				author: true,
-				company: true,
 			},
 
 			// SEO

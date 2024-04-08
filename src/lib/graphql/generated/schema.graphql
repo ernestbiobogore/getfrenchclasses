@@ -321,6 +321,7 @@ input CourseModelFilter {
   price: IntegerFilter
   slug: SlugFilter
   tag: StringFilter
+  testimonials: LinksFilter
   OR: [CourseModelFilter]
   AND: [CourseModelFilter]
 }
@@ -390,9 +391,9 @@ type CourseRecord implements RecordInterface {
   numberOfSections: IntType!
   price: IntType!
   seo: [SeoBlockRecord!]!
-  singleTestimonial: [TestimonialBlockRecord!]!
   slug: String!
   tag: String
+  testimonials: [TestimonialRecord!]!
 }
 
 """Specifies how to filter by creation datetime"""

@@ -641,6 +641,9 @@ export default {
             "tag": [
                 130
             ],
+            "testimonials": [
+                81
+            ],
             "OR": [
                 14
             ],
@@ -721,14 +724,14 @@ export default {
             "seo": [
                 123
             ],
-            "singleTestimonial": [
-                138
-            ],
             "slug": [
                 129
             ],
             "tag": [
                 129
+            ],
+            "testimonials": [
+                142
             ],
             "__typename": [
                 129

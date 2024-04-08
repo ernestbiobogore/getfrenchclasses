@@ -214,9 +214,9 @@ export interface CourseRecord {
     numberOfSections: Scalars['IntType']
     price: Scalars['IntType']
     seo: SeoBlockRecord[]
-    singleTestimonial: TestimonialBlockRecord[]
     slug: Scalars['String']
     tag: (Scalars['String'] | null)
+    testimonials: TestimonialRecord[]
     __typename: 'CourseRecord'
 }
 
@@ -1587,7 +1587,7 @@ export interface ColorFieldGenqlSelection{
     __scalar?: boolean | number
 }
 
-export interface CourseModelFilter {_createdAt?: (CreatedAtFilter | null),id?: (ItemIdFilter | null),_firstPublishedAt?: (PublishedAtFilter | null),_publicationScheduledAt?: (PublishedAtFilter | null),_unpublishingScheduledAt?: (PublishedAtFilter | null),_publishedAt?: (PublishedAtFilter | null),_status?: (StatusFilter | null),_updatedAt?: (UpdatedAtFilter | null),_isValid?: (BooleanFilter | null),duration?: (IntegerFilter | null),faq?: (LinkFilter | null),level?: (StringFilter | null),name?: (StringFilter | null),numberOfEnrolledStudents?: (IntegerFilter | null),numberOfSections?: (IntegerFilter | null),price?: (IntegerFilter | null),slug?: (SlugFilter | null),tag?: (StringFilter | null),OR?: ((CourseModelFilter | null)[] | null),AND?: ((CourseModelFilter | null)[] | null)}
+export interface CourseModelFilter {_createdAt?: (CreatedAtFilter | null),id?: (ItemIdFilter | null),_firstPublishedAt?: (PublishedAtFilter | null),_publicationScheduledAt?: (PublishedAtFilter | null),_unpublishingScheduledAt?: (PublishedAtFilter | null),_publishedAt?: (PublishedAtFilter | null),_status?: (StatusFilter | null),_updatedAt?: (UpdatedAtFilter | null),_isValid?: (BooleanFilter | null),duration?: (IntegerFilter | null),faq?: (LinkFilter | null),level?: (StringFilter | null),name?: (StringFilter | null),numberOfEnrolledStudents?: (IntegerFilter | null),numberOfSections?: (IntegerFilter | null),price?: (IntegerFilter | null),slug?: (SlugFilter | null),tag?: (StringFilter | null),testimonials?: (LinksFilter | null),OR?: ((CourseModelFilter | null)[] | null),AND?: ((CourseModelFilter | null)[] | null)}
 
 
 /** Record of type Course (course) */
@@ -1617,9 +1617,9 @@ export interface CourseRecordGenqlSelection{
     numberOfSections?: boolean | number
     price?: boolean | number
     seo?: SeoBlockRecordGenqlSelection
-    singleTestimonial?: TestimonialBlockRecordGenqlSelection
     slug?: boolean | number
     tag?: boolean | number
+    testimonials?: TestimonialRecordGenqlSelection
     __typename?: boolean | number
     __scalar?: boolean | number
 }

@@ -1,6 +1,5 @@
 <script lang="ts">
 	import AvatarsGroup from "$lib/components/AvatarsGroup.svelte";
-	import TestimonialCardList from "$lib/components/TestimonialCardList.svelte";
 	import CourseCtaBanner from "$lib/components/cta-section/CourseCtaBanner.svelte";
 	import FAQItems from "$lib/components/dato/blocks/FAQItems.svelte";
 	import Heading from "$lib/components/dato/blocks/Heading.svelte";
@@ -19,6 +18,7 @@
 	import Wrench from "~icons/ph/wrench";
 	import CourseSyllabus from "./components/CourseSyllabus.svelte";
 
+	import DefaultTestimonial from "$lib/components/dato/blocks/DefaultTestimonial.svelte";
 	import { getSampleAvatars } from "$lib/utils";
 
 	export let data;
@@ -235,13 +235,23 @@
 
 <CourseSyllabus />
 
-<section class="py-20 container-base">
-	<h2 class="text-center">What people say</h2>
-	<br />
-	<div>
-		<TestimonialCardList />
-	</div>
-</section>
+{#if data.course.testimonials && data.course.testimonials.length > 0}
+	<section class="py-20 container-base space-y-8">
+		<h2 class="text-center">What people say</h2>
+
+		<div class="grid grid-cols-3 gap-8">
+			{#each data.course.testimonials as { testimonial } (testimonial.id)}
+				{#if testimonial.__typename === "TestimonialBlockDefaultRecord"}
+					<DefaultTestimonial {testimonial} />
+				{/if}
+
+				<!-- {#if testimonial.__typename === "TestimonialBlockCtaRecord"}
+				<CtaTestimonial {testimonial} />
+			{/if} -->
+			{/each}
+		</div>
+	</section>
+{/if}
 
 <CourseCtaBanner />
 
