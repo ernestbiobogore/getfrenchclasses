@@ -20,7 +20,7 @@ box-shadow: 0px 8px 12px 0px rgba(0, 0, 0, 0.25);"
 	<Card.Header class="flex flex-col gap-6 md:flex-row lg:gap-8">
 		<div class={cn("rounded-2xl bg-white flex-1", testimonial.highlight && "pt-2 px-4 pb-8")}>
 			{#if testimonial.highlight}
-				<CarbonQuotes class="mb-2 text-2xl text-orange-600 md:text-6xl" />
+				<CarbonQuotes class="mb-2 text-2xl text-brand-primary md:text-6xl" />
 				<Card.Title>
 					<StructuredText
 						richText={testimonial.highlight}

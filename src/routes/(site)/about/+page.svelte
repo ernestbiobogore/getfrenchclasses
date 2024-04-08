@@ -1,7 +1,4 @@
 <script>
-	import TestimonialCta, {
-		dummyTestimonialCta,
-	} from "$lib/components/cta-section/TestimonialCta.svelte";
 	import * as Card from "$shadcn/card";
 
 	import File from "~icons/lucide/file";
@@ -9,31 +6,34 @@
 	import HelpingHand from "~icons/lucide/helping-hand";
 	import Lightbulb from "~icons/lucide/lightbulb";
 
+	import CtaTestimonial from "$lib/components/dato/blocks/CtaTestimonial.svelte";
+	import Teacher5 from "$lib/images/Teacher5.png";
 	import SupportImage from "$lib/images/supportImage.png";
 	import Teacher1 from "$lib/images/teacher1.png";
 	import Teacher2 from "$lib/images/teacher2.png";
 	import Teacher3 from "$lib/images/teacher3.png";
 	import Teacher4 from "$lib/images/teacher4.png";
-	import Teacher5 from "$lib/images/Teacher5.png";
+
+	export let data;
 </script>
 
 <!-- Hero -->
 <section class="p-3 container-base space-y-7 md:py-20">
-	<h1 class="tracking-normal text-4xl text-center">Providing the tools necessary to succeed</h1>
+	<h1 class="text-4xl tracking-normal text-center">Providing the tools necessary to succeed</h1>
 
-	<div class="images p-4 hidden md:block">
-		<div class="about-hero-images items-center">
+	<div class="hidden p-4 images md:block">
+		<div class="items-center about-hero-images">
 			<img src={Teacher1} alt="Teacher 1" class="col-span-1 row-span-2" />
 			<img src={SupportImage} alt="Support" class="center-image" />
-			<img src={Teacher3} alt="Teacher 3" class="col-span-1 row-span-1 justify-end" />
-			<img src={Teacher2} alt="Teacher 2" class="col-span-1 row-span-1 justify-center" />
+			<img src={Teacher3} alt="Teacher 3" class="justify-end col-span-1 row-span-1" />
+			<img src={Teacher2} alt="Teacher 2" class="justify-center col-span-1 row-span-1" />
 			<img src={Teacher4} alt="Teacher 4" class="col-span-1 row-span-1" />
 		</div>
 	</div>
 </section>
 
 <!-- Stats Section -->
-<section class="p-3 container-base grid grid-cols-2 gap-4 md:py-20 lg:grid-cols-4 lg:px-32">
+<section class="grid grid-cols-2 gap-4 p-3 container-base md:py-20 lg:grid-cols-4 lg:px-32">
 	<div class="text-center">
 		<h2>40K</h2>
 		<p class="text-sm">Learners empowered with knowledge</p>
@@ -56,8 +56,8 @@
 </section>
 
 <!-- Values  -->
-<section class="p-3 py-20 container-base flex flex-col md:flex-row gap-6 lg:px-28">
-	<div class="md:flex flex-col justify-center md:w-1/2">
+<section class="flex flex-col gap-6 p-3 py-20 container-base md:flex-row lg:px-28">
+	<div class="flex-col justify-center md:flex md:w-1/2">
 		<h3 class="font-semibold md:text-5xl">
 			We have strong values, because we care about our Students
 		</h3>
@@ -67,7 +67,7 @@
 		</p>
 	</div>
 
-	<div class="py-12 flex flex-col gap-7 md:w-1/2">
+	<div class="flex flex-col py-12 gap-7 md:w-1/2">
 		<div class="flex flex-col gap-4">
 			<HelpingHand class="text-brand-primary" />
 			<p>
@@ -114,11 +114,11 @@
 		</p>
 	</div>
 
-	<div class="grid w-full py-10 grid-cols-1 md:grid-cols-3 items-start justify-center gap-6">
+	<div class="grid items-start justify-center w-full grid-cols-1 gap-6 py-10 md:grid-cols-3">
 		{#each [...Array(6)] as _}
 			<Card.Root class="rounded-none">
-				<Card.Content class="flex-s-start gap-6 p-4">
-					<img src={Teacher1} alt="Teacher1" class="size-32 rounded-full" />
+				<Card.Content class="gap-6 p-4 flex-s-start">
+					<img src={Teacher1} alt="Teacher1" class="rounded-full size-32" />
 					<div>
 						<h3 class="text-xl font-semibold">John Roberts</h3>
 						<p class="text-gray-500">Founder & CEO</p>
@@ -151,10 +151,14 @@
 
 <!-- before footer -->
 <div class="container-base">
-	<h2 class="py-20 tracking-tight text-4xl w-2/3">
+	<h2 class="w-2/3 py-20 text-4xl tracking-tight">
 		Equipping the next generation of individuals with the knowledge and skills needed to achieve
 		financial freedom.
 	</h2>
 </div>
 
-<TestimonialCta {...dummyTestimonialCta} />
+{#if data.testimonial}
+	<section class="py-20">
+		<CtaTestimonial testimonial={data.testimonial} />
+	</section>
+{/if}
