@@ -10,10 +10,31 @@
 	import { Button } from "$shadcn/button";
 	import { Image } from "@datocms/svelte";
 	import { f } from "$lib/utils";
+	import type {
+		TestimonialBlockCtaRecord,
+		TestimonialsSectionRecord,
+	} from "$lib/graphql/generated/schema.js";
 
 	export let data;
 
-	const dummyImage = "/placeholder.svg";
+	const testimonialsWithCta = getTestimonialsWithCta();
+
+	function getTestimonialsWithCta() {
+		const testimonialsSections = [] as TestimonialsSectionRecord[];
+
+		for (const section of f(data.homepage?.modularContent)) {
+			if ((section as TestimonialsSectionRecord)?.testimonials) {
+				// @ts-ignore
+				testimonialsSections.push(section);
+			}
+		}
+
+		const testimonialsWithCta = testimonialsSections[0]?.testimonials?.filter(
+			testimonial => testimonial.__typename === "TestimonialBlockCtaRecord"
+		);
+
+		return testimonialsWithCta as TestimonialBlockCtaRecord[] | undefined;
+	}
 </script>
 
 <svelte:head>
@@ -33,13 +54,17 @@
 			<Badge>Free French Resources</Badge>
 			<h1>{data.resource?.title}</h1>
 			<p class="max-w-[64ch]">
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto inventore repellendus
-				perferendis illum autem, deserunt dignissimos aut.
+				<StructuredText richText={data.resource?.summary} />
 			</p>
 			<Button href={data.resource?.cta?.link}>{data.resource?.cta?.text}</Button>
 		</div>
-		<div class="h-96 bg-blue-600 md:flex-[0.5]">
-			<img src={dummyImage} alt="French Grammar Tips" class="object-cover w-full h-full" />
+		<div class="h-96 bg-gray-100 md:flex-[0.5]">
+			{#if data.resource?.featuredImage?.responsiveImage}
+				<Image
+					class="object-cover w-full h-full"
+					data={f(data.resource?.featuredImage?.responsiveImage)}
+				/>
+			{/if}
 		</div>
 	</div>
 </section>
@@ -54,7 +79,7 @@
 				{#each data.resource?.contentItems || [] as { text }}
 					<li class="flex-s-start-start gap-2 max-w-[46ch]">
 						<div>
-							<CheckCircleRounded class="w-6 h-6 text-green-500" />
+							<CheckCircleRounded class="size-6 text-green-500" />
 						</div>
 						<div>{text}</div>
 					</li>
@@ -104,3 +129,11 @@
 
 <!-- <GenericCta text="Start learning more Grammar Tips Today" /> -->
 <!-- <CtaTestimonial {testimonial} /> -->
+
+<section class="py-20 space-y-12 container-base">
+	{#if testimonialsWithCta && testimonialsWithCta.length > 0}
+		{#each testimonialsWithCta as testimonial}
+			<CtaTestimonial {testimonial} />
+		{/each}
+	{/if}
+</section>
