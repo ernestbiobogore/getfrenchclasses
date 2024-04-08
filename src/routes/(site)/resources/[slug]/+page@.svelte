@@ -12,7 +12,6 @@
 	import CheckCircleRounded from "~icons/material-symbols/check-circle-rounded";
 
 	export let data;
-	console.log(data.resource?.cta);
 </script>
 
 <svelte:head>
@@ -28,12 +27,10 @@
 <!-- Hero -->
 <section class="py-10 md:py-20">
 	<div class="flex gap-5 container-sm max-md:flex-col-reverse">
-		<div class="flex-1 space-y-6">
+		<div class="space-y-6 sm:basis-8/12">
 			<Badge>Free French Resources</Badge>
 			<h1>{data.resource?.title}</h1>
-			<p class="max-w-[64ch]">
-				<StructuredText richText={data.resource?.summary} />
-			</p>
+			<StructuredText richText={data.resource?.summary} elementClasses={{ p: "max-w-[64ch]" }} />
 
 			{#if data.resource?.cta?.convertboxId}
 				<ConvertBoxAction
@@ -42,7 +39,8 @@
 				/>
 			{/if}
 		</div>
-		<div class="h-96 bg-gray-100 md:flex-[0.5]">
+
+		<div class="h-96 bg-gray-100 sm:basis-4/12">
 			{#if data.resource?.featuredImage?.responsiveImage}
 				<Image
 					class="object-cover w-full h-full"
