@@ -3357,6 +3357,13 @@ type Query {
   ): CollectionMetadata!
 
   """Returns meta information regarding a record collection"""
+  _allTestimonialsMeta(
+    """The locale to use to fetch the field's content"""
+    locale: SiteLocale
+    filter: TestimonialModelFilter
+  ): CollectionMetadata!
+
+  """Returns meta information regarding a record collection"""
   _allTutorsMeta(
     """The locale to use to fetch the field's content"""
     locale: SiteLocale
@@ -3610,6 +3617,25 @@ type Query {
   ): [RoutePathRecord!]!
 
   """Returns a collection of records"""
+  allTestimonials(
+    """The locale to use to fetch the field's content"""
+    locale: SiteLocale
+
+    """
+    If you want to fallback to a default translation when a translation has not been found
+    """
+    fallbackLocales: [SiteLocale!]
+
+    """Skip the first results"""
+    skip: IntType
+
+    """Limit the number of results"""
+    first: IntType = 20
+    filter: TestimonialModelFilter
+    orderBy: [TestimonialModelOrderBy] = [_updatedAt_DESC]
+  ): [TestimonialRecord!]!
+
+  """Returns a collection of records"""
   allTutors(
     """The locale to use to fetch the field's content"""
     locale: SiteLocale
@@ -3802,6 +3828,19 @@ type Query {
     filter: RoutePathModelFilter
     orderBy: [RoutePathModelOrderBy] = [_updatedAt_DESC]
   ): RoutePathRecord
+
+  """Returns a specific record"""
+  testimonial(
+    """The locale to use to fetch the field's content"""
+    locale: SiteLocale
+
+    """
+    If you want to fallback to a default translation when a translation has not been found
+    """
+    fallbackLocales: [SiteLocale!]
+    filter: TestimonialModelFilter
+    orderBy: [TestimonialModelOrderBy] = [_updatedAt_DESC]
+  ): TestimonialRecord
 
   """Returns a specific record"""
   tutor(
@@ -4402,7 +4441,72 @@ type TestimonialBlockRecord implements RecordInterface {
   title: String
 }
 
-union TestimonialsSectionModelTestimonialsField = TestimonialBlockCtaRecord | TestimonialBlockDefaultRecord
+input TestimonialModelFilter {
+  _createdAt: CreatedAtFilter
+  id: ItemIdFilter
+  _firstPublishedAt: PublishedAtFilter
+  _publicationScheduledAt: PublishedAtFilter
+  _unpublishingScheduledAt: PublishedAtFilter
+  _publishedAt: PublishedAtFilter
+  _status: StatusFilter
+  _updatedAt: UpdatedAtFilter
+  _isValid: BooleanFilter
+  slug: SlugFilter
+  title: StringFilter
+  OR: [TestimonialModelFilter]
+  AND: [TestimonialModelFilter]
+}
+
+enum TestimonialModelOrderBy {
+  _createdAt_ASC
+  _createdAt_DESC
+  id_ASC
+  id_DESC
+  _firstPublishedAt_ASC
+  _firstPublishedAt_DESC
+  _publicationScheduledAt_ASC
+  _publicationScheduledAt_DESC
+  _unpublishingScheduledAt_ASC
+  _unpublishingScheduledAt_DESC
+  _publishedAt_ASC
+  _publishedAt_DESC
+  _status_ASC
+  _status_DESC
+  _updatedAt_ASC
+  _updatedAt_DESC
+  _isValid_ASC
+  _isValid_DESC
+  title_ASC
+  title_DESC
+}
+
+union TestimonialModelTestimonialField = TestimonialBlockCtaRecord | TestimonialBlockDefaultRecord
+
+"""Record of type 🌟 Testimonial (testimonial)"""
+type TestimonialRecord implements RecordInterface {
+  _createdAt: DateTime!
+
+  """Editing URL"""
+  _editingUrl: String
+  _firstPublishedAt: DateTime
+  _isValid: BooleanType!
+  _modelApiKey: String!
+  _publicationScheduledAt: DateTime
+  _publishedAt: DateTime
+
+  """Generates SEO and Social card meta tags to be used in your frontend"""
+  _seoMetaTags(
+    """The locale to use to fetch the field's content"""
+    locale: SiteLocale
+  ): [Tag!]!
+  _status: ItemStatus!
+  _unpublishingScheduledAt: DateTime
+  _updatedAt: DateTime!
+  id: ItemId!
+  slug: String!
+  testimonial: TestimonialModelTestimonialField!
+  title: String!
+}
 
 """Block of type Testimonials Section (testimonials_section)"""
 type TestimonialsSectionRecord implements RecordInterface {
@@ -4426,7 +4530,7 @@ type TestimonialsSectionRecord implements RecordInterface {
   _updatedAt: DateTime!
   heading: HeadingBlockNewRecord
   id: ItemId!
-  testimonials: [TestimonialsSectionModelTestimonialsField!]!
+  testimonials: [TestimonialRecord!]!
 }
 
 type TutorModelAboutField {

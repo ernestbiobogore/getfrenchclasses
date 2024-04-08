@@ -53,12 +53,13 @@ export default {
         121,
         126,
         129,
-        143,
-        158,
-        163,
-        164,
-        168,
-        174
+        140,
+        146,
+        161,
+        166,
+        167,
+        171,
+        177
     ],
     "types": {
         "ActionBlockRecord": {
@@ -189,7 +190,7 @@ export default {
                 129
             ],
             "focalPoint": [
-                175,
+                178,
                 {
                     "locale": [
                         126
@@ -207,7 +208,7 @@ export default {
                 70
             ],
             "id": [
-                158
+                161
             ],
             "md5": [
                 129
@@ -269,7 +270,7 @@ export default {
                 }
             ],
             "video": [
-                170
+                173
             ],
             "width": [
                 70
@@ -479,7 +480,7 @@ export default {
                 128
             ],
             "_updatedAt": [
-                147
+                150
             ],
             "_isValid": [
                 3
@@ -608,7 +609,7 @@ export default {
                 128
             ],
             "_updatedAt": [
-                147
+                150
             ],
             "_isValid": [
                 3
@@ -885,7 +886,7 @@ export default {
                 128
             ],
             "_updatedAt": [
-                147
+                150
             ],
             "_isValid": [
                 3
@@ -1091,7 +1092,7 @@ export default {
                 129
             ],
             "focalPoint": [
-                175,
+                178,
                 {
                     "locale": [
                         126
@@ -1109,7 +1110,7 @@ export default {
                 70
             ],
             "id": [
-                158
+                161
             ],
             "md5": [
                 129
@@ -1171,7 +1172,7 @@ export default {
                 }
             ],
             "video": [
-                170
+                173
             ],
             "width": [
                 70
@@ -1256,7 +1257,7 @@ export default {
                 129
             ],
             "focalPoint": [
-                175,
+                178,
                 {
                     "locale": [
                         126
@@ -1274,7 +1275,7 @@ export default {
                 70
             ],
             "id": [
-                158
+                161
             ],
             "md5": [
                 129
@@ -1336,7 +1337,7 @@ export default {
                 }
             ],
             "video": [
-                170
+                173
             ],
             "width": [
                 70
@@ -1348,10 +1349,10 @@ export default {
                 27
             ],
             "on_VideoAltFileField": [
-                172
+                175
             ],
             "on_VideoFileField": [
-                173
+                176
             ],
             "__typename": [
                 129
@@ -1359,16 +1360,16 @@ export default {
         },
         "FileFilter": {
             "eq": [
-                158
+                161
             ],
             "neq": [
-                158
+                161
             ],
             "in": [
-                158
+                161
             ],
             "notIn": [
-                158
+                161
             ],
             "exists": [
                 4
@@ -1407,16 +1408,16 @@ export default {
         "FloatType": {},
         "GalleryFilter": {
             "eq": [
-                158
+                161
             ],
             "allIn": [
-                158
+                161
             ],
             "anyIn": [
-                158
+                161
             ],
             "notIn": [
-                158
+                161
             ],
             "exists": [
                 4
@@ -1623,7 +1624,7 @@ export default {
                 129
             ],
             "video": [
-                173
+                176
             ],
             "videoText": [
                 129
@@ -2171,7 +2172,7 @@ export default {
                 128
             ],
             "_updatedAt": [
-                147
+                150
             ],
             "_isValid": [
                 3
@@ -2333,7 +2334,7 @@ export default {
                 128
             ],
             "_updatedAt": [
-                147
+                150
             ],
             "_isValid": [
                 3
@@ -2604,7 +2605,7 @@ export default {
                 128
             ],
             "_updatedAt": [
-                147
+                150
             ],
             "_isValid": [
                 3
@@ -2705,7 +2706,7 @@ export default {
                 128
             ],
             "_updatedAt": [
-                147
+                150
             ],
             "_isValid": [
                 3
@@ -2740,7 +2741,7 @@ export default {
                 38
             ],
             "on_TestimonialsSectionRecord": [
-                140
+                143
             ],
             "on_RecordInterface": [
                 105
@@ -2866,10 +2867,10 @@ export default {
         },
         "OrientationFilter": {
             "eq": [
-                164
+                167
             ],
             "neq": [
-                164
+                167
             ],
             "__typename": [
                 129
@@ -2961,7 +2962,7 @@ export default {
                 128
             ],
             "_updatedAt": [
-                147
+                150
             ],
             "_isValid": [
                 3
@@ -3070,7 +3071,7 @@ export default {
                 128
             ],
             "_updatedAt": [
-                147
+                150
             ],
             "_isValid": [
                 3
@@ -3333,6 +3334,17 @@ export default {
                     ]
                 }
             ],
+            "_allTestimonialsMeta": [
+                11,
+                {
+                    "locale": [
+                        126
+                    ],
+                    "filter": [
+                        139
+                    ]
+                }
+            ],
             "_allTutorsMeta": [
                 11,
                 {
@@ -3340,7 +3352,7 @@ export default {
                         126
                     ],
                     "filter": [
-                        142
+                        145
                     ]
                 }
             ],
@@ -3351,7 +3363,7 @@ export default {
                         126
                     ],
                     "filter": [
-                        155
+                        158
                     ]
                 }
             ],
@@ -3667,8 +3679,8 @@ export default {
                     ]
                 }
             ],
-            "allTutors": [
-                145,
+            "allTestimonials": [
+                142,
                 {
                     "locale": [
                         126
@@ -3684,10 +3696,35 @@ export default {
                         70
                     ],
                     "filter": [
-                        142
+                        139
                     ],
                     "orderBy": [
-                        143,
+                        140,
+                        "[TestimonialModelOrderBy]"
+                    ]
+                }
+            ],
+            "allTutors": [
+                148,
+                {
+                    "locale": [
+                        126
+                    ],
+                    "fallbackLocales": [
+                        126,
+                        "[SiteLocale!]"
+                    ],
+                    "skip": [
+                        70
+                    ],
+                    "first": [
+                        70
+                    ],
+                    "filter": [
+                        145
+                    ],
+                    "orderBy": [
+                        146,
                         "[TutorModelOrderBy]"
                     ]
                 }
@@ -3709,10 +3746,10 @@ export default {
                         70
                     ],
                     "filter": [
-                        155
+                        158
                     ],
                     "orderBy": [
-                        163,
+                        166,
                         "[UploadOrderBy]"
                     ]
                 }
@@ -3945,8 +3982,8 @@ export default {
                     ]
                 }
             ],
-            "tutor": [
-                145,
+            "testimonial": [
+                142,
                 {
                     "locale": [
                         126
@@ -3956,10 +3993,29 @@ export default {
                         "[SiteLocale!]"
                     ],
                     "filter": [
-                        142
+                        139
                     ],
                     "orderBy": [
-                        143,
+                        140,
+                        "[TestimonialModelOrderBy]"
+                    ]
+                }
+            ],
+            "tutor": [
+                148,
+                {
+                    "locale": [
+                        126
+                    ],
+                    "fallbackLocales": [
+                        126,
+                        "[SiteLocale!]"
+                    ],
+                    "filter": [
+                        145
+                    ],
+                    "orderBy": [
+                        146,
                         "[TutorModelOrderBy]"
                     ]
                 }
@@ -3975,10 +4031,10 @@ export default {
                         "[SiteLocale!]"
                     ],
                     "filter": [
-                        155
+                        158
                     ],
                     "orderBy": [
-                        163,
+                        166,
                         "[UploadOrderBy]"
                     ]
                 }
@@ -4125,11 +4181,14 @@ export default {
             "on_TestimonialBlockRecord": [
                 138
             ],
+            "on_TestimonialRecord": [
+                142
+            ],
             "on_TestimonialsSectionRecord": [
-                140
+                143
             ],
             "on_TutorRecord": [
-                145
+                148
             ],
             "__typename": [
                 129
@@ -4190,7 +4249,7 @@ export default {
                 128
             ],
             "_updatedAt": [
-                147
+                150
             ],
             "_isValid": [
                 3
@@ -4355,7 +4414,7 @@ export default {
                 128
             ],
             "_updatedAt": [
-                147
+                150
             ],
             "_isValid": [
                 3
@@ -4570,7 +4629,7 @@ export default {
                 128
             ],
             "_updatedAt": [
-                147
+                150
             ],
             "_isValid": [
                 3
@@ -5084,7 +5143,52 @@ export default {
                 129
             ]
         },
-        "TestimonialsSectionModelTestimonialsField": {
+        "TestimonialModelFilter": {
+            "_createdAt": [
+                17
+            ],
+            "id": [
+                73
+            ],
+            "_firstPublishedAt": [
+                103
+            ],
+            "_publicationScheduledAt": [
+                103
+            ],
+            "_unpublishingScheduledAt": [
+                103
+            ],
+            "_publishedAt": [
+                103
+            ],
+            "_status": [
+                128
+            ],
+            "_updatedAt": [
+                150
+            ],
+            "_isValid": [
+                3
+            ],
+            "slug": [
+                127
+            ],
+            "title": [
+                130
+            ],
+            "OR": [
+                139
+            ],
+            "AND": [
+                139
+            ],
+            "__typename": [
+                129
+            ]
+        },
+        "TestimonialModelOrderBy": {},
+        "TestimonialModelTestimonialField": {
             "on_TestimonialBlockCtaRecord": [
                 135
             ],
@@ -5093,6 +5197,61 @@ export default {
             ],
             "on_RecordInterface": [
                 105
+            ],
+            "__typename": [
+                129
+            ]
+        },
+        "TestimonialRecord": {
+            "_createdAt": [
+                19
+            ],
+            "_editingUrl": [
+                129
+            ],
+            "_firstPublishedAt": [
+                19
+            ],
+            "_isValid": [
+                4
+            ],
+            "_modelApiKey": [
+                129
+            ],
+            "_publicationScheduledAt": [
+                19
+            ],
+            "_publishedAt": [
+                19
+            ],
+            "_seoMetaTags": [
+                133,
+                {
+                    "locale": [
+                        126
+                    ]
+                }
+            ],
+            "_status": [
+                74
+            ],
+            "_unpublishingScheduledAt": [
+                19
+            ],
+            "_updatedAt": [
+                19
+            ],
+            "id": [
+                72
+            ],
+            "slug": [
+                129
+            ],
+            "testimonial": [
+                141
+            ],
+            "title": [
+                129
             ],
             "__typename": [
                 129
@@ -5144,7 +5303,7 @@ export default {
                 72
             ],
             "testimonials": [
-                139
+                142
             ],
             "__typename": [
                 129
@@ -5187,7 +5346,7 @@ export default {
                 128
             ],
             "_updatedAt": [
-                147
+                150
             ],
             "_isValid": [
                 3
@@ -5256,10 +5415,10 @@ export default {
                 132
             ],
             "OR": [
-                142
+                145
             ],
             "AND": [
-                142
+                145
             ],
             "__typename": [
                 129
@@ -5320,13 +5479,13 @@ export default {
                 19
             ],
             "about": [
-                141
+                144
             ],
             "audiences": [
                 78
             ],
             "coverMedia": [
-                172
+                175
             ],
             "faq": [
                 24
@@ -5350,7 +5509,7 @@ export default {
                 70
             ],
             "otherTutors": [
-                145
+                148
             ],
             "profilePicture": [
                 1
@@ -5389,7 +5548,7 @@ export default {
                 4
             ],
             "verifiedDescription": [
-                144
+                147
             ],
             "__typename": [
                 129
@@ -5397,16 +5556,16 @@ export default {
         },
         "TypeFilter": {
             "eq": [
-                168
+                171
             ],
             "neq": [
-                168
+                171
             ],
             "in": [
-                168
+                171
             ],
             "notIn": [
-                168
+                171
             ],
             "__typename": [
                 129
@@ -5559,7 +5718,7 @@ export default {
         },
         "UploadFilter": {
             "type": [
-                146
+                149
             ],
             "inUse": [
                 64
@@ -5568,70 +5727,70 @@ export default {
                 106
             ],
             "size": [
-                165
+                168
             ],
             "tags": [
-                166
+                169
             ],
             "smartTags": [
-                166
+                169
             ],
             "colors": [
-                151
+                154
             ],
             "orientation": [
                 94
             ],
             "id": [
-                159
-            ],
-            "mimeType": [
-                161
-            ],
-            "format": [
-                156
-            ],
-            "height": [
-                157
-            ],
-            "width": [
-                171
-            ],
-            "alt": [
-                148
-            ],
-            "title": [
-                167
-            ],
-            "notes": [
                 162
             ],
-            "md5": [
+            "mimeType": [
+                164
+            ],
+            "format": [
+                159
+            ],
+            "height": [
                 160
             ],
-            "author": [
-                149
+            "width": [
+                174
             ],
-            "copyright": [
+            "alt": [
+                151
+            ],
+            "title": [
+                170
+            ],
+            "notes": [
+                165
+            ],
+            "md5": [
+                163
+            ],
+            "author": [
                 152
             ],
+            "copyright": [
+                155
+            ],
             "basename": [
-                150
-            ],
-            "filename": [
-                154
-            ],
-            "_createdAt": [
                 153
             ],
+            "filename": [
+                157
+            ],
+            "_createdAt": [
+                156
+            ],
             "_updatedAt": [
-                169
+                172
             ],
             "OR": [
-                155
+                158
             ],
             "AND": [
-                155
+                158
             ],
             "__typename": [
                 129
@@ -5680,16 +5839,16 @@ export default {
         "UploadId": {},
         "UploadIdFilter": {
             "eq": [
-                158
+                161
             ],
             "neq": [
-                158
+                161
             ],
             "in": [
-                158
+                161
             ],
             "notIn": [
-                158
+                161
             ],
             "__typename": [
                 129
@@ -5893,10 +6052,10 @@ export default {
                 129,
                 {
                     "res": [
-                        174
+                        177
                     ],
                     "exactRes": [
-                        174
+                        177
                     ]
                 }
             ],
@@ -6038,7 +6197,7 @@ export default {
                 129
             ],
             "focalPoint": [
-                175,
+                178,
                 {
                     "locale": [
                         126
@@ -6056,7 +6215,7 @@ export default {
                 70
             ],
             "id": [
-                158
+                161
             ],
             "md5": [
                 129
@@ -6118,7 +6277,7 @@ export default {
                 }
             ],
             "video": [
-                170
+                173
             ],
             "width": [
                 70
@@ -6203,7 +6362,7 @@ export default {
                 129
             ],
             "focalPoint": [
-                175,
+                178,
                 {
                     "locale": [
                         126
@@ -6221,7 +6380,7 @@ export default {
                 70
             ],
             "id": [
-                158
+                161
             ],
             "md5": [
                 129
@@ -6283,7 +6442,7 @@ export default {
                 }
             ],
             "video": [
-                170
+                173
             ],
             "width": [
                 70

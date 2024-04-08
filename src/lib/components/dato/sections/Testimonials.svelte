@@ -10,12 +10,16 @@
 
 	export let record: TestimonialsSectionRecord;
 
-	$: testimonialsWithCta = record.testimonials.filter(
-		testimonial => testimonial.__typename === "TestimonialBlockCtaRecord"
-	) as TestimonialBlockCtaRecord[] | undefined;
-	$: defaultTestimonials = record.testimonials.filter(
-		testimonial => testimonial.__typename === "TestimonialBlockDefaultRecord"
-	) as TestimonialBlockDefaultRecord[] | undefined;
+	$: testimonialsWithCta = record.testimonials
+		.map(({ testimonial }) => testimonial)
+		.filter(testimonial => testimonial.__typename === "TestimonialBlockCtaRecord") as
+		| TestimonialBlockCtaRecord[]
+		| undefined;
+	$: defaultTestimonials = record.testimonials
+		.map(({ testimonial }) => testimonial)
+		.filter(testimonial => testimonial.__typename === "TestimonialBlockDefaultRecord") as
+		| TestimonialBlockDefaultRecord[]
+		| undefined;
 </script>
 
 <section class="py-20 space-y-12 container-base">
