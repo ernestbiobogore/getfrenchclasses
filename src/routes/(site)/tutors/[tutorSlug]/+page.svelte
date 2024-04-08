@@ -35,7 +35,7 @@
 			</div>
 
 			{#if data.tutor.verified}
-				<div class="p-4 bg-indigo-600 rounded-xl">
+				<div class="p-4 bg-brand-primary rounded-xl">
 					<div class="gap-2 mb-2 text-2xl flex-s-start">
 						<SharpVerifired class="text-white" />
 						<span class="font-bold text-white">Verified</span>
@@ -107,7 +107,7 @@
 </section>
 
 {#if data.tutor.otherTutors && data.tutor.otherTutors.length > 0}
-	<section class="space-y-4 container-base">
+	<section class="py-20 space-y-4 container-base">
 		<h2>Other tutors</h2>
 
 		<div class="grid gap-5 sm:grid-cols-2 md:grid-cols-3 lg:gap-8 lg:grid-cols-4">
