@@ -21,8 +21,8 @@ export async function getResourcePage(slug: string) {
 				value: true,
 			},
 			cta: {
-				text: true,
-				link: true,
+				title: true,
+				convertboxId: true,
 			},
 			contentHeading: true,
 			contentItems: {

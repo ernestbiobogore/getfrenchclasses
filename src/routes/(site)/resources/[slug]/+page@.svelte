@@ -33,7 +33,9 @@
 			<p class="max-w-[64ch]">
 				<StructuredText richText={data.resource?.summary} />
 			</p>
-			<Button href={data.resource?.cta?.link}>{data.resource?.cta?.text}</Button>
+			<Button href={data.resource?.cta?.convertboxId}
+				>{data.resource?.cta?.title || "Download Now"}</Button
+			>
 		</div>
 		<div class="h-96 bg-gray-100 md:flex-[0.5]">
 			{#if data.resource?.featuredImage?.responsiveImage}
