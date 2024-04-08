@@ -33,9 +33,7 @@
 		type SelectChangeHandler,
 	} from "$lib/components/CustomMultiselect.svelte";
 	import TestimonialCardList from "$lib/components/TestimonialCardList.svelte";
-	import TestimonialCta, {
-		dummyTestimonialCta,
-	} from "$lib/components/cta-section/TestimonialCta.svelte";
+	import CtaTestimonial from "$lib/components/dato/blocks/CtaTestimonial.svelte";
 	import FAQItems from "$lib/components/dato/blocks/FAQItems.svelte";
 	import Heading from "$lib/components/dato/blocks/Heading.svelte";
 	import { Button } from "$shadcn/button";
@@ -178,4 +176,8 @@
 	<FAQItems items={data.homeFaq} />
 </section>
 
-<TestimonialCta {...dummyTestimonialCta} />
+{#if data.testimonial}
+	<section class="py-20">
+		<CtaTestimonial testimonial={data.testimonial} />
+	</section>
+{/if}
