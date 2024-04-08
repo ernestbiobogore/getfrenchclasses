@@ -114,6 +114,7 @@ const tutorMetaFields = {
 		responsiveImage: responsiveImageFieldSelection,
 	},
 	coverMedia: {
+		responsiveImage: responsiveImageFieldSelection,
 		video: {
 			muxPlaybackId: true,
 			title: true,

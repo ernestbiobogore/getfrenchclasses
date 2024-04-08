@@ -14,7 +14,7 @@
 	import StarFillIcon from "~icons/solar/star-bold";
 
 	import StructuredText from "$lib/components/dato/StructuredText/index.svelte";
-	import { type VideoFileField } from "$lib/graphql/generated/schema";
+	import { type AltFileField } from "$lib/graphql/generated/schema";
 	import { Button } from "$shadcn/button";
 	import { type FormattedSingleTutor, type FormattedTutorMeta } from "./types";
 	import { DEFAULT_VERIFIED_DESCRIPTION, deSlugify } from "./utils.client";
@@ -29,18 +29,32 @@
 			.join("");
 	};
 
-	$: coverMedia = "coverMedia" in tutor ? (tutor.coverMedia as VideoFileField) : undefined;
+	$: coverMedia = "coverMedia" in tutor ? (tutor.coverMedia as AltFileField) : undefined;
+	$: console.log(coverMedia);
 </script>
 
-<Card.Root class="bg-white shadow-lg rounded-lg overflow-hidden cursor-pointer">
+<Card.Root class="overflow-hidden bg-white rounded-lg shadow-lg cursor-pointer">
 	{#if coverMedia}
-		<video class="w-full h-20" src={coverMedia.video.mp4Url} controls>
-			<track kind="captions" />
-		</video>
+		{#if coverMedia.video}
+			<video class="w-full h-20" src={coverMedia.video.mp4Url} controls>
+				<track kind="captions" />
+			</video>
+		{/if}
+
+		{#if coverMedia.responsiveImage}
+			<img
+				alt={coverMedia.responsiveImage.alt}
+				class="object-fill w-full h-20"
+				height="100"
+				src={coverMedia.responsiveImage.src}
+				style="aspect-ratio: 1 / 1; object-fit: cover;"
+				width="350"
+			/>
+		{/if}
 	{:else}
 		<img
 			alt="Banner"
-			class="w-full h-20 object-fill"
+			class="object-fill w-full h-20"
 			height="100"
 			src="/placeholder.svg"
 			style="aspect-ratio: 1 / 1; object-fit: cover;"
@@ -50,15 +64,15 @@
 
 	<a href="/tutors/{tutor.slug}">
 		<Card.Content class="p-4">
-			<div class="flex items-center space-x-3 mb-6">
-				<Avatar.Root class="w-14 h-14 border-4 border-white">
+			<div class="flex items-center mb-6 space-x-3">
+				<Avatar.Root class="border-4 border-white w-14 h-14">
 					<Avatar.Image alt={tutor.name} src={tutor.profilePicture?.responsiveImage?.src} />
 					<Avatar.Fallback>{getInitials(tutor.name)}</Avatar.Fallback>
 				</Avatar.Root>
 
 				<div>
 					<div class="flex-s-start">
-						<div class="font-semibold text-lg text-gray-900">{tutor.name}</div>
+						<div class="text-lg font-semibold text-gray-900">{tutor.name}</div>
 
 						{#if "verified" in tutor && tutor.verified}
 							<Tooltip.Root openDelay={100}>
@@ -103,21 +117,21 @@
 				</Dialog.Root>
 			{/if}
 
-			<p class="text-lg font-medium mb-6 text-gray-900">{tutor.summary}</p>
+			<p class="mb-6 text-lg font-medium text-gray-900">{tutor.summary}</p>
 
-			<div class="flex items-center space-x-2 text-sm text-gray-600 mb-6">
+			<div class="flex items-center mb-6 space-x-2 text-sm text-gray-600">
 				<UserIcon class="w-5 h-5" />
 				<span>{tutor.audiences.map(audience => deSlugify(audience)).join(", ")}</span>
 			</div>
 
-			<div class="flex items-center space-x-2 text-sm text-gray-600 mb-6">
+			<div class="flex items-center mb-6 space-x-2 text-sm text-gray-600">
 				<LayersIcon class="w-5 h-5" />
 				<span>
 					{tutor.levels.map(level => deSlugify(level)).join(", ")}
 				</span>
 			</div>
 
-			<div class="flex items-center space-x-2 text-sm text-gray-600 mb-6">
+			<div class="flex items-center mb-6 space-x-2 text-sm text-gray-600">
 				<LocateIcon class="w-5 h-5" />
 				<span>
 					{tutor.location}
@@ -127,7 +141,7 @@
 
 			<div class="flex items-center justify-between">
 				<div class="text-xl font-semibold text-blue-600">${tutor.rate}/hr</div>
-				<div class="flex-s-center gap-2 text-lg text-gray-600">
+				<div class="gap-2 text-lg text-gray-600 flex-s-center">
 					<PhoneIcon />
 					<VideoIcon />
 					<MessageCircleIcon />
