@@ -32,10 +32,7 @@
 	import CustomMultiselect, {
 		type SelectChangeHandler,
 	} from "$lib/components/CustomMultiselect.svelte";
-	import TestimonialCardList from "$lib/components/TestimonialCardList.svelte";
-	import CtaTestimonial from "$lib/components/dato/blocks/CtaTestimonial.svelte";
-	import FAQItems from "$lib/components/dato/blocks/FAQItems.svelte";
-	import Heading from "$lib/components/dato/blocks/Heading.svelte";
+	import ModularPage from "$lib/components/dato/sections/ModularPage.svelte";
 	import { Button } from "$shadcn/button";
 	import * as Card from "$shadcn/card";
 	import type { Selected } from "bits-ui";
@@ -158,26 +155,6 @@
 	</div>
 </section>
 
-<section class="py-20 container-base">
-	<h2 class="text-center">What people say</h2>
-	<p class="text-center mx-auto max-w-[46ch] md:max-w-[64ch]">
-		Lorem ipsum, dolor sit amet consectetur adipisicing elit. Inventore rerum sapiente nulla quasi
-		assumenda.
-	</p>
-	<br />
-	<div>
-		<TestimonialCardList />
-	</div>
-</section>
-
-<!-- FAQ -->
-<section class="py-20 space-y-12 container-base">
-	<Heading defaultHeading="Frequently Asked Questions" useDefaultHeading />
-	<FAQItems items={data.homeFaq} />
-</section>
-
-{#if data.testimonial}
-	<section class="py-20">
-		<CtaTestimonial testimonial={data.testimonial} />
-	</section>
+{#if data.modularPage}
+	<ModularPage modularPage={data.modularPage} />
 {/if}
