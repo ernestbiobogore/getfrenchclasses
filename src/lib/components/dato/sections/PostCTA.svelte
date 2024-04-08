@@ -12,7 +12,7 @@
 
 {#if postCta}
 	<div
-		class="rounded-lg border-savoy-blue border-2 bg-white p-6 shadow-lg max-w-[400px] mx-auto flex flex-col gap-4"
+		class="rounded-lg border-brand-primary border-2 bg-white p-6 shadow-lg max-w-[400px] mx-auto flex flex-col gap-4"
 	>
 		<div class="flex gap-2">
 			<img src="/get-french-classes-logo.png" alt="Get French Classes" class="w-5 h-5" />
@@ -39,7 +39,7 @@
 		{/if}
 
 		{#if postCta.cta}
-			<Button href={postCta.cta.link} class="w-full text-white bg-savoy-blue">
+			<Button href={postCta.cta.link} class="w-full text-white bg-brand-primary">
 				{postCta.cta.text}
 			</Button>
 		{/if}
