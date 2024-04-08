@@ -59,7 +59,7 @@ export default {
         167,
         168,
         172,
-        178
+        177
     ],
     "types": {
         "ActionBlockRecord": {
@@ -190,7 +190,7 @@ export default {
                 130
             ],
             "focalPoint": [
-                179,
+                178,
                 {
                     "locale": [
                         127
@@ -1147,7 +1147,7 @@ export default {
                 130
             ],
             "focalPoint": [
-                179,
+                178,
                 {
                     "locale": [
                         127
@@ -1312,7 +1312,7 @@ export default {
                 130
             ],
             "focalPoint": [
-                179,
+                178,
                 {
                     "locale": [
                         127
@@ -1403,11 +1403,8 @@ export default {
             "on_FileField": [
                 28
             ],
-            "on_VideoAltFileField": [
-                176
-            ],
             "on_VideoFileField": [
-                177
+                176
             ],
             "__typename": [
                 130
@@ -1679,7 +1676,7 @@ export default {
                 130
             ],
             "video": [
-                177
+                176
             ],
             "videoText": [
                 130
@@ -5546,7 +5543,7 @@ export default {
                 79
             ],
             "coverMedia": [
-                176
+                1
             ],
             "faq": [
                 25
@@ -6113,10 +6110,10 @@ export default {
                 130,
                 {
                     "res": [
-                        178
+                        177
                     ],
                     "exactRes": [
-                        178
+                        177
                     ]
                 }
             ],
@@ -6176,171 +6173,6 @@ export default {
                 71
             ],
             "neq": [
-                71
-            ],
-            "__typename": [
-                130
-            ]
-        },
-        "VideoAltFileField": {
-            "_createdAt": [
-                20
-            ],
-            "_editingUrl": [
-                130
-            ],
-            "_updatedAt": [
-                20
-            ],
-            "alt": [
-                130,
-                {
-                    "locale": [
-                        127
-                    ],
-                    "fallbackLocales": [
-                        127,
-                        "[SiteLocale!]"
-                    ]
-                }
-            ],
-            "author": [
-                130
-            ],
-            "basename": [
-                130
-            ],
-            "blurUpThumb": [
-                130,
-                {
-                    "punch": [
-                        31,
-                        "Float!"
-                    ],
-                    "size": [
-                        70,
-                        "Int!"
-                    ],
-                    "quality": [
-                        70,
-                        "Int!"
-                    ],
-                    "imgixParams": [
-                        41
-                    ]
-                }
-            ],
-            "blurhash": [
-                130
-            ],
-            "colors": [
-                13
-            ],
-            "copyright": [
-                130
-            ],
-            "customData": [
-                19,
-                {
-                    "locale": [
-                        127
-                    ],
-                    "fallbackLocales": [
-                        127,
-                        "[SiteLocale!]"
-                    ]
-                }
-            ],
-            "exifInfo": [
-                19
-            ],
-            "filename": [
-                130
-            ],
-            "focalPoint": [
-                179,
-                {
-                    "locale": [
-                        127
-                    ],
-                    "fallbackLocales": [
-                        127,
-                        "[SiteLocale!]"
-                    ]
-                }
-            ],
-            "format": [
-                130
-            ],
-            "height": [
-                71
-            ],
-            "id": [
-                162
-            ],
-            "md5": [
-                130
-            ],
-            "mimeType": [
-                130
-            ],
-            "notes": [
-                130
-            ],
-            "responsiveImage": [
-                117,
-                {
-                    "imgixParams": [
-                        41
-                    ],
-                    "sizes": [
-                        130
-                    ],
-                    "locale": [
-                        127
-                    ],
-                    "fallbackLocales": [
-                        127,
-                        "[SiteLocale!]"
-                    ]
-                }
-            ],
-            "size": [
-                71
-            ],
-            "smartTags": [
-                130
-            ],
-            "tags": [
-                130
-            ],
-            "thumbhash": [
-                130
-            ],
-            "title": [
-                130,
-                {
-                    "locale": [
-                        127
-                    ],
-                    "fallbackLocales": [
-                        127,
-                        "[SiteLocale!]"
-                    ]
-                }
-            ],
-            "url": [
-                130,
-                {
-                    "imgixParams": [
-                        41
-                    ]
-                }
-            ],
-            "video": [
-                174
-            ],
-            "width": [
                 71
             ],
             "__typename": [
@@ -6423,7 +6255,7 @@ export default {
                 130
             ],
             "focalPoint": [
-                179,
+                178,
                 {
                     "locale": [
                         127
