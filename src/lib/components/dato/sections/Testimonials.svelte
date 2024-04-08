@@ -5,10 +5,14 @@
 		TestimonialBlockDefaultRecord,
 		TestimonialsSectionRecord,
 	} from "$lib/graphql/generated";
+	import { cn } from "$lib/utils";
 	import CtaTestimonial from "../blocks/CtaTestimonial.svelte";
 	import DefaultTestimonial from "../blocks/DefaultTestimonial.svelte";
 
 	export let record: TestimonialsSectionRecord;
+	export { className as class };
+
+	let className: string | undefined = "";
 
 	$: testimonialsWithCta = record.testimonials
 		.map(({ testimonial }) => testimonial)
@@ -22,7 +26,7 @@
 		| undefined;
 </script>
 
-<section class="py-20 space-y-12 container-base">
+<section class={cn("py-20 space-y-12 container-base", className)}>
 	{#if record.heading}
 		<Heading heading={record.heading} />
 	{/if}
