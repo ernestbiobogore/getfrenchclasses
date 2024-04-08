@@ -11,7 +11,6 @@
 	import { DEFAULT_VERIFIED_DESCRIPTION, deSlugify } from "../utils.client";
 
 	export let data;
-	console.log(data.tutor.reviews);
 </script>
 
 <svelte:head>
