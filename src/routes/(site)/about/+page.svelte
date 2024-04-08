@@ -1,13 +1,13 @@
 <script>
-	import * as Card from "$shadcn/card";
 	import TestimonialCta, {
 		dummyTestimonialCta,
 	} from "$lib/components/cta-section/TestimonialCta.svelte";
+	import * as Card from "$shadcn/card";
 
-	import HelpingHand from "~icons/lucide/helping-hand";
-	import Globe2 from "~icons/lucide/globe-2";
-	import Lightbulb from "~icons/lucide/lightbulb";
 	import File from "~icons/lucide/file";
+	import Globe2 from "~icons/lucide/globe-2";
+	import HelpingHand from "~icons/lucide/helping-hand";
+	import Lightbulb from "~icons/lucide/lightbulb";
 
 	import SupportImage from "$lib/images/supportImage.png";
 	import Teacher1 from "$lib/images/teacher1.png";
@@ -69,7 +69,7 @@
 
 	<div class="py-12 flex flex-col gap-7 md:w-1/2">
 		<div class="flex flex-col gap-4">
-			<HelpingHand color="#5e62d1" />
+			<HelpingHand class="text-brand-primary" />
 			<p>
 				<span>We empower individuals </span> to make informed financial decisions and take control of
 				their financial well-being.
@@ -77,7 +77,7 @@
 		</div>
 
 		<div class="flex flex-col gap-4">
-			<Globe2 color="#5e62d1" />
+			<Globe2 class="text-brand-primary" />
 			<p>
 				We strive to make financial education <span>accessible to everyone</span> , regardless of their
 				background, location or knowledge.
@@ -85,7 +85,7 @@
 		</div>
 
 		<div class="flex flex-col gap-4">
-			<Lightbulb color="#5e62d1" />
+			<Lightbulb class="text-brand-primary" />
 			<p>
 				We are committed to providing <span>high-quality courses</span> taught by experienced instructors
 				and industry experts.
@@ -93,7 +93,7 @@
 		</div>
 
 		<div class="flex flex-col gap-4">
-			<File color="#5e62d1" />
+			<File class="text-brand-primary" />
 			<p>
 				We uphold the <span>highest standards of integrity and ethics </span> in all our interactions
 				and course content.

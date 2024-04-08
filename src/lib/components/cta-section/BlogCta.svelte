@@ -29,7 +29,7 @@
 
 	<!-- RIGHT HAND -->
 	<div class="flex-1 py-8 px-4">
-		<div class="text-[#5E62D0] text-center max-w-[380px] mx-auto flex flex-col items-center gap-6">
+		<div class="text-center max-w-[380px] mx-auto flex flex-col items-center gap-6 text-brand-primary">
 			<div class="font-bold text-lg lg:text-xl">
 				{props.heading}
 			</div>
@@ -39,7 +39,7 @@
 			</p>
 
 			<div>
-				<button class="bg-savoy-blue text-center px-8 py-2 mx-auto rounded-lg" on:click={ctaAction}>
+				<button class="bg-brand-primarytext-center px-8 py-2 mx-auto rounded-lg" on:click={ctaAction}>
 					<p class="text-white tracking-tight font-bold leading-tight max-w-[17ch]">
 						{props.buttonText}
 					</p>
