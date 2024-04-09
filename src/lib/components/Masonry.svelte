@@ -2,7 +2,8 @@
 	import { onMount, onDestroy, getContext, setContext, tick } from "svelte";
 	export let stretchFirst = false,
 		gridGap = "0.5em",
-		colWidth = "minmax(Min(20em, 100%), 1fr)",
+		// colWidth = "minmax(Min(20em, 100%), 1fr)", // default
+		colWidth = "minmax(Min(20em, 100%), 350px)",
 		items = []; // pass in data if it's dynamically updated
 	let grids = [],
 		masonryElement;

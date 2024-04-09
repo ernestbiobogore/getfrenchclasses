@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Masonry from "$lib/components/Masonry.svelte";
 	import Heading from "$lib/components/dato/blocks/Heading.svelte";
 	import type {
 		TestimonialBlockCtaRecord,
@@ -38,10 +39,10 @@
 	{/if}
 
 	{#if defaultTestimonials && defaultTestimonials.length > 0}
-		<div class="grid gap-8 py-20 md:grid-cols-3">
+		<Masonry gridGap="50px">
 			{#each defaultTestimonials as testimonial (testimonial.id)}
 				<DefaultTestimonial {testimonial} />
 			{/each}
-		</div>
+		</Masonry>
 	{/if}
 </section>

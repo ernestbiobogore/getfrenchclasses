@@ -8,7 +8,7 @@
 	export let testimonial: TestimonialBlockDefaultRecord;
 </script>
 
-<Card.Root class="single-testimonial">
+<Card.Root class="single-testimonial" style="--rotation:{testimonial.rotation};">
 	<div class="gap-2 flex-s-start">
 		<div class="bg-red-600 rounded-full">
 			{#if testimonial.picture?.responsiveImage}
