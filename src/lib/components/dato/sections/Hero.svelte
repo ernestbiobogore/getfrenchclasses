@@ -9,6 +9,9 @@
 	export let record: HeroSectionRecord;
 </script>
 
+<!-- 
+	TODO: FIGURE OUT IMAGES AND IMAGE CALLOUTS
+ -->
 <section class="p-3 py-20 container-base">
 	<div class="w-full mx-auto space-y-6 md:max-w-3xl">
 		{#if record.heading}
@@ -16,7 +19,9 @@
 		{/if}
 
 		{#if record.cta}
-			<Button size="lg" href={record.cta.link} class="w-full">{record.cta.text}</Button>
+			<div class="flex-s-center">
+				<Button size="lg" href={record.cta.link} class="mx-auto">{record.cta.text}</Button>
+			</div>
 		{/if}
 
 		{#if record.testimonialPictures && record.testimonialPictures.length > 0}
@@ -34,8 +39,8 @@
 </section>
 
 {#if record.video}
-	<section class="container-sm max-w-3xl pb-20">
-		<div class="relative md:max-w-lg lg:max-w-xl">
+	<section class="container-sm max-w-3xl py-20">
+		<div class="relative md:max-w-lg md:mx-auto lg:max-w-xl">
 			<VideoPlayer
 				data={record.video.video}
 				class="p-[0.375rem] bg-white shadow-2xl rounded-xl relative md:max-w-lg lg:max-w-xl"
@@ -44,13 +49,13 @@
 			<div
 				class="max-md:hidden absolute left-full top-[10%] -translate-y-[45%] h-[100px] w-[400px] flex items-center"
 			>
-				<div>
+				<div class="space-y-4">
 					<h3
-						class="absolute text-center translate-x-[10px] -translate-y-[30px] max-w-[16ch] text-2xl italic"
+						class="absolute text-center translate-x-[-100px] -translate-y-[50px] max-w-[16ch] text-2xl italic"
 					>
 						{record.videoText}
 					</h3>
-					<PhArrowBendDownLeftFill class="text-[100px] text-[#3EAED0] rotate-[20deg]" />
+					<PhArrowBendDownLeftFill class="text-[100px] text-[#3EAED0] rotate-[-20deg]" />
 				</div>
 			</div>
 		</div>

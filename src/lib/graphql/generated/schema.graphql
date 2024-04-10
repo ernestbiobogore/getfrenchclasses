@@ -931,6 +931,7 @@ type HeadingBlockNewRecord implements RecordInterface {
   _unpublishingScheduledAt: DateTime
   _updatedAt: DateTime!
   heading: String
+  highlightedWords: String
   id: ItemId!
   subheading: HeadingBlockNewModelSubheadingField
 }

@@ -403,6 +403,7 @@ export interface HeadingBlockNewRecord {
     _unpublishingScheduledAt: (Scalars['DateTime'] | null)
     _updatedAt: Scalars['DateTime']
     heading: (Scalars['String'] | null)
+    highlightedWords: (Scalars['String'] | null)
     id: Scalars['ItemId']
     subheading: (HeadingBlockNewModelSubheadingField | null)
     __typename: 'HeadingBlockNewRecord'
@@ -1982,6 +1983,7 @@ export interface HeadingBlockNewRecordGenqlSelection{
     _unpublishingScheduledAt?: boolean | number
     _updatedAt?: boolean | number
     heading?: boolean | number
+    highlightedWords?: boolean | number
     id?: boolean | number
     subheading?: HeadingBlockNewModelSubheadingFieldGenqlSelection
     __typename?: boolean | number

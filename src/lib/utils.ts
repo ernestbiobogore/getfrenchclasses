@@ -22,6 +22,34 @@ import type { PostShareOptions, SomeKeys } from "./types";
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const f = <T, _U>(x: T) => x as SomeKeys<T>;
 
+/**
+ * Applies span tags to specified words and phrases in a given string.
+ * @param str - The input string to be spanified.
+ * @param options - An object containing the words and phrases to be spanified.
+ * @param options.words - An array of words to be spanified.
+ * @param options.phrases - An array of phrases to be spanified.
+ * @param className - The CSS class name to be applied to the span tags.
+ * @returns The input string with span tags applied to the specified words and phrases.
+ */
+export function spanify(
+	str: string | null,
+	{ words = [], phrases = [] }: { words?: string[]; phrases?: string[] },
+	className = ""
+) {
+	if (!str) return str;
+	let regex = "";
+	if (words.length) {
+		regex += `\\b(${words.join("|")})\\b`;
+	}
+	if (phrases.length) {
+		regex +=
+			(regex ? "|" : "") +
+			`(${phrases.map(phrase => phrase.replace(/[-/\\^$*+?.()|[\]{}]/g, "\\$&")).join("|")})`;
+	}
+	if (!regex) return str;
+	return str.replace(new RegExp(regex, "gi"), `<span class="${className}">$&</span>`);
+}
+
 const getSampleAvatars = (n = 3) => {
 	return Array.from({ length: n }, () => {
 		const i = Math.floor(Math.random() * 100);

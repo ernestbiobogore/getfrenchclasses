@@ -4,7 +4,7 @@
 		HeadingBlockNewModelSubheadingField,
 		HeadingBlockNewRecord,
 	} from "$lib/graphql/generated";
-	import { cn } from "$lib/utils";
+	import { cn, spanify } from "$lib/utils";
 
 	let className: string | undefined | null = undefined;
 
@@ -29,7 +29,11 @@
 		>
 	{:else if heading}
 		<svelte:element this={titleTag} class={cn("text-center", className)}
-			>{heading.heading}</svelte:element
+			>{@html spanify(
+				heading.heading,
+				{ words: heading.highlightedWords?.split(", ") },
+				"img-underline"
+			)}</svelte:element
 		>
 	{/if}
 
@@ -40,3 +44,13 @@
 		/>
 	{/if}
 </div>
+
+<style>
+	:global(.img-underline) {
+		/* text-decoration: underline; */
+		background-image: url("/span-underline.svg");
+		background-position: 50% 100%;
+		background-repeat: no-repeat;
+		background-size: auto;
+	}
+</style>
