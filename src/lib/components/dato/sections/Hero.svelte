@@ -1,8 +1,8 @@
 <script lang="ts">
 	import Heading from "$dato/blocks/Heading.svelte";
 	import AvatarsGroup from "$lib/components/AvatarsGroup.svelte";
-	import { Button } from "$lib/components/shadcn/ui/button";
 	import type { HeroSectionRecord } from "$lib/graphql/generated";
+	import { Button } from "$shadcn/button";
 	import { VideoPlayer } from "@datocms/svelte";
 	import PhArrowBendDownLeftFill from "~icons/ph/arrow-bend-down-left-fill";
 

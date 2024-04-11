@@ -1,8 +1,8 @@
 <script lang="ts">
+	import { cn } from "$lib/utils.js";
+	import { Button } from "$shadcn/button/index.js";
 	import { Pagination as PaginationPrimitive } from "bits-ui";
 	import ChevronLeft from "~icons/lucide/chevron-left";
-	import { Button } from "$lib/components/shadcn/ui/button/index.js";
-	import { cn } from "$lib/utils.js";
 
 	type $$Props = PaginationPrimitive.PrevButtonProps;
 	type $$Events = PaginationPrimitive.PrevButtonEvents;

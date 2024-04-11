@@ -1,7 +1,7 @@
 <script lang="ts">
 	import StructuredText from "$dato/StructuredText/index.svelte";
-	import * as Card from "$lib/components/shadcn/ui/card";
 	import type { TestimonialBlockDefaultRecord } from "$lib/graphql/generated";
+	import * as Card from "$shadcn/card";
 	import { Image } from "@datocms/svelte";
 	import "./styles/testimonial.css";
 

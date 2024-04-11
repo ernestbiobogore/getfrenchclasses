@@ -2,9 +2,9 @@
 	import StructuredText from "$dato/StructuredText/index.svelte";
 	import CardMedia from "$dato/blocks/CardMedia.svelte";
 	import Heading from "$dato/blocks/Heading.svelte";
-	import * as Card from "$lib/components/shadcn/ui/card";
 	import type { CardsSectionRecord } from "$lib/graphql/generated";
 	import { cn } from "$lib/utils";
+	import * as Card from "$shadcn/card";
 	import { Image } from "@datocms/svelte";
 
 	export let record: CardsSectionRecord;

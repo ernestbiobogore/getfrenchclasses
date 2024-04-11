@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { page } from "$app/stores";
-	import { Badge } from "$lib/components/shadcn/ui/badge";
+	import { Badge } from "$shadcn/badge";
 	import { Button } from "$shadcn/button";
 	import { Input } from "$shadcn/input";
 	import { Label } from "bits-ui";
