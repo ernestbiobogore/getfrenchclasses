@@ -5130,6 +5130,9 @@ export default {
             "role": [
                 130
             ],
+            "rotation": [
+                130
+            ],
             "__typename": [
                 130
             ]

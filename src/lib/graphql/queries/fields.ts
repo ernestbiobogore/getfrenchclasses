@@ -169,6 +169,7 @@ const defaultTestimonialFieldsSelection = {
 	author: true,
 	role: true,
 	company: true,
+	rotation: true,
 	picture: {
 		responsiveImage: responsiveImageFieldSelection,
 	},
@@ -206,6 +207,5 @@ export {
 	postCategoryBlockFields,
 	responsiveImageFieldSelection,
 	seoFieldsSelection,
-	tutorMetaFields
+	tutorMetaFields,
 };
-
