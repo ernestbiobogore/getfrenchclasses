@@ -1,13 +1,10 @@
 <script lang="ts">
 	import BlogCta, { type CTAProps } from "$lib/components/cta-section/BlogCta.svelte";
 	import StructuredText from "$lib/components/dato/StructuredText/index.svelte";
-	import { generateShareOptions, getSampleAvatars, getShareLinks } from "$lib/utils";
-
 	import PostCTA from "$lib/components/dato/sections/PostCTA.svelte";
-	import Fa6BrandsXTwitter from "~icons/fa6-brands/x-twitter";
-	import LucideFacebook from "~icons/lucide/facebook";
-	import LucideLinkedin from "~icons/lucide/linkedin";
-	import PhRedditLogoBold from "~icons/ph/reddit-logo-bold";
+	import SocialShare from "$lib/components/dato/sections/SocialShare.svelte";
+	import { formatDate, generateShareOptions, getSampleAvatars } from "$lib/utils";
+	import { NakedImage } from "@datocms/svelte";
 
 	export let data;
 
@@ -16,9 +13,6 @@
 		title: data.post?.seo?.title || "",
 		description: data.post?.seo?.description || "",
 	});
-
-	$: ({ twitterShareUrl, facebookShareUrl, linkedInShareUrl, redditShareUrl } =
-		getShareLinks(shareOptions));
 
 	const dummyCTAProps: CTAProps = {
 		video:
@@ -40,41 +34,36 @@
 </svelte:head>
 
 {#if data.post}
-	<header class="max-[300px]:py-16 container-base">
+	<header class="container-base py-4 sm:py-8 space-y-4">
 		<h1>{data.post?.title}</h1>
 
-		<!-- SOCIAL SHARE BUTTONS -->
-		<div class="text-sm flex flex-wrap gap-2 items-center my-4 [&>*]:shrink-none [&>*]:h-[30px]">
-			<a
-				href={twitterShareUrl}
-				class="gap-1 px-2 border border-gray-400 rounded-lg inline-flex-s-center"
-			>
-				<Fa6BrandsXTwitter />
-				<span>Share on Twitter</span>
-			</a>
-			<a
-				href={facebookShareUrl}
-				class="gap-1 px-1 border border-gray-400 rounded-lg inline-flex-s-center"
-			>
-				<LucideFacebook class="text-lg" />
-				<span>Share on Facebook</span>
-			</a>
-			<a
-				href={linkedInShareUrl}
-				class="gap-1 px-2 border border-gray-400 rounded-lg inline-flex-s-center"
-			>
-				<LucideLinkedin class="text-lg" />
-				<span>Share on LinkedIn</span>
-			</a>
-			<a
-				href={redditShareUrl}
-				class="gap-1 px-2 border border-gray-400 rounded-lg inline-flex-s-center"
-			>
-				<PhRedditLogoBold class="text-lg" />
-				<span>Share on Reddit</span>
-			</a>
+		<div>
+			{#if data.post.author}
+				<p>By <span class="font-medium">{data.post.author.name}</span></p>
+
+				{#if data.post.reviewer}
+					<p>
+						Proofread and fact-checked by <span class="font-medium">{data.post.reviewer.name}</span>
+					</p>
+				{/if}
+			{/if}
+
+			<p>
+				Last updated <time datetime={formatDate(data.post._updatedAt)} class="font-medium"
+					>{formatDate(data.post._updatedAt)}</time
+				>
+			</p>
 		</div>
+
+		<!-- SOCIAL SHARE BUTTONS -->
+		<SocialShare {shareOptions} />
 	</header>
+
+	{#if data.post.seo?.image?.responsiveImage}
+		<div class="container-base py-4">
+			<NakedImage data={data.post.seo.image.responsiveImage} class="!w-full" />
+		</div>
+	{/if}
 
 	<article class="flex flex-col gap-6 mt-8 lg:flex-row container-base">
 		<main class="space-y-8 basis-9/12">

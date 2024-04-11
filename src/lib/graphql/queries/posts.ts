@@ -99,6 +99,14 @@ const getSingleBlogPost = async (slug: string) => {
 			_firstPublishedAt: true,
 			_updatedAt: true,
 
+			// Authors
+			author: {
+				name: true,
+			},
+			reviewer: {
+				name: true,
+			},
+
 			// CTA
 			postCta: {
 				title: true,

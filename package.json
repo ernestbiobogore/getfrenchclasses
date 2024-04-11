@@ -40,7 +40,7 @@
 		"vite": "^5.0.0"
 	},
 	"dependencies": {
-		"@datocms/svelte": "^1.4.1",
+		"@datocms/svelte": "^2.0.1",
 		"@fontsource-variable/inter": "^5.0.16",
 		"@genql/runtime": "^2.10.0",
 		"@mux/mux-player": "^2.3.3",
