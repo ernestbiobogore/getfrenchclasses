@@ -1,8 +1,7 @@
 <script lang="ts">
 	import Block from "$lib/components/dato/StructuredText/Block.svelte";
 	import type {
-		RichTextBlockModelRichTextBlocksField,
-		RichTextBlockModelRichTextLinksField,
+		RichTextBlockModelRichTextBlocksField
 	} from "$lib/graphql/generated";
 	import { cn } from "$lib/utils";
 	import {
@@ -10,40 +9,35 @@
 		isBlockquote,
 		isCode,
 		isHeading,
-		isInlineItem,
 		isLink,
 		isList,
 		isListItem,
 		isParagraph,
 		isRoot,
 		isSpan,
-		type Node,
+		type Node
 	} from "datocms-structured-text-utils";
 	import { getContext } from "svelte";
-	import Link from "./Link.svelte";
 	import type { ElementsClasses } from "./types";
 
 	export let node: Node;
 	export let blocks: RichTextBlockModelRichTextBlocksField[] | undefined;
-	export let links: RichTextBlockModelRichTextLinksField[] | undefined;
 
 	$: block = isBlock(node) && (blocks || []).find(({ id }) => isBlock(node) && id === node.item);
-	$: link =
-		isInlineItem(node) && (links || []).find(({ id }) => isInlineItem(node) && id === node.item);
 
 	const elementClasses = getContext<ElementsClasses | undefined>("elementClasses");
 </script>
 
 {#if isRoot(node)}
 	{#each node.children as child}
-		<svelte:self node={child} {blocks} {links} />
+		<svelte:self node={child} {blocks} />
 	{/each}
 {/if}
 
 {#if isParagraph(node)}
 	<p class={cn(elementClasses?.p)}>
 		{#each node.children as child}
-			<svelte:self node={child} {blocks} {links} />
+			<svelte:self node={child} {blocks} />
 		{/each}
 	</p>
 {/if}
@@ -55,7 +49,7 @@
 		rel={node.meta?.find(m => m.id === "rel")?.value}
 	>
 		{#each node.children as child}
-			<svelte:self node={child} {blocks} {links} />
+			<svelte:self node={child} {blocks} />
 		{/each}
 	</a>
 {/if}
@@ -66,7 +60,7 @@
 			{#each node.children as child}
 				<li>
 					{#each child.children as grandchild}
-						<svelte:self node={grandchild} {blocks} {links} />
+						<svelte:self node={grandchild} {blocks} />
 					{/each}
 				</li>
 			{/each}
@@ -78,7 +72,7 @@
 			{#each node.children as child}
 				<li>
 					{#each child.children as grandchild}
-						<svelte:self node={grandchild} {blocks} {links} />
+						<svelte:self node={grandchild} {blocks} />
 					{/each}
 				</li>
 			{/each}
@@ -89,7 +83,7 @@
 {#if isListItem(node)}
 	<li>
 		{#each node.children as child}
-			<svelte:self node={child} {blocks} {links} />
+			<svelte:self node={child} {blocks} />
 		{/each}
 	</li>
 {/if}
@@ -98,7 +92,7 @@
 	{#if node.level === 1}
 		<h1>
 			{#each node.children as child}
-				<svelte:self node={child} {blocks} {links} />
+				<svelte:self node={child} {blocks} />
 			{/each}
 		</h1>
 	{/if}
@@ -106,7 +100,7 @@
 	{#if node.level === 2}
 		<h2>
 			{#each node.children as child}
-				<svelte:self node={child} {blocks} {links} />
+				<svelte:self node={child} {blocks} />
 			{/each}
 		</h2>
 	{/if}
@@ -114,7 +108,7 @@
 	{#if node.level === 3}
 		<h3>
 			{#each node.children as child}
-				<svelte:self node={child} {blocks} {links} />
+				<svelte:self node={child} {blocks} />
 			{/each}
 		</h3>
 	{/if}
@@ -122,7 +116,7 @@
 	{#if node.level === 4}
 		<h4>
 			{#each node.children as child}
-				<svelte:self node={child} {blocks} {links} />
+				<svelte:self node={child} {blocks} />
 			{/each}
 		</h4>
 	{/if}
@@ -130,7 +124,7 @@
 	{#if node.level === 5}
 		<h5>
 			{#each node.children as child}
-				<svelte:self node={child} {blocks} {links} />
+				<svelte:self node={child} {blocks} />
 			{/each}
 		</h5>
 	{/if}
@@ -138,7 +132,7 @@
 	{#if node.level === 6}
 		<h6>
 			{#each node.children as child}
-				<svelte:self node={child} {blocks} {links} />
+				<svelte:self node={child} {blocks} />
 			{/each}
 		</h6>
 	{/if}
@@ -194,15 +188,11 @@
 {#if isBlockquote(node)}
 	<blockquote>
 		{#each node.children as child}
-			<svelte:self node={child} {blocks} {links} />
+			<svelte:self node={child} {blocks} />
 		{/each}
 	</blockquote>
 {/if}
 
 {#if isBlock(node) && block}
 	<Block {block} />
-{/if}
-
-{#if link && isInlineItem(node)}
-	<Link {link} />
 {/if}
