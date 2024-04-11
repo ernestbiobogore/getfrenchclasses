@@ -1,4 +1,4 @@
-import type { formatSingleTutor, formatTutorMeta } from "$lib/components/dato/blocks/tutors/utils.server";
+import type { formatSingleTutor, formatTutorMeta } from "$dato/blocks/tutors/utils.server";
 
 type RemoteStatus = "online" | "in-person";
 type Audience = "adults" | "kids";

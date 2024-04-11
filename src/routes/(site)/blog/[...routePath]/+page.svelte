@@ -1,8 +1,8 @@
 <script lang="ts">
+	import StructuredText from "$dato/StructuredText/index.svelte";
+	import PostCTA from "$dato/sections/PostCTA.svelte";
+	import SocialShare from "$dato/sections/SocialShare.svelte";
 	import BlogCta, { type CTAProps } from "$lib/components/cta-section/BlogCta.svelte";
-	import StructuredText from "$lib/components/dato/StructuredText/index.svelte";
-	import PostCTA from "$lib/components/dato/sections/PostCTA.svelte";
-	import SocialShare from "$lib/components/dato/sections/SocialShare.svelte";
 	import { formatDate, generateShareOptions, getSampleAvatars } from "$lib/utils";
 	import { NakedImage } from "@datocms/svelte";
 

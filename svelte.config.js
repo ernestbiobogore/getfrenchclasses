@@ -11,6 +11,7 @@ const config = {
 		adapter: adapter(),
 		alias: {
 			$shadcn: "src/lib/components/shadcn/ui",
+			$dato: "src/lib/components/dato",
 		},
 	},
 

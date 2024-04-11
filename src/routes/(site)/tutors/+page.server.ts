@@ -1,4 +1,4 @@
-import { formatTutorMeta } from "$lib/components/dato/blocks/tutors/utils.server";
+import { formatTutorMeta } from "$dato/blocks/tutors/utils.server";
 import { getSingleModularPage } from "$lib/graphql/queries/modular";
 import { getAllTutorsMetas } from "$lib/graphql/queries/tutors";
 

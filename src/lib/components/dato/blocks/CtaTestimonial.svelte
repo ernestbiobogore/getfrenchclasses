@@ -1,5 +1,5 @@
 <script lang="ts">
-	import StructuredText from "$lib/components/dato/StructuredText/index.svelte";
+	import StructuredText from "$dato/StructuredText/index.svelte";
 	import { Button } from "$lib/components/shadcn/ui/button";
 	import * as Card from "$lib/components/shadcn/ui/card";
 	import type { TestimonialBlockCtaRecord } from "$lib/graphql/generated";

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { goto } from "$app/navigation";
-	import StructuredText from "$lib/components/dato/StructuredText/index.svelte";
+	import StructuredText from "$dato/StructuredText/index.svelte";
 	import { Badge } from "$lib/components/shadcn/ui/badge";
 	import { RESOURCES_PER_PAGE } from "$lib/constants";
 	import * as Card from "$shadcn/card";

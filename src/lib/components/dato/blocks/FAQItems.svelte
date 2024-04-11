@@ -1,5 +1,5 @@
 <script lang="ts">
-	import StructuredText from "$lib/components/dato/StructuredText/index.svelte";
+	import StructuredText from "$dato/StructuredText/index.svelte";
 	import type { getFaqItemBySlug } from "$lib/graphql/queries/faq";
 	import { Accordion } from "bits-ui";
 	import { slide } from "svelte/transition";

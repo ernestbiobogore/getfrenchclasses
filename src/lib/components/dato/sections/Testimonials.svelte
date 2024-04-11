@@ -1,6 +1,6 @@
 <script lang="ts">
+	import Heading from "$dato/blocks/Heading.svelte";
 	import Masonry from "$lib/components/Masonry.svelte";
-	import Heading from "$lib/components/dato/blocks/Heading.svelte";
 	import type {
 		TestimonialBlockCtaRecord,
 		TestimonialBlockDefaultRecord,

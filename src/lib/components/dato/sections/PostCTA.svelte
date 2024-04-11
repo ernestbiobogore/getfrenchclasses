@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { page } from "$app/stores";
+	import StructuredText from "$dato/StructuredText/index.svelte";
 	import AvatarsGroup from "$lib/components/AvatarsGroup.svelte";
-	import StructuredText from "$lib/components/dato/StructuredText/index.svelte";
 	import { getSampleAvatars } from "$lib/utils";
 	import { Button } from "$shadcn/button";
 	import CheckCircle from "~icons/lucide/check-circle-2";

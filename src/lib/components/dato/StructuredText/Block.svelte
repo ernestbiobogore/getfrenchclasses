@@ -1,7 +1,7 @@
 <script lang="ts" context="module">
+	import StructuredText from "$dato/StructuredText/index.svelte";
+	import TutorCard from "$dato/blocks/tutors/TutorCard.svelte";
 	import CourseCard from "$lib/components/CourseCard.svelte";
-	import StructuredText from "$lib/components/dato/StructuredText/index.svelte";
-	import TutorCard from "$lib/components/dato/blocks/tutors/TutorCard.svelte";
 	import type { RichTextBlockModelRichTextBlocksField } from "$lib/graphql/generated";
 	import { cn } from "$lib/utils";
 

@@ -1,6 +1,6 @@
 <script lang="ts">
+	import Heading from "$dato/blocks/Heading.svelte";
 	import AvatarsGroup from "$lib/components/AvatarsGroup.svelte";
-	import Heading from "$lib/components/dato/blocks/Heading.svelte";
 	import { Button } from "$lib/components/shadcn/ui/button";
 	import type { HeroSectionRecord } from "$lib/graphql/generated";
 	import { VideoPlayer } from "@datocms/svelte";

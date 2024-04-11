@@ -1,4 +1,4 @@
-import type { Audience, Level, RemoteStatus } from "$lib/components/dato/blocks/tutors/types";
+import type { Audience, Level, RemoteStatus } from "$dato/blocks/tutors/types";
 import { getAllTutorsMetas, getTutorBySlug } from "$lib/graphql/queries/tutors";
 
 const formatTutorMeta = (tutor: Awaited<ReturnType<typeof getAllTutorsMetas>>[0]) => {

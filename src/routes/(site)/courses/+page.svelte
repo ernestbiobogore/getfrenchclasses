@@ -1,7 +1,7 @@
 <script>
+	import CtaTestimonial from "$dato/blocks/CtaTestimonial.svelte";
 	import CourseCard from "$lib/components/CourseCard.svelte";
 	import CustomMultiselect from "$lib/components/CustomMultiselect.svelte";
-	import CtaTestimonial from "$lib/components/dato/blocks/CtaTestimonial.svelte";
 	import CourseSectionDivider from "./CourseSectionDivider.svelte";
 
 	export let data;

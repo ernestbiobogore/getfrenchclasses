@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Block from "$lib/components/dato/StructuredText/Block.svelte";
+	import Block from "$dato/StructuredText/Block.svelte";
 	import type {
 		RichTextBlockModelRichTextBlocksField
 	} from "$lib/graphql/generated";

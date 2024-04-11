@@ -1,7 +1,7 @@
 <script lang="ts">
+	import StructuredText from "$dato/StructuredText/index.svelte";
 	import { Badge } from "$shadcn/badge";
 	import { Button } from "$shadcn/button";
-	import StructuredText from "$lib/components/dato/StructuredText/index.svelte";
 
 	export let data;
 </script>
