@@ -4,10 +4,13 @@
 	import DefaultTestimonial from "$lib/components/dato/blocks/DefaultTestimonial.svelte";
 	import FAQItems from "$lib/components/dato/blocks/FAQItems.svelte";
 	import Heading from "$lib/components/dato/blocks/Heading.svelte";
+	import TutorCard from "$lib/components/dato/blocks/tutors/TutorCard.svelte";
+	import {
+		DEFAULT_VERIFIED_DESCRIPTION,
+		deSlugify,
+	} from "$lib/components/dato/blocks/tutors/utils.client";
 	import SharpVerifired from "~icons/ic/sharp-verified";
 	import VideoCam from "~icons/material-symbols/videocam-outline-rounded";
-	import TutorCard from "../TutorCard.svelte";
-	import { DEFAULT_VERIFIED_DESCRIPTION, deSlugify } from "../utils.client";
 
 	export let data;
 </script>

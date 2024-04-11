@@ -32,11 +32,11 @@
 	import CustomMultiselect, {
 		type SelectChangeHandler,
 	} from "$lib/components/CustomMultiselect.svelte";
+	import TutorCard from "$lib/components/dato/blocks/tutors/TutorCard.svelte";
 	import ModularPage from "$lib/components/dato/sections/ModularPage.svelte";
 	import { Button } from "$shadcn/button";
 	import * as Card from "$shadcn/card";
 	import type { Selected } from "bits-ui";
-	import TutorCard from "./TutorCard.svelte";
 
 	export let data;
 

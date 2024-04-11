@@ -1,9 +1,9 @@
 <script lang="ts" context="module">
 	import CourseCard from "$lib/components/CourseCard.svelte";
 	import StructuredText from "$lib/components/dato/StructuredText/index.svelte";
+	import TutorCard from "$lib/components/dato/blocks/tutors/TutorCard.svelte";
 	import type { RichTextBlockModelRichTextBlocksField } from "$lib/graphql/generated";
 	import { cn } from "$lib/utils";
-	import TutorCard from "../../../../routes/(site)/tutors/TutorCard.svelte";
 
 	const getNoteClass = (type: string) => {
 		return cn("border-l-4 p-4", {

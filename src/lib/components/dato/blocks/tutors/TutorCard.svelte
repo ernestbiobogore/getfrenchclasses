@@ -12,11 +12,17 @@
 	import StarFillIcon from "~icons/solar/star-bold";
 
 	import StructuredText from "$lib/components/dato/StructuredText/index.svelte";
+	import {
+		type FormattedSingleTutor,
+		type FormattedTutorMeta,
+	} from "$lib/components/dato/blocks/tutors/types";
+	import {
+		DEFAULT_VERIFIED_DESCRIPTION,
+		deSlugify,
+	} from "$lib/components/dato/blocks/tutors/utils.client";
 	import { type AltFileField } from "$lib/graphql/generated/schema";
 	import { Badge } from "$shadcn/badge";
 	import { Button } from "$shadcn/button";
-	import { type FormattedSingleTutor, type FormattedTutorMeta } from "./types";
-	import { DEFAULT_VERIFIED_DESCRIPTION, deSlugify } from "./utils.client";
 
 	export let tutor: FormattedTutorMeta | FormattedSingleTutor;
 	export let withCTA = false;

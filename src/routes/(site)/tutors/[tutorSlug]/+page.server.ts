@@ -1,6 +1,6 @@
+import { formatSingleTutor } from "$lib/components/dato/blocks/tutors/utils.server";
 import { getTutorBySlug } from "$lib/graphql/queries/tutors";
 import { error } from "@sveltejs/kit";
-import { formatSingleTutor } from "../utils.server";
 
 export async function load({ params }) {
 	const { tutorSlug } = params;
