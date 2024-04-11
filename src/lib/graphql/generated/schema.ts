@@ -1020,12 +1020,10 @@ export type RichTextBlockModelRichTextBlocksField = (CardBlockRecord | ImageBloc
 
 export interface RichTextBlockModelRichTextField {
     blocks: RichTextBlockModelRichTextBlocksField[]
-    links: RichTextBlockModelRichTextLinksField[]
+    links: Scalars['String'][]
     value: Scalars['JsonField']
     __typename: 'RichTextBlockModelRichTextField'
 }
-
-export type RichTextBlockModelRichTextLinksField = (CourseRecord | ResourceRecord) & { __isUnion?: true }
 
 
 /** Block of type Rich Text Block (rich_text_block) */
@@ -4283,17 +4281,10 @@ export interface RichTextBlockModelRichTextBlocksFieldGenqlSelection{
 
 export interface RichTextBlockModelRichTextFieldGenqlSelection{
     blocks?: RichTextBlockModelRichTextBlocksFieldGenqlSelection
-    links?: RichTextBlockModelRichTextLinksFieldGenqlSelection
+    links?: boolean | number
     value?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
-}
-
-export interface RichTextBlockModelRichTextLinksFieldGenqlSelection{
-    on_CourseRecord?:CourseRecordGenqlSelection,
-    on_ResourceRecord?:ResourceRecordGenqlSelection,
-    on_RecordInterface?: RecordInterfaceGenqlSelection,
-    __typename?: boolean | number
 }
 
 
@@ -5443,14 +5434,6 @@ export interface focalPointGenqlSelection{
     export const isRichTextBlockModelRichTextField = (obj?: { __typename?: any } | null): obj is RichTextBlockModelRichTextField => {
       if (!obj?.__typename) throw new Error('__typename is missing in "isRichTextBlockModelRichTextField"')
       return RichTextBlockModelRichTextField_possibleTypes.includes(obj.__typename)
-    }
-    
-
-
-    const RichTextBlockModelRichTextLinksField_possibleTypes: string[] = ['CourseRecord','ResourceRecord']
-    export const isRichTextBlockModelRichTextLinksField = (obj?: { __typename?: any } | null): obj is RichTextBlockModelRichTextLinksField => {
-      if (!obj?.__typename) throw new Error('__typename is missing in "isRichTextBlockModelRichTextLinksField"')
-      return RichTextBlockModelRichTextLinksField_possibleTypes.includes(obj.__typename)
     }
     
 
