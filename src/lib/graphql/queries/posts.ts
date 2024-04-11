@@ -1,6 +1,7 @@
 import { client } from "$lib/graphql/client";
 import {
 	cardBlockFields,
+	courseMetaFields,
 	postCategoryBlockFields,
 	seoFieldsSelection,
 } from "$lib/graphql/queries/fields";
@@ -152,6 +153,11 @@ const getSingleBlogPost = async (slug: string) => {
 									alt: true,
 									sizes: true,
 								},
+							},
+						},
+						on_CoursesBlockRecord: {
+							courses: {
+								...courseMetaFields,
 							},
 						},
 						on_CardBlockRecord: cardBlockFields,

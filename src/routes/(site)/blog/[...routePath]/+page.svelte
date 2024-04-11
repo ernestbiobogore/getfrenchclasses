@@ -66,7 +66,7 @@
 		</div>
 	{/if}
 
-	<article class="flex flex-col gap-6 mt-8 lg:flex-row container-base">
+	<article class="flex flex-col gap-6 mt-8 lg:flex-row container-base mb-16">
 		<main class="space-y-8 basis-9/12">
 			<BlogCta props={dummyCTAProps} ctaAction={() => alert("button Clicked")} />
 

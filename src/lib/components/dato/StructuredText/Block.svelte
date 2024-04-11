@@ -1,4 +1,5 @@
 <script lang="ts" context="module">
+	import CourseCard from "$lib/components/CourseCard.svelte";
 	import StructuredText from "$lib/components/dato/StructuredText/index.svelte";
 	import type { RichTextBlockModelRichTextBlocksField } from "$lib/graphql/generated";
 	import { cn } from "$lib/utils";
@@ -54,10 +55,12 @@
 	</div>
 {/if}
 
-{#if block.__typename === "CardBlockRecord"}
-	card block
-{/if}
-
-{#if block.__typename === "ImageBlockRecord"}
-	image block
+{#if block.__typename === "CoursesBlockRecord"}
+	{#if block.courses && block.courses.length > 0}
+		<div class="grid gap-6 md:grid-cols-2">
+			{#each block.courses as course (course.id)}
+				<CourseCard {course} />
+			{/each}
+		</div>
+	{/if}
 {/if}
