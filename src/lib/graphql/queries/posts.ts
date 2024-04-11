@@ -134,6 +134,19 @@ const getSingleBlogPost = async (slug: string) => {
 				__typename: true,
 				richText: {
 					value: true,
+					links: {
+						on_RecordInterface: {
+							id: true,
+							__typename: true,
+						},
+						on_CourseRecord: {
+							name: true,
+							slug: true,
+							seo: {
+								seoBlock: seoFieldsSelection,
+							},
+						},
+					},
 					blocks: {
 						on_RecordInterface: {
 							__typename: true,

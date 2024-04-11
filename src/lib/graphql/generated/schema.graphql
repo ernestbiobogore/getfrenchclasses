@@ -4225,9 +4225,11 @@ union RichTextBlockModelRichTextBlocksField = CardBlockRecord | ImageBlockRecord
 
 type RichTextBlockModelRichTextField {
   blocks: [RichTextBlockModelRichTextBlocksField!]!
-  links: [String!]!
+  links: [RichTextBlockModelRichTextLinksField!]!
   value: JsonField!
 }
+
+union RichTextBlockModelRichTextLinksField = CourseRecord | ResourceRecord
 
 """Block of type Rich Text Block (rich_text_block)"""
 type RichTextBlockRecord implements RecordInterface {

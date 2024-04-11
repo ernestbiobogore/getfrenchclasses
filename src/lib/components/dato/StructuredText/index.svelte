@@ -10,6 +10,7 @@
 
 	$: node = richText?.value.document;
 	$: blocks = richText?.blocks;
+	$: links = richText?.links;
 
 	let className: string | undefined = "";
 
@@ -17,7 +18,7 @@
 </script>
 
 <div class={cn("structured-text", className)}>
-	<Node {node} {blocks} />
+	<Node {node} {blocks} {links} />
 </div>
 
 <style>
