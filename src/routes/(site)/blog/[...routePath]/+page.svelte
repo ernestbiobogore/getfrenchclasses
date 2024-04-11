@@ -7,11 +7,12 @@
 	import { NakedImage } from "@datocms/svelte";
 
 	export let data;
+	$: post = data.post;
 
 	$: shareOptions = generateShareOptions({
-		slug: data.post?.slug || "",
-		title: data.post?.seo?.title || "",
-		description: data.post?.seo?.description || "",
+		slug: post?.slug || "",
+		title: post?.seo?.title || "",
+		description: post?.seo?.description || "",
 	});
 
 	const dummyCTAProps: CTAProps = {
@@ -27,30 +28,30 @@
 </script>
 
 <svelte:head>
-	<title>{data.post?.title || "Post not found"}</title>
-	{#if !data.post}
+	<title>{post?.title || "Post not found"}</title>
+	{#if !post}
 		<meta name="robots" content="noindex" />
 	{/if}
 </svelte:head>
 
-{#if data.post}
+{#if post}
 	<header class="container-base py-4 sm:py-8 space-y-4">
-		<h1>{data.post?.title}</h1>
+		<h1>{post?.title}</h1>
 
 		<div>
-			{#if data.post.author}
-				<p>By <span class="font-medium">{data.post.author.name}</span></p>
+			{#if post.author}
+				<p>By <span class="font-medium">{post.author.name}</span></p>
 
-				{#if data.post.reviewer}
+				{#if post.reviewer}
 					<p>
-						Proofread and fact-checked by <span class="font-medium">{data.post.reviewer.name}</span>
+						Proofread and fact-checked by <span class="font-medium">{post.reviewer.name}</span>
 					</p>
 				{/if}
 			{/if}
 
 			<p>
-				Last updated <time datetime={formatDate(data.post._updatedAt)} class="font-medium"
-					>{formatDate(data.post._updatedAt)}</time
+				Last updated <time datetime={formatDate(post._updatedAt)} class="font-medium"
+					>{formatDate(post._updatedAt)}</time
 				>
 			</p>
 		</div>
@@ -59,17 +60,17 @@
 		<SocialShare {shareOptions} />
 	</header>
 
-	{#if data.post.seo?.image?.responsiveImage}
+	{#if post.seo?.image?.responsiveImage}
 		<div class="container-base py-4">
-			<NakedImage data={data.post.seo.image.responsiveImage} class="!w-full" />
+			<NakedImage data={post.seo.image.responsiveImage} class="!w-full" />
 		</div>
 	{/if}
 
-	<article class="flex flex-col gap-6 mt-8 lg:flex-row container-base">
+	<article class="flex flex-col gap-6 mt-8 lg:flex-row container-base mb-16">
 		<main class="space-y-8 basis-9/12">
 			<BlogCta props={dummyCTAProps} ctaAction={() => alert("button Clicked")} />
 
-			{#each data.post.modularContent as block}
+			{#each post.modularContent as block}
 				{#if block.__typename === "RichTextBlockRecord"}
 					<StructuredText richText={block.richText} class="space-y-4" />
 				{/if}

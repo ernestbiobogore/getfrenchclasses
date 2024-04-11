@@ -1,6 +1,8 @@
 <script lang="ts">
 	import Block from "$lib/components/dato/StructuredText/Block.svelte";
-	import type { RichTextBlockModelRichTextBlocksField } from "$lib/graphql/generated";
+	import type {
+		RichTextBlockModelRichTextBlocksField
+	} from "$lib/graphql/generated";
 	import { cn } from "$lib/utils";
 	import {
 		isBlock,
@@ -13,7 +15,7 @@
 		isParagraph,
 		isRoot,
 		isSpan,
-		type Node,
+		type Node
 	} from "datocms-structured-text-utils";
 	import { getContext } from "svelte";
 	import type { ElementsClasses } from "./types";
