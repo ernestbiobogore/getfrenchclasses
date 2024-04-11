@@ -1,8 +1,8 @@
 <script lang="ts">
+	import FAQItems from "$dato/blocks/FAQItems.svelte";
+	import Heading from "$dato/blocks/Heading.svelte";
 	import AvatarsGroup from "$lib/components/AvatarsGroup.svelte";
 	import CourseCtaBanner from "$lib/components/cta-section/CourseCtaBanner.svelte";
-	import FAQItems from "$lib/components/dato/blocks/FAQItems.svelte";
-	import Heading from "$lib/components/dato/blocks/Heading.svelte";
 	import ArrowRight from "~icons/lucide/arrow-right";
 	import BarChart from "~icons/lucide/bar-chart";
 	import Check from "~icons/lucide/check";
@@ -18,7 +18,7 @@
 	import Wrench from "~icons/ph/wrench";
 	import CourseSyllabus from "./components/CourseSyllabus.svelte";
 
-	import DefaultTestimonial from "$lib/components/dato/blocks/DefaultTestimonial.svelte";
+	import DefaultTestimonial from "$dato/blocks/DefaultTestimonial.svelte";
 	import { getSampleAvatars } from "$lib/utils";
 
 	export let data;

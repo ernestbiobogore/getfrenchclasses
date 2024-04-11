@@ -1,5 +1,5 @@
 <script lang="ts">
-	import ModularPage from "$lib/components/dato/sections/ModularPage.svelte";
+	import ModularPage from "$dato/sections/ModularPage.svelte";
 	import { setContext } from "svelte";
 
 	export let data;

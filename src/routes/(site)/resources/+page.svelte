@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { goto } from "$app/navigation";
-	import StructuredText from "$lib/components/dato/StructuredText/index.svelte";
-	import { Badge } from "$lib/components/shadcn/ui/badge";
+	import StructuredText from "$dato/StructuredText/index.svelte";
 	import { RESOURCES_PER_PAGE } from "$lib/constants";
+	import { Badge } from "$shadcn/badge";
 	import * as Card from "$shadcn/card";
 	import * as Pagination from "$shadcn/pagination";
 	import { queryParam } from "sveltekit-search-params";

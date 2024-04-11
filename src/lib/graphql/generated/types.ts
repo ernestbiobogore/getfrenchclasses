@@ -56,11 +56,11 @@ export default {
         134,
         145,
         151,
-        166,
-        171,
+        167,
         172,
-        176,
-        181
+        173,
+        177,
+        182
     ],
     "types": {
         "ActionBlockRecord": {
@@ -191,7 +191,7 @@ export default {
                 134
             ],
             "focalPoint": [
-                182,
+                183,
                 {
                     "locale": [
                         131
@@ -209,7 +209,7 @@ export default {
                 75
             ],
             "id": [
-                166
+                167
             ],
             "md5": [
                 134
@@ -271,7 +271,7 @@ export default {
                 }
             ],
             "video": [
-                178
+                179
             ],
             "width": [
                 75
@@ -303,7 +303,7 @@ export default {
                 133
             ],
             "_updatedAt": [
-                155
+                156
             ],
             "_isValid": [
                 6
@@ -572,7 +572,7 @@ export default {
                 133
             ],
             "_updatedAt": [
-                155
+                156
             ],
             "_isValid": [
                 6
@@ -753,7 +753,7 @@ export default {
                 133
             ],
             "_updatedAt": [
-                155
+                156
             ],
             "_isValid": [
                 6
@@ -1082,7 +1082,7 @@ export default {
                 133
             ],
             "_updatedAt": [
-                155
+                156
             ],
             "_isValid": [
                 6
@@ -1288,7 +1288,7 @@ export default {
                 134
             ],
             "focalPoint": [
-                182,
+                183,
                 {
                     "locale": [
                         131
@@ -1306,7 +1306,7 @@ export default {
                 75
             ],
             "id": [
-                166
+                167
             ],
             "md5": [
                 134
@@ -1368,7 +1368,7 @@ export default {
                 }
             ],
             "video": [
-                178
+                179
             ],
             "width": [
                 75
@@ -1453,7 +1453,7 @@ export default {
                 134
             ],
             "focalPoint": [
-                182,
+                183,
                 {
                     "locale": [
                         131
@@ -1471,7 +1471,7 @@ export default {
                 75
             ],
             "id": [
-                166
+                167
             ],
             "md5": [
                 134
@@ -1533,7 +1533,7 @@ export default {
                 }
             ],
             "video": [
-                178
+                179
             ],
             "width": [
                 75
@@ -1545,7 +1545,7 @@ export default {
                 32
             ],
             "on_VideoFileField": [
-                180
+                181
             ],
             "__typename": [
                 134
@@ -1553,16 +1553,16 @@ export default {
         },
         "FileFilter": {
             "eq": [
-                166
+                167
             ],
             "neq": [
-                166
+                167
             ],
             "in": [
-                166
+                167
             ],
             "notIn": [
-                166
+                167
             ],
             "exists": [
                 7
@@ -1601,16 +1601,16 @@ export default {
         "FloatType": {},
         "GalleryFilter": {
             "eq": [
-                166
+                167
             ],
             "allIn": [
-                166
+                167
             ],
             "anyIn": [
-                166
+                167
             ],
             "notIn": [
-                166
+                167
             ],
             "exists": [
                 7
@@ -1820,7 +1820,7 @@ export default {
                 134
             ],
             "video": [
-                180
+                181
             ],
             "videoText": [
                 134
@@ -2368,7 +2368,7 @@ export default {
                 133
             ],
             "_updatedAt": [
-                155
+                156
             ],
             "_isValid": [
                 6
@@ -2530,7 +2530,7 @@ export default {
                 133
             ],
             "_updatedAt": [
-                155
+                156
             ],
             "_isValid": [
                 6
@@ -2801,7 +2801,7 @@ export default {
                 133
             ],
             "_updatedAt": [
-                155
+                156
             ],
             "_isValid": [
                 6
@@ -2902,7 +2902,7 @@ export default {
                 133
             ],
             "_updatedAt": [
-                155
+                156
             ],
             "_isValid": [
                 6
@@ -3063,10 +3063,10 @@ export default {
         },
         "OrientationFilter": {
             "eq": [
-                172
+                173
             ],
             "neq": [
-                172
+                173
             ],
             "__typename": [
                 134
@@ -3158,7 +3158,7 @@ export default {
                 133
             ],
             "_updatedAt": [
-                155
+                156
             ],
             "_isValid": [
                 6
@@ -3267,7 +3267,7 @@ export default {
                 133
             ],
             "_updatedAt": [
-                155
+                156
             ],
             "_isValid": [
                 6
@@ -3582,7 +3582,7 @@ export default {
                         131
                     ],
                     "filter": [
-                        163
+                        164
                     ]
                 }
             ],
@@ -3990,10 +3990,10 @@ export default {
                         75
                     ],
                     "filter": [
-                        163
+                        164
                     ],
                     "orderBy": [
-                        171,
+                        172,
                         "[UploadOrderBy]"
                     ]
                 }
@@ -4294,10 +4294,10 @@ export default {
                         "[SiteLocale!]"
                     ],
                     "filter": [
-                        163
+                        164
                     ],
                     "orderBy": [
-                        171,
+                        172,
                         "[UploadOrderBy]"
                     ]
                 }
@@ -4462,6 +4462,9 @@ export default {
             "on_TutorRecord": [
                 153
             ],
+            "on_TutorsBlockRecord": [
+                154
+            ],
             "__typename": [
                 134
             ]
@@ -4521,7 +4524,7 @@ export default {
                 133
             ],
             "_updatedAt": [
-                155
+                156
             ],
             "_isValid": [
                 6
@@ -4686,7 +4689,7 @@ export default {
                 133
             ],
             "_updatedAt": [
-                155
+                156
             ],
             "_isValid": [
                 6
@@ -4811,6 +4814,9 @@ export default {
             "on_NoteBlockRecord": [
                 98
             ],
+            "on_TutorsBlockRecord": [
+                154
+            ],
             "on_RecordInterface": [
                 110
             ],
@@ -4904,7 +4910,7 @@ export default {
                 133
             ],
             "_updatedAt": [
-                155
+                156
             ],
             "_isValid": [
                 6
@@ -5444,7 +5450,7 @@ export default {
                 133
             ],
             "_updatedAt": [
-                155
+                156
             ],
             "_isValid": [
                 6
@@ -5624,7 +5630,7 @@ export default {
                 133
             ],
             "_updatedAt": [
-                155
+                156
             ],
             "_isValid": [
                 6
@@ -5835,18 +5841,67 @@ export default {
                 134
             ]
         },
+        "TutorsBlockRecord": {
+            "_createdAt": [
+                24
+            ],
+            "_editingUrl": [
+                134
+            ],
+            "_firstPublishedAt": [
+                24
+            ],
+            "_isValid": [
+                7
+            ],
+            "_modelApiKey": [
+                134
+            ],
+            "_publicationScheduledAt": [
+                24
+            ],
+            "_publishedAt": [
+                24
+            ],
+            "_seoMetaTags": [
+                138,
+                {
+                    "locale": [
+                        131
+                    ]
+                }
+            ],
+            "_status": [
+                79
+            ],
+            "_unpublishingScheduledAt": [
+                24
+            ],
+            "_updatedAt": [
+                24
+            ],
+            "id": [
+                77
+            ],
+            "tutors": [
+                153
+            ],
+            "__typename": [
+                134
+            ]
+        },
         "TypeFilter": {
             "eq": [
-                176
+                177
             ],
             "neq": [
-                176
+                177
             ],
             "in": [
-                176
+                177
             ],
             "notIn": [
-                176
+                177
             ],
             "__typename": [
                 134
@@ -5999,7 +6054,7 @@ export default {
         },
         "UploadFilter": {
             "type": [
-                154
+                155
             ],
             "inUse": [
                 69
@@ -6008,70 +6063,70 @@ export default {
                 111
             ],
             "size": [
-                173
+                174
             ],
             "tags": [
-                174
+                175
             ],
             "smartTags": [
-                174
+                175
             ],
             "colors": [
-                159
+                160
             ],
             "orientation": [
                 99
             ],
             "id": [
-                167
-            ],
-            "mimeType": [
-                169
-            ],
-            "format": [
-                164
-            ],
-            "height": [
-                165
-            ],
-            "width": [
-                179
-            ],
-            "alt": [
-                156
-            ],
-            "title": [
-                175
-            ],
-            "notes": [
-                170
-            ],
-            "md5": [
                 168
             ],
-            "author": [
+            "mimeType": [
+                170
+            ],
+            "format": [
+                165
+            ],
+            "height": [
+                166
+            ],
+            "width": [
+                180
+            ],
+            "alt": [
                 157
             ],
-            "copyright": [
-                160
+            "title": [
+                176
             ],
-            "basename": [
+            "notes": [
+                171
+            ],
+            "md5": [
+                169
+            ],
+            "author": [
                 158
             ],
-            "filename": [
-                162
-            ],
-            "_createdAt": [
+            "copyright": [
                 161
             ],
+            "basename": [
+                159
+            ],
+            "filename": [
+                163
+            ],
+            "_createdAt": [
+                162
+            ],
             "_updatedAt": [
-                177
+                178
             ],
             "OR": [
-                163
+                164
             ],
             "AND": [
-                163
+                164
             ],
             "__typename": [
                 134
@@ -6120,16 +6175,16 @@ export default {
         "UploadId": {},
         "UploadIdFilter": {
             "eq": [
-                166
+                167
             ],
             "neq": [
-                166
+                167
             ],
             "in": [
-                166
+                167
             ],
             "notIn": [
-                166
+                167
             ],
             "__typename": [
                 134
@@ -6333,10 +6388,10 @@ export default {
                 134,
                 {
                     "res": [
-                        181
+                        182
                     ],
                     "exactRes": [
-                        181
+                        182
                     ]
                 }
             ],
@@ -6478,7 +6533,7 @@ export default {
                 134
             ],
             "focalPoint": [
-                182,
+                183,
                 {
                     "locale": [
                         131
@@ -6496,7 +6551,7 @@ export default {
                 75
             ],
             "id": [
-                166
+                167
             ],
             "md5": [
                 134
@@ -6558,7 +6613,7 @@ export default {
                 }
             ],
             "video": [
-                178
+                179
             ],
             "width": [
                 75

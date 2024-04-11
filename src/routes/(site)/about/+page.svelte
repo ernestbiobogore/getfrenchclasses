@@ -6,7 +6,7 @@
 	import HelpingHand from "~icons/lucide/helping-hand";
 	import Lightbulb from "~icons/lucide/lightbulb";
 
-	import CtaTestimonial from "$lib/components/dato/blocks/CtaTestimonial.svelte";
+	import CtaTestimonial from "$dato/blocks/CtaTestimonial.svelte";
 	import Teacher5 from "$lib/images/Teacher5.png";
 	import SupportImage from "$lib/images/supportImage.png";
 	import Teacher1 from "$lib/images/teacher1.png";

@@ -1,8 +1,8 @@
 <script lang="ts">
-	import Cards from "$lib/components/dato/sections/Cards.svelte";
-	import FAQ from "$lib/components/dato/sections/FAQ.svelte";
-	import Hero from "$lib/components/dato/sections/Hero.svelte";
-	import Testimonials from "$lib/components/dato/sections/Testimonials.svelte";
+	import Cards from "$dato/sections/Cards.svelte";
+	import FAQ from "$dato/sections/FAQ.svelte";
+	import Hero from "$dato/sections/Hero.svelte";
+	import Testimonials from "$dato/sections/Testimonials.svelte";
 	import type { getSingleModularPage } from "$lib/graphql/queries/modular";
 
 	export let modularPage: Awaited<ReturnType<typeof getSingleModularPage>>;

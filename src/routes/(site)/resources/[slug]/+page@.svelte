@@ -1,9 +1,9 @@
 <script lang="ts">
-	import StructuredText from "$lib/components/dato/StructuredText/index.svelte";
-	import ConvertBoxAction from "$lib/components/dato/blocks/ConvertBoxAction.svelte";
-	import CtaTestimonial from "$lib/components/dato/blocks/CtaTestimonial.svelte";
-	import FAQItems from "$lib/components/dato/blocks/FAQItems.svelte";
-	import Heading from "$lib/components/dato/blocks/Heading.svelte";
+	import StructuredText from "$dato/StructuredText/index.svelte";
+	import ConvertBoxAction from "$dato/blocks/ConvertBoxAction.svelte";
+	import CtaTestimonial from "$dato/blocks/CtaTestimonial.svelte";
+	import FAQItems from "$dato/blocks/FAQItems.svelte";
+	import Heading from "$dato/blocks/Heading.svelte";
 	import { f } from "$lib/utils";
 	import { Badge } from "$shadcn/badge";
 	import * as Card from "$shadcn/card";

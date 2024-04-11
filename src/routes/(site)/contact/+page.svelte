@@ -1,6 +1,6 @@
 <script>
-	import FAQItems from "$lib/components/dato/blocks/FAQItems.svelte";
-	import Heading from "$lib/components/dato/blocks/Heading.svelte";
+	import FAQItems from "$dato/blocks/FAQItems.svelte";
+	import Heading from "$dato/blocks/Heading.svelte";
 	import Mail from "~icons/lucide/mail";
 	import MapPin from "~icons/lucide/map-pin";
 	import MessageSquare from "~icons/lucide/message-square";

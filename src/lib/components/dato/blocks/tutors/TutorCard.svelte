@@ -11,12 +11,18 @@
 	import UserIcon from "~icons/lucide/user";
 	import StarFillIcon from "~icons/solar/star-bold";
 
-	import StructuredText from "$lib/components/dato/StructuredText/index.svelte";
+	import StructuredText from "$dato/StructuredText/index.svelte";
+	import {
+		type FormattedSingleTutor,
+		type FormattedTutorMeta,
+	} from "$dato/blocks/tutors/types";
+	import {
+		DEFAULT_VERIFIED_DESCRIPTION,
+		deSlugify,
+	} from "$dato/blocks/tutors/utils.client";
 	import { type AltFileField } from "$lib/graphql/generated/schema";
 	import { Badge } from "$shadcn/badge";
 	import { Button } from "$shadcn/button";
-	import { type FormattedSingleTutor, type FormattedTutorMeta } from "./types";
-	import { DEFAULT_VERIFIED_DESCRIPTION, deSlugify } from "./utils.client";
 
 	export let tutor: FormattedTutorMeta | FormattedSingleTutor;
 	export let withCTA = false;
@@ -34,7 +40,7 @@
 <Card.Root class="overflow-hidden bg-white rounded-lg shadow-lg cursor-pointer">
 	{#if coverMedia}
 		{#if coverMedia.video}
-			<video class="w-full h-20" src={coverMedia.video.mp4Url} controls>
+			<video class="w-full h-40 object-cover" src={coverMedia.video.mp4Url} controls>
 				<track kind="captions" />
 			</video>
 		{/if}
@@ -42,20 +48,18 @@
 		{#if coverMedia.responsiveImage}
 			<img
 				alt={coverMedia.responsiveImage.alt}
-				class="object-fill w-full h-20"
+				class="object-cover w-full h-40 aspect-square"
 				height="100"
 				src={coverMedia.responsiveImage.src}
-				style="aspect-ratio: 1 / 1; object-fit: cover;"
 				width="350"
 			/>
 		{/if}
 	{:else}
 		<img
 			alt="Banner"
-			class="object-fill w-full h-20"
+			class="object-cover w-full h-40 aspect-square"
 			height="100"
 			src="/placeholder.svg"
-			style="aspect-ratio: 1 / 1; object-fit: cover;"
 			width="350"
 		/>
 	{/if}

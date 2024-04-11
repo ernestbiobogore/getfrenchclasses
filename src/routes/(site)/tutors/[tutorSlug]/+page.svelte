@@ -1,13 +1,16 @@
 <script lang="ts">
+	import StructuredText from "$dato/StructuredText/index.svelte";
+	import DefaultTestimonial from "$dato/blocks/DefaultTestimonial.svelte";
+	import FAQItems from "$dato/blocks/FAQItems.svelte";
+	import Heading from "$dato/blocks/Heading.svelte";
+	import TutorCard from "$dato/blocks/tutors/TutorCard.svelte";
+	import {
+		DEFAULT_VERIFIED_DESCRIPTION,
+		deSlugify,
+	} from "$dato/blocks/tutors/utils.client";
 	import CourseCard from "$lib/components/CourseCard.svelte";
-	import StructuredText from "$lib/components/dato/StructuredText/index.svelte";
-	import DefaultTestimonial from "$lib/components/dato/blocks/DefaultTestimonial.svelte";
-	import FAQItems from "$lib/components/dato/blocks/FAQItems.svelte";
-	import Heading from "$lib/components/dato/blocks/Heading.svelte";
 	import SharpVerifired from "~icons/ic/sharp-verified";
 	import VideoCam from "~icons/material-symbols/videocam-outline-rounded";
-	import TutorCard from "../TutorCard.svelte";
-	import { DEFAULT_VERIFIED_DESCRIPTION, deSlugify } from "../utils.client";
 
 	export let data;
 </script>
