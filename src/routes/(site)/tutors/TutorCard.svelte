@@ -34,7 +34,7 @@
 <Card.Root class="overflow-hidden bg-white rounded-lg shadow-lg cursor-pointer">
 	{#if coverMedia}
 		{#if coverMedia.video}
-			<video class="w-full h-20" src={coverMedia.video.mp4Url} controls>
+			<video class="w-full h-40" src={coverMedia.video.mp4Url} controls>
 				<track kind="captions" />
 			</video>
 		{/if}
@@ -42,7 +42,7 @@
 		{#if coverMedia.responsiveImage}
 			<img
 				alt={coverMedia.responsiveImage.alt}
-				class="object-fill w-full h-20"
+				class="object-coverw-full h-40"
 				height="100"
 				src={coverMedia.responsiveImage.src}
 				style="aspect-ratio: 1 / 1; object-fit: cover;"
@@ -52,7 +52,7 @@
 	{:else}
 		<img
 			alt="Banner"
-			class="object-fill w-full h-20"
+			class="object-cover w-full h-40"
 			height="100"
 			src="/placeholder.svg"
 			style="aspect-ratio: 1 / 1; object-fit: cover;"
