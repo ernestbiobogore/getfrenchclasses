@@ -1,10 +1,10 @@
 <script lang="ts">
 	import BlogCta, { type CTAProps } from "$lib/components/cta-section/BlogCta.svelte";
 	import StructuredText from "$lib/components/dato/StructuredText/index.svelte";
-	import { generateShareOptions, getSampleAvatars } from "$lib/utils";
-
 	import PostCTA from "$lib/components/dato/sections/PostCTA.svelte";
 	import SocialShare from "$lib/components/dato/sections/SocialShare.svelte";
+	import { formatDate, generateShareOptions, getSampleAvatars } from "$lib/utils";
+	import { NakedImage } from "@datocms/svelte";
 
 	export let data;
 
@@ -34,12 +34,36 @@
 </svelte:head>
 
 {#if data.post}
-	<header class="max-[300px]:py-16 container-base">
+	<header class="container-base py-4 sm:py-8 space-y-4">
 		<h1>{data.post?.title}</h1>
+
+		<div>
+			{#if data.post.author}
+				<p>By <span class="font-medium">{data.post.author.name}</span></p>
+
+				{#if data.post.reviewer}
+					<p>
+						Proofread and fact-checked by <span class="font-medium">{data.post.reviewer.name}</span>
+					</p>
+				{/if}
+			{/if}
+
+			<p>
+				Last updated <time datetime={formatDate(data.post._updatedAt)} class="font-medium"
+					>{formatDate(data.post._updatedAt)}</time
+				>
+			</p>
+		</div>
 
 		<!-- SOCIAL SHARE BUTTONS -->
 		<SocialShare {shareOptions} />
 	</header>
+
+	{#if data.post.seo?.image?.responsiveImage}
+		<div class="container-base py-4">
+			<NakedImage data={data.post.seo.image.responsiveImage} class="!w-full" />
+		</div>
+	{/if}
 
 	<article class="flex flex-col gap-6 mt-8 lg:flex-row container-base">
 		<main class="space-y-8 basis-9/12">
