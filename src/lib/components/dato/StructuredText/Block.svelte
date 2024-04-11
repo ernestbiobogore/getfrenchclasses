@@ -3,6 +3,7 @@
 	import StructuredText from "$lib/components/dato/StructuredText/index.svelte";
 	import type { RichTextBlockModelRichTextBlocksField } from "$lib/graphql/generated";
 	import { cn } from "$lib/utils";
+	import TutorCard from "../../../../routes/(site)/tutors/TutorCard.svelte";
 
 	const getNoteClass = (type: string) => {
 		return cn("border-l-4 p-4", {
@@ -60,6 +61,16 @@
 		<div class="grid gap-6 md:grid-cols-2">
 			{#each block.courses as course (course.id)}
 				<CourseCard {course} />
+			{/each}
+		</div>
+	{/if}
+{/if}
+
+{#if block.__typename === "TutorsBlockRecord"}
+	{#if block.tutors && block.tutors.length > 0}
+		<div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+			{#each block.tutors as tutor (tutor.id)}
+				<TutorCard {tutor} />
 			{/each}
 		</div>
 	{/if}

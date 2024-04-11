@@ -946,7 +946,7 @@ export interface Query {
     __typename: 'Query'
 }
 
-export type RecordInterface = (ActionBlockRecord | AuthorRecord | CardBlockNewRecord | CardBlockRecord | CardsSectionRecord | CategoryRecord | ConvertboxBlockRecord | CourseRecord | CoursesBlockRecord | FaqBlockNewRecord | FaqBlockRecord | FaqItemRecord | FaqSectionRecord | HeadingBlockNewRecord | HeadingBlockRecord | HeroSectionRecord | ImageBlockRecord | InstructorRecord | JobRecord | MenuItemBlockRecord | MenuListBlockRecord | MenuRecord | ModularPageRecord | NoteBlockRecord | PlainTextBlockRecord | PostCtaRecord | PostRecord | ResourceRecord | ResourceTopicRecord | RichTextBlockRecord | RoutePathRecord | SeoBlockRecord | TestimonialBlockCtaRecord | TestimonialBlockDefaultRecord | TestimonialBlockRecord | TestimonialRecord | TestimonialsSectionRecord | TutorRecord) & { __isUnion?: true }
+export type RecordInterface = (ActionBlockRecord | AuthorRecord | CardBlockNewRecord | CardBlockRecord | CardsSectionRecord | CategoryRecord | ConvertboxBlockRecord | CourseRecord | CoursesBlockRecord | FaqBlockNewRecord | FaqBlockRecord | FaqItemRecord | FaqSectionRecord | HeadingBlockNewRecord | HeadingBlockRecord | HeroSectionRecord | ImageBlockRecord | InstructorRecord | JobRecord | MenuItemBlockRecord | MenuListBlockRecord | MenuRecord | ModularPageRecord | NoteBlockRecord | PlainTextBlockRecord | PostCtaRecord | PostRecord | ResourceRecord | ResourceTopicRecord | RichTextBlockRecord | RoutePathRecord | SeoBlockRecord | TestimonialBlockCtaRecord | TestimonialBlockDefaultRecord | TestimonialBlockRecord | TestimonialRecord | TestimonialsSectionRecord | TutorRecord | TutorsBlockRecord) & { __isUnion?: true }
 
 export type ResolutionType = 'icon' | 'small' | 'medium' | 'large'
 
@@ -1037,7 +1037,7 @@ export interface ResponsiveImage {
     __typename: 'ResponsiveImage'
 }
 
-export type RichTextBlockModelRichTextBlocksField = (CardBlockRecord | CoursesBlockRecord | ImageBlockRecord | NoteBlockRecord) & { __isUnion?: true }
+export type RichTextBlockModelRichTextBlocksField = (CardBlockRecord | CoursesBlockRecord | ImageBlockRecord | NoteBlockRecord | TutorsBlockRecord) & { __isUnion?: true }
 
 export interface RichTextBlockModelRichTextField {
     blocks: RichTextBlockModelRichTextBlocksField[]
@@ -1338,6 +1338,27 @@ export interface TutorRecord {
     verified: (Scalars['BooleanType'] | null)
     verifiedDescription: (TutorModelVerifiedDescriptionField | null)
     __typename: 'TutorRecord'
+}
+
+
+/** Block of type Tutors Block (tutors_block) */
+export interface TutorsBlockRecord {
+    _createdAt: Scalars['DateTime']
+    /** Editing URL */
+    _editingUrl: (Scalars['String'] | null)
+    _firstPublishedAt: (Scalars['DateTime'] | null)
+    _isValid: Scalars['BooleanType']
+    _modelApiKey: Scalars['String']
+    _publicationScheduledAt: (Scalars['DateTime'] | null)
+    _publishedAt: (Scalars['DateTime'] | null)
+    /** Generates SEO and Social card meta tags to be used in your frontend */
+    _seoMetaTags: Tag[]
+    _status: ItemStatus
+    _unpublishingScheduledAt: (Scalars['DateTime'] | null)
+    _updatedAt: Scalars['DateTime']
+    id: Scalars['ItemId']
+    tutors: TutorRecord[]
+    __typename: 'TutorsBlockRecord'
 }
 
 export type UploadOrderBy = '_createdAt_ASC' | '_createdAt_DESC' | 'size_ASC' | 'size_DESC' | 'resolution_ASC' | 'resolution_DESC' | 'filename_ASC' | 'filename_DESC' | 'basename_ASC' | 'basename_DESC' | 'mimeType_ASC' | 'mimeType_DESC' | 'format_ASC' | 'format_DESC' | '_updatedAt_ASC' | '_updatedAt_DESC' | 'id_ASC' | 'id_DESC'
@@ -4205,6 +4226,7 @@ export interface RecordInterfaceGenqlSelection{
     on_TestimonialRecord?: TestimonialRecordGenqlSelection
     on_TestimonialsSectionRecord?: TestimonialsSectionRecordGenqlSelection
     on_TutorRecord?: TutorRecordGenqlSelection
+    on_TutorsBlockRecord?: TutorsBlockRecordGenqlSelection
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -4322,6 +4344,7 @@ export interface RichTextBlockModelRichTextBlocksFieldGenqlSelection{
     on_CoursesBlockRecord?:CoursesBlockRecordGenqlSelection,
     on_ImageBlockRecord?:ImageBlockRecordGenqlSelection,
     on_NoteBlockRecord?:NoteBlockRecordGenqlSelection,
+    on_TutorsBlockRecord?:TutorsBlockRecordGenqlSelection,
     on_RecordInterface?: RecordInterfaceGenqlSelection,
     __typename?: boolean | number
 }
@@ -4729,6 +4752,30 @@ export interface TutorRecordGenqlSelection{
     topics?: PlainTextBlockRecordGenqlSelection
     verified?: boolean | number
     verifiedDescription?: TutorModelVerifiedDescriptionFieldGenqlSelection
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Block of type Tutors Block (tutors_block) */
+export interface TutorsBlockRecordGenqlSelection{
+    _createdAt?: boolean | number
+    /** Editing URL */
+    _editingUrl?: boolean | number
+    _firstPublishedAt?: boolean | number
+    _isValid?: boolean | number
+    _modelApiKey?: boolean | number
+    _publicationScheduledAt?: boolean | number
+    _publishedAt?: boolean | number
+    /** Generates SEO and Social card meta tags to be used in your frontend */
+    _seoMetaTags?: (TagGenqlSelection & { __args?: {
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null)} })
+    _status?: boolean | number
+    _unpublishingScheduledAt?: boolean | number
+    _updatedAt?: boolean | number
+    id?: boolean | number
+    tutors?: TutorRecordGenqlSelection
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -5429,7 +5476,7 @@ export interface focalPointGenqlSelection{
     
 
 
-    const RecordInterface_possibleTypes: string[] = ['ActionBlockRecord','AuthorRecord','CardBlockNewRecord','CardBlockRecord','CardsSectionRecord','CategoryRecord','ConvertboxBlockRecord','CourseRecord','CoursesBlockRecord','FaqBlockNewRecord','FaqBlockRecord','FaqItemRecord','FaqSectionRecord','HeadingBlockNewRecord','HeadingBlockRecord','HeroSectionRecord','ImageBlockRecord','InstructorRecord','JobRecord','MenuItemBlockRecord','MenuListBlockRecord','MenuRecord','ModularPageRecord','NoteBlockRecord','PlainTextBlockRecord','PostCtaRecord','PostRecord','ResourceRecord','ResourceTopicRecord','RichTextBlockRecord','RoutePathRecord','SeoBlockRecord','TestimonialBlockCtaRecord','TestimonialBlockDefaultRecord','TestimonialBlockRecord','TestimonialRecord','TestimonialsSectionRecord','TutorRecord']
+    const RecordInterface_possibleTypes: string[] = ['ActionBlockRecord','AuthorRecord','CardBlockNewRecord','CardBlockRecord','CardsSectionRecord','CategoryRecord','ConvertboxBlockRecord','CourseRecord','CoursesBlockRecord','FaqBlockNewRecord','FaqBlockRecord','FaqItemRecord','FaqSectionRecord','HeadingBlockNewRecord','HeadingBlockRecord','HeroSectionRecord','ImageBlockRecord','InstructorRecord','JobRecord','MenuItemBlockRecord','MenuListBlockRecord','MenuRecord','ModularPageRecord','NoteBlockRecord','PlainTextBlockRecord','PostCtaRecord','PostRecord','ResourceRecord','ResourceTopicRecord','RichTextBlockRecord','RoutePathRecord','SeoBlockRecord','TestimonialBlockCtaRecord','TestimonialBlockDefaultRecord','TestimonialBlockRecord','TestimonialRecord','TestimonialsSectionRecord','TutorRecord','TutorsBlockRecord']
     export const isRecordInterface = (obj?: { __typename?: any } | null): obj is RecordInterface => {
       if (!obj?.__typename) throw new Error('__typename is missing in "isRecordInterface"')
       return RecordInterface_possibleTypes.includes(obj.__typename)
@@ -5477,7 +5524,7 @@ export interface focalPointGenqlSelection{
     
 
 
-    const RichTextBlockModelRichTextBlocksField_possibleTypes: string[] = ['CardBlockRecord','CoursesBlockRecord','ImageBlockRecord','NoteBlockRecord']
+    const RichTextBlockModelRichTextBlocksField_possibleTypes: string[] = ['CardBlockRecord','CoursesBlockRecord','ImageBlockRecord','NoteBlockRecord','TutorsBlockRecord']
     export const isRichTextBlockModelRichTextBlocksField = (obj?: { __typename?: any } | null): obj is RichTextBlockModelRichTextBlocksField => {
       if (!obj?.__typename) throw new Error('__typename is missing in "isRichTextBlockModelRichTextBlocksField"')
       return RichTextBlockModelRichTextBlocksField_possibleTypes.includes(obj.__typename)
@@ -5625,6 +5672,14 @@ export interface focalPointGenqlSelection{
     export const isTutorRecord = (obj?: { __typename?: any } | null): obj is TutorRecord => {
       if (!obj?.__typename) throw new Error('__typename is missing in "isTutorRecord"')
       return TutorRecord_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const TutorsBlockRecord_possibleTypes: string[] = ['TutorsBlockRecord']
+    export const isTutorsBlockRecord = (obj?: { __typename?: any } | null): obj is TutorsBlockRecord => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isTutorsBlockRecord"')
+      return TutorsBlockRecord_possibleTypes.includes(obj.__typename)
     }
     
 

@@ -4,6 +4,7 @@ import {
 	courseMetaFields,
 	postCategoryBlockFields,
 	seoFieldsSelection,
+	tutorMetaFields,
 } from "$lib/graphql/queries/fields";
 
 const getPostFullPath = (
@@ -158,6 +159,11 @@ const getSingleBlogPost = async (slug: string) => {
 						on_CoursesBlockRecord: {
 							courses: {
 								...courseMetaFields,
+							},
+						},
+						on_TutorsBlockRecord: {
+							tutors: {
+								...tutorMetaFields,
 							},
 						},
 						on_CardBlockRecord: cardBlockFields,
