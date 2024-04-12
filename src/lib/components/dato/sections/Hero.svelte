@@ -1,41 +1,67 @@
 <script lang="ts">
 	import AvatarsGroup from "$lib/components/AvatarsGroup.svelte";
 	import Heading from "$lib/components/dato/blocks/Heading.svelte";
-	import { Button } from "$lib/components/shadcn/ui/button";
-	import type { HeroSectionRecord } from "$lib/graphql/generated";
-	import { VideoPlayer } from "@datocms/svelte";
+	import ImageWithCallout from "$lib/components/ImageWithCallout.svelte";
 	import PhArrowBendDownLeftFill from "~icons/ph/arrow-bend-down-left-fill";
+	import type { HeroSectionRecord } from "$lib/graphql/generated";
+	import { Button } from "$lib/components/shadcn/ui/button";
+	import { VideoPlayer } from "@datocms/svelte";
 
 	export let record: HeroSectionRecord;
+
+	let heroImages = record.heroImages;
 </script>
 
-<!-- 
-	TODO: FIGURE OUT IMAGES AND IMAGE CALLOUTS
- -->
-<section class="p-3 py-20 container-base">
-	<div class="w-full mx-auto space-y-6 md:max-w-3xl">
-		{#if record.heading}
-			<Heading heading={record.heading} titleTag="h1" />
-		{/if}
-
-		{#if record.cta}
+<section class="relative z-1 max-w-[1500px] mx-auto">
+	<!-- IMAGES ON EACH END OF THE HERO SECTION -->
+	<div class="max-lg:hidden absolute inset-0 flex-s-between">
+		<div class="grid-areas grid justify-items-center gap-x-8 grid-cols-2">
 			<div class="flex-s-center">
-				<Button size="lg" href={record.cta.link} class="mx-auto">{record.cta.text}</Button>
-			</div>
-		{/if}
-
-		{#if record.testimonialPictures && record.testimonialPictures.length > 0}
-			<div class="flex-s-center gap-4">
-				<AvatarsGroup
-					avatars={record.testimonialPictures.map(picture => ({
-						src: String(picture.responsiveImage?.src),
-						alt: String(picture.responsiveImage?.alt),
-					}))}
+				<ImageWithCallout
+					heroImage={heroImages[0]}
+					class="bottom-full -translate-x-1/2 left-1/2 text-center"
 				/>
-				<p class="text-xs">{record.cta?.text}</p>
 			</div>
-		{/if}
+			<div></div>
+			<ImageWithCallout heroImage={heroImages[1]} class="bottom-5 -translate-x-[80%] text-end" />
+		</div>
+
+		<div class="grid-areas grid justify-items-center gap-x-8 grid-cols-2">
+			<div class="flex-s-center">
+				<ImageWithCallout
+					heroImage={heroImages[2]}
+					class="bottom-full -translate-x-1/3 left-1/2 text-center"
+				/>
+			</div>
+			<ImageWithCallout heroImage={heroImages[3]} class="bottom-5 translate-x-[60%]" />
+		</div>
 	</div>
+
+	<section class="px-3 py-20 container-base relative z-1">
+		<div class="relative w-full mx-auto space-y-6 md:max-w-3xl">
+			{#if record.heading}
+				<Heading heading={record.heading} titleTag="h1" />
+			{/if}
+
+			{#if record.cta}
+				<div class="flex-s-center">
+					<Button size="lg" href={record.cta.link} class="mx-auto">{record.cta.text}</Button>
+				</div>
+			{/if}
+
+			{#if record.testimonialPictures && record.testimonialPictures.length > 0}
+				<div class="flex-s-center gap-4">
+					<AvatarsGroup
+						avatars={record.testimonialPictures.map(picture => ({
+							src: String(picture.responsiveImage?.src),
+							alt: String(picture.responsiveImage?.alt),
+						}))}
+					/>
+					<p class="text-xs">{record.cta?.text}</p>
+				</div>
+			{/if}
+		</div>
+	</section>
 </section>
 
 {#if record.video}
@@ -43,15 +69,16 @@
 		<div class="relative md:max-w-lg md:mx-auto lg:max-w-xl">
 			<VideoPlayer
 				data={record.video.video}
-				class="p-[0.375rem] bg-white shadow-2xl rounded-xl relative md:max-w-lg lg:max-w-xl"
+				class="p-[0.375rem] bg-white shadow-2xl rounded-xl relative max-h-[600px] md:max-w-lg lg:max-w-xl"
 			/>
 
 			<div
-				class="max-md:hidden absolute left-full top-[10%] -translate-y-[45%] h-[100px] w-[400px] flex items-center"
+				class="max-md:hidden absolute left-full top-2 -translate-y-[45%] h-[100px] w-[400px] flex items-center"
 			>
-				<div class="space-y-4">
+				<div class="space-y-10">
 					<h3
 						class="absolute text-center translate-x-[-100px] -translate-y-[50px] max-w-[16ch] text-2xl italic"
+						style="text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.9);"
 					>
 						{record.videoText}
 					</h3>
@@ -61,3 +88,23 @@
 		</div>
 	</section>
 {/if}
+
+<style lang="scss">
+	.grid-areas {
+		grid-template-areas:
+			"top top"
+			"left right";
+
+		:nth-child(1) {
+			grid-area: top;
+		}
+
+		:nth-child(2) {
+			grid-area: left;
+		}
+
+		:nth-child(3) {
+			grid-area: right;
+		}
+	}
+</style>
