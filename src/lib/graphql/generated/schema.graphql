@@ -1050,6 +1050,31 @@ type HeadingBlockRecord implements RecordInterface {
   ): String
 }
 
+"""Block of type Hero Image Block (hero_image_block)"""
+type HeroImageBlockRecord implements RecordInterface {
+  _createdAt: DateTime!
+
+  """Editing URL"""
+  _editingUrl: String
+  _firstPublishedAt: DateTime
+  _isValid: BooleanType!
+  _modelApiKey: String!
+  _publicationScheduledAt: DateTime
+  _publishedAt: DateTime
+
+  """Generates SEO and Social card meta tags to be used in your frontend"""
+  _seoMetaTags(
+    """The locale to use to fetch the field's content"""
+    locale: SiteLocale
+  ): [Tag!]!
+  _status: ItemStatus!
+  _unpublishingScheduledAt: DateTime
+  _updatedAt: DateTime!
+  id: ItemId!
+  image: AltFileField
+  text: String
+}
+
 """Block of type Hero Section (hero_section)"""
 type HeroSectionRecord implements RecordInterface {
   _createdAt: DateTime!
@@ -1072,6 +1097,7 @@ type HeroSectionRecord implements RecordInterface {
   _updatedAt: DateTime!
   cta: ActionBlockRecord
   heading: HeadingBlockNewRecord
+  heroImages: [HeroImageBlockRecord!]!
   id: ItemId!
   testimonialPictures: [AltFileField!]!
   testimonialTitle: String

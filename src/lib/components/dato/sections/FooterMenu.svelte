@@ -13,7 +13,7 @@
 	$: currentYear = new Date().getFullYear();
 </script>
 
-<footer class="py-12 space-y-8 text-white bg-gray-900">
+<footer class="py-12 space-y-8 mt-20 text-white bg-gray-900">
 	<div class="container-base">
 		<div class="flex flex-col gap-8 py-12 sm:gap-0 sm:flex-row">
 			<div class="space-y-5 basis-9/12">

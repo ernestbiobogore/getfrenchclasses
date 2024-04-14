@@ -16,6 +16,7 @@ import type {
 
 const headingFieldSelection = {
 	heading: true,
+	highlightedWords: true,
 	subheading: {
 		value: true,
 	},

@@ -476,6 +476,28 @@ export interface HeadingBlockRecord {
 }
 
 
+/** Block of type Hero Image Block (hero_image_block) */
+export interface HeroImageBlockRecord {
+    _createdAt: Scalars['DateTime']
+    /** Editing URL */
+    _editingUrl: (Scalars['String'] | null)
+    _firstPublishedAt: (Scalars['DateTime'] | null)
+    _isValid: Scalars['BooleanType']
+    _modelApiKey: Scalars['String']
+    _publicationScheduledAt: (Scalars['DateTime'] | null)
+    _publishedAt: (Scalars['DateTime'] | null)
+    /** Generates SEO and Social card meta tags to be used in your frontend */
+    _seoMetaTags: Tag[]
+    _status: ItemStatus
+    _unpublishingScheduledAt: (Scalars['DateTime'] | null)
+    _updatedAt: Scalars['DateTime']
+    id: Scalars['ItemId']
+    image: (AltFileField | null)
+    text: (Scalars['String'] | null)
+    __typename: 'HeroImageBlockRecord'
+}
+
+
 /** Block of type Hero Section (hero_section) */
 export interface HeroSectionRecord {
     _createdAt: Scalars['DateTime']
@@ -493,6 +515,7 @@ export interface HeroSectionRecord {
     _updatedAt: Scalars['DateTime']
     cta: (ActionBlockRecord | null)
     heading: (HeadingBlockNewRecord | null)
+    heroImages: HeroImageBlockRecord[]
     id: Scalars['ItemId']
     testimonialPictures: AltFileField[]
     testimonialTitle: (Scalars['String'] | null)
@@ -946,7 +969,7 @@ export interface Query {
     __typename: 'Query'
 }
 
-export type RecordInterface = (ActionBlockRecord | AuthorRecord | CardBlockNewRecord | CardBlockRecord | CardsSectionRecord | CategoryRecord | ConvertboxBlockRecord | CourseRecord | CoursesBlockRecord | FaqBlockNewRecord | FaqBlockRecord | FaqItemRecord | FaqSectionRecord | HeadingBlockNewRecord | HeadingBlockRecord | HeroSectionRecord | ImageBlockRecord | InstructorRecord | JobRecord | MenuItemBlockRecord | MenuListBlockRecord | MenuRecord | ModularPageRecord | NoteBlockRecord | PlainTextBlockRecord | PostCtaRecord | PostRecord | ResourceRecord | ResourceTopicRecord | RichTextBlockRecord | RoutePathRecord | SeoBlockRecord | TestimonialBlockCtaRecord | TestimonialBlockDefaultRecord | TestimonialBlockRecord | TestimonialRecord | TestimonialsSectionRecord | TutorRecord | TutorsBlockRecord) & { __isUnion?: true }
+export type RecordInterface = (ActionBlockRecord | AuthorRecord | CardBlockNewRecord | CardBlockRecord | CardsSectionRecord | CategoryRecord | ConvertboxBlockRecord | CourseRecord | CoursesBlockRecord | FaqBlockNewRecord | FaqBlockRecord | FaqItemRecord | FaqSectionRecord | HeadingBlockNewRecord | HeadingBlockRecord | HeroImageBlockRecord | HeroSectionRecord | ImageBlockRecord | InstructorRecord | JobRecord | MenuItemBlockRecord | MenuListBlockRecord | MenuRecord | ModularPageRecord | NoteBlockRecord | PlainTextBlockRecord | PostCtaRecord | PostRecord | ResourceRecord | ResourceTopicRecord | RichTextBlockRecord | RoutePathRecord | SeoBlockRecord | TestimonialBlockCtaRecord | TestimonialBlockDefaultRecord | TestimonialBlockRecord | TestimonialRecord | TestimonialsSectionRecord | TutorRecord | TutorsBlockRecord) & { __isUnion?: true }
 
 export type ResolutionType = 'icon' | 'small' | 'medium' | 'large'
 
@@ -2141,6 +2164,31 @@ export interface HeadingBlockRecordGenqlSelection{
 }
 
 
+/** Block of type Hero Image Block (hero_image_block) */
+export interface HeroImageBlockRecordGenqlSelection{
+    _createdAt?: boolean | number
+    /** Editing URL */
+    _editingUrl?: boolean | number
+    _firstPublishedAt?: boolean | number
+    _isValid?: boolean | number
+    _modelApiKey?: boolean | number
+    _publicationScheduledAt?: boolean | number
+    _publishedAt?: boolean | number
+    /** Generates SEO and Social card meta tags to be used in your frontend */
+    _seoMetaTags?: (TagGenqlSelection & { __args?: {
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null)} })
+    _status?: boolean | number
+    _unpublishingScheduledAt?: boolean | number
+    _updatedAt?: boolean | number
+    id?: boolean | number
+    image?: AltFileFieldGenqlSelection
+    text?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
 /** Block of type Hero Section (hero_section) */
 export interface HeroSectionRecordGenqlSelection{
     _createdAt?: boolean | number
@@ -2160,6 +2208,7 @@ export interface HeroSectionRecordGenqlSelection{
     _updatedAt?: boolean | number
     cta?: ActionBlockRecordGenqlSelection
     heading?: HeadingBlockNewRecordGenqlSelection
+    heroImages?: HeroImageBlockRecordGenqlSelection
     id?: boolean | number
     testimonialPictures?: AltFileFieldGenqlSelection
     testimonialTitle?: boolean | number
@@ -4203,6 +4252,7 @@ export interface RecordInterfaceGenqlSelection{
     on_FaqSectionRecord?: FaqSectionRecordGenqlSelection
     on_HeadingBlockNewRecord?: HeadingBlockNewRecordGenqlSelection
     on_HeadingBlockRecord?: HeadingBlockRecordGenqlSelection
+    on_HeroImageBlockRecord?: HeroImageBlockRecordGenqlSelection
     on_HeroSectionRecord?: HeroSectionRecordGenqlSelection
     on_ImageBlockRecord?: ImageBlockRecordGenqlSelection
     on_InstructorRecord?: InstructorRecordGenqlSelection
@@ -5348,6 +5398,14 @@ export interface focalPointGenqlSelection{
     
 
 
+    const HeroImageBlockRecord_possibleTypes: string[] = ['HeroImageBlockRecord']
+    export const isHeroImageBlockRecord = (obj?: { __typename?: any } | null): obj is HeroImageBlockRecord => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isHeroImageBlockRecord"')
+      return HeroImageBlockRecord_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
     const HeroSectionRecord_possibleTypes: string[] = ['HeroSectionRecord']
     export const isHeroSectionRecord = (obj?: { __typename?: any } | null): obj is HeroSectionRecord => {
       if (!obj?.__typename) throw new Error('__typename is missing in "isHeroSectionRecord"')
@@ -5476,7 +5534,7 @@ export interface focalPointGenqlSelection{
     
 
 
-    const RecordInterface_possibleTypes: string[] = ['ActionBlockRecord','AuthorRecord','CardBlockNewRecord','CardBlockRecord','CardsSectionRecord','CategoryRecord','ConvertboxBlockRecord','CourseRecord','CoursesBlockRecord','FaqBlockNewRecord','FaqBlockRecord','FaqItemRecord','FaqSectionRecord','HeadingBlockNewRecord','HeadingBlockRecord','HeroSectionRecord','ImageBlockRecord','InstructorRecord','JobRecord','MenuItemBlockRecord','MenuListBlockRecord','MenuRecord','ModularPageRecord','NoteBlockRecord','PlainTextBlockRecord','PostCtaRecord','PostRecord','ResourceRecord','ResourceTopicRecord','RichTextBlockRecord','RoutePathRecord','SeoBlockRecord','TestimonialBlockCtaRecord','TestimonialBlockDefaultRecord','TestimonialBlockRecord','TestimonialRecord','TestimonialsSectionRecord','TutorRecord','TutorsBlockRecord']
+    const RecordInterface_possibleTypes: string[] = ['ActionBlockRecord','AuthorRecord','CardBlockNewRecord','CardBlockRecord','CardsSectionRecord','CategoryRecord','ConvertboxBlockRecord','CourseRecord','CoursesBlockRecord','FaqBlockNewRecord','FaqBlockRecord','FaqItemRecord','FaqSectionRecord','HeadingBlockNewRecord','HeadingBlockRecord','HeroImageBlockRecord','HeroSectionRecord','ImageBlockRecord','InstructorRecord','JobRecord','MenuItemBlockRecord','MenuListBlockRecord','MenuRecord','ModularPageRecord','NoteBlockRecord','PlainTextBlockRecord','PostCtaRecord','PostRecord','ResourceRecord','ResourceTopicRecord','RichTextBlockRecord','RoutePathRecord','SeoBlockRecord','TestimonialBlockCtaRecord','TestimonialBlockDefaultRecord','TestimonialBlockRecord','TestimonialRecord','TestimonialsSectionRecord','TutorRecord','TutorsBlockRecord']
     export const isRecordInterface = (obj?: { __typename?: any } | null): obj is RecordInterface => {
       if (!obj?.__typename) throw new Error('__typename is missing in "isRecordInterface"')
       return RecordInterface_possibleTypes.includes(obj.__typename)

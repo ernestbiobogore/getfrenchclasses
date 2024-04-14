@@ -27,7 +27,7 @@
 		| undefined;
 </script>
 
-<section class={cn("py-20 space-y-12 container-base", className)}>
+<section class={cn("space-y-12 container-base", className)}>
 	{#if record.heading}
 		<Heading heading={record.heading} />
 	{/if}

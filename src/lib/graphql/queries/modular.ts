@@ -41,6 +41,12 @@ const getSingleModularPage = async (slug: string) => {
 					heading: headingFieldSelection,
 					cta: actionBlockFieldSelection,
 					testimonialTitle: true,
+					heroImages: {
+						image: {
+							responsiveImage: responsiveImageFieldSelection,
+						},
+						text: true,
+					},
 					testimonialPictures: {
 						responsiveImage: responsiveImageFieldSelection,
 					},
