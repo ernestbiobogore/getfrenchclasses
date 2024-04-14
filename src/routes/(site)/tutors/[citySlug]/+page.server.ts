@@ -1,5 +1,5 @@
 import { getAllCoursesMetas } from "$lib/graphql/queries/courses";
-import { getCityBySlugWithTutors } from "$lib/graphql/queries/locations";
+import { getCitiesWithTutors, getCityBySlugWithTutors } from "$lib/graphql/queries/locations";
 import { getSingleModularPage } from "$lib/graphql/queries/modular";
 import { error } from "@sveltejs/kit";
 
@@ -18,10 +18,14 @@ export async function load({ params }) {
 	}
 
 	const courses = await getAllCoursesMetas(3);
+	const citiesWithTutors = await getCitiesWithTutors();
+	// const countriesWithTutors = await getCountriesWithTutors();
 
 	return {
 		city,
 		modularPage,
 		courses,
+		citiesWithTutors,
+		// countriesWithTutors,
 	};
 }

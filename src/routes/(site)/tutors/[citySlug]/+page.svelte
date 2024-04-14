@@ -9,9 +9,10 @@
 	import CourseCard from "$lib/components/CourseCard.svelte";
 	import { Button } from "$shadcn/button";
 	import SvelteSeo from "svelte-seo";
+	import InternalLinks, { type Section as InternalLinkSection } from "./InternalLinks.svelte";
 
 	export let data;
-	$: ({ modularPage, city, courses } = data);
+	$: ({ modularPage, city, courses, citiesWithTutors } = data);
 	$: seo = modularPage.seo?.seoBlock;
 
 	$: title = `Our tutors in ${city.name} | Get French Classes`;
@@ -26,6 +27,16 @@
 			height: 630,
 		},
 	};
+
+	$: tutorsInternalLinks = [
+		{
+			title: "By City",
+			links: citiesWithTutors.map(city => ({
+				label: city.name,
+				path: `/${city.slug}`,
+			})),
+		},
+	] satisfies InternalLinkSection[];
 </script>
 
 <SvelteSeo
@@ -103,3 +114,5 @@
 		{/if}
 	{/each}
 {/if}
+
+<InternalLinks basePath="/tutors" sections={tutorsInternalLinks} />

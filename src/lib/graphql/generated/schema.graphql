@@ -336,6 +336,11 @@ type CategoryRecord implements RecordInterface {
   slug: String!
 }
 
+"""Linking fields"""
+enum CityModelFieldsReferencingCountryModel {
+  city_country
+}
+
 input CityModelFilter {
   _createdAt: CreatedAtFilter
   id: ItemIdFilter
@@ -526,6 +531,36 @@ enum CountryModelOrderBy {
 
 """Record of type 🗺️ Country (country)"""
 type CountryRecord implements RecordInterface {
+  _allReferencingCities(
+    """Specifies how to filter linking records"""
+    through: InverseRelationshipFilterBetweenCityAndCountry
+
+    """The locale to use to fetch the field's content"""
+    locale: SiteLocale
+
+    """
+    If you want to fallback to a default translation when a translation has not been found
+    """
+    fallbackLocales: [SiteLocale!]
+
+    """Skip the first results"""
+    skip: IntType
+
+    """Limit the number of results"""
+    first: IntType = 20
+    filter: CityModelFilter
+    orderBy: [CityModelOrderBy] = [_updatedAt_DESC]
+  ): [CityRecord!]!
+
+  """Returns meta information regarding a record collection"""
+  _allReferencingCitiesMeta(
+    """Specifies how to filter linking records"""
+    through: InverseRelationshipFilterBetweenCityAndCountry
+
+    """The locale to use to fetch the field's content"""
+    locale: SiteLocale
+    filter: CityModelFilter
+  ): CollectionMetadata!
   _createdAt: DateTime!
 
   """Editing URL"""
@@ -2969,6 +3004,19 @@ input IntegerFilter {
 }
 
 """Specifies how to filter by linking fields"""
+input InverseRelationshipFieldFilterBetweenCityAndCountry {
+  """
+  Filter linking records that reference current record in at least one of the specified fields
+  """
+  anyIn: [CityModelFieldsReferencingCountryModel!]
+
+  """
+  Filter linking records that do not reference current record in any of the specified fields
+  """
+  notIn: [CityModelFieldsReferencingCountryModel!]
+}
+
+"""Specifies how to filter by linking fields"""
 input InverseRelationshipFieldFilterBetweenTutorAndCity {
   """
   Filter linking records that reference current record in at least one of the specified fields
@@ -2979,6 +3027,15 @@ input InverseRelationshipFieldFilterBetweenTutorAndCity {
   Filter linking records that do not reference current record in any of the specified fields
   """
   notIn: [TutorModelFieldsReferencingCityModel!]
+}
+
+"""Specifies how to filter linking records"""
+input InverseRelationshipFilterBetweenCityAndCountry {
+  """Specifies how to filter by linking fields"""
+  fields: InverseRelationshipFieldFilterBetweenCityAndCountry
+
+  """Specifies how to filter by linking locales"""
+  locales: LinkingLocalesFilter
 }
 
 """Specifies how to filter linking records"""

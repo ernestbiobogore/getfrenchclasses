@@ -192,6 +192,10 @@ export interface CategoryRecord {
     __typename: 'CategoryRecord'
 }
 
+
+/** Linking fields */
+export type CityModelFieldsReferencingCountryModel = 'city_country'
+
 export type CityModelOrderBy = '_createdAt_ASC' | '_createdAt_DESC' | 'id_ASC' | 'id_DESC' | '_firstPublishedAt_ASC' | '_firstPublishedAt_DESC' | '_publicationScheduledAt_ASC' | '_publicationScheduledAt_DESC' | '_unpublishingScheduledAt_ASC' | '_unpublishingScheduledAt_DESC' | '_publishedAt_ASC' | '_publishedAt_DESC' | '_status_ASC' | '_status_DESC' | '_updatedAt_ASC' | '_updatedAt_DESC' | '_isValid_ASC' | '_isValid_DESC' | 'name_ASC' | 'name_DESC'
 
 
@@ -264,6 +268,9 @@ export type CountryModelOrderBy = '_createdAt_ASC' | '_createdAt_DESC' | 'id_ASC
 
 /** Record of type 🗺️ Country (country) */
 export interface CountryRecord {
+    _allReferencingCities: CityRecord[]
+    /** Returns meta information regarding a record collection */
+    _allReferencingCitiesMeta: CollectionMetadata
     _createdAt: Scalars['DateTime']
     /** Editing URL */
     _editingUrl: (Scalars['String'] | null)
@@ -1889,6 +1896,23 @@ export interface CountryModelFilter {_createdAt?: (CreatedAtFilter | null),id?: 
 
 /** Record of type 🗺️ Country (country) */
 export interface CountryRecordGenqlSelection{
+    _allReferencingCities?: (CityRecordGenqlSelection & { __args?: {
+    /** Specifies how to filter linking records */
+    through?: (InverseRelationshipFilterBetweenCityAndCountry | null), 
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null), 
+    /** If you want to fallback to a default translation when a translation has not been found */
+    fallbackLocales?: (SiteLocale[] | null), 
+    /** Skip the first results */
+    skip?: (Scalars['IntType'] | null), 
+    /** Limit the number of results */
+    first?: (Scalars['IntType'] | null), filter?: (CityModelFilter | null), orderBy?: ((CityModelOrderBy | null)[] | null)} })
+    /** Returns meta information regarding a record collection */
+    _allReferencingCitiesMeta?: (CollectionMetadataGenqlSelection & { __args?: {
+    /** Specifies how to filter linking records */
+    through?: (InverseRelationshipFilterBetweenCityAndCountry | null), 
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null), filter?: (CityModelFilter | null)} })
     _createdAt?: boolean | number
     /** Editing URL */
     _editingUrl?: boolean | number
@@ -3733,11 +3757,27 @@ neq?: (Scalars['IntType'] | null)}
 
 
 /** Specifies how to filter by linking fields */
+export interface InverseRelationshipFieldFilterBetweenCityAndCountry {
+/** Filter linking records that reference current record in at least one of the specified fields */
+anyIn?: (CityModelFieldsReferencingCountryModel[] | null),
+/** Filter linking records that do not reference current record in any of the specified fields */
+notIn?: (CityModelFieldsReferencingCountryModel[] | null)}
+
+
+/** Specifies how to filter by linking fields */
 export interface InverseRelationshipFieldFilterBetweenTutorAndCity {
 /** Filter linking records that reference current record in at least one of the specified fields */
 anyIn?: (TutorModelFieldsReferencingCityModel[] | null),
 /** Filter linking records that do not reference current record in any of the specified fields */
 notIn?: (TutorModelFieldsReferencingCityModel[] | null)}
+
+
+/** Specifies how to filter linking records */
+export interface InverseRelationshipFilterBetweenCityAndCountry {
+/** Specifies how to filter by linking fields */
+fields?: (InverseRelationshipFieldFilterBetweenCityAndCountry | null),
+/** Specifies how to filter by linking locales */
+locales?: (LinkingLocalesFilter | null)}
 
 
 /** Specifies how to filter linking records */
@@ -6147,6 +6187,10 @@ export const enumCategoryModelOrderBy = {
    _isValid_DESC: '_isValid_DESC' as const,
    name_ASC: 'name_ASC' as const,
    name_DESC: 'name_DESC' as const
+}
+
+export const enumCityModelFieldsReferencingCountryModel = {
+   city_country: 'city_country' as const
 }
 
 export const enumCityModelOrderBy = {
