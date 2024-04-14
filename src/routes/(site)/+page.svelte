@@ -9,7 +9,6 @@
 	setContext<boolean>("isHomePage", true);
 
 	$: seo = data.modularPage.seo?.seoBlock;
-	$: console.log(seo);
 
 	$: seoData = {
 		url: $page.url.href,
