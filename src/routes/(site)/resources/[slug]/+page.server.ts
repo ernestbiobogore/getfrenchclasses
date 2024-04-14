@@ -1,6 +1,6 @@
 import { getFaqItemBySlug } from "$lib/graphql/queries/faq";
 import { getResourcePage } from "$lib/graphql/queries/resource";
-import { getTestimonialBySlug } from "$lib/graphql/queries/testimonial.js";
+import { getTestimonialBySlug } from "$lib/graphql/queries/testimonials";
 
 export async function load({ params }) {
 	const [homeFaq, resource, testimonial] = await Promise.all([
