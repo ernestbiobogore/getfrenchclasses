@@ -137,7 +137,7 @@
 				<div class="flex items-center space-x-2 text-sm text-gray-600">
 					<LocateIcon class="w-5 h-5" />
 					<span>
-						{tutor.location}
+						{tutor.city.name}
 						({tutor.remoteStatus.map(status => deSlugify(status)).join(", ")})
 					</span>
 				</div>
