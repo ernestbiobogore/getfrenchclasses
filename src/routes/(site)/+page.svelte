@@ -9,6 +9,7 @@
 	setContext<boolean>("isHomePage", true);
 
 	$: seo = data.modularPage.seo?.seoBlock;
+	$: console.log(seo);
 
 	$: seoData = {
 		url: $page.url.href,
@@ -17,8 +18,8 @@
 		image: {
 			url: seo?.image?.responsiveImage?.src || seo?.image?.url,
 			alt: seo?.image?.alt || data.modularPage.title,
-			width: seo?.image?.responsiveImage?.width,
-			height: seo?.image?.responsiveImage?.height,
+			width: 1200,
+			height: 630,
 		},
 	};
 </script>
