@@ -1,8 +1,4 @@
 <script lang="ts" context="module">
-	import StructuredText from "$dato/StructuredText/index.svelte";
-	import TutorCard from "$dato/blocks/tutors/TutorCard.svelte";
-	import CourseCard from "$lib/components/CourseCard.svelte";
-	import type { RichTextBlockModelRichTextBlocksField } from "$lib/graphql/generated";
 	import { cn } from "$lib/utils";
 
 	const getNoteClass = (type: string) => {
@@ -23,6 +19,12 @@
 </script>
 
 <script lang="ts">
+	import StructuredText from "$dato/StructuredText/index.svelte";
+	import DefaultTestimonial from "$dato/blocks/DefaultTestimonial.svelte";
+	import TutorCard from "$dato/blocks/tutors/TutorCard.svelte";
+	import CourseCard from "$lib/components/CourseCard.svelte";
+	import type { RichTextBlockModelRichTextBlocksField } from "$lib/graphql/generated";
+
 	export let block: RichTextBlockModelRichTextBlocksField;
 </script>
 
@@ -71,6 +73,18 @@
 		<div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
 			{#each block.tutors as tutor (tutor.id)}
 				<TutorCard {tutor} />
+			{/each}
+		</div>
+	{/if}
+{/if}
+
+{#if block.__typename === "TestimonialsListBlockRecord"}
+	{#if block.testimonials && block.testimonials.length > 0}
+		<div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3 pt-4 pb-10">
+			{#each block.testimonials as { testimonial } (testimonial.id)}
+				{#if testimonial.__typename === "TestimonialBlockDefaultRecord"}
+					<DefaultTestimonial {testimonial} />
+				{/if}
 			{/each}
 		</div>
 	{/if}
