@@ -12,6 +12,10 @@ export async function load({ params }) {
 
 	const modularPage = await getSingleModularPage("tutors-by-location");
 
+	if (!modularPage) {
+		error(404, "Page not found");
+	}
+
 	return {
 		city,
 		modularPage,
