@@ -159,4 +159,19 @@ export const flyAndScale = (
 	};
 };
 
-export { getSampleAvatars };
+const dateFormattingOptions = {
+	year: "numeric",
+	month: "long",
+	day: "numeric",
+} as const;
+
+const formatDate = (date: string, options?: Intl.DateTimeFormatOptions) => {
+	const dateObj = new Date(date);
+
+	return new Intl.DateTimeFormat("en-US", {
+		...(options || dateFormattingOptions),
+	}).format(dateObj);
+};
+
+export { formatDate, getSampleAvatars };
+

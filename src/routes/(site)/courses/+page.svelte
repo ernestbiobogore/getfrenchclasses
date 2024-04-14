@@ -1,7 +1,7 @@
 <script>
+	import CtaTestimonial from "$dato/blocks/CtaTestimonial.svelte";
 	import CourseCard from "$lib/components/CourseCard.svelte";
 	import CustomMultiselect from "$lib/components/CustomMultiselect.svelte";
-	import CtaTestimonial from "$lib/components/dato/blocks/CtaTestimonial.svelte";
 	import CourseSectionDivider from "./CourseSectionDivider.svelte";
 
 	export let data;
@@ -56,7 +56,7 @@
 
 	<div class="gap-8">
 		<div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-			{#each allCoursesMetas as course}
+			{#each allCoursesMetas as course (course.id)}
 				<CourseCard {course} />
 			{/each}
 		</div>

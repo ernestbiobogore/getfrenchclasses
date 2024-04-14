@@ -6,7 +6,7 @@
 </script>
 
 <script lang="ts">
-	import * as ShadcnAvatar from "$lib/components/shadcn/ui/avatar";
+	import * as ShadcnAvatar from "$shadcn/avatar";
 
 	export let avatars: Avatar[] = [];
 	export let size = 32;

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { goto } from "$app/navigation";
-	import StructuredText from "$lib/components/dato/StructuredText/index.svelte";
-	import Testimonials from "$lib/components/dato/sections/Testimonials.svelte";
+	import StructuredText from "$dato/StructuredText/index.svelte";
+	import Testimonials from "$dato/sections/Testimonials.svelte";
 	import { Badge } from "$shadcn/badge";
 	import * as Card from "$shadcn/card";
 	import * as Select from "$shadcn/select";

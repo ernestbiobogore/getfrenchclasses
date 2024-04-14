@@ -1,9 +1,9 @@
 <script lang="ts">
-	import StructuredText from "$lib/components/dato/StructuredText/index.svelte";
-	import { Button } from "$lib/components/shadcn/ui/button";
-	import * as Card from "$lib/components/shadcn/ui/card";
+	import StructuredText from "$dato/StructuredText/index.svelte";
 	import type { TestimonialBlockCtaRecord } from "$lib/graphql/generated";
 	import { cn } from "$lib/utils";
+	import { Button } from "$shadcn/button";
+	import * as Card from "$shadcn/card";
 	import { Image } from "@datocms/svelte";
 	import CarbonQuotes from "~icons/carbon/quotes";
 	import "../blocks/styles/testimonial.css";

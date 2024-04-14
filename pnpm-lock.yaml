@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@datocms/svelte':
-    specifier: ^1.4.1
-    version: 1.4.1(@mux/mux-player@2.3.3)(svelte@4.2.8)
+    specifier: ^2.0.1
+    version: 2.0.1(@mux/mux-player@2.3.3)(svelte@4.2.8)
   '@fontsource-variable/inter':
     specifier: ^5.0.16
     version: 5.0.16
@@ -100,6 +100,9 @@ devDependencies:
   svelte-check:
     specifier: ^3.6.2
     version: 3.6.2(postcss@8.4.33)(sass@1.74.1)(svelte@4.2.8)
+  svelte-seo:
+    specifier: 1.5.4
+    version: 1.5.4(typescript@5.3.3)
   sveltekit-search-params:
     specifier: ^2.1.2
     version: 2.1.2(@sveltejs/kit@2.4.1)(svelte@4.2.8)(vite@5.0.10)
@@ -161,17 +164,19 @@ packages:
       regenerator-runtime: 0.14.1
     dev: false
 
-  /@datocms/svelte@1.4.1(@mux/mux-player@2.3.3)(svelte@4.2.8):
-    resolution: {integrity: sha512-w/S/NsqiH63mk6FDTY5EMtZd6Tmglw/gCUkmLN349nYdzHPWiiVXFFd1JLdAfVAyYQ/J2R+AWWBT7vQdoouOmw==}
+  /@datocms/svelte@2.0.1(@mux/mux-player@2.3.3)(svelte@4.2.8):
+    resolution: {integrity: sha512-25owTVWTc46bzuhnOqMh0Gi+EoIzpNZxBm2If3i2CPGpUYfLytOauM5U9ncKgDkb1/Ni+aLL5a6rVdaFq0RFEg==}
     peerDependencies:
       '@mux/mux-player': '*'
       svelte: ^3.59.2 || ^4.0.0
+    peerDependenciesMeta:
+      '@mux/mux-player':
+        optional: true
     dependencies:
       '@mux/mux-player': 2.3.3
       datocms-structured-text-utils: 2.1.12
       svelte: 4.2.8
       svelte-intersection-observer: 1.0.0
-      universal-base64: 2.1.0
     dev: false
 
   /@esbuild/aix-ppc64@0.19.11:
@@ -2899,6 +2904,14 @@ packages:
       source-map-js: 1.2.0
     dev: true
 
+  /schema-dts@1.1.2(typescript@5.3.3):
+    resolution: {integrity: sha512-MpNwH0dZJHinVxk9bT8XUdjKTxMYrA5bLtrrGmFA6PTLwlOKnhi67XoRd6/ty+Djt6ZC0slR57qFhZDNMI6DhQ==}
+    peerDependencies:
+      typescript: '>=4.1.0'
+    dependencies:
+      typescript: 5.3.3
+    dev: true
+
   /semver@6.3.1:
     resolution: {integrity: sha512-BR7VvDCVHO+q2xBEWskxS6DJE1qRnb7DxzUrogb71CWoSficBxYsiAGd+Kl0mmq/MprG9yArRkyrQxTO6XjMzA==}
     hasBin: true
@@ -3185,6 +3198,14 @@ packages:
       typescript: 5.3.3
     dev: true
 
+  /svelte-seo@1.5.4(typescript@5.3.3):
+    resolution: {integrity: sha512-pevGUiWkqLrSWXVkxE0SbkBLNsz2dVaiK8/kBq2eUHYdyzuPEZGbqtUARyJZHouv28xre7IU9t0VnoYt8d4kzA==}
+    dependencies:
+      schema-dts: 1.1.2(typescript@5.3.3)
+    transitivePeerDependencies:
+      - typescript
+    dev: true
+
   /svelte@4.2.8:
     resolution: {integrity: sha512-hU6dh1MPl8gh6klQZwK/n73GiAHiR95IkFsesLPbMeEZi36ydaXL/ZAb4g9sayT0MXzpxyZjR28yderJHxcmYA==}
     engines: {node: '>=16'}
@@ -3389,10 +3410,6 @@ packages:
 
   /unfetch@4.2.0:
     resolution: {integrity: sha512-F9p7yYCn6cIW9El1zi0HI6vqpeIvBsr3dSuRO6Xuppb1u5rXpCPmMvLSyECLhybr9isec8Ohl0hPekMVrEinDA==}
-    dev: false
-
-  /universal-base64@2.1.0:
-    resolution: {integrity: sha512-WeOkACVnIXJZr/qlv7++Rl1zuZOHN96v2yS5oleUuv8eJOs5j9M5U3xQEIoWqn1OzIuIcgw0fswxWnUVGDfW6g==}
     dev: false
 
   /unplugin-icons@0.18.5:

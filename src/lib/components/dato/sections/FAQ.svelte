@@ -1,6 +1,6 @@
 <script lang="ts">
-	import FAQItems from "$lib/components/dato/blocks/FAQItems.svelte";
-	import Heading from "$lib/components/dato/blocks/Heading.svelte";
+	import FAQItems from "$dato/blocks/FAQItems.svelte";
+	import Heading from "$dato/blocks/Heading.svelte";
 	import type { FaqSectionRecord } from "$lib/graphql/generated";
 	import { getContext } from "svelte";
 

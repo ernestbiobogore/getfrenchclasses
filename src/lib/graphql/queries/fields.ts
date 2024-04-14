@@ -91,6 +91,15 @@ const seoFieldsSelection = {
 	image: {
 		url: true,
 		alt: true,
+		responsiveImage: {
+			__args: {
+				imgixParams: {
+					w: 1248,
+					h: 702,
+				},
+			},
+			...responsiveImageFieldSelection,
+		},
 	},
 } satisfies SeoFieldGenqlSelection;
 
@@ -208,5 +217,6 @@ export {
 	postCategoryBlockFields,
 	responsiveImageFieldSelection,
 	seoFieldsSelection,
-	tutorMetaFields,
+	tutorMetaFields
 };
+

@@ -4,8 +4,8 @@
 	import "../app.css";
 
 	import { navigating } from "$app/stores";
+	import FooterMenu from "$dato/sections/FooterMenu.svelte";
 	import NProgress from "nprogress";
-	import FooterMenu from "$lib/components/dato/sections/FooterMenu.svelte";
 
 	NProgress.configure({ showSpinner: false, minimum: 0.16 });
 	$: $navigating ? NProgress.start() : NProgress.done();

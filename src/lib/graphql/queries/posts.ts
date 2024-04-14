@@ -1,8 +1,10 @@
 import { client } from "$lib/graphql/client";
 import {
 	cardBlockFields,
+	courseMetaFields,
 	postCategoryBlockFields,
 	seoFieldsSelection,
+	tutorMetaFields,
 } from "$lib/graphql/queries/fields";
 
 const getPostFullPath = (
@@ -99,6 +101,14 @@ const getSingleBlogPost = async (slug: string) => {
 			_firstPublishedAt: true,
 			_updatedAt: true,
 
+			// Authors
+			author: {
+				name: true,
+			},
+			reviewer: {
+				name: true,
+			},
+
 			// CTA
 			postCta: {
 				title: true,
@@ -144,6 +154,16 @@ const getSingleBlogPost = async (slug: string) => {
 									alt: true,
 									sizes: true,
 								},
+							},
+						},
+						on_CoursesBlockRecord: {
+							courses: {
+								...courseMetaFields,
+							},
+						},
+						on_TutorsBlockRecord: {
+							tutors: {
+								...tutorMetaFields,
 							},
 						},
 						on_CardBlockRecord: cardBlockFields,
