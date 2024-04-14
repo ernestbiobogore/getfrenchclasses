@@ -64,7 +64,7 @@
 		/>
 	{/if}
 
-	<a href="/tutors/{tutor.slug}">
+	<a href="/tutor/{tutor.slug}">
 		<Card.Content class="p-4 mb-6">
 			<div class="flex items-center mb-6 space-x-3">
 				<Avatar.Root class="border-4 border-white w-14 h-14">
