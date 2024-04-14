@@ -28,7 +28,7 @@
 		<div class="space-y-5">
 			<h1>{data.tutor.summary}</h1>
 
-			<p class="text-2xl font-medium">{data.tutor.location}</p>
+			<p class="text-2xl font-medium">{data.tutor.city.name}</p>
 
 			<div class="gap-2 px-5 py-2 border rounded-full border-primary inline-flex-s-center">
 				<VideoCam class="text-lg" />
