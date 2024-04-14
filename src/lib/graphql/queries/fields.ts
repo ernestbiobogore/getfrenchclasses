@@ -118,7 +118,9 @@ const tutorMetaFields = {
 	numberOfRatings: true,
 	levels: true,
 	audiences: true,
-	location: true,
+	city: {
+		name: true,
+	},
 	remoteStatus: true,
 	profilePicture: {
 		responsiveImage: responsiveImageFieldSelection,

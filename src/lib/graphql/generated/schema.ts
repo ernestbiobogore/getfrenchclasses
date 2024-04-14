@@ -192,6 +192,34 @@ export interface CategoryRecord {
     __typename: 'CategoryRecord'
 }
 
+export type CityModelOrderBy = '_createdAt_ASC' | '_createdAt_DESC' | 'id_ASC' | 'id_DESC' | '_firstPublishedAt_ASC' | '_firstPublishedAt_DESC' | '_publicationScheduledAt_ASC' | '_publicationScheduledAt_DESC' | '_unpublishingScheduledAt_ASC' | '_unpublishingScheduledAt_DESC' | '_publishedAt_ASC' | '_publishedAt_DESC' | '_status_ASC' | '_status_DESC' | '_updatedAt_ASC' | '_updatedAt_DESC' | '_isValid_ASC' | '_isValid_DESC' | 'name_ASC' | 'name_DESC'
+
+
+/** Record of type 🏙️ City (city) */
+export interface CityRecord {
+    _allReferencingTutors: TutorRecord[]
+    /** Returns meta information regarding a record collection */
+    _allReferencingTutorsMeta: CollectionMetadata
+    _createdAt: Scalars['DateTime']
+    /** Editing URL */
+    _editingUrl: (Scalars['String'] | null)
+    _firstPublishedAt: (Scalars['DateTime'] | null)
+    _isValid: Scalars['BooleanType']
+    _modelApiKey: Scalars['String']
+    _publicationScheduledAt: (Scalars['DateTime'] | null)
+    _publishedAt: (Scalars['DateTime'] | null)
+    /** Generates SEO and Social card meta tags to be used in your frontend */
+    _seoMetaTags: Tag[]
+    _status: ItemStatus
+    _unpublishingScheduledAt: (Scalars['DateTime'] | null)
+    _updatedAt: Scalars['DateTime']
+    country: CountryRecord
+    id: Scalars['ItemId']
+    name: Scalars['String']
+    slug: Scalars['String']
+    __typename: 'CityRecord'
+}
+
 export interface CollectionMetadata {
     count: Scalars['IntType']
     __typename: 'CollectionMetadata'
@@ -229,6 +257,30 @@ export interface ConvertboxBlockRecord {
     id: Scalars['ItemId']
     title: (Scalars['String'] | null)
     __typename: 'ConvertboxBlockRecord'
+}
+
+export type CountryModelOrderBy = '_createdAt_ASC' | '_createdAt_DESC' | 'id_ASC' | 'id_DESC' | '_firstPublishedAt_ASC' | '_firstPublishedAt_DESC' | '_publicationScheduledAt_ASC' | '_publicationScheduledAt_DESC' | '_unpublishingScheduledAt_ASC' | '_unpublishingScheduledAt_DESC' | '_publishedAt_ASC' | '_publishedAt_DESC' | '_status_ASC' | '_status_DESC' | '_updatedAt_ASC' | '_updatedAt_DESC' | '_isValid_ASC' | '_isValid_DESC' | 'name_ASC' | 'name_DESC'
+
+
+/** Record of type 🗺️ Country (country) */
+export interface CountryRecord {
+    _createdAt: Scalars['DateTime']
+    /** Editing URL */
+    _editingUrl: (Scalars['String'] | null)
+    _firstPublishedAt: (Scalars['DateTime'] | null)
+    _isValid: Scalars['BooleanType']
+    _modelApiKey: Scalars['String']
+    _publicationScheduledAt: (Scalars['DateTime'] | null)
+    _publishedAt: (Scalars['DateTime'] | null)
+    /** Generates SEO and Social card meta tags to be used in your frontend */
+    _seoMetaTags: Tag[]
+    _status: ItemStatus
+    _unpublishingScheduledAt: (Scalars['DateTime'] | null)
+    _updatedAt: Scalars['DateTime']
+    id: Scalars['ItemId']
+    name: Scalars['String']
+    slug: Scalars['String']
+    __typename: 'CountryRecord'
 }
 
 export type CourseModelOrderBy = '_createdAt_ASC' | '_createdAt_DESC' | 'id_ASC' | 'id_DESC' | '_firstPublishedAt_ASC' | '_firstPublishedAt_DESC' | '_publicationScheduledAt_ASC' | '_publicationScheduledAt_DESC' | '_unpublishingScheduledAt_ASC' | '_unpublishingScheduledAt_DESC' | '_publishedAt_ASC' | '_publishedAt_DESC' | '_status_ASC' | '_status_DESC' | '_updatedAt_ASC' | '_updatedAt_DESC' | '_isValid_ASC' | '_isValid_DESC' | 'duration_ASC' | 'duration_DESC' | 'level_ASC' | 'level_DESC' | 'name_ASC' | 'name_DESC' | 'numberOfEnrolledStudents_ASC' | 'numberOfEnrolledStudents_DESC' | 'numberOfSections_ASC' | 'numberOfSections_DESC' | 'price_ASC' | 'price_DESC' | 'tag_ASC' | 'tag_DESC'
@@ -656,6 +708,10 @@ export interface JobRecord {
 }
 
 
+/** Linking locales */
+export type LinkingLocale = 'en' | '_nonLocalized'
+
+
 /** Block of type Menu Item Block (menu_item_block) */
 export interface MenuItemBlockRecord {
     _createdAt: Scalars['DateTime']
@@ -873,6 +929,10 @@ export interface Query {
     /** Returns meta information regarding a record collection */
     _allCategoriesMeta: CollectionMetadata
     /** Returns meta information regarding a record collection */
+    _allCitiesMeta: CollectionMetadata
+    /** Returns meta information regarding a record collection */
+    _allCountriesMeta: CollectionMetadata
+    /** Returns meta information regarding a record collection */
     _allCoursesMeta: CollectionMetadata
     /** Returns meta information regarding a record collection */
     _allFaqItemsMeta: CollectionMetadata
@@ -907,6 +967,10 @@ export interface Query {
     /** Returns a collection of records */
     allCategories: CategoryRecord[]
     /** Returns a collection of records */
+    allCities: CityRecord[]
+    /** Returns a collection of records */
+    allCountries: CountryRecord[]
+    /** Returns a collection of records */
     allCourses: CourseRecord[]
     /** Returns a collection of records */
     allFaqItems: FaqItemRecord[]
@@ -939,6 +1003,10 @@ export interface Query {
     /** Returns a specific record */
     category: (CategoryRecord | null)
     /** Returns a specific record */
+    city: (CityRecord | null)
+    /** Returns a specific record */
+    country: (CountryRecord | null)
+    /** Returns a specific record */
     course: (CourseRecord | null)
     /** Returns a specific record */
     faqItem: (FaqItemRecord | null)
@@ -969,7 +1037,7 @@ export interface Query {
     __typename: 'Query'
 }
 
-export type RecordInterface = (ActionBlockRecord | AuthorRecord | CardBlockNewRecord | CardBlockRecord | CardsSectionRecord | CategoryRecord | ConvertboxBlockRecord | CourseRecord | CoursesBlockRecord | FaqBlockNewRecord | FaqBlockRecord | FaqItemRecord | FaqSectionRecord | HeadingBlockNewRecord | HeadingBlockRecord | HeroImageBlockRecord | HeroSectionRecord | ImageBlockRecord | InstructorRecord | JobRecord | MenuItemBlockRecord | MenuListBlockRecord | MenuRecord | ModularPageRecord | NoteBlockRecord | PlainTextBlockRecord | PostCtaRecord | PostRecord | ResourceRecord | ResourceTopicRecord | RichTextBlockRecord | RoutePathRecord | SeoBlockRecord | TestimonialBlockCtaRecord | TestimonialBlockDefaultRecord | TestimonialBlockRecord | TestimonialRecord | TestimonialsListBlockRecord | TestimonialsSectionRecord | TutorRecord | TutorsBlockRecord) & { __isUnion?: true }
+export type RecordInterface = (ActionBlockRecord | AuthorRecord | CardBlockNewRecord | CardBlockRecord | CardsSectionRecord | CategoryRecord | CityRecord | ConvertboxBlockRecord | CountryRecord | CourseRecord | CoursesBlockRecord | FaqBlockNewRecord | FaqBlockRecord | FaqItemRecord | FaqSectionRecord | HeadingBlockNewRecord | HeadingBlockRecord | HeroImageBlockRecord | HeroSectionRecord | ImageBlockRecord | InstructorRecord | JobRecord | MenuItemBlockRecord | MenuListBlockRecord | MenuRecord | ModularPageRecord | NoteBlockRecord | PlainTextBlockRecord | PostCtaRecord | PostRecord | ResourceRecord | ResourceTopicRecord | RichTextBlockRecord | RoutePathRecord | SeoBlockRecord | TestimonialBlockCtaRecord | TestimonialBlockDefaultRecord | TestimonialBlockRecord | TestimonialRecord | TestimonialsListBlockRecord | TestimonialsSectionRecord | TutorRecord | TutorsBlockRecord) & { __isUnion?: true }
 
 export type ResolutionType = 'icon' | 'small' | 'medium' | 'large'
 
@@ -1332,6 +1400,10 @@ export interface TutorModelAboutField {
     __typename: 'TutorModelAboutField'
 }
 
+
+/** Linking fields */
+export type TutorModelFieldsReferencingCityModel = 'tutor_city'
+
 export type TutorModelOrderBy = '_createdAt_ASC' | '_createdAt_DESC' | 'id_ASC' | 'id_DESC' | '_firstPublishedAt_ASC' | '_firstPublishedAt_DESC' | '_publicationScheduledAt_ASC' | '_publicationScheduledAt_DESC' | '_unpublishingScheduledAt_ASC' | '_unpublishingScheduledAt_DESC' | '_publishedAt_ASC' | '_publishedAt_DESC' | '_status_ASC' | '_status_DESC' | '_updatedAt_ASC' | '_updatedAt_DESC' | '_isValid_ASC' | '_isValid_DESC' | 'faqTitle_ASC' | 'faqTitle_DESC' | 'location_ASC' | 'location_DESC' | 'name_ASC' | 'name_DESC' | 'numberOfRatings_ASC' | 'numberOfRatings_DESC' | 'qualifiedCoursesTitle_ASC' | 'qualifiedCoursesTitle_DESC' | 'rate_ASC' | 'rate_DESC' | 'rating_ASC' | 'rating_DESC' | 'reviewsTitle_ASC' | 'reviewsTitle_DESC' | 'summary_ASC' | 'summary_DESC' | 'verified_ASC' | 'verified_DESC'
 
 export interface TutorModelVerifiedDescriptionField {
@@ -1359,6 +1431,7 @@ export interface TutorRecord {
     _updatedAt: Scalars['DateTime']
     about: (TutorModelAboutField | null)
     audiences: Scalars['JsonField']
+    city: CityRecord
     coverMedia: (AltFileField | null)
     faq: (FaqItemRecord | null)
     faqTitle: (Scalars['String'] | null)
@@ -1703,6 +1776,51 @@ export interface CategoryRecordGenqlSelection{
     __scalar?: boolean | number
 }
 
+export interface CityModelFilter {_createdAt?: (CreatedAtFilter | null),id?: (ItemIdFilter | null),_firstPublishedAt?: (PublishedAtFilter | null),_publicationScheduledAt?: (PublishedAtFilter | null),_unpublishingScheduledAt?: (PublishedAtFilter | null),_publishedAt?: (PublishedAtFilter | null),_status?: (StatusFilter | null),_updatedAt?: (UpdatedAtFilter | null),_isValid?: (BooleanFilter | null),country?: (LinkFilter | null),name?: (StringFilter | null),slug?: (SlugFilter | null),OR?: ((CityModelFilter | null)[] | null),AND?: ((CityModelFilter | null)[] | null)}
+
+
+/** Record of type 🏙️ City (city) */
+export interface CityRecordGenqlSelection{
+    _allReferencingTutors?: (TutorRecordGenqlSelection & { __args?: {
+    /** Specifies how to filter linking records */
+    through?: (InverseRelationshipFilterBetweenTutorAndCity | null), 
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null), 
+    /** If you want to fallback to a default translation when a translation has not been found */
+    fallbackLocales?: (SiteLocale[] | null), 
+    /** Skip the first results */
+    skip?: (Scalars['IntType'] | null), 
+    /** Limit the number of results */
+    first?: (Scalars['IntType'] | null), filter?: (TutorModelFilter | null), orderBy?: ((TutorModelOrderBy | null)[] | null)} })
+    /** Returns meta information regarding a record collection */
+    _allReferencingTutorsMeta?: (CollectionMetadataGenqlSelection & { __args?: {
+    /** Specifies how to filter linking records */
+    through?: (InverseRelationshipFilterBetweenTutorAndCity | null), 
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null), filter?: (TutorModelFilter | null)} })
+    _createdAt?: boolean | number
+    /** Editing URL */
+    _editingUrl?: boolean | number
+    _firstPublishedAt?: boolean | number
+    _isValid?: boolean | number
+    _modelApiKey?: boolean | number
+    _publicationScheduledAt?: boolean | number
+    _publishedAt?: boolean | number
+    /** Generates SEO and Social card meta tags to be used in your frontend */
+    _seoMetaTags?: (TagGenqlSelection & { __args?: {
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null)} })
+    _status?: boolean | number
+    _unpublishingScheduledAt?: boolean | number
+    _updatedAt?: boolean | number
+    country?: CountryRecordGenqlSelection
+    id?: boolean | number
+    name?: boolean | number
+    slug?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
 export interface CollectionMetadataGenqlSelection{
     count?: boolean | number
     __typename?: boolean | number
@@ -1741,6 +1859,33 @@ export interface ConvertboxBlockRecordGenqlSelection{
     convertboxId?: boolean | number
     id?: boolean | number
     title?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+export interface CountryModelFilter {_createdAt?: (CreatedAtFilter | null),id?: (ItemIdFilter | null),_firstPublishedAt?: (PublishedAtFilter | null),_publicationScheduledAt?: (PublishedAtFilter | null),_unpublishingScheduledAt?: (PublishedAtFilter | null),_publishedAt?: (PublishedAtFilter | null),_status?: (StatusFilter | null),_updatedAt?: (UpdatedAtFilter | null),_isValid?: (BooleanFilter | null),name?: (StringFilter | null),slug?: (SlugFilter | null),OR?: ((CountryModelFilter | null)[] | null),AND?: ((CountryModelFilter | null)[] | null)}
+
+
+/** Record of type 🗺️ Country (country) */
+export interface CountryRecordGenqlSelection{
+    _createdAt?: boolean | number
+    /** Editing URL */
+    _editingUrl?: boolean | number
+    _firstPublishedAt?: boolean | number
+    _isValid?: boolean | number
+    _modelApiKey?: boolean | number
+    _publicationScheduledAt?: boolean | number
+    _publishedAt?: boolean | number
+    /** Generates SEO and Social card meta tags to be used in your frontend */
+    _seoMetaTags?: (TagGenqlSelection & { __args?: {
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null)} })
+    _status?: boolean | number
+    _unpublishingScheduledAt?: boolean | number
+    _updatedAt?: boolean | number
+    id?: boolean | number
+    name?: boolean | number
+    slug?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -3566,6 +3711,22 @@ eq?: (Scalars['IntType'] | null),
 neq?: (Scalars['IntType'] | null)}
 
 
+/** Specifies how to filter by linking fields */
+export interface InverseRelationshipFieldFilterBetweenTutorAndCity {
+/** Filter linking records that reference current record in at least one of the specified fields */
+anyIn?: (TutorModelFieldsReferencingCityModel[] | null),
+/** Filter linking records that do not reference current record in any of the specified fields */
+notIn?: (TutorModelFieldsReferencingCityModel[] | null)}
+
+
+/** Specifies how to filter linking records */
+export interface InverseRelationshipFilterBetweenTutorAndCity {
+/** Specifies how to filter by linking fields */
+fields?: (InverseRelationshipFieldFilterBetweenTutorAndCity | null),
+/** Specifies how to filter by linking locales */
+locales?: (LinkingLocalesFilter | null)}
+
+
 /** Specifies how to filter by ID */
 export interface ItemIdFilter {
 /** Search the record with the specified ID */
@@ -3627,6 +3788,14 @@ in?: ((Scalars['ItemId'] | null)[] | null),
 notIn?: ((Scalars['ItemId'] | null)[] | null),
 /** Filter records with the specified field defined (i.e. with any value) or not */
 exists?: (Scalars['BooleanType'] | null)}
+
+
+/** Specifies how to filter by linking locales */
+export interface LinkingLocalesFilter {
+/** Filter linking records that link to current record in at least one of the specified locales */
+anyIn?: (LinkingLocale[] | null),
+/** Filter linking records that do not link to current record in any of the specified locales */
+notIn?: (LinkingLocale[] | null)}
 
 
 /** Specifies how to filter Multiple-links fields */
@@ -3920,6 +4089,14 @@ export interface QueryGenqlSelection{
     /** The locale to use to fetch the field's content */
     locale?: (SiteLocale | null), filter?: (CategoryModelFilter | null)} })
     /** Returns meta information regarding a record collection */
+    _allCitiesMeta?: (CollectionMetadataGenqlSelection & { __args?: {
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null), filter?: (CityModelFilter | null)} })
+    /** Returns meta information regarding a record collection */
+    _allCountriesMeta?: (CollectionMetadataGenqlSelection & { __args?: {
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null), filter?: (CountryModelFilter | null)} })
+    /** Returns meta information regarding a record collection */
     _allCoursesMeta?: (CollectionMetadataGenqlSelection & { __args?: {
     /** The locale to use to fetch the field's content */
     locale?: (SiteLocale | null), filter?: (CourseModelFilter | null)} })
@@ -4001,6 +4178,26 @@ export interface QueryGenqlSelection{
     skip?: (Scalars['IntType'] | null), 
     /** Limit the number of results */
     first?: (Scalars['IntType'] | null), filter?: (CategoryModelFilter | null), orderBy?: ((CategoryModelOrderBy | null)[] | null)} })
+    /** Returns a collection of records */
+    allCities?: (CityRecordGenqlSelection & { __args?: {
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null), 
+    /** If you want to fallback to a default translation when a translation has not been found */
+    fallbackLocales?: (SiteLocale[] | null), 
+    /** Skip the first results */
+    skip?: (Scalars['IntType'] | null), 
+    /** Limit the number of results */
+    first?: (Scalars['IntType'] | null), filter?: (CityModelFilter | null), orderBy?: ((CityModelOrderBy | null)[] | null)} })
+    /** Returns a collection of records */
+    allCountries?: (CountryRecordGenqlSelection & { __args?: {
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null), 
+    /** If you want to fallback to a default translation when a translation has not been found */
+    fallbackLocales?: (SiteLocale[] | null), 
+    /** Skip the first results */
+    skip?: (Scalars['IntType'] | null), 
+    /** Limit the number of results */
+    first?: (Scalars['IntType'] | null), filter?: (CountryModelFilter | null), orderBy?: ((CountryModelOrderBy | null)[] | null)} })
     /** Returns a collection of records */
     allCourses?: (CourseRecordGenqlSelection & { __args?: {
     /** The locale to use to fetch the field's content */
@@ -4154,6 +4351,18 @@ export interface QueryGenqlSelection{
     /** If you want to fallback to a default translation when a translation has not been found */
     fallbackLocales?: (SiteLocale[] | null), filter?: (CategoryModelFilter | null), orderBy?: ((CategoryModelOrderBy | null)[] | null)} })
     /** Returns a specific record */
+    city?: (CityRecordGenqlSelection & { __args?: {
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null), 
+    /** If you want to fallback to a default translation when a translation has not been found */
+    fallbackLocales?: (SiteLocale[] | null), filter?: (CityModelFilter | null), orderBy?: ((CityModelOrderBy | null)[] | null)} })
+    /** Returns a specific record */
+    country?: (CountryRecordGenqlSelection & { __args?: {
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null), 
+    /** If you want to fallback to a default translation when a translation has not been found */
+    fallbackLocales?: (SiteLocale[] | null), filter?: (CountryModelFilter | null), orderBy?: ((CountryModelOrderBy | null)[] | null)} })
+    /** Returns a specific record */
     course?: (CourseRecordGenqlSelection & { __args?: {
     /** The locale to use to fetch the field's content */
     locale?: (SiteLocale | null), 
@@ -4264,7 +4473,9 @@ export interface RecordInterfaceGenqlSelection{
     on_CardBlockRecord?: CardBlockRecordGenqlSelection
     on_CardsSectionRecord?: CardsSectionRecordGenqlSelection
     on_CategoryRecord?: CategoryRecordGenqlSelection
+    on_CityRecord?: CityRecordGenqlSelection
     on_ConvertboxBlockRecord?: ConvertboxBlockRecordGenqlSelection
+    on_CountryRecord?: CountryRecordGenqlSelection
     on_CourseRecord?: CourseRecordGenqlSelection
     on_CoursesBlockRecord?: CoursesBlockRecordGenqlSelection
     on_FaqBlockNewRecord?: FaqBlockNewRecordGenqlSelection
@@ -4797,7 +5008,7 @@ export interface TutorModelAboutFieldGenqlSelection{
     __scalar?: boolean | number
 }
 
-export interface TutorModelFilter {_createdAt?: (CreatedAtFilter | null),id?: (ItemIdFilter | null),_firstPublishedAt?: (PublishedAtFilter | null),_publicationScheduledAt?: (PublishedAtFilter | null),_unpublishingScheduledAt?: (PublishedAtFilter | null),_publishedAt?: (PublishedAtFilter | null),_status?: (StatusFilter | null),_updatedAt?: (UpdatedAtFilter | null),_isValid?: (BooleanFilter | null),about?: (StructuredTextFilter | null),audiences?: (JsonFilter | null),coverMedia?: (FileFilter | null),faq?: (LinkFilter | null),faqTitle?: (StringFilter | null),levels?: (JsonFilter | null),location?: (StringFilter | null),name?: (StringFilter | null),numberOfRatings?: (IntegerFilter | null),otherTutors?: (LinksFilter | null),profilePicture?: (FileFilter | null),qualifiedCourses?: (LinksFilter | null),qualifiedCoursesTitle?: (StringFilter | null),rate?: (IntegerFilter | null),rating?: (FloatFilter | null),remoteStatus?: (JsonFilter | null),reviews?: (LinksFilter | null),reviewsTitle?: (StringFilter | null),slug?: (SlugFilter | null),summary?: (StringFilter | null),verified?: (BooleanFilter | null),verifiedDescription?: (StructuredTextFilter | null),OR?: ((TutorModelFilter | null)[] | null),AND?: ((TutorModelFilter | null)[] | null)}
+export interface TutorModelFilter {_createdAt?: (CreatedAtFilter | null),id?: (ItemIdFilter | null),_firstPublishedAt?: (PublishedAtFilter | null),_publicationScheduledAt?: (PublishedAtFilter | null),_unpublishingScheduledAt?: (PublishedAtFilter | null),_publishedAt?: (PublishedAtFilter | null),_status?: (StatusFilter | null),_updatedAt?: (UpdatedAtFilter | null),_isValid?: (BooleanFilter | null),about?: (StructuredTextFilter | null),audiences?: (JsonFilter | null),city?: (LinkFilter | null),coverMedia?: (FileFilter | null),faq?: (LinkFilter | null),faqTitle?: (StringFilter | null),levels?: (JsonFilter | null),location?: (StringFilter | null),name?: (StringFilter | null),numberOfRatings?: (IntegerFilter | null),otherTutors?: (LinksFilter | null),profilePicture?: (FileFilter | null),qualifiedCourses?: (LinksFilter | null),qualifiedCoursesTitle?: (StringFilter | null),rate?: (IntegerFilter | null),rating?: (FloatFilter | null),remoteStatus?: (JsonFilter | null),reviews?: (LinksFilter | null),reviewsTitle?: (StringFilter | null),slug?: (SlugFilter | null),summary?: (StringFilter | null),verified?: (BooleanFilter | null),verifiedDescription?: (StructuredTextFilter | null),OR?: ((TutorModelFilter | null)[] | null),AND?: ((TutorModelFilter | null)[] | null)}
 
 export interface TutorModelVerifiedDescriptionFieldGenqlSelection{
     blocks?: boolean | number
@@ -4827,6 +5038,7 @@ export interface TutorRecordGenqlSelection{
     _updatedAt?: boolean | number
     about?: TutorModelAboutFieldGenqlSelection
     audiences?: boolean | number
+    city?: CityRecordGenqlSelection
     coverMedia?: AltFileFieldGenqlSelection
     faq?: FaqItemRecordGenqlSelection
     faqTitle?: boolean | number
@@ -5325,6 +5537,14 @@ export interface focalPointGenqlSelection{
     
 
 
+    const CityRecord_possibleTypes: string[] = ['CityRecord']
+    export const isCityRecord = (obj?: { __typename?: any } | null): obj is CityRecord => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isCityRecord"')
+      return CityRecord_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
     const CollectionMetadata_possibleTypes: string[] = ['CollectionMetadata']
     export const isCollectionMetadata = (obj?: { __typename?: any } | null): obj is CollectionMetadata => {
       if (!obj?.__typename) throw new Error('__typename is missing in "isCollectionMetadata"')
@@ -5345,6 +5565,14 @@ export interface focalPointGenqlSelection{
     export const isConvertboxBlockRecord = (obj?: { __typename?: any } | null): obj is ConvertboxBlockRecord => {
       if (!obj?.__typename) throw new Error('__typename is missing in "isConvertboxBlockRecord"')
       return ConvertboxBlockRecord_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const CountryRecord_possibleTypes: string[] = ['CountryRecord']
+    export const isCountryRecord = (obj?: { __typename?: any } | null): obj is CountryRecord => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isCountryRecord"')
+      return CountryRecord_possibleTypes.includes(obj.__typename)
     }
     
 
@@ -5581,7 +5809,7 @@ export interface focalPointGenqlSelection{
     
 
 
-    const RecordInterface_possibleTypes: string[] = ['ActionBlockRecord','AuthorRecord','CardBlockNewRecord','CardBlockRecord','CardsSectionRecord','CategoryRecord','ConvertboxBlockRecord','CourseRecord','CoursesBlockRecord','FaqBlockNewRecord','FaqBlockRecord','FaqItemRecord','FaqSectionRecord','HeadingBlockNewRecord','HeadingBlockRecord','HeroImageBlockRecord','HeroSectionRecord','ImageBlockRecord','InstructorRecord','JobRecord','MenuItemBlockRecord','MenuListBlockRecord','MenuRecord','ModularPageRecord','NoteBlockRecord','PlainTextBlockRecord','PostCtaRecord','PostRecord','ResourceRecord','ResourceTopicRecord','RichTextBlockRecord','RoutePathRecord','SeoBlockRecord','TestimonialBlockCtaRecord','TestimonialBlockDefaultRecord','TestimonialBlockRecord','TestimonialRecord','TestimonialsListBlockRecord','TestimonialsSectionRecord','TutorRecord','TutorsBlockRecord']
+    const RecordInterface_possibleTypes: string[] = ['ActionBlockRecord','AuthorRecord','CardBlockNewRecord','CardBlockRecord','CardsSectionRecord','CategoryRecord','CityRecord','ConvertboxBlockRecord','CountryRecord','CourseRecord','CoursesBlockRecord','FaqBlockNewRecord','FaqBlockRecord','FaqItemRecord','FaqSectionRecord','HeadingBlockNewRecord','HeadingBlockRecord','HeroImageBlockRecord','HeroSectionRecord','ImageBlockRecord','InstructorRecord','JobRecord','MenuItemBlockRecord','MenuListBlockRecord','MenuRecord','ModularPageRecord','NoteBlockRecord','PlainTextBlockRecord','PostCtaRecord','PostRecord','ResourceRecord','ResourceTopicRecord','RichTextBlockRecord','RoutePathRecord','SeoBlockRecord','TestimonialBlockCtaRecord','TestimonialBlockDefaultRecord','TestimonialBlockRecord','TestimonialRecord','TestimonialsListBlockRecord','TestimonialsSectionRecord','TutorRecord','TutorsBlockRecord']
     export const isRecordInterface = (obj?: { __typename?: any } | null): obj is RecordInterface => {
       if (!obj?.__typename) throw new Error('__typename is missing in "isRecordInterface"')
       return RecordInterface_possibleTypes.includes(obj.__typename)
@@ -5866,6 +6094,29 @@ export const enumCategoryModelOrderBy = {
    name_DESC: 'name_DESC' as const
 }
 
+export const enumCityModelOrderBy = {
+   _createdAt_ASC: '_createdAt_ASC' as const,
+   _createdAt_DESC: '_createdAt_DESC' as const,
+   id_ASC: 'id_ASC' as const,
+   id_DESC: 'id_DESC' as const,
+   _firstPublishedAt_ASC: '_firstPublishedAt_ASC' as const,
+   _firstPublishedAt_DESC: '_firstPublishedAt_DESC' as const,
+   _publicationScheduledAt_ASC: '_publicationScheduledAt_ASC' as const,
+   _publicationScheduledAt_DESC: '_publicationScheduledAt_DESC' as const,
+   _unpublishingScheduledAt_ASC: '_unpublishingScheduledAt_ASC' as const,
+   _unpublishingScheduledAt_DESC: '_unpublishingScheduledAt_DESC' as const,
+   _publishedAt_ASC: '_publishedAt_ASC' as const,
+   _publishedAt_DESC: '_publishedAt_DESC' as const,
+   _status_ASC: '_status_ASC' as const,
+   _status_DESC: '_status_DESC' as const,
+   _updatedAt_ASC: '_updatedAt_ASC' as const,
+   _updatedAt_DESC: '_updatedAt_DESC' as const,
+   _isValid_ASC: '_isValid_ASC' as const,
+   _isValid_DESC: '_isValid_DESC' as const,
+   name_ASC: 'name_ASC' as const,
+   name_DESC: 'name_DESC' as const
+}
+
 export const enumColorBucketType = {
    red: 'red' as const,
    orange: 'orange' as const,
@@ -5879,6 +6130,29 @@ export const enumColorBucketType = {
    grey: 'grey' as const,
    white: 'white' as const,
    black: 'black' as const
+}
+
+export const enumCountryModelOrderBy = {
+   _createdAt_ASC: '_createdAt_ASC' as const,
+   _createdAt_DESC: '_createdAt_DESC' as const,
+   id_ASC: 'id_ASC' as const,
+   id_DESC: 'id_DESC' as const,
+   _firstPublishedAt_ASC: '_firstPublishedAt_ASC' as const,
+   _firstPublishedAt_DESC: '_firstPublishedAt_DESC' as const,
+   _publicationScheduledAt_ASC: '_publicationScheduledAt_ASC' as const,
+   _publicationScheduledAt_DESC: '_publicationScheduledAt_DESC' as const,
+   _unpublishingScheduledAt_ASC: '_unpublishingScheduledAt_ASC' as const,
+   _unpublishingScheduledAt_DESC: '_unpublishingScheduledAt_DESC' as const,
+   _publishedAt_ASC: '_publishedAt_ASC' as const,
+   _publishedAt_DESC: '_publishedAt_DESC' as const,
+   _status_ASC: '_status_ASC' as const,
+   _status_DESC: '_status_DESC' as const,
+   _updatedAt_ASC: '_updatedAt_ASC' as const,
+   _updatedAt_DESC: '_updatedAt_DESC' as const,
+   _isValid_ASC: '_isValid_ASC' as const,
+   _isValid_DESC: '_isValid_DESC' as const,
+   name_ASC: 'name_ASC' as const,
+   name_DESC: 'name_DESC' as const
 }
 
 export const enumCourseModelOrderBy = {
@@ -6182,6 +6456,11 @@ export const enumJobModelOrderBy = {
    title_DESC: 'title_DESC' as const
 }
 
+export const enumLinkingLocale = {
+   en: 'en' as const,
+   _nonLocalized: '_nonLocalized' as const
+}
+
 export const enumMenuModelOrderBy = {
    _createdAt_ASC: '_createdAt_ASC' as const,
    _createdAt_DESC: '_createdAt_DESC' as const,
@@ -6389,6 +6668,10 @@ export const enumTestimonialModelOrderBy = {
    _isValid_DESC: '_isValid_DESC' as const,
    title_ASC: 'title_ASC' as const,
    title_DESC: 'title_DESC' as const
+}
+
+export const enumTutorModelFieldsReferencingCityModel = {
+   tutor_city: 'tutor_city' as const
 }
 
 export const enumTutorModelOrderBy = {
