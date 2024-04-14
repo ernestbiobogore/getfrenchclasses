@@ -2,6 +2,7 @@ import { client } from "$lib/graphql/client";
 import {
 	cardBlockFields,
 	courseMetaFields,
+	defaultTestimonialFieldsSelection,
 	postCategoryBlockFields,
 	seoFieldsSelection,
 	tutorMetaFields,
@@ -164,6 +165,13 @@ const getSingleBlogPost = async (slug: string) => {
 						on_TutorsBlockRecord: {
 							tutors: {
 								...tutorMetaFields,
+							},
+						},
+						on_TestimonialsListBlockRecord: {
+							testimonials: {
+								testimonial: {
+									on_TestimonialBlockDefaultRecord: defaultTestimonialFieldsSelection,
+								},
 							},
 						},
 						on_CardBlockRecord: cardBlockFields,

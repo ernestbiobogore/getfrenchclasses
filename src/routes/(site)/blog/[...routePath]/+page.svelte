@@ -1,13 +1,27 @@
 <script lang="ts">
+	import { page } from "$app/stores";
 	import StructuredText from "$dato/StructuredText/index.svelte";
 	import PostCTA from "$dato/sections/PostCTA.svelte";
 	import SocialShare from "$dato/sections/SocialShare.svelte";
 	import BlogCta, { type CTAProps } from "$lib/components/cta-section/BlogCta.svelte";
 	import { formatDate, generateShareOptions, getSampleAvatars } from "$lib/utils";
 	import { NakedImage } from "@datocms/svelte";
+	import SvelteSeo from "svelte-seo";
 
 	export let data;
+
 	$: post = data.post;
+	$: seoData = {
+		url: $page.url.href,
+		title: post?.seo?.title || "GetFrenchClasses",
+		description: post?.seo?.description || post?.title,
+		image: {
+			url: post?.seo?.image?.responsiveImage?.src || post?.seo?.image?.url,
+			alt: post?.seo?.image?.alt || post?.title,
+			width: 1200,
+			height: 630,
+		},
+	};
 
 	$: shareOptions = generateShareOptions({
 		slug: post?.slug || "",
@@ -27,12 +41,26 @@
 	};
 </script>
 
-<svelte:head>
-	<title>{post?.title || "Post not found"}</title>
-	{#if !post}
-		<meta name="robots" content="noindex" />
-	{/if}
-</svelte:head>
+<SvelteSeo
+	title={seoData.title}
+	description={seoData.description}
+	noindex={post ? false : true}
+	openGraph={{
+		title: seoData.title,
+		description: seoData.description,
+		url: seoData.url,
+		type: "website",
+		images: [
+			{
+				url: seoData.image.url,
+				width: seoData.image.width,
+				height: seoData.image.height,
+				alt: seoData.image.alt,
+			},
+		],
+		site_name: seoData.title,
+	}}
+/>
 
 {#if post}
 	<header class="container-base py-4 sm:py-8 space-y-4">
