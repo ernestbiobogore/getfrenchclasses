@@ -90,6 +90,10 @@ const getSingleModularPage = async (slug: string) => {
 						},
 					},
 				},
+
+				on_ReferenceSectionRecord: {
+					section: true,
+				},
 			},
 
 			// SEO

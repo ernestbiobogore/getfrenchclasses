@@ -3303,7 +3303,7 @@ input ModularPageModelFilter {
   AND: [ModularPageModelFilter]
 }
 
-union ModularPageModelModularContentField = CardsSectionRecord | FaqSectionRecord | HeroSectionRecord | TestimonialsSectionRecord
+union ModularPageModelModularContentField = CardsSectionRecord | FaqSectionRecord | HeroSectionRecord | ReferenceSectionRecord | TestimonialsSectionRecord
 
 enum ModularPageModelOrderBy {
   _createdAt_ASC
@@ -4350,6 +4350,30 @@ interface RecordInterface {
   _unpublishingScheduledAt: DateTime
   _updatedAt: DateTime!
   id: ItemId!
+}
+
+"""Block of type Reference Section (reference_section)"""
+type ReferenceSectionRecord implements RecordInterface {
+  _createdAt: DateTime!
+
+  """Editing URL"""
+  _editingUrl: String
+  _firstPublishedAt: DateTime
+  _isValid: BooleanType!
+  _modelApiKey: String!
+  _publicationScheduledAt: DateTime
+  _publishedAt: DateTime
+
+  """Generates SEO and Social card meta tags to be used in your frontend"""
+  _seoMetaTags(
+    """The locale to use to fetch the field's content"""
+    locale: SiteLocale
+  ): [Tag!]!
+  _status: ItemStatus!
+  _unpublishingScheduledAt: DateTime
+  _updatedAt: DateTime!
+  id: ItemId!
+  section: String
 }
 
 """Specifies how to filter by upload type"""

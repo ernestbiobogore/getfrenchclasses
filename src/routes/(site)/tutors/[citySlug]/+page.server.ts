@@ -1,3 +1,4 @@
+import { getAllCoursesMetas } from "$lib/graphql/queries/courses";
 import { getCityBySlugWithTutors } from "$lib/graphql/queries/locations";
 import { getSingleModularPage } from "$lib/graphql/queries/modular";
 import { error } from "@sveltejs/kit";
@@ -16,8 +17,11 @@ export async function load({ params }) {
 		error(404, "Page not found");
 	}
 
+	const courses = await getAllCoursesMetas();
+
 	return {
 		city,
 		modularPage,
+		courses,
 	};
 }
