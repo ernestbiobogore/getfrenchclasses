@@ -5128,7 +5128,6 @@ input TutorModelFilter {
   faq: LinkFilter
   faqTitle: StringFilter
   levels: JsonFilter
-  location: StringFilter
   name: StringFilter
   numberOfRatings: IntegerFilter
   otherTutors: LinksFilter
@@ -5169,8 +5168,6 @@ enum TutorModelOrderBy {
   _isValid_DESC
   faqTitle_ASC
   faqTitle_DESC
-  location_ASC
-  location_DESC
   name_ASC
   name_DESC
   numberOfRatings_ASC
@@ -5223,7 +5220,6 @@ type TutorRecord implements RecordInterface {
   faqTitle: String
   id: ItemId!
   levels: JsonField!
-  location: String!
   name: String!
   numberOfRatings: IntType!
   otherTutors: [TutorRecord!]!

@@ -1432,7 +1432,7 @@ export interface TutorModelAboutField {
 /** Linking fields */
 export type TutorModelFieldsReferencingCityModel = 'tutor_city'
 
-export type TutorModelOrderBy = '_createdAt_ASC' | '_createdAt_DESC' | 'id_ASC' | 'id_DESC' | '_firstPublishedAt_ASC' | '_firstPublishedAt_DESC' | '_publicationScheduledAt_ASC' | '_publicationScheduledAt_DESC' | '_unpublishingScheduledAt_ASC' | '_unpublishingScheduledAt_DESC' | '_publishedAt_ASC' | '_publishedAt_DESC' | '_status_ASC' | '_status_DESC' | '_updatedAt_ASC' | '_updatedAt_DESC' | '_isValid_ASC' | '_isValid_DESC' | 'faqTitle_ASC' | 'faqTitle_DESC' | 'location_ASC' | 'location_DESC' | 'name_ASC' | 'name_DESC' | 'numberOfRatings_ASC' | 'numberOfRatings_DESC' | 'qualifiedCoursesTitle_ASC' | 'qualifiedCoursesTitle_DESC' | 'rate_ASC' | 'rate_DESC' | 'rating_ASC' | 'rating_DESC' | 'reviewsTitle_ASC' | 'reviewsTitle_DESC' | 'summary_ASC' | 'summary_DESC' | 'verified_ASC' | 'verified_DESC'
+export type TutorModelOrderBy = '_createdAt_ASC' | '_createdAt_DESC' | 'id_ASC' | 'id_DESC' | '_firstPublishedAt_ASC' | '_firstPublishedAt_DESC' | '_publicationScheduledAt_ASC' | '_publicationScheduledAt_DESC' | '_unpublishingScheduledAt_ASC' | '_unpublishingScheduledAt_DESC' | '_publishedAt_ASC' | '_publishedAt_DESC' | '_status_ASC' | '_status_DESC' | '_updatedAt_ASC' | '_updatedAt_DESC' | '_isValid_ASC' | '_isValid_DESC' | 'faqTitle_ASC' | 'faqTitle_DESC' | 'name_ASC' | 'name_DESC' | 'numberOfRatings_ASC' | 'numberOfRatings_DESC' | 'qualifiedCoursesTitle_ASC' | 'qualifiedCoursesTitle_DESC' | 'rate_ASC' | 'rate_DESC' | 'rating_ASC' | 'rating_DESC' | 'reviewsTitle_ASC' | 'reviewsTitle_DESC' | 'summary_ASC' | 'summary_DESC' | 'verified_ASC' | 'verified_DESC'
 
 export interface TutorModelVerifiedDescriptionField {
     blocks: Scalars['String'][]
@@ -1465,7 +1465,6 @@ export interface TutorRecord {
     faqTitle: (Scalars['String'] | null)
     id: Scalars['ItemId']
     levels: Scalars['JsonField']
-    location: Scalars['String']
     name: Scalars['String']
     numberOfRatings: Scalars['IntType']
     otherTutors: TutorRecord[]
@@ -5095,7 +5094,7 @@ export interface TutorModelAboutFieldGenqlSelection{
     __scalar?: boolean | number
 }
 
-export interface TutorModelFilter {_createdAt?: (CreatedAtFilter | null),id?: (ItemIdFilter | null),_firstPublishedAt?: (PublishedAtFilter | null),_publicationScheduledAt?: (PublishedAtFilter | null),_unpublishingScheduledAt?: (PublishedAtFilter | null),_publishedAt?: (PublishedAtFilter | null),_status?: (StatusFilter | null),_updatedAt?: (UpdatedAtFilter | null),_isValid?: (BooleanFilter | null),about?: (StructuredTextFilter | null),audiences?: (JsonFilter | null),city?: (LinkFilter | null),coverMedia?: (FileFilter | null),faq?: (LinkFilter | null),faqTitle?: (StringFilter | null),levels?: (JsonFilter | null),location?: (StringFilter | null),name?: (StringFilter | null),numberOfRatings?: (IntegerFilter | null),otherTutors?: (LinksFilter | null),profilePicture?: (FileFilter | null),qualifiedCourses?: (LinksFilter | null),qualifiedCoursesTitle?: (StringFilter | null),rate?: (IntegerFilter | null),rating?: (FloatFilter | null),remoteStatus?: (JsonFilter | null),reviews?: (LinksFilter | null),reviewsTitle?: (StringFilter | null),slug?: (SlugFilter | null),summary?: (StringFilter | null),verified?: (BooleanFilter | null),verifiedDescription?: (StructuredTextFilter | null),OR?: ((TutorModelFilter | null)[] | null),AND?: ((TutorModelFilter | null)[] | null)}
+export interface TutorModelFilter {_createdAt?: (CreatedAtFilter | null),id?: (ItemIdFilter | null),_firstPublishedAt?: (PublishedAtFilter | null),_publicationScheduledAt?: (PublishedAtFilter | null),_unpublishingScheduledAt?: (PublishedAtFilter | null),_publishedAt?: (PublishedAtFilter | null),_status?: (StatusFilter | null),_updatedAt?: (UpdatedAtFilter | null),_isValid?: (BooleanFilter | null),about?: (StructuredTextFilter | null),audiences?: (JsonFilter | null),city?: (LinkFilter | null),coverMedia?: (FileFilter | null),faq?: (LinkFilter | null),faqTitle?: (StringFilter | null),levels?: (JsonFilter | null),name?: (StringFilter | null),numberOfRatings?: (IntegerFilter | null),otherTutors?: (LinksFilter | null),profilePicture?: (FileFilter | null),qualifiedCourses?: (LinksFilter | null),qualifiedCoursesTitle?: (StringFilter | null),rate?: (IntegerFilter | null),rating?: (FloatFilter | null),remoteStatus?: (JsonFilter | null),reviews?: (LinksFilter | null),reviewsTitle?: (StringFilter | null),slug?: (SlugFilter | null),summary?: (StringFilter | null),verified?: (BooleanFilter | null),verifiedDescription?: (StructuredTextFilter | null),OR?: ((TutorModelFilter | null)[] | null),AND?: ((TutorModelFilter | null)[] | null)}
 
 export interface TutorModelVerifiedDescriptionFieldGenqlSelection{
     blocks?: boolean | number
@@ -5131,7 +5130,6 @@ export interface TutorRecordGenqlSelection{
     faqTitle?: boolean | number
     id?: boolean | number
     levels?: boolean | number
-    location?: boolean | number
     name?: boolean | number
     numberOfRatings?: boolean | number
     otherTutors?: TutorRecordGenqlSelection
@@ -6794,8 +6792,6 @@ export const enumTutorModelOrderBy = {
    _isValid_DESC: '_isValid_DESC' as const,
    faqTitle_ASC: 'faqTitle_ASC' as const,
    faqTitle_DESC: 'faqTitle_DESC' as const,
-   location_ASC: 'location_ASC' as const,
-   location_DESC: 'location_DESC' as const,
    name_ASC: 'name_ASC' as const,
    name_DESC: 'name_DESC' as const,
    numberOfRatings_ASC: 'numberOfRatings_ASC' as const,

@@ -6287,9 +6287,6 @@ export default {
             "levels": [
                 96
             ],
-            "location": [
-                150
-            ],
             "name": [
                 150
             ],
@@ -6422,9 +6419,6 @@ export default {
             ],
             "levels": [
                 95
-            ],
-            "location": [
-                149
             ],
             "name": [
                 149
