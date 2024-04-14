@@ -17,7 +17,7 @@ export async function load({ params }) {
 		error(404, "Page not found");
 	}
 
-	const courses = await getAllCoursesMetas();
+	const courses = await getAllCoursesMetas(3);
 
 	return {
 		city,
