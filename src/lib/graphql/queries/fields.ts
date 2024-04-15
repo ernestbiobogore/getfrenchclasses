@@ -2,15 +2,21 @@ import type {
 	ActionBlockRecordGenqlSelection,
 	CardBlockNewRecordGenqlSelection,
 	CardBlockRecordGenqlSelection,
+	CardsSectionRecordGenqlSelection,
+	ComparisonSectionRecordGenqlSelection,
 	CourseRecordGenqlSelection,
 	FaqBlockNewRecordGenqlSelection,
 	FaqItemRecordGenqlSelection,
+	FaqSectionRecordGenqlSelection,
 	HeadingBlockNewRecordGenqlSelection,
+	HeroSectionRecordGenqlSelection,
 	PostRecordGenqlSelection,
+	ReferenceSectionRecordGenqlSelection,
 	ResponsiveImageGenqlSelection,
 	SeoFieldGenqlSelection,
 	TestimonialBlockCtaRecordGenqlSelection,
 	TestimonialBlockDefaultRecordGenqlSelection,
+	TestimonialsSectionRecordGenqlSelection,
 	TutorRecordGenqlSelection,
 } from "$lib/graphql/generated";
 
@@ -207,18 +213,91 @@ const ctaTestimonialFieldsSelection = {
 	cta: actionBlockFieldSelection,
 } satisfies TestimonialBlockCtaRecordGenqlSelection;
 
+const heroSectionSelection = {
+	heading: headingFieldSelection,
+	cta: actionBlockFieldSelection,
+	testimonialTitle: true,
+	heroImages: {
+		image: {
+			responsiveImage: responsiveImageFieldSelection,
+		},
+		text: true,
+	},
+	testimonialPictures: {
+		responsiveImage: responsiveImageFieldSelection,
+	},
+	video: {
+		video: {
+			muxPlaybackId: true,
+			title: true,
+			width: true,
+			height: true,
+			blurUpThumb: {
+				__args: {
+					punch: 1,
+					size: 48,
+					quality: 100,
+				},
+			},
+		},
+	},
+	videoText: true,
+} satisfies HeroSectionRecordGenqlSelection;
+
+const faqSectionSelection = {
+	heading: headingFieldSelection,
+	faq: {
+		faqBlocks: faqBlockFieldSelection,
+	},
+} satisfies FaqSectionRecordGenqlSelection;
+const comparisonSectionSelection = {
+	comparison: {
+		title: true,
+		slug: true,
+		heading: headingFieldSelection,
+		comparisons: {
+			feature: true,
+			hasFeature: true,
+			companies: {
+				id: true,
+				name: true,
+				paid: true,
+				logo: {
+					url: true,
+					alt: true,
+				},
+			},
+		},
+	},
+} satisfies ComparisonSectionRecordGenqlSelection;
+const cardSectionSelection = {
+	heading: headingFieldSelection,
+	sectionType: true,
+	cards: cardBlockFieldSelection,
+} satisfies CardsSectionRecordGenqlSelection;
+const testimonialSectionSelection = {
+	heading: headingFieldSelection,
+	testimonials: {
+		testimonial: {
+			on_TestimonialBlockDefaultRecord: defaultTestimonialFieldsSelection,
+			on_TestimonialBlockCtaRecord: ctaTestimonialFieldsSelection,
+		},
+	},
+} satisfies TestimonialsSectionRecordGenqlSelection;
+const referenceSectionSelection = {
+	section: true,
+} satisfies ReferenceSectionRecordGenqlSelection;
+
 export {
 	actionBlockFieldSelection,
 	cardBlockFieldSelection,
-	cardBlockFields,
-	courseMetaFields,
+	cardBlockFields, cardSectionSelection, comparisonSectionSelection, courseMetaFields,
 	ctaTestimonialFieldsSelection,
 	defaultTestimonialFieldsSelection,
 	faqBlockFieldSelection,
-	faqItemFieldsSelection,
-	headingFieldSelection,
-	postCategoryBlockFields,
-	responsiveImageFieldSelection,
-	seoFieldsSelection,
-	tutorMetaFields,
+	faqItemFieldsSelection, faqSectionSelection, headingFieldSelection,
+	heroSectionSelection,
+	postCategoryBlockFields, referenceSectionSelection, responsiveImageFieldSelection,
+	seoFieldsSelection, testimonialSectionSelection, tutorMetaFields
 };
+
