@@ -4951,6 +4951,7 @@ type TestimonialBlockDefaultRecord implements RecordInterface {
   content: TestimonialBlockDefaultModelContentField
   id: ItemId!
   picture: AltFileField
+  rating: IntType
   role: String
   rotation: String
 }
