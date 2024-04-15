@@ -4,7 +4,7 @@ import { error } from "@sveltejs/kit";
 
 export async function load({ params }) {
 	const { pageSlug } = params;
-	const modularPage = await getSingleLocationModularPage(pageSlug);
+	const modularPage = await getSingleLocationModularPage(pageSlug, "tutors");
 
 	if (!modularPage) {
 		error(404, "Location page not found");

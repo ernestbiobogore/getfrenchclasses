@@ -10,13 +10,16 @@ import {
 	tutorsByCitySectionSelection,
 } from "$lib/graphql/queries/fields";
 
-const getSingleLocationModularPage = async (slug: string) => {
+const getSingleLocationModularPage = async (slug: string, pageType: "courses" | "tutors") => {
 	const { modularPageLocation } = await client.query({
 		modularPageLocation: {
 			__args: {
 				filter: {
 					slug: {
 						eq: slug,
+					},
+					pageType: {
+						eq: pageType,
 					},
 				},
 			},
