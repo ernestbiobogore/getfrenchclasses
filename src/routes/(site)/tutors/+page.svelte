@@ -114,7 +114,7 @@
 
 	<div class="grid gap-5 sm:grid-cols-2 md:grid-cols-3 lg:gap-8 lg:grid-cols-4">
 		{#each filteredTutors as tutor}
-			<TutorCard {tutor}></TutorCard>
+			<TutorCard {tutor} withCTA />
 		{/each}
 	</div>
 

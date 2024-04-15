@@ -104,7 +104,7 @@
 	<!-- RIGHT SIDE -->
 	<div class="md:flex-[0.7] lg:flex-[0.5] relative">
 		<div class="sticky top-[5.75rem]">
-			<TutorCard tutor={data.tutor} withCTA />
+			<TutorCard tutor={data.tutor} />
 		</div>
 	</div>
 </section>

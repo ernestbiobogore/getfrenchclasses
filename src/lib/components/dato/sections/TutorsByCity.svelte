@@ -29,7 +29,7 @@
 
 		<div class="grid gap-6 sm:grid-cols-3">
 			{#each tutors as tutor (tutor.id)}
-				<TutorCard {tutor} />
+				<TutorCard {tutor} withCTA />
 			{/each}
 		</div>
 
