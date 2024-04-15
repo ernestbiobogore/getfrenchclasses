@@ -4,12 +4,13 @@
 	import FAQ from "$dato/sections/FAQ.svelte";
 	import Hero from "$dato/sections/Hero.svelte";
 	import Testimonials from "$dato/sections/Testimonials.svelte";
-	import CourseCard from "$lib/components/CourseCard.svelte";
 	import TutorsByCity from "$dato/sections/TutorsByCity.svelte";
+	import CourseCard from "$lib/components/CourseCard.svelte";
 	import type {
 		getSingleLocationModularPage,
 		getSingleModularPage,
 	} from "$lib/graphql/queries/modular";
+	import ComparisonTable from "./ComparisonTable.svelte";
 
 	export let modularPage:
 		| Awaited<ReturnType<typeof getSingleModularPage>>
@@ -48,9 +49,12 @@
 			</section>
 		{/if}
 
-	
-		{#if record.__typename === 'TutorsByCitySectionRecord'}
+		{#if record.__typename === "TutorsByCitySectionRecord"}
 			<TutorsByCity {record} />
+		{/if}
+
+		{#if record.__typename === "ComparisonSectionRecord"}
+			<ComparisonTable {record} />
 		{/if}
 	{/each}
 {/if}
