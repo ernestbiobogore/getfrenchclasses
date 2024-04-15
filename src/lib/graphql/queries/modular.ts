@@ -2,11 +2,12 @@ import { client } from "$lib/graphql/client";
 import {
 	cardSectionSelection,
 	comparisonSectionSelection,
+	courseSectionSelection,
 	faqSectionSelection,
 	heroSectionSelection,
-	referenceSectionSelection,
 	seoFieldsSelection,
 	testimonialSectionSelection,
+	tutorsByCitySectionSelection,
 } from "$lib/graphql/queries/fields";
 
 const getSingleLocationModularPage = async (slug: string) => {
@@ -28,6 +29,7 @@ const getSingleLocationModularPage = async (slug: string) => {
 			pageType: true,
 			city: {
 				slug: true,
+				name: true,
 			},
 
 			// Content
@@ -41,8 +43,9 @@ const getSingleLocationModularPage = async (slug: string) => {
 				on_FaqSectionRecord: faqSectionSelection,
 				on_CardsSectionRecord: cardSectionSelection,
 				on_TestimonialsSectionRecord: testimonialSectionSelection,
-				on_ReferenceSectionRecord: referenceSectionSelection,
 				on_ComparisonSectionRecord: comparisonSectionSelection,
+				on_CoursesSectionRecord: courseSectionSelection,
+				on_TutorsByCitySectionRecord: tutorsByCitySectionSelection,
 			},
 
 			// SEO
@@ -86,7 +89,6 @@ const getSingleModularPage = async (slug: string) => {
 				on_FaqSectionRecord: faqSectionSelection,
 				on_CardsSectionRecord: cardSectionSelection,
 				on_TestimonialsSectionRecord: testimonialSectionSelection,
-				on_ReferenceSectionRecord: referenceSectionSelection,
 				on_ComparisonSectionRecord: comparisonSectionSelection,
 			},
 

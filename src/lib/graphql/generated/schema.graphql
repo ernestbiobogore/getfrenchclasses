@@ -916,6 +916,31 @@ type CoursesBlockRecord implements RecordInterface {
   id: ItemId!
 }
 
+"""Block of type Courses section (courses_section)"""
+type CoursesSectionRecord implements RecordInterface {
+  _createdAt: DateTime!
+
+  """Editing URL"""
+  _editingUrl: String
+  _firstPublishedAt: DateTime
+  _isValid: BooleanType!
+  _modelApiKey: String!
+  _publicationScheduledAt: DateTime
+  _publishedAt: DateTime
+
+  """Generates SEO and Social card meta tags to be used in your frontend"""
+  _seoMetaTags(
+    """The locale to use to fetch the field's content"""
+    locale: SiteLocale
+  ): [Tag!]!
+  _status: ItemStatus!
+  _unpublishingScheduledAt: DateTime
+  _updatedAt: DateTime!
+  courses: [CourseRecord!]!
+  heading: HeadingBlockNewRecord
+  id: ItemId!
+}
+
 """Specifies how to filter by creation datetime"""
 input CreatedAtFilter {
   """
@@ -3582,6 +3607,8 @@ scalar MetaTagAttributes
 """Linking fields"""
 enum ModularPageLocationModelFieldsReferencingCityModel {
   modularPageLocation_city
+  modularPageLocation_modularContent
+  modularPageLocation_modularContent__tutorsByCitySection_city
 }
 
 input ModularPageLocationModelFilter {
@@ -3602,7 +3629,7 @@ input ModularPageLocationModelFilter {
   AND: [ModularPageLocationModelFilter]
 }
 
-union ModularPageLocationModelModularContentField = CardsSectionRecord | ComparisonSectionRecord | FaqSectionRecord | HeroSectionRecord | ReferenceSectionRecord | TestimonialsSectionRecord
+union ModularPageLocationModelModularContentField = CardsSectionRecord | ComparisonSectionRecord | CoursesSectionRecord | FaqSectionRecord | HeroSectionRecord | TestimonialsSectionRecord | TutorsByCitySectionRecord
 
 enum ModularPageLocationModelOrderBy {
   _createdAt_ASC
@@ -3675,7 +3702,7 @@ input ModularPageModelFilter {
   AND: [ModularPageModelFilter]
 }
 
-union ModularPageModelModularContentField = CardsSectionRecord | ComparisonSectionRecord | FaqSectionRecord | HeroSectionRecord | ReferenceSectionRecord | TestimonialsSectionRecord
+union ModularPageModelModularContentField = CardsSectionRecord | ComparisonSectionRecord | FaqSectionRecord | HeroSectionRecord | TestimonialsSectionRecord
 
 enum ModularPageModelOrderBy {
   _createdAt_ASC
@@ -5693,6 +5720,30 @@ type TutorsBlockRecord implements RecordInterface {
   _updatedAt: DateTime!
   id: ItemId!
   tutors: [TutorRecord!]!
+}
+
+"""Block of type Tutors By City Section (tutors_by_city_section)"""
+type TutorsByCitySectionRecord implements RecordInterface {
+  _createdAt: DateTime!
+
+  """Editing URL"""
+  _editingUrl: String
+  _firstPublishedAt: DateTime
+  _isValid: BooleanType!
+  _modelApiKey: String!
+  _publicationScheduledAt: DateTime
+  _publishedAt: DateTime
+
+  """Generates SEO and Social card meta tags to be used in your frontend"""
+  _seoMetaTags(
+    """The locale to use to fetch the field's content"""
+    locale: SiteLocale
+  ): [Tag!]!
+  _status: ItemStatus!
+  _unpublishingScheduledAt: DateTime
+  _updatedAt: DateTime!
+  city: CityRecord!
+  id: ItemId!
 }
 
 """Specifies how to filter by upload type"""

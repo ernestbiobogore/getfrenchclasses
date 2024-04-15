@@ -5,19 +5,20 @@ import type {
 	CardsSectionRecordGenqlSelection,
 	ComparisonSectionRecordGenqlSelection,
 	CourseRecordGenqlSelection,
+	CoursesSectionRecordGenqlSelection,
 	FaqBlockNewRecordGenqlSelection,
 	FaqItemRecordGenqlSelection,
 	FaqSectionRecordGenqlSelection,
 	HeadingBlockNewRecordGenqlSelection,
 	HeroSectionRecordGenqlSelection,
 	PostRecordGenqlSelection,
-	ReferenceSectionRecordGenqlSelection,
 	ResponsiveImageGenqlSelection,
 	SeoFieldGenqlSelection,
 	TestimonialBlockCtaRecordGenqlSelection,
 	TestimonialBlockDefaultRecordGenqlSelection,
 	TestimonialsSectionRecordGenqlSelection,
 	TutorRecordGenqlSelection,
+	TutorsByCitySectionRecordGenqlSelection,
 } from "$lib/graphql/generated";
 
 const headingFieldSelection = {
@@ -284,20 +285,39 @@ const testimonialSectionSelection = {
 		},
 	},
 } satisfies TestimonialsSectionRecordGenqlSelection;
-const referenceSectionSelection = {
-	section: true,
-} satisfies ReferenceSectionRecordGenqlSelection;
+
+const courseSectionSelection = {
+	heading: headingFieldSelection,
+	courses: courseMetaFields,
+} satisfies CoursesSectionRecordGenqlSelection;
+
+const tutorsByCitySectionSelection = {
+	city: {
+		slug: true,
+		name: true,
+	},
+} satisfies TutorsByCitySectionRecordGenqlSelection;
 
 export {
 	actionBlockFieldSelection,
 	cardBlockFieldSelection,
-	cardBlockFields, cardSectionSelection, comparisonSectionSelection, courseMetaFields,
+	cardBlockFields,
+	cardSectionSelection,
+	comparisonSectionSelection,
+	courseMetaFields,
+	courseSectionSelection,
 	ctaTestimonialFieldsSelection,
 	defaultTestimonialFieldsSelection,
 	faqBlockFieldSelection,
-	faqItemFieldsSelection, faqSectionSelection, headingFieldSelection,
+	faqItemFieldsSelection,
+	faqSectionSelection,
+	headingFieldSelection,
 	heroSectionSelection,
-	postCategoryBlockFields, referenceSectionSelection, responsiveImageFieldSelection,
-	seoFieldsSelection, testimonialSectionSelection, tutorMetaFields
+	postCategoryBlockFields,
+	responsiveImageFieldSelection,
+	seoFieldsSelection,
+	testimonialSectionSelection,
+	tutorMetaFields,
+	tutorsByCitySectionSelection
 };
 

@@ -1,30 +1,22 @@
 <script lang="ts">
 	import { page } from "$app/stores";
-	import Heading from "$dato/blocks/Heading.svelte";
-	import TutorCard from "$dato/blocks/tutors/TutorCard.svelte";
-	import Cards from "$dato/sections/Cards.svelte";
-	import ComparisonTable from "$dato/sections/ComparisonTable.svelte";
-	import FAQ from "$dato/sections/FAQ.svelte";
-	import Hero from "$dato/sections/Hero.svelte";
-	import Testimonials from "$dato/sections/Testimonials.svelte";
+	import ModularPage from "$dato/sections/ModularPage.svelte";
 	import InternalLinks, {
 		type Section as InternalLinkSection,
 	} from "$lib/components/dato/sections/InternalLinks.svelte";
-	import { Button } from "$shadcn/button";
 	import SvelteSeo from "svelte-seo";
 
 	export let data;
-	$: ({ modularPage, city, citiesWithTutors } = data);
+	$: ({ modularPage, citiesWithTutors } = data);
 	$: seo = modularPage.seo?.seoBlock;
 
-	$: title = `Our tutors in ${city.name} | Get French Classes`;
 	$: seoData = {
 		url: $page.url.href,
-		title,
-		description: title,
+		title: seo?.title || data.modularPage.title,
+		description: seo?.description || data.modularPage.title,
 		image: {
 			url: seo?.image?.responsiveImage?.src || seo?.image?.url,
-			alt: seo?.image?.alt || title,
+			alt: seo?.image?.alt || data.modularPage.title,
 			width: 1200,
 			height: 630,
 		},
@@ -57,52 +49,12 @@
 				alt: seoData.image.alt,
 			},
 		],
-		site_name: seoData.title,
+		site_name: "Get French Classes",
 	}}
 />
 
-{#if modularPage?.modularContent && modularPage.modularContent.length > 0}
-	{#each modularPage.modularContent as record (record.id)}
-		{#if record.__typename === "HeroSectionRecord"}
-			<Hero {record} />
-		{/if}
-
-		{#if record.__typename === "CardsSectionRecord"}
-			<Cards {record} />
-		{/if}
-
-		{#if record.__typename === "TestimonialsSectionRecord"}
-			<Testimonials {record} />
-		{/if}
-
-		{#if record.__typename === "FaqSectionRecord"}
-			<FAQ {record} />
-		{/if}
-
-		{#if record.__typename === "ReferenceSectionRecord"}
-			{#if record.section === "tutors_by_location"}
-				{#if city._allReferencingTutors.length > 0}
-					<section class="py-20 space-y-12 container-base">
-						<Heading defaultHeading="Our tutors in {city.name}" useDefaultHeading />
-
-						<div class="grid gap-5 sm:grid-cols-2 md:grid-cols-3 lg:gap-8 lg:grid-cols-4">
-							{#each city._allReferencingTutors as tutor (tutor.id)}
-								<TutorCard {tutor} />
-							{/each}
-						</div>
-
-						<div class="flex justify-center">
-							<Button href="/tutors">See all tutors</Button>
-						</div>
-					</section>
-				{/if}
-			{/if}
-		{/if}
-
-		{#if record.__typename === "ComparisonSectionRecord"}
-			<ComparisonTable {record} />
-		{/if}
-	{/each}
+{#if data.modularPage}
+	<ModularPage modularPage={data.modularPage} />
 {/if}
 
 <InternalLinks basePath="/tutors" sections={tutorsInternalLinks} />

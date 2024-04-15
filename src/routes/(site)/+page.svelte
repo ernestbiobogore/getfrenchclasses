@@ -39,7 +39,7 @@
 				alt: seoData.image.alt,
 			},
 		],
-		site_name: seoData.title,
+		site_name: "Get French Classes",
 	}}
 />
 
