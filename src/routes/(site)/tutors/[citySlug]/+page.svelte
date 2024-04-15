@@ -9,7 +9,10 @@
 	import CourseCard from "$lib/components/CourseCard.svelte";
 	import { Button } from "$shadcn/button";
 	import SvelteSeo from "svelte-seo";
-	import InternalLinks, { type Section as InternalLinkSection } from "./InternalLinks.svelte";
+	import CompareCompetitors from "$lib/components/dato/sections/CompareCompetitors.svelte";
+	import InternalLinks, {
+		type Section as InternalLinkSection,
+	} from "$lib/components/dato/sections/InternalLinks.svelte";
 
 	export let data;
 	$: ({ modularPage, city, courses, citiesWithTutors } = data);
@@ -115,4 +118,5 @@
 	{/each}
 {/if}
 
+<CompareCompetitors />
 <InternalLinks basePath="/tutors" sections={tutorsInternalLinks} />

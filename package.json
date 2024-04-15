@@ -45,7 +45,7 @@
 		"@fontsource-variable/inter": "^5.0.16",
 		"@genql/runtime": "^2.10.0",
 		"@mux/mux-player": "^2.3.3",
-		"bits-ui": "^0.17.0",
+		"bits-ui": "^0.21.3",
 		"clsx": "^2.1.0",
 		"datocms-structured-text-utils": "^3.0.0",
 		"embla-carousel-svelte": "8.0.0-rc22",

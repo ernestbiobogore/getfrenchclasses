@@ -15,9 +15,9 @@ const config = {
 		},
 	},
 
-	vitePlugin: {
-		inspector: true,
-	},
+	// vitePlugin: {
+	// 	inspector: true,
+	// },
 };
 
 export default config;
