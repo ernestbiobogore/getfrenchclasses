@@ -12,14 +12,8 @@
 	import StarFillIcon from "~icons/solar/star-bold";
 
 	import StructuredText from "$dato/StructuredText/index.svelte";
-	import {
-		type FormattedSingleTutor,
-		type FormattedTutorMeta,
-	} from "$dato/blocks/tutors/types";
-	import {
-		DEFAULT_VERIFIED_DESCRIPTION,
-		deSlugify,
-	} from "$dato/blocks/tutors/utils.client";
+	import { type FormattedSingleTutor, type FormattedTutorMeta } from "$dato/blocks/tutors/types";
+	import { DEFAULT_VERIFIED_DESCRIPTION, deSlugify } from "$dato/blocks/tutors/utils.client";
 	import { type AltFileField } from "$lib/graphql/generated/schema";
 	import { Badge } from "$shadcn/badge";
 	import { Button } from "$shadcn/button";
@@ -109,11 +103,13 @@
 			{#if withCTA}
 				<Dialog.Root>
 					<Dialog.Trigger let:builder asChild>
-						<Button class="w-full mb-4 bg-brand-primary" builders={[builder]}>Book a lesson</Button>
+						<Button class="w-full mb-4 bg-brand-primary" builders={[builder]}
+							>Learn more about {tutor.name}</Button
+						>
 					</Dialog.Trigger>
 					<Dialog.Content class="sm:max-w-[425px]">
 						<Dialog.Header>
-							<Dialog.Title>Book a lesson</Dialog.Title>
+							<Dialog.Title>Learn more about {tutor.name}</Dialog.Title>
 						</Dialog.Header>
 					</Dialog.Content>
 				</Dialog.Root>
