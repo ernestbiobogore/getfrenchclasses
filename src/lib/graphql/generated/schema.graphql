@@ -383,6 +383,36 @@ enum CityModelOrderBy {
 
 """Record of type 🏙️ City (city)"""
 type CityRecord implements RecordInterface {
+  _allReferencingModularPageLocations(
+    """Specifies how to filter linking records"""
+    through: InverseRelationshipFilterBetweenModularPageLocationAndCity
+
+    """The locale to use to fetch the field's content"""
+    locale: SiteLocale
+
+    """
+    If you want to fallback to a default translation when a translation has not been found
+    """
+    fallbackLocales: [SiteLocale!]
+
+    """Skip the first results"""
+    skip: IntType
+
+    """Limit the number of results"""
+    first: IntType = 20
+    filter: ModularPageLocationModelFilter
+    orderBy: [ModularPageLocationModelOrderBy] = [_updatedAt_DESC]
+  ): [ModularPageLocationRecord!]!
+
+  """Returns meta information regarding a record collection"""
+  _allReferencingModularPageLocationsMeta(
+    """Specifies how to filter linking records"""
+    through: InverseRelationshipFilterBetweenModularPageLocationAndCity
+
+    """The locale to use to fetch the field's content"""
+    locale: SiteLocale
+    filter: ModularPageLocationModelFilter
+  ): CollectionMetadata!
   _allReferencingTutors(
     """Specifies how to filter linking records"""
     through: InverseRelationshipFilterBetweenTutorAndCity
@@ -3201,6 +3231,19 @@ input InverseRelationshipFieldFilterBetweenCityAndCountry {
 }
 
 """Specifies how to filter by linking fields"""
+input InverseRelationshipFieldFilterBetweenModularPageLocationAndCity {
+  """
+  Filter linking records that reference current record in at least one of the specified fields
+  """
+  anyIn: [ModularPageLocationModelFieldsReferencingCityModel!]
+
+  """
+  Filter linking records that do not reference current record in any of the specified fields
+  """
+  notIn: [ModularPageLocationModelFieldsReferencingCityModel!]
+}
+
+"""Specifies how to filter by linking fields"""
 input InverseRelationshipFieldFilterBetweenTutorAndCity {
   """
   Filter linking records that reference current record in at least one of the specified fields
@@ -3217,6 +3260,15 @@ input InverseRelationshipFieldFilterBetweenTutorAndCity {
 input InverseRelationshipFilterBetweenCityAndCountry {
   """Specifies how to filter by linking fields"""
   fields: InverseRelationshipFieldFilterBetweenCityAndCountry
+
+  """Specifies how to filter by linking locales"""
+  locales: LinkingLocalesFilter
+}
+
+"""Specifies how to filter linking records"""
+input InverseRelationshipFilterBetweenModularPageLocationAndCity {
+  """Specifies how to filter by linking fields"""
+  fields: InverseRelationshipFieldFilterBetweenModularPageLocationAndCity
 
   """Specifies how to filter by linking locales"""
   locales: LinkingLocalesFilter
@@ -3526,6 +3578,85 @@ type MenuRecord implements RecordInterface {
 }
 
 scalar MetaTagAttributes
+
+"""Linking fields"""
+enum ModularPageLocationModelFieldsReferencingCityModel {
+  modularPageLocation_city
+}
+
+input ModularPageLocationModelFilter {
+  _createdAt: CreatedAtFilter
+  id: ItemIdFilter
+  _firstPublishedAt: PublishedAtFilter
+  _publicationScheduledAt: PublishedAtFilter
+  _unpublishingScheduledAt: PublishedAtFilter
+  _publishedAt: PublishedAtFilter
+  _status: StatusFilter
+  _updatedAt: UpdatedAtFilter
+  _isValid: BooleanFilter
+  city: LinkFilter
+  pageType: StringFilter
+  slug: SlugFilter
+  title: StringFilter
+  OR: [ModularPageLocationModelFilter]
+  AND: [ModularPageLocationModelFilter]
+}
+
+union ModularPageLocationModelModularContentField = CardsSectionRecord | ComparisonSectionRecord | FaqSectionRecord | HeroSectionRecord | ReferenceSectionRecord | TestimonialsSectionRecord
+
+enum ModularPageLocationModelOrderBy {
+  _createdAt_ASC
+  _createdAt_DESC
+  id_ASC
+  id_DESC
+  _firstPublishedAt_ASC
+  _firstPublishedAt_DESC
+  _publicationScheduledAt_ASC
+  _publicationScheduledAt_DESC
+  _unpublishingScheduledAt_ASC
+  _unpublishingScheduledAt_DESC
+  _publishedAt_ASC
+  _publishedAt_DESC
+  _status_ASC
+  _status_DESC
+  _updatedAt_ASC
+  _updatedAt_DESC
+  _isValid_ASC
+  _isValid_DESC
+  pageType_ASC
+  pageType_DESC
+  title_ASC
+  title_DESC
+}
+
+"""Record of type ⚙️ Modular Page [locations] (modular_page_location)"""
+type ModularPageLocationRecord implements RecordInterface {
+  _createdAt: DateTime!
+
+  """Editing URL"""
+  _editingUrl: String
+  _firstPublishedAt: DateTime
+  _isValid: BooleanType!
+  _modelApiKey: String!
+  _publicationScheduledAt: DateTime
+  _publishedAt: DateTime
+
+  """Generates SEO and Social card meta tags to be used in your frontend"""
+  _seoMetaTags(
+    """The locale to use to fetch the field's content"""
+    locale: SiteLocale
+  ): [Tag!]!
+  _status: ItemStatus!
+  _unpublishingScheduledAt: DateTime
+  _updatedAt: DateTime!
+  city: CityRecord!
+  id: ItemId!
+  modularContent: [ModularPageLocationModelModularContentField!]!
+  pageType: String!
+  seo: SeoBlockRecord!
+  slug: String!
+  title: String!
+}
 
 input ModularPageModelFilter {
   _createdAt: CreatedAtFilter
@@ -3935,6 +4066,13 @@ type Query {
   ): CollectionMetadata!
 
   """Returns meta information regarding a record collection"""
+  _allModularPageLocationsMeta(
+    """The locale to use to fetch the field's content"""
+    locale: SiteLocale
+    filter: ModularPageLocationModelFilter
+  ): CollectionMetadata!
+
+  """Returns meta information regarding a record collection"""
   _allModularPagesMeta(
     """The locale to use to fetch the field's content"""
     locale: SiteLocale
@@ -4216,6 +4354,25 @@ type Query {
     filter: MenuModelFilter
     orderBy: [MenuModelOrderBy] = [_updatedAt_DESC]
   ): [MenuRecord!]!
+
+  """Returns a collection of records"""
+  allModularPageLocations(
+    """The locale to use to fetch the field's content"""
+    locale: SiteLocale
+
+    """
+    If you want to fallback to a default translation when a translation has not been found
+    """
+    fallbackLocales: [SiteLocale!]
+
+    """Skip the first results"""
+    skip: IntType
+
+    """Limit the number of results"""
+    first: IntType = 20
+    filter: ModularPageLocationModelFilter
+    orderBy: [ModularPageLocationModelOrderBy] = [_updatedAt_DESC]
+  ): [ModularPageLocationRecord!]!
 
   """Returns a collection of records"""
   allModularPages(
@@ -4543,6 +4700,19 @@ type Query {
     filter: ModularPageModelFilter
     orderBy: [ModularPageModelOrderBy] = [_updatedAt_DESC]
   ): ModularPageRecord
+
+  """Returns a specific record"""
+  modularPageLocation(
+    """The locale to use to fetch the field's content"""
+    locale: SiteLocale
+
+    """
+    If you want to fallback to a default translation when a translation has not been found
+    """
+    fallbackLocales: [SiteLocale!]
+    filter: ModularPageLocationModelFilter
+    orderBy: [ModularPageLocationModelOrderBy] = [_updatedAt_DESC]
+  ): ModularPageLocationRecord
 
   """Returns a specific record"""
   post(

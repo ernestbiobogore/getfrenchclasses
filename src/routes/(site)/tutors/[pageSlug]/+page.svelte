@@ -7,7 +7,6 @@
 	import FAQ from "$dato/sections/FAQ.svelte";
 	import Hero from "$dato/sections/Hero.svelte";
 	import Testimonials from "$dato/sections/Testimonials.svelte";
-	import CourseCard from "$lib/components/CourseCard.svelte";
 	import InternalLinks, {
 		type Section as InternalLinkSection,
 	} from "$lib/components/dato/sections/InternalLinks.svelte";
@@ -15,7 +14,7 @@
 	import SvelteSeo from "svelte-seo";
 
 	export let data;
-	$: ({ modularPage, city, courses, citiesWithTutors } = data);
+	$: ({ modularPage, city, citiesWithTutors } = data);
 	$: seo = modularPage.seo?.seoBlock;
 
 	$: title = `Our tutors in ${city.name} | Get French Classes`;
@@ -97,22 +96,6 @@
 						</div>
 					</section>
 				{/if}
-			{/if}
-
-			{#if record.section === "courses"}
-				<section class="py-20 space-y-12 container-base">
-					<Heading defaultHeading="Our courses" useDefaultHeading />
-
-					<div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-						{#each courses as course (course.id)}
-							<CourseCard {course} />
-						{/each}
-					</div>
-
-					<div class="flex justify-center">
-						<Button href="/courses">See all our courses</Button>
-					</div>
-				</section>
 			{/if}
 		{/if}
 

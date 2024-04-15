@@ -201,6 +201,9 @@ export type CityModelOrderBy = '_createdAt_ASC' | '_createdAt_DESC' | 'id_ASC' |
 
 /** Record of type 🏙️ City (city) */
 export interface CityRecord {
+    _allReferencingModularPageLocations: ModularPageLocationRecord[]
+    /** Returns meta information regarding a record collection */
+    _allReferencingModularPageLocationsMeta: CollectionMetadata
     _allReferencingTutors: TutorRecord[]
     /** Returns meta information regarding a record collection */
     _allReferencingTutorsMeta: CollectionMetadata
@@ -883,6 +886,40 @@ export interface MenuRecord {
     __typename: 'MenuRecord'
 }
 
+
+/** Linking fields */
+export type ModularPageLocationModelFieldsReferencingCityModel = 'modularPageLocation_city'
+
+export type ModularPageLocationModelModularContentField = (CardsSectionRecord | ComparisonSectionRecord | FaqSectionRecord | HeroSectionRecord | ReferenceSectionRecord | TestimonialsSectionRecord) & { __isUnion?: true }
+
+export type ModularPageLocationModelOrderBy = '_createdAt_ASC' | '_createdAt_DESC' | 'id_ASC' | 'id_DESC' | '_firstPublishedAt_ASC' | '_firstPublishedAt_DESC' | '_publicationScheduledAt_ASC' | '_publicationScheduledAt_DESC' | '_unpublishingScheduledAt_ASC' | '_unpublishingScheduledAt_DESC' | '_publishedAt_ASC' | '_publishedAt_DESC' | '_status_ASC' | '_status_DESC' | '_updatedAt_ASC' | '_updatedAt_DESC' | '_isValid_ASC' | '_isValid_DESC' | 'pageType_ASC' | 'pageType_DESC' | 'title_ASC' | 'title_DESC'
+
+
+/** Record of type ⚙️ Modular Page [locations] (modular_page_location) */
+export interface ModularPageLocationRecord {
+    _createdAt: Scalars['DateTime']
+    /** Editing URL */
+    _editingUrl: (Scalars['String'] | null)
+    _firstPublishedAt: (Scalars['DateTime'] | null)
+    _isValid: Scalars['BooleanType']
+    _modelApiKey: Scalars['String']
+    _publicationScheduledAt: (Scalars['DateTime'] | null)
+    _publishedAt: (Scalars['DateTime'] | null)
+    /** Generates SEO and Social card meta tags to be used in your frontend */
+    _seoMetaTags: Tag[]
+    _status: ItemStatus
+    _unpublishingScheduledAt: (Scalars['DateTime'] | null)
+    _updatedAt: Scalars['DateTime']
+    city: CityRecord
+    id: Scalars['ItemId']
+    modularContent: ModularPageLocationModelModularContentField[]
+    pageType: Scalars['String']
+    seo: SeoBlockRecord
+    slug: Scalars['String']
+    title: Scalars['String']
+    __typename: 'ModularPageLocationRecord'
+}
+
 export type ModularPageModelModularContentField = (CardsSectionRecord | ComparisonSectionRecord | FaqSectionRecord | HeroSectionRecord | ReferenceSectionRecord | TestimonialsSectionRecord) & { __isUnion?: true }
 
 export type ModularPageModelOrderBy = '_createdAt_ASC' | '_createdAt_DESC' | 'id_ASC' | 'id_DESC' | '_firstPublishedAt_ASC' | '_firstPublishedAt_DESC' | '_publicationScheduledAt_ASC' | '_publicationScheduledAt_DESC' | '_unpublishingScheduledAt_ASC' | '_unpublishingScheduledAt_DESC' | '_publishedAt_ASC' | '_publishedAt_DESC' | '_status_ASC' | '_status_DESC' | '_updatedAt_ASC' | '_updatedAt_DESC' | '_isValid_ASC' | '_isValid_DESC' | 'title_ASC' | 'title_DESC'
@@ -1049,6 +1086,8 @@ export interface Query {
     /** Returns meta information regarding a record collection */
     _allMenusMeta: CollectionMetadata
     /** Returns meta information regarding a record collection */
+    _allModularPageLocationsMeta: CollectionMetadata
+    /** Returns meta information regarding a record collection */
     _allModularPagesMeta: CollectionMetadata
     /** Returns meta information regarding a record collection */
     _allPostCtasMeta: CollectionMetadata
@@ -1090,6 +1129,8 @@ export interface Query {
     allJobs: JobRecord[]
     /** Returns a collection of records */
     allMenus: MenuRecord[]
+    /** Returns a collection of records */
+    allModularPageLocations: ModularPageLocationRecord[]
     /** Returns a collection of records */
     allModularPages: ModularPageRecord[]
     /** Returns a collection of records */
@@ -1133,6 +1174,8 @@ export interface Query {
     /** Returns a specific record */
     modularPage: (ModularPageRecord | null)
     /** Returns a specific record */
+    modularPageLocation: (ModularPageLocationRecord | null)
+    /** Returns a specific record */
     post: (PostRecord | null)
     /** Returns a specific record */
     postCta: (PostCtaRecord | null)
@@ -1151,7 +1194,7 @@ export interface Query {
     __typename: 'Query'
 }
 
-export type RecordInterface = (ActionBlockRecord | AuthorRecord | CardBlockNewRecord | CardBlockRecord | CardsSectionRecord | CategoryRecord | CityRecord | ComparisonBlockRecord | ComparisonSectionRecord | CompetitorRecord | CompetitorsComparisonRecord | ConvertboxBlockRecord | CountryRecord | CourseRecord | CoursesBlockRecord | FaqBlockNewRecord | FaqBlockRecord | FaqItemRecord | FaqSectionRecord | HeadingBlockNewRecord | HeadingBlockRecord | HeroImageBlockRecord | HeroSectionRecord | ImageBlockRecord | InstructorRecord | JobRecord | MenuItemBlockRecord | MenuListBlockRecord | MenuRecord | ModularPageRecord | NoteBlockRecord | PlainTextBlockRecord | PostCtaRecord | PostRecord | ReferenceSectionRecord | ResourceRecord | ResourceTopicRecord | RichTextBlockRecord | RoutePathRecord | SeoBlockRecord | TestimonialBlockCtaRecord | TestimonialBlockDefaultRecord | TestimonialBlockRecord | TestimonialRecord | TestimonialsListBlockRecord | TestimonialsSectionRecord | TutorRecord | TutorsBlockRecord) & { __isUnion?: true }
+export type RecordInterface = (ActionBlockRecord | AuthorRecord | CardBlockNewRecord | CardBlockRecord | CardsSectionRecord | CategoryRecord | CityRecord | ComparisonBlockRecord | ComparisonSectionRecord | CompetitorRecord | CompetitorsComparisonRecord | ConvertboxBlockRecord | CountryRecord | CourseRecord | CoursesBlockRecord | FaqBlockNewRecord | FaqBlockRecord | FaqItemRecord | FaqSectionRecord | HeadingBlockNewRecord | HeadingBlockRecord | HeroImageBlockRecord | HeroSectionRecord | ImageBlockRecord | InstructorRecord | JobRecord | MenuItemBlockRecord | MenuListBlockRecord | MenuRecord | ModularPageLocationRecord | ModularPageRecord | NoteBlockRecord | PlainTextBlockRecord | PostCtaRecord | PostRecord | ReferenceSectionRecord | ResourceRecord | ResourceTopicRecord | RichTextBlockRecord | RoutePathRecord | SeoBlockRecord | TestimonialBlockCtaRecord | TestimonialBlockDefaultRecord | TestimonialBlockRecord | TestimonialRecord | TestimonialsListBlockRecord | TestimonialsSectionRecord | TutorRecord | TutorsBlockRecord) & { __isUnion?: true }
 
 
 /** Block of type Reference Section (reference_section) */
@@ -1916,6 +1959,23 @@ export interface CityModelFilter {_createdAt?: (CreatedAtFilter | null),id?: (It
 
 /** Record of type 🏙️ City (city) */
 export interface CityRecordGenqlSelection{
+    _allReferencingModularPageLocations?: (ModularPageLocationRecordGenqlSelection & { __args?: {
+    /** Specifies how to filter linking records */
+    through?: (InverseRelationshipFilterBetweenModularPageLocationAndCity | null), 
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null), 
+    /** If you want to fallback to a default translation when a translation has not been found */
+    fallbackLocales?: (SiteLocale[] | null), 
+    /** Skip the first results */
+    skip?: (Scalars['IntType'] | null), 
+    /** Limit the number of results */
+    first?: (Scalars['IntType'] | null), filter?: (ModularPageLocationModelFilter | null), orderBy?: ((ModularPageLocationModelOrderBy | null)[] | null)} })
+    /** Returns meta information regarding a record collection */
+    _allReferencingModularPageLocationsMeta?: (CollectionMetadataGenqlSelection & { __args?: {
+    /** Specifies how to filter linking records */
+    through?: (InverseRelationshipFilterBetweenModularPageLocationAndCity | null), 
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null), filter?: (ModularPageLocationModelFilter | null)} })
     _allReferencingTutors?: (TutorRecordGenqlSelection & { __args?: {
     /** Specifies how to filter linking records */
     through?: (InverseRelationshipFilterBetweenTutorAndCity | null), 
@@ -3979,6 +4039,14 @@ notIn?: (CityModelFieldsReferencingCountryModel[] | null)}
 
 
 /** Specifies how to filter by linking fields */
+export interface InverseRelationshipFieldFilterBetweenModularPageLocationAndCity {
+/** Filter linking records that reference current record in at least one of the specified fields */
+anyIn?: (ModularPageLocationModelFieldsReferencingCityModel[] | null),
+/** Filter linking records that do not reference current record in any of the specified fields */
+notIn?: (ModularPageLocationModelFieldsReferencingCityModel[] | null)}
+
+
+/** Specifies how to filter by linking fields */
 export interface InverseRelationshipFieldFilterBetweenTutorAndCity {
 /** Filter linking records that reference current record in at least one of the specified fields */
 anyIn?: (TutorModelFieldsReferencingCityModel[] | null),
@@ -3990,6 +4058,14 @@ notIn?: (TutorModelFieldsReferencingCityModel[] | null)}
 export interface InverseRelationshipFilterBetweenCityAndCountry {
 /** Specifies how to filter by linking fields */
 fields?: (InverseRelationshipFieldFilterBetweenCityAndCountry | null),
+/** Specifies how to filter by linking locales */
+locales?: (LinkingLocalesFilter | null)}
+
+
+/** Specifies how to filter linking records */
+export interface InverseRelationshipFilterBetweenModularPageLocationAndCity {
+/** Specifies how to filter by linking fields */
+fields?: (InverseRelationshipFieldFilterBetweenModularPageLocationAndCity | null),
 /** Specifies how to filter by linking locales */
 locales?: (LinkingLocalesFilter | null)}
 
@@ -4161,6 +4237,48 @@ export interface MenuRecordGenqlSelection{
     menuLists?: MenuListBlockRecordGenqlSelection
     name?: boolean | number
     slug?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+export interface ModularPageLocationModelFilter {_createdAt?: (CreatedAtFilter | null),id?: (ItemIdFilter | null),_firstPublishedAt?: (PublishedAtFilter | null),_publicationScheduledAt?: (PublishedAtFilter | null),_unpublishingScheduledAt?: (PublishedAtFilter | null),_publishedAt?: (PublishedAtFilter | null),_status?: (StatusFilter | null),_updatedAt?: (UpdatedAtFilter | null),_isValid?: (BooleanFilter | null),city?: (LinkFilter | null),pageType?: (StringFilter | null),slug?: (SlugFilter | null),title?: (StringFilter | null),OR?: ((ModularPageLocationModelFilter | null)[] | null),AND?: ((ModularPageLocationModelFilter | null)[] | null)}
+
+export interface ModularPageLocationModelModularContentFieldGenqlSelection{
+    on_CardsSectionRecord?:CardsSectionRecordGenqlSelection,
+    on_ComparisonSectionRecord?:ComparisonSectionRecordGenqlSelection,
+    on_FaqSectionRecord?:FaqSectionRecordGenqlSelection,
+    on_HeroSectionRecord?:HeroSectionRecordGenqlSelection,
+    on_ReferenceSectionRecord?:ReferenceSectionRecordGenqlSelection,
+    on_TestimonialsSectionRecord?:TestimonialsSectionRecordGenqlSelection,
+    on_RecordInterface?: RecordInterfaceGenqlSelection,
+    __typename?: boolean | number
+}
+
+
+/** Record of type ⚙️ Modular Page [locations] (modular_page_location) */
+export interface ModularPageLocationRecordGenqlSelection{
+    _createdAt?: boolean | number
+    /** Editing URL */
+    _editingUrl?: boolean | number
+    _firstPublishedAt?: boolean | number
+    _isValid?: boolean | number
+    _modelApiKey?: boolean | number
+    _publicationScheduledAt?: boolean | number
+    _publishedAt?: boolean | number
+    /** Generates SEO and Social card meta tags to be used in your frontend */
+    _seoMetaTags?: (TagGenqlSelection & { __args?: {
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null)} })
+    _status?: boolean | number
+    _unpublishingScheduledAt?: boolean | number
+    _updatedAt?: boolean | number
+    city?: CityRecordGenqlSelection
+    id?: boolean | number
+    modularContent?: ModularPageLocationModelModularContentFieldGenqlSelection
+    pageType?: boolean | number
+    seo?: SeoBlockRecordGenqlSelection
+    slug?: boolean | number
+    title?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -4402,6 +4520,10 @@ export interface QueryGenqlSelection{
     /** The locale to use to fetch the field's content */
     locale?: (SiteLocale | null), filter?: (MenuModelFilter | null)} })
     /** Returns meta information regarding a record collection */
+    _allModularPageLocationsMeta?: (CollectionMetadataGenqlSelection & { __args?: {
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null), filter?: (ModularPageLocationModelFilter | null)} })
+    /** Returns meta information regarding a record collection */
     _allModularPagesMeta?: (CollectionMetadataGenqlSelection & { __args?: {
     /** The locale to use to fetch the field's content */
     locale?: (SiteLocale | null), filter?: (ModularPageModelFilter | null)} })
@@ -4553,6 +4675,16 @@ export interface QueryGenqlSelection{
     skip?: (Scalars['IntType'] | null), 
     /** Limit the number of results */
     first?: (Scalars['IntType'] | null), filter?: (MenuModelFilter | null), orderBy?: ((MenuModelOrderBy | null)[] | null)} })
+    /** Returns a collection of records */
+    allModularPageLocations?: (ModularPageLocationRecordGenqlSelection & { __args?: {
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null), 
+    /** If you want to fallback to a default translation when a translation has not been found */
+    fallbackLocales?: (SiteLocale[] | null), 
+    /** Skip the first results */
+    skip?: (Scalars['IntType'] | null), 
+    /** Limit the number of results */
+    first?: (Scalars['IntType'] | null), filter?: (ModularPageLocationModelFilter | null), orderBy?: ((ModularPageLocationModelOrderBy | null)[] | null)} })
     /** Returns a collection of records */
     allModularPages?: (ModularPageRecordGenqlSelection & { __args?: {
     /** The locale to use to fetch the field's content */
@@ -4716,6 +4848,12 @@ export interface QueryGenqlSelection{
     /** If you want to fallback to a default translation when a translation has not been found */
     fallbackLocales?: (SiteLocale[] | null), filter?: (ModularPageModelFilter | null), orderBy?: ((ModularPageModelOrderBy | null)[] | null)} })
     /** Returns a specific record */
+    modularPageLocation?: (ModularPageLocationRecordGenqlSelection & { __args?: {
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null), 
+    /** If you want to fallback to a default translation when a translation has not been found */
+    fallbackLocales?: (SiteLocale[] | null), filter?: (ModularPageLocationModelFilter | null), orderBy?: ((ModularPageLocationModelOrderBy | null)[] | null)} })
+    /** Returns a specific record */
     post?: (PostRecordGenqlSelection & { __args?: {
     /** The locale to use to fetch the field's content */
     locale?: (SiteLocale | null), 
@@ -4813,6 +4951,7 @@ export interface RecordInterfaceGenqlSelection{
     on_MenuItemBlockRecord?: MenuItemBlockRecordGenqlSelection
     on_MenuListBlockRecord?: MenuListBlockRecordGenqlSelection
     on_MenuRecord?: MenuRecordGenqlSelection
+    on_ModularPageLocationRecord?: ModularPageLocationRecordGenqlSelection
     on_ModularPageRecord?: ModularPageRecordGenqlSelection
     on_NoteBlockRecord?: NoteBlockRecordGenqlSelection
     on_PlainTextBlockRecord?: PlainTextBlockRecordGenqlSelection
@@ -6123,6 +6262,22 @@ export interface focalPointGenqlSelection{
     
 
 
+    const ModularPageLocationModelModularContentField_possibleTypes: string[] = ['CardsSectionRecord','ComparisonSectionRecord','FaqSectionRecord','HeroSectionRecord','ReferenceSectionRecord','TestimonialsSectionRecord']
+    export const isModularPageLocationModelModularContentField = (obj?: { __typename?: any } | null): obj is ModularPageLocationModelModularContentField => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isModularPageLocationModelModularContentField"')
+      return ModularPageLocationModelModularContentField_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const ModularPageLocationRecord_possibleTypes: string[] = ['ModularPageLocationRecord']
+    export const isModularPageLocationRecord = (obj?: { __typename?: any } | null): obj is ModularPageLocationRecord => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isModularPageLocationRecord"')
+      return ModularPageLocationRecord_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
     const ModularPageModelModularContentField_possibleTypes: string[] = ['CardsSectionRecord','ComparisonSectionRecord','FaqSectionRecord','HeroSectionRecord','ReferenceSectionRecord','TestimonialsSectionRecord']
     export const isModularPageModelModularContentField = (obj?: { __typename?: any } | null): obj is ModularPageModelModularContentField => {
       if (!obj?.__typename) throw new Error('__typename is missing in "isModularPageModelModularContentField"')
@@ -6187,7 +6342,7 @@ export interface focalPointGenqlSelection{
     
 
 
-    const RecordInterface_possibleTypes: string[] = ['ActionBlockRecord','AuthorRecord','CardBlockNewRecord','CardBlockRecord','CardsSectionRecord','CategoryRecord','CityRecord','ComparisonBlockRecord','ComparisonSectionRecord','CompetitorRecord','CompetitorsComparisonRecord','ConvertboxBlockRecord','CountryRecord','CourseRecord','CoursesBlockRecord','FaqBlockNewRecord','FaqBlockRecord','FaqItemRecord','FaqSectionRecord','HeadingBlockNewRecord','HeadingBlockRecord','HeroImageBlockRecord','HeroSectionRecord','ImageBlockRecord','InstructorRecord','JobRecord','MenuItemBlockRecord','MenuListBlockRecord','MenuRecord','ModularPageRecord','NoteBlockRecord','PlainTextBlockRecord','PostCtaRecord','PostRecord','ReferenceSectionRecord','ResourceRecord','ResourceTopicRecord','RichTextBlockRecord','RoutePathRecord','SeoBlockRecord','TestimonialBlockCtaRecord','TestimonialBlockDefaultRecord','TestimonialBlockRecord','TestimonialRecord','TestimonialsListBlockRecord','TestimonialsSectionRecord','TutorRecord','TutorsBlockRecord']
+    const RecordInterface_possibleTypes: string[] = ['ActionBlockRecord','AuthorRecord','CardBlockNewRecord','CardBlockRecord','CardsSectionRecord','CategoryRecord','CityRecord','ComparisonBlockRecord','ComparisonSectionRecord','CompetitorRecord','CompetitorsComparisonRecord','ConvertboxBlockRecord','CountryRecord','CourseRecord','CoursesBlockRecord','FaqBlockNewRecord','FaqBlockRecord','FaqItemRecord','FaqSectionRecord','HeadingBlockNewRecord','HeadingBlockRecord','HeroImageBlockRecord','HeroSectionRecord','ImageBlockRecord','InstructorRecord','JobRecord','MenuItemBlockRecord','MenuListBlockRecord','MenuRecord','ModularPageLocationRecord','ModularPageRecord','NoteBlockRecord','PlainTextBlockRecord','PostCtaRecord','PostRecord','ReferenceSectionRecord','ResourceRecord','ResourceTopicRecord','RichTextBlockRecord','RoutePathRecord','SeoBlockRecord','TestimonialBlockCtaRecord','TestimonialBlockDefaultRecord','TestimonialBlockRecord','TestimonialRecord','TestimonialsListBlockRecord','TestimonialsSectionRecord','TutorRecord','TutorsBlockRecord']
     export const isRecordInterface = (obj?: { __typename?: any } | null): obj is RecordInterface => {
       if (!obj?.__typename) throw new Error('__typename is missing in "isRecordInterface"')
       return RecordInterface_possibleTypes.includes(obj.__typename)
@@ -6920,6 +7075,35 @@ export const enumMenuModelOrderBy = {
    _isValid_DESC: '_isValid_DESC' as const,
    name_ASC: 'name_ASC' as const,
    name_DESC: 'name_DESC' as const
+}
+
+export const enumModularPageLocationModelFieldsReferencingCityModel = {
+   modularPageLocation_city: 'modularPageLocation_city' as const
+}
+
+export const enumModularPageLocationModelOrderBy = {
+   _createdAt_ASC: '_createdAt_ASC' as const,
+   _createdAt_DESC: '_createdAt_DESC' as const,
+   id_ASC: 'id_ASC' as const,
+   id_DESC: 'id_DESC' as const,
+   _firstPublishedAt_ASC: '_firstPublishedAt_ASC' as const,
+   _firstPublishedAt_DESC: '_firstPublishedAt_DESC' as const,
+   _publicationScheduledAt_ASC: '_publicationScheduledAt_ASC' as const,
+   _publicationScheduledAt_DESC: '_publicationScheduledAt_DESC' as const,
+   _unpublishingScheduledAt_ASC: '_unpublishingScheduledAt_ASC' as const,
+   _unpublishingScheduledAt_DESC: '_unpublishingScheduledAt_DESC' as const,
+   _publishedAt_ASC: '_publishedAt_ASC' as const,
+   _publishedAt_DESC: '_publishedAt_DESC' as const,
+   _status_ASC: '_status_ASC' as const,
+   _status_DESC: '_status_DESC' as const,
+   _updatedAt_ASC: '_updatedAt_ASC' as const,
+   _updatedAt_DESC: '_updatedAt_DESC' as const,
+   _isValid_ASC: '_isValid_ASC' as const,
+   _isValid_DESC: '_isValid_DESC' as const,
+   pageType_ASC: 'pageType_ASC' as const,
+   pageType_DESC: 'pageType_DESC' as const,
+   title_ASC: 'title_ASC' as const,
+   title_DESC: 'title_DESC' as const
 }
 
 export const enumModularPageModelOrderBy = {
