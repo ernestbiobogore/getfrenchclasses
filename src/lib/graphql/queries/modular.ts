@@ -94,6 +94,27 @@ const getSingleModularPage = async (slug: string) => {
 				on_ReferenceSectionRecord: {
 					section: true,
 				},
+
+				on_ComparisonSectionRecord: {
+					comparison: {
+						title: true,
+						slug: true,
+						heading: headingFieldSelection,
+						comparisons: {
+							feature: true,
+							hasFeature: true,
+							companies: {
+								id: true,
+								name: true,
+								paid: true,
+								logo: {
+									url: true,
+									alt: true,
+								},
+							},
+						},
+					},
+				},
 			},
 
 			// SEO

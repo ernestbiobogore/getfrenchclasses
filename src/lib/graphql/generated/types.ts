@@ -7,22 +7,16 @@ export default {
         14,
         16,
         19,
-        23,
-        26,
-        30,
+        24,
+        27,
         31,
-        35,
+        34,
         38,
-        42,
-        44,
-        54,
-        55,
-        56,
-        57,
-        58,
-        59,
-        60,
-        61,
+        39,
+        43,
+        46,
+        50,
+        52,
         62,
         63,
         64,
@@ -38,283 +32,291 @@ export default {
         74,
         75,
         76,
+        77,
+        78,
+        79,
         80,
+        81,
         82,
         83,
-        89,
+        84,
+        88,
+        90,
         91,
-        93,
-        95,
-        98,
-        104,
+        97,
+        99,
+        101,
+        103,
         106,
-        109,
-        111,
+        112,
+        114,
         117,
-        120,
-        127,
-        130,
-        134,
-        141,
-        146,
+        119,
+        125,
+        128,
+        135,
+        138,
+        142,
         149,
-        160,
-        166,
+        154,
+        157,
         168,
-        184,
-        189,
-        190,
-        194,
-        199
+        174,
+        176,
+        192,
+        197,
+        198,
+        202,
+        207
     ],
     "types": {
         "ActionBlockRecord": {
             "_createdAt": [
-                31
+                39
             ],
             "_editingUrl": [
-                149
+                157
             ],
             "_firstPublishedAt": [
-                31
+                39
             ],
             "_isValid": [
                 7
             ],
             "_modelApiKey": [
-                149
+                157
             ],
             "_publicationScheduledAt": [
-                31
+                39
             ],
             "_publishedAt": [
-                31
+                39
             ],
             "_seoMetaTags": [
-                153,
+                161,
                 {
                     "locale": [
-                        146
+                        154
                     ]
                 }
             ],
             "_status": [
-                91
+                99
             ],
             "_unpublishingScheduledAt": [
-                31
+                39
             ],
             "_updatedAt": [
-                31
+                39
             ],
             "id": [
-                89
+                97
             ],
             "link": [
-                149
+                157
             ],
             "text": [
-                149
+                157
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "AltFileField": {
             "_createdAt": [
-                31
+                39
             ],
             "_editingUrl": [
-                149
+                157
             ],
             "_updatedAt": [
-                31
+                39
             ],
             "alt": [
-                149,
+                157,
                 {
                     "locale": [
-                        146
+                        154
                     ],
                     "fallbackLocales": [
-                        146,
+                        154,
                         "[SiteLocale!]"
                     ]
                 }
             ],
             "author": [
-                149
+                157
             ],
             "basename": [
-                149
+                157
             ],
             "blurUpThumb": [
-                149,
+                157,
                 {
                     "punch": [
-                        42,
+                        50,
                         "Float!"
                     ],
                     "size": [
-                        82,
+                        90,
                         "Int!"
                     ],
                     "quality": [
-                        82,
+                        90,
                         "Int!"
                     ],
                     "imgixParams": [
-                        53
+                        61
                     ]
                 }
             ],
             "blurhash": [
-                149
+                157
             ],
             "colors": [
                 20
             ],
             "copyright": [
-                149
+                157
             ],
             "customData": [
-                30,
+                38,
                 {
                     "locale": [
-                        146
+                        154
                     ],
                     "fallbackLocales": [
-                        146,
+                        154,
                         "[SiteLocale!]"
                     ]
                 }
             ],
             "exifInfo": [
-                30
+                38
             ],
             "filename": [
-                149
+                157
             ],
             "focalPoint": [
-                200,
+                208,
                 {
                     "locale": [
-                        146
+                        154
                     ],
                     "fallbackLocales": [
-                        146,
+                        154,
                         "[SiteLocale!]"
                     ]
                 }
             ],
             "format": [
-                149
+                157
             ],
             "height": [
-                83
+                91
             ],
             "id": [
-                184
+                192
             ],
             "md5": [
-                149
+                157
             ],
             "mimeType": [
-                149
+                157
             ],
             "notes": [
-                149
+                157
             ],
             "responsiveImage": [
-                136,
+                144,
                 {
                     "imgixParams": [
-                        53
+                        61
                     ],
                     "sizes": [
-                        149
+                        157
                     ],
                     "locale": [
-                        146
+                        154
                     ],
                     "fallbackLocales": [
-                        146,
+                        154,
                         "[SiteLocale!]"
                     ]
                 }
             ],
             "size": [
-                83
+                91
             ],
             "smartTags": [
-                149
+                157
             ],
             "tags": [
-                149
+                157
             ],
             "thumbhash": [
-                149
+                157
             ],
             "title": [
-                149,
+                157,
                 {
                     "locale": [
-                        146
+                        154
                     ],
                     "fallbackLocales": [
-                        146,
+                        154,
                         "[SiteLocale!]"
                     ]
                 }
             ],
             "url": [
-                149,
+                157,
                 {
                     "imgixParams": [
-                        53
+                        61
                     ]
                 }
             ],
             "video": [
-                196
+                204
             ],
             "width": [
-                83
+                91
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "AuthorModelFilter": {
             "_createdAt": [
-                29
+                37
             ],
             "id": [
-                90
+                98
             ],
             "_firstPublishedAt": [
-                122
+                130
             ],
             "_publicationScheduledAt": [
-                122
+                130
             ],
             "_unpublishingScheduledAt": [
-                122
+                130
             ],
             "_publishedAt": [
-                122
+                130
             ],
             "_status": [
-                148
+                156
             ],
             "_updatedAt": [
-                173
+                181
             ],
             "_isValid": [
                 6
             ],
             "name": [
-                150
+                158
             ],
             "OR": [
                 2
@@ -323,57 +325,57 @@ export default {
                 2
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "AuthorModelOrderBy": {},
         "AuthorRecord": {
             "_createdAt": [
-                31
+                39
             ],
             "_editingUrl": [
-                149
+                157
             ],
             "_firstPublishedAt": [
-                31
+                39
             ],
             "_isValid": [
                 7
             ],
             "_modelApiKey": [
-                149
+                157
             ],
             "_publicationScheduledAt": [
-                31
+                39
             ],
             "_publishedAt": [
-                31
+                39
             ],
             "_seoMetaTags": [
-                153,
+                161,
                 {
                     "locale": [
-                        146
+                        154
                     ]
                 }
             ],
             "_status": [
-                91
+                99
             ],
             "_unpublishingScheduledAt": [
-                31
+                39
             ],
             "_updatedAt": [
-                31
+                39
             ],
             "id": [
-                89
+                97
             ],
             "name": [
-                149
+                157
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "Boolean": {},
@@ -382,211 +384,211 @@ export default {
                 7
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "BooleanType": {},
         "CardBlockNewRecord": {
             "_createdAt": [
-                31
+                39
             ],
             "_editingUrl": [
-                149
+                157
             ],
             "_firstPublishedAt": [
-                31
+                39
             ],
             "_isValid": [
                 7
             ],
             "_modelApiKey": [
-                149
+                157
             ],
             "_publicationScheduledAt": [
-                31
+                39
             ],
             "_publishedAt": [
-                31
+                39
             ],
             "_seoMetaTags": [
-                153,
+                161,
                 {
                     "locale": [
-                        146
+                        154
                     ]
                 }
             ],
             "_status": [
-                91
+                99
             ],
             "_unpublishingScheduledAt": [
-                31
+                39
             ],
             "_updatedAt": [
-                31
+                39
             ],
             "cta": [
                 0
             ],
             "heading": [
-                48
+                56
             ],
             "id": [
-                89
+                97
             ],
             "media": [
-                39
+                47
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "CardBlockRecord": {
             "_createdAt": [
-                31
+                39
             ],
             "_editingUrl": [
-                149
+                157
             ],
             "_firstPublishedAt": [
-                31
+                39
             ],
             "_isValid": [
                 7
             ],
             "_modelApiKey": [
-                149
+                157
             ],
             "_publicationScheduledAt": [
-                31
+                39
             ],
             "_publishedAt": [
-                31
+                39
             ],
             "_seoMetaTags": [
-                153,
+                161,
                 {
                     "locale": [
-                        146
+                        154
                     ]
                 }
             ],
             "_status": [
-                91
+                99
             ],
             "_unpublishingScheduledAt": [
-                31
+                39
             ],
             "_updatedAt": [
-                31
+                39
             ],
             "content": [
-                139
+                147
             ],
             "cta": [
                 0
             ],
             "id": [
-                89
+                97
             ],
             "media": [
                 1
             ],
             "title": [
-                149
+                157
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "CardsSectionRecord": {
             "_createdAt": [
-                31
+                39
             ],
             "_editingUrl": [
-                149
+                157
             ],
             "_firstPublishedAt": [
-                31
+                39
             ],
             "_isValid": [
                 7
             ],
             "_modelApiKey": [
-                149
+                157
             ],
             "_publicationScheduledAt": [
-                31
+                39
             ],
             "_publishedAt": [
-                31
+                39
             ],
             "_seoMetaTags": [
-                153,
+                161,
                 {
                     "locale": [
-                        146
+                        154
                     ]
                 }
             ],
             "_status": [
-                91
+                99
             ],
             "_unpublishingScheduledAt": [
-                31
+                39
             ],
             "_updatedAt": [
-                31
+                39
             ],
             "cards": [
                 8
             ],
             "heading": [
-                48
+                56
             ],
             "id": [
-                89
+                97
             ],
             "sectionType": [
-                149
+                157
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "CategoryModelFilter": {
             "_createdAt": [
-                29
+                37
             ],
             "id": [
-                90
+                98
             ],
             "_firstPublishedAt": [
-                122
+                130
             ],
             "_publicationScheduledAt": [
-                122
+                130
             ],
             "_unpublishingScheduledAt": [
-                122
+                130
             ],
             "_publishedAt": [
-                122
+                130
             ],
             "_status": [
-                148
+                156
             ],
             "_updatedAt": [
-                173
+                181
             ],
             "_isValid": [
                 6
             ],
             "name": [
-                150
+                158
             ],
             "slug": [
-                147
+                155
             ],
             "OR": [
                 11
@@ -595,99 +597,99 @@ export default {
                 11
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "CategoryModelOrderBy": {},
         "CategoryRecord": {
             "_createdAt": [
-                31
+                39
             ],
             "_editingUrl": [
-                149
+                157
             ],
             "_firstPublishedAt": [
-                31
+                39
             ],
             "_isValid": [
                 7
             ],
             "_modelApiKey": [
-                149
+                157
             ],
             "_publicationScheduledAt": [
-                31
+                39
             ],
             "_publishedAt": [
-                31
+                39
             ],
             "_seoMetaTags": [
-                153,
+                161,
                 {
                     "locale": [
-                        146
+                        154
                     ]
                 }
             ],
             "_status": [
-                91
+                99
             ],
             "_unpublishingScheduledAt": [
-                31
+                39
             ],
             "_updatedAt": [
-                31
+                39
             ],
             "id": [
-                89
+                97
             ],
             "name": [
-                149
+                157
             ],
             "slug": [
-                149
+                157
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "CityModelFieldsReferencingCountryModel": {},
         "CityModelFilter": {
             "_createdAt": [
-                29
+                37
             ],
             "id": [
-                90
+                98
             ],
             "_firstPublishedAt": [
-                122
+                130
             ],
             "_publicationScheduledAt": [
-                122
+                130
             ],
             "_unpublishingScheduledAt": [
-                122
+                130
             ],
             "_publishedAt": [
-                122
+                130
             ],
             "_status": [
-                148
+                156
             ],
             "_updatedAt": [
-                173
+                181
             ],
             "_isValid": [
                 6
             ],
             "country": [
-                97
+                105
             ],
             "name": [
-                150
+                158
             ],
             "slug": [
-                147
+                155
             ],
             "OR": [
                 15
@@ -696,35 +698,35 @@ export default {
                 15
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "CityModelOrderBy": {},
         "CityRecord": {
             "_allReferencingTutors": [
-                170,
+                178,
                 {
                     "through": [
-                        88
+                        96
                     ],
                     "locale": [
-                        146
+                        154
                     ],
                     "fallbackLocales": [
-                        146,
+                        154,
                         "[SiteLocale!]"
                     ],
                     "skip": [
-                        83
+                        91
                     ],
                     "first": [
-                        83
+                        91
                     ],
                     "filter": [
-                        167
+                        175
                     ],
                     "orderBy": [
-                        168,
+                        176,
                         "[TutorModelOrderBy]"
                     ]
                 }
@@ -733,196 +735,506 @@ export default {
                 18,
                 {
                     "through": [
-                        88
+                        96
                     ],
                     "locale": [
-                        146
+                        154
                     ],
                     "filter": [
-                        167
+                        175
                     ]
                 }
             ],
             "_createdAt": [
-                31
+                39
             ],
             "_editingUrl": [
-                149
+                157
             ],
             "_firstPublishedAt": [
-                31
+                39
             ],
             "_isValid": [
                 7
             ],
             "_modelApiKey": [
-                149
+                157
             ],
             "_publicationScheduledAt": [
-                31
+                39
             ],
             "_publishedAt": [
-                31
+                39
             ],
             "_seoMetaTags": [
-                153,
+                161,
                 {
                     "locale": [
-                        146
+                        154
                     ]
                 }
             ],
             "_status": [
-                91
+                99
             ],
             "_unpublishingScheduledAt": [
-                31
+                39
             ],
             "_updatedAt": [
-                31
+                39
             ],
             "country": [
-                24
+                32
             ],
             "id": [
-                89
+                97
             ],
             "name": [
-                149
+                157
             ],
             "slug": [
-                149
+                157
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "CollectionMetadata": {
             "count": [
-                83
+                91
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "ColorBucketType": {},
         "ColorField": {
             "alpha": [
-                83
+                91
             ],
             "blue": [
-                83
+                91
             ],
             "cssRgb": [
-                149
+                157
             ],
             "green": [
-                83
+                91
             ],
             "hex": [
-                149
+                157
             ],
             "red": [
-                83
+                91
             ],
             "__typename": [
-                149
+                157
             ]
         },
-        "ConvertboxBlockRecord": {
+        "ComparisonBlockRecord": {
             "_createdAt": [
-                31
+                39
             ],
             "_editingUrl": [
-                149
+                157
             ],
             "_firstPublishedAt": [
-                31
+                39
             ],
             "_isValid": [
                 7
             ],
             "_modelApiKey": [
-                149
+                157
             ],
             "_publicationScheduledAt": [
-                31
+                39
             ],
             "_publishedAt": [
-                31
+                39
             ],
             "_seoMetaTags": [
-                153,
+                161,
                 {
                     "locale": [
-                        146
+                        154
                     ]
                 }
             ],
             "_status": [
-                91
+                99
             ],
             "_unpublishingScheduledAt": [
-                31
+                39
             ],
             "_updatedAt": [
-                31
+                39
             ],
-            "convertboxId": [
-                149
+            "companies": [
+                25
+            ],
+            "feature": [
+                157
+            ],
+            "hasFeature": [
+                7
             ],
             "id": [
-                89
-            ],
-            "title": [
-                149
+                97
             ],
             "__typename": [
-                149
+                157
+            ]
+        },
+        "ComparisonSectionRecord": {
+            "_createdAt": [
+                39
+            ],
+            "_editingUrl": [
+                157
+            ],
+            "_firstPublishedAt": [
+                39
+            ],
+            "_isValid": [
+                7
+            ],
+            "_modelApiKey": [
+                157
+            ],
+            "_publicationScheduledAt": [
+                39
+            ],
+            "_publishedAt": [
+                39
+            ],
+            "_seoMetaTags": [
+                161,
+                {
+                    "locale": [
+                        154
+                    ]
+                }
+            ],
+            "_status": [
+                99
+            ],
+            "_unpublishingScheduledAt": [
+                39
+            ],
+            "_updatedAt": [
+                39
+            ],
+            "comparison": [
+                28
+            ],
+            "id": [
+                97
+            ],
+            "__typename": [
+                157
+            ]
+        },
+        "CompetitorModelFilter": {
+            "_createdAt": [
+                37
+            ],
+            "id": [
+                98
+            ],
+            "_firstPublishedAt": [
+                130
+            ],
+            "_publicationScheduledAt": [
+                130
+            ],
+            "_unpublishingScheduledAt": [
+                130
+            ],
+            "_publishedAt": [
+                130
+            ],
+            "_status": [
+                156
+            ],
+            "_updatedAt": [
+                181
+            ],
+            "_isValid": [
+                6
+            ],
+            "logo": [
+                49
+            ],
+            "name": [
+                158
+            ],
+            "paid": [
+                6
+            ],
+            "OR": [
+                23
+            ],
+            "AND": [
+                23
+            ],
+            "__typename": [
+                157
+            ]
+        },
+        "CompetitorModelOrderBy": {},
+        "CompetitorRecord": {
+            "_createdAt": [
+                39
+            ],
+            "_editingUrl": [
+                157
+            ],
+            "_firstPublishedAt": [
+                39
+            ],
+            "_isValid": [
+                7
+            ],
+            "_modelApiKey": [
+                157
+            ],
+            "_publicationScheduledAt": [
+                39
+            ],
+            "_publishedAt": [
+                39
+            ],
+            "_seoMetaTags": [
+                161,
+                {
+                    "locale": [
+                        154
+                    ]
+                }
+            ],
+            "_status": [
+                99
+            ],
+            "_unpublishingScheduledAt": [
+                39
+            ],
+            "_updatedAt": [
+                39
+            ],
+            "id": [
+                97
+            ],
+            "logo": [
+                1
+            ],
+            "name": [
+                157
+            ],
+            "paid": [
+                7
+            ],
+            "__typename": [
+                157
+            ]
+        },
+        "CompetitorsComparisonModelFilter": {
+            "_createdAt": [
+                37
+            ],
+            "id": [
+                98
+            ],
+            "_firstPublishedAt": [
+                130
+            ],
+            "_publicationScheduledAt": [
+                130
+            ],
+            "_unpublishingScheduledAt": [
+                130
+            ],
+            "_publishedAt": [
+                130
+            ],
+            "_status": [
+                156
+            ],
+            "_updatedAt": [
+                181
+            ],
+            "_isValid": [
+                6
+            ],
+            "slug": [
+                155
+            ],
+            "title": [
+                158
+            ],
+            "OR": [
+                26
+            ],
+            "AND": [
+                26
+            ],
+            "__typename": [
+                157
+            ]
+        },
+        "CompetitorsComparisonModelOrderBy": {},
+        "CompetitorsComparisonRecord": {
+            "_createdAt": [
+                39
+            ],
+            "_editingUrl": [
+                157
+            ],
+            "_firstPublishedAt": [
+                39
+            ],
+            "_isValid": [
+                7
+            ],
+            "_modelApiKey": [
+                157
+            ],
+            "_publicationScheduledAt": [
+                39
+            ],
+            "_publishedAt": [
+                39
+            ],
+            "_seoMetaTags": [
+                161,
+                {
+                    "locale": [
+                        154
+                    ]
+                }
+            ],
+            "_status": [
+                99
+            ],
+            "_unpublishingScheduledAt": [
+                39
+            ],
+            "_updatedAt": [
+                39
+            ],
+            "comparisons": [
+                21
+            ],
+            "heading": [
+                56
+            ],
+            "id": [
+                97
+            ],
+            "slug": [
+                157
+            ],
+            "title": [
+                157
+            ],
+            "__typename": [
+                157
+            ]
+        },
+        "ConvertboxBlockRecord": {
+            "_createdAt": [
+                39
+            ],
+            "_editingUrl": [
+                157
+            ],
+            "_firstPublishedAt": [
+                39
+            ],
+            "_isValid": [
+                7
+            ],
+            "_modelApiKey": [
+                157
+            ],
+            "_publicationScheduledAt": [
+                39
+            ],
+            "_publishedAt": [
+                39
+            ],
+            "_seoMetaTags": [
+                161,
+                {
+                    "locale": [
+                        154
+                    ]
+                }
+            ],
+            "_status": [
+                99
+            ],
+            "_unpublishingScheduledAt": [
+                39
+            ],
+            "_updatedAt": [
+                39
+            ],
+            "convertboxId": [
+                157
+            ],
+            "id": [
+                97
+            ],
+            "title": [
+                157
+            ],
+            "__typename": [
+                157
             ]
         },
         "CountryModelFilter": {
             "_createdAt": [
-                29
+                37
             ],
             "id": [
-                90
+                98
             ],
             "_firstPublishedAt": [
-                122
+                130
             ],
             "_publicationScheduledAt": [
-                122
+                130
             ],
             "_unpublishingScheduledAt": [
-                122
+                130
             ],
             "_publishedAt": [
-                122
+                130
             ],
             "_status": [
-                148
+                156
             ],
             "_updatedAt": [
-                173
+                181
             ],
             "_isValid": [
                 6
             ],
             "name": [
-                150
+                158
             ],
             "slug": [
-                147
+                155
             ],
             "OR": [
-                22
+                30
             ],
             "AND": [
-                22
+                30
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "CountryModelOrderBy": {},
@@ -931,20 +1243,20 @@ export default {
                 17,
                 {
                     "through": [
-                        87
+                        95
                     ],
                     "locale": [
-                        146
+                        154
                     ],
                     "fallbackLocales": [
-                        146,
+                        154,
                         "[SiteLocale!]"
                     ],
                     "skip": [
-                        83
+                        91
                     ],
                     "first": [
-                        83
+                        91
                     ],
                     "filter": [
                         15
@@ -959,10 +1271,10 @@ export default {
                 18,
                 {
                     "through": [
-                        87
+                        95
                     ],
                     "locale": [
-                        146
+                        154
                     ],
                     "filter": [
                         15
@@ -970,1081 +1282,1081 @@ export default {
                 }
             ],
             "_createdAt": [
-                31
+                39
             ],
             "_editingUrl": [
-                149
+                157
             ],
             "_firstPublishedAt": [
-                31
+                39
             ],
             "_isValid": [
                 7
             ],
             "_modelApiKey": [
-                149
+                157
             ],
             "_publicationScheduledAt": [
-                31
+                39
             ],
             "_publishedAt": [
-                31
+                39
             ],
             "_seoMetaTags": [
-                153,
+                161,
                 {
                     "locale": [
-                        146
+                        154
                     ]
                 }
             ],
             "_status": [
-                91
+                99
             ],
             "_unpublishingScheduledAt": [
-                31
+                39
             ],
             "_updatedAt": [
-                31
+                39
             ],
             "id": [
-                89
+                97
             ],
             "name": [
-                149
+                157
             ],
             "slug": [
-                149
+                157
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "CourseModelFilter": {
             "_createdAt": [
-                29
+                37
             ],
             "id": [
-                90
+                98
             ],
             "_firstPublishedAt": [
-                122
+                130
             ],
             "_publicationScheduledAt": [
-                122
+                130
             ],
             "_unpublishingScheduledAt": [
-                122
+                130
             ],
             "_publishedAt": [
-                122
+                130
             ],
             "_status": [
-                148
+                156
             ],
             "_updatedAt": [
-                173
+                181
             ],
             "_isValid": [
                 6
             ],
             "duration": [
-                84
+                92
             ],
             "faq": [
-                97
+                105
             ],
             "level": [
-                150
+                158
             ],
             "name": [
-                150
+                158
             ],
             "numberOfEnrolledStudents": [
-                84
+                92
             ],
             "numberOfSections": [
-                84
+                92
             ],
             "price": [
-                84
+                92
             ],
             "slug": [
-                147
+                155
             ],
             "tag": [
-                150
+                158
             ],
             "testimonials": [
-                100
+                108
             ],
             "OR": [
-                25
+                33
             ],
             "AND": [
-                25
+                33
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "CourseModelOrderBy": {},
         "CourseRecord": {
             "_createdAt": [
-                31
+                39
             ],
             "_editingUrl": [
-                149
+                157
             ],
             "_firstPublishedAt": [
-                31
+                39
             ],
             "_isValid": [
                 7
             ],
             "_modelApiKey": [
-                149
+                157
             ],
             "_publicationScheduledAt": [
-                31
+                39
             ],
             "_publishedAt": [
-                31
+                39
             ],
             "_seoMetaTags": [
-                153,
+                161,
                 {
                     "locale": [
-                        146
+                        154
                     ]
                 }
             ],
             "_status": [
-                91
+                99
             ],
             "_unpublishingScheduledAt": [
-                31
+                39
             ],
             "_updatedAt": [
-                31
+                39
             ],
             "duration": [
-                83
+                91
             ],
             "faq": [
-                36
+                44
             ],
             "featuresCards": [
                 9
             ],
             "id": [
-                89
+                97
             ],
             "level": [
-                149
+                157
             ],
             "name": [
-                149
+                157
             ],
             "numberOfEnrolledStudents": [
-                83
+                91
             ],
             "numberOfSections": [
-                83
+                91
             ],
             "price": [
-                83
+                91
             ],
             "seo": [
-                143
+                151
             ],
             "slug": [
-                149
+                157
             ],
             "tag": [
-                149
+                157
             ],
             "testimonials": [
-                162
+                170
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "CoursesBlockRecord": {
             "_createdAt": [
-                31
+                39
             ],
             "_editingUrl": [
-                149
+                157
             ],
             "_firstPublishedAt": [
-                31
+                39
             ],
             "_isValid": [
                 7
             ],
             "_modelApiKey": [
-                149
+                157
             ],
             "_publicationScheduledAt": [
-                31
+                39
             ],
             "_publishedAt": [
-                31
+                39
             ],
             "_seoMetaTags": [
-                153,
+                161,
                 {
                     "locale": [
-                        146
+                        154
                     ]
                 }
             ],
             "_status": [
-                91
+                99
             ],
             "_unpublishingScheduledAt": [
-                31
+                39
             ],
             "_updatedAt": [
-                31
+                39
             ],
             "courses": [
-                27
+                35
             ],
             "id": [
-                89
+                97
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "CreatedAtFilter": {
             "gt": [
-                31
+                39
             ],
             "lt": [
-                31
+                39
             ],
             "gte": [
-                31
+                39
             ],
             "lte": [
-                31
+                39
             ],
             "eq": [
-                31
+                39
             ],
             "neq": [
-                31
+                39
             ],
             "exists": [
                 7
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "CustomData": {},
         "DateTime": {},
         "FaqBlockNewRecord": {
             "_createdAt": [
-                31
+                39
             ],
             "_editingUrl": [
-                149
+                157
             ],
             "_firstPublishedAt": [
-                31
+                39
             ],
             "_isValid": [
                 7
             ],
             "_modelApiKey": [
-                149
+                157
             ],
             "_publicationScheduledAt": [
-                31
+                39
             ],
             "_publishedAt": [
-                31
+                39
             ],
             "_seoMetaTags": [
-                153,
+                161,
                 {
                     "locale": [
-                        146
+                        154
                     ]
                 }
             ],
             "_status": [
-                91
+                99
             ],
             "_unpublishingScheduledAt": [
-                31
+                39
             ],
             "_updatedAt": [
-                31
+                39
             ],
             "faq": [
-                48
+                56
             ],
             "id": [
-                89
+                97
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "FaqBlockRecord": {
             "_createdAt": [
-                31
+                39
             ],
             "_editingUrl": [
-                149
+                157
             ],
             "_firstPublishedAt": [
-                31
+                39
             ],
             "_isValid": [
                 7
             ],
             "_modelApiKey": [
-                149
+                157
             ],
             "_publicationScheduledAt": [
-                31
+                39
             ],
             "_publishedAt": [
-                31
+                39
             ],
             "_seoMetaTags": [
-                153,
+                161,
                 {
                     "locale": [
-                        146
+                        154
                     ]
                 }
             ],
             "_status": [
-                91
+                99
             ],
             "_unpublishingScheduledAt": [
-                31
+                39
             ],
             "_updatedAt": [
-                31
+                39
             ],
             "answer": [
-                139
+                147
             ],
             "id": [
-                89
+                97
             ],
             "question": [
-                149
+                157
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "FaqItemModelFilter": {
             "_createdAt": [
-                29
+                37
             ],
             "id": [
-                90
+                98
             ],
             "_firstPublishedAt": [
-                122
+                130
             ],
             "_publicationScheduledAt": [
-                122
+                130
             ],
             "_unpublishingScheduledAt": [
-                122
+                130
             ],
             "_publishedAt": [
-                122
+                130
             ],
             "_status": [
-                148
+                156
             ],
             "_updatedAt": [
-                173
+                181
             ],
             "_isValid": [
                 6
             ],
             "slug": [
-                147
+                155
             ],
             "title": [
-                150
+                158
             ],
             "OR": [
-                34
+                42
             ],
             "AND": [
-                34
+                42
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "FaqItemModelOrderBy": {},
         "FaqItemRecord": {
             "_createdAt": [
-                31
+                39
             ],
             "_editingUrl": [
-                149
+                157
             ],
             "_firstPublishedAt": [
-                31
+                39
             ],
             "_isValid": [
                 7
             ],
             "_modelApiKey": [
-                149
+                157
             ],
             "_publicationScheduledAt": [
-                31
+                39
             ],
             "_publishedAt": [
-                31
+                39
             ],
             "_seoMetaTags": [
-                153,
+                161,
                 {
                     "locale": [
-                        146
+                        154
                     ]
                 }
             ],
             "_status": [
-                91
+                99
             ],
             "_unpublishingScheduledAt": [
-                31
+                39
             ],
             "_updatedAt": [
-                31
+                39
             ],
             "faqBlocks": [
-                32
+                40
             ],
             "id": [
-                89
+                97
             ],
             "slug": [
-                149
+                157
             ],
             "title": [
-                149
+                157
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "FaqSectionRecord": {
             "_createdAt": [
-                31
+                39
             ],
             "_editingUrl": [
-                149
+                157
             ],
             "_firstPublishedAt": [
-                31
+                39
             ],
             "_isValid": [
                 7
             ],
             "_modelApiKey": [
-                149
+                157
             ],
             "_publicationScheduledAt": [
-                31
+                39
             ],
             "_publishedAt": [
-                31
+                39
             ],
             "_seoMetaTags": [
-                153,
+                161,
                 {
                     "locale": [
-                        146
+                        154
                     ]
                 }
             ],
             "_status": [
-                91
+                99
             ],
             "_unpublishingScheduledAt": [
-                31
+                39
             ],
             "_updatedAt": [
-                31
+                39
             ],
             "faq": [
-                36
+                44
             ],
             "heading": [
-                48
+                56
             ],
             "id": [
-                89
+                97
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "FaviconType": {},
         "FileField": {
             "_createdAt": [
-                31
+                39
             ],
             "_editingUrl": [
-                149
+                157
             ],
             "_updatedAt": [
-                31
+                39
             ],
             "alt": [
-                149,
+                157,
                 {
                     "locale": [
-                        146
+                        154
                     ],
                     "fallbackLocales": [
-                        146,
+                        154,
                         "[SiteLocale!]"
                     ]
                 }
             ],
             "author": [
-                149
+                157
             ],
             "basename": [
-                149
+                157
             ],
             "blurUpThumb": [
-                149,
+                157,
                 {
                     "punch": [
-                        42,
+                        50,
                         "Float!"
                     ],
                     "size": [
-                        82,
+                        90,
                         "Int!"
                     ],
                     "quality": [
-                        82,
+                        90,
                         "Int!"
                     ],
                     "imgixParams": [
-                        53
+                        61
                     ]
                 }
             ],
             "blurhash": [
-                149
+                157
             ],
             "colors": [
                 20
             ],
             "copyright": [
-                149
+                157
             ],
             "customData": [
-                30,
+                38,
                 {
                     "locale": [
-                        146
+                        154
                     ],
                     "fallbackLocales": [
-                        146,
+                        154,
                         "[SiteLocale!]"
                     ]
                 }
             ],
             "exifInfo": [
-                30
+                38
             ],
             "filename": [
-                149
+                157
             ],
             "focalPoint": [
-                200,
+                208,
                 {
                     "locale": [
-                        146
+                        154
                     ],
                     "fallbackLocales": [
-                        146,
+                        154,
                         "[SiteLocale!]"
                     ]
                 }
             ],
             "format": [
-                149
+                157
             ],
             "height": [
-                83
+                91
             ],
             "id": [
-                184
+                192
             ],
             "md5": [
-                149
+                157
             ],
             "mimeType": [
-                149
+                157
             ],
             "notes": [
-                149
+                157
             ],
             "responsiveImage": [
-                136,
+                144,
                 {
                     "imgixParams": [
-                        53
+                        61
                     ],
                     "sizes": [
-                        149
+                        157
                     ],
                     "locale": [
-                        146
+                        154
                     ],
                     "fallbackLocales": [
-                        146,
+                        154,
                         "[SiteLocale!]"
                     ]
                 }
             ],
             "size": [
-                83
+                91
             ],
             "smartTags": [
-                149
+                157
             ],
             "tags": [
-                149
+                157
             ],
             "thumbhash": [
-                149
+                157
             ],
             "title": [
-                149,
+                157,
                 {
                     "locale": [
-                        146
+                        154
                     ],
                     "fallbackLocales": [
-                        146,
+                        154,
                         "[SiteLocale!]"
                     ]
                 }
             ],
             "url": [
-                149,
+                157,
                 {
                     "imgixParams": [
-                        53
+                        61
                     ]
                 }
             ],
             "video": [
-                196
+                204
             ],
             "width": [
-                83
+                91
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "FileFieldInterface": {
             "_createdAt": [
-                31
+                39
             ],
             "_editingUrl": [
-                149
+                157
             ],
             "_updatedAt": [
-                31
+                39
             ],
             "alt": [
-                149,
+                157,
                 {
                     "locale": [
-                        146
+                        154
                     ],
                     "fallbackLocales": [
-                        146,
+                        154,
                         "[SiteLocale!]"
                     ]
                 }
             ],
             "author": [
-                149
+                157
             ],
             "basename": [
-                149
+                157
             ],
             "blurUpThumb": [
-                149,
+                157,
                 {
                     "punch": [
-                        42,
+                        50,
                         "Float!"
                     ],
                     "size": [
-                        82,
+                        90,
                         "Int!"
                     ],
                     "quality": [
-                        82,
+                        90,
                         "Int!"
                     ],
                     "imgixParams": [
-                        53
+                        61
                     ]
                 }
             ],
             "blurhash": [
-                149
+                157
             ],
             "colors": [
                 20
             ],
             "copyright": [
-                149
+                157
             ],
             "customData": [
-                30,
+                38,
                 {
                     "locale": [
-                        146
+                        154
                     ],
                     "fallbackLocales": [
-                        146,
+                        154,
                         "[SiteLocale!]"
                     ]
                 }
             ],
             "exifInfo": [
-                30
+                38
             ],
             "filename": [
-                149
+                157
             ],
             "focalPoint": [
-                200,
+                208,
                 {
                     "locale": [
-                        146
+                        154
                     ],
                     "fallbackLocales": [
-                        146,
+                        154,
                         "[SiteLocale!]"
                     ]
                 }
             ],
             "format": [
-                149
+                157
             ],
             "height": [
-                83
+                91
             ],
             "id": [
-                184
+                192
             ],
             "md5": [
-                149
+                157
             ],
             "mimeType": [
-                149
+                157
             ],
             "notes": [
-                149
+                157
             ],
             "responsiveImage": [
-                136,
+                144,
                 {
                     "imgixParams": [
-                        53
+                        61
                     ],
                     "sizes": [
-                        149
+                        157
                     ],
                     "locale": [
-                        146
+                        154
                     ],
                     "fallbackLocales": [
-                        146,
+                        154,
                         "[SiteLocale!]"
                     ]
                 }
             ],
             "size": [
-                83
+                91
             ],
             "smartTags": [
-                149
+                157
             ],
             "tags": [
-                149
+                157
             ],
             "thumbhash": [
-                149
+                157
             ],
             "title": [
-                149,
+                157,
                 {
                     "locale": [
-                        146
+                        154
                     ],
                     "fallbackLocales": [
-                        146,
+                        154,
                         "[SiteLocale!]"
                     ]
                 }
             ],
             "url": [
-                149,
+                157,
                 {
                     "imgixParams": [
-                        53
+                        61
                     ]
                 }
             ],
             "video": [
-                196
+                204
             ],
             "width": [
-                83
+                91
             ],
             "on_AltFileField": [
                 1
             ],
             "on_FileField": [
-                39
+                47
             ],
             "on_VideoFileField": [
-                198
+                206
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "FileFilter": {
             "eq": [
-                184
+                192
             ],
             "neq": [
-                184
+                192
             ],
             "in": [
-                184
+                192
             ],
             "notIn": [
-                184
+                192
             ],
             "exists": [
                 7
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "Float": {},
         "FloatFilter": {
             "gt": [
-                44
+                52
             ],
             "lt": [
-                44
+                52
             ],
             "gte": [
-                44
+                52
             ],
             "lte": [
-                44
+                52
             ],
             "exists": [
                 7
             ],
             "eq": [
-                44
+                52
             ],
             "neq": [
-                44
+                52
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "FloatType": {},
         "GalleryFilter": {
             "eq": [
-                184
+                192
             ],
             "allIn": [
-                184
+                192
             ],
             "anyIn": [
-                184
+                192
             ],
             "notIn": [
-                184
+                192
             ],
             "exists": [
                 7
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "GlobalSeoField": {
             "facebookPageUrl": [
-                149
+                157
             ],
             "fallbackSeo": [
-                144
+                152
             ],
             "siteName": [
-                149
+                157
             ],
             "titleSuffix": [
-                149
+                157
             ],
             "twitterAccount": [
-                149
+                157
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "HeadingBlockNewModelSubheadingField": {
             "blocks": [
-                149
+                157
             ],
             "links": [
-                149
+                157
             ],
             "value": [
-                95
+                103
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "HeadingBlockNewRecord": {
             "_createdAt": [
-                31
+                39
             ],
             "_editingUrl": [
-                149
+                157
             ],
             "_firstPublishedAt": [
-                31
+                39
             ],
             "_isValid": [
                 7
             ],
             "_modelApiKey": [
-                149
+                157
             ],
             "_publicationScheduledAt": [
-                31
+                39
             ],
             "_publishedAt": [
-                31
+                39
             ],
             "_seoMetaTags": [
-                153,
+                161,
                 {
                     "locale": [
-                        146
+                        154
                     ]
                 }
             ],
             "_status": [
-                91
+                99
             ],
             "_unpublishingScheduledAt": [
-                31
+                39
             ],
             "_updatedAt": [
-                31
+                39
             ],
             "heading": [
-                149
+                157
             ],
             "highlightedWords": [
-                149
+                157
             ],
             "id": [
-                89
+                97
             ],
             "subheading": [
-                47
+                55
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "HeadingBlockRecord": {
             "_createdAt": [
-                31
+                39
             ],
             "_editingUrl": [
-                149
+                157
             ],
             "_firstPublishedAt": [
-                31
+                39
             ],
             "_isValid": [
                 7
             ],
             "_modelApiKey": [
-                149
+                157
             ],
             "_publicationScheduledAt": [
-                31
+                39
             ],
             "_publishedAt": [
-                31
+                39
             ],
             "_seoMetaTags": [
-                153,
+                161,
                 {
                     "locale": [
-                        146
+                        154
                     ]
                 }
             ],
             "_status": [
-                91
+                99
             ],
             "_unpublishingScheduledAt": [
-                31
+                39
             ],
             "_updatedAt": [
-                31
+                39
             ],
             "heading": [
-                149
+                157
             ],
             "id": [
-                89
+                97
             ],
             "subheading": [
-                149,
+                157,
                 {
                     "markdown": [
                         5
@@ -2052,597 +2364,597 @@ export default {
                 }
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "HeroImageBlockRecord": {
             "_createdAt": [
-                31
+                39
             ],
             "_editingUrl": [
-                149
+                157
             ],
             "_firstPublishedAt": [
-                31
+                39
             ],
             "_isValid": [
                 7
             ],
             "_modelApiKey": [
-                149
+                157
             ],
             "_publicationScheduledAt": [
-                31
+                39
             ],
             "_publishedAt": [
-                31
+                39
             ],
             "_seoMetaTags": [
-                153,
+                161,
                 {
                     "locale": [
-                        146
+                        154
                     ]
                 }
             ],
             "_status": [
-                91
+                99
             ],
             "_unpublishingScheduledAt": [
-                31
+                39
             ],
             "_updatedAt": [
-                31
+                39
             ],
             "id": [
-                89
+                97
             ],
             "image": [
                 1
             ],
             "text": [
-                149
+                157
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "HeroSectionRecord": {
             "_createdAt": [
-                31
+                39
             ],
             "_editingUrl": [
-                149
+                157
             ],
             "_firstPublishedAt": [
-                31
+                39
             ],
             "_isValid": [
                 7
             ],
             "_modelApiKey": [
-                149
+                157
             ],
             "_publicationScheduledAt": [
-                31
+                39
             ],
             "_publishedAt": [
-                31
+                39
             ],
             "_seoMetaTags": [
-                153,
+                161,
                 {
                     "locale": [
-                        146
+                        154
                     ]
                 }
             ],
             "_status": [
-                91
+                99
             ],
             "_unpublishingScheduledAt": [
-                31
+                39
             ],
             "_updatedAt": [
-                31
+                39
             ],
             "cta": [
                 0
             ],
             "heading": [
-                48
+                56
             ],
             "heroImages": [
-                50
+                58
             ],
             "id": [
-                89
+                97
             ],
             "testimonialPictures": [
                 1
             ],
             "testimonialTitle": [
-                149
+                157
             ],
             "video": [
-                198
+                206
             ],
             "videoText": [
-                149
+                157
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "ImageBlockRecord": {
             "_createdAt": [
-                31
+                39
             ],
             "_editingUrl": [
-                149
+                157
             ],
             "_firstPublishedAt": [
-                31
+                39
             ],
             "_isValid": [
                 7
             ],
             "_modelApiKey": [
-                149
+                157
             ],
             "_publicationScheduledAt": [
-                31
+                39
             ],
             "_publishedAt": [
-                31
+                39
             ],
             "_seoMetaTags": [
-                153,
+                161,
                 {
                     "locale": [
-                        146
+                        154
                     ]
                 }
             ],
             "_status": [
-                91
+                99
             ],
             "_unpublishingScheduledAt": [
-                31
+                39
             ],
             "_updatedAt": [
-                31
+                39
             ],
             "id": [
-                89
+                97
             ],
             "image": [
                 1
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "ImgixParams": {
             "ar": [
-                149
+                157
             ],
             "auto": [
-                54
+                62
             ],
             "bgRemove": [
                 7
             ],
             "bg": [
-                149
+                157
             ],
             "blendAlign": [
-                55
-            ],
-            "blendAlpha": [
-                83
-            ],
-            "blendColor": [
-                149
-            ],
-            "blendCrop": [
-                56
-            ],
-            "blendFit": [
-                57
-            ],
-            "blendH": [
-                44
-            ],
-            "blendMode": [
-                58
-            ],
-            "blendPad": [
-                83
-            ],
-            "blendSize": [
-                59
-            ],
-            "blendW": [
-                44
-            ],
-            "blendX": [
-                83
-            ],
-            "blendY": [
-                83
-            ],
-            "blend": [
-                149
-            ],
-            "blur": [
-                83
-            ],
-            "borderBottom": [
-                83
-            ],
-            "borderLeft": [
-                83
-            ],
-            "borderRadiusInner": [
-                149
-            ],
-            "borderRadius": [
-                149
-            ],
-            "borderRight": [
-                83
-            ],
-            "borderTop": [
-                83
-            ],
-            "border": [
-                149
-            ],
-            "bri": [
-                83
-            ],
-            "ch": [
-                60
-            ],
-            "chromasub": [
-                83
-            ],
-            "colorquant": [
-                83
-            ],
-            "colors": [
-                83
-            ],
-            "con": [
-                83
-            ],
-            "cornerRadius": [
-                149
-            ],
-            "crop": [
-                61
-            ],
-            "cs": [
-                62
-            ],
-            "dl": [
-                149
-            ],
-            "dpi": [
-                83
-            ],
-            "dpr": [
-                44
-            ],
-            "duotoneAlpha": [
-                83
-            ],
-            "duotone": [
-                149
-            ],
-            "exp": [
-                83
-            ],
-            "expires": [
-                83
-            ],
-            "faceindex": [
-                83
-            ],
-            "facepad": [
-                44
-            ],
-            "faces": [
-                83
-            ],
-            "fillColor": [
-                149
-            ],
-            "fill": [
                 63
             ],
-            "fit": [
+            "blendAlpha": [
+                91
+            ],
+            "blendColor": [
+                157
+            ],
+            "blendCrop": [
                 64
             ],
-            "flip": [
+            "blendFit": [
                 65
             ],
-            "fm": [
+            "blendH": [
+                52
+            ],
+            "blendMode": [
                 66
+            ],
+            "blendPad": [
+                91
+            ],
+            "blendSize": [
+                67
+            ],
+            "blendW": [
+                52
+            ],
+            "blendX": [
+                91
+            ],
+            "blendY": [
+                91
+            ],
+            "blend": [
+                157
+            ],
+            "blur": [
+                91
+            ],
+            "borderBottom": [
+                91
+            ],
+            "borderLeft": [
+                91
+            ],
+            "borderRadiusInner": [
+                157
+            ],
+            "borderRadius": [
+                157
+            ],
+            "borderRight": [
+                91
+            ],
+            "borderTop": [
+                91
+            ],
+            "border": [
+                157
+            ],
+            "bri": [
+                91
+            ],
+            "ch": [
+                68
+            ],
+            "chromasub": [
+                91
+            ],
+            "colorquant": [
+                91
+            ],
+            "colors": [
+                91
+            ],
+            "con": [
+                91
+            ],
+            "cornerRadius": [
+                157
+            ],
+            "crop": [
+                69
+            ],
+            "cs": [
+                70
+            ],
+            "dl": [
+                157
+            ],
+            "dpi": [
+                91
+            ],
+            "dpr": [
+                52
+            ],
+            "duotoneAlpha": [
+                91
+            ],
+            "duotone": [
+                157
+            ],
+            "exp": [
+                91
+            ],
+            "expires": [
+                91
+            ],
+            "faceindex": [
+                91
+            ],
+            "facepad": [
+                52
+            ],
+            "faces": [
+                91
+            ],
+            "fillColor": [
+                157
+            ],
+            "fill": [
+                71
+            ],
+            "fit": [
+                72
+            ],
+            "flip": [
+                73
+            ],
+            "fm": [
+                74
             ],
             "fpDebug": [
                 7
             ],
             "fpX": [
-                44
+                52
             ],
             "fpY": [
-                44
+                52
             ],
             "fpZ": [
-                44
+                52
             ],
             "fps": [
-                83
+                91
             ],
             "frame": [
-                149
+                157
             ],
             "gam": [
-                83
+                91
             ],
             "gifQ": [
-                83
+                91
             ],
             "gridColors": [
-                149
+                157
             ],
             "gridSize": [
-                83
+                91
             ],
             "h": [
-                44
+                52
             ],
             "high": [
-                83
+                91
             ],
             "htn": [
-                83
+                91
             ],
             "hue": [
-                83
+                91
             ],
             "interval": [
-                83
+                91
             ],
             "invert": [
                 7
             ],
             "iptc": [
-                67
+                75
             ],
             "loop": [
-                83
+                91
             ],
             "lossless": [
                 7
             ],
             "markAlign": [
-                68
+                76
             ],
             "markAlpha": [
-                83
+                91
             ],
             "markBase": [
-                149
+                157
             ],
             "markFit": [
-                69
+                77
             ],
             "markH": [
-                44
+                52
             ],
             "markPad": [
-                83
+                91
             ],
             "markRot": [
-                44
+                52
             ],
             "markScale": [
-                83
+                91
             ],
             "markTile": [
-                70
+                78
             ],
             "markW": [
-                44
+                52
             ],
             "markX": [
-                83
+                91
             ],
             "markY": [
-                83
+                91
             ],
             "mark": [
-                149
+                157
             ],
             "maskBg": [
-                149
+                157
             ],
             "mask": [
-                149
+                157
             ],
             "maxH": [
-                83
+                91
             ],
             "maxW": [
-                83
+                91
             ],
             "minH": [
-                83
+                91
             ],
             "minW": [
-                83
+                91
             ],
             "monochrome": [
-                149
+                157
             ],
             "nr": [
-                83
+                91
             ],
             "nrs": [
-                83
+                91
             ],
             "orient": [
-                83
+                91
             ],
             "padBottom": [
-                83
+                91
             ],
             "padLeft": [
-                83
+                91
             ],
             "padRight": [
-                83
+                91
             ],
             "padTop": [
-                83
+                91
             ],
             "pad": [
-                83
+                91
             ],
             "page": [
-                83
+                91
             ],
             "palette": [
-                71
+                79
             ],
             "pdfAnnotation": [
                 7
             ],
             "prefix": [
-                149
+                157
             ],
             "px": [
-                83
+                91
             ],
             "q": [
-                83
+                91
             ],
             "rect": [
-                149
+                157
             ],
             "reverse": [
                 7
             ],
             "rot": [
-                44
+                52
             ],
             "sat": [
-                83
+                91
             ],
             "sepia": [
-                83
+                91
             ],
             "shad": [
-                44
+                52
             ],
             "sharp": [
-                44
+                52
             ],
             "skip": [
-                83
+                91
             ],
             "transparency": [
-                72
+                80
             ],
             "trimColor": [
-                149
+                157
             ],
             "trimMd": [
-                44
+                52
             ],
             "trimPad": [
-                83
+                91
             ],
             "trimSd": [
-                44
+                52
             ],
             "trimTol": [
-                44
+                52
             ],
             "trim": [
-                73
+                81
             ],
             "txtAlign": [
-                74
+                82
             ],
             "txtClip": [
-                75
+                83
             ],
             "txtColor": [
-                149
+                157
             ],
             "txtFit": [
-                76
+                84
             ],
             "txtFont": [
-                149
+                157
             ],
             "txtLead": [
-                83
+                91
             ],
             "txtLig": [
-                83
+                91
             ],
             "txtLineColor": [
-                149
+                157
             ],
             "txtLine": [
-                83
+                91
             ],
             "txtPad": [
-                83
+                91
             ],
             "txtShad": [
-                44
+                52
             ],
             "txtSize": [
-                83
+                91
             ],
             "txtTrack": [
-                83
+                91
             ],
             "txtWidth": [
-                83
+                91
             ],
             "txtX": [
-                83
+                91
             ],
             "txtY": [
-                83
+                91
             ],
             "txt": [
-                149
+                157
             ],
             "usm": [
-                83
+                91
             ],
             "usmrad": [
-                44
+                52
             ],
             "vib": [
-                83
+                91
             ],
             "w": [
-                44
+                52
             ],
             "skipDefaultOptimizations": [
                 7
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "ImgixParamsAuto": {},
@@ -2673,164 +2985,164 @@ export default {
                 7
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "InstructorModelAboutField": {
             "blocks": [
-                149
+                157
             ],
             "links": [
-                149
+                157
             ],
             "value": [
-                95
+                103
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "InstructorModelFilter": {
             "_createdAt": [
-                29
+                37
             ],
             "id": [
-                90
+                98
             ],
             "_firstPublishedAt": [
-                122
+                130
             ],
             "_publicationScheduledAt": [
-                122
+                130
             ],
             "_unpublishingScheduledAt": [
-                122
+                130
             ],
             "_publishedAt": [
-                122
+                130
             ],
             "_status": [
-                148
+                156
             ],
             "_updatedAt": [
-                173
+                181
             ],
             "_isValid": [
                 6
             ],
             "about": [
-                152
+                160
             ],
             "name": [
-                150
+                158
             ],
             "profilePicture": [
-                41
+                49
             ],
             "slug": [
-                147
+                155
             ],
             "summary": [
-                150
+                158
             ],
             "OR": [
-                79
+                87
             ],
             "AND": [
-                79
+                87
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "InstructorModelOrderBy": {},
         "InstructorRecord": {
             "_createdAt": [
-                31
+                39
             ],
             "_editingUrl": [
-                149
+                157
             ],
             "_firstPublishedAt": [
-                31
+                39
             ],
             "_isValid": [
                 7
             ],
             "_modelApiKey": [
-                149
+                157
             ],
             "_publicationScheduledAt": [
-                31
+                39
             ],
             "_publishedAt": [
-                31
+                39
             ],
             "_seoMetaTags": [
-                153,
+                161,
                 {
                     "locale": [
-                        146
+                        154
                     ]
                 }
             ],
             "_status": [
-                91
+                99
             ],
             "_unpublishingScheduledAt": [
-                31
+                39
             ],
             "_updatedAt": [
-                31
+                39
             ],
             "about": [
-                78
+                86
             ],
             "id": [
-                89
+                97
             ],
             "name": [
-                149
+                157
             ],
             "profilePicture": [
                 1
             ],
             "slug": [
-                149
+                157
             ],
             "summary": [
-                149
+                157
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "Int": {},
         "IntType": {},
         "IntegerFilter": {
             "gt": [
-                83
+                91
             ],
             "lt": [
-                83
+                91
             ],
             "gte": [
-                83
+                91
             ],
             "lte": [
-                83
+                91
             ],
             "exists": [
                 7
             ],
             "eq": [
-                83
+                91
             ],
             "neq": [
-                83
+                91
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "InverseRelationshipFieldFilterBetweenCityAndCountry": {
@@ -2841,174 +3153,174 @@ export default {
                 14
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "InverseRelationshipFieldFilterBetweenTutorAndCity": {
             "anyIn": [
-                166
+                174
             ],
             "notIn": [
-                166
+                174
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "InverseRelationshipFilterBetweenCityAndCountry": {
             "fields": [
-                85
+                93
             ],
             "locales": [
-                99
+                107
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "InverseRelationshipFilterBetweenTutorAndCity": {
             "fields": [
-                86
+                94
             ],
             "locales": [
-                99
+                107
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "ItemId": {},
         "ItemIdFilter": {
             "eq": [
-                89
+                97
             ],
             "neq": [
-                89
+                97
             ],
             "in": [
-                89
+                97
             ],
             "notIn": [
-                89
+                97
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "ItemStatus": {},
         "JobModelFilter": {
             "_createdAt": [
-                29
+                37
             ],
             "id": [
-                90
+                98
             ],
             "_firstPublishedAt": [
-                122
+                130
             ],
             "_publicationScheduledAt": [
-                122
+                130
             ],
             "_unpublishingScheduledAt": [
-                122
+                130
             ],
             "_publishedAt": [
-                122
+                130
             ],
             "_status": [
-                148
+                156
             ],
             "_updatedAt": [
-                173
+                181
             ],
             "_isValid": [
                 6
             ],
             "jobType": [
-                150
+                158
             ],
             "location": [
-                150
+                158
             ],
             "slug": [
-                147
+                155
             ],
             "title": [
-                150
+                158
             ],
             "OR": [
-                92
+                100
             ],
             "AND": [
-                92
+                100
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "JobModelOrderBy": {},
         "JobRecord": {
             "_createdAt": [
-                31
+                39
             ],
             "_editingUrl": [
-                149
+                157
             ],
             "_firstPublishedAt": [
-                31
+                39
             ],
             "_isValid": [
                 7
             ],
             "_modelApiKey": [
-                149
+                157
             ],
             "_publicationScheduledAt": [
-                31
+                39
             ],
             "_publishedAt": [
-                31
+                39
             ],
             "_seoMetaTags": [
-                153,
+                161,
                 {
                     "locale": [
-                        146
+                        154
                     ]
                 }
             ],
             "_status": [
-                91
+                99
             ],
             "_unpublishingScheduledAt": [
-                31
+                39
             ],
             "_updatedAt": [
-                31
+                39
             ],
             "contentItems": [
-                139
+                147
             ],
             "cta": [
                 0
             ],
             "id": [
-                89
+                97
             ],
             "jobType": [
-                149
+                157
             ],
             "location": [
-                149
+                157
             ],
             "slug": [
-                149
+                157
             ],
             "title": [
-                149
+                157
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "JsonField": {},
@@ -3017,738 +3329,741 @@ export default {
                 7
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "LinkFilter": {
             "eq": [
-                89
+                97
             ],
             "neq": [
-                89
+                97
             ],
             "in": [
-                89
+                97
             ],
             "notIn": [
-                89
+                97
             ],
             "exists": [
                 7
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "LinkingLocale": {},
         "LinkingLocalesFilter": {
             "anyIn": [
-                98
+                106
             ],
             "notIn": [
-                98
+                106
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "LinksFilter": {
             "eq": [
-                89
+                97
             ],
             "allIn": [
-                89
+                97
             ],
             "anyIn": [
-                89
+                97
             ],
             "notIn": [
-                89
+                97
             ],
             "exists": [
                 7
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "MenuItemBlockRecord": {
             "_createdAt": [
-                31
+                39
             ],
             "_editingUrl": [
-                149
+                157
             ],
             "_firstPublishedAt": [
-                31
+                39
             ],
             "_isValid": [
                 7
             ],
             "_modelApiKey": [
-                149
+                157
             ],
             "_publicationScheduledAt": [
-                31
+                39
             ],
             "_publishedAt": [
-                31
+                39
             ],
             "_seoMetaTags": [
-                153,
+                161,
                 {
                     "locale": [
-                        146
+                        154
                     ]
                 }
             ],
             "_status": [
-                91
+                99
             ],
             "_unpublishingScheduledAt": [
-                31
+                39
             ],
             "_updatedAt": [
-                31
+                39
             ],
             "id": [
-                89
+                97
             ],
             "link": [
-                149
+                157
             ],
             "subitems": [
-                101
+                109
             ],
             "title": [
-                149
+                157
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "MenuListBlockRecord": {
             "_createdAt": [
-                31
+                39
             ],
             "_editingUrl": [
-                149
+                157
             ],
             "_firstPublishedAt": [
-                31
+                39
             ],
             "_isValid": [
                 7
             ],
             "_modelApiKey": [
-                149
+                157
             ],
             "_publicationScheduledAt": [
-                31
+                39
             ],
             "_publishedAt": [
-                31
+                39
             ],
             "_seoMetaTags": [
-                153,
+                161,
                 {
                     "locale": [
-                        146
+                        154
                     ]
                 }
             ],
             "_status": [
-                91
+                99
             ],
             "_unpublishingScheduledAt": [
-                31
+                39
             ],
             "_updatedAt": [
-                31
+                39
             ],
             "id": [
-                89
+                97
             ],
             "items": [
-                101
+                109
             ],
             "name": [
-                149
+                157
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "MenuModelFilter": {
             "_createdAt": [
-                29
+                37
             ],
             "id": [
-                90
+                98
             ],
             "_firstPublishedAt": [
-                122
+                130
             ],
             "_publicationScheduledAt": [
-                122
+                130
             ],
             "_unpublishingScheduledAt": [
-                122
+                130
             ],
             "_publishedAt": [
-                122
+                130
             ],
             "_status": [
-                148
+                156
             ],
             "_updatedAt": [
-                173
+                181
             ],
             "_isValid": [
                 6
             ],
             "name": [
-                150
+                158
             ],
             "slug": [
-                147
+                155
             ],
             "OR": [
-                103
+                111
             ],
             "AND": [
-                103
+                111
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "MenuModelOrderBy": {},
         "MenuRecord": {
             "_createdAt": [
-                31
+                39
             ],
             "_editingUrl": [
-                149
+                157
             ],
             "_firstPublishedAt": [
-                31
+                39
             ],
             "_isValid": [
                 7
             ],
             "_modelApiKey": [
-                149
+                157
             ],
             "_publicationScheduledAt": [
-                31
+                39
             ],
             "_publishedAt": [
-                31
+                39
             ],
             "_seoMetaTags": [
-                153,
+                161,
                 {
                     "locale": [
-                        146
+                        154
                     ]
                 }
             ],
             "_status": [
-                91
+                99
             ],
             "_unpublishingScheduledAt": [
-                31
+                39
             ],
             "_updatedAt": [
-                31
+                39
             ],
             "id": [
-                89
+                97
             ],
             "menuLists": [
-                102
+                110
             ],
             "name": [
-                149
+                157
             ],
             "slug": [
-                149
+                157
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "MetaTagAttributes": {},
         "ModularPageModelFilter": {
             "_createdAt": [
-                29
+                37
             ],
             "id": [
-                90
+                98
             ],
             "_firstPublishedAt": [
-                122
+                130
             ],
             "_publicationScheduledAt": [
-                122
+                130
             ],
             "_unpublishingScheduledAt": [
-                122
+                130
             ],
             "_publishedAt": [
-                122
+                130
             ],
             "_status": [
-                148
+                156
             ],
             "_updatedAt": [
-                173
+                181
             ],
             "_isValid": [
                 6
             ],
             "routePaths": [
-                100
+                108
             ],
             "slug": [
-                147
+                155
             ],
             "title": [
-                150
+                158
             ],
             "OR": [
-                107
+                115
             ],
             "AND": [
-                107
+                115
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "ModularPageModelModularContentField": {
             "on_CardsSectionRecord": [
                 10
             ],
+            "on_ComparisonSectionRecord": [
+                22
+            ],
             "on_FaqSectionRecord": [
-                37
+                45
             ],
             "on_HeroSectionRecord": [
-                51
+                59
             ],
             "on_ReferenceSectionRecord": [
-                125
+                133
             ],
             "on_TestimonialsSectionRecord": [
-                164
+                172
             ],
             "on_RecordInterface": [
-                124
+                132
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "ModularPageModelOrderBy": {},
         "ModularPageRecord": {
             "_createdAt": [
-                31
+                39
             ],
             "_editingUrl": [
-                149
+                157
             ],
             "_firstPublishedAt": [
-                31
+                39
             ],
             "_isValid": [
                 7
             ],
             "_modelApiKey": [
-                149
+                157
             ],
             "_publicationScheduledAt": [
-                31
+                39
             ],
             "_publishedAt": [
-                31
+                39
             ],
             "_seoMetaTags": [
-                153,
+                161,
                 {
                     "locale": [
-                        146
+                        154
                     ]
                 }
             ],
             "_status": [
-                91
+                99
             ],
             "_unpublishingScheduledAt": [
-                31
+                39
             ],
             "_updatedAt": [
-                31
+                39
             ],
             "id": [
-                89
+                97
             ],
             "modularContent": [
-                108
+                116
             ],
             "routePaths": [
-                142
+                150
             ],
             "seo": [
-                143
+                151
             ],
             "slug": [
-                149
+                157
             ],
             "title": [
-                149
+                157
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "MuxThumbnailFormatType": {},
         "NoteBlockRecord": {
             "_createdAt": [
-                31
+                39
             ],
             "_editingUrl": [
-                149
+                157
             ],
             "_firstPublishedAt": [
-                31
+                39
             ],
             "_isValid": [
                 7
             ],
             "_modelApiKey": [
-                149
+                157
             ],
             "_publicationScheduledAt": [
-                31
+                39
             ],
             "_publishedAt": [
-                31
+                39
             ],
             "_seoMetaTags": [
-                153,
+                161,
                 {
                     "locale": [
-                        146
+                        154
                     ]
                 }
             ],
             "_status": [
-                91
+                99
             ],
             "_unpublishingScheduledAt": [
-                31
+                39
             ],
             "_updatedAt": [
-                31
+                39
             ],
             "card": [
                 9
             ],
             "id": [
-                89
+                97
             ],
             "noteType": [
-                149
+                157
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "OrientationFilter": {
             "eq": [
-                190
+                198
             ],
             "neq": [
-                190
+                198
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "PlainTextBlockRecord": {
             "_createdAt": [
-                31
+                39
             ],
             "_editingUrl": [
-                149
+                157
             ],
             "_firstPublishedAt": [
-                31
+                39
             ],
             "_isValid": [
                 7
             ],
             "_modelApiKey": [
-                149
+                157
             ],
             "_publicationScheduledAt": [
-                31
+                39
             ],
             "_publishedAt": [
-                31
+                39
             ],
             "_seoMetaTags": [
-                153,
+                161,
                 {
                     "locale": [
-                        146
+                        154
                     ]
                 }
             ],
             "_status": [
-                91
+                99
             ],
             "_unpublishingScheduledAt": [
-                31
+                39
             ],
             "_updatedAt": [
-                31
+                39
             ],
             "id": [
-                89
+                97
             ],
             "text": [
-                149
+                157
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "PostCtaModelContentField": {
             "blocks": [
-                149
+                157
             ],
             "links": [
-                149
+                157
             ],
             "value": [
-                95
+                103
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "PostCtaModelFilter": {
             "_createdAt": [
-                29
+                37
             ],
             "id": [
-                90
+                98
             ],
             "_firstPublishedAt": [
-                122
+                130
             ],
             "_publicationScheduledAt": [
-                122
+                130
             ],
             "_unpublishingScheduledAt": [
-                122
+                130
             ],
             "_publishedAt": [
-                122
+                130
             ],
             "_status": [
-                148
+                156
             ],
             "_updatedAt": [
-                173
+                181
             ],
             "_isValid": [
                 6
             ],
             "content": [
-                152
+                160
             ],
             "repeatableTitle": [
-                150
+                158
             ],
             "title": [
-                150
+                158
             ],
             "OR": [
-                116
+                124
             ],
             "AND": [
-                116
+                124
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "PostCtaModelOrderBy": {},
         "PostCtaRecord": {
             "_createdAt": [
-                31
+                39
             ],
             "_editingUrl": [
-                149
+                157
             ],
             "_firstPublishedAt": [
-                31
+                39
             ],
             "_isValid": [
                 7
             ],
             "_modelApiKey": [
-                149
+                157
             ],
             "_publicationScheduledAt": [
-                31
+                39
             ],
             "_publishedAt": [
-                31
+                39
             ],
             "_seoMetaTags": [
-                153,
+                161,
                 {
                     "locale": [
-                        146
+                        154
                     ]
                 }
             ],
             "_status": [
-                91
+                99
             ],
             "_unpublishingScheduledAt": [
-                31
+                39
             ],
             "_updatedAt": [
-                31
+                39
             ],
             "content": [
-                115
+                123
             ],
             "cta": [
                 0
             ],
             "id": [
-                89
+                97
             ],
             "repeatableList": [
-                114
+                122
             ],
             "repeatableTitle": [
-                149
+                157
             ],
             "title": [
-                149
+                157
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "PostModelFilter": {
             "_createdAt": [
-                29
+                37
             ],
             "id": [
-                90
+                98
             ],
             "_firstPublishedAt": [
-                122
+                130
             ],
             "_publicationScheduledAt": [
-                122
+                130
             ],
             "_unpublishingScheduledAt": [
-                122
+                130
             ],
             "_publishedAt": [
-                122
+                130
             ],
             "_status": [
-                148
+                156
             ],
             "_updatedAt": [
-                173
+                181
             ],
             "_isValid": [
                 6
             ],
             "author": [
-                97
+                105
             ],
             "category": [
-                97
+                105
             ],
             "featured": [
                 6
             ],
             "postCta": [
-                97
+                105
             ],
             "reviewer": [
-                97
+                105
             ],
             "routePaths": [
-                100
+                108
             ],
             "slug": [
-                147
+                155
             ],
             "title": [
-                150
+                158
             ],
             "OR": [
-                119
+                127
             ],
             "AND": [
-                119
+                127
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "PostModelOrderBy": {},
         "PostRecord": {
             "_createdAt": [
-                31
+                39
             ],
             "_editingUrl": [
-                149
+                157
             ],
             "_firstPublishedAt": [
-                31
+                39
             ],
             "_isValid": [
                 7
             ],
             "_modelApiKey": [
-                149
+                157
             ],
             "_publicationScheduledAt": [
-                31
+                39
             ],
             "_publishedAt": [
-                31
+                39
             ],
             "_seoMetaTags": [
-                153,
+                161,
                 {
                     "locale": [
-                        146
+                        154
                     ]
                 }
             ],
             "_status": [
-                91
+                99
             ],
             "_unpublishingScheduledAt": [
-                31
+                39
             ],
             "_updatedAt": [
-                31
+                39
             ],
             "author": [
                 4
@@ -3760,57 +4075,57 @@ export default {
                 7
             ],
             "id": [
-                89
+                97
             ],
             "modularContent": [
-                139
+                147
             ],
             "postCta": [
-                118
+                126
             ],
             "reviewer": [
                 4
             ],
             "routePaths": [
-                142
+                150
             ],
             "seo": [
-                143
+                151
             ],
             "slug": [
-                149
+                157
             ],
             "title": [
-                149
+                157
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "PublishedAtFilter": {
             "gt": [
-                31
+                39
             ],
             "lt": [
-                31
+                39
             ],
             "gte": [
-                31
+                39
             ],
             "lte": [
-                31
+                39
             ],
             "eq": [
-                31
+                39
             ],
             "neq": [
-                31
+                39
             ],
             "exists": [
                 7
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "Query": {
@@ -3818,7 +4133,7 @@ export default {
                 18,
                 {
                     "locale": [
-                        146
+                        154
                     ],
                     "filter": [
                         2
@@ -3829,7 +4144,7 @@ export default {
                 18,
                 {
                     "locale": [
-                        146
+                        154
                     ],
                     "filter": [
                         11
@@ -3840,10 +4155,32 @@ export default {
                 18,
                 {
                     "locale": [
-                        146
+                        154
                     ],
                     "filter": [
                         15
+                    ]
+                }
+            ],
+            "_allCompetitorsComparisonsMeta": [
+                18,
+                {
+                    "locale": [
+                        154
+                    ],
+                    "filter": [
+                        26
+                    ]
+                }
+            ],
+            "_allCompetitorsMeta": [
+                18,
+                {
+                    "locale": [
+                        154
+                    ],
+                    "filter": [
+                        23
                     ]
                 }
             ],
@@ -3851,10 +4188,10 @@ export default {
                 18,
                 {
                     "locale": [
-                        146
+                        154
                     ],
                     "filter": [
-                        22
+                        30
                     ]
                 }
             ],
@@ -3862,10 +4199,10 @@ export default {
                 18,
                 {
                     "locale": [
-                        146
+                        154
                     ],
                     "filter": [
-                        25
+                        33
                     ]
                 }
             ],
@@ -3873,10 +4210,10 @@ export default {
                 18,
                 {
                     "locale": [
-                        146
+                        154
                     ],
                     "filter": [
-                        34
+                        42
                     ]
                 }
             ],
@@ -3884,10 +4221,10 @@ export default {
                 18,
                 {
                     "locale": [
-                        146
+                        154
                     ],
                     "filter": [
-                        79
+                        87
                     ]
                 }
             ],
@@ -3895,10 +4232,10 @@ export default {
                 18,
                 {
                     "locale": [
-                        146
+                        154
                     ],
                     "filter": [
-                        92
+                        100
                     ]
                 }
             ],
@@ -3906,10 +4243,10 @@ export default {
                 18,
                 {
                     "locale": [
-                        146
+                        154
                     ],
                     "filter": [
-                        103
+                        111
                     ]
                 }
             ],
@@ -3917,10 +4254,10 @@ export default {
                 18,
                 {
                     "locale": [
-                        146
+                        154
                     ],
                     "filter": [
-                        107
+                        115
                     ]
                 }
             ],
@@ -3928,10 +4265,10 @@ export default {
                 18,
                 {
                     "locale": [
-                        146
+                        154
                     ],
                     "filter": [
-                        116
+                        124
                     ]
                 }
             ],
@@ -3939,10 +4276,10 @@ export default {
                 18,
                 {
                     "locale": [
-                        146
+                        154
                     ],
                     "filter": [
-                        119
+                        127
                     ]
                 }
             ],
@@ -3950,10 +4287,10 @@ export default {
                 18,
                 {
                     "locale": [
-                        146
+                        154
                     ],
                     "filter": [
-                        133
+                        141
                     ]
                 }
             ],
@@ -3961,10 +4298,10 @@ export default {
                 18,
                 {
                     "locale": [
-                        146
+                        154
                     ],
                     "filter": [
-                        129
+                        137
                     ]
                 }
             ],
@@ -3972,10 +4309,10 @@ export default {
                 18,
                 {
                     "locale": [
-                        146
+                        154
                     ],
                     "filter": [
-                        140
+                        148
                     ]
                 }
             ],
@@ -3983,10 +4320,10 @@ export default {
                 18,
                 {
                     "locale": [
-                        146
+                        154
                     ],
                     "filter": [
-                        159
+                        167
                     ]
                 }
             ],
@@ -3994,10 +4331,10 @@ export default {
                 18,
                 {
                     "locale": [
-                        146
+                        154
                     ],
                     "filter": [
-                        167
+                        175
                     ]
                 }
             ],
@@ -4005,21 +4342,21 @@ export default {
                 18,
                 {
                     "locale": [
-                        146
+                        154
                     ],
                     "filter": [
-                        181
+                        189
                     ]
                 }
             ],
             "_site": [
-                145,
+                153,
                 {
                     "locale": [
-                        146
+                        154
                     ],
                     "fallbackLocales": [
-                        146,
+                        154,
                         "[SiteLocale!]"
                     ]
                 }
@@ -4028,17 +4365,17 @@ export default {
                 4,
                 {
                     "locale": [
-                        146
+                        154
                     ],
                     "fallbackLocales": [
-                        146,
+                        154,
                         "[SiteLocale!]"
                     ],
                     "skip": [
-                        83
+                        91
                     ],
                     "first": [
-                        83
+                        91
                     ],
                     "filter": [
                         2
@@ -4053,17 +4390,17 @@ export default {
                 13,
                 {
                     "locale": [
-                        146
+                        154
                     ],
                     "fallbackLocales": [
-                        146,
+                        154,
                         "[SiteLocale!]"
                     ],
                     "skip": [
-                        83
+                        91
                     ],
                     "first": [
-                        83
+                        91
                     ],
                     "filter": [
                         11
@@ -4078,17 +4415,17 @@ export default {
                 17,
                 {
                     "locale": [
-                        146
+                        154
                     ],
                     "fallbackLocales": [
-                        146,
+                        154,
                         "[SiteLocale!]"
                     ],
                     "skip": [
-                        83
+                        91
                     ],
                     "first": [
-                        83
+                        91
                     ],
                     "filter": [
                         15
@@ -4099,377 +4436,427 @@ export default {
                     ]
                 }
             ],
-            "allCountries": [
-                24,
+            "allCompetitors": [
+                25,
                 {
                     "locale": [
-                        146
+                        154
                     ],
                     "fallbackLocales": [
-                        146,
+                        154,
                         "[SiteLocale!]"
                     ],
                     "skip": [
-                        83
+                        91
                     ],
                     "first": [
-                        83
+                        91
                     ],
                     "filter": [
-                        22
+                        23
                     ],
                     "orderBy": [
-                        23,
+                        24,
+                        "[CompetitorModelOrderBy]"
+                    ]
+                }
+            ],
+            "allCompetitorsComparisons": [
+                28,
+                {
+                    "locale": [
+                        154
+                    ],
+                    "fallbackLocales": [
+                        154,
+                        "[SiteLocale!]"
+                    ],
+                    "skip": [
+                        91
+                    ],
+                    "first": [
+                        91
+                    ],
+                    "filter": [
+                        26
+                    ],
+                    "orderBy": [
+                        27,
+                        "[CompetitorsComparisonModelOrderBy]"
+                    ]
+                }
+            ],
+            "allCountries": [
+                32,
+                {
+                    "locale": [
+                        154
+                    ],
+                    "fallbackLocales": [
+                        154,
+                        "[SiteLocale!]"
+                    ],
+                    "skip": [
+                        91
+                    ],
+                    "first": [
+                        91
+                    ],
+                    "filter": [
+                        30
+                    ],
+                    "orderBy": [
+                        31,
                         "[CountryModelOrderBy]"
                     ]
                 }
             ],
             "allCourses": [
-                27,
+                35,
                 {
                     "locale": [
-                        146
+                        154
                     ],
                     "fallbackLocales": [
-                        146,
+                        154,
                         "[SiteLocale!]"
                     ],
                     "skip": [
-                        83
+                        91
                     ],
                     "first": [
-                        83
+                        91
                     ],
                     "filter": [
-                        25
+                        33
                     ],
                     "orderBy": [
-                        26,
+                        34,
                         "[CourseModelOrderBy]"
                     ]
                 }
             ],
             "allFaqItems": [
-                36,
+                44,
                 {
                     "locale": [
-                        146
+                        154
                     ],
                     "fallbackLocales": [
-                        146,
+                        154,
                         "[SiteLocale!]"
                     ],
                     "skip": [
-                        83
+                        91
                     ],
                     "first": [
-                        83
+                        91
                     ],
                     "filter": [
-                        34
+                        42
                     ],
                     "orderBy": [
-                        35,
+                        43,
                         "[FaqItemModelOrderBy]"
                     ]
                 }
             ],
             "allInstructors": [
-                81,
+                89,
                 {
                     "locale": [
-                        146
+                        154
                     ],
                     "fallbackLocales": [
-                        146,
+                        154,
                         "[SiteLocale!]"
                     ],
                     "skip": [
-                        83
+                        91
                     ],
                     "first": [
-                        83
+                        91
                     ],
                     "filter": [
-                        79
+                        87
                     ],
                     "orderBy": [
-                        80,
+                        88,
                         "[InstructorModelOrderBy]"
                     ]
                 }
             ],
             "allJobs": [
-                94,
+                102,
                 {
                     "locale": [
-                        146
+                        154
                     ],
                     "fallbackLocales": [
-                        146,
+                        154,
                         "[SiteLocale!]"
                     ],
                     "skip": [
-                        83
+                        91
                     ],
                     "first": [
-                        83
+                        91
                     ],
                     "filter": [
-                        92
+                        100
                     ],
                     "orderBy": [
-                        93,
+                        101,
                         "[JobModelOrderBy]"
                     ]
                 }
             ],
             "allMenus": [
-                105,
+                113,
                 {
                     "locale": [
-                        146
+                        154
                     ],
                     "fallbackLocales": [
-                        146,
+                        154,
                         "[SiteLocale!]"
                     ],
                     "skip": [
-                        83
+                        91
                     ],
                     "first": [
-                        83
+                        91
                     ],
                     "filter": [
-                        103
+                        111
                     ],
                     "orderBy": [
-                        104,
+                        112,
                         "[MenuModelOrderBy]"
                     ]
                 }
             ],
             "allModularPages": [
-                110,
+                118,
                 {
                     "locale": [
-                        146
+                        154
                     ],
                     "fallbackLocales": [
-                        146,
+                        154,
                         "[SiteLocale!]"
                     ],
                     "skip": [
-                        83
+                        91
                     ],
                     "first": [
-                        83
+                        91
                     ],
                     "filter": [
-                        107
+                        115
                     ],
                     "orderBy": [
-                        109,
+                        117,
                         "[ModularPageModelOrderBy]"
                     ]
                 }
             ],
             "allPostCtas": [
-                118,
+                126,
                 {
                     "locale": [
-                        146
+                        154
                     ],
                     "fallbackLocales": [
-                        146,
+                        154,
                         "[SiteLocale!]"
                     ],
                     "skip": [
-                        83
+                        91
                     ],
                     "first": [
-                        83
+                        91
                     ],
                     "filter": [
-                        116
+                        124
                     ],
                     "orderBy": [
-                        117,
+                        125,
                         "[PostCtaModelOrderBy]"
                     ]
                 }
             ],
             "allPosts": [
-                121,
+                129,
                 {
                     "locale": [
-                        146
+                        154
                     ],
                     "fallbackLocales": [
-                        146,
+                        154,
                         "[SiteLocale!]"
                     ],
                     "skip": [
-                        83
+                        91
                     ],
                     "first": [
-                        83
+                        91
                     ],
                     "filter": [
-                        119
+                        127
                     ],
                     "orderBy": [
-                        120,
+                        128,
                         "[PostModelOrderBy]"
                     ]
                 }
             ],
             "allResourceTopics": [
-                135,
+                143,
                 {
                     "locale": [
-                        146
+                        154
                     ],
                     "fallbackLocales": [
-                        146,
+                        154,
                         "[SiteLocale!]"
                     ],
                     "skip": [
-                        83
+                        91
                     ],
                     "first": [
-                        83
+                        91
                     ],
                     "filter": [
-                        133
+                        141
                     ],
                     "orderBy": [
-                        134,
+                        142,
                         "[ResourceTopicModelOrderBy]"
                     ]
                 }
             ],
             "allResources": [
-                132,
+                140,
                 {
                     "locale": [
-                        146
+                        154
                     ],
                     "fallbackLocales": [
-                        146,
+                        154,
                         "[SiteLocale!]"
                     ],
                     "skip": [
-                        83
+                        91
                     ],
                     "first": [
-                        83
+                        91
                     ],
                     "filter": [
-                        129
+                        137
                     ],
                     "orderBy": [
-                        130,
+                        138,
                         "[ResourceModelOrderBy]"
                     ]
                 }
             ],
             "allRoutePaths": [
-                142,
+                150,
                 {
                     "locale": [
-                        146
+                        154
                     ],
                     "fallbackLocales": [
-                        146,
+                        154,
                         "[SiteLocale!]"
                     ],
                     "skip": [
-                        83
+                        91
                     ],
                     "first": [
-                        83
+                        91
                     ],
                     "filter": [
-                        140
+                        148
                     ],
                     "orderBy": [
-                        141,
+                        149,
                         "[RoutePathModelOrderBy]"
                     ]
                 }
             ],
             "allTestimonials": [
-                162,
-                {
-                    "locale": [
-                        146
-                    ],
-                    "fallbackLocales": [
-                        146,
-                        "[SiteLocale!]"
-                    ],
-                    "skip": [
-                        83
-                    ],
-                    "first": [
-                        83
-                    ],
-                    "filter": [
-                        159
-                    ],
-                    "orderBy": [
-                        160,
-                        "[TestimonialModelOrderBy]"
-                    ]
-                }
-            ],
-            "allTutors": [
                 170,
                 {
                     "locale": [
-                        146
+                        154
                     ],
                     "fallbackLocales": [
-                        146,
+                        154,
                         "[SiteLocale!]"
                     ],
                     "skip": [
-                        83
+                        91
                     ],
                     "first": [
-                        83
+                        91
                     ],
                     "filter": [
                         167
                     ],
                     "orderBy": [
                         168,
+                        "[TestimonialModelOrderBy]"
+                    ]
+                }
+            ],
+            "allTutors": [
+                178,
+                {
+                    "locale": [
+                        154
+                    ],
+                    "fallbackLocales": [
+                        154,
+                        "[SiteLocale!]"
+                    ],
+                    "skip": [
+                        91
+                    ],
+                    "first": [
+                        91
+                    ],
+                    "filter": [
+                        175
+                    ],
+                    "orderBy": [
+                        176,
                         "[TutorModelOrderBy]"
                     ]
                 }
             ],
             "allUploads": [
-                39,
+                47,
                 {
                     "locale": [
-                        146
+                        154
                     ],
                     "fallbackLocales": [
-                        146,
+                        154,
                         "[SiteLocale!]"
                     ],
                     "skip": [
-                        83
+                        91
                     ],
                     "first": [
-                        83
+                        91
                     ],
                     "filter": [
-                        181
+                        189
                     ],
                     "orderBy": [
-                        189,
+                        197,
                         "[UploadOrderBy]"
                     ]
                 }
@@ -4478,10 +4865,10 @@ export default {
                 4,
                 {
                     "locale": [
-                        146
+                        154
                     ],
                     "fallbackLocales": [
-                        146,
+                        154,
                         "[SiteLocale!]"
                     ],
                     "filter": [
@@ -4497,10 +4884,10 @@ export default {
                 13,
                 {
                     "locale": [
-                        146
+                        154
                     ],
                     "fallbackLocales": [
-                        146,
+                        154,
                         "[SiteLocale!]"
                     ],
                     "filter": [
@@ -4516,10 +4903,10 @@ export default {
                 17,
                 {
                     "locale": [
-                        146
+                        154
                     ],
                     "fallbackLocales": [
-                        146,
+                        154,
                         "[SiteLocale!]"
                     ],
                     "filter": [
@@ -4531,261 +4918,280 @@ export default {
                     ]
                 }
             ],
-            "country": [
-                24,
+            "competitor": [
+                25,
                 {
                     "locale": [
-                        146
+                        154
                     ],
                     "fallbackLocales": [
-                        146,
+                        154,
                         "[SiteLocale!]"
                     ],
                     "filter": [
-                        22
+                        23
                     ],
                     "orderBy": [
-                        23,
+                        24,
+                        "[CompetitorModelOrderBy]"
+                    ]
+                }
+            ],
+            "competitorsComparison": [
+                28,
+                {
+                    "locale": [
+                        154
+                    ],
+                    "fallbackLocales": [
+                        154,
+                        "[SiteLocale!]"
+                    ],
+                    "filter": [
+                        26
+                    ],
+                    "orderBy": [
+                        27,
+                        "[CompetitorsComparisonModelOrderBy]"
+                    ]
+                }
+            ],
+            "country": [
+                32,
+                {
+                    "locale": [
+                        154
+                    ],
+                    "fallbackLocales": [
+                        154,
+                        "[SiteLocale!]"
+                    ],
+                    "filter": [
+                        30
+                    ],
+                    "orderBy": [
+                        31,
                         "[CountryModelOrderBy]"
                     ]
                 }
             ],
             "course": [
-                27,
+                35,
                 {
                     "locale": [
-                        146
+                        154
                     ],
                     "fallbackLocales": [
-                        146,
+                        154,
                         "[SiteLocale!]"
                     ],
                     "filter": [
-                        25
+                        33
                     ],
                     "orderBy": [
-                        26,
+                        34,
                         "[CourseModelOrderBy]"
                     ]
                 }
             ],
             "faqItem": [
-                36,
+                44,
                 {
                     "locale": [
-                        146
+                        154
                     ],
                     "fallbackLocales": [
-                        146,
+                        154,
                         "[SiteLocale!]"
                     ],
                     "filter": [
-                        34
+                        42
                     ],
                     "orderBy": [
-                        35,
+                        43,
                         "[FaqItemModelOrderBy]"
                     ]
                 }
             ],
             "instructor": [
-                81,
+                89,
                 {
                     "locale": [
-                        146
+                        154
                     ],
                     "fallbackLocales": [
-                        146,
+                        154,
                         "[SiteLocale!]"
                     ],
                     "filter": [
-                        79
+                        87
                     ],
                     "orderBy": [
-                        80,
+                        88,
                         "[InstructorModelOrderBy]"
                     ]
                 }
             ],
             "job": [
-                94,
+                102,
                 {
                     "locale": [
-                        146
+                        154
                     ],
                     "fallbackLocales": [
-                        146,
+                        154,
                         "[SiteLocale!]"
                     ],
                     "filter": [
-                        92
+                        100
                     ],
                     "orderBy": [
-                        93,
+                        101,
                         "[JobModelOrderBy]"
                     ]
                 }
             ],
             "menu": [
-                105,
+                113,
                 {
                     "locale": [
-                        146
+                        154
                     ],
                     "fallbackLocales": [
-                        146,
+                        154,
                         "[SiteLocale!]"
                     ],
                     "filter": [
-                        103
+                        111
                     ],
                     "orderBy": [
-                        104,
+                        112,
                         "[MenuModelOrderBy]"
                     ]
                 }
             ],
             "modularPage": [
-                110,
+                118,
                 {
                     "locale": [
-                        146
+                        154
                     ],
                     "fallbackLocales": [
-                        146,
+                        154,
                         "[SiteLocale!]"
                     ],
                     "filter": [
-                        107
+                        115
                     ],
                     "orderBy": [
-                        109,
+                        117,
                         "[ModularPageModelOrderBy]"
                     ]
                 }
             ],
             "post": [
-                121,
+                129,
                 {
                     "locale": [
-                        146
+                        154
                     ],
                     "fallbackLocales": [
-                        146,
+                        154,
                         "[SiteLocale!]"
                     ],
                     "filter": [
-                        119
+                        127
                     ],
                     "orderBy": [
-                        120,
+                        128,
                         "[PostModelOrderBy]"
                     ]
                 }
             ],
             "postCta": [
-                118,
+                126,
                 {
                     "locale": [
-                        146
+                        154
                     ],
                     "fallbackLocales": [
-                        146,
+                        154,
                         "[SiteLocale!]"
                     ],
                     "filter": [
-                        116
+                        124
                     ],
                     "orderBy": [
-                        117,
+                        125,
                         "[PostCtaModelOrderBy]"
                     ]
                 }
             ],
             "resource": [
-                132,
+                140,
                 {
                     "locale": [
-                        146
+                        154
                     ],
                     "fallbackLocales": [
-                        146,
+                        154,
                         "[SiteLocale!]"
                     ],
                     "filter": [
-                        129
+                        137
                     ],
                     "orderBy": [
-                        130,
+                        138,
                         "[ResourceModelOrderBy]"
                     ]
                 }
             ],
             "resourceTopic": [
-                135,
+                143,
                 {
                     "locale": [
-                        146
+                        154
                     ],
                     "fallbackLocales": [
-                        146,
+                        154,
                         "[SiteLocale!]"
                     ],
                     "filter": [
-                        133
+                        141
                     ],
                     "orderBy": [
-                        134,
+                        142,
                         "[ResourceTopicModelOrderBy]"
                     ]
                 }
             ],
             "routePath": [
-                142,
+                150,
                 {
                     "locale": [
-                        146
+                        154
                     ],
                     "fallbackLocales": [
-                        146,
+                        154,
                         "[SiteLocale!]"
                     ],
                     "filter": [
-                        140
+                        148
                     ],
                     "orderBy": [
-                        141,
+                        149,
                         "[RoutePathModelOrderBy]"
                     ]
                 }
             ],
             "testimonial": [
-                162,
-                {
-                    "locale": [
-                        146
-                    ],
-                    "fallbackLocales": [
-                        146,
-                        "[SiteLocale!]"
-                    ],
-                    "filter": [
-                        159
-                    ],
-                    "orderBy": [
-                        160,
-                        "[TestimonialModelOrderBy]"
-                    ]
-                }
-            ],
-            "tutor": [
                 170,
                 {
                     "locale": [
-                        146
+                        154
                     ],
                     "fallbackLocales": [
-                        146,
+                        154,
                         "[SiteLocale!]"
                     ],
                     "filter": [
@@ -4793,74 +5199,93 @@ export default {
                     ],
                     "orderBy": [
                         168,
+                        "[TestimonialModelOrderBy]"
+                    ]
+                }
+            ],
+            "tutor": [
+                178,
+                {
+                    "locale": [
+                        154
+                    ],
+                    "fallbackLocales": [
+                        154,
+                        "[SiteLocale!]"
+                    ],
+                    "filter": [
+                        175
+                    ],
+                    "orderBy": [
+                        176,
                         "[TutorModelOrderBy]"
                     ]
                 }
             ],
             "upload": [
-                39,
+                47,
                 {
                     "locale": [
-                        146
+                        154
                     ],
                     "fallbackLocales": [
-                        146,
+                        154,
                         "[SiteLocale!]"
                     ],
                     "filter": [
-                        181
+                        189
                     ],
                     "orderBy": [
-                        189,
+                        197,
                         "[UploadOrderBy]"
                     ]
                 }
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "RecordInterface": {
             "_createdAt": [
-                31
+                39
             ],
             "_editingUrl": [
-                149
+                157
             ],
             "_firstPublishedAt": [
-                31
+                39
             ],
             "_isValid": [
                 7
             ],
             "_modelApiKey": [
-                149
+                157
             ],
             "_publicationScheduledAt": [
-                31
+                39
             ],
             "_publishedAt": [
-                31
+                39
             ],
             "_seoMetaTags": [
-                153,
+                161,
                 {
                     "locale": [
-                        146
+                        154
                     ]
                 }
             ],
             "_status": [
-                91
+                99
             ],
             "_unpublishingScheduledAt": [
-                31
+                39
             ],
             "_updatedAt": [
-                31
+                39
             ],
             "id": [
-                89
+                97
             ],
             "on_ActionBlockRecord": [
                 0
@@ -4883,500 +5308,512 @@ export default {
             "on_CityRecord": [
                 17
             ],
-            "on_ConvertboxBlockRecord": [
+            "on_ComparisonBlockRecord": [
                 21
             ],
-            "on_CountryRecord": [
-                24
+            "on_ComparisonSectionRecord": [
+                22
             ],
-            "on_CourseRecord": [
-                27
+            "on_CompetitorRecord": [
+                25
             ],
-            "on_CoursesBlockRecord": [
+            "on_CompetitorsComparisonRecord": [
                 28
             ],
-            "on_FaqBlockNewRecord": [
+            "on_ConvertboxBlockRecord": [
+                29
+            ],
+            "on_CountryRecord": [
                 32
             ],
-            "on_FaqBlockRecord": [
-                33
+            "on_CourseRecord": [
+                35
             ],
-            "on_FaqItemRecord": [
+            "on_CoursesBlockRecord": [
                 36
             ],
+            "on_FaqBlockNewRecord": [
+                40
+            ],
+            "on_FaqBlockRecord": [
+                41
+            ],
+            "on_FaqItemRecord": [
+                44
+            ],
             "on_FaqSectionRecord": [
-                37
+                45
             ],
             "on_HeadingBlockNewRecord": [
-                48
+                56
             ],
             "on_HeadingBlockRecord": [
-                49
+                57
             ],
             "on_HeroImageBlockRecord": [
-                50
+                58
             ],
             "on_HeroSectionRecord": [
-                51
+                59
             ],
             "on_ImageBlockRecord": [
-                52
+                60
             ],
             "on_InstructorRecord": [
-                81
+                89
             ],
             "on_JobRecord": [
-                94
-            ],
-            "on_MenuItemBlockRecord": [
-                101
-            ],
-            "on_MenuListBlockRecord": [
                 102
             ],
-            "on_MenuRecord": [
-                105
+            "on_MenuItemBlockRecord": [
+                109
             ],
-            "on_ModularPageRecord": [
+            "on_MenuListBlockRecord": [
                 110
             ],
-            "on_NoteBlockRecord": [
-                112
+            "on_MenuRecord": [
+                113
             ],
-            "on_PlainTextBlockRecord": [
-                114
-            ],
-            "on_PostCtaRecord": [
+            "on_ModularPageRecord": [
                 118
             ],
+            "on_NoteBlockRecord": [
+                120
+            ],
+            "on_PlainTextBlockRecord": [
+                122
+            ],
+            "on_PostCtaRecord": [
+                126
+            ],
             "on_PostRecord": [
-                121
+                129
             ],
             "on_ReferenceSectionRecord": [
-                125
+                133
             ],
             "on_ResourceRecord": [
-                132
+                140
             ],
             "on_ResourceTopicRecord": [
-                135
-            ],
-            "on_RichTextBlockRecord": [
-                139
-            ],
-            "on_RoutePathRecord": [
-                142
-            ],
-            "on_SeoBlockRecord": [
                 143
             ],
+            "on_RichTextBlockRecord": [
+                147
+            ],
+            "on_RoutePathRecord": [
+                150
+            ],
+            "on_SeoBlockRecord": [
+                151
+            ],
             "on_TestimonialBlockCtaRecord": [
-                155
-            ],
-            "on_TestimonialBlockDefaultRecord": [
-                157
-            ],
-            "on_TestimonialBlockRecord": [
-                158
-            ],
-            "on_TestimonialRecord": [
-                162
-            ],
-            "on_TestimonialsListBlockRecord": [
                 163
             ],
-            "on_TestimonialsSectionRecord": [
-                164
+            "on_TestimonialBlockDefaultRecord": [
+                165
             ],
-            "on_TutorRecord": [
+            "on_TestimonialBlockRecord": [
+                166
+            ],
+            "on_TestimonialRecord": [
                 170
             ],
-            "on_TutorsBlockRecord": [
+            "on_TestimonialsListBlockRecord": [
                 171
             ],
+            "on_TestimonialsSectionRecord": [
+                172
+            ],
+            "on_TutorRecord": [
+                178
+            ],
+            "on_TutorsBlockRecord": [
+                179
+            ],
             "__typename": [
-                149
+                157
             ]
         },
         "ReferenceSectionRecord": {
             "_createdAt": [
-                31
+                39
             ],
             "_editingUrl": [
-                149
+                157
             ],
             "_firstPublishedAt": [
-                31
+                39
             ],
             "_isValid": [
                 7
             ],
             "_modelApiKey": [
-                149
+                157
             ],
             "_publicationScheduledAt": [
-                31
+                39
             ],
             "_publishedAt": [
-                31
+                39
             ],
             "_seoMetaTags": [
-                153,
+                161,
                 {
                     "locale": [
-                        146
+                        154
                     ]
                 }
             ],
             "_status": [
-                91
+                99
             ],
             "_unpublishingScheduledAt": [
-                31
+                39
             ],
             "_updatedAt": [
-                31
+                39
             ],
             "id": [
-                89
+                97
             ],
             "section": [
-                149
+                157
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "ResolutionFilter": {
             "eq": [
-                127
+                135
             ],
             "neq": [
-                127
+                135
             ],
             "in": [
-                127
+                135
             ],
             "notIn": [
-                127
+                135
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "ResolutionType": {},
         "ResourceModelDescriptionContentField": {
             "blocks": [
-                149
+                157
             ],
             "links": [
-                149
+                157
             ],
             "value": [
-                95
+                103
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "ResourceModelFilter": {
             "_createdAt": [
-                29
+                37
             ],
             "id": [
-                90
+                98
             ],
             "_firstPublishedAt": [
-                122
+                130
             ],
             "_publicationScheduledAt": [
-                122
+                130
             ],
             "_unpublishingScheduledAt": [
-                122
+                130
             ],
             "_publishedAt": [
-                122
+                130
             ],
             "_status": [
-                148
+                156
             ],
             "_updatedAt": [
-                173
+                181
             ],
             "_isValid": [
                 6
             ],
             "contentHeading": [
-                150
+                158
             ],
             "contentMedias": [
-                45
+                53
             ],
             "descriptionContent": [
-                152
+                160
             ],
             "descriptionHeading": [
-                150
+                158
             ],
             "faq": [
-                97
+                105
             ],
             "featuredImage": [
-                41
+                49
             ],
             "slug": [
-                147
+                155
             ],
             "summary": [
-                152
+                160
             ],
             "title": [
-                150
+                158
             ],
             "topics": [
-                100
+                108
             ],
             "OR": [
-                129
+                137
             ],
             "AND": [
-                129
+                137
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "ResourceModelOrderBy": {},
         "ResourceModelSummaryField": {
             "blocks": [
-                149
+                157
             ],
             "links": [
-                149
+                157
             ],
             "value": [
-                95
+                103
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "ResourceRecord": {
             "_createdAt": [
-                31
+                39
             ],
             "_editingUrl": [
-                149
+                157
             ],
             "_firstPublishedAt": [
-                31
+                39
             ],
             "_isValid": [
                 7
             ],
             "_modelApiKey": [
-                149
+                157
             ],
             "_publicationScheduledAt": [
-                31
+                39
             ],
             "_publishedAt": [
-                31
+                39
             ],
             "_seoMetaTags": [
-                153,
+                161,
                 {
                     "locale": [
-                        146
+                        154
                     ]
                 }
             ],
             "_status": [
-                91
+                99
             ],
             "_unpublishingScheduledAt": [
-                31
-            ],
-            "_updatedAt": [
-                31
-            ],
-            "contentHeading": [
-                149
-            ],
-            "contentItems": [
-                114
-            ],
-            "contentMedias": [
                 39
             ],
+            "_updatedAt": [
+                39
+            ],
+            "contentHeading": [
+                157
+            ],
+            "contentItems": [
+                122
+            ],
+            "contentMedias": [
+                47
+            ],
             "cta": [
-                21
+                29
             ],
             "descriptionContent": [
-                128
+                136
             ],
             "descriptionHeading": [
-                149
+                157
             ],
             "faq": [
-                36
+                44
             ],
             "featuredImage": [
                 1
             ],
             "id": [
-                89
+                97
             ],
             "slug": [
-                149
+                157
             ],
             "summary": [
-                131
+                139
             ],
             "title": [
-                149
+                157
             ],
             "topics": [
-                135
+                143
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "ResourceTopicModelFilter": {
             "_createdAt": [
-                29
+                37
             ],
             "id": [
-                90
+                98
             ],
             "_firstPublishedAt": [
-                122
+                130
             ],
             "_publicationScheduledAt": [
-                122
+                130
             ],
             "_unpublishingScheduledAt": [
-                122
+                130
             ],
             "_publishedAt": [
-                122
+                130
             ],
             "_status": [
-                148
+                156
             ],
             "_updatedAt": [
-                173
+                181
             ],
             "_isValid": [
                 6
             ],
             "name": [
-                150
+                158
             ],
             "slug": [
-                147
+                155
             ],
             "OR": [
-                133
+                141
             ],
             "AND": [
-                133
+                141
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "ResourceTopicModelOrderBy": {},
         "ResourceTopicRecord": {
             "_createdAt": [
-                31
+                39
             ],
             "_editingUrl": [
-                149
+                157
             ],
             "_firstPublishedAt": [
-                31
+                39
             ],
             "_isValid": [
                 7
             ],
             "_modelApiKey": [
-                149
+                157
             ],
             "_publicationScheduledAt": [
-                31
+                39
             ],
             "_publishedAt": [
-                31
+                39
             ],
             "_seoMetaTags": [
-                153,
+                161,
                 {
                     "locale": [
-                        146
+                        154
                     ]
                 }
             ],
             "_status": [
-                91
+                99
             ],
             "_unpublishingScheduledAt": [
-                31
+                39
             ],
             "_updatedAt": [
-                31
+                39
             ],
             "id": [
-                89
+                97
             ],
             "name": [
-                149
+                157
             ],
             "slug": [
-                149
+                157
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "ResponsiveImage": {
             "alt": [
-                149
+                157
             ],
             "aspectRatio": [
-                44
+                52
             ],
             "base64": [
-                149
+                157
             ],
             "bgColor": [
-                149
+                157
             ],
             "height": [
-                83
+                91
             ],
             "sizes": [
-                149
+                157
             ],
             "src": [
-                149
+                157
             ],
             "srcSet": [
-                149
+                157
             ],
             "title": [
-                149
+                157
             ],
             "webpSrcSet": [
-                149
+                157
             ],
             "width": [
-                83
+                91
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "RichTextBlockModelRichTextBlocksField": {
@@ -5384,333 +5821,333 @@ export default {
                 9
             ],
             "on_CoursesBlockRecord": [
-                28
+                36
             ],
             "on_ImageBlockRecord": [
-                52
+                60
             ],
             "on_NoteBlockRecord": [
-                112
+                120
             ],
             "on_TestimonialsListBlockRecord": [
-                163
-            ],
-            "on_TutorsBlockRecord": [
                 171
             ],
+            "on_TutorsBlockRecord": [
+                179
+            ],
             "on_RecordInterface": [
-                124
+                132
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "RichTextBlockModelRichTextField": {
             "blocks": [
-                137
+                145
             ],
             "links": [
-                149
+                157
             ],
             "value": [
-                95
+                103
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "RichTextBlockRecord": {
             "_createdAt": [
-                31
+                39
             ],
             "_editingUrl": [
-                149
+                157
             ],
             "_firstPublishedAt": [
-                31
+                39
             ],
             "_isValid": [
                 7
             ],
             "_modelApiKey": [
-                149
+                157
             ],
             "_publicationScheduledAt": [
-                31
+                39
             ],
             "_publishedAt": [
-                31
+                39
             ],
             "_seoMetaTags": [
-                153,
+                161,
                 {
                     "locale": [
-                        146
+                        154
                     ]
                 }
             ],
             "_status": [
-                91
+                99
             ],
             "_unpublishingScheduledAt": [
-                31
+                39
             ],
             "_updatedAt": [
-                31
+                39
             ],
             "id": [
-                89
+                97
             ],
             "richText": [
-                138
+                146
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "RoutePathModelFilter": {
             "_createdAt": [
-                29
+                37
             ],
             "id": [
-                90
+                98
             ],
             "_firstPublishedAt": [
-                122
+                130
             ],
             "_publicationScheduledAt": [
-                122
+                130
             ],
             "_unpublishingScheduledAt": [
-                122
+                130
             ],
             "_publishedAt": [
-                122
+                130
             ],
             "_status": [
-                148
+                156
             ],
             "_updatedAt": [
-                173
+                181
             ],
             "_isValid": [
                 6
             ],
             "name": [
-                150
+                158
             ],
             "slug": [
-                147
+                155
             ],
             "OR": [
-                140
+                148
             ],
             "AND": [
-                140
+                148
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "RoutePathModelOrderBy": {},
         "RoutePathRecord": {
             "_createdAt": [
-                31
+                39
             ],
             "_editingUrl": [
-                149
+                157
             ],
             "_firstPublishedAt": [
-                31
+                39
             ],
             "_isValid": [
                 7
             ],
             "_modelApiKey": [
-                149
+                157
             ],
             "_publicationScheduledAt": [
-                31
+                39
             ],
             "_publishedAt": [
-                31
+                39
             ],
             "_seoMetaTags": [
-                153,
+                161,
                 {
                     "locale": [
-                        146
+                        154
                     ]
                 }
             ],
             "_status": [
-                91
+                99
             ],
             "_unpublishingScheduledAt": [
-                31
+                39
             ],
             "_updatedAt": [
-                31
+                39
             ],
             "id": [
-                89
+                97
             ],
             "name": [
-                149
+                157
             ],
             "slug": [
-                149
+                157
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "SeoBlockRecord": {
             "_createdAt": [
-                31
+                39
             ],
             "_editingUrl": [
-                149
+                157
             ],
             "_firstPublishedAt": [
-                31
+                39
             ],
             "_isValid": [
                 7
             ],
             "_modelApiKey": [
-                149
+                157
             ],
             "_publicationScheduledAt": [
-                31
+                39
             ],
             "_publishedAt": [
-                31
+                39
             ],
             "_seoMetaTags": [
-                153,
+                161,
                 {
                     "locale": [
-                        146
+                        154
                     ]
                 }
             ],
             "_status": [
-                91
+                99
             ],
             "_unpublishingScheduledAt": [
-                31
+                39
             ],
             "_updatedAt": [
-                31
+                39
             ],
             "id": [
-                89
+                97
             ],
             "seoBlock": [
-                144
+                152
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "SeoField": {
             "description": [
-                149
+                157
             ],
             "image": [
-                39
+                47
             ],
             "noIndex": [
                 7
             ],
             "title": [
-                149
+                157
             ],
             "twitterCard": [
-                149
+                157
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "Site": {
             "favicon": [
-                39
+                47
             ],
             "faviconMetaTags": [
-                153,
+                161,
                 {
                     "variants": [
-                        38,
+                        46,
                         "[FaviconType]"
                     ]
                 }
             ],
             "globalSeo": [
-                46,
+                54,
                 {
                     "locale": [
-                        146
+                        154
                     ],
                     "fallbackLocales": [
-                        146,
+                        154,
                         "[SiteLocale!]"
                     ]
                 }
             ],
             "locales": [
-                146
+                154
             ],
             "noIndex": [
                 7
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "SiteLocale": {},
         "SlugFilter": {
             "eq": [
-                149
+                157
             ],
             "neq": [
-                149
+                157
             ],
             "in": [
-                149
+                157
             ],
             "notIn": [
-                149
+                157
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "StatusFilter": {
             "eq": [
-                91
+                99
             ],
             "neq": [
-                91
+                99
             ],
             "in": [
-                91
+                99
             ],
             "notIn": [
-                91
+                99
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "String": {},
         "StringFilter": {
             "matches": [
-                151
+                159
             ],
             "notMatches": [
-                151
+                159
             ],
             "isBlank": [
                 7
@@ -5719,27 +6156,27 @@ export default {
                 7
             ],
             "eq": [
-                149
+                157
             ],
             "neq": [
-                149
+                157
             ],
             "in": [
-                149
+                157
             ],
             "notIn": [
-                149
+                157
             ],
             "exists": [
                 7
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "StringMatchesFilter": {
             "pattern": [
-                149
+                157
             ],
             "caseSensitive": [
                 7
@@ -5748,15 +6185,15 @@ export default {
                 7
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "StructuredTextFilter": {
             "matches": [
-                151
+                159
             ],
             "notMatches": [
-                151
+                159
             ],
             "isBlank": [
                 7
@@ -5768,642 +6205,642 @@ export default {
                 7
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "Tag": {
             "attributes": [
-                106
+                114
             ],
             "content": [
-                149
+                157
             ],
             "tag": [
-                149
+                157
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "TestimonialBlockCtaModelHighlightField": {
             "blocks": [
-                149
+                157
             ],
             "links": [
-                149
+                157
             ],
             "value": [
-                95
+                103
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "TestimonialBlockCtaRecord": {
             "_createdAt": [
-                31
+                39
             ],
             "_editingUrl": [
-                149
+                157
             ],
             "_firstPublishedAt": [
-                31
+                39
             ],
             "_isValid": [
                 7
             ],
             "_modelApiKey": [
-                149
+                157
             ],
             "_publicationScheduledAt": [
-                31
+                39
             ],
             "_publishedAt": [
-                31
+                39
             ],
             "_seoMetaTags": [
-                153,
+                161,
                 {
                     "locale": [
-                        146
+                        154
                     ]
                 }
             ],
             "_status": [
-                91
+                99
             ],
             "_unpublishingScheduledAt": [
-                31
+                39
             ],
             "_updatedAt": [
-                31
+                39
             ],
             "author": [
-                149
+                157
             ],
             "company": [
-                149
+                157
             ],
             "content": [
-                48
+                56
             ],
             "cta": [
                 0
             ],
             "highlight": [
-                154
+                162
             ],
             "id": [
-                89
+                97
             ],
             "picture": [
                 1
             ],
             "role": [
-                149
+                157
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "TestimonialBlockDefaultModelContentField": {
             "blocks": [
-                149
+                157
             ],
             "links": [
-                149
+                157
             ],
             "value": [
-                95
+                103
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "TestimonialBlockDefaultRecord": {
             "_createdAt": [
-                31
+                39
             ],
             "_editingUrl": [
-                149
+                157
             ],
             "_firstPublishedAt": [
-                31
+                39
             ],
             "_isValid": [
                 7
             ],
             "_modelApiKey": [
-                149
+                157
             ],
             "_publicationScheduledAt": [
-                31
+                39
             ],
             "_publishedAt": [
-                31
+                39
             ],
             "_seoMetaTags": [
-                153,
+                161,
                 {
                     "locale": [
-                        146
+                        154
                     ]
                 }
             ],
             "_status": [
-                91
+                99
             ],
             "_unpublishingScheduledAt": [
-                31
+                39
             ],
             "_updatedAt": [
-                31
+                39
             ],
             "author": [
-                149
+                157
             ],
             "company": [
-                149
+                157
             ],
             "content": [
-                156
+                164
             ],
             "id": [
-                89
+                97
             ],
             "picture": [
                 1
             ],
             "rating": [
-                83
+                91
             ],
             "role": [
-                149
+                157
             ],
             "rotation": [
-                149
+                157
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "TestimonialBlockRecord": {
             "_createdAt": [
-                31
+                39
             ],
             "_editingUrl": [
-                149
+                157
             ],
             "_firstPublishedAt": [
-                31
+                39
             ],
             "_isValid": [
                 7
             ],
             "_modelApiKey": [
-                149
+                157
             ],
             "_publicationScheduledAt": [
-                31
+                39
             ],
             "_publishedAt": [
-                31
+                39
             ],
             "_seoMetaTags": [
-                153,
+                161,
                 {
                     "locale": [
-                        146
+                        154
                     ]
                 }
             ],
             "_status": [
-                91
+                99
             ],
             "_unpublishingScheduledAt": [
-                31
+                39
             ],
             "_updatedAt": [
-                31
+                39
             ],
             "author": [
-                149
+                157
             ],
             "company": [
-                149
+                157
             ],
             "content": [
-                139
+                147
             ],
             "id": [
-                89
+                97
             ],
             "image": [
                 1
             ],
             "role": [
-                149
+                157
             ],
             "title": [
-                149
+                157
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "TestimonialModelFilter": {
             "_createdAt": [
-                29
+                37
             ],
             "id": [
-                90
+                98
             ],
             "_firstPublishedAt": [
-                122
+                130
             ],
             "_publicationScheduledAt": [
-                122
+                130
             ],
             "_unpublishingScheduledAt": [
-                122
+                130
             ],
             "_publishedAt": [
-                122
+                130
             ],
             "_status": [
-                148
+                156
             ],
             "_updatedAt": [
-                173
+                181
             ],
             "_isValid": [
                 6
             ],
             "slug": [
-                147
+                155
             ],
             "title": [
-                150
+                158
             ],
             "OR": [
-                159
+                167
             ],
             "AND": [
-                159
+                167
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "TestimonialModelOrderBy": {},
         "TestimonialModelTestimonialField": {
             "on_TestimonialBlockCtaRecord": [
-                155
+                163
             ],
             "on_TestimonialBlockDefaultRecord": [
-                157
+                165
             ],
             "on_RecordInterface": [
-                124
+                132
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "TestimonialRecord": {
             "_createdAt": [
-                31
+                39
             ],
             "_editingUrl": [
-                149
+                157
             ],
             "_firstPublishedAt": [
-                31
+                39
             ],
             "_isValid": [
                 7
             ],
             "_modelApiKey": [
-                149
+                157
             ],
             "_publicationScheduledAt": [
-                31
+                39
             ],
             "_publishedAt": [
-                31
+                39
             ],
             "_seoMetaTags": [
-                153,
+                161,
                 {
                     "locale": [
-                        146
+                        154
                     ]
                 }
             ],
             "_status": [
-                91
+                99
             ],
             "_unpublishingScheduledAt": [
-                31
+                39
             ],
             "_updatedAt": [
-                31
+                39
             ],
             "id": [
-                89
+                97
             ],
             "slug": [
-                149
+                157
             ],
             "testimonial": [
-                161
+                169
             ],
             "title": [
-                149
+                157
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "TestimonialsListBlockRecord": {
             "_createdAt": [
-                31
+                39
             ],
             "_editingUrl": [
-                149
+                157
             ],
             "_firstPublishedAt": [
-                31
+                39
             ],
             "_isValid": [
                 7
             ],
             "_modelApiKey": [
-                149
+                157
             ],
             "_publicationScheduledAt": [
-                31
+                39
             ],
             "_publishedAt": [
-                31
+                39
             ],
             "_seoMetaTags": [
-                153,
+                161,
                 {
                     "locale": [
-                        146
+                        154
                     ]
                 }
             ],
             "_status": [
-                91
+                99
             ],
             "_unpublishingScheduledAt": [
-                31
+                39
             ],
             "_updatedAt": [
-                31
+                39
             ],
             "id": [
-                89
+                97
             ],
             "testimonials": [
-                162
+                170
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "TestimonialsSectionRecord": {
             "_createdAt": [
-                31
+                39
             ],
             "_editingUrl": [
-                149
+                157
             ],
             "_firstPublishedAt": [
-                31
+                39
             ],
             "_isValid": [
                 7
             ],
             "_modelApiKey": [
-                149
+                157
             ],
             "_publicationScheduledAt": [
-                31
+                39
             ],
             "_publishedAt": [
-                31
+                39
             ],
             "_seoMetaTags": [
-                153,
+                161,
                 {
                     "locale": [
-                        146
+                        154
                     ]
                 }
             ],
             "_status": [
-                91
+                99
             ],
             "_unpublishingScheduledAt": [
-                31
+                39
             ],
             "_updatedAt": [
-                31
+                39
             ],
             "heading": [
-                48
+                56
             ],
             "id": [
-                89
+                97
             ],
             "testimonials": [
-                162
+                170
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "TutorModelAboutField": {
             "blocks": [
-                149
+                157
             ],
             "links": [
-                149
+                157
             ],
             "value": [
-                95
+                103
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "TutorModelFieldsReferencingCityModel": {},
         "TutorModelFilter": {
             "_createdAt": [
-                29
+                37
             ],
             "id": [
-                90
+                98
             ],
             "_firstPublishedAt": [
-                122
+                130
             ],
             "_publicationScheduledAt": [
-                122
+                130
             ],
             "_unpublishingScheduledAt": [
-                122
+                130
             ],
             "_publishedAt": [
-                122
+                130
             ],
             "_status": [
-                148
+                156
             ],
             "_updatedAt": [
-                173
+                181
             ],
             "_isValid": [
                 6
             ],
             "about": [
-                152
+                160
             ],
             "audiences": [
-                96
+                104
             ],
             "city": [
-                97
+                105
             ],
             "coverMedia": [
-                41
+                49
             ],
             "faq": [
-                97
+                105
             ],
             "faqTitle": [
-                150
+                158
             ],
             "levels": [
-                96
+                104
             ],
             "name": [
-                150
+                158
             ],
             "numberOfRatings": [
-                84
+                92
             ],
             "otherTutors": [
-                100
+                108
             ],
             "profilePicture": [
-                41
+                49
             ],
             "qualifiedCourses": [
-                100
+                108
             ],
             "qualifiedCoursesTitle": [
-                150
+                158
             ],
             "rate": [
-                84
+                92
             ],
             "rating": [
-                43
+                51
             ],
             "remoteStatus": [
-                96
+                104
             ],
             "reviews": [
-                100
+                108
             ],
             "reviewsTitle": [
-                150
+                158
             ],
             "slug": [
-                147
+                155
             ],
             "summary": [
-                150
+                158
             ],
             "verified": [
                 6
             ],
             "verifiedDescription": [
-                152
+                160
             ],
             "OR": [
-                167
+                175
             ],
             "AND": [
-                167
+                175
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "TutorModelOrderBy": {},
         "TutorModelVerifiedDescriptionField": {
             "blocks": [
-                149
+                157
             ],
             "links": [
-                149
+                157
             ],
             "value": [
-                95
+                103
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "TutorRecord": {
             "_createdAt": [
-                31
+                39
             ],
             "_editingUrl": [
-                149
+                157
             ],
             "_firstPublishedAt": [
-                31
+                39
             ],
             "_isValid": [
                 7
             ],
             "_modelApiKey": [
-                149
+                157
             ],
             "_publicationScheduledAt": [
-                31
+                39
             ],
             "_publishedAt": [
-                31
+                39
             ],
             "_seoMetaTags": [
-                153,
+                161,
                 {
                     "locale": [
-                        146
+                        154
                     ]
                 }
             ],
             "_status": [
-                91
+                99
             ],
             "_unpublishingScheduledAt": [
-                31
+                39
             ],
             "_updatedAt": [
-                31
+                39
             ],
             "about": [
-                165
+                173
             ],
             "audiences": [
-                95
+                103
             ],
             "city": [
                 17
@@ -6412,210 +6849,210 @@ export default {
                 1
             ],
             "faq": [
-                36
+                44
             ],
             "faqTitle": [
-                149
+                157
             ],
             "id": [
-                89
+                97
             ],
             "levels": [
-                95
+                103
             ],
             "name": [
-                149
+                157
             ],
             "numberOfRatings": [
-                83
+                91
             ],
             "otherTutors": [
-                170
+                178
             ],
             "profilePicture": [
                 1
             ],
             "qualifiedCourses": [
-                27
+                35
             ],
             "qualifiedCoursesTitle": [
-                149
+                157
             ],
             "rate": [
-                83
+                91
             ],
             "rating": [
-                44
+                52
             ],
             "remoteStatus": [
-                95
+                103
             ],
             "reviews": [
-                162
+                170
             ],
             "reviewsTitle": [
-                149
+                157
             ],
             "slug": [
-                149
+                157
             ],
             "summary": [
-                149
+                157
             ],
             "topics": [
-                114
+                122
             ],
             "verified": [
                 7
             ],
             "verifiedDescription": [
-                169
+                177
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "TutorsBlockRecord": {
             "_createdAt": [
-                31
+                39
             ],
             "_editingUrl": [
-                149
+                157
             ],
             "_firstPublishedAt": [
-                31
+                39
             ],
             "_isValid": [
                 7
             ],
             "_modelApiKey": [
-                149
+                157
             ],
             "_publicationScheduledAt": [
-                31
+                39
             ],
             "_publishedAt": [
-                31
+                39
             ],
             "_seoMetaTags": [
-                153,
+                161,
                 {
                     "locale": [
-                        146
+                        154
                     ]
                 }
             ],
             "_status": [
-                91
+                99
             ],
             "_unpublishingScheduledAt": [
-                31
+                39
             ],
             "_updatedAt": [
-                31
+                39
             ],
             "id": [
-                89
+                97
             ],
             "tutors": [
-                170
+                178
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "TypeFilter": {
             "eq": [
-                194
+                202
             ],
             "neq": [
-                194
+                202
             ],
             "in": [
-                194
+                202
             ],
             "notIn": [
-                194
+                202
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "UpdatedAtFilter": {
             "gt": [
-                31
+                39
             ],
             "lt": [
-                31
+                39
             ],
             "gte": [
-                31
+                39
             ],
             "lte": [
-                31
+                39
             ],
             "eq": [
-                31
+                39
             ],
             "neq": [
-                31
+                39
             ],
             "exists": [
                 7
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "UploadAltFilter": {
             "matches": [
-                151
+                159
             ],
             "notMatches": [
-                151
+                159
             ],
             "eq": [
-                149
+                157
             ],
             "neq": [
-                149
+                157
             ],
             "in": [
-                149
+                157
             ],
             "notIn": [
-                149
+                157
             ],
             "exists": [
                 7
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "UploadAuthorFilter": {
             "matches": [
-                151
+                159
             ],
             "notMatches": [
-                151
+                159
             ],
             "exists": [
                 7
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "UploadBasenameFilter": {
             "matches": [
-                151
+                159
             ],
             "notMatches": [
-                151
+                159
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "UploadColorsFilter": {
@@ -6635,637 +7072,637 @@ export default {
                 19
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "UploadCopyrightFilter": {
             "matches": [
-                151
+                159
             ],
             "notMatches": [
-                151
+                159
             ],
             "exists": [
                 7
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "UploadCreatedAtFilter": {
             "eq": [
-                31
+                39
             ],
             "neq": [
-                31
+                39
             ],
             "lt": [
-                31
+                39
             ],
             "lte": [
-                31
+                39
             ],
             "gt": [
-                31
+                39
             ],
             "gte": [
-                31
+                39
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "UploadFilenameFilter": {
             "matches": [
-                151
+                159
             ],
             "notMatches": [
-                151
+                159
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "UploadFilter": {
             "type": [
-                172
-            ],
-            "inUse": [
-                77
-            ],
-            "resolution": [
-                126
-            ],
-            "size": [
-                191
-            ],
-            "tags": [
-                192
-            ],
-            "smartTags": [
-                192
-            ],
-            "colors": [
-                177
-            ],
-            "orientation": [
-                113
-            ],
-            "id": [
-                185
-            ],
-            "mimeType": [
-                187
-            ],
-            "format": [
-                182
-            ],
-            "height": [
-                183
-            ],
-            "width": [
-                197
-            ],
-            "alt": [
-                174
-            ],
-            "title": [
-                193
-            ],
-            "notes": [
-                188
-            ],
-            "md5": [
-                186
-            ],
-            "author": [
-                175
-            ],
-            "copyright": [
-                178
-            ],
-            "basename": [
-                176
-            ],
-            "filename": [
                 180
             ],
-            "_createdAt": [
-                179
+            "inUse": [
+                85
             ],
-            "_updatedAt": [
+            "resolution": [
+                134
+            ],
+            "size": [
+                199
+            ],
+            "tags": [
+                200
+            ],
+            "smartTags": [
+                200
+            ],
+            "colors": [
+                185
+            ],
+            "orientation": [
+                121
+            ],
+            "id": [
+                193
+            ],
+            "mimeType": [
                 195
             ],
+            "format": [
+                190
+            ],
+            "height": [
+                191
+            ],
+            "width": [
+                205
+            ],
+            "alt": [
+                182
+            ],
+            "title": [
+                201
+            ],
+            "notes": [
+                196
+            ],
+            "md5": [
+                194
+            ],
+            "author": [
+                183
+            ],
+            "copyright": [
+                186
+            ],
+            "basename": [
+                184
+            ],
+            "filename": [
+                188
+            ],
+            "_createdAt": [
+                187
+            ],
+            "_updatedAt": [
+                203
+            ],
             "OR": [
-                181
+                189
             ],
             "AND": [
-                181
+                189
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "UploadFormatFilter": {
             "eq": [
-                149
+                157
             ],
             "neq": [
-                149
+                157
             ],
             "in": [
-                149
+                157
             ],
             "notIn": [
-                149
+                157
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "UploadHeightFilter": {
             "gt": [
-                83
+                91
             ],
             "lt": [
-                83
+                91
             ],
             "gte": [
-                83
+                91
             ],
             "lte": [
-                83
+                91
             ],
             "eq": [
-                83
+                91
             ],
             "neq": [
-                83
+                91
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "UploadId": {},
         "UploadIdFilter": {
             "eq": [
-                184
+                192
             ],
             "neq": [
-                184
+                192
             ],
             "in": [
-                184
+                192
             ],
             "notIn": [
-                184
+                192
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "UploadMd5Filter": {
             "eq": [
-                149
+                157
             ],
             "neq": [
-                149
+                157
             ],
             "in": [
-                149
+                157
             ],
             "notIn": [
-                149
+                157
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "UploadMimeTypeFilter": {
             "matches": [
-                151
+                159
             ],
             "notMatches": [
-                151
+                159
             ],
             "eq": [
-                149
+                157
             ],
             "neq": [
-                149
+                157
             ],
             "in": [
-                149
+                157
             ],
             "notIn": [
-                149
+                157
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "UploadNotesFilter": {
             "matches": [
-                151
+                159
             ],
             "notMatches": [
-                151
+                159
             ],
             "exists": [
                 7
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "UploadOrderBy": {},
         "UploadOrientation": {},
         "UploadSizeFilter": {
             "gt": [
-                83
+                91
             ],
             "lt": [
-                83
+                91
             ],
             "gte": [
-                83
+                91
             ],
             "lte": [
-                83
+                91
             ],
             "eq": [
-                83
+                91
             ],
             "neq": [
-                83
+                91
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "UploadTagsFilter": {
             "contains": [
-                149
+                157
             ],
             "allIn": [
-                149
+                157
             ],
             "anyIn": [
-                149
+                157
             ],
             "notIn": [
-                149
+                157
             ],
             "eq": [
-                149
+                157
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "UploadTitleFilter": {
             "matches": [
-                151
+                159
             ],
             "notMatches": [
-                151
+                159
             ],
             "eq": [
-                149
+                157
             ],
             "neq": [
-                149
+                157
             ],
             "in": [
-                149
+                157
             ],
             "notIn": [
-                149
+                157
             ],
             "exists": [
                 7
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "UploadType": {},
         "UploadUpdatedAtFilter": {
             "eq": [
-                31
+                39
             ],
             "neq": [
-                31
+                39
             ],
             "lt": [
-                31
+                39
             ],
             "lte": [
-                31
+                39
             ],
             "gt": [
-                31
+                39
             ],
             "gte": [
-                31
+                39
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "UploadVideoField": {
             "alt": [
-                149,
+                157,
                 {
                     "locale": [
-                        146
+                        154
                     ],
                     "fallbackLocales": [
-                        146,
+                        154,
                         "[SiteLocale!]"
                     ]
                 }
             ],
             "blurUpThumb": [
-                149,
+                157,
                 {
                     "punch": [
-                        42,
+                        50,
                         "Float!"
                     ],
                     "size": [
-                        82,
+                        90,
                         "Int!"
                     ],
                     "quality": [
-                        82,
+                        90,
                         "Int!"
                     ],
                     "imgixParams": [
-                        53
+                        61
                     ]
                 }
             ],
             "blurhash": [
-                149
+                157
             ],
             "duration": [
-                82
+                90
             ],
             "framerate": [
-                82
+                90
             ],
             "height": [
-                83
+                91
             ],
             "mp4Url": [
-                149,
+                157,
                 {
                     "res": [
-                        199
+                        207
                     ],
                     "exactRes": [
-                        199
+                        207
                     ]
                 }
             ],
             "muxAssetId": [
-                149
+                157
             ],
             "muxPlaybackId": [
-                149
+                157
             ],
             "streamingUrl": [
-                149
+                157
             ],
             "thumbhash": [
-                149
+                157
             ],
             "thumbnailUrl": [
-                149,
+                157,
                 {
                     "format": [
-                        111
+                        119
                     ]
                 }
             ],
             "title": [
-                149,
+                157,
                 {
                     "locale": [
-                        146
+                        154
                     ],
                     "fallbackLocales": [
-                        146,
+                        154,
                         "[SiteLocale!]"
                     ]
                 }
             ],
             "width": [
-                83
+                91
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "UploadWidthFilter": {
             "gt": [
-                83
+                91
             ],
             "lt": [
-                83
+                91
             ],
             "gte": [
-                83
+                91
             ],
             "lte": [
-                83
+                91
             ],
             "eq": [
-                83
+                91
             ],
             "neq": [
-                83
+                91
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "VideoFileField": {
             "_createdAt": [
-                31
+                39
             ],
             "_editingUrl": [
-                149
+                157
             ],
             "_updatedAt": [
-                31
+                39
             ],
             "alt": [
-                149,
+                157,
                 {
                     "locale": [
-                        146
+                        154
                     ],
                     "fallbackLocales": [
-                        146,
+                        154,
                         "[SiteLocale!]"
                     ]
                 }
             ],
             "author": [
-                149
+                157
             ],
             "basename": [
-                149
+                157
             ],
             "blurUpThumb": [
-                149,
+                157,
                 {
                     "punch": [
-                        42,
+                        50,
                         "Float!"
                     ],
                     "size": [
-                        82,
+                        90,
                         "Int!"
                     ],
                     "quality": [
-                        82,
+                        90,
                         "Int!"
                     ],
                     "imgixParams": [
-                        53
+                        61
                     ]
                 }
             ],
             "blurhash": [
-                149
+                157
             ],
             "colors": [
                 20
             ],
             "copyright": [
-                149
+                157
             ],
             "customData": [
-                30,
+                38,
                 {
                     "locale": [
-                        146
+                        154
                     ],
                     "fallbackLocales": [
-                        146,
+                        154,
                         "[SiteLocale!]"
                     ]
                 }
             ],
             "exifInfo": [
-                30
+                38
             ],
             "filename": [
-                149
+                157
             ],
             "focalPoint": [
-                200,
+                208,
                 {
                     "locale": [
-                        146
+                        154
                     ],
                     "fallbackLocales": [
-                        146,
+                        154,
                         "[SiteLocale!]"
                     ]
                 }
             ],
             "format": [
-                149
+                157
             ],
             "height": [
-                83
+                91
             ],
             "id": [
-                184
+                192
             ],
             "md5": [
-                149
+                157
             ],
             "mimeType": [
-                149
+                157
             ],
             "notes": [
-                149
+                157
             ],
             "responsiveImage": [
-                136,
+                144,
                 {
                     "imgixParams": [
-                        53
+                        61
                     ],
                     "sizes": [
-                        149
+                        157
                     ],
                     "locale": [
-                        146
+                        154
                     ],
                     "fallbackLocales": [
-                        146,
+                        154,
                         "[SiteLocale!]"
                     ]
                 }
             ],
             "size": [
-                83
+                91
             ],
             "smartTags": [
-                149
+                157
             ],
             "tags": [
-                149
+                157
             ],
             "thumbhash": [
-                149
+                157
             ],
             "title": [
-                149,
+                157,
                 {
                     "locale": [
-                        146
+                        154
                     ],
                     "fallbackLocales": [
-                        146,
+                        154,
                         "[SiteLocale!]"
                     ]
                 }
             ],
             "url": [
-                149,
+                157,
                 {
                     "imgixParams": [
-                        53
+                        61
                     ]
                 }
             ],
             "video": [
-                196
+                204
             ],
             "width": [
-                83
+                91
             ],
             "__typename": [
-                149
+                157
             ]
         },
         "VideoMp4Res": {},
         "focalPoint": {
             "x": [
-                44
+                52
             ],
             "y": [
-                44
+                52
             ],
             "__typename": [
-                149
+                157
             ]
         }
     }

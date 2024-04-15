@@ -242,6 +242,101 @@ export interface ColorField {
 }
 
 
+/** Block of type Comparison Block (comparison_block) */
+export interface ComparisonBlockRecord {
+    _createdAt: Scalars['DateTime']
+    /** Editing URL */
+    _editingUrl: (Scalars['String'] | null)
+    _firstPublishedAt: (Scalars['DateTime'] | null)
+    _isValid: Scalars['BooleanType']
+    _modelApiKey: Scalars['String']
+    _publicationScheduledAt: (Scalars['DateTime'] | null)
+    _publishedAt: (Scalars['DateTime'] | null)
+    /** Generates SEO and Social card meta tags to be used in your frontend */
+    _seoMetaTags: Tag[]
+    _status: ItemStatus
+    _unpublishingScheduledAt: (Scalars['DateTime'] | null)
+    _updatedAt: Scalars['DateTime']
+    companies: CompetitorRecord[]
+    feature: Scalars['String']
+    hasFeature: (Scalars['BooleanType'] | null)
+    id: Scalars['ItemId']
+    __typename: 'ComparisonBlockRecord'
+}
+
+
+/** Block of type Comparison Section (comparison_section) */
+export interface ComparisonSectionRecord {
+    _createdAt: Scalars['DateTime']
+    /** Editing URL */
+    _editingUrl: (Scalars['String'] | null)
+    _firstPublishedAt: (Scalars['DateTime'] | null)
+    _isValid: Scalars['BooleanType']
+    _modelApiKey: Scalars['String']
+    _publicationScheduledAt: (Scalars['DateTime'] | null)
+    _publishedAt: (Scalars['DateTime'] | null)
+    /** Generates SEO and Social card meta tags to be used in your frontend */
+    _seoMetaTags: Tag[]
+    _status: ItemStatus
+    _unpublishingScheduledAt: (Scalars['DateTime'] | null)
+    _updatedAt: Scalars['DateTime']
+    comparison: (CompetitorsComparisonRecord | null)
+    id: Scalars['ItemId']
+    __typename: 'ComparisonSectionRecord'
+}
+
+export type CompetitorModelOrderBy = '_createdAt_ASC' | '_createdAt_DESC' | 'id_ASC' | 'id_DESC' | '_firstPublishedAt_ASC' | '_firstPublishedAt_DESC' | '_publicationScheduledAt_ASC' | '_publicationScheduledAt_DESC' | '_unpublishingScheduledAt_ASC' | '_unpublishingScheduledAt_DESC' | '_publishedAt_ASC' | '_publishedAt_DESC' | '_status_ASC' | '_status_DESC' | '_updatedAt_ASC' | '_updatedAt_DESC' | '_isValid_ASC' | '_isValid_DESC' | 'name_ASC' | 'name_DESC' | 'paid_ASC' | 'paid_DESC'
+
+
+/** Record of type 🏭 Competitor (competitor) */
+export interface CompetitorRecord {
+    _createdAt: Scalars['DateTime']
+    /** Editing URL */
+    _editingUrl: (Scalars['String'] | null)
+    _firstPublishedAt: (Scalars['DateTime'] | null)
+    _isValid: Scalars['BooleanType']
+    _modelApiKey: Scalars['String']
+    _publicationScheduledAt: (Scalars['DateTime'] | null)
+    _publishedAt: (Scalars['DateTime'] | null)
+    /** Generates SEO and Social card meta tags to be used in your frontend */
+    _seoMetaTags: Tag[]
+    _status: ItemStatus
+    _unpublishingScheduledAt: (Scalars['DateTime'] | null)
+    _updatedAt: Scalars['DateTime']
+    id: Scalars['ItemId']
+    logo: AltFileField
+    name: Scalars['String']
+    paid: (Scalars['BooleanType'] | null)
+    __typename: 'CompetitorRecord'
+}
+
+export type CompetitorsComparisonModelOrderBy = '_createdAt_ASC' | '_createdAt_DESC' | 'id_ASC' | 'id_DESC' | '_firstPublishedAt_ASC' | '_firstPublishedAt_DESC' | '_publicationScheduledAt_ASC' | '_publicationScheduledAt_DESC' | '_unpublishingScheduledAt_ASC' | '_unpublishingScheduledAt_DESC' | '_publishedAt_ASC' | '_publishedAt_DESC' | '_status_ASC' | '_status_DESC' | '_updatedAt_ASC' | '_updatedAt_DESC' | '_isValid_ASC' | '_isValid_DESC' | 'title_ASC' | 'title_DESC'
+
+
+/** Record of type 🆚 Competitors Comparison (competitors_comparison) */
+export interface CompetitorsComparisonRecord {
+    _createdAt: Scalars['DateTime']
+    /** Editing URL */
+    _editingUrl: (Scalars['String'] | null)
+    _firstPublishedAt: (Scalars['DateTime'] | null)
+    _isValid: Scalars['BooleanType']
+    _modelApiKey: Scalars['String']
+    _publicationScheduledAt: (Scalars['DateTime'] | null)
+    _publishedAt: (Scalars['DateTime'] | null)
+    /** Generates SEO and Social card meta tags to be used in your frontend */
+    _seoMetaTags: Tag[]
+    _status: ItemStatus
+    _unpublishingScheduledAt: (Scalars['DateTime'] | null)
+    _updatedAt: Scalars['DateTime']
+    comparisons: ComparisonBlockRecord[]
+    heading: HeadingBlockNewRecord
+    id: Scalars['ItemId']
+    slug: Scalars['String']
+    title: Scalars['String']
+    __typename: 'CompetitorsComparisonRecord'
+}
+
+
 /** Block of type ConvertBox Block (convertbox_block) */
 export interface ConvertboxBlockRecord {
     _createdAt: Scalars['DateTime']
@@ -788,7 +883,7 @@ export interface MenuRecord {
     __typename: 'MenuRecord'
 }
 
-export type ModularPageModelModularContentField = (CardsSectionRecord | FaqSectionRecord | HeroSectionRecord | ReferenceSectionRecord | TestimonialsSectionRecord) & { __isUnion?: true }
+export type ModularPageModelModularContentField = (CardsSectionRecord | ComparisonSectionRecord | FaqSectionRecord | HeroSectionRecord | ReferenceSectionRecord | TestimonialsSectionRecord) & { __isUnion?: true }
 
 export type ModularPageModelOrderBy = '_createdAt_ASC' | '_createdAt_DESC' | 'id_ASC' | 'id_DESC' | '_firstPublishedAt_ASC' | '_firstPublishedAt_DESC' | '_publicationScheduledAt_ASC' | '_publicationScheduledAt_DESC' | '_unpublishingScheduledAt_ASC' | '_unpublishingScheduledAt_DESC' | '_publishedAt_ASC' | '_publishedAt_DESC' | '_status_ASC' | '_status_DESC' | '_updatedAt_ASC' | '_updatedAt_DESC' | '_isValid_ASC' | '_isValid_DESC' | 'title_ASC' | 'title_DESC'
 
@@ -938,6 +1033,10 @@ export interface Query {
     /** Returns meta information regarding a record collection */
     _allCitiesMeta: CollectionMetadata
     /** Returns meta information regarding a record collection */
+    _allCompetitorsComparisonsMeta: CollectionMetadata
+    /** Returns meta information regarding a record collection */
+    _allCompetitorsMeta: CollectionMetadata
+    /** Returns meta information regarding a record collection */
     _allCountriesMeta: CollectionMetadata
     /** Returns meta information regarding a record collection */
     _allCoursesMeta: CollectionMetadata
@@ -976,6 +1075,10 @@ export interface Query {
     /** Returns a collection of records */
     allCities: CityRecord[]
     /** Returns a collection of records */
+    allCompetitors: CompetitorRecord[]
+    /** Returns a collection of records */
+    allCompetitorsComparisons: CompetitorsComparisonRecord[]
+    /** Returns a collection of records */
     allCountries: CountryRecord[]
     /** Returns a collection of records */
     allCourses: CourseRecord[]
@@ -1012,6 +1115,10 @@ export interface Query {
     /** Returns a specific record */
     city: (CityRecord | null)
     /** Returns a specific record */
+    competitor: (CompetitorRecord | null)
+    /** Returns a specific record */
+    competitorsComparison: (CompetitorsComparisonRecord | null)
+    /** Returns a specific record */
     country: (CountryRecord | null)
     /** Returns a specific record */
     course: (CourseRecord | null)
@@ -1044,7 +1151,7 @@ export interface Query {
     __typename: 'Query'
 }
 
-export type RecordInterface = (ActionBlockRecord | AuthorRecord | CardBlockNewRecord | CardBlockRecord | CardsSectionRecord | CategoryRecord | CityRecord | ConvertboxBlockRecord | CountryRecord | CourseRecord | CoursesBlockRecord | FaqBlockNewRecord | FaqBlockRecord | FaqItemRecord | FaqSectionRecord | HeadingBlockNewRecord | HeadingBlockRecord | HeroImageBlockRecord | HeroSectionRecord | ImageBlockRecord | InstructorRecord | JobRecord | MenuItemBlockRecord | MenuListBlockRecord | MenuRecord | ModularPageRecord | NoteBlockRecord | PlainTextBlockRecord | PostCtaRecord | PostRecord | ReferenceSectionRecord | ResourceRecord | ResourceTopicRecord | RichTextBlockRecord | RoutePathRecord | SeoBlockRecord | TestimonialBlockCtaRecord | TestimonialBlockDefaultRecord | TestimonialBlockRecord | TestimonialRecord | TestimonialsListBlockRecord | TestimonialsSectionRecord | TutorRecord | TutorsBlockRecord) & { __isUnion?: true }
+export type RecordInterface = (ActionBlockRecord | AuthorRecord | CardBlockNewRecord | CardBlockRecord | CardsSectionRecord | CategoryRecord | CityRecord | ComparisonBlockRecord | ComparisonSectionRecord | CompetitorRecord | CompetitorsComparisonRecord | ConvertboxBlockRecord | CountryRecord | CourseRecord | CoursesBlockRecord | FaqBlockNewRecord | FaqBlockRecord | FaqItemRecord | FaqSectionRecord | HeadingBlockNewRecord | HeadingBlockRecord | HeroImageBlockRecord | HeroSectionRecord | ImageBlockRecord | InstructorRecord | JobRecord | MenuItemBlockRecord | MenuListBlockRecord | MenuRecord | ModularPageRecord | NoteBlockRecord | PlainTextBlockRecord | PostCtaRecord | PostRecord | ReferenceSectionRecord | ResourceRecord | ResourceTopicRecord | RichTextBlockRecord | RoutePathRecord | SeoBlockRecord | TestimonialBlockCtaRecord | TestimonialBlockDefaultRecord | TestimonialBlockRecord | TestimonialRecord | TestimonialsListBlockRecord | TestimonialsSectionRecord | TutorRecord | TutorsBlockRecord) & { __isUnion?: true }
 
 
 /** Block of type Reference Section (reference_section) */
@@ -1611,13 +1718,13 @@ export interface AltFileFieldGenqlSelection{
     basename?: boolean | number
     blurUpThumb?: { __args: {
     /** Controls the "punch" value (~contrast) of the blurhash decoding algorithm (defaults to 1.0) */
-    punch?: Scalars['Float'], 
+    punch: Scalars['Float'], 
     /** Maximum image dimension (defaults to 24px) */
-    size?: Scalars['Int'], 
+    size: Scalars['Int'], 
     /** Image quality (defaults to 70%) */
-    quality?: Scalars['Int'], 
+    quality: Scalars['Int'], 
     /** Imgix transformations to apply to the image */
-    imgixParams?: (ImgixParams | null)} } | boolean | number
+    imgixParams?: (ImgixParams | null)} }
     blurhash?: boolean | number
     colors?: ColorFieldGenqlSelection
     copyright?: boolean | number
@@ -1862,6 +1969,113 @@ export interface ColorFieldGenqlSelection{
     green?: boolean | number
     hex?: boolean | number
     red?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Block of type Comparison Block (comparison_block) */
+export interface ComparisonBlockRecordGenqlSelection{
+    _createdAt?: boolean | number
+    /** Editing URL */
+    _editingUrl?: boolean | number
+    _firstPublishedAt?: boolean | number
+    _isValid?: boolean | number
+    _modelApiKey?: boolean | number
+    _publicationScheduledAt?: boolean | number
+    _publishedAt?: boolean | number
+    /** Generates SEO and Social card meta tags to be used in your frontend */
+    _seoMetaTags?: (TagGenqlSelection & { __args?: {
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null)} })
+    _status?: boolean | number
+    _unpublishingScheduledAt?: boolean | number
+    _updatedAt?: boolean | number
+    companies?: CompetitorRecordGenqlSelection
+    feature?: boolean | number
+    hasFeature?: boolean | number
+    id?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Block of type Comparison Section (comparison_section) */
+export interface ComparisonSectionRecordGenqlSelection{
+    _createdAt?: boolean | number
+    /** Editing URL */
+    _editingUrl?: boolean | number
+    _firstPublishedAt?: boolean | number
+    _isValid?: boolean | number
+    _modelApiKey?: boolean | number
+    _publicationScheduledAt?: boolean | number
+    _publishedAt?: boolean | number
+    /** Generates SEO and Social card meta tags to be used in your frontend */
+    _seoMetaTags?: (TagGenqlSelection & { __args?: {
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null)} })
+    _status?: boolean | number
+    _unpublishingScheduledAt?: boolean | number
+    _updatedAt?: boolean | number
+    comparison?: CompetitorsComparisonRecordGenqlSelection
+    id?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+export interface CompetitorModelFilter {_createdAt?: (CreatedAtFilter | null),id?: (ItemIdFilter | null),_firstPublishedAt?: (PublishedAtFilter | null),_publicationScheduledAt?: (PublishedAtFilter | null),_unpublishingScheduledAt?: (PublishedAtFilter | null),_publishedAt?: (PublishedAtFilter | null),_status?: (StatusFilter | null),_updatedAt?: (UpdatedAtFilter | null),_isValid?: (BooleanFilter | null),logo?: (FileFilter | null),name?: (StringFilter | null),paid?: (BooleanFilter | null),OR?: ((CompetitorModelFilter | null)[] | null),AND?: ((CompetitorModelFilter | null)[] | null)}
+
+
+/** Record of type 🏭 Competitor (competitor) */
+export interface CompetitorRecordGenqlSelection{
+    _createdAt?: boolean | number
+    /** Editing URL */
+    _editingUrl?: boolean | number
+    _firstPublishedAt?: boolean | number
+    _isValid?: boolean | number
+    _modelApiKey?: boolean | number
+    _publicationScheduledAt?: boolean | number
+    _publishedAt?: boolean | number
+    /** Generates SEO and Social card meta tags to be used in your frontend */
+    _seoMetaTags?: (TagGenqlSelection & { __args?: {
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null)} })
+    _status?: boolean | number
+    _unpublishingScheduledAt?: boolean | number
+    _updatedAt?: boolean | number
+    id?: boolean | number
+    logo?: AltFileFieldGenqlSelection
+    name?: boolean | number
+    paid?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+export interface CompetitorsComparisonModelFilter {_createdAt?: (CreatedAtFilter | null),id?: (ItemIdFilter | null),_firstPublishedAt?: (PublishedAtFilter | null),_publicationScheduledAt?: (PublishedAtFilter | null),_unpublishingScheduledAt?: (PublishedAtFilter | null),_publishedAt?: (PublishedAtFilter | null),_status?: (StatusFilter | null),_updatedAt?: (UpdatedAtFilter | null),_isValid?: (BooleanFilter | null),slug?: (SlugFilter | null),title?: (StringFilter | null),OR?: ((CompetitorsComparisonModelFilter | null)[] | null),AND?: ((CompetitorsComparisonModelFilter | null)[] | null)}
+
+
+/** Record of type 🆚 Competitors Comparison (competitors_comparison) */
+export interface CompetitorsComparisonRecordGenqlSelection{
+    _createdAt?: boolean | number
+    /** Editing URL */
+    _editingUrl?: boolean | number
+    _firstPublishedAt?: boolean | number
+    _isValid?: boolean | number
+    _modelApiKey?: boolean | number
+    _publicationScheduledAt?: boolean | number
+    _publishedAt?: boolean | number
+    /** Generates SEO and Social card meta tags to be used in your frontend */
+    _seoMetaTags?: (TagGenqlSelection & { __args?: {
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null)} })
+    _status?: boolean | number
+    _unpublishingScheduledAt?: boolean | number
+    _updatedAt?: boolean | number
+    comparisons?: ComparisonBlockRecordGenqlSelection
+    heading?: HeadingBlockNewRecordGenqlSelection
+    id?: boolean | number
+    slug?: boolean | number
+    title?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -2130,13 +2344,13 @@ export interface FileFieldGenqlSelection{
     basename?: boolean | number
     blurUpThumb?: { __args: {
     /** Controls the "punch" value (~contrast) of the blurhash decoding algorithm (defaults to 1.0) */
-    punch?: Scalars['Float'], 
+    punch: Scalars['Float'], 
     /** Maximum image dimension (defaults to 24px) */
-    size?: Scalars['Int'], 
+    size: Scalars['Int'], 
     /** Image quality (defaults to 70%) */
-    quality?: Scalars['Int'], 
+    quality: Scalars['Int'], 
     /** Imgix transformations to apply to the image */
-    imgixParams?: (ImgixParams | null)} } | boolean | number
+    imgixParams?: (ImgixParams | null)} }
     blurhash?: boolean | number
     colors?: ColorFieldGenqlSelection
     copyright?: boolean | number
@@ -2199,13 +2413,13 @@ export interface FileFieldInterfaceGenqlSelection{
     basename?: boolean | number
     blurUpThumb?: { __args: {
     /** Controls the "punch" value (~contrast) of the blurhash decoding algorithm (defaults to 1.0) */
-    punch?: Scalars['Float'], 
+    punch: Scalars['Float'], 
     /** Maximum image dimension (defaults to 24px) */
-    size?: Scalars['Int'], 
+    size: Scalars['Int'], 
     /** Image quality (defaults to 70%) */
-    quality?: Scalars['Int'], 
+    quality: Scalars['Int'], 
     /** Imgix transformations to apply to the image */
-    imgixParams?: (ImgixParams | null)} } | boolean | number
+    imgixParams?: (ImgixParams | null)} }
     blurhash?: boolean | number
     colors?: ColorFieldGenqlSelection
     copyright?: boolean | number
@@ -3955,6 +4169,7 @@ export interface ModularPageModelFilter {_createdAt?: (CreatedAtFilter | null),i
 
 export interface ModularPageModelModularContentFieldGenqlSelection{
     on_CardsSectionRecord?:CardsSectionRecordGenqlSelection,
+    on_ComparisonSectionRecord?:ComparisonSectionRecordGenqlSelection,
     on_FaqSectionRecord?:FaqSectionRecordGenqlSelection,
     on_HeroSectionRecord?:HeroSectionRecordGenqlSelection,
     on_ReferenceSectionRecord?:ReferenceSectionRecordGenqlSelection,
@@ -4155,6 +4370,14 @@ export interface QueryGenqlSelection{
     /** The locale to use to fetch the field's content */
     locale?: (SiteLocale | null), filter?: (CityModelFilter | null)} })
     /** Returns meta information regarding a record collection */
+    _allCompetitorsComparisonsMeta?: (CollectionMetadataGenqlSelection & { __args?: {
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null), filter?: (CompetitorsComparisonModelFilter | null)} })
+    /** Returns meta information regarding a record collection */
+    _allCompetitorsMeta?: (CollectionMetadataGenqlSelection & { __args?: {
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null), filter?: (CompetitorModelFilter | null)} })
+    /** Returns meta information regarding a record collection */
     _allCountriesMeta?: (CollectionMetadataGenqlSelection & { __args?: {
     /** The locale to use to fetch the field's content */
     locale?: (SiteLocale | null), filter?: (CountryModelFilter | null)} })
@@ -4250,6 +4473,26 @@ export interface QueryGenqlSelection{
     skip?: (Scalars['IntType'] | null), 
     /** Limit the number of results */
     first?: (Scalars['IntType'] | null), filter?: (CityModelFilter | null), orderBy?: ((CityModelOrderBy | null)[] | null)} })
+    /** Returns a collection of records */
+    allCompetitors?: (CompetitorRecordGenqlSelection & { __args?: {
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null), 
+    /** If you want to fallback to a default translation when a translation has not been found */
+    fallbackLocales?: (SiteLocale[] | null), 
+    /** Skip the first results */
+    skip?: (Scalars['IntType'] | null), 
+    /** Limit the number of results */
+    first?: (Scalars['IntType'] | null), filter?: (CompetitorModelFilter | null), orderBy?: ((CompetitorModelOrderBy | null)[] | null)} })
+    /** Returns a collection of records */
+    allCompetitorsComparisons?: (CompetitorsComparisonRecordGenqlSelection & { __args?: {
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null), 
+    /** If you want to fallback to a default translation when a translation has not been found */
+    fallbackLocales?: (SiteLocale[] | null), 
+    /** Skip the first results */
+    skip?: (Scalars['IntType'] | null), 
+    /** Limit the number of results */
+    first?: (Scalars['IntType'] | null), filter?: (CompetitorsComparisonModelFilter | null), orderBy?: ((CompetitorsComparisonModelOrderBy | null)[] | null)} })
     /** Returns a collection of records */
     allCountries?: (CountryRecordGenqlSelection & { __args?: {
     /** The locale to use to fetch the field's content */
@@ -4419,6 +4662,18 @@ export interface QueryGenqlSelection{
     /** If you want to fallback to a default translation when a translation has not been found */
     fallbackLocales?: (SiteLocale[] | null), filter?: (CityModelFilter | null), orderBy?: ((CityModelOrderBy | null)[] | null)} })
     /** Returns a specific record */
+    competitor?: (CompetitorRecordGenqlSelection & { __args?: {
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null), 
+    /** If you want to fallback to a default translation when a translation has not been found */
+    fallbackLocales?: (SiteLocale[] | null), filter?: (CompetitorModelFilter | null), orderBy?: ((CompetitorModelOrderBy | null)[] | null)} })
+    /** Returns a specific record */
+    competitorsComparison?: (CompetitorsComparisonRecordGenqlSelection & { __args?: {
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null), 
+    /** If you want to fallback to a default translation when a translation has not been found */
+    fallbackLocales?: (SiteLocale[] | null), filter?: (CompetitorsComparisonModelFilter | null), orderBy?: ((CompetitorsComparisonModelOrderBy | null)[] | null)} })
+    /** Returns a specific record */
     country?: (CountryRecordGenqlSelection & { __args?: {
     /** The locale to use to fetch the field's content */
     locale?: (SiteLocale | null), 
@@ -4536,6 +4791,10 @@ export interface RecordInterfaceGenqlSelection{
     on_CardsSectionRecord?: CardsSectionRecordGenqlSelection
     on_CategoryRecord?: CategoryRecordGenqlSelection
     on_CityRecord?: CityRecordGenqlSelection
+    on_ComparisonBlockRecord?: ComparisonBlockRecordGenqlSelection
+    on_ComparisonSectionRecord?: ComparisonSectionRecordGenqlSelection
+    on_CompetitorRecord?: CompetitorRecordGenqlSelection
+    on_CompetitorsComparisonRecord?: CompetitorsComparisonRecordGenqlSelection
     on_ConvertboxBlockRecord?: ConvertboxBlockRecordGenqlSelection
     on_CountryRecord?: CountryRecordGenqlSelection
     on_CourseRecord?: CourseRecordGenqlSelection
@@ -5442,13 +5701,13 @@ export interface UploadVideoFieldGenqlSelection{
     fallbackLocales?: (SiteLocale[] | null)} } | boolean | number
     blurUpThumb?: { __args: {
     /** Controls the "punch" value (~contrast) of the blurhash decoding algorithm (defaults to 1.0) */
-    punch?: Scalars['Float'], 
+    punch: Scalars['Float'], 
     /** Maximum image dimension (defaults to 24px) */
-    size?: Scalars['Int'], 
+    size: Scalars['Int'], 
     /** Image quality (defaults to 70%) */
-    quality?: Scalars['Int'], 
+    quality: Scalars['Int'], 
     /** Imgix transformations to apply to the image */
-    imgixParams?: (ImgixParams | null)} } | boolean | number
+    imgixParams?: (ImgixParams | null)} }
     blurhash?: boolean | number
     duration?: boolean | number
     framerate?: boolean | number
@@ -5505,13 +5764,13 @@ export interface VideoFileFieldGenqlSelection{
     basename?: boolean | number
     blurUpThumb?: { __args: {
     /** Controls the "punch" value (~contrast) of the blurhash decoding algorithm (defaults to 1.0) */
-    punch?: Scalars['Float'], 
+    punch: Scalars['Float'], 
     /** Maximum image dimension (defaults to 24px) */
-    size?: Scalars['Int'], 
+    size: Scalars['Int'], 
     /** Image quality (defaults to 70%) */
-    quality?: Scalars['Int'], 
+    quality: Scalars['Int'], 
     /** Imgix transformations to apply to the image */
-    imgixParams?: (ImgixParams | null)} } | boolean | number
+    imgixParams?: (ImgixParams | null)} }
     blurhash?: boolean | number
     colors?: ColorFieldGenqlSelection
     copyright?: boolean | number
@@ -5644,6 +5903,38 @@ export interface focalPointGenqlSelection{
     export const isColorField = (obj?: { __typename?: any } | null): obj is ColorField => {
       if (!obj?.__typename) throw new Error('__typename is missing in "isColorField"')
       return ColorField_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const ComparisonBlockRecord_possibleTypes: string[] = ['ComparisonBlockRecord']
+    export const isComparisonBlockRecord = (obj?: { __typename?: any } | null): obj is ComparisonBlockRecord => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isComparisonBlockRecord"')
+      return ComparisonBlockRecord_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const ComparisonSectionRecord_possibleTypes: string[] = ['ComparisonSectionRecord']
+    export const isComparisonSectionRecord = (obj?: { __typename?: any } | null): obj is ComparisonSectionRecord => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isComparisonSectionRecord"')
+      return ComparisonSectionRecord_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const CompetitorRecord_possibleTypes: string[] = ['CompetitorRecord']
+    export const isCompetitorRecord = (obj?: { __typename?: any } | null): obj is CompetitorRecord => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isCompetitorRecord"')
+      return CompetitorRecord_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const CompetitorsComparisonRecord_possibleTypes: string[] = ['CompetitorsComparisonRecord']
+    export const isCompetitorsComparisonRecord = (obj?: { __typename?: any } | null): obj is CompetitorsComparisonRecord => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isCompetitorsComparisonRecord"')
+      return CompetitorsComparisonRecord_possibleTypes.includes(obj.__typename)
     }
     
 
@@ -5832,7 +6123,7 @@ export interface focalPointGenqlSelection{
     
 
 
-    const ModularPageModelModularContentField_possibleTypes: string[] = ['CardsSectionRecord','FaqSectionRecord','HeroSectionRecord','ReferenceSectionRecord','TestimonialsSectionRecord']
+    const ModularPageModelModularContentField_possibleTypes: string[] = ['CardsSectionRecord','ComparisonSectionRecord','FaqSectionRecord','HeroSectionRecord','ReferenceSectionRecord','TestimonialsSectionRecord']
     export const isModularPageModelModularContentField = (obj?: { __typename?: any } | null): obj is ModularPageModelModularContentField => {
       if (!obj?.__typename) throw new Error('__typename is missing in "isModularPageModelModularContentField"')
       return ModularPageModelModularContentField_possibleTypes.includes(obj.__typename)
@@ -5896,7 +6187,7 @@ export interface focalPointGenqlSelection{
     
 
 
-    const RecordInterface_possibleTypes: string[] = ['ActionBlockRecord','AuthorRecord','CardBlockNewRecord','CardBlockRecord','CardsSectionRecord','CategoryRecord','CityRecord','ConvertboxBlockRecord','CountryRecord','CourseRecord','CoursesBlockRecord','FaqBlockNewRecord','FaqBlockRecord','FaqItemRecord','FaqSectionRecord','HeadingBlockNewRecord','HeadingBlockRecord','HeroImageBlockRecord','HeroSectionRecord','ImageBlockRecord','InstructorRecord','JobRecord','MenuItemBlockRecord','MenuListBlockRecord','MenuRecord','ModularPageRecord','NoteBlockRecord','PlainTextBlockRecord','PostCtaRecord','PostRecord','ReferenceSectionRecord','ResourceRecord','ResourceTopicRecord','RichTextBlockRecord','RoutePathRecord','SeoBlockRecord','TestimonialBlockCtaRecord','TestimonialBlockDefaultRecord','TestimonialBlockRecord','TestimonialRecord','TestimonialsListBlockRecord','TestimonialsSectionRecord','TutorRecord','TutorsBlockRecord']
+    const RecordInterface_possibleTypes: string[] = ['ActionBlockRecord','AuthorRecord','CardBlockNewRecord','CardBlockRecord','CardsSectionRecord','CategoryRecord','CityRecord','ComparisonBlockRecord','ComparisonSectionRecord','CompetitorRecord','CompetitorsComparisonRecord','ConvertboxBlockRecord','CountryRecord','CourseRecord','CoursesBlockRecord','FaqBlockNewRecord','FaqBlockRecord','FaqItemRecord','FaqSectionRecord','HeadingBlockNewRecord','HeadingBlockRecord','HeroImageBlockRecord','HeroSectionRecord','ImageBlockRecord','InstructorRecord','JobRecord','MenuItemBlockRecord','MenuListBlockRecord','MenuRecord','ModularPageRecord','NoteBlockRecord','PlainTextBlockRecord','PostCtaRecord','PostRecord','ReferenceSectionRecord','ResourceRecord','ResourceTopicRecord','RichTextBlockRecord','RoutePathRecord','SeoBlockRecord','TestimonialBlockCtaRecord','TestimonialBlockDefaultRecord','TestimonialBlockRecord','TestimonialRecord','TestimonialsListBlockRecord','TestimonialsSectionRecord','TutorRecord','TutorsBlockRecord']
     export const isRecordInterface = (obj?: { __typename?: any } | null): obj is RecordInterface => {
       if (!obj?.__typename) throw new Error('__typename is missing in "isRecordInterface"')
       return RecordInterface_possibleTypes.includes(obj.__typename)
@@ -6229,6 +6520,54 @@ export const enumColorBucketType = {
    grey: 'grey' as const,
    white: 'white' as const,
    black: 'black' as const
+}
+
+export const enumCompetitorModelOrderBy = {
+   _createdAt_ASC: '_createdAt_ASC' as const,
+   _createdAt_DESC: '_createdAt_DESC' as const,
+   id_ASC: 'id_ASC' as const,
+   id_DESC: 'id_DESC' as const,
+   _firstPublishedAt_ASC: '_firstPublishedAt_ASC' as const,
+   _firstPublishedAt_DESC: '_firstPublishedAt_DESC' as const,
+   _publicationScheduledAt_ASC: '_publicationScheduledAt_ASC' as const,
+   _publicationScheduledAt_DESC: '_publicationScheduledAt_DESC' as const,
+   _unpublishingScheduledAt_ASC: '_unpublishingScheduledAt_ASC' as const,
+   _unpublishingScheduledAt_DESC: '_unpublishingScheduledAt_DESC' as const,
+   _publishedAt_ASC: '_publishedAt_ASC' as const,
+   _publishedAt_DESC: '_publishedAt_DESC' as const,
+   _status_ASC: '_status_ASC' as const,
+   _status_DESC: '_status_DESC' as const,
+   _updatedAt_ASC: '_updatedAt_ASC' as const,
+   _updatedAt_DESC: '_updatedAt_DESC' as const,
+   _isValid_ASC: '_isValid_ASC' as const,
+   _isValid_DESC: '_isValid_DESC' as const,
+   name_ASC: 'name_ASC' as const,
+   name_DESC: 'name_DESC' as const,
+   paid_ASC: 'paid_ASC' as const,
+   paid_DESC: 'paid_DESC' as const
+}
+
+export const enumCompetitorsComparisonModelOrderBy = {
+   _createdAt_ASC: '_createdAt_ASC' as const,
+   _createdAt_DESC: '_createdAt_DESC' as const,
+   id_ASC: 'id_ASC' as const,
+   id_DESC: 'id_DESC' as const,
+   _firstPublishedAt_ASC: '_firstPublishedAt_ASC' as const,
+   _firstPublishedAt_DESC: '_firstPublishedAt_DESC' as const,
+   _publicationScheduledAt_ASC: '_publicationScheduledAt_ASC' as const,
+   _publicationScheduledAt_DESC: '_publicationScheduledAt_DESC' as const,
+   _unpublishingScheduledAt_ASC: '_unpublishingScheduledAt_ASC' as const,
+   _unpublishingScheduledAt_DESC: '_unpublishingScheduledAt_DESC' as const,
+   _publishedAt_ASC: '_publishedAt_ASC' as const,
+   _publishedAt_DESC: '_publishedAt_DESC' as const,
+   _status_ASC: '_status_ASC' as const,
+   _status_DESC: '_status_DESC' as const,
+   _updatedAt_ASC: '_updatedAt_ASC' as const,
+   _updatedAt_DESC: '_updatedAt_DESC' as const,
+   _isValid_ASC: '_isValid_ASC' as const,
+   _isValid_DESC: '_isValid_DESC' as const,
+   title_ASC: 'title_ASC' as const,
+   title_DESC: 'title_DESC' as const
 }
 
 export const enumCountryModelOrderBy = {

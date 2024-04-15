@@ -3,16 +3,16 @@
 	import Heading from "$dato/blocks/Heading.svelte";
 	import TutorCard from "$dato/blocks/tutors/TutorCard.svelte";
 	import Cards from "$dato/sections/Cards.svelte";
+	import ComparisonTable from "$dato/sections/ComparisonTable.svelte";
 	import FAQ from "$dato/sections/FAQ.svelte";
 	import Hero from "$dato/sections/Hero.svelte";
 	import Testimonials from "$dato/sections/Testimonials.svelte";
 	import CourseCard from "$lib/components/CourseCard.svelte";
-	import { Button } from "$shadcn/button";
-	import SvelteSeo from "svelte-seo";
-	import CompareCompetitors from "$lib/components/dato/sections/CompareCompetitors.svelte";
 	import InternalLinks, {
 		type Section as InternalLinkSection,
 	} from "$lib/components/dato/sections/InternalLinks.svelte";
+	import { Button } from "$shadcn/button";
+	import SvelteSeo from "svelte-seo";
 
 	export let data;
 	$: ({ modularPage, city, courses, citiesWithTutors } = data);
@@ -115,8 +115,11 @@
 				</section>
 			{/if}
 		{/if}
+
+		{#if record.__typename === "ComparisonSectionRecord"}
+			<ComparisonTable {record} />
+		{/if}
 	{/each}
 {/if}
 
-<CompareCompetitors />
 <InternalLinks basePath="/tutors" sections={tutorsInternalLinks} />

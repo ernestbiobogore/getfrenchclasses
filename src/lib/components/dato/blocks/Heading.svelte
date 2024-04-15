@@ -7,12 +7,14 @@
 	import { cn, spanify } from "$lib/utils";
 
 	let className: string | undefined | null = undefined;
+	let contentClassName: string | undefined | null = undefined;
 
 	export let heading: HeadingBlockNewRecord | undefined = undefined;
 	export let titleTag: "h1" | "h2" = "h2";
 	export let defaultHeading: string | undefined = undefined;
 	export let useDefaultHeading = false;
 	export { className as class };
+	export { contentClassName as contentClass };
 
 	const isEmptySubHeading = (subHeading: HeadingBlockNewModelSubheadingField) => {
 		return (
@@ -40,7 +42,7 @@
 	{#if heading && heading.subheading && !isEmptySubHeading(heading.subheading)}
 		<StructuredText
 			richText={heading.subheading}
-			class="text-center mx-auto max-w-[46ch] md:max-w-[64ch] hero-list"
+			class={cn("text-center mx-auto max-w-[46ch] md:max-w-[64ch] hero-list", contentClassName)}
 		/>
 	{/if}
 </div>

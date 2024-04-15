@@ -465,6 +465,190 @@ type ColorField {
   red: IntType!
 }
 
+"""Block of type Comparison Block (comparison_block)"""
+type ComparisonBlockRecord implements RecordInterface {
+  _createdAt: DateTime!
+
+  """Editing URL"""
+  _editingUrl: String
+  _firstPublishedAt: DateTime
+  _isValid: BooleanType!
+  _modelApiKey: String!
+  _publicationScheduledAt: DateTime
+  _publishedAt: DateTime
+
+  """Generates SEO and Social card meta tags to be used in your frontend"""
+  _seoMetaTags(
+    """The locale to use to fetch the field's content"""
+    locale: SiteLocale
+  ): [Tag!]!
+  _status: ItemStatus!
+  _unpublishingScheduledAt: DateTime
+  _updatedAt: DateTime!
+  companies: [CompetitorRecord!]!
+  feature: String!
+  hasFeature: BooleanType
+  id: ItemId!
+}
+
+"""Block of type Comparison Section (comparison_section)"""
+type ComparisonSectionRecord implements RecordInterface {
+  _createdAt: DateTime!
+
+  """Editing URL"""
+  _editingUrl: String
+  _firstPublishedAt: DateTime
+  _isValid: BooleanType!
+  _modelApiKey: String!
+  _publicationScheduledAt: DateTime
+  _publishedAt: DateTime
+
+  """Generates SEO and Social card meta tags to be used in your frontend"""
+  _seoMetaTags(
+    """The locale to use to fetch the field's content"""
+    locale: SiteLocale
+  ): [Tag!]!
+  _status: ItemStatus!
+  _unpublishingScheduledAt: DateTime
+  _updatedAt: DateTime!
+  comparison: CompetitorsComparisonRecord
+  id: ItemId!
+}
+
+input CompetitorModelFilter {
+  _createdAt: CreatedAtFilter
+  id: ItemIdFilter
+  _firstPublishedAt: PublishedAtFilter
+  _publicationScheduledAt: PublishedAtFilter
+  _unpublishingScheduledAt: PublishedAtFilter
+  _publishedAt: PublishedAtFilter
+  _status: StatusFilter
+  _updatedAt: UpdatedAtFilter
+  _isValid: BooleanFilter
+  logo: FileFilter
+  name: StringFilter
+  paid: BooleanFilter
+  OR: [CompetitorModelFilter]
+  AND: [CompetitorModelFilter]
+}
+
+enum CompetitorModelOrderBy {
+  _createdAt_ASC
+  _createdAt_DESC
+  id_ASC
+  id_DESC
+  _firstPublishedAt_ASC
+  _firstPublishedAt_DESC
+  _publicationScheduledAt_ASC
+  _publicationScheduledAt_DESC
+  _unpublishingScheduledAt_ASC
+  _unpublishingScheduledAt_DESC
+  _publishedAt_ASC
+  _publishedAt_DESC
+  _status_ASC
+  _status_DESC
+  _updatedAt_ASC
+  _updatedAt_DESC
+  _isValid_ASC
+  _isValid_DESC
+  name_ASC
+  name_DESC
+  paid_ASC
+  paid_DESC
+}
+
+"""Record of type 🏭 Competitor (competitor)"""
+type CompetitorRecord implements RecordInterface {
+  _createdAt: DateTime!
+
+  """Editing URL"""
+  _editingUrl: String
+  _firstPublishedAt: DateTime
+  _isValid: BooleanType!
+  _modelApiKey: String!
+  _publicationScheduledAt: DateTime
+  _publishedAt: DateTime
+
+  """Generates SEO and Social card meta tags to be used in your frontend"""
+  _seoMetaTags(
+    """The locale to use to fetch the field's content"""
+    locale: SiteLocale
+  ): [Tag!]!
+  _status: ItemStatus!
+  _unpublishingScheduledAt: DateTime
+  _updatedAt: DateTime!
+  id: ItemId!
+  logo: AltFileField!
+  name: String!
+  paid: BooleanType
+}
+
+input CompetitorsComparisonModelFilter {
+  _createdAt: CreatedAtFilter
+  id: ItemIdFilter
+  _firstPublishedAt: PublishedAtFilter
+  _publicationScheduledAt: PublishedAtFilter
+  _unpublishingScheduledAt: PublishedAtFilter
+  _publishedAt: PublishedAtFilter
+  _status: StatusFilter
+  _updatedAt: UpdatedAtFilter
+  _isValid: BooleanFilter
+  slug: SlugFilter
+  title: StringFilter
+  OR: [CompetitorsComparisonModelFilter]
+  AND: [CompetitorsComparisonModelFilter]
+}
+
+enum CompetitorsComparisonModelOrderBy {
+  _createdAt_ASC
+  _createdAt_DESC
+  id_ASC
+  id_DESC
+  _firstPublishedAt_ASC
+  _firstPublishedAt_DESC
+  _publicationScheduledAt_ASC
+  _publicationScheduledAt_DESC
+  _unpublishingScheduledAt_ASC
+  _unpublishingScheduledAt_DESC
+  _publishedAt_ASC
+  _publishedAt_DESC
+  _status_ASC
+  _status_DESC
+  _updatedAt_ASC
+  _updatedAt_DESC
+  _isValid_ASC
+  _isValid_DESC
+  title_ASC
+  title_DESC
+}
+
+"""Record of type 🆚 Competitors Comparison (competitors_comparison)"""
+type CompetitorsComparisonRecord implements RecordInterface {
+  _createdAt: DateTime!
+
+  """Editing URL"""
+  _editingUrl: String
+  _firstPublishedAt: DateTime
+  _isValid: BooleanType!
+  _modelApiKey: String!
+  _publicationScheduledAt: DateTime
+  _publishedAt: DateTime
+
+  """Generates SEO and Social card meta tags to be used in your frontend"""
+  _seoMetaTags(
+    """The locale to use to fetch the field's content"""
+    locale: SiteLocale
+  ): [Tag!]!
+  _status: ItemStatus!
+  _unpublishingScheduledAt: DateTime
+  _updatedAt: DateTime!
+  comparisons: [ComparisonBlockRecord!]!
+  heading: HeadingBlockNewRecord!
+  id: ItemId!
+  slug: String!
+  title: String!
+}
+
 """Block of type ConvertBox Block (convertbox_block)"""
 type ConvertboxBlockRecord implements RecordInterface {
   _createdAt: DateTime!
@@ -3360,7 +3544,7 @@ input ModularPageModelFilter {
   AND: [ModularPageModelFilter]
 }
 
-union ModularPageModelModularContentField = CardsSectionRecord | FaqSectionRecord | HeroSectionRecord | ReferenceSectionRecord | TestimonialsSectionRecord
+union ModularPageModelModularContentField = CardsSectionRecord | ComparisonSectionRecord | FaqSectionRecord | HeroSectionRecord | ReferenceSectionRecord | TestimonialsSectionRecord
 
 enum ModularPageModelOrderBy {
   _createdAt_ASC
@@ -3695,6 +3879,20 @@ type Query {
   ): CollectionMetadata!
 
   """Returns meta information regarding a record collection"""
+  _allCompetitorsComparisonsMeta(
+    """The locale to use to fetch the field's content"""
+    locale: SiteLocale
+    filter: CompetitorsComparisonModelFilter
+  ): CollectionMetadata!
+
+  """Returns meta information regarding a record collection"""
+  _allCompetitorsMeta(
+    """The locale to use to fetch the field's content"""
+    locale: SiteLocale
+    filter: CompetitorModelFilter
+  ): CollectionMetadata!
+
+  """Returns meta information regarding a record collection"""
   _allCountriesMeta(
     """The locale to use to fetch the field's content"""
     locale: SiteLocale
@@ -3866,6 +4064,44 @@ type Query {
     filter: CityModelFilter
     orderBy: [CityModelOrderBy] = [_updatedAt_DESC]
   ): [CityRecord!]!
+
+  """Returns a collection of records"""
+  allCompetitors(
+    """The locale to use to fetch the field's content"""
+    locale: SiteLocale
+
+    """
+    If you want to fallback to a default translation when a translation has not been found
+    """
+    fallbackLocales: [SiteLocale!]
+
+    """Skip the first results"""
+    skip: IntType
+
+    """Limit the number of results"""
+    first: IntType = 20
+    filter: CompetitorModelFilter
+    orderBy: [CompetitorModelOrderBy] = [_updatedAt_DESC]
+  ): [CompetitorRecord!]!
+
+  """Returns a collection of records"""
+  allCompetitorsComparisons(
+    """The locale to use to fetch the field's content"""
+    locale: SiteLocale
+
+    """
+    If you want to fallback to a default translation when a translation has not been found
+    """
+    fallbackLocales: [SiteLocale!]
+
+    """Skip the first results"""
+    skip: IntType
+
+    """Limit the number of results"""
+    first: IntType = 20
+    filter: CompetitorsComparisonModelFilter
+    orderBy: [CompetitorsComparisonModelOrderBy] = [_updatedAt_DESC]
+  ): [CompetitorsComparisonRecord!]!
 
   """Returns a collection of records"""
   allCountries(
@@ -4190,6 +4426,32 @@ type Query {
     filter: CityModelFilter
     orderBy: [CityModelOrderBy] = [_updatedAt_DESC]
   ): CityRecord
+
+  """Returns a specific record"""
+  competitor(
+    """The locale to use to fetch the field's content"""
+    locale: SiteLocale
+
+    """
+    If you want to fallback to a default translation when a translation has not been found
+    """
+    fallbackLocales: [SiteLocale!]
+    filter: CompetitorModelFilter
+    orderBy: [CompetitorModelOrderBy] = [_updatedAt_DESC]
+  ): CompetitorRecord
+
+  """Returns a specific record"""
+  competitorsComparison(
+    """The locale to use to fetch the field's content"""
+    locale: SiteLocale
+
+    """
+    If you want to fallback to a default translation when a translation has not been found
+    """
+    fallbackLocales: [SiteLocale!]
+    filter: CompetitorsComparisonModelFilter
+    orderBy: [CompetitorsComparisonModelOrderBy] = [_updatedAt_DESC]
+  ): CompetitorsComparisonRecord
 
   """Returns a specific record"""
   country(
