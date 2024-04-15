@@ -1320,6 +1320,7 @@ export interface TestimonialBlockDefaultRecord {
     content: (TestimonialBlockDefaultModelContentField | null)
     id: Scalars['ItemId']
     picture: (AltFileField | null)
+    rating: (Scalars['IntType'] | null)
     role: (Scalars['String'] | null)
     rotation: (Scalars['String'] | null)
     __typename: 'TestimonialBlockDefaultRecord'
@@ -1610,13 +1611,13 @@ export interface AltFileFieldGenqlSelection{
     basename?: boolean | number
     blurUpThumb?: { __args: {
     /** Controls the "punch" value (~contrast) of the blurhash decoding algorithm (defaults to 1.0) */
-    punch: Scalars['Float'], 
+    punch?: Scalars['Float'], 
     /** Maximum image dimension (defaults to 24px) */
-    size: Scalars['Int'], 
+    size?: Scalars['Int'], 
     /** Image quality (defaults to 70%) */
-    quality: Scalars['Int'], 
+    quality?: Scalars['Int'], 
     /** Imgix transformations to apply to the image */
-    imgixParams?: (ImgixParams | null)} }
+    imgixParams?: (ImgixParams | null)} } | boolean | number
     blurhash?: boolean | number
     colors?: ColorFieldGenqlSelection
     copyright?: boolean | number
@@ -2129,13 +2130,13 @@ export interface FileFieldGenqlSelection{
     basename?: boolean | number
     blurUpThumb?: { __args: {
     /** Controls the "punch" value (~contrast) of the blurhash decoding algorithm (defaults to 1.0) */
-    punch: Scalars['Float'], 
+    punch?: Scalars['Float'], 
     /** Maximum image dimension (defaults to 24px) */
-    size: Scalars['Int'], 
+    size?: Scalars['Int'], 
     /** Image quality (defaults to 70%) */
-    quality: Scalars['Int'], 
+    quality?: Scalars['Int'], 
     /** Imgix transformations to apply to the image */
-    imgixParams?: (ImgixParams | null)} }
+    imgixParams?: (ImgixParams | null)} } | boolean | number
     blurhash?: boolean | number
     colors?: ColorFieldGenqlSelection
     copyright?: boolean | number
@@ -2198,13 +2199,13 @@ export interface FileFieldInterfaceGenqlSelection{
     basename?: boolean | number
     blurUpThumb?: { __args: {
     /** Controls the "punch" value (~contrast) of the blurhash decoding algorithm (defaults to 1.0) */
-    punch: Scalars['Float'], 
+    punch?: Scalars['Float'], 
     /** Maximum image dimension (defaults to 24px) */
-    size: Scalars['Int'], 
+    size?: Scalars['Int'], 
     /** Image quality (defaults to 70%) */
-    quality: Scalars['Int'], 
+    quality?: Scalars['Int'], 
     /** Imgix transformations to apply to the image */
-    imgixParams?: (ImgixParams | null)} }
+    imgixParams?: (ImgixParams | null)} } | boolean | number
     blurhash?: boolean | number
     colors?: ColorFieldGenqlSelection
     copyright?: boolean | number
@@ -4967,6 +4968,7 @@ export interface TestimonialBlockDefaultRecordGenqlSelection{
     content?: TestimonialBlockDefaultModelContentFieldGenqlSelection
     id?: boolean | number
     picture?: AltFileFieldGenqlSelection
+    rating?: boolean | number
     role?: boolean | number
     rotation?: boolean | number
     __typename?: boolean | number
@@ -5440,13 +5442,13 @@ export interface UploadVideoFieldGenqlSelection{
     fallbackLocales?: (SiteLocale[] | null)} } | boolean | number
     blurUpThumb?: { __args: {
     /** Controls the "punch" value (~contrast) of the blurhash decoding algorithm (defaults to 1.0) */
-    punch: Scalars['Float'], 
+    punch?: Scalars['Float'], 
     /** Maximum image dimension (defaults to 24px) */
-    size: Scalars['Int'], 
+    size?: Scalars['Int'], 
     /** Image quality (defaults to 70%) */
-    quality: Scalars['Int'], 
+    quality?: Scalars['Int'], 
     /** Imgix transformations to apply to the image */
-    imgixParams?: (ImgixParams | null)} }
+    imgixParams?: (ImgixParams | null)} } | boolean | number
     blurhash?: boolean | number
     duration?: boolean | number
     framerate?: boolean | number
@@ -5503,13 +5505,13 @@ export interface VideoFileFieldGenqlSelection{
     basename?: boolean | number
     blurUpThumb?: { __args: {
     /** Controls the "punch" value (~contrast) of the blurhash decoding algorithm (defaults to 1.0) */
-    punch: Scalars['Float'], 
+    punch?: Scalars['Float'], 
     /** Maximum image dimension (defaults to 24px) */
-    size: Scalars['Int'], 
+    size?: Scalars['Int'], 
     /** Image quality (defaults to 70%) */
-    quality: Scalars['Int'], 
+    quality?: Scalars['Int'], 
     /** Imgix transformations to apply to the image */
-    imgixParams?: (ImgixParams | null)} }
+    imgixParams?: (ImgixParams | null)} } | boolean | number
     blurhash?: boolean | number
     colors?: ColorFieldGenqlSelection
     copyright?: boolean | number

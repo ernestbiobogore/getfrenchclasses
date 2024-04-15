@@ -40,7 +40,7 @@
 	{#if heading && heading.subheading && !isEmptySubHeading(heading.subheading)}
 		<StructuredText
 			richText={heading.subheading}
-			class="text-center mx-auto max-w-[46ch] md:max-w-[64ch]"
+			class="text-center mx-auto max-w-[46ch] md:max-w-[64ch] hero-list"
 		/>
 	{/if}
 </div>
@@ -52,5 +52,11 @@
 		background-position: 50% 100%;
 		background-repeat: no-repeat;
 		background-size: auto;
+	}
+
+	:global(.hero-list ul) {
+		/* list-style-type: none; */
+		/* padding-left: 0; */
+		@apply text-justify;
 	}
 </style>
