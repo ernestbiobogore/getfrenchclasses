@@ -24,6 +24,7 @@
 	import TutorCard from "$dato/blocks/tutors/TutorCard.svelte";
 	import { f, getSampleAvatars } from "$lib/utils";
 	import { Image } from "@datocms/svelte";
+	import { Button } from "$shadcn/button";
 
 	export let data;
 
@@ -297,6 +298,10 @@
 		{#each data.tutorsMetas as tutor}
 			<TutorCard {tutor} withCTA />
 		{/each}
+	</div>
+
+	<div class="mt-10 flex-s-center">
+		<Button href="/tutors">See More</Button>
 	</div>
 </section>
 

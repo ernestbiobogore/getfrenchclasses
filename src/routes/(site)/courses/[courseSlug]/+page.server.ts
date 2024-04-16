@@ -6,7 +6,7 @@ import { error } from "@sveltejs/kit";
 export const load = async ({ params }) => {
 	const [course, tutorsMetas] = await Promise.all([
 		getCourseBySlug(params.courseSlug),
-		getAllTutorsMetas(),
+		getAllTutorsMetas(3),
 	]);
 
 	if (!course) {
