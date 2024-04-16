@@ -7,12 +7,15 @@
 	import { Textarea } from "$shadcn/textarea";
 	import SvelteSeo from "svelte-seo";
 	import { toast } from "svelte-sonner";
+	import LoaderCircle from "~icons/lucide/loader-circle";
 	import Mail from "~icons/lucide/mail";
 	import MessageSquare from "~icons/lucide/message-square";
 	import User from "~icons/lucide/user";
 
 	export let data;
 	export let form;
+
+	let running = false;
 
 	$: if (form?.error) {
 		toast.error(form.error.title, {
@@ -64,7 +67,18 @@
 		Fill out the form below and we will get back to you as soon as possible.
 	</p>
 	<div class="form p-7">
-		<form method="post" class="flex flex-col gap-5 m-auto md:w-1/2 lg:w-1/3" use:enhance>
+		<form
+			method="post"
+			class="flex flex-col gap-5 m-auto md:w-1/2 lg:w-1/3"
+			use:enhance={() => {
+				running = true;
+
+				return async ({ update }) => {
+					running = false;
+					return update();
+				};
+			}}
+		>
 			<div class="flex flex-row items-center gap-4 p-2 bg-white rounded-md md:p-4">
 				<User color="grey" class="w-4 h-4" />
 				<Input
@@ -101,7 +115,12 @@
 				/>
 			</div>
 
-			<Button type="submit" class="bg-brand-primary self-end">Send your message</Button>
+			<Button type="submit" class="bg-brand-primary self-end gap-2 submit" disabled={running}>
+				<LoaderCircle
+					class="w-0 h-0 transition-all duration-500 ease-in-out opacity-0 loader-circle"
+				/>
+				<span> Send your message </span>
+			</Button>
 		</form>
 	</div>
 </section>
@@ -109,3 +128,9 @@
 {#if data.modularPage}
 	<ModularPage modularPage={data.modularPage} />
 {/if}
+
+<style>
+	:global(button.submit[disabled] .loader-circle) {
+		@apply h-4 w-4 animate-spin opacity-100 transition-all duration-500 ease-in-out;
+	}
+</style>
