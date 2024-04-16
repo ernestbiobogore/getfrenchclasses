@@ -4,8 +4,10 @@
 	import Heading from "$dato/blocks/Heading.svelte";
 	import type { CardsSectionRecord } from "$lib/graphql/generated";
 	import { cn } from "$lib/utils";
+	import Button from "$shadcn/button/button.svelte";
 	import * as Card from "$shadcn/card";
 	import { Image } from "@datocms/svelte";
+	import { text } from "@sveltejs/kit";
 
 	export let record: CardsSectionRecord;
 </script>
@@ -34,6 +36,14 @@
 							<Card.Content>
 								<StructuredText richText={card.heading.subheading} />
 							</Card.Content>
+						{/if}
+
+						{#if card.cta.length > 0}
+							<Card.Footer>
+								{#each card.cta as { id, text, link } (id)}
+									<Button href={link} class="bg-brand-primary" size="sm">{text}</Button>
+								{/each}
+							</Card.Footer>
 						{/if}
 					</Card.Root>
 				{/each}
