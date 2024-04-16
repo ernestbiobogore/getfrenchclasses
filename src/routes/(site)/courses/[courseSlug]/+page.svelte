@@ -22,14 +22,15 @@
 	import DefaultTestimonial from "$dato/blocks/DefaultTestimonial.svelte";
 	import CtaTestimonial from "$dato/blocks/CtaTestimonial.svelte";
 	import TutorCard from "$dato/blocks/tutors/TutorCard.svelte";
-	import { f, getSampleAvatars } from "$lib/utils";
+	import { getSampleAvatars } from "$lib/utils";
 	import { Image } from "@datocms/svelte";
 	import { Button } from "$shadcn/button";
 
 	export let data;
 
-	let course = f(data.course);
-	$: course = f(data.course);
+	// https://github.com/sveltejs/kit/issues/6238#issuecomment-1227625712
+	let course = data.course; // only runs on component initialisation
+	$: course = data.course; // is reactive to data
 
 	const instructors = [...Array(3)];
 </script>
@@ -254,12 +255,14 @@
 	</section>
 {/if}
 
-<CourseCtaBanner
-	title={course.ctaTitle}
-	midActions={course.ctaMidActions}
-	cta={course.ctaButton}
-	heroImages={course.ctaImages}
-/>
+{#if course.ctaTitle && course.ctaButton && course.ctaImages && course.ctaMidActions}
+	<CourseCtaBanner
+		title={course.ctaTitle}
+		midActions={course.ctaMidActions}
+		cta={course.ctaButton}
+		heroImages={course.ctaImages}
+	/>
+{/if}
 
 <!-- INSTRUCTOR BIO -->
 <section class="py-20 container-base space-y-4">
@@ -272,9 +275,11 @@
 			class="w-full max-w-2xl gap-4 mx-auto max-md:space-y-4 md:flex-s-start not-last:mb-6"
 			id="instructor"
 		>
-			<div class="size-[60px] bg-red-400 rounded-xl overflow-hidden md:!h-[300px] md:!w-[250px]">
+			<div class="size-[60px] bg-gray-50 rounded-xl overflow-hidden md:!h-[300px] md:!w-[250px]">
 				<!-- <img src="" alt="" /> -->
-				<Image class="size-full" data={instructor.profilePicture.responsiveImage} />
+				{#if instructor?.profilePicture?.responsiveImage}
+					<Image class="size-full" data={instructor.profilePicture.responsiveImage} />
+				{/if}
 			</div>
 
 			<div class="flex-1">
