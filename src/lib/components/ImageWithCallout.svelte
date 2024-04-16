@@ -1,8 +1,9 @@
 <script lang="ts">
-	import type { HeroSectionRecord } from "$lib/graphql/generated";
+	import type { HeroImageBlockRecord } from "$lib/graphql/generated";
 	import { cn } from "$lib/utils";
 
-	export let heroImage: HeroSectionRecord["heroImages"][0];
+	export let heroImage: HeroImageBlockRecord;
+	export let size = "150px";
 	let _class = "";
 	export { _class as class };
 </script>
@@ -11,8 +12,9 @@
 	<div class="relative">
 		<img
 			src={heroImage?.image?.responsiveImage?.src}
-			class="size-[150px] rounded-full"
+			class="size-[var(--size)] rounded-full"
 			alt="Teacher 1"
+			style:--size="var(--sze, {size})"
 		/>
 		<div class={cn("absolute bg-white p-2 rounded-lg text-sm gap-2 w-[200px]", _class)}>
 			<div class="font-medium">

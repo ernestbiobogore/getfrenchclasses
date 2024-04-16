@@ -808,8 +808,11 @@ input CourseModelFilter {
   _status: StatusFilter
   _updatedAt: UpdatedAtFilter
   _isValid: BooleanFilter
+  ctaTitle: StringFilter
   duration: IntegerFilter
   faq: LinkFilter
+  instructors: LinksFilter
+  instructorSubheading: StringFilter
   level: StringFilter
   name: StringFilter
   numberOfEnrolledStudents: IntegerFilter
@@ -841,8 +844,12 @@ enum CourseModelOrderBy {
   _updatedAt_DESC
   _isValid_ASC
   _isValid_DESC
+  ctaTitle_ASC
+  ctaTitle_DESC
   duration_ASC
   duration_DESC
+  instructorSubheading_ASC
+  instructorSubheading_DESC
   level_ASC
   level_DESC
   name_ASC
@@ -877,10 +884,16 @@ type CourseRecord implements RecordInterface {
   _status: ItemStatus!
   _unpublishingScheduledAt: DateTime
   _updatedAt: DateTime!
+  ctaButton: ActionBlockRecord
+  ctaImages: [HeroImageBlockRecord!]!
+  ctaMidActions: [ActionBlockRecord!]!
+  ctaTitle: String
   duration: IntType!
   faq: FaqItemRecord
   featuresCards: [CardBlockRecord!]!
   id: ItemId!
+  instructorSubheading: String
+  instructors: [InstructorRecord!]!
   level: String!
   name: String!
   numberOfEnrolledStudents: IntType!

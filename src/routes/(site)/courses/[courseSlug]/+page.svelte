@@ -1,4 +1,5 @@
 <script lang="ts">
+	import StructuredText from "$dato/StructuredText/index.svelte";
 	import FAQItems from "$dato/blocks/FAQItems.svelte";
 	import Heading from "$dato/blocks/Heading.svelte";
 	import AvatarsGroup from "$lib/components/AvatarsGroup.svelte";
@@ -19,9 +20,15 @@
 	import CourseSyllabus from "./components/CourseSyllabus.svelte";
 
 	import DefaultTestimonial from "$dato/blocks/DefaultTestimonial.svelte";
-	import { getSampleAvatars } from "$lib/utils";
+	import CtaTestimonial from "$dato/blocks/CtaTestimonial.svelte";
+	import TutorCard from "$dato/blocks/tutors/TutorCard.svelte";
+	import { f, getSampleAvatars } from "$lib/utils";
+	import { Image } from "@datocms/svelte";
 
 	export let data;
+
+	let course = f(data.course);
+	$: course = f(data.course);
 
 	const instructors = [...Array(3)];
 </script>
@@ -239,47 +246,57 @@
 		<h2 class="text-center">What people say</h2>
 
 		<div class="grid grid-cols-3 gap-8">
-			{#each data.course.testimonials as { testimonial } (testimonial.id)}
-				{#if testimonial.__typename === "TestimonialBlockDefaultRecord"}
-					<DefaultTestimonial {testimonial} />
-				{/if}
-
-				<!-- {#if testimonial.__typename === "TestimonialBlockCtaRecord"}
-				<CtaTestimonial {testimonial} />
-			{/if} -->
-			{/each}
+			{#if course.testimonials[0]?.testimonial.__typename === "TestimonialBlockDefaultRecord"}
+				<DefaultTestimonial testimonial={course.testimonials[0]?.testimonial} />
+			{/if}
 		</div>
 	</section>
 {/if}
 
-<CourseCtaBanner />
+<CourseCtaBanner
+	title={course.ctaTitle}
+	midActions={course.ctaMidActions}
+	cta={course.ctaButton}
+	heroImages={course.ctaImages}
+/>
 
 <!-- INSTRUCTOR BIO -->
-<section class="py-20 container-base">
+<section class="py-20 container-base space-y-4">
 	<h2 class="text-center">Meet your instructor</h2>
-	<br /><br />
+	<p class="text-center mx-auto max-w-[46ch] md:max-w-[64ch]">{course.instructorSubheading}</p>
+	<br />
 
-	<div class="w-full max-w-2xl gap-4 mx-auto max-md:space-y-4 md:flex-s-start" id="instructor">
-		<div class="size-[60px] bg-red-400 rounded-xl md:!h-[300px] md:!w-[250px]">
-			<img src="" alt="" />
-		</div>
+	{#each course.instructors as instructor}
+		<div
+			class="w-full max-w-2xl gap-4 mx-auto max-md:space-y-4 md:flex-s-start not-last:mb-6"
+			id="instructor"
+		>
+			<div class="size-[60px] bg-red-400 rounded-xl overflow-hidden md:!h-[300px] md:!w-[250px]">
+				<!-- <img src="" alt="" /> -->
+				<Image class="size-full" data={instructor.profilePicture.responsiveImage} />
+			</div>
 
-		<div class="flex-1">
-			<div class="mb-2 text-lg font-semibold">Femke</div>
-			<div>
-				<p>
-					Hi, I'm Femke! I am a design manager that worked as a product designer for over 5 years at
-					the world's leading tech companies such as Uber, Wealthsimple and Gusto.
-				</p>
-				<br />
-				<p>
-					I focus on educating the next generation of designers on YouTube where I have 70k+
-					subscribers and over 1 million views. I have mentored 150+ designers and helped them land
-					their dream job, I also run a community with 200+ designers from companies such as Google,
-					Hubspot, and Booking.com.
-				</p>
+			<div class="flex-1">
+				<div class="mb-2 text-lg font-semibold">{instructor.name}</div>
+				<StructuredText class="flex flex-col gap-4" richText={instructor.about} />
 			</div>
 		</div>
+	{/each}
+</section>
+
+<section class="py-20 container-base space-y-4">
+	<h2 class="text-center">Tutors</h2>
+	<p class="text-center mx-auto max-w-[46ch] md:max-w-[64ch]">
+		Hi, I'm Femke! I am a design manager that worked as a product designer for over 5 years at the
+		world's leading tech companies such as Uber, Wealthsimple and Gusto.
+	</p>
+
+	<br />
+
+	<div class="grid gap-6 sm:grid-cols-3">
+		{#each data.tutorsMetas as tutor}
+			<TutorCard {tutor} withCTA />
+		{/each}
 	</div>
 </section>
 
@@ -321,7 +338,11 @@
 	</div>
 </section>
 
-<CourseCtaBanner />
+{#if course.testimonials[1]?.testimonial && course.testimonials[1]?.testimonial?.__typename === "TestimonialBlockCtaRecord"}
+	<section class="py-20 space-y-12 container-base">
+		<CtaTestimonial testimonial={course.testimonials[1].testimonial} />
+	</section>
+{/if}
 
 {#if data.course.faq?.faqBlocks && data.course.faq?.faqBlocks.length > 0}
 	<section class="max-w-2xl py-10 mx-auto space-y-12" id="faq">

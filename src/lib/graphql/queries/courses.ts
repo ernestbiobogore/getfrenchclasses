@@ -1,8 +1,10 @@
 import { client } from "$lib/graphql/client";
 import {
 	courseMetaFields,
+	ctaTestimonialFieldsSelection,
 	defaultTestimonialFieldsSelection,
-	faqItemFieldsSelection
+	faqItemFieldsSelection,
+	responsiveImageFieldSelection,
 } from "./fields";
 
 const getCoursesSlugs = async () => {
@@ -89,6 +91,33 @@ const getCourseBySlug = async (slug: string) => {
 			// FAQ
 			faq: faqItemFieldsSelection,
 
+			ctaTitle: true,
+			ctaMidActions: {
+				link: true,
+				text: true,
+			},
+			ctaImages: {
+				image: {
+					responsiveImage: responsiveImageFieldSelection,
+				},
+				text: true,
+			},
+			ctaButton: {
+				link: true,
+				text: true,
+			},
+
+			instructorSubheading: true,
+			instructors: {
+				name: true,
+				about: {
+					value: true,
+				},
+				profilePicture: {
+					responsiveImage: responsiveImageFieldSelection,
+				},
+			},
+
 			// Features
 			featuresCards: {
 				media: {
@@ -106,6 +135,7 @@ const getCourseBySlug = async (slug: string) => {
 			testimonials: {
 				testimonial: {
 					on_TestimonialBlockDefaultRecord: defaultTestimonialFieldsSelection,
+					on_TestimonialBlockCtaRecord: ctaTestimonialFieldsSelection,
 				},
 			},
 

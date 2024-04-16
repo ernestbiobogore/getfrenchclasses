@@ -1,8 +1,13 @@
+import { formatTutorMeta } from "$dato/blocks/tutors/utils.server";
 import { getCourseBySlug } from "$lib/graphql/queries/courses";
+import { getAllTutorsMetas } from "$lib/graphql/queries/tutors";
 import { error } from "@sveltejs/kit";
 
 export const load = async ({ params }) => {
-	const course = await getCourseBySlug(params.courseSlug);
+	const [course, tutorsMetas] = await Promise.all([
+		getCourseBySlug(params.courseSlug),
+		getAllTutorsMetas(),
+	]);
 
 	if (!course) {
 		throw error(404, "Course not found");
@@ -13,5 +18,6 @@ export const load = async ({ params }) => {
 			...course,
 			seo: course.seo[0].seoBlock,
 		},
+		tutorsMetas: tutorsMetas.map(formatTutorMeta),
 	};
 };
