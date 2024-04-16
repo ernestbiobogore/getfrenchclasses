@@ -35,6 +35,7 @@ const faqBlockFieldSelection = {
 } satisfies FaqBlockNewRecordGenqlSelection;
 
 const actionBlockFieldSelection = {
+	id: true,
 	text: true,
 	link: true,
 } satisfies ActionBlockRecordGenqlSelection;

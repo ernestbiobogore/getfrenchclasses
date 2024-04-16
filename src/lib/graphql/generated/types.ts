@@ -1404,11 +1404,20 @@ export default {
             "_isValid": [
                 6
             ],
+            "ctaTitle": [
+                166
+            ],
             "duration": [
                 93
             ],
             "faq": [
                 108
+            ],
+            "instructors": [
+                111
+            ],
+            "instructorSubheading": [
+                166
             ],
             "level": [
                 166
@@ -1484,6 +1493,18 @@ export default {
             "_updatedAt": [
                 40
             ],
+            "ctaButton": [
+                0
+            ],
+            "ctaImages": [
+                59
+            ],
+            "ctaMidActions": [
+                0
+            ],
+            "ctaTitle": [
+                165
+            ],
             "duration": [
                 92
             ],
@@ -1495,6 +1516,12 @@ export default {
             ],
             "id": [
                 100
+            ],
+            "instructorSubheading": [
+                165
+            ],
+            "instructors": [
+                90
             ],
             "level": [
                 165
