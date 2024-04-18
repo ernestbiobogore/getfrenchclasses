@@ -49,8 +49,11 @@
 		"clsx": "^2.1.0",
 		"datocms-structured-text-utils": "^3.0.0",
 		"embla-carousel-svelte": "8.0.0-rc22",
+		"mode-watcher": "^0.3.0",
 		"nprogress": "^0.2.0",
+		"resend": "^3.2.0",
 		"svelte-legos": "^0.2.2",
+		"svelte-sonner": "^0.3.22",
 		"tailwind-merge": "^2.2.1",
 		"tailwind-variants": "^0.1.20"
 	}
