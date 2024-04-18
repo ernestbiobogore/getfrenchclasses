@@ -22,6 +22,7 @@ import type {
 } from "$lib/graphql/generated";
 
 const headingFieldSelection = {
+	__typename: true,
 	heading: true,
 	highlightedWords: true,
 	subheading: {
@@ -51,6 +52,7 @@ const responsiveImageFieldSelection = {
 } satisfies ResponsiveImageGenqlSelection;
 
 const cardBlockFieldSelection = {
+	id: true,
 	heading: headingFieldSelection,
 	cta: actionBlockFieldSelection,
 	media: {

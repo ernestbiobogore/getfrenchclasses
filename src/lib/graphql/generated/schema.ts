@@ -406,6 +406,8 @@ export interface CourseRecord {
     _status: ItemStatus
     _unpublishingScheduledAt: (Scalars['DateTime'] | null)
     _updatedAt: Scalars['DateTime']
+    contentList: CardBlockNewRecord[]
+    contentListHeading: (HeadingBlockNewRecord | null)
     ctaButton: (ActionBlockRecord | null)
     ctaImages: HeroImageBlockRecord[]
     ctaMidActions: ActionBlockRecord[]
@@ -420,10 +422,14 @@ export interface CourseRecord {
     name: Scalars['String']
     numberOfEnrolledStudents: Scalars['IntType']
     numberOfSections: Scalars['IntType']
+    outcomes: CardBlockNewRecord[]
+    outcomesHeading: (HeadingBlockNewRecord | null)
     price: Scalars['IntType']
     seo: SeoBlockRecord[]
     slug: Scalars['String']
     tag: (Scalars['String'] | null)
+    targetAudience: CardBlockNewRecord[]
+    targetAudienceHeading: (HeadingBlockNewRecord | null)
     testimonials: TestimonialRecord[]
     __typename: 'CourseRecord'
 }
@@ -2278,6 +2284,8 @@ export interface CourseRecordGenqlSelection{
     _status?: boolean | number
     _unpublishingScheduledAt?: boolean | number
     _updatedAt?: boolean | number
+    contentList?: CardBlockNewRecordGenqlSelection
+    contentListHeading?: HeadingBlockNewRecordGenqlSelection
     ctaButton?: ActionBlockRecordGenqlSelection
     ctaImages?: HeroImageBlockRecordGenqlSelection
     ctaMidActions?: ActionBlockRecordGenqlSelection
@@ -2292,10 +2300,14 @@ export interface CourseRecordGenqlSelection{
     name?: boolean | number
     numberOfEnrolledStudents?: boolean | number
     numberOfSections?: boolean | number
+    outcomes?: CardBlockNewRecordGenqlSelection
+    outcomesHeading?: HeadingBlockNewRecordGenqlSelection
     price?: boolean | number
     seo?: SeoBlockRecordGenqlSelection
     slug?: boolean | number
     tag?: boolean | number
+    targetAudience?: CardBlockNewRecordGenqlSelection
+    targetAudienceHeading?: HeadingBlockNewRecordGenqlSelection
     testimonials?: TestimonialRecordGenqlSelection
     __typename?: boolean | number
     __scalar?: boolean | number

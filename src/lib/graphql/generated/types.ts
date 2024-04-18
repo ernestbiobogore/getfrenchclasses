@@ -1493,6 +1493,12 @@ export default {
             "_updatedAt": [
                 40
             ],
+            "contentList": [
+                8
+            ],
+            "contentListHeading": [
+                57
+            ],
             "ctaButton": [
                 0
             ],
@@ -1535,6 +1541,12 @@ export default {
             "numberOfSections": [
                 92
             ],
+            "outcomes": [
+                8
+            ],
+            "outcomesHeading": [
+                57
+            ],
             "price": [
                 92
             ],
@@ -1546,6 +1558,12 @@ export default {
             ],
             "tag": [
                 165
+            ],
+            "targetAudience": [
+                8
+            ],
+            "targetAudienceHeading": [
+                57
             ],
             "testimonials": [
                 178

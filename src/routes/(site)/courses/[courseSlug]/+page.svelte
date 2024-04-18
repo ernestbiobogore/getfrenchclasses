@@ -1,4 +1,5 @@
 <script lang="ts">
+	import StructuredText from "$dato/StructuredText/index.svelte";
 	import FAQItems from "$dato/blocks/FAQItems.svelte";
 	import Heading from "$dato/blocks/Heading.svelte";
 	import AvatarsGroup from "$lib/components/AvatarsGroup.svelte";
@@ -8,20 +9,18 @@
 	import Check from "~icons/lucide/check";
 	import Clock from "~icons/lucide/clock";
 	import PenSquare from "~icons/lucide/pen-square";
-	import BookOpen from "~icons/ph/book-open";
-	import ChalkboardTeacher from "~icons/ph/chalkboard-teacher";
-	import GraduationCap from "~icons/ph/graduation-cap";
-	import KeyLight from "~icons/ph/key-light";
-	import LightbulbLight from "~icons/ph/lightbulb-light";
-	import UsersThree from "~icons/ph/users-three";
-	import VideoCamera from "~icons/ph/video-camera";
-	import Wrench from "~icons/ph/wrench";
 	import CourseSyllabus from "./components/CourseSyllabus.svelte";
 
+	import CtaTestimonial from "$dato/blocks/CtaTestimonial.svelte";
 	import DefaultTestimonial from "$dato/blocks/DefaultTestimonial.svelte";
+	import TutorCard from "$dato/blocks/tutors/TutorCard.svelte";
 	import { getSampleAvatars } from "$lib/utils";
+	import { Button } from "$shadcn/button";
+	import { Image } from "@datocms/svelte";
 
 	export let data;
+
+	$: course = data.course;
 
 	const instructors = [...Array(3)];
 </script>
@@ -54,7 +53,7 @@
 			</div>
 		</div>
 
-		<p>{data.course.seo?.description}</p>
+		<p>{data.course.seo[0].seoBlock?.description}</p>
 
 		<a href="/courses/{data.course.slug}" class="text-xs action-base w-fit">Enroll Now</a>
 
@@ -82,104 +81,112 @@
 			</div>
 		</div>
 
-		<!-- WHO THE COURSE IS FOR -->
-		<div class="py-5">
-			<h2>Who is this course for?</h2>
+		{#if course.targetAudience && course.targetAudience.length > 0}
+			<!-- WHO THE COURSE IS FOR -->
+			<div class="py-5">
+				{#if course.targetAudienceHeading}
+					<Heading heading={course.targetAudienceHeading} class="text-left" />
+				{:else}
+					<Heading defaultHeading="Who is this course for?" useDefaultHeading class="text-left" />
+				{/if}
 
-			<br />
+				<br />
 
-			<!-- CARDS -->
-			<div class="grid gap-4 sm:grid-cols-2">
-				{#each [...Array(4)] as _, i}
-					<div class="flex flex-col gap-3 p-4 border border-gray-400 rounded-lg">
-						<div class="bg-white text-gray-800 size-[40px] rounded-full flex-s-center">
-							0{i + 1}
-						</div>
-
-						<div class="font-semibold">Experienced designers</div>
-
-						<p class="text-sm">
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, odio sint neque quasi
-							officia optio doloribus voluptatum asperiores aliquid, delectus necessitatibus. Rem ut
-							odio possimus error quae id repellendus accusantium.
-						</p>
-					</div>
-				{/each}
-			</div>
-		</div>
-
-		<!-- WHAT YOU'LL GET -->
-		<div class="py-5">
-			<h2>What you'll get</h2>
-
-			<br />
-
-			<!-- CARDS -->
-			<div class="flex flex-col max-w-2xl gap-4">
-				{#each [...Array(4)] as _, i}
-					<div class="flex-s-start-start">
-						<div>
-							<div class="bg-green-600 size-[20px] text-white rounded-full flex-s-center">
-								<Check />
+				<!-- CARDS -->
+				<div class="grid gap-4 sm:grid-cols-2">
+					{#each course.targetAudience as audience, i}
+						<div class="flex flex-col gap-3 p-4 border border-gray-400 rounded-lg">
+							<div class="bg-white text-gray-800 size-[40px] rounded-full flex-s-center">
+								0{i + 1}
 							</div>
+
+							{#if audience.heading}
+								<Heading
+									heading={audience.heading}
+									class="text-left font-semibold text-base"
+									contentClass="text-left"
+									titleTag="p"
+								/>
+							{/if}
 						</div>
-
-						<div class="ml-3">
-							<div class="font-semibold">Experienced designers</div>
-
-							<p class="text-sm">
-								Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, odio sint neque quasi
-								officia optio doloribus voluptatum asperiores aliquid, delectus necessitatibus. Rem
-								ut odio possimus error quae id repellendus accusantium.
-							</p>
-						</div>
-					</div>
-				{/each}
-			</div>
-		</div>
-
-		<!-- THIS COURSE INCLUDES -->
-		<div class="py-5">
-			<h2>This course includes</h2>
-
-			<br />
-
-			<!-- CARDS -->
-			<div class="grid max-w-2xl gap-4 md:grid-cols-2">
-				<div class="gap-2 flex-s-start">
-					<VideoCamera class="text-xl" />
-					<p>Live sessions with instructor</p>
-				</div>
-				<div class="gap-2 flex-s-start">
-					<KeyLight class="text-xl" />
-					<p>Lifetime access to course materials</p>
-				</div>
-				<div class="gap-2 flex-s-start">
-					<BookOpen class="text-xl" />
-					<p>74 in-depth lesson</p>
-				</div>
-				<div class="gap-2 flex-s-start">
-					<ChalkboardTeacher class="text-xl" />
-					<p>Direct access to instructor</p>
-				</div>
-				<div class="gap-2 flex-s-start">
-					<Wrench class="text-xl" />
-					<p>7 projects to apply learnings</p>
-				</div>
-				<div class="gap-2 flex-s-start">
-					<LightbulbLight class="text-xl" />
-					<p>Guided feedback & reflection</p>
-				</div>
-				<div class="gap-2 flex-s-start">
-					<UsersThree class="text-xl" />
-					<p>Private community of peers</p>
-				</div>
-				<div class="gap-2 flex-s-start">
-					<GraduationCap class="text-xl" />
-					<p>Course certificate upon completion</p>
+					{/each}
 				</div>
 			</div>
-		</div>
+		{/if}
+
+		{#if course.outcomes && course.outcomes.length > 0}
+			<!-- WHAT YOU'LL GET -->
+			<div class="py-5">
+				<Heading
+					heading={course.outcomesHeading}
+					useDefaultHeading={!course.outcomesHeading}
+					defaultHeading="What you'll get"
+					class="text-left"
+				/>
+
+				<br />
+
+				<!-- CARDS -->
+				<div class="flex flex-col max-w-2xl gap-4">
+					{#each course.outcomes as outcome (outcome.id)}
+						<div class="flex-s-start-start">
+							<div>
+								<div class="bg-green-600 size-[20px] text-white rounded-full flex-s-center">
+									<Check />
+								</div>
+							</div>
+
+							{#if outcome.heading}
+								<div class="ml-3">
+									<Heading
+										heading={outcome.heading}
+										class="text-left font-semibold text-base"
+										contentClass="text-left"
+										titleTag="p"
+									/>
+								</div>
+							{/if}
+						</div>
+					{/each}
+				</div>
+			</div>
+		{/if}
+
+		{#if course.contentList && course.contentList.length > 0}
+			<!-- THIS COURSE INCLUDES -->
+			<div class="py-5">
+				<Heading
+					heading={course.contentListHeading}
+					useDefaultHeading={!course.contentListHeading}
+					defaultHeading="This course includes"
+					class="text-left"
+				/>
+
+				<br />
+
+				<!-- CARDS -->
+				<div class="grid max-w-2xl gap-4 md:grid-cols-2">
+					{#each course.contentList as content (content.id)}
+						{#if content.heading}
+							<div class="gap-2 flex-s-start items-center">
+								{#if content.media?.format === "svg"}
+									<img src={content.media.url} alt={content.media.alt} class="w-4 h-4" />
+								{:else if content.media?.responsiveImage}
+									<Image data={content.media.responsiveImage} class="w-4 h-4" />
+								{/if}
+
+								<Heading
+									heading={content.heading}
+									class="text-left text-base"
+									contentClass="text-left"
+									titleTag="p"
+								/>
+							</div>
+						{/if}
+					{/each}
+				</div>
+			</div>
+		{/if}
 	</div>
 
 	<!-- RIGHT SIDE -->
@@ -239,47 +246,65 @@
 		<h2 class="text-center">What people say</h2>
 
 		<div class="grid grid-cols-3 gap-8">
-			{#each data.course.testimonials as { testimonial } (testimonial.id)}
-				{#if testimonial.__typename === "TestimonialBlockDefaultRecord"}
-					<DefaultTestimonial {testimonial} />
-				{/if}
-
-				<!-- {#if testimonial.__typename === "TestimonialBlockCtaRecord"}
-				<CtaTestimonial {testimonial} />
-			{/if} -->
-			{/each}
+			{#if course.testimonials[0]?.testimonial.__typename === "TestimonialBlockDefaultRecord"}
+				<DefaultTestimonial testimonial={course.testimonials[0]?.testimonial} />
+			{/if}
 		</div>
 	</section>
 {/if}
 
-<CourseCtaBanner />
+{#if course.ctaTitle && course.ctaButton && course.ctaImages && course.ctaMidActions}
+	<CourseCtaBanner
+		title={course.ctaTitle}
+		midActions={course.ctaMidActions}
+		cta={course.ctaButton}
+		heroImages={course.ctaImages}
+	/>
+{/if}
 
 <!-- INSTRUCTOR BIO -->
-<section class="py-20 container-base">
+<section class="py-20 container-base space-y-4">
 	<h2 class="text-center">Meet your instructor</h2>
-	<br /><br />
+	<p class="text-center mx-auto max-w-[46ch] md:max-w-[64ch]">{course.instructorSubheading}</p>
+	<br />
 
-	<div class="w-full max-w-2xl gap-4 mx-auto max-md:space-y-4 md:flex-s-start" id="instructor">
-		<div class="size-[60px] bg-red-400 rounded-xl md:!h-[300px] md:!w-[250px]">
-			<img src="" alt="" />
-		</div>
+	{#each course.instructors as instructor}
+		<div
+			class="w-full max-w-2xl gap-4 mx-auto max-md:space-y-4 md:flex-s-start not-last:mb-6"
+			id="instructor"
+		>
+			<div class="size-[60px] bg-gray-50 rounded-xl overflow-hidden md:!h-[300px] md:!w-[250px]">
+				<!-- <img src="" alt="" /> -->
+				{#if instructor?.profilePicture?.responsiveImage}
+					<Image class="size-full" data={instructor.profilePicture.responsiveImage} />
+				{/if}
+			</div>
 
-		<div class="flex-1">
-			<div class="mb-2 text-lg font-semibold">Femke</div>
-			<div>
-				<p>
-					Hi, I'm Femke! I am a design manager that worked as a product designer for over 5 years at
-					the world's leading tech companies such as Uber, Wealthsimple and Gusto.
-				</p>
-				<br />
-				<p>
-					I focus on educating the next generation of designers on YouTube where I have 70k+
-					subscribers and over 1 million views. I have mentored 150+ designers and helped them land
-					their dream job, I also run a community with 200+ designers from companies such as Google,
-					Hubspot, and Booking.com.
-				</p>
+			<div class="flex-1">
+				<div class="mb-2 text-lg font-semibold">{instructor.name}</div>
+				<StructuredText class="flex flex-col gap-4" richText={instructor.about} />
 			</div>
 		</div>
+	{/each}
+</section>
+
+<section class="py-20 container-base space-y-4">
+	<h2 class="text-center">Tutors</h2>
+	<p class="text-center mx-auto max-w-[46ch] md:max-w-[64ch]">
+		Hi, I'm Femke! I am a design manager that worked as a product designer for over 5 years at the
+		world's leading tech companies such as Uber, Wealthsimple and Gusto.
+	</p>
+
+	<br />
+
+	<div class="grid gap-6 sm:grid-cols-3">
+		{#each data.tutorsMetas as tutor}
+			<TutorCard {tutor} withCTA />
+		{/each}
+	</div>
+
+	<div class="mt-10 flex-s-center">
+		<Button href="/tutors">See More</Button>
 	</div>
 </section>
 
@@ -321,7 +346,11 @@
 	</div>
 </section>
 
-<CourseCtaBanner />
+{#if course.testimonials[1]?.testimonial && course.testimonials[1]?.testimonial?.__typename === "TestimonialBlockCtaRecord"}
+	<section class="py-20 space-y-12 container-base">
+		<CtaTestimonial testimonial={course.testimonials[1].testimonial} />
+	</section>
+{/if}
 
 {#if data.course.faq?.faqBlocks && data.course.faq?.faqBlocks.length > 0}
 	<section class="max-w-2xl py-10 mx-auto space-y-12" id="faq">

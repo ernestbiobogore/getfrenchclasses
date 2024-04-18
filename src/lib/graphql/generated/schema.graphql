@@ -884,6 +884,8 @@ type CourseRecord implements RecordInterface {
   _status: ItemStatus!
   _unpublishingScheduledAt: DateTime
   _updatedAt: DateTime!
+  contentList: [CardBlockNewRecord!]!
+  contentListHeading: HeadingBlockNewRecord
   ctaButton: ActionBlockRecord
   ctaImages: [HeroImageBlockRecord!]!
   ctaMidActions: [ActionBlockRecord!]!
@@ -898,10 +900,14 @@ type CourseRecord implements RecordInterface {
   name: String!
   numberOfEnrolledStudents: IntType!
   numberOfSections: IntType!
+  outcomes: [CardBlockNewRecord!]!
+  outcomesHeading: HeadingBlockNewRecord
   price: IntType!
   seo: [SeoBlockRecord!]!
   slug: String!
   tag: String
+  targetAudience: [CardBlockNewRecord!]!
+  targetAudienceHeading: HeadingBlockNewRecord
   testimonials: [TestimonialRecord!]!
 }
 

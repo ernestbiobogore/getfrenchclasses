@@ -1,8 +1,12 @@
 import { client } from "$lib/graphql/client";
 import {
+	cardBlockFieldSelection,
 	courseMetaFields,
+	ctaTestimonialFieldsSelection,
 	defaultTestimonialFieldsSelection,
-	faqItemFieldsSelection
+	faqItemFieldsSelection,
+	headingFieldSelection,
+	responsiveImageFieldSelection
 } from "./fields";
 
 const getCoursesSlugs = async () => {
@@ -86,8 +90,47 @@ const getCourseBySlug = async (slug: string) => {
 			numberOfEnrolledStudents: true,
 			tag: true,
 
+			// Target audience
+			targetAudienceHeading: headingFieldSelection,
+			targetAudience: cardBlockFieldSelection,
+
+			// Outcomes
+			outcomesHeading: headingFieldSelection,
+			outcomes: cardBlockFieldSelection,
+
+			// Content list
+			contentListHeading: headingFieldSelection,
+			contentList: cardBlockFieldSelection,
+
 			// FAQ
 			faq: faqItemFieldsSelection,
+
+			ctaTitle: true,
+			ctaMidActions: {
+				link: true,
+				text: true,
+			},
+			ctaImages: {
+				image: {
+					responsiveImage: responsiveImageFieldSelection,
+				},
+				text: true,
+			},
+			ctaButton: {
+				link: true,
+				text: true,
+			},
+
+			instructorSubheading: true,
+			instructors: {
+				name: true,
+				about: {
+					value: true,
+				},
+				profilePicture: {
+					responsiveImage: responsiveImageFieldSelection,
+				},
+			},
 
 			// Features
 			featuresCards: {
@@ -106,6 +149,7 @@ const getCourseBySlug = async (slug: string) => {
 			testimonials: {
 				testimonial: {
 					on_TestimonialBlockDefaultRecord: defaultTestimonialFieldsSelection,
+					on_TestimonialBlockCtaRecord: ctaTestimonialFieldsSelection,
 				},
 			},
 

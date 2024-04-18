@@ -17,7 +17,7 @@ const config: Config = {
 		},
 		extend: {
 			fontFamily: {
-				'ibm-plex-sans': ["IBM Plex Sans", ...fontFamily.sans],
+				"ibm-plex-sans": ["IBM Plex Sans", ...fontFamily.sans],
 			},
 			colors: {
 				magnolia: "#eeecf1",
@@ -84,6 +84,7 @@ const config: Config = {
 				".flex-s-between": createFlexUtilClass("flex", "space-between", "center"),
 				".flex-s-evenly": createFlexUtilClass("flex", "space-evenly", "center"),
 				".flex-s-end": createFlexUtilClass("flex", "flex-end", "center"),
+				".flex-s-between-end": createFlexUtilClass("flex", "space-between", "flex-end"),
 				".flex-s-center-start": createFlexUtilClass("flex", "center", "flex-start"),
 				".flex-s-start-start": createFlexUtilClass("flex", "flex-start", "flex-start"),
 				".inline-flex-s-center": createFlexUtilClass("inline-flex", "center", "center"),
