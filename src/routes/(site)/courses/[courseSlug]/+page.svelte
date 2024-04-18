@@ -117,11 +117,12 @@
 		{#if course.outcomes && course.outcomes.length > 0}
 			<!-- WHAT YOU'LL GET -->
 			<div class="py-5">
-				{#if course.outcomesHeading}
-					<Heading heading={course.outcomesHeading} class="text-left" />
-				{:else}
-					<Heading defaultHeading="What you'll get" useDefaultHeading class="text-left" />
-				{/if}
+				<Heading
+					heading={course.outcomesHeading}
+					useDefaultHeading={!course.outcomesHeading}
+					defaultHeading="What you'll get"
+					class="text-left"
+				/>
 
 				<br />
 
@@ -135,16 +136,16 @@
 								</div>
 							</div>
 
-							<div class="ml-3">
-								{#if outcome.heading}
+							{#if outcome.heading}
+								<div class="ml-3">
 									<Heading
 										heading={outcome.heading}
 										class="text-left font-semibold text-base"
 										contentClass="text-left"
 										titleTag="p"
 									/>
-								{/if}
-							</div>
+								</div>
+							{/if}
 						</div>
 					{/each}
 				</div>
@@ -154,11 +155,12 @@
 		{#if course.contentList && course.contentList.length > 0}
 			<!-- THIS COURSE INCLUDES -->
 			<div class="py-5">
-				{#if course.contentListHeading}
-					<Heading heading={course.contentListHeading} class="text-left" />
-				{:else}
-					<Heading defaultHeading="This course includes" useDefaultHeading class="text-left" />
-				{/if}
+				<Heading
+					heading={course.contentListHeading}
+					useDefaultHeading={!course.contentListHeading}
+					defaultHeading="This course includes"
+					class="text-left"
+				/>
 
 				<br />
 
