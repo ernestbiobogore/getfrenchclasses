@@ -406,6 +406,8 @@ export interface CourseRecord {
     _status: ItemStatus
     _unpublishingScheduledAt: (Scalars['DateTime'] | null)
     _updatedAt: Scalars['DateTime']
+    contentList: CardBlockNewRecord[]
+    contentListHeading: (HeadingBlockNewRecord | null)
     ctaButton: (ActionBlockRecord | null)
     ctaImages: HeroImageBlockRecord[]
     ctaMidActions: ActionBlockRecord[]
@@ -420,10 +422,14 @@ export interface CourseRecord {
     name: Scalars['String']
     numberOfEnrolledStudents: Scalars['IntType']
     numberOfSections: Scalars['IntType']
+    outcomes: CardBlockNewRecord[]
+    outcomesHeading: (HeadingBlockNewRecord | null)
     price: Scalars['IntType']
     seo: SeoBlockRecord[]
     slug: Scalars['String']
     tag: (Scalars['String'] | null)
+    targetAudience: CardBlockNewRecord[]
+    targetAudienceHeading: (HeadingBlockNewRecord | null)
     testimonials: TestimonialRecord[]
     __typename: 'CourseRecord'
 }
@@ -1810,13 +1816,13 @@ export interface AltFileFieldGenqlSelection{
     basename?: boolean | number
     blurUpThumb?: { __args: {
     /** Controls the "punch" value (~contrast) of the blurhash decoding algorithm (defaults to 1.0) */
-    punch?: Scalars['Float'], 
+    punch: Scalars['Float'], 
     /** Maximum image dimension (defaults to 24px) */
-    size?: Scalars['Int'], 
+    size: Scalars['Int'], 
     /** Image quality (defaults to 70%) */
-    quality?: Scalars['Int'], 
+    quality: Scalars['Int'], 
     /** Imgix transformations to apply to the image */
-    imgixParams?: (ImgixParams | null)} } | boolean | number
+    imgixParams?: (ImgixParams | null)} }
     blurhash?: boolean | number
     colors?: ColorFieldGenqlSelection
     copyright?: boolean | number
@@ -2278,6 +2284,8 @@ export interface CourseRecordGenqlSelection{
     _status?: boolean | number
     _unpublishingScheduledAt?: boolean | number
     _updatedAt?: boolean | number
+    contentList?: CardBlockNewRecordGenqlSelection
+    contentListHeading?: HeadingBlockNewRecordGenqlSelection
     ctaButton?: ActionBlockRecordGenqlSelection
     ctaImages?: HeroImageBlockRecordGenqlSelection
     ctaMidActions?: ActionBlockRecordGenqlSelection
@@ -2292,10 +2300,14 @@ export interface CourseRecordGenqlSelection{
     name?: boolean | number
     numberOfEnrolledStudents?: boolean | number
     numberOfSections?: boolean | number
+    outcomes?: CardBlockNewRecordGenqlSelection
+    outcomesHeading?: HeadingBlockNewRecordGenqlSelection
     price?: boolean | number
     seo?: SeoBlockRecordGenqlSelection
     slug?: boolean | number
     tag?: boolean | number
+    targetAudience?: CardBlockNewRecordGenqlSelection
+    targetAudienceHeading?: HeadingBlockNewRecordGenqlSelection
     testimonials?: TestimonialRecordGenqlSelection
     __typename?: boolean | number
     __scalar?: boolean | number
@@ -2484,13 +2496,13 @@ export interface FileFieldGenqlSelection{
     basename?: boolean | number
     blurUpThumb?: { __args: {
     /** Controls the "punch" value (~contrast) of the blurhash decoding algorithm (defaults to 1.0) */
-    punch?: Scalars['Float'], 
+    punch: Scalars['Float'], 
     /** Maximum image dimension (defaults to 24px) */
-    size?: Scalars['Int'], 
+    size: Scalars['Int'], 
     /** Image quality (defaults to 70%) */
-    quality?: Scalars['Int'], 
+    quality: Scalars['Int'], 
     /** Imgix transformations to apply to the image */
-    imgixParams?: (ImgixParams | null)} } | boolean | number
+    imgixParams?: (ImgixParams | null)} }
     blurhash?: boolean | number
     colors?: ColorFieldGenqlSelection
     copyright?: boolean | number
@@ -2553,13 +2565,13 @@ export interface FileFieldInterfaceGenqlSelection{
     basename?: boolean | number
     blurUpThumb?: { __args: {
     /** Controls the "punch" value (~contrast) of the blurhash decoding algorithm (defaults to 1.0) */
-    punch?: Scalars['Float'], 
+    punch: Scalars['Float'], 
     /** Maximum image dimension (defaults to 24px) */
-    size?: Scalars['Int'], 
+    size: Scalars['Int'], 
     /** Image quality (defaults to 70%) */
-    quality?: Scalars['Int'], 
+    quality: Scalars['Int'], 
     /** Imgix transformations to apply to the image */
-    imgixParams?: (ImgixParams | null)} } | boolean | number
+    imgixParams?: (ImgixParams | null)} }
     blurhash?: boolean | number
     colors?: ColorFieldGenqlSelection
     copyright?: boolean | number
@@ -5946,13 +5958,13 @@ export interface UploadVideoFieldGenqlSelection{
     fallbackLocales?: (SiteLocale[] | null)} } | boolean | number
     blurUpThumb?: { __args: {
     /** Controls the "punch" value (~contrast) of the blurhash decoding algorithm (defaults to 1.0) */
-    punch?: Scalars['Float'], 
+    punch: Scalars['Float'], 
     /** Maximum image dimension (defaults to 24px) */
-    size?: Scalars['Int'], 
+    size: Scalars['Int'], 
     /** Image quality (defaults to 70%) */
-    quality?: Scalars['Int'], 
+    quality: Scalars['Int'], 
     /** Imgix transformations to apply to the image */
-    imgixParams?: (ImgixParams | null)} } | boolean | number
+    imgixParams?: (ImgixParams | null)} }
     blurhash?: boolean | number
     duration?: boolean | number
     framerate?: boolean | number
@@ -6009,13 +6021,13 @@ export interface VideoFileFieldGenqlSelection{
     basename?: boolean | number
     blurUpThumb?: { __args: {
     /** Controls the "punch" value (~contrast) of the blurhash decoding algorithm (defaults to 1.0) */
-    punch?: Scalars['Float'], 
+    punch: Scalars['Float'], 
     /** Maximum image dimension (defaults to 24px) */
-    size?: Scalars['Int'], 
+    size: Scalars['Int'], 
     /** Image quality (defaults to 70%) */
-    quality?: Scalars['Int'], 
+    quality: Scalars['Int'], 
     /** Imgix transformations to apply to the image */
-    imgixParams?: (ImgixParams | null)} } | boolean | number
+    imgixParams?: (ImgixParams | null)} }
     blurhash?: boolean | number
     colors?: ColorFieldGenqlSelection
     copyright?: boolean | number

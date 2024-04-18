@@ -9,28 +9,18 @@
 	import Check from "~icons/lucide/check";
 	import Clock from "~icons/lucide/clock";
 	import PenSquare from "~icons/lucide/pen-square";
-	import BookOpen from "~icons/ph/book-open";
-	import ChalkboardTeacher from "~icons/ph/chalkboard-teacher";
-	import GraduationCap from "~icons/ph/graduation-cap";
-	import KeyLight from "~icons/ph/key-light";
-	import LightbulbLight from "~icons/ph/lightbulb-light";
-	import UsersThree from "~icons/ph/users-three";
-	import VideoCamera from "~icons/ph/video-camera";
-	import Wrench from "~icons/ph/wrench";
 	import CourseSyllabus from "./components/CourseSyllabus.svelte";
 
-	import DefaultTestimonial from "$dato/blocks/DefaultTestimonial.svelte";
 	import CtaTestimonial from "$dato/blocks/CtaTestimonial.svelte";
+	import DefaultTestimonial from "$dato/blocks/DefaultTestimonial.svelte";
 	import TutorCard from "$dato/blocks/tutors/TutorCard.svelte";
 	import { getSampleAvatars } from "$lib/utils";
-	import { Image } from "@datocms/svelte";
 	import { Button } from "$shadcn/button";
+	import { Image } from "@datocms/svelte";
 
 	export let data;
 
-	// https://github.com/sveltejs/kit/issues/6238#issuecomment-1227625712
-	let course = data.course; // only runs on component initialisation
-	$: course = data.course; // is reactive to data
+	$: course = data.course;
 
 	const instructors = [...Array(3)];
 </script>
@@ -63,7 +53,7 @@
 			</div>
 		</div>
 
-		<p>{data.course.seo?.description}</p>
+		<p>{data.course.seo[0].seoBlock?.description}</p>
 
 		<a href="/courses/{data.course.slug}" class="text-xs action-base w-fit">Enroll Now</a>
 
@@ -91,104 +81,110 @@
 			</div>
 		</div>
 
-		<!-- WHO THE COURSE IS FOR -->
-		<div class="py-5">
-			<h2>Who is this course for?</h2>
+		{#if course.targetAudience && course.targetAudience.length > 0}
+			<!-- WHO THE COURSE IS FOR -->
+			<div class="py-5">
+				{#if course.targetAudienceHeading}
+					<Heading heading={course.targetAudienceHeading} class="text-left" />
+				{:else}
+					<Heading defaultHeading="Who is this course for?" useDefaultHeading class="text-left" />
+				{/if}
 
-			<br />
+				<br />
 
-			<!-- CARDS -->
-			<div class="grid gap-4 sm:grid-cols-2">
-				{#each [...Array(4)] as _, i}
-					<div class="flex flex-col gap-3 p-4 border border-gray-400 rounded-lg">
-						<div class="bg-white text-gray-800 size-[40px] rounded-full flex-s-center">
-							0{i + 1}
+				<!-- CARDS -->
+				<div class="grid gap-4 sm:grid-cols-2">
+					{#each course.targetAudience as audience, i}
+						<div class="flex flex-col gap-3 p-4 border border-gray-400 rounded-lg">
+							<div class="bg-white text-gray-800 size-[40px] rounded-full flex-s-center">
+								0{i + 1}
+							</div>
+
+							{#if audience.heading}
+								<Heading
+									heading={audience.heading}
+									class="text-left font-semibold text-base"
+									contentClass="text-left"
+									titleTag="p"
+								/>
+							{/if}
 						</div>
-
-						<div class="font-semibold">Experienced designers</div>
-
-						<p class="text-sm">
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, odio sint neque quasi
-							officia optio doloribus voluptatum asperiores aliquid, delectus necessitatibus. Rem ut
-							odio possimus error quae id repellendus accusantium.
-						</p>
-					</div>
-				{/each}
+					{/each}
+				</div>
 			</div>
-		</div>
+		{/if}
 
-		<!-- WHAT YOU'LL GET -->
-		<div class="py-5">
-			<h2>What you'll get</h2>
+		{#if course.outcomes && course.outcomes.length > 0}
+			<!-- WHAT YOU'LL GET -->
+			<div class="py-5">
+				{#if course.outcomesHeading}
+					<Heading heading={course.outcomesHeading} class="text-left" />
+				{:else}
+					<Heading defaultHeading="What you'll get" useDefaultHeading class="text-left" />
+				{/if}
 
-			<br />
+				<br />
 
-			<!-- CARDS -->
-			<div class="flex flex-col max-w-2xl gap-4">
-				{#each [...Array(4)] as _, i}
-					<div class="flex-s-start-start">
-						<div>
-							<div class="bg-green-600 size-[20px] text-white rounded-full flex-s-center">
-								<Check />
+				<!-- CARDS -->
+				<div class="flex flex-col max-w-2xl gap-4">
+					{#each course.outcomes as outcome (outcome.id)}
+						<div class="flex-s-start-start">
+							<div>
+								<div class="bg-green-600 size-[20px] text-white rounded-full flex-s-center">
+									<Check />
+								</div>
+							</div>
+
+							<div class="ml-3">
+								{#if outcome.heading}
+									<Heading
+										heading={outcome.heading}
+										class="text-left font-semibold text-base"
+										contentClass="text-left"
+										titleTag="p"
+									/>
+								{/if}
 							</div>
 						</div>
-
-						<div class="ml-3">
-							<div class="font-semibold">Experienced designers</div>
-
-							<p class="text-sm">
-								Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, odio sint neque quasi
-								officia optio doloribus voluptatum asperiores aliquid, delectus necessitatibus. Rem
-								ut odio possimus error quae id repellendus accusantium.
-							</p>
-						</div>
-					</div>
-				{/each}
-			</div>
-		</div>
-
-		<!-- THIS COURSE INCLUDES -->
-		<div class="py-5">
-			<h2>This course includes</h2>
-
-			<br />
-
-			<!-- CARDS -->
-			<div class="grid max-w-2xl gap-4 md:grid-cols-2">
-				<div class="gap-2 flex-s-start">
-					<VideoCamera class="text-xl" />
-					<p>Live sessions with instructor</p>
-				</div>
-				<div class="gap-2 flex-s-start">
-					<KeyLight class="text-xl" />
-					<p>Lifetime access to course materials</p>
-				</div>
-				<div class="gap-2 flex-s-start">
-					<BookOpen class="text-xl" />
-					<p>74 in-depth lesson</p>
-				</div>
-				<div class="gap-2 flex-s-start">
-					<ChalkboardTeacher class="text-xl" />
-					<p>Direct access to instructor</p>
-				</div>
-				<div class="gap-2 flex-s-start">
-					<Wrench class="text-xl" />
-					<p>7 projects to apply learnings</p>
-				</div>
-				<div class="gap-2 flex-s-start">
-					<LightbulbLight class="text-xl" />
-					<p>Guided feedback & reflection</p>
-				</div>
-				<div class="gap-2 flex-s-start">
-					<UsersThree class="text-xl" />
-					<p>Private community of peers</p>
-				</div>
-				<div class="gap-2 flex-s-start">
-					<GraduationCap class="text-xl" />
-					<p>Course certificate upon completion</p>
+					{/each}
 				</div>
 			</div>
-		</div>
+		{/if}
+
+		{#if course.contentList && course.contentList.length > 0}
+			<!-- THIS COURSE INCLUDES -->
+			<div class="py-5">
+				{#if course.contentListHeading}
+					<Heading heading={course.contentListHeading} class="text-left" />
+				{:else}
+					<Heading defaultHeading="This course includes" useDefaultHeading class="text-left" />
+				{/if}
+
+				<br />
+
+				<!-- CARDS -->
+				<div class="grid max-w-2xl gap-4 md:grid-cols-2">
+					{#each course.contentList as content (content.id)}
+						{#if content.heading}
+							<div class="gap-2 flex-s-start items-center">
+								{#if content.media?.format === "svg"}
+									<img src={content.media.url} alt={content.media.alt} class="w-4 h-4" />
+								{:else if content.media?.responsiveImage}
+									<Image data={content.media.responsiveImage} class="w-4 h-4" />
+								{/if}
+
+								<Heading
+									heading={content.heading}
+									class="text-left text-base"
+									contentClass="text-left"
+									titleTag="p"
+								/>
+							</div>
+						{/if}
+					{/each}
+				</div>
+			</div>
+		{/if}
 	</div>
 
 	<!-- RIGHT SIDE -->

@@ -7,7 +7,6 @@
 	import Button from "$shadcn/button/button.svelte";
 	import * as Card from "$shadcn/card";
 	import { Image } from "@datocms/svelte";
-	import { text } from "@sveltejs/kit";
 
 	export let record: CardsSectionRecord;
 </script>

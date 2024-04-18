@@ -10,7 +10,7 @@
 	let contentClassName: string | undefined | null = undefined;
 
 	export let heading: HeadingBlockNewRecord | undefined = undefined;
-	export let titleTag: "h1" | "h2" = "h2";
+	export let titleTag: "h1" | "h2" | "p" = "h2";
 	export let defaultHeading: string | undefined = undefined;
 	export let useDefaultHeading = false;
 	export { className as class };

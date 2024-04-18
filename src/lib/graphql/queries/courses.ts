@@ -1,10 +1,12 @@
 import { client } from "$lib/graphql/client";
 import {
+	cardBlockFieldSelection,
 	courseMetaFields,
 	ctaTestimonialFieldsSelection,
 	defaultTestimonialFieldsSelection,
 	faqItemFieldsSelection,
-	responsiveImageFieldSelection,
+	headingFieldSelection,
+	responsiveImageFieldSelection
 } from "./fields";
 
 const getCoursesSlugs = async () => {
@@ -87,6 +89,18 @@ const getCourseBySlug = async (slug: string) => {
 			level: true,
 			numberOfEnrolledStudents: true,
 			tag: true,
+
+			// Target audience
+			targetAudienceHeading: headingFieldSelection,
+			targetAudience: cardBlockFieldSelection,
+
+			// Outcomes
+			outcomesHeading: headingFieldSelection,
+			outcomes: cardBlockFieldSelection,
+
+			// Content list
+			contentListHeading: headingFieldSelection,
+			contentList: cardBlockFieldSelection,
 
 			// FAQ
 			faq: faqItemFieldsSelection,
