@@ -1,11 +1,11 @@
 <script lang="ts">
 	import AvatarsGroup from "$lib/components/AvatarsGroup.svelte";
-	import Heading from "$lib/components/dato/blocks/Heading.svelte";
 	import ImageWithCallout from "$lib/components/ImageWithCallout.svelte";
-	import PhArrowBendDownLeftFill from "~icons/ph/arrow-bend-down-left-fill";
-	import type { HeroSectionRecord } from "$lib/graphql/generated";
+	import Heading from "$lib/components/dato/blocks/Heading.svelte";
 	import { Button } from "$lib/components/shadcn/ui/button";
+	import type { HeroSectionRecord } from "$lib/graphql/generated";
 	import { VideoPlayer } from "@datocms/svelte";
+	import PhArrowBendDownLeftFill from "~icons/ph/arrow-bend-down-left-fill";
 
 	export let record: HeroSectionRecord;
 
@@ -57,7 +57,7 @@
 							alt: String(picture.responsiveImage?.alt),
 						}))}
 					/>
-					<p class="text-xs">{record.cta?.text}</p>
+					<p class="text-xs">{record.testimonialTitle}</p>
 				</div>
 			{/if}
 		</div>
