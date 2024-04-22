@@ -138,17 +138,17 @@
 					</span>
 				</div>
 
-				<div class="flex items-center space-x-2 text-sm text-gray-600">
-					<BookOpen class="w-5 h-5" />
+				{#if tutor.topics && tutor.topics.length > 0}
+					<div class="flex items-center space-x-2 text-sm text-gray-600">
+						<BookOpen class="w-5 h-5" />
 
-					{#if tutor.topics && tutor.topics.length > 0}
 						<div class="gap-2 overflow-x-scroll flex-s-start">
 							{#each tutor.topics as topic}
 								<Badge class="bg-brand-primary">{topic.text}</Badge>
 							{/each}
 						</div>
-					{/if}
-				</div>
+					</div>
+				{/if}
 			</div>
 		</Card.Content>
 	</a>
