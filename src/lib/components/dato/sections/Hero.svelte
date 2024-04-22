@@ -4,7 +4,7 @@
 	import Heading from "$lib/components/dato/blocks/Heading.svelte";
 	import { Button } from "$lib/components/shadcn/ui/button";
 	import type { HeroSectionRecord } from "$lib/graphql/generated";
-	import { VideoPlayer } from "@datocms/svelte";
+	import Video from "$dato/blocks/Video.svelte";
 	import PhArrowBendDownLeftFill from "~icons/ph/arrow-bend-down-left-fill";
 
 	export let record: HeroSectionRecord;
@@ -67,8 +67,8 @@
 {#if record.video}
 	<section class="container-sm max-w-3xl py-20">
 		<div class="relative md:max-w-lg md:mx-auto lg:max-w-xl">
-			<VideoPlayer
-				data={record.video.video}
+			<Video
+				video={record.video}
 				class="p-[0.375rem] bg-white shadow-2xl rounded-xl relative max-h-[600px] md:max-w-lg lg:max-w-xl"
 			/>
 
