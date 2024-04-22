@@ -605,7 +605,7 @@ export interface FileField {
     __typename: 'FileField'
 }
 
-export type FileFieldInterface = (AltFileField | FileField | VideoAltFileField | VideoFileField) & { __isUnion?: true }
+export type FileFieldInterface = (AltFileField | FileField | VideoAltFileField) & { __isUnion?: true }
 
 export interface GlobalSeoField {
     facebookPageUrl: (Scalars['String'] | null)
@@ -712,7 +712,7 @@ export interface HeroSectionRecord {
     id: Scalars['ItemId']
     testimonialPictures: AltFileField[]
     testimonialTitle: (Scalars['String'] | null)
-    video: (VideoFileField | null)
+    video: (VideoBlockRecord | null)
     videoText: (Scalars['String'] | null)
     __typename: 'HeroSectionRecord'
 }
@@ -1839,40 +1839,6 @@ export interface VideoBlockRecord {
     __typename: 'VideoBlockRecord'
 }
 
-export interface VideoFileField {
-    _createdAt: Scalars['DateTime']
-    /** The DatoCMS URL where you can edit this entity. To use this field, you need to set a X-Base-Editing-Url header in the request */
-    _editingUrl: (Scalars['String'] | null)
-    _updatedAt: Scalars['DateTime']
-    alt: (Scalars['String'] | null)
-    author: (Scalars['String'] | null)
-    basename: Scalars['String']
-    blurUpThumb: (Scalars['String'] | null)
-    blurhash: (Scalars['String'] | null)
-    colors: ColorField[]
-    copyright: (Scalars['String'] | null)
-    customData: Scalars['CustomData']
-    exifInfo: Scalars['CustomData']
-    filename: Scalars['String']
-    focalPoint: (focalPoint | null)
-    format: Scalars['String']
-    height: Scalars['IntType']
-    id: Scalars['UploadId']
-    md5: Scalars['String']
-    mimeType: Scalars['String']
-    notes: (Scalars['String'] | null)
-    responsiveImage: (ResponsiveImage | null)
-    size: Scalars['IntType']
-    smartTags: Scalars['String'][]
-    tags: Scalars['String'][]
-    thumbhash: (Scalars['String'] | null)
-    title: (Scalars['String'] | null)
-    url: Scalars['String']
-    video: UploadVideoField
-    width: Scalars['IntType']
-    __typename: 'VideoFileField'
-}
-
 export type VideoMp4Res = 'low' | 'medium' | 'high'
 
 export interface focalPoint {
@@ -2725,7 +2691,6 @@ export interface FileFieldInterfaceGenqlSelection{
     on_AltFileField?: AltFileFieldGenqlSelection
     on_FileField?: FileFieldGenqlSelection
     on_VideoAltFileField?: VideoAltFileFieldGenqlSelection
-    on_VideoFileField?: VideoFileFieldGenqlSelection
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -2896,7 +2861,7 @@ export interface HeroSectionRecordGenqlSelection{
     id?: boolean | number
     testimonialPictures?: AltFileFieldGenqlSelection
     testimonialTitle?: boolean | number
-    video?: VideoFileFieldGenqlSelection
+    video?: VideoBlockRecordGenqlSelection
     videoText?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
@@ -6273,75 +6238,6 @@ export interface VideoBlockRecordGenqlSelection{
     __scalar?: boolean | number
 }
 
-export interface VideoFileFieldGenqlSelection{
-    _createdAt?: boolean | number
-    /** The DatoCMS URL where you can edit this entity. To use this field, you need to set a X-Base-Editing-Url header in the request */
-    _editingUrl?: boolean | number
-    _updatedAt?: boolean | number
-    alt?: { __args: {
-    /** The locale to use to fetch the field's content */
-    locale?: (SiteLocale | null), 
-    /** If you want to fallback to a default translation when a translation has not been found */
-    fallbackLocales?: (SiteLocale[] | null)} } | boolean | number
-    author?: boolean | number
-    basename?: boolean | number
-    blurUpThumb?: { __args: {
-    /** Controls the "punch" value (~contrast) of the blurhash decoding algorithm (defaults to 1.0) */
-    punch: Scalars['Float'], 
-    /** Maximum image dimension (defaults to 24px) */
-    size: Scalars['Int'], 
-    /** Image quality (defaults to 70%) */
-    quality: Scalars['Int'], 
-    /** Imgix transformations to apply to the image */
-    imgixParams?: (ImgixParams | null)} }
-    blurhash?: boolean | number
-    colors?: ColorFieldGenqlSelection
-    copyright?: boolean | number
-    customData?: { __args: {
-    /** The locale to use to fetch the field's content */
-    locale?: (SiteLocale | null), 
-    /** If you want to fallback to a default translation when a translation has not been found */
-    fallbackLocales?: (SiteLocale[] | null)} } | boolean | number
-    exifInfo?: boolean | number
-    filename?: boolean | number
-    focalPoint?: (focalPointGenqlSelection & { __args?: {
-    /** The locale to use to fetch the field's content */
-    locale?: (SiteLocale | null), 
-    /** If you want to fallback to a default translation when a translation has not been found */
-    fallbackLocales?: (SiteLocale[] | null)} })
-    format?: boolean | number
-    height?: boolean | number
-    id?: boolean | number
-    md5?: boolean | number
-    mimeType?: boolean | number
-    notes?: boolean | number
-    responsiveImage?: (ResponsiveImageGenqlSelection & { __args?: {
-    /** Imgix transformations to apply to the image */
-    imgixParams?: (ImgixParams | null), 
-    /** Specify a custom `sizes` attribute for the image */
-    sizes?: (Scalars['String'] | null), 
-    /** The locale to use to fetch the field's content */
-    locale?: (SiteLocale | null), 
-    /** If you want to fallback to a default translation when a translation has not been found */
-    fallbackLocales?: (SiteLocale[] | null)} })
-    size?: boolean | number
-    smartTags?: boolean | number
-    tags?: boolean | number
-    thumbhash?: boolean | number
-    title?: { __args: {
-    /** The locale to use to fetch the field's content */
-    locale?: (SiteLocale | null), 
-    /** If you want to fallback to a default translation when a translation has not been found */
-    fallbackLocales?: (SiteLocale[] | null)} } | boolean | number
-    url?: { __args: {
-    /** Imgix transformations to apply to the image */
-    imgixParams?: (ImgixParams | null)} } | boolean | number
-    video?: UploadVideoFieldGenqlSelection
-    width?: boolean | number
-    __typename?: boolean | number
-    __scalar?: boolean | number
-}
-
 export interface focalPointGenqlSelection{
     x?: boolean | number
     y?: boolean | number
@@ -6542,7 +6438,7 @@ export interface focalPointGenqlSelection{
     
 
 
-    const FileFieldInterface_possibleTypes: string[] = ['AltFileField','FileField','VideoAltFileField','VideoFileField']
+    const FileFieldInterface_possibleTypes: string[] = ['AltFileField','FileField','VideoAltFileField']
     export const isFileFieldInterface = (obj?: { __typename?: any } | null): obj is FileFieldInterface => {
       if (!obj?.__typename) throw new Error('__typename is missing in "isFileFieldInterface"')
       return FileFieldInterface_possibleTypes.includes(obj.__typename)
@@ -7018,14 +6914,6 @@ export interface focalPointGenqlSelection{
     export const isVideoBlockRecord = (obj?: { __typename?: any } | null): obj is VideoBlockRecord => {
       if (!obj?.__typename) throw new Error('__typename is missing in "isVideoBlockRecord"')
       return VideoBlockRecord_possibleTypes.includes(obj.__typename)
-    }
-    
-
-
-    const VideoFileField_possibleTypes: string[] = ['VideoFileField']
-    export const isVideoFileField = (obj?: { __typename?: any } | null): obj is VideoFileField => {
-      if (!obj?.__typename) throw new Error('__typename is missing in "isVideoFileField"')
-      return VideoFileField_possibleTypes.includes(obj.__typename)
     }
     
 

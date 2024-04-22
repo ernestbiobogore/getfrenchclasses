@@ -69,7 +69,7 @@ export default {
         207,
         208,
         212,
-        222
+        221
     ],
     "types": {
         "ActionBlockRecord": {
@@ -200,7 +200,7 @@ export default {
                 165
             ],
             "focalPoint": [
-                223,
+                222,
                 {
                     "locale": [
                         162
@@ -2037,7 +2037,7 @@ export default {
                 165
             ],
             "focalPoint": [
-                223,
+                222,
                 {
                     "locale": [
                         162
@@ -2202,7 +2202,7 @@ export default {
                 165
             ],
             "focalPoint": [
-                223,
+                222,
                 {
                     "locale": [
                         162
@@ -2295,9 +2295,6 @@ export default {
             ],
             "on_VideoAltFileField": [
                 216
-            ],
-            "on_VideoFileField": [
-                221
             ],
             "__typename": [
                 165
@@ -2627,7 +2624,7 @@ export default {
                 165
             ],
             "video": [
-                221
+                220
             ],
             "videoText": [
                 165
@@ -7906,10 +7903,10 @@ export default {
                 165,
                 {
                     "res": [
-                        222
+                        221
                     ],
                     "exactRes": [
-                        222
+                        221
                     ]
                 }
             ],
@@ -8051,7 +8048,7 @@ export default {
                 165
             ],
             "focalPoint": [
-                223,
+                222,
                 {
                     "locale": [
                         162
@@ -8299,171 +8296,6 @@ export default {
             ],
             "video": [
                 219
-            ],
-            "__typename": [
-                165
-            ]
-        },
-        "VideoFileField": {
-            "_createdAt": [
-                40
-            ],
-            "_editingUrl": [
-                165
-            ],
-            "_updatedAt": [
-                40
-            ],
-            "alt": [
-                165,
-                {
-                    "locale": [
-                        162
-                    ],
-                    "fallbackLocales": [
-                        162,
-                        "[SiteLocale!]"
-                    ]
-                }
-            ],
-            "author": [
-                165
-            ],
-            "basename": [
-                165
-            ],
-            "blurUpThumb": [
-                165,
-                {
-                    "punch": [
-                        51,
-                        "Float!"
-                    ],
-                    "size": [
-                        91,
-                        "Int!"
-                    ],
-                    "quality": [
-                        91,
-                        "Int!"
-                    ],
-                    "imgixParams": [
-                        62
-                    ]
-                }
-            ],
-            "blurhash": [
-                165
-            ],
-            "colors": [
-                20
-            ],
-            "copyright": [
-                165
-            ],
-            "customData": [
-                39,
-                {
-                    "locale": [
-                        162
-                    ],
-                    "fallbackLocales": [
-                        162,
-                        "[SiteLocale!]"
-                    ]
-                }
-            ],
-            "exifInfo": [
-                39
-            ],
-            "filename": [
-                165
-            ],
-            "focalPoint": [
-                223,
-                {
-                    "locale": [
-                        162
-                    ],
-                    "fallbackLocales": [
-                        162,
-                        "[SiteLocale!]"
-                    ]
-                }
-            ],
-            "format": [
-                165
-            ],
-            "height": [
-                92
-            ],
-            "id": [
-                202
-            ],
-            "md5": [
-                165
-            ],
-            "mimeType": [
-                165
-            ],
-            "notes": [
-                165
-            ],
-            "responsiveImage": [
-                152,
-                {
-                    "imgixParams": [
-                        62
-                    ],
-                    "sizes": [
-                        165
-                    ],
-                    "locale": [
-                        162
-                    ],
-                    "fallbackLocales": [
-                        162,
-                        "[SiteLocale!]"
-                    ]
-                }
-            ],
-            "size": [
-                92
-            ],
-            "smartTags": [
-                165
-            ],
-            "tags": [
-                165
-            ],
-            "thumbhash": [
-                165
-            ],
-            "title": [
-                165,
-                {
-                    "locale": [
-                        162
-                    ],
-                    "fallbackLocales": [
-                        162,
-                        "[SiteLocale!]"
-                    ]
-                }
-            ],
-            "url": [
-                165,
-                {
-                    "imgixParams": [
-                        62
-                    ]
-                }
-            ],
-            "video": [
-                214
-            ],
-            "width": [
-                92
             ],
             "__typename": [
                 165

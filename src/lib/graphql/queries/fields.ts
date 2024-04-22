@@ -19,6 +19,7 @@ import type {
 	TestimonialsSectionRecordGenqlSelection,
 	TutorRecordGenqlSelection,
 	TutorsByCitySectionRecordGenqlSelection,
+	VideoBlockRecordGenqlSelection,
 } from "$lib/graphql/generated";
 
 const headingFieldSelection = {
@@ -118,6 +119,37 @@ const postCategoryBlockFields = {
 	slug: true,
 } satisfies PostRecordGenqlSelection["category"];
 
+const videoBlockFields = {
+	video: {
+		on_RecordInterface: {
+			__typename: true,
+			id: true,
+		},
+		on_VideoBlockExternalRecord: {
+			url: true,
+			altText: true,
+		},
+		on_VideoBlockInternalRecord: {
+			video: {
+				video: {
+					muxPlaybackId: true,
+					title: true,
+					width: true,
+					height: true,
+					mp4Url: true,
+					blurUpThumb: {
+						__args: {
+							punch: 1,
+							size: 48,
+							quality: 100,
+						},
+					},
+				},
+			},
+		},
+	},
+} satisfies VideoBlockRecordGenqlSelection;
+
 const tutorMetaFields = {
 	id: true,
 	name: true,
@@ -140,36 +172,7 @@ const tutorMetaFields = {
 			__typename: true,
 			id: true,
 		},
-		on_VideoBlockRecord: {
-			video: {
-				on_RecordInterface: {
-					__typename: true,
-					id: true,
-				},
-				on_VideoBlockExternalRecord: {
-					url: true,
-					altText: true,
-				},
-				on_VideoBlockInternalRecord: {
-					video: {
-						video: {
-							muxPlaybackId: true,
-							title: true,
-							width: true,
-							height: true,
-							mp4Url: true,
-							blurUpThumb: {
-								__args: {
-									punch: 1,
-									size: 48,
-									quality: 100,
-								},
-							},
-						},
-					},
-				},
-			},
-		},
+		on_VideoBlockRecord: videoBlockFields,
 		on_ImageBlockRecord: {
 			image: {
 				responsiveImage: responsiveImageFieldSelection,
@@ -254,21 +257,7 @@ const heroSectionSelection = {
 	testimonialPictures: {
 		responsiveImage: responsiveImageFieldSelection,
 	},
-	video: {
-		video: {
-			muxPlaybackId: true,
-			title: true,
-			width: true,
-			height: true,
-			blurUpThumb: {
-				__args: {
-					punch: 1,
-					size: 48,
-					quality: 100,
-				},
-			},
-		},
-	},
+	video: videoBlockFields,
 	videoText: true,
 } satisfies HeroSectionRecordGenqlSelection;
 
