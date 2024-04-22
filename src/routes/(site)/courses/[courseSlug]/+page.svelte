@@ -304,23 +304,31 @@
 
 	<br />
 
-	{#each course.instructors as instructor (instructor.id)}
-		<div
-			class="w-full max-w-2xl gap-4 mx-auto max-md:space-y-4 md:flex-s-start not-last:mb-6"
-			id="instructor"
-		>
-			<div class="size-[60px] bg-gray-50 rounded-xl overflow-hidden md:!h-[300px] md:!w-[250px]">
-				{#if instructor?.profilePicture?.responsiveImage}
-					<Image class="size-full" data={instructor.profilePicture.responsiveImage} />
-				{/if}
-			</div>
+	<div class="space-y-4">
+		{#each course.instructors as instructor (instructor.id)}
+			<div
+				class="w-full max-w-2xl gap-4 mx-auto max-md:space-y-4 md:flex-s-start not-last:mb-6"
+				id="instructor"
+			>
+				<div class="">
+					{#if instructor?.profilePicture?.responsiveImage}
+						<img
+							src={instructor.profilePicture.responsiveImage.src}
+							alt={instructor.profilePicture.responsiveImage.alt}
+							height="300"
+							width="250"
+							class="rounded-xl"
+						/>
+					{/if}
+				</div>
 
-			<div class="flex-1">
-				<div class="mb-2 text-lg font-semibold">{instructor.name}</div>
-				<StructuredText class="flex flex-col gap-4" richText={instructor.about} />
+				<div class="flex-1">
+					<div class="mb-2 text-lg font-semibold">{instructor.name}</div>
+					<StructuredText class="flex flex-col gap-4" richText={instructor.about} />
+				</div>
 			</div>
-		</div>
-	{/each}
+		{/each}
+	</div>
 </section>
 
 {#if course.tutors && course.tutors.length > 0}
