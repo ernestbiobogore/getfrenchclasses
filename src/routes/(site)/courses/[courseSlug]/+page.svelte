@@ -17,10 +17,24 @@
 	import { getSampleAvatars } from "$lib/utils";
 	import { Button } from "$shadcn/button";
 	import { Image } from "@datocms/svelte";
+	import type {
+		TestimonialBlockCtaRecord,
+		TestimonialBlockDefaultRecord,
+	} from "$lib/graphql/generated";
 
 	export let data;
 
 	$: course = data.course;
+	$: defaultTestimonials = course.testimonials
+		.map(({ testimonial }) => testimonial)
+		.filter(testimonial => testimonial.__typename === "TestimonialBlockDefaultRecord") as
+		| TestimonialBlockDefaultRecord[]
+		| undefined;
+	$: ctaTestimonials = course.testimonials
+		.map(({ testimonial }) => testimonial)
+		.filter(testimonial => testimonial.__typename === "TestimonialBlockCtaRecord") as
+		| TestimonialBlockCtaRecord[]
+		| undefined;
 
 	const instructors = [...Array(3)];
 </script>
@@ -245,11 +259,25 @@
 	<section class="py-20 container-base space-y-8">
 		<h2 class="text-center">What people say</h2>
 
-		<div class="grid grid-cols-3 gap-8">
-			{#if course.testimonials[0]?.testimonial.__typename === "TestimonialBlockDefaultRecord"}
-				<DefaultTestimonial testimonial={course.testimonials[0]?.testimonial} />
-			{/if}
-		</div>
+		{#if course.testimonials && course.testimonials.length > 0}
+			<div class="space-y-12">
+				{#if ctaTestimonials && ctaTestimonials.length > 0}
+					<div class="flex flex-col gap-4">
+						{#each ctaTestimonials as testimonial}
+							<CtaTestimonial {testimonial} />
+						{/each}
+					</div>
+				{/if}
+
+				{#if defaultTestimonials && defaultTestimonials.length > 0}
+					<div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+						{#each defaultTestimonials as testimonial}
+							<DefaultTestimonial {testimonial} />
+						{/each}
+					</div>
+				{/if}
+			</div>
+		{/if}
 	</section>
 {/if}
 
