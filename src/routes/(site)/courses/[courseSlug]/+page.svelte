@@ -374,9 +374,9 @@
 	</div>
 </section>
 
-{#if course.testimonials[1]?.testimonial && course.testimonials[1]?.testimonial?.__typename === "TestimonialBlockCtaRecord"}
+{#if ctaTestimonials && ctaTestimonials.length > 0}
 	<section class="py-20 space-y-12 container-base">
-		<CtaTestimonial testimonial={course.testimonials[1].testimonial} />
+		<CtaTestimonial testimonial={ctaTestimonials[0]} />
 	</section>
 {/if}
 
