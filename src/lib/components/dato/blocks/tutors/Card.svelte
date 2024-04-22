@@ -71,18 +71,9 @@
 	</div>
 
 	{#if withCTA}
-		<Dialog.Root>
-			<Dialog.Trigger let:builder asChild>
-				<Button class="w-full mb-4 bg-brand-primary" builders={[builder]}
-					>Learn more about {tutor.name}</Button
-				>
-			</Dialog.Trigger>
-			<Dialog.Content class="sm:max-w-[425px]">
-				<Dialog.Header>
-					<Dialog.Title>Learn more about {tutor.name}</Dialog.Title>
-				</Dialog.Header>
-			</Dialog.Content>
-		</Dialog.Root>
+		<Button class="w-full mb-4 bg-brand-primary" href="/tutor/{tutor.slug}">
+			Learn more about {tutor.name}
+		</Button>
 	{/if}
 
 	<p class="mb-6 text-lg font-medium text-gray-900">{tutor.summary}</p>
