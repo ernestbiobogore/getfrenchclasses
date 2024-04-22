@@ -321,25 +321,28 @@
 	{/each}
 </section>
 
-<section class="py-20 container-base space-y-4">
-	<h2 class="text-center">Tutors</h2>
-	<p class="text-center mx-auto max-w-[46ch] md:max-w-[64ch]">
-		Hi, I'm Femke! I am a design manager that worked as a product designer for over 5 years at the
-		world's leading tech companies such as Uber, Wealthsimple and Gusto.
-	</p>
+{#if course.tutors && course.tutors.length > 0}
+	<section class="py-20 container-base space-y-4">
+		<Heading
+			heading={course.tutorsHeading}
+			useDefaultHeading={!course.tutorsHeading}
+			defaultHeading="Your tutors"
+			s
+		/>
 
-	<br />
+		<br />
 
-	<div class="grid gap-6 sm:grid-cols-3">
-		{#each data.tutorsMetas as tutor}
-			<TutorCard {tutor} withCTA />
-		{/each}
-	</div>
+		<div class="grid gap-6 sm:grid-cols-3">
+			{#each course.tutors as tutor (tutor.id)}
+				<TutorCard {tutor} withCTA />
+			{/each}
+		</div>
 
-	<div class="mt-10 flex-s-center">
-		<Button href="/tutors">See More</Button>
-	</div>
-</section>
+		<div class="mt-10 flex-s-center">
+			<Button href="/tutors">See More</Button>
+		</div>
+	</section>
+{/if}
 
 <section class="max-w-2xl px-4 mx-auto my-12">
 	<h2 class="mb-6 text-3xl font-bold text-center">Course schedule</h2>
