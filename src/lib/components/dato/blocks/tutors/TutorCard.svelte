@@ -1,7 +1,6 @@
 <script lang="ts">
 	import * as Card from "$shadcn/card";
 	import { type FormattedSingleTutor, type FormattedTutorMeta } from "$dato/blocks/tutors/types";
-	import { type AltFileField } from "$lib/graphql/generated/schema";
 	import { setContext } from "svelte";
 	import TutorInsideCard from "./Card.svelte";
 	import Video from "$dato/blocks/Video.svelte";
