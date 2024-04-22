@@ -327,7 +327,6 @@
 			heading={course.tutorsHeading}
 			useDefaultHeading={!course.tutorsHeading}
 			defaultHeading="Your tutors"
-			s
 		/>
 
 		<br />
