@@ -125,7 +125,9 @@ const getCourseBySlug = async (slug: string) => {
 			// Instructors
 			instructorsHeading: headingFieldSelection,
 			instructors: {
+				id: true,
 				name: true,
+				summary: true,
 				about: {
 					value: true,
 				},
