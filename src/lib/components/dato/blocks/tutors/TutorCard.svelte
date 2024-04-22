@@ -14,17 +14,17 @@
 </script>
 
 <Card.Root class="overflow-hidden bg-white rounded-lg shadow-lg cursor-pointer">
-	{#if tutor.coverMediaNew}
-		{#if tutor.coverMediaNew.__typename === "VideoBlockRecord"}
-			<Video video={tutor.coverMediaNew} class="h-60" />
+	{#if tutor.coverMedia}
+		{#if tutor.coverMedia.__typename === "VideoBlockRecord"}
+			<Video video={tutor.coverMedia} class="h-60" />
 		{/if}
 
-		{#if tutor.coverMediaNew.__typename === "ImageBlockRecord"}
+		{#if tutor.coverMedia.__typename === "ImageBlockRecord"}
 			<img
-				alt={tutor.coverMediaNew.image.responsiveImage?.src}
+				alt={tutor.coverMedia.image.responsiveImage?.src}
 				class="object-cover w-full h-60 aspect-square"
 				height="100"
-				src={tutor.coverMediaNew.image.responsiveImage?.src}
+				src={tutor.coverMedia.image.responsiveImage?.src}
 				width="350"
 			/>
 		{/if}

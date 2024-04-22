@@ -1615,7 +1615,7 @@ export interface TutorModelAboutField {
     __typename: 'TutorModelAboutField'
 }
 
-export type TutorModelCoverMediaNewField = (ImageBlockRecord | VideoBlockRecord) & { __isUnion?: true }
+export type TutorModelCoverMediaField = (ImageBlockRecord | VideoBlockRecord) & { __isUnion?: true }
 
 
 /** Linking fields */
@@ -1649,8 +1649,7 @@ export interface TutorRecord {
     about: (TutorModelAboutField | null)
     audiences: Scalars['JsonField']
     city: CityRecord
-    coverMedia: (AltFileField | null)
-    coverMediaNew: (TutorModelCoverMediaNewField | null)
+    coverMedia: (TutorModelCoverMediaField | null)
     faq: (FaqItemRecord | null)
     faqTitle: (Scalars['String'] | null)
     id: Scalars['ItemId']
@@ -5699,14 +5698,14 @@ export interface TutorModelAboutFieldGenqlSelection{
     __scalar?: boolean | number
 }
 
-export interface TutorModelCoverMediaNewFieldGenqlSelection{
+export interface TutorModelCoverMediaFieldGenqlSelection{
     on_ImageBlockRecord?:ImageBlockRecordGenqlSelection,
     on_VideoBlockRecord?:VideoBlockRecordGenqlSelection,
     on_RecordInterface?: RecordInterfaceGenqlSelection,
     __typename?: boolean | number
 }
 
-export interface TutorModelFilter {_createdAt?: (CreatedAtFilter | null),id?: (ItemIdFilter | null),_firstPublishedAt?: (PublishedAtFilter | null),_publicationScheduledAt?: (PublishedAtFilter | null),_unpublishingScheduledAt?: (PublishedAtFilter | null),_publishedAt?: (PublishedAtFilter | null),_status?: (StatusFilter | null),_updatedAt?: (UpdatedAtFilter | null),_isValid?: (BooleanFilter | null),about?: (StructuredTextFilter | null),audiences?: (JsonFilter | null),city?: (LinkFilter | null),coverMedia?: (FileFilter | null),faq?: (LinkFilter | null),faqTitle?: (StringFilter | null),levels?: (JsonFilter | null),name?: (StringFilter | null),numberOfRatings?: (IntegerFilter | null),otherTutors?: (LinksFilter | null),profilePicture?: (FileFilter | null),qualifiedCourses?: (LinksFilter | null),qualifiedCoursesTitle?: (StringFilter | null),rate?: (IntegerFilter | null),rating?: (FloatFilter | null),remoteStatus?: (JsonFilter | null),reviews?: (LinksFilter | null),reviewsTitle?: (StringFilter | null),slug?: (SlugFilter | null),summary?: (StringFilter | null),verified?: (BooleanFilter | null),verifiedDescription?: (StructuredTextFilter | null),OR?: ((TutorModelFilter | null)[] | null),AND?: ((TutorModelFilter | null)[] | null)}
+export interface TutorModelFilter {_createdAt?: (CreatedAtFilter | null),id?: (ItemIdFilter | null),_firstPublishedAt?: (PublishedAtFilter | null),_publicationScheduledAt?: (PublishedAtFilter | null),_unpublishingScheduledAt?: (PublishedAtFilter | null),_publishedAt?: (PublishedAtFilter | null),_status?: (StatusFilter | null),_updatedAt?: (UpdatedAtFilter | null),_isValid?: (BooleanFilter | null),about?: (StructuredTextFilter | null),audiences?: (JsonFilter | null),city?: (LinkFilter | null),faq?: (LinkFilter | null),faqTitle?: (StringFilter | null),levels?: (JsonFilter | null),name?: (StringFilter | null),numberOfRatings?: (IntegerFilter | null),otherTutors?: (LinksFilter | null),profilePicture?: (FileFilter | null),qualifiedCourses?: (LinksFilter | null),qualifiedCoursesTitle?: (StringFilter | null),rate?: (IntegerFilter | null),rating?: (FloatFilter | null),remoteStatus?: (JsonFilter | null),reviews?: (LinksFilter | null),reviewsTitle?: (StringFilter | null),slug?: (SlugFilter | null),summary?: (StringFilter | null),verified?: (BooleanFilter | null),verifiedDescription?: (StructuredTextFilter | null),OR?: ((TutorModelFilter | null)[] | null),AND?: ((TutorModelFilter | null)[] | null)}
 
 export interface TutorModelVerifiedDescriptionFieldGenqlSelection{
     blocks?: boolean | number
@@ -5737,8 +5736,7 @@ export interface TutorRecordGenqlSelection{
     about?: TutorModelAboutFieldGenqlSelection
     audiences?: boolean | number
     city?: CityRecordGenqlSelection
-    coverMedia?: AltFileFieldGenqlSelection
-    coverMediaNew?: TutorModelCoverMediaNewFieldGenqlSelection
+    coverMedia?: TutorModelCoverMediaFieldGenqlSelection
     faq?: FaqItemRecordGenqlSelection
     faqTitle?: boolean | number
     id?: boolean | number
@@ -6936,10 +6934,10 @@ export interface focalPointGenqlSelection{
     
 
 
-    const TutorModelCoverMediaNewField_possibleTypes: string[] = ['ImageBlockRecord','VideoBlockRecord']
-    export const isTutorModelCoverMediaNewField = (obj?: { __typename?: any } | null): obj is TutorModelCoverMediaNewField => {
-      if (!obj?.__typename) throw new Error('__typename is missing in "isTutorModelCoverMediaNewField"')
-      return TutorModelCoverMediaNewField_possibleTypes.includes(obj.__typename)
+    const TutorModelCoverMediaField_possibleTypes: string[] = ['ImageBlockRecord','VideoBlockRecord']
+    export const isTutorModelCoverMediaField = (obj?: { __typename?: any } | null): obj is TutorModelCoverMediaField => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isTutorModelCoverMediaField"')
+      return TutorModelCoverMediaField_possibleTypes.includes(obj.__typename)
     }
     
 

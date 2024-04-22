@@ -5585,7 +5585,7 @@ type TutorModelAboutField {
   value: JsonField!
 }
 
-union TutorModelCoverMediaNewField = ImageBlockRecord | VideoBlockRecord
+union TutorModelCoverMediaField = ImageBlockRecord | VideoBlockRecord
 
 """Linking fields"""
 enum TutorModelFieldsReferencingCityModel {
@@ -5605,7 +5605,6 @@ input TutorModelFilter {
   about: StructuredTextFilter
   audiences: JsonFilter
   city: LinkFilter
-  coverMedia: FileFilter
   faq: LinkFilter
   faqTitle: StringFilter
   levels: JsonFilter
@@ -5696,8 +5695,7 @@ type TutorRecord implements RecordInterface {
   about: TutorModelAboutField
   audiences: JsonField!
   city: CityRecord!
-  coverMedia: AltFileField
-  coverMediaNew: TutorModelCoverMediaNewField
+  coverMedia: TutorModelCoverMediaField
   faq: FaqItemRecord
   faqTitle: String
   id: ItemId!

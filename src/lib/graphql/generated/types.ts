@@ -7064,7 +7064,7 @@ export default {
                 165
             ]
         },
-        "TutorModelCoverMediaNewField": {
+        "TutorModelCoverMediaField": {
             "on_ImageBlockRecord": [
                 61
             ],
@@ -7115,9 +7115,6 @@ export default {
             ],
             "city": [
                 108
-            ],
-            "coverMedia": [
-                50
             ],
             "faq": [
                 108
@@ -7247,9 +7244,6 @@ export default {
                 17
             ],
             "coverMedia": [
-                1
-            ],
-            "coverMediaNew": [
                 182
             ],
             "faq": [

@@ -135,7 +135,7 @@ const tutorMetaFields = {
 	profilePicture: {
 		responsiveImage: responsiveImageFieldSelection,
 	},
-	coverMediaNew: {
+	coverMedia: {
 		on_RecordInterface: {
 			__typename: true,
 			id: true,
@@ -173,23 +173,6 @@ const tutorMetaFields = {
 		on_ImageBlockRecord: {
 			image: {
 				responsiveImage: responsiveImageFieldSelection,
-			},
-		},
-	},
-	coverMedia: {
-		responsiveImage: responsiveImageFieldSelection,
-		video: {
-			muxPlaybackId: true,
-			title: true,
-			width: true,
-			height: true,
-			mp4Url: true,
-			blurUpThumb: {
-				__args: {
-					punch: 1,
-					size: 48,
-					quality: 100,
-				},
 			},
 		},
 	},
