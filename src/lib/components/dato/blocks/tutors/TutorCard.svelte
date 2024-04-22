@@ -4,37 +4,27 @@
 	import { type AltFileField } from "$lib/graphql/generated/schema";
 	import { setContext } from "svelte";
 	import TutorInsideCard from "./Card.svelte";
+	import Video from "$dato/blocks/Video.svelte";
 
 	export let tutor: FormattedTutorMeta | FormattedSingleTutor;
 	export let withCTA = false;
 
 	setContext<FormattedTutorMeta | FormattedSingleTutor>("tutor_data", tutor);
 	setContext<boolean>("tutor_withCTA", withCTA);
-
-	const getInitials = (name: string) => {
-		return name
-			.split(" ")
-			.map(word => word[0])
-			.join("");
-	};
-
-	$: coverMedia = "coverMedia" in tutor ? (tutor.coverMedia as AltFileField) : undefined;
 </script>
 
 <Card.Root class="overflow-hidden bg-white rounded-lg shadow-lg cursor-pointer">
-	{#if coverMedia}
-		{#if coverMedia.video}
-			<video class="w-full h-60 object-cover" src={coverMedia.video.mp4Url} controls>
-				<track kind="captions" />
-			</video>
+	{#if tutor.coverMediaNew}
+		{#if tutor.coverMediaNew.__typename === "VideoBlockRecord"}
+			<Video video={tutor.coverMediaNew} class="h-60" />
 		{/if}
 
-		{#if coverMedia.responsiveImage}
+		{#if tutor.coverMediaNew.__typename === "ImageBlockRecord"}
 			<img
-				alt={coverMedia.responsiveImage.alt}
+				alt={tutor.coverMediaNew.image.responsiveImage?.src}
 				class="object-cover w-full h-60 aspect-square"
 				height="100"
-				src={coverMedia.responsiveImage.src}
+				src={tutor.coverMediaNew.image.responsiveImage?.src}
 				width="350"
 			/>
 		{/if}

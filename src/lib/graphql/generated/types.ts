@@ -63,13 +63,13 @@ export default {
         162,
         165,
         176,
-        182,
-        184,
-        201,
-        206,
+        183,
+        185,
+        202,
         207,
-        211,
-        216
+        208,
+        212,
+        222
     ],
     "types": {
         "ActionBlockRecord": {
@@ -200,7 +200,7 @@ export default {
                 165
             ],
             "focalPoint": [
-                217,
+                223,
                 {
                     "locale": [
                         162
@@ -218,7 +218,7 @@ export default {
                 92
             ],
             "id": [
-                201
+                202
             ],
             "md5": [
                 165
@@ -280,7 +280,7 @@ export default {
                 }
             ],
             "video": [
-                213
+                214
             ],
             "width": [
                 92
@@ -312,7 +312,7 @@ export default {
                 164
             ],
             "_updatedAt": [
-                190
+                191
             ],
             "_isValid": [
                 6
@@ -581,7 +581,7 @@ export default {
                 164
             ],
             "_updatedAt": [
-                190
+                191
             ],
             "_isValid": [
                 6
@@ -679,7 +679,7 @@ export default {
                 164
             ],
             "_updatedAt": [
-                190
+                191
             ],
             "_isValid": [
                 6
@@ -748,7 +748,7 @@ export default {
                 }
             ],
             "_allReferencingTutors": [
-                186,
+                187,
                 {
                     "through": [
                         99
@@ -767,10 +767,10 @@ export default {
                         92
                     ],
                     "filter": [
-                        183
+                        184
                     ],
                     "orderBy": [
-                        184,
+                        185,
                         "[TutorModelOrderBy]"
                     ]
                 }
@@ -785,7 +785,7 @@ export default {
                         162
                     ],
                     "filter": [
-                        183
+                        184
                     ]
                 }
             ],
@@ -1002,7 +1002,7 @@ export default {
                 164
             ],
             "_updatedAt": [
-                190
+                191
             ],
             "_isValid": [
                 6
@@ -1105,7 +1105,7 @@ export default {
                 164
             ],
             "_updatedAt": [
-                190
+                191
             ],
             "_isValid": [
                 6
@@ -1260,7 +1260,7 @@ export default {
                 164
             ],
             "_updatedAt": [
-                190
+                191
             ],
             "_isValid": [
                 6
@@ -1399,7 +1399,7 @@ export default {
                 164
             ],
             "_updatedAt": [
-                190
+                191
             ],
             "_isValid": [
                 6
@@ -1569,7 +1569,7 @@ export default {
                 178
             ],
             "tutors": [
-                186
+                187
             ],
             "tutorsHeading": [
                 57
@@ -1831,7 +1831,7 @@ export default {
                 164
             ],
             "_updatedAt": [
-                190
+                191
             ],
             "_isValid": [
                 6
@@ -2037,7 +2037,7 @@ export default {
                 165
             ],
             "focalPoint": [
-                217,
+                223,
                 {
                     "locale": [
                         162
@@ -2055,7 +2055,7 @@ export default {
                 92
             ],
             "id": [
-                201
+                202
             ],
             "md5": [
                 165
@@ -2117,7 +2117,7 @@ export default {
                 }
             ],
             "video": [
-                213
+                214
             ],
             "width": [
                 92
@@ -2202,7 +2202,7 @@ export default {
                 165
             ],
             "focalPoint": [
-                217,
+                223,
                 {
                     "locale": [
                         162
@@ -2220,7 +2220,7 @@ export default {
                 92
             ],
             "id": [
-                201
+                202
             ],
             "md5": [
                 165
@@ -2282,7 +2282,7 @@ export default {
                 }
             ],
             "video": [
-                213
+                214
             ],
             "width": [
                 92
@@ -2293,8 +2293,11 @@ export default {
             "on_FileField": [
                 48
             ],
+            "on_VideoAltFileField": [
+                216
+            ],
             "on_VideoFileField": [
-                215
+                221
             ],
             "__typename": [
                 165
@@ -2302,16 +2305,16 @@ export default {
         },
         "FileFilter": {
             "eq": [
-                201
+                202
             ],
             "neq": [
-                201
+                202
             ],
             "in": [
-                201
+                202
             ],
             "notIn": [
-                201
+                202
             ],
             "exists": [
                 7
@@ -2350,16 +2353,16 @@ export default {
         "FloatType": {},
         "GalleryFilter": {
             "eq": [
-                201
+                202
             ],
             "allIn": [
-                201
+                202
             ],
             "anyIn": [
-                201
+                202
             ],
             "notIn": [
-                201
+                202
             ],
             "exists": [
                 7
@@ -2624,7 +2627,7 @@ export default {
                 165
             ],
             "video": [
-                215
+                221
             ],
             "videoText": [
                 165
@@ -3172,7 +3175,7 @@ export default {
                 164
             ],
             "_updatedAt": [
-                190
+                191
             ],
             "_isValid": [
                 6
@@ -3316,10 +3319,10 @@ export default {
         },
         "InverseRelationshipFieldFilterBetweenTutorAndCity": {
             "anyIn": [
-                182
+                183
             ],
             "notIn": [
-                182
+                183
             ],
             "__typename": [
                 165
@@ -3400,7 +3403,7 @@ export default {
                 164
             ],
             "_updatedAt": [
-                190
+                191
             ],
             "_isValid": [
                 6
@@ -3683,7 +3686,7 @@ export default {
                 164
             ],
             "_updatedAt": [
-                190
+                191
             ],
             "_isValid": [
                 6
@@ -3785,7 +3788,7 @@ export default {
                 164
             ],
             "_updatedAt": [
-                190
+                191
             ],
             "_isValid": [
                 6
@@ -3832,7 +3835,7 @@ export default {
                 180
             ],
             "on_TutorsByCitySectionRecord": [
-                188
+                189
             ],
             "on_RecordInterface": [
                 140
@@ -3929,7 +3932,7 @@ export default {
                 164
             ],
             "_updatedAt": [
-                190
+                191
             ],
             "_isValid": [
                 6
@@ -4093,10 +4096,10 @@ export default {
         },
         "OrientationFilter": {
             "eq": [
-                207
+                208
             ],
             "neq": [
-                207
+                208
             ],
             "__typename": [
                 165
@@ -4188,7 +4191,7 @@ export default {
                 164
             ],
             "_updatedAt": [
-                190
+                191
             ],
             "_isValid": [
                 6
@@ -4297,7 +4300,7 @@ export default {
                 164
             ],
             "_updatedAt": [
-                190
+                191
             ],
             "_isValid": [
                 6
@@ -4656,7 +4659,7 @@ export default {
                         162
                     ],
                     "filter": [
-                        183
+                        184
                     ]
                 }
             ],
@@ -4667,7 +4670,7 @@ export default {
                         162
                     ],
                     "filter": [
-                        198
+                        199
                     ]
                 }
             ],
@@ -5159,7 +5162,7 @@ export default {
                 }
             ],
             "allTutors": [
-                186,
+                187,
                 {
                     "locale": [
                         162
@@ -5175,10 +5178,10 @@ export default {
                         92
                     ],
                     "filter": [
-                        183
+                        184
                     ],
                     "orderBy": [
-                        184,
+                        185,
                         "[TutorModelOrderBy]"
                     ]
                 }
@@ -5200,10 +5203,10 @@ export default {
                         92
                     ],
                     "filter": [
-                        198
+                        199
                     ],
                     "orderBy": [
-                        206,
+                        207,
                         "[UploadOrderBy]"
                     ]
                 }
@@ -5570,7 +5573,7 @@ export default {
                 }
             ],
             "tutor": [
-                186,
+                187,
                 {
                     "locale": [
                         162
@@ -5580,10 +5583,10 @@ export default {
                         "[SiteLocale!]"
                     ],
                     "filter": [
-                        183
+                        184
                     ],
                     "orderBy": [
-                        184,
+                        185,
                         "[TutorModelOrderBy]"
                     ]
                 }
@@ -5599,10 +5602,10 @@ export default {
                         "[SiteLocale!]"
                     ],
                     "filter": [
-                        198
+                        199
                     ],
                     "orderBy": [
-                        206,
+                        207,
                         "[UploadOrderBy]"
                     ]
                 }
@@ -5798,13 +5801,22 @@ export default {
                 180
             ],
             "on_TutorRecord": [
-                186
-            ],
-            "on_TutorsBlockRecord": [
                 187
             ],
-            "on_TutorsByCitySectionRecord": [
+            "on_TutorsBlockRecord": [
                 188
+            ],
+            "on_TutorsByCitySectionRecord": [
+                189
+            ],
+            "on_VideoBlockExternalRecord": [
+                217
+            ],
+            "on_VideoBlockInternalRecord": [
+                218
+            ],
+            "on_VideoBlockRecord": [
+                220
             ],
             "__typename": [
                 165
@@ -5914,7 +5926,7 @@ export default {
                 164
             ],
             "_updatedAt": [
-                190
+                191
             ],
             "_isValid": [
                 6
@@ -6079,7 +6091,7 @@ export default {
                 164
             ],
             "_updatedAt": [
-                190
+                191
             ],
             "_isValid": [
                 6
@@ -6208,7 +6220,7 @@ export default {
                 179
             ],
             "on_TutorsBlockRecord": [
-                187
+                188
             ],
             "on_RecordInterface": [
                 140
@@ -6303,7 +6315,7 @@ export default {
                 164
             ],
             "_updatedAt": [
-                190
+                191
             ],
             "_isValid": [
                 6
@@ -6846,7 +6858,7 @@ export default {
                 164
             ],
             "_updatedAt": [
-                190
+                191
             ],
             "_isValid": [
                 6
@@ -7052,6 +7064,20 @@ export default {
                 165
             ]
         },
+        "TutorModelCoverMediaNewField": {
+            "on_ImageBlockRecord": [
+                61
+            ],
+            "on_VideoBlockRecord": [
+                220
+            ],
+            "on_RecordInterface": [
+                140
+            ],
+            "__typename": [
+                165
+            ]
+        },
         "TutorModelFieldsReferencingCityModel": {},
         "TutorModelFilter": {
             "_createdAt": [
@@ -7076,7 +7102,7 @@ export default {
                 164
             ],
             "_updatedAt": [
-                190
+                191
             ],
             "_isValid": [
                 6
@@ -7148,10 +7174,10 @@ export default {
                 168
             ],
             "OR": [
-                183
+                184
             ],
             "AND": [
-                183
+                184
             ],
             "__typename": [
                 165
@@ -7223,6 +7249,9 @@ export default {
             "coverMedia": [
                 1
             ],
+            "coverMediaNew": [
+                182
+            ],
             "faq": [
                 45
             ],
@@ -7242,7 +7271,7 @@ export default {
                 92
             ],
             "otherTutors": [
-                186
+                187
             ],
             "profilePicture": [
                 1
@@ -7281,7 +7310,7 @@ export default {
                 7
             ],
             "verifiedDescription": [
-                185
+                186
             ],
             "__typename": [
                 165
@@ -7330,7 +7359,7 @@ export default {
                 100
             ],
             "tutors": [
-                186
+                187
             ],
             "__typename": [
                 165
@@ -7387,16 +7416,16 @@ export default {
         },
         "TypeFilter": {
             "eq": [
-                211
+                212
             ],
             "neq": [
-                211
+                212
             ],
             "in": [
-                211
+                212
             ],
             "notIn": [
-                211
+                212
             ],
             "__typename": [
                 165
@@ -7549,7 +7578,7 @@ export default {
         },
         "UploadFilter": {
             "type": [
-                189
+                190
             ],
             "inUse": [
                 86
@@ -7558,70 +7587,70 @@ export default {
                 142
             ],
             "size": [
-                208
+                209
             ],
             "tags": [
-                209
+                210
             ],
             "smartTags": [
-                209
+                210
             ],
             "colors": [
-                194
+                195
             ],
             "orientation": [
                 129
             ],
             "id": [
-                202
-            ],
-            "mimeType": [
-                204
-            ],
-            "format": [
-                199
-            ],
-            "height": [
-                200
-            ],
-            "width": [
-                214
-            ],
-            "alt": [
-                191
-            ],
-            "title": [
-                210
-            ],
-            "notes": [
-                205
-            ],
-            "md5": [
                 203
             ],
-            "author": [
+            "mimeType": [
+                205
+            ],
+            "format": [
+                200
+            ],
+            "height": [
+                201
+            ],
+            "width": [
+                215
+            ],
+            "alt": [
                 192
             ],
-            "copyright": [
-                195
+            "title": [
+                211
             ],
-            "basename": [
+            "notes": [
+                206
+            ],
+            "md5": [
+                204
+            ],
+            "author": [
                 193
             ],
-            "filename": [
-                197
-            ],
-            "_createdAt": [
+            "copyright": [
                 196
             ],
+            "basename": [
+                194
+            ],
+            "filename": [
+                198
+            ],
+            "_createdAt": [
+                197
+            ],
             "_updatedAt": [
-                212
+                213
             ],
             "OR": [
-                198
+                199
             ],
             "AND": [
-                198
+                199
             ],
             "__typename": [
                 165
@@ -7670,16 +7699,16 @@ export default {
         "UploadId": {},
         "UploadIdFilter": {
             "eq": [
-                201
+                202
             ],
             "neq": [
-                201
+                202
             ],
             "in": [
-                201
+                202
             ],
             "notIn": [
-                201
+                202
             ],
             "__typename": [
                 165
@@ -7883,10 +7912,10 @@ export default {
                 165,
                 {
                     "res": [
-                        216
+                        222
                     ],
                     "exactRes": [
-                        216
+                        222
                     ]
                 }
             ],
@@ -7947,6 +7976,335 @@ export default {
             ],
             "neq": [
                 92
+            ],
+            "__typename": [
+                165
+            ]
+        },
+        "VideoAltFileField": {
+            "_createdAt": [
+                40
+            ],
+            "_editingUrl": [
+                165
+            ],
+            "_updatedAt": [
+                40
+            ],
+            "alt": [
+                165,
+                {
+                    "locale": [
+                        162
+                    ],
+                    "fallbackLocales": [
+                        162,
+                        "[SiteLocale!]"
+                    ]
+                }
+            ],
+            "author": [
+                165
+            ],
+            "basename": [
+                165
+            ],
+            "blurUpThumb": [
+                165,
+                {
+                    "punch": [
+                        51,
+                        "Float!"
+                    ],
+                    "size": [
+                        91,
+                        "Int!"
+                    ],
+                    "quality": [
+                        91,
+                        "Int!"
+                    ],
+                    "imgixParams": [
+                        62
+                    ]
+                }
+            ],
+            "blurhash": [
+                165
+            ],
+            "colors": [
+                20
+            ],
+            "copyright": [
+                165
+            ],
+            "customData": [
+                39,
+                {
+                    "locale": [
+                        162
+                    ],
+                    "fallbackLocales": [
+                        162,
+                        "[SiteLocale!]"
+                    ]
+                }
+            ],
+            "exifInfo": [
+                39
+            ],
+            "filename": [
+                165
+            ],
+            "focalPoint": [
+                223,
+                {
+                    "locale": [
+                        162
+                    ],
+                    "fallbackLocales": [
+                        162,
+                        "[SiteLocale!]"
+                    ]
+                }
+            ],
+            "format": [
+                165
+            ],
+            "height": [
+                92
+            ],
+            "id": [
+                202
+            ],
+            "md5": [
+                165
+            ],
+            "mimeType": [
+                165
+            ],
+            "notes": [
+                165
+            ],
+            "responsiveImage": [
+                152,
+                {
+                    "imgixParams": [
+                        62
+                    ],
+                    "sizes": [
+                        165
+                    ],
+                    "locale": [
+                        162
+                    ],
+                    "fallbackLocales": [
+                        162,
+                        "[SiteLocale!]"
+                    ]
+                }
+            ],
+            "size": [
+                92
+            ],
+            "smartTags": [
+                165
+            ],
+            "tags": [
+                165
+            ],
+            "thumbhash": [
+                165
+            ],
+            "title": [
+                165,
+                {
+                    "locale": [
+                        162
+                    ],
+                    "fallbackLocales": [
+                        162,
+                        "[SiteLocale!]"
+                    ]
+                }
+            ],
+            "url": [
+                165,
+                {
+                    "imgixParams": [
+                        62
+                    ]
+                }
+            ],
+            "video": [
+                214
+            ],
+            "width": [
+                92
+            ],
+            "__typename": [
+                165
+            ]
+        },
+        "VideoBlockExternalRecord": {
+            "_createdAt": [
+                40
+            ],
+            "_editingUrl": [
+                165
+            ],
+            "_firstPublishedAt": [
+                40
+            ],
+            "_isValid": [
+                7
+            ],
+            "_modelApiKey": [
+                165
+            ],
+            "_publicationScheduledAt": [
+                40
+            ],
+            "_publishedAt": [
+                40
+            ],
+            "_seoMetaTags": [
+                169,
+                {
+                    "locale": [
+                        162
+                    ]
+                }
+            ],
+            "_status": [
+                102
+            ],
+            "_unpublishingScheduledAt": [
+                40
+            ],
+            "_updatedAt": [
+                40
+            ],
+            "altText": [
+                165
+            ],
+            "id": [
+                100
+            ],
+            "url": [
+                165
+            ],
+            "__typename": [
+                165
+            ]
+        },
+        "VideoBlockInternalRecord": {
+            "_createdAt": [
+                40
+            ],
+            "_editingUrl": [
+                165
+            ],
+            "_firstPublishedAt": [
+                40
+            ],
+            "_isValid": [
+                7
+            ],
+            "_modelApiKey": [
+                165
+            ],
+            "_publicationScheduledAt": [
+                40
+            ],
+            "_publishedAt": [
+                40
+            ],
+            "_seoMetaTags": [
+                169,
+                {
+                    "locale": [
+                        162
+                    ]
+                }
+            ],
+            "_status": [
+                102
+            ],
+            "_unpublishingScheduledAt": [
+                40
+            ],
+            "_updatedAt": [
+                40
+            ],
+            "id": [
+                100
+            ],
+            "video": [
+                216
+            ],
+            "__typename": [
+                165
+            ]
+        },
+        "VideoBlockModelVideoField": {
+            "on_VideoBlockExternalRecord": [
+                217
+            ],
+            "on_VideoBlockInternalRecord": [
+                218
+            ],
+            "on_RecordInterface": [
+                140
+            ],
+            "__typename": [
+                165
+            ]
+        },
+        "VideoBlockRecord": {
+            "_createdAt": [
+                40
+            ],
+            "_editingUrl": [
+                165
+            ],
+            "_firstPublishedAt": [
+                40
+            ],
+            "_isValid": [
+                7
+            ],
+            "_modelApiKey": [
+                165
+            ],
+            "_publicationScheduledAt": [
+                40
+            ],
+            "_publishedAt": [
+                40
+            ],
+            "_seoMetaTags": [
+                169,
+                {
+                    "locale": [
+                        162
+                    ]
+                }
+            ],
+            "_status": [
+                102
+            ],
+            "_unpublishingScheduledAt": [
+                40
+            ],
+            "_updatedAt": [
+                40
+            ],
+            "id": [
+                100
+            ],
+            "video": [
+                219
             ],
             "__typename": [
                 165
@@ -8028,7 +8386,7 @@ export default {
                 165
             ],
             "focalPoint": [
-                217,
+                223,
                 {
                     "locale": [
                         162
@@ -8046,7 +8404,7 @@ export default {
                 92
             ],
             "id": [
-                201
+                202
             ],
             "md5": [
                 165
@@ -8108,7 +8466,7 @@ export default {
                 }
             ],
             "video": [
-                213
+                214
             ],
             "width": [
                 92

@@ -135,6 +135,47 @@ const tutorMetaFields = {
 	profilePicture: {
 		responsiveImage: responsiveImageFieldSelection,
 	},
+	coverMediaNew: {
+		on_RecordInterface: {
+			__typename: true,
+			id: true,
+		},
+		on_VideoBlockRecord: {
+			video: {
+				on_RecordInterface: {
+					__typename: true,
+					id: true,
+				},
+				on_VideoBlockExternalRecord: {
+					url: true,
+					altText: true,
+				},
+				on_VideoBlockInternalRecord: {
+					video: {
+						video: {
+							muxPlaybackId: true,
+							title: true,
+							width: true,
+							height: true,
+							mp4Url: true,
+							blurUpThumb: {
+								__args: {
+									punch: 1,
+									size: 48,
+									quality: 100,
+								},
+							},
+						},
+					},
+				},
+			},
+		},
+		on_ImageBlockRecord: {
+			image: {
+				responsiveImage: responsiveImageFieldSelection,
+			},
+		},
+	},
 	coverMedia: {
 		responsiveImage: responsiveImageFieldSelection,
 		video: {
@@ -321,6 +362,5 @@ export {
 	seoFieldsSelection,
 	testimonialSectionSelection,
 	tutorMetaFields,
-	tutorsByCitySectionSelection
+	tutorsByCitySectionSelection,
 };
-

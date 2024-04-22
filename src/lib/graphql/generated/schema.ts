@@ -605,7 +605,7 @@ export interface FileField {
     __typename: 'FileField'
 }
 
-export type FileFieldInterface = (AltFileField | FileField | VideoFileField) & { __isUnion?: true }
+export type FileFieldInterface = (AltFileField | FileField | VideoAltFileField | VideoFileField) & { __isUnion?: true }
 
 export interface GlobalSeoField {
     facebookPageUrl: (Scalars['String'] | null)
@@ -1230,7 +1230,7 @@ export interface Query {
     __typename: 'Query'
 }
 
-export type RecordInterface = (ActionBlockRecord | AuthorRecord | CardBlockNewRecord | CardBlockRecord | CardsSectionRecord | CategoryRecord | CityRecord | ComparisonBlockRecord | ComparisonSectionRecord | CompetitorRecord | CompetitorsComparisonRecord | ConvertboxBlockRecord | CountryRecord | CourseRecord | CoursesBlockRecord | CoursesSectionRecord | FaqBlockNewRecord | FaqBlockRecord | FaqItemRecord | FaqSectionRecord | HeadingBlockNewRecord | HeadingBlockRecord | HeroImageBlockRecord | HeroSectionRecord | ImageBlockRecord | InstructorRecord | JobRecord | MenuItemBlockRecord | MenuListBlockRecord | MenuRecord | ModularPageLocationRecord | ModularPageRecord | NoteBlockRecord | PlainTextBlockRecord | PostCtaRecord | PostRecord | ReferenceSectionRecord | ResourceRecord | ResourceTopicRecord | RichTextBlockRecord | RoutePathRecord | SeoBlockRecord | TestimonialBlockCtaRecord | TestimonialBlockDefaultRecord | TestimonialBlockRecord | TestimonialRecord | TestimonialsListBlockRecord | TestimonialsSectionRecord | TutorRecord | TutorsBlockRecord | TutorsByCitySectionRecord) & { __isUnion?: true }
+export type RecordInterface = (ActionBlockRecord | AuthorRecord | CardBlockNewRecord | CardBlockRecord | CardsSectionRecord | CategoryRecord | CityRecord | ComparisonBlockRecord | ComparisonSectionRecord | CompetitorRecord | CompetitorsComparisonRecord | ConvertboxBlockRecord | CountryRecord | CourseRecord | CoursesBlockRecord | CoursesSectionRecord | FaqBlockNewRecord | FaqBlockRecord | FaqItemRecord | FaqSectionRecord | HeadingBlockNewRecord | HeadingBlockRecord | HeroImageBlockRecord | HeroSectionRecord | ImageBlockRecord | InstructorRecord | JobRecord | MenuItemBlockRecord | MenuListBlockRecord | MenuRecord | ModularPageLocationRecord | ModularPageRecord | NoteBlockRecord | PlainTextBlockRecord | PostCtaRecord | PostRecord | ReferenceSectionRecord | ResourceRecord | ResourceTopicRecord | RichTextBlockRecord | RoutePathRecord | SeoBlockRecord | TestimonialBlockCtaRecord | TestimonialBlockDefaultRecord | TestimonialBlockRecord | TestimonialRecord | TestimonialsListBlockRecord | TestimonialsSectionRecord | TutorRecord | TutorsBlockRecord | TutorsByCitySectionRecord | VideoBlockExternalRecord | VideoBlockInternalRecord | VideoBlockRecord) & { __isUnion?: true }
 
 
 /** Block of type Reference Section (reference_section) */
@@ -1615,6 +1615,8 @@ export interface TutorModelAboutField {
     __typename: 'TutorModelAboutField'
 }
 
+export type TutorModelCoverMediaNewField = (ImageBlockRecord | VideoBlockRecord) & { __isUnion?: true }
+
 
 /** Linking fields */
 export type TutorModelFieldsReferencingCityModel = 'tutor_city'
@@ -1648,6 +1650,7 @@ export interface TutorRecord {
     audiences: Scalars['JsonField']
     city: CityRecord
     coverMedia: (AltFileField | null)
+    coverMediaNew: (TutorModelCoverMediaNewField | null)
     faq: (FaqItemRecord | null)
     faqTitle: (Scalars['String'] | null)
     id: Scalars['ItemId']
@@ -1735,6 +1738,106 @@ export interface UploadVideoField {
     title: (Scalars['String'] | null)
     width: Scalars['IntType']
     __typename: 'UploadVideoField'
+}
+
+export interface VideoAltFileField {
+    _createdAt: Scalars['DateTime']
+    /** The DatoCMS URL where you can edit this entity. To use this field, you need to set a X-Base-Editing-Url header in the request */
+    _editingUrl: (Scalars['String'] | null)
+    _updatedAt: Scalars['DateTime']
+    alt: Scalars['String']
+    author: (Scalars['String'] | null)
+    basename: Scalars['String']
+    blurUpThumb: (Scalars['String'] | null)
+    blurhash: (Scalars['String'] | null)
+    colors: ColorField[]
+    copyright: (Scalars['String'] | null)
+    customData: Scalars['CustomData']
+    exifInfo: Scalars['CustomData']
+    filename: Scalars['String']
+    focalPoint: (focalPoint | null)
+    format: Scalars['String']
+    height: Scalars['IntType']
+    id: Scalars['UploadId']
+    md5: Scalars['String']
+    mimeType: Scalars['String']
+    notes: (Scalars['String'] | null)
+    responsiveImage: (ResponsiveImage | null)
+    size: Scalars['IntType']
+    smartTags: Scalars['String'][]
+    tags: Scalars['String'][]
+    thumbhash: (Scalars['String'] | null)
+    title: (Scalars['String'] | null)
+    url: Scalars['String']
+    video: UploadVideoField
+    width: Scalars['IntType']
+    __typename: 'VideoAltFileField'
+}
+
+
+/** Block of type Video Block [external] (video_block_external) */
+export interface VideoBlockExternalRecord {
+    _createdAt: Scalars['DateTime']
+    /** Editing URL */
+    _editingUrl: (Scalars['String'] | null)
+    _firstPublishedAt: (Scalars['DateTime'] | null)
+    _isValid: Scalars['BooleanType']
+    _modelApiKey: Scalars['String']
+    _publicationScheduledAt: (Scalars['DateTime'] | null)
+    _publishedAt: (Scalars['DateTime'] | null)
+    /** Generates SEO and Social card meta tags to be used in your frontend */
+    _seoMetaTags: Tag[]
+    _status: ItemStatus
+    _unpublishingScheduledAt: (Scalars['DateTime'] | null)
+    _updatedAt: Scalars['DateTime']
+    altText: Scalars['String']
+    id: Scalars['ItemId']
+    url: Scalars['String']
+    __typename: 'VideoBlockExternalRecord'
+}
+
+
+/** Block of type Video Block [internal] (video_block_internal) */
+export interface VideoBlockInternalRecord {
+    _createdAt: Scalars['DateTime']
+    /** Editing URL */
+    _editingUrl: (Scalars['String'] | null)
+    _firstPublishedAt: (Scalars['DateTime'] | null)
+    _isValid: Scalars['BooleanType']
+    _modelApiKey: Scalars['String']
+    _publicationScheduledAt: (Scalars['DateTime'] | null)
+    _publishedAt: (Scalars['DateTime'] | null)
+    /** Generates SEO and Social card meta tags to be used in your frontend */
+    _seoMetaTags: Tag[]
+    _status: ItemStatus
+    _unpublishingScheduledAt: (Scalars['DateTime'] | null)
+    _updatedAt: Scalars['DateTime']
+    id: Scalars['ItemId']
+    video: VideoAltFileField
+    __typename: 'VideoBlockInternalRecord'
+}
+
+export type VideoBlockModelVideoField = (VideoBlockExternalRecord | VideoBlockInternalRecord) & { __isUnion?: true }
+
+
+/** Block of type Video Block (video_block) */
+export interface VideoBlockRecord {
+    _createdAt: Scalars['DateTime']
+    /** Editing URL */
+    _editingUrl: (Scalars['String'] | null)
+    _firstPublishedAt: (Scalars['DateTime'] | null)
+    _isValid: Scalars['BooleanType']
+    _modelApiKey: Scalars['String']
+    _publicationScheduledAt: (Scalars['DateTime'] | null)
+    _publishedAt: (Scalars['DateTime'] | null)
+    /** Generates SEO and Social card meta tags to be used in your frontend */
+    _seoMetaTags: Tag[]
+    _status: ItemStatus
+    _unpublishingScheduledAt: (Scalars['DateTime'] | null)
+    _updatedAt: Scalars['DateTime']
+    id: Scalars['ItemId']
+    video: VideoBlockModelVideoField
+    __typename: 'VideoBlockRecord'
 }
 
 export interface VideoFileField {
@@ -2622,6 +2725,7 @@ export interface FileFieldInterfaceGenqlSelection{
     width?: boolean | number
     on_AltFileField?: AltFileFieldGenqlSelection
     on_FileField?: FileFieldGenqlSelection
+    on_VideoAltFileField?: VideoAltFileFieldGenqlSelection
     on_VideoFileField?: VideoFileFieldGenqlSelection
     __typename?: boolean | number
     __scalar?: boolean | number
@@ -5069,6 +5173,9 @@ export interface RecordInterfaceGenqlSelection{
     on_TutorRecord?: TutorRecordGenqlSelection
     on_TutorsBlockRecord?: TutorsBlockRecordGenqlSelection
     on_TutorsByCitySectionRecord?: TutorsByCitySectionRecordGenqlSelection
+    on_VideoBlockExternalRecord?: VideoBlockExternalRecordGenqlSelection
+    on_VideoBlockInternalRecord?: VideoBlockInternalRecordGenqlSelection
+    on_VideoBlockRecord?: VideoBlockRecordGenqlSelection
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -5592,6 +5699,13 @@ export interface TutorModelAboutFieldGenqlSelection{
     __scalar?: boolean | number
 }
 
+export interface TutorModelCoverMediaNewFieldGenqlSelection{
+    on_ImageBlockRecord?:ImageBlockRecordGenqlSelection,
+    on_VideoBlockRecord?:VideoBlockRecordGenqlSelection,
+    on_RecordInterface?: RecordInterfaceGenqlSelection,
+    __typename?: boolean | number
+}
+
 export interface TutorModelFilter {_createdAt?: (CreatedAtFilter | null),id?: (ItemIdFilter | null),_firstPublishedAt?: (PublishedAtFilter | null),_publicationScheduledAt?: (PublishedAtFilter | null),_unpublishingScheduledAt?: (PublishedAtFilter | null),_publishedAt?: (PublishedAtFilter | null),_status?: (StatusFilter | null),_updatedAt?: (UpdatedAtFilter | null),_isValid?: (BooleanFilter | null),about?: (StructuredTextFilter | null),audiences?: (JsonFilter | null),city?: (LinkFilter | null),coverMedia?: (FileFilter | null),faq?: (LinkFilter | null),faqTitle?: (StringFilter | null),levels?: (JsonFilter | null),name?: (StringFilter | null),numberOfRatings?: (IntegerFilter | null),otherTutors?: (LinksFilter | null),profilePicture?: (FileFilter | null),qualifiedCourses?: (LinksFilter | null),qualifiedCoursesTitle?: (StringFilter | null),rate?: (IntegerFilter | null),rating?: (FloatFilter | null),remoteStatus?: (JsonFilter | null),reviews?: (LinksFilter | null),reviewsTitle?: (StringFilter | null),slug?: (SlugFilter | null),summary?: (StringFilter | null),verified?: (BooleanFilter | null),verifiedDescription?: (StructuredTextFilter | null),OR?: ((TutorModelFilter | null)[] | null),AND?: ((TutorModelFilter | null)[] | null)}
 
 export interface TutorModelVerifiedDescriptionFieldGenqlSelection{
@@ -5624,6 +5738,7 @@ export interface TutorRecordGenqlSelection{
     audiences?: boolean | number
     city?: CityRecordGenqlSelection
     coverMedia?: AltFileFieldGenqlSelection
+    coverMediaNew?: TutorModelCoverMediaNewFieldGenqlSelection
     faq?: FaqItemRecordGenqlSelection
     faqTitle?: boolean | number
     id?: boolean | number
@@ -6011,6 +6126,155 @@ eq?: (Scalars['IntType'] | null),
 /** Search assets that do not have the specified width */
 neq?: (Scalars['IntType'] | null)}
 
+export interface VideoAltFileFieldGenqlSelection{
+    _createdAt?: boolean | number
+    /** The DatoCMS URL where you can edit this entity. To use this field, you need to set a X-Base-Editing-Url header in the request */
+    _editingUrl?: boolean | number
+    _updatedAt?: boolean | number
+    alt?: { __args: {
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null), 
+    /** If you want to fallback to a default translation when a translation has not been found */
+    fallbackLocales?: (SiteLocale[] | null)} } | boolean | number
+    author?: boolean | number
+    basename?: boolean | number
+    blurUpThumb?: { __args: {
+    /** Controls the "punch" value (~contrast) of the blurhash decoding algorithm (defaults to 1.0) */
+    punch: Scalars['Float'], 
+    /** Maximum image dimension (defaults to 24px) */
+    size: Scalars['Int'], 
+    /** Image quality (defaults to 70%) */
+    quality: Scalars['Int'], 
+    /** Imgix transformations to apply to the image */
+    imgixParams?: (ImgixParams | null)} }
+    blurhash?: boolean | number
+    colors?: ColorFieldGenqlSelection
+    copyright?: boolean | number
+    customData?: { __args: {
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null), 
+    /** If you want to fallback to a default translation when a translation has not been found */
+    fallbackLocales?: (SiteLocale[] | null)} } | boolean | number
+    exifInfo?: boolean | number
+    filename?: boolean | number
+    focalPoint?: (focalPointGenqlSelection & { __args?: {
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null), 
+    /** If you want to fallback to a default translation when a translation has not been found */
+    fallbackLocales?: (SiteLocale[] | null)} })
+    format?: boolean | number
+    height?: boolean | number
+    id?: boolean | number
+    md5?: boolean | number
+    mimeType?: boolean | number
+    notes?: boolean | number
+    responsiveImage?: (ResponsiveImageGenqlSelection & { __args?: {
+    /** Imgix transformations to apply to the image */
+    imgixParams?: (ImgixParams | null), 
+    /** Specify a custom `sizes` attribute for the image */
+    sizes?: (Scalars['String'] | null), 
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null), 
+    /** If you want to fallback to a default translation when a translation has not been found */
+    fallbackLocales?: (SiteLocale[] | null)} })
+    size?: boolean | number
+    smartTags?: boolean | number
+    tags?: boolean | number
+    thumbhash?: boolean | number
+    title?: { __args: {
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null), 
+    /** If you want to fallback to a default translation when a translation has not been found */
+    fallbackLocales?: (SiteLocale[] | null)} } | boolean | number
+    url?: { __args: {
+    /** Imgix transformations to apply to the image */
+    imgixParams?: (ImgixParams | null)} } | boolean | number
+    video?: UploadVideoFieldGenqlSelection
+    width?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Block of type Video Block [external] (video_block_external) */
+export interface VideoBlockExternalRecordGenqlSelection{
+    _createdAt?: boolean | number
+    /** Editing URL */
+    _editingUrl?: boolean | number
+    _firstPublishedAt?: boolean | number
+    _isValid?: boolean | number
+    _modelApiKey?: boolean | number
+    _publicationScheduledAt?: boolean | number
+    _publishedAt?: boolean | number
+    /** Generates SEO and Social card meta tags to be used in your frontend */
+    _seoMetaTags?: (TagGenqlSelection & { __args?: {
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null)} })
+    _status?: boolean | number
+    _unpublishingScheduledAt?: boolean | number
+    _updatedAt?: boolean | number
+    altText?: boolean | number
+    id?: boolean | number
+    url?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Block of type Video Block [internal] (video_block_internal) */
+export interface VideoBlockInternalRecordGenqlSelection{
+    _createdAt?: boolean | number
+    /** Editing URL */
+    _editingUrl?: boolean | number
+    _firstPublishedAt?: boolean | number
+    _isValid?: boolean | number
+    _modelApiKey?: boolean | number
+    _publicationScheduledAt?: boolean | number
+    _publishedAt?: boolean | number
+    /** Generates SEO and Social card meta tags to be used in your frontend */
+    _seoMetaTags?: (TagGenqlSelection & { __args?: {
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null)} })
+    _status?: boolean | number
+    _unpublishingScheduledAt?: boolean | number
+    _updatedAt?: boolean | number
+    id?: boolean | number
+    video?: VideoAltFileFieldGenqlSelection
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+export interface VideoBlockModelVideoFieldGenqlSelection{
+    on_VideoBlockExternalRecord?:VideoBlockExternalRecordGenqlSelection,
+    on_VideoBlockInternalRecord?:VideoBlockInternalRecordGenqlSelection,
+    on_RecordInterface?: RecordInterfaceGenqlSelection,
+    __typename?: boolean | number
+}
+
+
+/** Block of type Video Block (video_block) */
+export interface VideoBlockRecordGenqlSelection{
+    _createdAt?: boolean | number
+    /** Editing URL */
+    _editingUrl?: boolean | number
+    _firstPublishedAt?: boolean | number
+    _isValid?: boolean | number
+    _modelApiKey?: boolean | number
+    _publicationScheduledAt?: boolean | number
+    _publishedAt?: boolean | number
+    /** Generates SEO and Social card meta tags to be used in your frontend */
+    _seoMetaTags?: (TagGenqlSelection & { __args?: {
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null)} })
+    _status?: boolean | number
+    _unpublishingScheduledAt?: boolean | number
+    _updatedAt?: boolean | number
+    id?: boolean | number
+    video?: VideoBlockModelVideoFieldGenqlSelection
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
 export interface VideoFileFieldGenqlSelection{
     _createdAt?: boolean | number
     /** The DatoCMS URL where you can edit this entity. To use this field, you need to set a X-Base-Editing-Url header in the request */
@@ -6280,7 +6544,7 @@ export interface focalPointGenqlSelection{
     
 
 
-    const FileFieldInterface_possibleTypes: string[] = ['AltFileField','FileField','VideoFileField']
+    const FileFieldInterface_possibleTypes: string[] = ['AltFileField','FileField','VideoAltFileField','VideoFileField']
     export const isFileFieldInterface = (obj?: { __typename?: any } | null): obj is FileFieldInterface => {
       if (!obj?.__typename) throw new Error('__typename is missing in "isFileFieldInterface"')
       return FileFieldInterface_possibleTypes.includes(obj.__typename)
@@ -6472,7 +6736,7 @@ export interface focalPointGenqlSelection{
     
 
 
-    const RecordInterface_possibleTypes: string[] = ['ActionBlockRecord','AuthorRecord','CardBlockNewRecord','CardBlockRecord','CardsSectionRecord','CategoryRecord','CityRecord','ComparisonBlockRecord','ComparisonSectionRecord','CompetitorRecord','CompetitorsComparisonRecord','ConvertboxBlockRecord','CountryRecord','CourseRecord','CoursesBlockRecord','CoursesSectionRecord','FaqBlockNewRecord','FaqBlockRecord','FaqItemRecord','FaqSectionRecord','HeadingBlockNewRecord','HeadingBlockRecord','HeroImageBlockRecord','HeroSectionRecord','ImageBlockRecord','InstructorRecord','JobRecord','MenuItemBlockRecord','MenuListBlockRecord','MenuRecord','ModularPageLocationRecord','ModularPageRecord','NoteBlockRecord','PlainTextBlockRecord','PostCtaRecord','PostRecord','ReferenceSectionRecord','ResourceRecord','ResourceTopicRecord','RichTextBlockRecord','RoutePathRecord','SeoBlockRecord','TestimonialBlockCtaRecord','TestimonialBlockDefaultRecord','TestimonialBlockRecord','TestimonialRecord','TestimonialsListBlockRecord','TestimonialsSectionRecord','TutorRecord','TutorsBlockRecord','TutorsByCitySectionRecord']
+    const RecordInterface_possibleTypes: string[] = ['ActionBlockRecord','AuthorRecord','CardBlockNewRecord','CardBlockRecord','CardsSectionRecord','CategoryRecord','CityRecord','ComparisonBlockRecord','ComparisonSectionRecord','CompetitorRecord','CompetitorsComparisonRecord','ConvertboxBlockRecord','CountryRecord','CourseRecord','CoursesBlockRecord','CoursesSectionRecord','FaqBlockNewRecord','FaqBlockRecord','FaqItemRecord','FaqSectionRecord','HeadingBlockNewRecord','HeadingBlockRecord','HeroImageBlockRecord','HeroSectionRecord','ImageBlockRecord','InstructorRecord','JobRecord','MenuItemBlockRecord','MenuListBlockRecord','MenuRecord','ModularPageLocationRecord','ModularPageRecord','NoteBlockRecord','PlainTextBlockRecord','PostCtaRecord','PostRecord','ReferenceSectionRecord','ResourceRecord','ResourceTopicRecord','RichTextBlockRecord','RoutePathRecord','SeoBlockRecord','TestimonialBlockCtaRecord','TestimonialBlockDefaultRecord','TestimonialBlockRecord','TestimonialRecord','TestimonialsListBlockRecord','TestimonialsSectionRecord','TutorRecord','TutorsBlockRecord','TutorsByCitySectionRecord','VideoBlockExternalRecord','VideoBlockInternalRecord','VideoBlockRecord']
     export const isRecordInterface = (obj?: { __typename?: any } | null): obj is RecordInterface => {
       if (!obj?.__typename) throw new Error('__typename is missing in "isRecordInterface"')
       return RecordInterface_possibleTypes.includes(obj.__typename)
@@ -6672,6 +6936,14 @@ export interface focalPointGenqlSelection{
     
 
 
+    const TutorModelCoverMediaNewField_possibleTypes: string[] = ['ImageBlockRecord','VideoBlockRecord']
+    export const isTutorModelCoverMediaNewField = (obj?: { __typename?: any } | null): obj is TutorModelCoverMediaNewField => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isTutorModelCoverMediaNewField"')
+      return TutorModelCoverMediaNewField_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
     const TutorModelVerifiedDescriptionField_possibleTypes: string[] = ['TutorModelVerifiedDescriptionField']
     export const isTutorModelVerifiedDescriptionField = (obj?: { __typename?: any } | null): obj is TutorModelVerifiedDescriptionField => {
       if (!obj?.__typename) throw new Error('__typename is missing in "isTutorModelVerifiedDescriptionField"')
@@ -6708,6 +6980,46 @@ export interface focalPointGenqlSelection{
     export const isUploadVideoField = (obj?: { __typename?: any } | null): obj is UploadVideoField => {
       if (!obj?.__typename) throw new Error('__typename is missing in "isUploadVideoField"')
       return UploadVideoField_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const VideoAltFileField_possibleTypes: string[] = ['VideoAltFileField']
+    export const isVideoAltFileField = (obj?: { __typename?: any } | null): obj is VideoAltFileField => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isVideoAltFileField"')
+      return VideoAltFileField_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const VideoBlockExternalRecord_possibleTypes: string[] = ['VideoBlockExternalRecord']
+    export const isVideoBlockExternalRecord = (obj?: { __typename?: any } | null): obj is VideoBlockExternalRecord => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isVideoBlockExternalRecord"')
+      return VideoBlockExternalRecord_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const VideoBlockInternalRecord_possibleTypes: string[] = ['VideoBlockInternalRecord']
+    export const isVideoBlockInternalRecord = (obj?: { __typename?: any } | null): obj is VideoBlockInternalRecord => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isVideoBlockInternalRecord"')
+      return VideoBlockInternalRecord_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const VideoBlockModelVideoField_possibleTypes: string[] = ['VideoBlockExternalRecord','VideoBlockInternalRecord']
+    export const isVideoBlockModelVideoField = (obj?: { __typename?: any } | null): obj is VideoBlockModelVideoField => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isVideoBlockModelVideoField"')
+      return VideoBlockModelVideoField_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const VideoBlockRecord_possibleTypes: string[] = ['VideoBlockRecord']
+    export const isVideoBlockRecord = (obj?: { __typename?: any } | null): obj is VideoBlockRecord => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isVideoBlockRecord"')
+      return VideoBlockRecord_possibleTypes.includes(obj.__typename)
     }
     
 

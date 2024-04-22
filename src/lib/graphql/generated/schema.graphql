@@ -5585,6 +5585,8 @@ type TutorModelAboutField {
   value: JsonField!
 }
 
+union TutorModelCoverMediaNewField = ImageBlockRecord | VideoBlockRecord
+
 """Linking fields"""
 enum TutorModelFieldsReferencingCityModel {
   tutor_city
@@ -5695,6 +5697,7 @@ type TutorRecord implements RecordInterface {
   audiences: JsonField!
   city: CityRecord!
   coverMedia: AltFileField
+  coverMediaNew: TutorModelCoverMediaNewField
   faq: FaqItemRecord
   faqTitle: String
   id: ItemId!
@@ -6273,6 +6276,180 @@ input UploadWidthFilter {
 
   """Search assets that do not have the specified width"""
   neq: IntType
+}
+
+type VideoAltFileField implements FileFieldInterface {
+  _createdAt: DateTime!
+
+  """
+  The DatoCMS URL where you can edit this entity. To use this field, you need to set a X-Base-Editing-Url header in the request
+  """
+  _editingUrl: String
+  _updatedAt: DateTime!
+  alt(
+    """The locale to use to fetch the field's content"""
+    locale: SiteLocale
+
+    """
+    If you want to fallback to a default translation when a translation has not been found
+    """
+    fallbackLocales: [SiteLocale!]
+  ): String!
+  author: String
+  basename: String!
+  blurUpThumb(
+    """
+    Controls the "punch" value (~contrast) of the blurhash decoding algorithm (defaults to 1.0)
+    """
+    punch: Float! = 1
+
+    """Maximum image dimension (defaults to 24px)"""
+    size: Int! = 24
+
+    """Image quality (defaults to 70%)"""
+    quality: Int! = 70
+
+    """Imgix transformations to apply to the image"""
+    imgixParams: ImgixParams
+  ): String
+  blurhash: String
+  colors: [ColorField!]!
+  copyright: String
+  customData(
+    """The locale to use to fetch the field's content"""
+    locale: SiteLocale
+
+    """
+    If you want to fallback to a default translation when a translation has not been found
+    """
+    fallbackLocales: [SiteLocale!]
+  ): CustomData!
+  exifInfo: CustomData!
+  filename: String!
+  focalPoint(
+    """The locale to use to fetch the field's content"""
+    locale: SiteLocale
+
+    """
+    If you want to fallback to a default translation when a translation has not been found
+    """
+    fallbackLocales: [SiteLocale!]
+  ): focalPoint
+  format: String!
+  height: IntType!
+  id: UploadId!
+  md5: String!
+  mimeType: String!
+  notes: String
+  responsiveImage(
+    """Imgix transformations to apply to the image"""
+    imgixParams: ImgixParams
+
+    """Specify a custom `sizes` attribute for the image"""
+    sizes: String
+
+    """The locale to use to fetch the field's content"""
+    locale: SiteLocale
+
+    """
+    If you want to fallback to a default translation when a translation has not been found
+    """
+    fallbackLocales: [SiteLocale!]
+  ): ResponsiveImage
+  size: IntType!
+  smartTags: [String!]!
+  tags: [String!]!
+  thumbhash: String
+  title(
+    """The locale to use to fetch the field's content"""
+    locale: SiteLocale
+
+    """
+    If you want to fallback to a default translation when a translation has not been found
+    """
+    fallbackLocales: [SiteLocale!]
+  ): String
+  url(
+    """Imgix transformations to apply to the image"""
+    imgixParams: ImgixParams
+  ): String!
+  video: UploadVideoField!
+  width: IntType!
+}
+
+"""Block of type Video Block [external] (video_block_external)"""
+type VideoBlockExternalRecord implements RecordInterface {
+  _createdAt: DateTime!
+
+  """Editing URL"""
+  _editingUrl: String
+  _firstPublishedAt: DateTime
+  _isValid: BooleanType!
+  _modelApiKey: String!
+  _publicationScheduledAt: DateTime
+  _publishedAt: DateTime
+
+  """Generates SEO and Social card meta tags to be used in your frontend"""
+  _seoMetaTags(
+    """The locale to use to fetch the field's content"""
+    locale: SiteLocale
+  ): [Tag!]!
+  _status: ItemStatus!
+  _unpublishingScheduledAt: DateTime
+  _updatedAt: DateTime!
+  altText: String!
+  id: ItemId!
+  url: String!
+}
+
+"""Block of type Video Block [internal] (video_block_internal)"""
+type VideoBlockInternalRecord implements RecordInterface {
+  _createdAt: DateTime!
+
+  """Editing URL"""
+  _editingUrl: String
+  _firstPublishedAt: DateTime
+  _isValid: BooleanType!
+  _modelApiKey: String!
+  _publicationScheduledAt: DateTime
+  _publishedAt: DateTime
+
+  """Generates SEO and Social card meta tags to be used in your frontend"""
+  _seoMetaTags(
+    """The locale to use to fetch the field's content"""
+    locale: SiteLocale
+  ): [Tag!]!
+  _status: ItemStatus!
+  _unpublishingScheduledAt: DateTime
+  _updatedAt: DateTime!
+  id: ItemId!
+  video: VideoAltFileField!
+}
+
+union VideoBlockModelVideoField = VideoBlockExternalRecord | VideoBlockInternalRecord
+
+"""Block of type Video Block (video_block)"""
+type VideoBlockRecord implements RecordInterface {
+  _createdAt: DateTime!
+
+  """Editing URL"""
+  _editingUrl: String
+  _firstPublishedAt: DateTime
+  _isValid: BooleanType!
+  _modelApiKey: String!
+  _publicationScheduledAt: DateTime
+  _publishedAt: DateTime
+
+  """Generates SEO and Social card meta tags to be used in your frontend"""
+  _seoMetaTags(
+    """The locale to use to fetch the field's content"""
+    locale: SiteLocale
+  ): [Tag!]!
+  _status: ItemStatus!
+  _unpublishingScheduledAt: DateTime
+  _updatedAt: DateTime!
+  id: ItemId!
+  video: VideoBlockModelVideoField!
 }
 
 type VideoFileField implements FileFieldInterface {
