@@ -388,7 +388,7 @@ export interface CountryRecord {
     __typename: 'CountryRecord'
 }
 
-export type CourseModelOrderBy = '_createdAt_ASC' | '_createdAt_DESC' | 'id_ASC' | 'id_DESC' | '_firstPublishedAt_ASC' | '_firstPublishedAt_DESC' | '_publicationScheduledAt_ASC' | '_publicationScheduledAt_DESC' | '_unpublishingScheduledAt_ASC' | '_unpublishingScheduledAt_DESC' | '_publishedAt_ASC' | '_publishedAt_DESC' | '_status_ASC' | '_status_DESC' | '_updatedAt_ASC' | '_updatedAt_DESC' | '_isValid_ASC' | '_isValid_DESC' | 'ctaTitle_ASC' | 'ctaTitle_DESC' | 'duration_ASC' | 'duration_DESC' | 'instructorSubheading_ASC' | 'instructorSubheading_DESC' | 'level_ASC' | 'level_DESC' | 'name_ASC' | 'name_DESC' | 'numberOfEnrolledStudents_ASC' | 'numberOfEnrolledStudents_DESC' | 'numberOfSections_ASC' | 'numberOfSections_DESC' | 'price_ASC' | 'price_DESC' | 'tag_ASC' | 'tag_DESC'
+export type CourseModelOrderBy = '_createdAt_ASC' | '_createdAt_DESC' | 'id_ASC' | 'id_DESC' | '_firstPublishedAt_ASC' | '_firstPublishedAt_DESC' | '_publicationScheduledAt_ASC' | '_publicationScheduledAt_DESC' | '_unpublishingScheduledAt_ASC' | '_unpublishingScheduledAt_DESC' | '_publishedAt_ASC' | '_publishedAt_DESC' | '_status_ASC' | '_status_DESC' | '_updatedAt_ASC' | '_updatedAt_DESC' | '_isValid_ASC' | '_isValid_DESC' | 'ctaTitle_ASC' | 'ctaTitle_DESC' | 'duration_ASC' | 'duration_DESC' | 'level_ASC' | 'level_DESC' | 'name_ASC' | 'name_DESC' | 'numberOfEnrolledStudents_ASC' | 'numberOfEnrolledStudents_DESC' | 'numberOfSections_ASC' | 'numberOfSections_DESC' | 'price_ASC' | 'price_DESC' | 'tag_ASC' | 'tag_DESC'
 
 
 /** Record of type Course (course) */
@@ -416,8 +416,8 @@ export interface CourseRecord {
     faq: (FaqItemRecord | null)
     featuresCards: CardBlockRecord[]
     id: Scalars['ItemId']
-    instructorSubheading: (Scalars['String'] | null)
     instructors: InstructorRecord[]
+    instructorsHeading: (HeadingBlockNewRecord | null)
     level: Scalars['String']
     name: Scalars['String']
     numberOfEnrolledStudents: Scalars['IntType']
@@ -431,6 +431,8 @@ export interface CourseRecord {
     targetAudience: CardBlockNewRecord[]
     targetAudienceHeading: (HeadingBlockNewRecord | null)
     testimonials: TestimonialRecord[]
+    tutors: TutorRecord[]
+    tutorsHeading: (HeadingBlockNewRecord | null)
     __typename: 'CourseRecord'
 }
 
@@ -2264,7 +2266,7 @@ export interface CountryRecordGenqlSelection{
     __scalar?: boolean | number
 }
 
-export interface CourseModelFilter {_createdAt?: (CreatedAtFilter | null),id?: (ItemIdFilter | null),_firstPublishedAt?: (PublishedAtFilter | null),_publicationScheduledAt?: (PublishedAtFilter | null),_unpublishingScheduledAt?: (PublishedAtFilter | null),_publishedAt?: (PublishedAtFilter | null),_status?: (StatusFilter | null),_updatedAt?: (UpdatedAtFilter | null),_isValid?: (BooleanFilter | null),ctaTitle?: (StringFilter | null),duration?: (IntegerFilter | null),faq?: (LinkFilter | null),instructors?: (LinksFilter | null),instructorSubheading?: (StringFilter | null),level?: (StringFilter | null),name?: (StringFilter | null),numberOfEnrolledStudents?: (IntegerFilter | null),numberOfSections?: (IntegerFilter | null),price?: (IntegerFilter | null),slug?: (SlugFilter | null),tag?: (StringFilter | null),testimonials?: (LinksFilter | null),OR?: ((CourseModelFilter | null)[] | null),AND?: ((CourseModelFilter | null)[] | null)}
+export interface CourseModelFilter {_createdAt?: (CreatedAtFilter | null),id?: (ItemIdFilter | null),_firstPublishedAt?: (PublishedAtFilter | null),_publicationScheduledAt?: (PublishedAtFilter | null),_unpublishingScheduledAt?: (PublishedAtFilter | null),_publishedAt?: (PublishedAtFilter | null),_status?: (StatusFilter | null),_updatedAt?: (UpdatedAtFilter | null),_isValid?: (BooleanFilter | null),ctaTitle?: (StringFilter | null),duration?: (IntegerFilter | null),faq?: (LinkFilter | null),instructors?: (LinksFilter | null),level?: (StringFilter | null),name?: (StringFilter | null),numberOfEnrolledStudents?: (IntegerFilter | null),numberOfSections?: (IntegerFilter | null),price?: (IntegerFilter | null),slug?: (SlugFilter | null),tag?: (StringFilter | null),testimonials?: (LinksFilter | null),tutors?: (LinksFilter | null),OR?: ((CourseModelFilter | null)[] | null),AND?: ((CourseModelFilter | null)[] | null)}
 
 
 /** Record of type Course (course) */
@@ -2294,8 +2296,8 @@ export interface CourseRecordGenqlSelection{
     faq?: FaqItemRecordGenqlSelection
     featuresCards?: CardBlockRecordGenqlSelection
     id?: boolean | number
-    instructorSubheading?: boolean | number
     instructors?: InstructorRecordGenqlSelection
+    instructorsHeading?: HeadingBlockNewRecordGenqlSelection
     level?: boolean | number
     name?: boolean | number
     numberOfEnrolledStudents?: boolean | number
@@ -2309,6 +2311,8 @@ export interface CourseRecordGenqlSelection{
     targetAudience?: CardBlockNewRecordGenqlSelection
     targetAudienceHeading?: HeadingBlockNewRecordGenqlSelection
     testimonials?: TestimonialRecordGenqlSelection
+    tutors?: TutorRecordGenqlSelection
+    tutorsHeading?: HeadingBlockNewRecordGenqlSelection
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -6905,8 +6909,6 @@ export const enumCourseModelOrderBy = {
    ctaTitle_DESC: 'ctaTitle_DESC' as const,
    duration_ASC: 'duration_ASC' as const,
    duration_DESC: 'duration_DESC' as const,
-   instructorSubheading_ASC: 'instructorSubheading_ASC' as const,
-   instructorSubheading_DESC: 'instructorSubheading_DESC' as const,
    level_ASC: 'level_ASC' as const,
    level_DESC: 'level_DESC' as const,
    name_ASC: 'name_ASC' as const,

@@ -6,7 +6,8 @@ import {
 	defaultTestimonialFieldsSelection,
 	faqItemFieldsSelection,
 	headingFieldSelection,
-	responsiveImageFieldSelection
+	responsiveImageFieldSelection,
+	tutorMetaFields,
 } from "./fields";
 
 const getCoursesSlugs = async () => {
@@ -121,7 +122,8 @@ const getCourseBySlug = async (slug: string) => {
 				text: true,
 			},
 
-			instructorSubheading: true,
+			// Instructors
+			instructorsHeading: headingFieldSelection,
 			instructors: {
 				name: true,
 				about: {
@@ -131,6 +133,10 @@ const getCourseBySlug = async (slug: string) => {
 					responsiveImage: responsiveImageFieldSelection,
 				},
 			},
+
+			// Tutors
+			tutorsHeading: headingFieldSelection,
+			tutors: tutorMetaFields,
 
 			// Features
 			featuresCards: {

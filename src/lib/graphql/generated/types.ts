@@ -1416,9 +1416,6 @@ export default {
             "instructors": [
                 111
             ],
-            "instructorSubheading": [
-                166
-            ],
             "level": [
                 166
             ],
@@ -1441,6 +1438,9 @@ export default {
                 166
             ],
             "testimonials": [
+                111
+            ],
+            "tutors": [
                 111
             ],
             "OR": [
@@ -1523,11 +1523,11 @@ export default {
             "id": [
                 100
             ],
-            "instructorSubheading": [
-                165
-            ],
             "instructors": [
                 90
+            ],
+            "instructorsHeading": [
+                57
             ],
             "level": [
                 165
@@ -1567,6 +1567,12 @@ export default {
             ],
             "testimonials": [
                 178
+            ],
+            "tutors": [
+                186
+            ],
+            "tutorsHeading": [
+                57
             ],
             "__typename": [
                 165

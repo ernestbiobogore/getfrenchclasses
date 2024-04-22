@@ -98,11 +98,12 @@
 		{#if course.targetAudience && course.targetAudience.length > 0}
 			<!-- WHO THE COURSE IS FOR -->
 			<div class="py-5">
-				{#if course.targetAudienceHeading}
-					<Heading heading={course.targetAudienceHeading} class="text-left" />
-				{:else}
-					<Heading defaultHeading="Who is this course for?" useDefaultHeading class="text-left" />
-				{/if}
+				<Heading
+					heading={course.targetAudienceHeading}
+					useDefaultHeading={!course.targetAudienceHeading}
+					defaultHeading="Who is this course for?"
+					class="text-left"
+				/>
 
 				<br />
 
@@ -292,8 +293,12 @@
 
 <!-- INSTRUCTOR BIO -->
 <section class="py-20 container-base space-y-4">
-	<h2 class="text-center">Meet your instructor</h2>
-	<p class="text-center mx-auto max-w-[46ch] md:max-w-[64ch]">{course.instructorSubheading}</p>
+	<Heading
+		heading={course.instructorsHeading}
+		useDefaultHeading={!course.instructorsHeading}
+		defaultHeading="Meet your instructors"
+	/>
+
 	<br />
 
 	{#each course.instructors as instructor}

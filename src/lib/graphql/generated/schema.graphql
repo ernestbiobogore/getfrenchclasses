@@ -812,7 +812,6 @@ input CourseModelFilter {
   duration: IntegerFilter
   faq: LinkFilter
   instructors: LinksFilter
-  instructorSubheading: StringFilter
   level: StringFilter
   name: StringFilter
   numberOfEnrolledStudents: IntegerFilter
@@ -821,6 +820,7 @@ input CourseModelFilter {
   slug: SlugFilter
   tag: StringFilter
   testimonials: LinksFilter
+  tutors: LinksFilter
   OR: [CourseModelFilter]
   AND: [CourseModelFilter]
 }
@@ -848,8 +848,6 @@ enum CourseModelOrderBy {
   ctaTitle_DESC
   duration_ASC
   duration_DESC
-  instructorSubheading_ASC
-  instructorSubheading_DESC
   level_ASC
   level_DESC
   name_ASC
@@ -894,8 +892,8 @@ type CourseRecord implements RecordInterface {
   faq: FaqItemRecord
   featuresCards: [CardBlockRecord!]!
   id: ItemId!
-  instructorSubheading: String
   instructors: [InstructorRecord!]!
+  instructorsHeading: HeadingBlockNewRecord
   level: String!
   name: String!
   numberOfEnrolledStudents: IntType!
@@ -909,6 +907,8 @@ type CourseRecord implements RecordInterface {
   targetAudience: [CardBlockNewRecord!]!
   targetAudienceHeading: HeadingBlockNewRecord
   testimonials: [TestimonialRecord!]!
+  tutors: [TutorRecord!]!
+  tutorsHeading: HeadingBlockNewRecord
 }
 
 """Block of type Courses Block (courses_block)"""
