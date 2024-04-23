@@ -58,15 +58,15 @@
 		{/if}
 
 		{#if record.cards.length > 0}
-			<div class="space-y-10">
+			<div class="space-y-16">
 				{#each record.cards as card, index}
 					<Card.Root
 						class={cn(
-							"md:flex items-center gap-8 bg-transparent border-none shadow-none",
+							"md:flex items-center justify-between bg-transparent space-y-4 sm:space-y-0 border-none shadow-none",
 							index % 2 === 0 ? "flex-row-reverse" : "flex-row"
 						)}
 					>
-						<Card.Header class="p-0 space-y-8 basis-6/12">
+						<Card.Header class="p-0 space-y-8 basis-5/12">
 							{#if card.media?.format === "svg"}
 								{#if card.media.url}
 									<img src={card.media?.url} alt={card.media?.alt} class="w-12 h-12" />
@@ -77,10 +77,10 @@
 						</Card.Header>
 
 						{#if card.heading.subheading}
-							<Card.Content class="p-0 space-y-4">
+							<Card.Content class="p-0 space-y-4 basis-5/12">
 								{#if card.heading.heading}
 									<Card.Title
-										class="text-2xl/[2.275rem] sm:text-[1.75rem]/[2.275rem] -tracking-[0.1rem]"
+										class="text-2xl/[2.275rem] sm:text-4xl -tracking-[0.1rem]"
 										>{card.heading.heading}</Card.Title
 									>
 								{/if}
@@ -96,13 +96,13 @@
 {/if}
 
 {#if record.sectionType === "companies_logos"}
-	<section class="py-20 space-y-12 bg-gray-900 text-white">
+	<section class="py-20 space-y-12 text-white bg-gray-900">
 		{#if record.heading}
 			<Heading heading={record.heading} />
 		{/if}
 
 		{#if record.cards.length > 0}
-			<div class="container-base grid grid-cols-2 sm:grid-cols-4 gap-4">
+			<div class="grid grid-cols-2 gap-4 container-base sm:grid-cols-4">
 				{#each record.cards as { media }}
 					{#if media}
 						<CardMedia {media} />
