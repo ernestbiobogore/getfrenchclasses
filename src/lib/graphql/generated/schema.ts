@@ -956,7 +956,7 @@ export interface ModularPageLocationRecord {
     __typename: 'ModularPageLocationRecord'
 }
 
-export type ModularPageModelModularContentField = (CardsSectionRecord | ComparisonSectionRecord | FaqSectionRecord | HeroSectionRecord | TestimonialsSectionRecord) & { __isUnion?: true }
+export type ModularPageModelModularContentField = (CardsSectionRecord | ComparisonSectionRecord | FaqSectionRecord | HeroSectionRecord | RichTextSectionRecord | TestimonialsSectionRecord) & { __isUnion?: true }
 
 export type ModularPageModelOrderBy = '_createdAt_ASC' | '_createdAt_DESC' | 'id_ASC' | 'id_DESC' | '_firstPublishedAt_ASC' | '_firstPublishedAt_DESC' | '_publicationScheduledAt_ASC' | '_publicationScheduledAt_DESC' | '_unpublishingScheduledAt_ASC' | '_unpublishingScheduledAt_DESC' | '_publishedAt_ASC' | '_publishedAt_DESC' | '_status_ASC' | '_status_DESC' | '_updatedAt_ASC' | '_updatedAt_DESC' | '_isValid_ASC' | '_isValid_DESC' | 'title_ASC' | 'title_DESC'
 
@@ -1230,7 +1230,7 @@ export interface Query {
     __typename: 'Query'
 }
 
-export type RecordInterface = (ActionBlockRecord | AuthorRecord | CardBlockNewRecord | CardBlockRecord | CardsSectionRecord | CategoryRecord | CityRecord | ComparisonBlockRecord | ComparisonSectionRecord | CompetitorRecord | CompetitorsComparisonRecord | ConvertboxBlockRecord | CountryRecord | CourseRecord | CoursesBlockRecord | CoursesSectionRecord | FaqBlockNewRecord | FaqBlockRecord | FaqItemRecord | FaqSectionRecord | HeadingBlockNewRecord | HeadingBlockRecord | HeroImageBlockRecord | HeroSectionRecord | ImageBlockRecord | InstructorRecord | JobRecord | MenuItemBlockRecord | MenuListBlockRecord | MenuRecord | ModularPageLocationRecord | ModularPageRecord | NoteBlockRecord | PlainTextBlockRecord | PostCtaRecord | PostRecord | ReferenceSectionRecord | ResourceRecord | ResourceTopicRecord | RichTextBlockRecord | RoutePathRecord | SeoBlockRecord | TestimonialBlockCtaRecord | TestimonialBlockDefaultRecord | TestimonialBlockRecord | TestimonialRecord | TestimonialsListBlockRecord | TestimonialsSectionRecord | TutorRecord | TutorsBlockRecord | TutorsByCitySectionRecord | VideoBlockExternalRecord | VideoBlockInternalRecord | VideoBlockRecord) & { __isUnion?: true }
+export type RecordInterface = (ActionBlockRecord | AuthorRecord | CardBlockNewRecord | CardBlockRecord | CardsSectionRecord | CategoryRecord | CityRecord | ComparisonBlockRecord | ComparisonSectionRecord | CompetitorRecord | CompetitorsComparisonRecord | ConvertboxBlockRecord | CountryRecord | CourseRecord | CoursesBlockRecord | CoursesSectionRecord | FaqBlockNewRecord | FaqBlockRecord | FaqItemRecord | FaqSectionRecord | HeadingBlockNewRecord | HeadingBlockRecord | HeroImageBlockRecord | HeroSectionRecord | ImageBlockRecord | InstructorRecord | JobRecord | MenuItemBlockRecord | MenuListBlockRecord | MenuRecord | ModularPageLocationRecord | ModularPageRecord | NoteBlockRecord | PlainTextBlockRecord | PostCtaRecord | PostRecord | ReferenceSectionRecord | ResourceRecord | ResourceTopicRecord | RichTextBlockRecord | RichTextSectionRecord | RoutePathRecord | SeoBlockRecord | TestimonialBlockCtaRecord | TestimonialBlockDefaultRecord | TestimonialBlockRecord | TestimonialRecord | TestimonialsListBlockRecord | TestimonialsSectionRecord | TutorRecord | TutorsBlockRecord | TutorsByCitySectionRecord | VideoBlockExternalRecord | VideoBlockInternalRecord | VideoBlockRecord) & { __isUnion?: true }
 
 
 /** Block of type Reference Section (reference_section) */
@@ -1370,6 +1370,28 @@ export interface RichTextBlockRecord {
     id: Scalars['ItemId']
     richText: (RichTextBlockModelRichTextField | null)
     __typename: 'RichTextBlockRecord'
+}
+
+
+/** Block of type Rich Text Section (rich_text_section) */
+export interface RichTextSectionRecord {
+    _createdAt: Scalars['DateTime']
+    /** Editing URL */
+    _editingUrl: (Scalars['String'] | null)
+    _firstPublishedAt: (Scalars['DateTime'] | null)
+    _isValid: Scalars['BooleanType']
+    _modelApiKey: Scalars['String']
+    _publicationScheduledAt: (Scalars['DateTime'] | null)
+    _publishedAt: (Scalars['DateTime'] | null)
+    /** Generates SEO and Social card meta tags to be used in your frontend */
+    _seoMetaTags: Tag[]
+    _status: ItemStatus
+    _unpublishingScheduledAt: (Scalars['DateTime'] | null)
+    _updatedAt: Scalars['DateTime']
+    heading: (HeadingBlockNewRecord | null)
+    id: Scalars['ItemId']
+    richTexts: RichTextBlockRecord[]
+    __typename: 'RichTextSectionRecord'
 }
 
 export type RoutePathModelOrderBy = '_createdAt_ASC' | '_createdAt_DESC' | 'id_ASC' | 'id_DESC' | '_firstPublishedAt_ASC' | '_firstPublishedAt_DESC' | '_publicationScheduledAt_ASC' | '_publicationScheduledAt_DESC' | '_unpublishingScheduledAt_ASC' | '_unpublishingScheduledAt_DESC' | '_publishedAt_ASC' | '_publishedAt_DESC' | '_status_ASC' | '_status_DESC' | '_updatedAt_ASC' | '_updatedAt_DESC' | '_isValid_ASC' | '_isValid_DESC' | 'name_ASC' | 'name_DESC'
@@ -4455,6 +4477,7 @@ export interface ModularPageModelModularContentFieldGenqlSelection{
     on_ComparisonSectionRecord?:ComparisonSectionRecordGenqlSelection,
     on_FaqSectionRecord?:FaqSectionRecordGenqlSelection,
     on_HeroSectionRecord?:HeroSectionRecordGenqlSelection,
+    on_RichTextSectionRecord?:RichTextSectionRecordGenqlSelection,
     on_TestimonialsSectionRecord?:TestimonialsSectionRecordGenqlSelection,
     on_RecordInterface?: RecordInterfaceGenqlSelection,
     __typename?: boolean | number
@@ -5126,6 +5149,7 @@ export interface RecordInterfaceGenqlSelection{
     on_ResourceRecord?: ResourceRecordGenqlSelection
     on_ResourceTopicRecord?: ResourceTopicRecordGenqlSelection
     on_RichTextBlockRecord?: RichTextBlockRecordGenqlSelection
+    on_RichTextSectionRecord?: RichTextSectionRecordGenqlSelection
     on_RoutePathRecord?: RoutePathRecordGenqlSelection
     on_SeoBlockRecord?: SeoBlockRecordGenqlSelection
     on_TestimonialBlockCtaRecord?: TestimonialBlockCtaRecordGenqlSelection
@@ -5315,6 +5339,31 @@ export interface RichTextBlockRecordGenqlSelection{
     _updatedAt?: boolean | number
     id?: boolean | number
     richText?: RichTextBlockModelRichTextFieldGenqlSelection
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Block of type Rich Text Section (rich_text_section) */
+export interface RichTextSectionRecordGenqlSelection{
+    _createdAt?: boolean | number
+    /** Editing URL */
+    _editingUrl?: boolean | number
+    _firstPublishedAt?: boolean | number
+    _isValid?: boolean | number
+    _modelApiKey?: boolean | number
+    _publicationScheduledAt?: boolean | number
+    _publishedAt?: boolean | number
+    /** Generates SEO and Social card meta tags to be used in your frontend */
+    _seoMetaTags?: (TagGenqlSelection & { __args?: {
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null)} })
+    _status?: boolean | number
+    _unpublishingScheduledAt?: boolean | number
+    _updatedAt?: boolean | number
+    heading?: HeadingBlockNewRecordGenqlSelection
+    id?: boolean | number
+    richTexts?: RichTextBlockRecordGenqlSelection
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -6566,7 +6615,7 @@ export interface focalPointGenqlSelection{
     
 
 
-    const ModularPageModelModularContentField_possibleTypes: string[] = ['CardsSectionRecord','ComparisonSectionRecord','FaqSectionRecord','HeroSectionRecord','TestimonialsSectionRecord']
+    const ModularPageModelModularContentField_possibleTypes: string[] = ['CardsSectionRecord','ComparisonSectionRecord','FaqSectionRecord','HeroSectionRecord','RichTextSectionRecord','TestimonialsSectionRecord']
     export const isModularPageModelModularContentField = (obj?: { __typename?: any } | null): obj is ModularPageModelModularContentField => {
       if (!obj?.__typename) throw new Error('__typename is missing in "isModularPageModelModularContentField"')
       return ModularPageModelModularContentField_possibleTypes.includes(obj.__typename)
@@ -6630,7 +6679,7 @@ export interface focalPointGenqlSelection{
     
 
 
-    const RecordInterface_possibleTypes: string[] = ['ActionBlockRecord','AuthorRecord','CardBlockNewRecord','CardBlockRecord','CardsSectionRecord','CategoryRecord','CityRecord','ComparisonBlockRecord','ComparisonSectionRecord','CompetitorRecord','CompetitorsComparisonRecord','ConvertboxBlockRecord','CountryRecord','CourseRecord','CoursesBlockRecord','CoursesSectionRecord','FaqBlockNewRecord','FaqBlockRecord','FaqItemRecord','FaqSectionRecord','HeadingBlockNewRecord','HeadingBlockRecord','HeroImageBlockRecord','HeroSectionRecord','ImageBlockRecord','InstructorRecord','JobRecord','MenuItemBlockRecord','MenuListBlockRecord','MenuRecord','ModularPageLocationRecord','ModularPageRecord','NoteBlockRecord','PlainTextBlockRecord','PostCtaRecord','PostRecord','ReferenceSectionRecord','ResourceRecord','ResourceTopicRecord','RichTextBlockRecord','RoutePathRecord','SeoBlockRecord','TestimonialBlockCtaRecord','TestimonialBlockDefaultRecord','TestimonialBlockRecord','TestimonialRecord','TestimonialsListBlockRecord','TestimonialsSectionRecord','TutorRecord','TutorsBlockRecord','TutorsByCitySectionRecord','VideoBlockExternalRecord','VideoBlockInternalRecord','VideoBlockRecord']
+    const RecordInterface_possibleTypes: string[] = ['ActionBlockRecord','AuthorRecord','CardBlockNewRecord','CardBlockRecord','CardsSectionRecord','CategoryRecord','CityRecord','ComparisonBlockRecord','ComparisonSectionRecord','CompetitorRecord','CompetitorsComparisonRecord','ConvertboxBlockRecord','CountryRecord','CourseRecord','CoursesBlockRecord','CoursesSectionRecord','FaqBlockNewRecord','FaqBlockRecord','FaqItemRecord','FaqSectionRecord','HeadingBlockNewRecord','HeadingBlockRecord','HeroImageBlockRecord','HeroSectionRecord','ImageBlockRecord','InstructorRecord','JobRecord','MenuItemBlockRecord','MenuListBlockRecord','MenuRecord','ModularPageLocationRecord','ModularPageRecord','NoteBlockRecord','PlainTextBlockRecord','PostCtaRecord','PostRecord','ReferenceSectionRecord','ResourceRecord','ResourceTopicRecord','RichTextBlockRecord','RichTextSectionRecord','RoutePathRecord','SeoBlockRecord','TestimonialBlockCtaRecord','TestimonialBlockDefaultRecord','TestimonialBlockRecord','TestimonialRecord','TestimonialsListBlockRecord','TestimonialsSectionRecord','TutorRecord','TutorsBlockRecord','TutorsByCitySectionRecord','VideoBlockExternalRecord','VideoBlockInternalRecord','VideoBlockRecord']
     export const isRecordInterface = (obj?: { __typename?: any } | null): obj is RecordInterface => {
       if (!obj?.__typename) throw new Error('__typename is missing in "isRecordInterface"')
       return RecordInterface_possibleTypes.includes(obj.__typename)
@@ -6706,6 +6755,14 @@ export interface focalPointGenqlSelection{
     export const isRichTextBlockRecord = (obj?: { __typename?: any } | null): obj is RichTextBlockRecord => {
       if (!obj?.__typename) throw new Error('__typename is missing in "isRichTextBlockRecord"')
       return RichTextBlockRecord_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const RichTextSectionRecord_possibleTypes: string[] = ['RichTextSectionRecord']
+    export const isRichTextSectionRecord = (obj?: { __typename?: any } | null): obj is RichTextSectionRecord => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isRichTextSectionRecord"')
+      return RichTextSectionRecord_possibleTypes.includes(obj.__typename)
     }
     
 

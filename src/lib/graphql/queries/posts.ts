@@ -1,11 +1,8 @@
 import { client } from "$lib/graphql/client";
 import {
-	cardBlockFields,
-	courseMetaFields,
-	defaultTestimonialFieldsSelection,
 	postCategoryBlockFields,
+	richTextBlockSelection,
 	seoFieldsSelection,
-	tutorMetaFields,
 } from "$lib/graphql/queries/fields";
 
 const getPostFullPath = (
@@ -135,48 +132,7 @@ const getSingleBlogPost = async (slug: string) => {
 			// Content
 			modularContent: {
 				__typename: true,
-				richText: {
-					value: true,
-					blocks: {
-						on_RecordInterface: {
-							__typename: true,
-							id: true,
-						},
-						on_NoteBlockRecord: {
-							noteType: true,
-							card: cardBlockFields,
-						},
-						on_ImageBlockRecord: {
-							image: {
-								responsiveImage: {
-									src: true,
-									width: true,
-									height: true,
-									alt: true,
-									sizes: true,
-								},
-							},
-						},
-						on_CoursesBlockRecord: {
-							courses: {
-								...courseMetaFields,
-							},
-						},
-						on_TutorsBlockRecord: {
-							tutors: {
-								...tutorMetaFields,
-							},
-						},
-						on_TestimonialsListBlockRecord: {
-							testimonials: {
-								testimonial: {
-									on_TestimonialBlockDefaultRecord: defaultTestimonialFieldsSelection,
-								},
-							},
-						},
-						on_CardBlockRecord: cardBlockFields,
-					},
-				},
+				richText: richTextBlockSelection,
 			},
 
 			// SEO
@@ -194,6 +150,5 @@ export {
 	getBlogPostsCount,
 	getBlogPostsSlugs,
 	getPostFullPath,
-	getSingleBlogPost
+	getSingleBlogPost,
 };
-

@@ -4,7 +4,9 @@ import {
 	comparisonSectionSelection,
 	courseSectionSelection,
 	faqSectionSelection,
+	headingFieldSelection,
 	heroSectionSelection,
+	richTextBlockSelection,
 	seoFieldsSelection,
 	testimonialSectionSelection,
 	tutorsByCitySectionSelection,
@@ -93,6 +95,12 @@ const getSingleModularPage = async (slug: string) => {
 				on_CardsSectionRecord: cardSectionSelection,
 				on_TestimonialsSectionRecord: testimonialSectionSelection,
 				on_ComparisonSectionRecord: comparisonSectionSelection,
+				on_RichTextSectionRecord: {
+					heading: headingFieldSelection,
+					richTexts: {
+						richText: richTextBlockSelection,
+					},
+				},
 			},
 
 			// SEO

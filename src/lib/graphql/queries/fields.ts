@@ -13,6 +13,7 @@ import type {
 	HeroSectionRecordGenqlSelection,
 	PostRecordGenqlSelection,
 	ResponsiveImageGenqlSelection,
+	RichTextBlockModelRichTextFieldGenqlSelection,
 	SeoFieldGenqlSelection,
 	TestimonialBlockCtaRecordGenqlSelection,
 	TestimonialBlockDefaultRecordGenqlSelection,
@@ -314,6 +315,49 @@ const tutorsByCitySectionSelection = {
 	},
 } satisfies TutorsByCitySectionRecordGenqlSelection;
 
+const richTextBlockSelection = {
+	value: true,
+	blocks: {
+		on_RecordInterface: {
+			__typename: true,
+			id: true,
+		},
+		on_NoteBlockRecord: {
+			noteType: true,
+			card: cardBlockFields,
+		},
+		on_ImageBlockRecord: {
+			image: {
+				responsiveImage: {
+					src: true,
+					width: true,
+					height: true,
+					alt: true,
+					sizes: true,
+				},
+			},
+		},
+		on_CoursesBlockRecord: {
+			courses: {
+				...courseMetaFields,
+			},
+		},
+		on_TutorsBlockRecord: {
+			tutors: {
+				...tutorMetaFields,
+			},
+		},
+		on_TestimonialsListBlockRecord: {
+			testimonials: {
+				testimonial: {
+					on_TestimonialBlockDefaultRecord: defaultTestimonialFieldsSelection,
+				},
+			},
+		},
+		on_CardBlockRecord: cardBlockFields,
+	},
+} satisfies RichTextBlockModelRichTextFieldGenqlSelection;
+
 export {
 	actionBlockFieldSelection,
 	cardBlockFieldSelection,
@@ -335,4 +379,5 @@ export {
 	testimonialSectionSelection,
 	tutorMetaFields,
 	tutorsByCitySectionSelection,
+	richTextBlockSelection,
 };
