@@ -12,6 +12,7 @@
 	} from "$lib/graphql/queries/modular";
 	import ComparisonTable from "./ComparisonTable.svelte";
 	import StructuredText from "$dato/StructuredText/index.svelte";
+	import Richtext from "./RichText.svelte";
 
 	export let modularPage:
 		| Awaited<ReturnType<typeof getSingleModularPage>>
@@ -21,21 +22,7 @@
 {#if modularPage?.modularContent && modularPage.modularContent.length > 0}
 	{#each modularPage.modularContent as record (record.id)}
 		{#if record.__typename === "RichTextSectionRecord"}
-			<section class="space-y-12 container-base">
-				{#if record.heading}
-					<Heading
-						heading={record.heading}
-						class="text-left"
-						contentClass="text-left mx-[inherit] !max-w-[inherit]"
-					/>
-				{/if}
-
-				{#if record.richTexts && record.richTexts.length > 0}
-					{#each record.richTexts as richText (richText.id)}
-						<StructuredText {richText} />
-					{/each}
-				{/if}
-			</section>
+			<Richtext {record} />
 		{/if}
 
 		{#if record.__typename === "HeroSectionRecord"}
