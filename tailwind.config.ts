@@ -23,7 +23,7 @@ const config: Config = {
 				magnolia: "#eeecf1",
 				night: "#0f0f0f",
 				platinum: "#d9d9d9",
-				"brand-primary": "hsl(var(--brand-primary))",
+				"brand-primary": "hsl(var(--brand-primary) / <alpha-value>)",
 
 				// SHADCN
 				border: "hsl(var(--border) / <alpha-value>)",

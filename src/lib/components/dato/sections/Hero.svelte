@@ -40,12 +40,12 @@
 	<section class="px-3 py-20 container-base relative z-1">
 		<div class="relative w-full mx-auto space-y-6 md:max-w-3xl">
 			{#if record.heading}
-				<Heading heading={record.heading} titleTag="h1" />
+				<Heading heading={record.heading} titleTag="h1" contentClass="hero-content" />
 			{/if}
 
 			{#if record.cta}
 				<div class="flex-s-center">
-					<Button size="lg" href={record.cta.link} class="mx-auto">{record.cta.text}</Button>
+					<Button variant="brand" size="lg" href={record.cta.link} class="mx-auto">{record.cta.text}</Button>
 				</div>
 			{/if}
 
@@ -106,5 +106,9 @@
 		:nth-child(3) {
 			grid-area: right;
 		}
+	}
+
+	:global(.hero-content p strong) {
+		@apply text-brand-primary;
 	}
 </style>
