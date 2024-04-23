@@ -57,7 +57,7 @@ box-shadow: 0px 8px 12px 0px rgba(0, 0, 0, 0.25);"
 			{/if}
 
 			{#if testimonial.cta}
-				<Button size="lg" href={testimonial.cta.link} class="w-full">{testimonial.cta.text}</Button>
+				<Button size="lg" href={testimonial.cta.link} class="w-full bg-aquamarine text-foreground hover:text-white">{testimonial.cta.text}</Button>
 			{/if}
 		</div>
 	</Card.Content>
