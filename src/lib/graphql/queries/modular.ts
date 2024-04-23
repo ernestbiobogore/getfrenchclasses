@@ -43,7 +43,6 @@ const getSingleLocationModularPage = async (slug: string, pageType: "courses" | 
 					__typename: true,
 					id: true,
 				},
-
 				on_HeroSectionRecord: heroSectionSelection,
 				on_FaqSectionRecord: faqSectionSelection,
 				on_CardsSectionRecord: cardSectionSelection,
@@ -98,6 +97,7 @@ const getSingleModularPage = async (slug: string) => {
 				on_RichTextSectionRecord: {
 					heading: headingFieldSelection,
 					richTexts: {
+						id: true,
 						richText: richTextBlockSelection,
 					},
 				},
