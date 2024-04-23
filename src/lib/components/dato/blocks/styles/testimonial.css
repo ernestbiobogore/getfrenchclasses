@@ -1,5 +1,5 @@
 .single-testimonial {
-	@apply p-4 space-y-2 rounded-lg bg-brand-primary/40 lg:rotate-[var(--rotation)];
+	@apply p-4 space-y-2 rounded-lg bg-brand-primary/10 lg:rotate-[var(--rotation)];
 	border: 1px solid #415462;
 	box-shadow:
 		25px 25px 0px 0px rgba(94, 98, 209, 0.1),
