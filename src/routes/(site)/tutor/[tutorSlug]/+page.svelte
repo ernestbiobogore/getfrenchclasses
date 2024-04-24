@@ -81,7 +81,7 @@
 			<div class="space-y-4">
 				<h2>{data.tutor.reviewsTitle}</h2>
 
-				<div class="grid grid-cols-2 gap-8">
+				<div class="grid sm:grid-cols-2 gap-8">
 					{#each data.tutor.reviews as { testimonial } (testimonial.id)}
 						{#if testimonial.__typename === "TestimonialBlockDefaultRecord"}
 							<DefaultTestimonial {testimonial} />
