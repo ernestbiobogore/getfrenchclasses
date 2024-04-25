@@ -39,29 +39,45 @@
 	};
 
 	type FeatureMap = {
-		[key: string]: Feature;
+		[key: string]: {
+			feature: string;
+			companies: {
+				[companyId: string]: {
+					hasFeature: boolean;
+					name: string;
+					paid: boolean;
+					logo: {
+						url: string;
+						alt: string;
+					};
+				};
+			};
+		};
 	};
 
 	$: uniqueFeatures = Object.values(
 		(comparisons || []).reduce<FeatureMap>((acc, comparison: Comparison) => {
 			const { feature, hasFeature, companies } = comparison;
-			const companyFeatures: CompanyFeature[] = companies.map(company => ({
-				companyId: company.id,
-				hasFeature,
-			}));
 
 			if (!acc[feature]) {
 				acc[feature] = {
 					feature,
-					companies: companyFeatures,
+					companies: {},
 				};
-			} else {
-				acc[feature].companies.push(...companyFeatures);
 			}
+
+			companies.forEach(company => {
+				acc[feature].companies[company.id] = {
+					hasFeature,
+					name: company.name,
+					paid: company.paid,
+					logo: company.logo,
+				};
+			});
 
 			return acc;
 		}, {})
-	) satisfies Feature[];
+	);
 </script>
 
 <div class="my-10 container-base">
@@ -112,10 +128,10 @@
 						<tr>
 							<td class="font-bold">{feature}</td>
 
-							{#each companies as { companyId, hasFeature } (companyId)}
+							{#each uniqueCompanies as company (company.id)}
 								<td class="p-3">
 									<div class="text-2xl flex-s-center md:text-4xl">
-										{#if hasFeature}
+										{#if companies[company.id]?.hasFeature}
 											<CheckCircle class="text-green-500" />
 										{:else}
 											<XCircle class="text-red-500" />
