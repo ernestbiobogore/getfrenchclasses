@@ -14,16 +14,6 @@
 		new Map(companies?.map(company => [company.id, company])).values()
 	);
 
-	type CompanyFeature = {
-		companyId: string;
-		hasFeature: boolean;
-	};
-
-	type Feature = {
-		feature: string;
-		companies: CompanyFeature[];
-	};
-
 	type Comparison = {
 		feature: string;
 		hasFeature: boolean;
