@@ -3,7 +3,7 @@
 	import StructuredText from "$dato/StructuredText/index.svelte";
 	import PostCTA from "$dato/sections/PostCTA.svelte";
 	import SocialShare from "$dato/sections/SocialShare.svelte";
-	import BlogCTA, { type CTAProps } from "$lib/components/cta-section/BlogCta.svelte";
+	import { type CTAProps } from "$lib/components/cta-section/BlogCta.svelte";
 	import { formatDate, generateShareOptions, getSampleAvatars } from "$lib/utils";
 	import { Image } from "@unpic/svelte";
 	import SvelteSeo from "svelte-seo";
@@ -23,6 +23,7 @@
 		},
 	};
 	$: rightCtas = post?.postCtas.filter(cta => cta.ctaPosition === "right");
+	$: topCtas = post?.postCtas.filter(cta => cta.ctaPosition === "top");
 
 	$: shareOptions = generateShareOptions({
 		slug: post?.slug || "",
@@ -106,7 +107,13 @@
 
 	<article class="flex flex-col gap-6 mt-8 mb-16 lg:flex-row container-base">
 		<main class="space-y-8 basis-9/12">
-			<BlogCTA props={dummyCTAProps} ctaAction={() => alert("button Clicked")} />
+			{#if topCtas && topCtas.length > 0}
+				<div class="flex flex-col gap-4 py-4">
+					{#each topCtas as cta}
+						<PostCTA postCta={cta} />
+					{/each}
+				</div>
+			{/if}
 
 			{#each post.modularContent as block}
 				{#if block.__typename === "RichTextBlockRecord"}
