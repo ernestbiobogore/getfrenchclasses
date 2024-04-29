@@ -5,9 +5,6 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
-  '@datocms/svelte':
-    specifier: ^2.0.1
-    version: 2.0.1(@mux/mux-player@2.3.3)(svelte@4.2.8)
   '@fontsource-variable/inter':
     specifier: ^5.0.16
     version: 5.0.16
@@ -174,21 +171,6 @@ packages:
     engines: {node: '>=6.9.0'}
     dependencies:
       regenerator-runtime: 0.14.1
-    dev: false
-
-  /@datocms/svelte@2.0.1(@mux/mux-player@2.3.3)(svelte@4.2.8):
-    resolution: {integrity: sha512-25owTVWTc46bzuhnOqMh0Gi+EoIzpNZxBm2If3i2CPGpUYfLytOauM5U9ncKgDkb1/Ni+aLL5a6rVdaFq0RFEg==}
-    peerDependencies:
-      '@mux/mux-player': '*'
-      svelte: ^3.59.2 || ^4.0.0
-    peerDependenciesMeta:
-      '@mux/mux-player':
-        optional: true
-    dependencies:
-      '@mux/mux-player': 2.3.3
-      datocms-structured-text-utils: 2.1.12
-      svelte: 4.2.8
-      svelte-intersection-observer: 1.0.0
     dev: false
 
   /@esbuild/aix-ppc64@0.19.11:
@@ -1519,12 +1501,6 @@ packages:
 
   /custom-media-element@1.2.3:
     resolution: {integrity: sha512-xr9Hbrslkjm1fapJP5hL98pySeZmNepBSefQS/XTxynamqPTfRBK5MnhReMOiAj8xvJApVPrVnlYxIrknay8jg==}
-    dev: false
-
-  /datocms-structured-text-utils@2.1.12:
-    resolution: {integrity: sha512-tZtiPN/sEjl+4Z6igojPdap6Miy0Z6VO6Afor3vcyY/8PIwKVGbTsdd5trD+skWPCPRZVNzKpfYoAVziXWTL8Q==}
-    dependencies:
-      array-flatten: 3.0.0
     dev: false
 
   /datocms-structured-text-utils@3.0.0:
@@ -3337,10 +3313,6 @@ packages:
     dependencies:
       svelte: 4.2.8
     dev: true
-
-  /svelte-intersection-observer@1.0.0:
-    resolution: {integrity: sha512-AoxSog8fSt9sSN8ajMYM1I48ndq+rmPlaZSkJFCRbZ7I3KO8IPX6pl5mewWxdYL1JDI06hHu/7epn3h5tlJV9w==}
-    dev: false
 
   /svelte-legos@0.2.2(svelte@4.2.8):
     resolution: {integrity: sha512-HTVkCIqhrxdy+OpXjxGr/4xIJEGv4d2cRQwTjm0SYfLw/YF1I1l/TQR59nb2WvjccnO8TNFNTvAWP5pgXQnU+w==}
