@@ -3,7 +3,7 @@
 	import StructuredText from "$dato/StructuredText/index.svelte";
 	import PostCTA from "$dato/sections/PostCTA.svelte";
 	import SocialShare from "$dato/sections/SocialShare.svelte";
-	import BlogCta, { type CTAProps } from "$lib/components/cta-section/BlogCta.svelte";
+	import BlogCTA, { type CTAProps } from "$lib/components/cta-section/BlogCta.svelte";
 	import { formatDate, generateShareOptions, getSampleAvatars } from "$lib/utils";
 	import { Image } from "@unpic/svelte";
 	import SvelteSeo from "svelte-seo";
@@ -63,7 +63,7 @@
 />
 
 {#if post}
-	<header class="container-base py-4 sm:py-8 space-y-4">
+	<header class="py-4 space-y-4 container-base sm:py-8">
 		<h1>{post?.title}</h1>
 
 		<div>
@@ -89,7 +89,7 @@
 	</header>
 
 	{#if post.seo?.image?.responsiveImage}
-		<div class="container-base py-4">
+		<div class="py-4 container-base">
 			<Image
 				src={post.seo.image.responsiveImage?.src || post.seo.image.url}
 				alt={post.seo.image.alt}
@@ -103,9 +103,9 @@
 		</div>
 	{/if}
 
-	<article class="flex flex-col gap-6 mt-8 lg:flex-row container-base mb-16">
+	<article class="flex flex-col gap-6 mt-8 mb-16 lg:flex-row container-base">
 		<main class="space-y-8 basis-9/12">
-			<BlogCta props={dummyCTAProps} ctaAction={() => alert("button Clicked")} />
+			<BlogCTA props={dummyCTAProps} ctaAction={() => alert("button Clicked")} />
 
 			{#each post.modularContent as block}
 				{#if block.__typename === "RichTextBlockRecord"}
