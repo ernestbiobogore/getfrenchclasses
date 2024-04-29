@@ -40,7 +40,7 @@
 			{/if}
 		</div>
 
-		<div class="h-96 bg-gray-100 sm:basis-4/12">
+		<div class="flex items-center sm:basis-4/12">
 			{#if data.resource?.featuredImage?.responsiveImage}
 				<Image
 					src={data.resource.featuredImage?.responsiveImage?.src || data.resource.featuredImage.url}
