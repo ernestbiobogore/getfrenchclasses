@@ -24,9 +24,16 @@
 	import TutorCard from "$dato/blocks/tutors/TutorCard.svelte";
 	import CourseCard from "$lib/components/CourseCard.svelte";
 	import type { RichTextBlockModelRichTextBlocksField } from "$lib/graphql/generated";
+	import { NakedImage } from "@datocms/svelte";
 
 	export let block: RichTextBlockModelRichTextBlocksField;
 </script>
+
+{#if block.__typename === "ImageBlockRecord"}
+	{#if block.image?.responsiveImage}
+		<NakedImage data={block.image.responsiveImage} class="mt-4" />
+	{/if}
+{/if}
 
 {#if block.__typename === "NoteBlockRecord"}
 	<div class={getNoteClass(block.noteType || "note")}>

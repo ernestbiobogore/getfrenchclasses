@@ -328,6 +328,8 @@ const richTextBlockSelection = {
 		},
 		on_ImageBlockRecord: {
 			image: {
+				url: true,
+				alt: true,
 				responsiveImage: {
 					src: true,
 					width: true,
