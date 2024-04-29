@@ -3,8 +3,7 @@
 	import StructuredText from "$dato/StructuredText/index.svelte";
 	import PostCTA from "$dato/sections/PostCTA.svelte";
 	import SocialShare from "$dato/sections/SocialShare.svelte";
-	import { type CTAProps } from "$lib/components/cta-section/BlogCta.svelte";
-	import { formatDate, generateShareOptions, getSampleAvatars } from "$lib/utils";
+	import { formatDate, generateShareOptions } from "$lib/utils";
 	import { Image } from "@unpic/svelte";
 	import SvelteSeo from "svelte-seo";
 
@@ -30,17 +29,6 @@
 		title: post?.seo?.title || "",
 		description: post?.seo?.description || "",
 	});
-
-	const dummyCTAProps: CTAProps = {
-		video:
-			"https://cdn.discordapp.com/attachments/1181304981576486962/1196953201669324901/Screen_Recording_2024-01-16_at_11.01.18_pm.mov?ex=65b98089&is=65a70b89&hm=2fbbd8a97dadc3e2b8fae343e65da65aa9bef9c0f863d77c370f92725af06402&",
-		buttonText: "Start learning french with as low as $8 per day",
-		heading: "Take your french from A1 (Beginner) to C1 (Intermediate) in 4 months",
-		subtext: "Finally a way to learn a new language without paying tutors $80+ per hour.",
-		buttonSubtext:
-			"and 4570+ other learners went from noob to fluent french speakers with our programs.",
-		peopleImages: getSampleAvatars(),
-	};
 </script>
 
 <SvelteSeo
