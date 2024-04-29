@@ -124,9 +124,6 @@
 	<FAQItems items={data.homeFaq} />
 </section>
 
-<!-- <GenericCta text="Start learning more Grammar Tips Today" /> -->
-<!-- <CtaTestimonial {testimonial} /> -->
-
 {#if data.testimonial && data.testimonial.__typename === "TestimonialBlockCtaRecord"}
 	<section class="py-20 space-y-12 container-base">
 		<CtaTestimonial testimonial={data.testimonial} />
