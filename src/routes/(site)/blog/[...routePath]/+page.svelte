@@ -95,8 +95,8 @@
 	{/if}
 
 	<article class="grid sm:grid-cols-[18.75rem_1fr_15.625rem] gap-6 my-16 container-base">
-		<div class="sm:sticky sm:top-32 sm:w-[18.75rem]">
-			<TOC selector=".content" />
+		<div class="sm:w-[18.75rem]">
+			<TOC selector=".content" class="sticky top-32" />
 		</div>
 
 		<main class="space-y-8 basis-9/12">

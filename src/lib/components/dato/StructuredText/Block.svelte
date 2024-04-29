@@ -83,18 +83,26 @@
 {/if}
 
 {#if block.__typename === "TutorsBlockRecord"}
-	{#if block.tutors && block.tutors.length > 0}
-		<div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-			{#each block.tutors as tutor (tutor.id)}
-				<TutorCard {tutor} />
-			{/each}
-		</div>
-	{/if}
+	{@const firstTutor = block.tutors[0]}
+
+	<div class="space-y-6">
+		{#if firstTutor}
+			<TutorCard tutor={firstTutor} />
+		{/if}
+
+		{#if block.tutors && block.tutors.length > 1}
+			<div class="grid gap-6 sm:grid-cols-2">
+				{#each block.tutors.slice(1) as tutor (tutor.id)}
+					<TutorCard {tutor} />
+				{/each}
+			</div>
+		{/if}
+	</div>
 {/if}
 
 {#if block.__typename === "TestimonialsListBlockRecord"}
 	{#if block.testimonials && block.testimonials.length > 0}
-		<div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3 pt-4 pb-10">
+		<div class="grid gap-8 pt-4 pb-10 md:grid-cols-2 lg:grid-cols-3">
 			{#each block.testimonials as { testimonial } (testimonial.id)}
 				{#if testimonial.__typename === "TestimonialBlockDefaultRecord"}
 					<DefaultTestimonial {testimonial} />
