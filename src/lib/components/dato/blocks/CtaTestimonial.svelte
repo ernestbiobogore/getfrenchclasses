@@ -4,7 +4,7 @@
 	import { cn } from "$lib/utils";
 	import { Button } from "$shadcn/button";
 	import * as Card from "$shadcn/card";
-	import { Image } from "@datocms/svelte";
+	import { Image } from "@unpic/svelte";
 	import CarbonQuotes from "~icons/carbon/quotes";
 	import "../blocks/styles/testimonial.css";
 
@@ -34,7 +34,16 @@ box-shadow: 0px 8px 12px 0px rgba(0, 0, 0, 0.25);"
 
 		<div class="flex md:flex-col md:flex-[0.2]">
 			{#if testimonial.picture?.responsiveImage}
-				<Image data={testimonial.picture.responsiveImage} />
+				<Image
+					src={testimonial.picture.responsiveImage?.src || testimonial.picture.url}
+					alt={testimonial.picture.alt}
+					layout="constrained"
+					width={248}
+					aspectRatio={1}
+					background={testimonial.picture.responsiveImage?.base64 ||
+						testimonial.picture.responsiveImage?.bgColor ||
+						"auto"}
+				/>
 			{/if}
 
 			<div>
@@ -57,7 +66,12 @@ box-shadow: 0px 8px 12px 0px rgba(0, 0, 0, 0.25);"
 			{/if}
 
 			{#if testimonial.cta}
-				<Button size="lg" href={testimonial.cta.link} class="w-full bg-aquamarine text-foreground hover:text-white">{testimonial.cta.text}</Button>
+				<Button
+					size="lg"
+					href={testimonial.cta.link}
+					class="w-full bg-aquamarine text-foreground hover:text-white"
+					>{testimonial.cta.text}</Button
+				>
 			{/if}
 		</div>
 	</Card.Content>

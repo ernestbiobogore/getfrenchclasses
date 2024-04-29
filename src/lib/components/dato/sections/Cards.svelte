@@ -6,7 +6,7 @@
 	import { cn } from "$lib/utils";
 	import Button from "$shadcn/button/button.svelte";
 	import * as Card from "$shadcn/card";
-	import { Image } from "@datocms/svelte";
+	import { Image } from "@unpic/svelte";
 
 	export let record: CardsSectionRecord;
 </script>
@@ -72,15 +72,23 @@
 									<img src={card.media?.url} alt={card.media?.alt} class="w-12 h-12" />
 								{/if}
 							{:else if card.media?.responsiveImage}
-								<Image data={card.media.responsiveImage} />
+								<Image
+									src={card.media.responsiveImage?.src || card.media.url}
+									alt={card.media.responsiveImage?.alt}
+									layout="constrained"
+									width={card.media.responsiveImage?.width || 1200}
+									aspectRatio={card.media.responsiveImage?.aspectRatio || 1.9}
+									background={card.media.responsiveImage?.base64 ||
+										card.media.responsiveImage?.bgColor ||
+										"auto"}
+								/>
 							{/if}
 						</Card.Header>
 
 						{#if card.heading.subheading}
 							<Card.Content class="p-0 space-y-4 basis-5/12">
 								{#if card.heading.heading}
-									<Card.Title
-										class="text-2xl/[2.275rem] sm:text-4xl -tracking-[0.1rem]"
+									<Card.Title class="text-2xl/[2.275rem] sm:text-4xl -tracking-[0.1rem]"
 										>{card.heading.heading}</Card.Title
 									>
 								{/if}

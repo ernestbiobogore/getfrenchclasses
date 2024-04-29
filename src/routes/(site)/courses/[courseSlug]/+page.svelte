@@ -16,7 +16,7 @@
 	import TutorCard from "$dato/blocks/tutors/TutorCard.svelte";
 	import { getSampleAvatars } from "$lib/utils";
 	import { Button } from "$shadcn/button";
-	import { Image } from "@datocms/svelte";
+	import { Image } from "@unpic/svelte";
 	import type {
 		TestimonialBlockCtaRecord,
 		TestimonialBlockDefaultRecord,
@@ -190,7 +190,16 @@
 								{#if content.media?.format === "svg"}
 									<img src={content.media.url} alt={content.media.alt} class="w-4 h-4" />
 								{:else if content.media?.responsiveImage}
-									<Image data={content.media.responsiveImage} class="w-4 h-4" />
+									<Image
+										src={content.media.responsiveImage?.src || content.media.url}
+										alt={content.media.responsiveImage?.alt}
+										layout="constrained"
+										width={16}
+										aspectRatio={1}
+										background={content.media.responsiveImage?.base64 ||
+											content.media.responsiveImage?.bgColor ||
+											"auto"}
+									/>
 								{/if}
 
 								<Heading

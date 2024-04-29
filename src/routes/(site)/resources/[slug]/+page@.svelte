@@ -8,7 +8,7 @@
 	import { Badge } from "$shadcn/badge";
 	import * as Card from "$shadcn/card";
 	import * as Carousel from "$shadcn/carousel";
-	import { Image } from "@datocms/svelte";
+	import { Image } from "@unpic/svelte";
 	import CheckCircleRounded from "~icons/material-symbols/check-circle-rounded";
 
 	export let data;
@@ -43,8 +43,14 @@
 		<div class="h-96 bg-gray-100 sm:basis-4/12">
 			{#if data.resource?.featuredImage?.responsiveImage}
 				<Image
-					class="object-cover w-full h-full"
-					data={f(data.resource?.featuredImage?.responsiveImage)}
+					src={data.resource.featuredImage?.responsiveImage?.src || data.resource.featuredImage.url}
+					alt={data.resource.featuredImage?.responsiveImage?.alt || data.resource.featuredImage.alt}
+					layout="constrained"
+					width={data.resource.featuredImage?.responsiveImage?.width || 324}
+					aspectRatio={data.resource.featuredImage?.responsiveImage?.aspectRatio || 0.84}
+					background={data.resource.featuredImage?.responsiveImage?.base64 ||
+						data.resource.featuredImage?.responsiveImage?.bgColor ||
+						"auto"}
 				/>
 			{/if}
 		</div>
@@ -72,12 +78,21 @@
 		<div class="bg-red- flex-s-center">
 			<Carousel.Root class="w-full max-w-sm">
 				<Carousel.Content>
-					{#each data.resource?.contentMedias || [] as { responsiveImage }, i (i)}
+					{#each data.resource?.contentMedias || [] as image}
 						<Carousel.Item>
 							<div class="p-1">
 								<Card.Root>
 									<Card.Content class="p-0">
-										<Image class="object-cover size-full" data={f(responsiveImage)} />
+										<Image
+											src={image.responsiveImage?.src || image.url}
+											alt={image.alt}
+											layout="constrained"
+											width={image.responsiveImage?.width || 1200}
+											height={image.responsiveImage?.height || 630}
+											background={image.responsiveImage?.base64 ||
+												image.responsiveImage?.bgColor ||
+												"auto"}
+										/>
 									</Card.Content>
 								</Card.Root>
 							</div>

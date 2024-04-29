@@ -5,7 +5,7 @@
 	import SocialShare from "$dato/sections/SocialShare.svelte";
 	import BlogCta, { type CTAProps } from "$lib/components/cta-section/BlogCta.svelte";
 	import { formatDate, generateShareOptions, getSampleAvatars } from "$lib/utils";
-	import { NakedImage } from "@datocms/svelte";
+	import { Image } from "@unpic/svelte";
 	import SvelteSeo from "svelte-seo";
 
 	export let data;
@@ -90,7 +90,16 @@
 
 	{#if post.seo?.image?.responsiveImage}
 		<div class="container-base py-4">
-			<NakedImage data={post.seo.image.responsiveImage} class="!w-full" />
+			<Image
+				src={post.seo.image.responsiveImage?.src || post.seo.image.url}
+				alt={post.seo.image.alt}
+				layout="constrained"
+				width={1248}
+				height={702}
+				background={post.seo.image.responsiveImage?.base64 ||
+					post.seo.image.responsiveImage?.bgColor ||
+					"auto"}
+			/>
 		</div>
 	{/if}
 

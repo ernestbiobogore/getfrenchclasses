@@ -15,6 +15,8 @@ export async function getResourcePage(slug: string) {
 			title: true,
 			slug: true,
 			featuredImage: {
+				url: true,
+				alt: true,
 				responsiveImage: responsiveImageFieldSelection,
 			},
 			summary: {
@@ -29,6 +31,8 @@ export async function getResourcePage(slug: string) {
 				text: true,
 			},
 			contentMedias: {
+				url: true,
+				alt: true,
 				responsiveImage: responsiveImageFieldSelection,
 			},
 			descriptionHeading: true,
@@ -85,6 +89,8 @@ const getAllResources = async ({ first, skip }: GetAllResourcesParams) => {
 			title: true,
 			slug: true,
 			featuredImage: {
+				url: true,
+				alt: true,
 				responsiveImage: responsiveImageFieldSelection,
 			},
 			summary: {

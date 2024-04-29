@@ -4,7 +4,7 @@
 	import * as Card from "$shadcn/card";
 	import StarFilled from "~icons/ic/baseline-star";
 	import StarEmpty from "~icons/ic/baseline-star-outline";
-	import { Image } from "@datocms/svelte";
+	import { Image } from "@unpic/svelte";
 	import "./styles/testimonial.css";
 
 	export let testimonial: TestimonialBlockDefaultRecord;
@@ -14,7 +14,16 @@
 	<div class="gap-2 flex-s-start">
 		<div class="bg-red-600 rounded-full">
 			{#if testimonial.picture?.responsiveImage}
-				<Image data={testimonial.picture.responsiveImage} class="rounded-full !size-8" />
+				<Image
+					src={testimonial.picture.responsiveImage?.src || testimonial.picture.url}
+					alt={testimonial.picture.alt}
+					layout="constrained"
+					width={32}
+					aspectRatio={1}
+					background={testimonial.picture.responsiveImage?.base64 ||
+						testimonial.picture.responsiveImage?.bgColor ||
+						"auto"}
+				/>
 			{/if}
 		</div>
 

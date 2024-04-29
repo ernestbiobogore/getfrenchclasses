@@ -48,9 +48,10 @@ const responsiveImageFieldSelection = {
 	width: true,
 	height: true,
 	alt: true,
-	base64: true,
-	bgColor: true,
 	sizes: true,
+	aspectRatio: true,
+	bgColor: true,
+	base64: true,
 } satisfies ResponsiveImageGenqlSelection;
 
 const cardBlockFieldSelection = {
@@ -222,7 +223,16 @@ const defaultTestimonialFieldsSelection = {
 	rotation: true,
 	rating: true,
 	picture: {
-		responsiveImage: responsiveImageFieldSelection,
+		url: true,
+		responsiveImage: {
+			__args: {
+				imgixParams: {
+					w: 32,
+					h: 32,
+				},
+			},
+			...responsiveImageFieldSelection,
+		},
 	},
 	content: {
 		value: true,
@@ -236,7 +246,16 @@ const ctaTestimonialFieldsSelection = {
 	role: true,
 	company: true,
 	picture: {
-		responsiveImage: responsiveImageFieldSelection,
+		url: true,
+		responsiveImage: {
+			__args: {
+				imgixParams: {
+					w: 248,
+					h: 248,
+				},
+			},
+			...responsiveImageFieldSelection,
+		},
 	},
 	highlight: {
 		value: true,
@@ -330,13 +349,7 @@ const richTextBlockSelection = {
 			image: {
 				url: true,
 				alt: true,
-				responsiveImage: {
-					src: true,
-					width: true,
-					height: true,
-					alt: true,
-					sizes: true,
-				},
+				responsiveImage: responsiveImageFieldSelection,
 			},
 		},
 		on_CoursesBlockRecord: {
