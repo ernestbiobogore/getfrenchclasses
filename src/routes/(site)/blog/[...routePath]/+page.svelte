@@ -22,6 +22,7 @@
 			height: 630,
 		},
 	};
+	$: rightCtas = post?.postCtas.filter(cta => cta.ctaPosition === "right");
 
 	$: shareOptions = generateShareOptions({
 		slug: post?.slug || "",
@@ -115,7 +116,13 @@
 		</main>
 
 		<aside class="basis-3/12">
-			<PostCTA />
+			{#if rightCtas && rightCtas.length > 0}
+				<div class="flex flex-col gap-4 py-4 sticky top-32">
+					{#each rightCtas as cta}
+						<PostCTA postCta={cta} />
+					{/each}
+				</div>
+			{/if}
 		</aside>
 	</article>
 {/if}

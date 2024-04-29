@@ -1,8 +1,10 @@
 import { client } from "$lib/graphql/client";
 import {
 	postCategoryBlockFields,
+	responsiveImageFieldSelection,
 	richTextBlockSelection,
 	seoFieldsSelection,
+	videoBlockFields,
 } from "$lib/graphql/queries/fields";
 
 const getPostFullPath = (
@@ -107,19 +109,34 @@ const getSingleBlogPost = async (slug: string) => {
 				name: true,
 			},
 
-			// CTA
-			postCta: {
-				title: true,
-				content: {
-					value: true,
-				},
-				repeatableTitle: true,
-				repeatableList: {
-					text: true,
-				},
+			// CTAs
+			postCtas: {
+				ctaPosition: true,
 				cta: {
-					text: true,
-					link: true,
+					title: true,
+					content: {
+						value: true,
+					},
+					media: {
+						on_RecordInterface: {
+							__typename: true,
+							id: true,
+						},
+						on_VideoBlockRecord: videoBlockFields,
+						on_ImageBlockRecord: {
+							image: {
+								responsiveImage: responsiveImageFieldSelection,
+							},
+						},
+					},
+					repeatableTitle: true,
+					repeatableList: {
+						text: true,
+					},
+					cta: {
+						link: true,
+						text: true,
+					}
 				},
 			},
 
@@ -150,5 +167,6 @@ export {
 	getBlogPostsCount,
 	getBlogPostsSlugs,
 	getPostFullPath,
-	getSingleBlogPost,
+	getSingleBlogPost
 };
+

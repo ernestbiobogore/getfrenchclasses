@@ -1030,12 +1030,36 @@ export interface PlainTextBlockRecord {
     __typename: 'PlainTextBlockRecord'
 }
 
+
+/** Block of type Post CTA Block (post_cta_block) */
+export interface PostCtaBlockRecord {
+    _createdAt: Scalars['DateTime']
+    /** Editing URL */
+    _editingUrl: (Scalars['String'] | null)
+    _firstPublishedAt: (Scalars['DateTime'] | null)
+    _isValid: Scalars['BooleanType']
+    _modelApiKey: Scalars['String']
+    _publicationScheduledAt: (Scalars['DateTime'] | null)
+    _publishedAt: (Scalars['DateTime'] | null)
+    /** Generates SEO and Social card meta tags to be used in your frontend */
+    _seoMetaTags: Tag[]
+    _status: ItemStatus
+    _unpublishingScheduledAt: (Scalars['DateTime'] | null)
+    _updatedAt: Scalars['DateTime']
+    cta: PostCtaRecord
+    ctaPosition: Scalars['String']
+    id: Scalars['ItemId']
+    __typename: 'PostCtaBlockRecord'
+}
+
 export interface PostCtaModelContentField {
     blocks: Scalars['String'][]
     links: Scalars['String'][]
     value: Scalars['JsonField']
     __typename: 'PostCtaModelContentField'
 }
+
+export type PostCtaModelMediaField = (ImageBlockRecord | VideoBlockRecord) & { __isUnion?: true }
 
 export type PostCtaModelOrderBy = '_createdAt_ASC' | '_createdAt_DESC' | 'id_ASC' | 'id_DESC' | '_firstPublishedAt_ASC' | '_firstPublishedAt_DESC' | '_publicationScheduledAt_ASC' | '_publicationScheduledAt_DESC' | '_unpublishingScheduledAt_ASC' | '_unpublishingScheduledAt_DESC' | '_publishedAt_ASC' | '_publishedAt_DESC' | '_status_ASC' | '_status_DESC' | '_updatedAt_ASC' | '_updatedAt_DESC' | '_isValid_ASC' | '_isValid_DESC' | 'repeatableTitle_ASC' | 'repeatableTitle_DESC' | 'title_ASC' | 'title_DESC'
 
@@ -1058,6 +1082,7 @@ export interface PostCtaRecord {
     content: (PostCtaModelContentField | null)
     cta: (ActionBlockRecord | null)
     id: Scalars['ItemId']
+    media: (PostCtaModelMediaField | null)
     repeatableList: PlainTextBlockRecord[]
     repeatableTitle: (Scalars['String'] | null)
     title: Scalars['String']
@@ -1087,7 +1112,7 @@ export interface PostRecord {
     featured: (Scalars['BooleanType'] | null)
     id: Scalars['ItemId']
     modularContent: RichTextBlockRecord[]
-    postCta: (PostCtaRecord | null)
+    postCtas: PostCtaBlockRecord[]
     reviewer: (AuthorRecord | null)
     routePaths: RoutePathRecord[]
     seo: (SeoBlockRecord | null)
@@ -1230,7 +1255,7 @@ export interface Query {
     __typename: 'Query'
 }
 
-export type RecordInterface = (ActionBlockRecord | AuthorRecord | CardBlockNewRecord | CardBlockRecord | CardsSectionRecord | CategoryRecord | CityRecord | ComparisonBlockRecord | ComparisonSectionRecord | CompetitorRecord | CompetitorsComparisonRecord | ConvertboxBlockRecord | CountryRecord | CourseRecord | CoursesBlockRecord | CoursesSectionRecord | FaqBlockNewRecord | FaqBlockRecord | FaqItemRecord | FaqSectionRecord | HeadingBlockNewRecord | HeadingBlockRecord | HeroImageBlockRecord | HeroSectionRecord | ImageBlockRecord | InstructorRecord | JobRecord | MenuItemBlockRecord | MenuListBlockRecord | MenuRecord | ModularPageLocationRecord | ModularPageRecord | NoteBlockRecord | PlainTextBlockRecord | PostCtaRecord | PostRecord | ReferenceSectionRecord | ResourceRecord | ResourceTopicRecord | RichTextBlockRecord | RichTextSectionRecord | RoutePathRecord | SeoBlockRecord | TestimonialBlockCtaRecord | TestimonialBlockDefaultRecord | TestimonialBlockRecord | TestimonialRecord | TestimonialsListBlockRecord | TestimonialsSectionRecord | TutorRecord | TutorsBlockRecord | TutorsByCitySectionRecord | VideoBlockExternalRecord | VideoBlockInternalRecord | VideoBlockRecord) & { __isUnion?: true }
+export type RecordInterface = (ActionBlockRecord | AuthorRecord | CardBlockNewRecord | CardBlockRecord | CardsSectionRecord | CategoryRecord | CityRecord | ComparisonBlockRecord | ComparisonSectionRecord | CompetitorRecord | CompetitorsComparisonRecord | ConvertboxBlockRecord | CountryRecord | CourseRecord | CoursesBlockRecord | CoursesSectionRecord | FaqBlockNewRecord | FaqBlockRecord | FaqItemRecord | FaqSectionRecord | HeadingBlockNewRecord | HeadingBlockRecord | HeroImageBlockRecord | HeroSectionRecord | ImageBlockRecord | InstructorRecord | JobRecord | MenuItemBlockRecord | MenuListBlockRecord | MenuRecord | ModularPageLocationRecord | ModularPageRecord | NoteBlockRecord | PlainTextBlockRecord | PostCtaBlockRecord | PostCtaRecord | PostRecord | ReferenceSectionRecord | ResourceRecord | ResourceTopicRecord | RichTextBlockRecord | RichTextSectionRecord | RoutePathRecord | SeoBlockRecord | TestimonialBlockCtaRecord | TestimonialBlockDefaultRecord | TestimonialBlockRecord | TestimonialRecord | TestimonialsListBlockRecord | TestimonialsSectionRecord | TutorRecord | TutorsBlockRecord | TutorsByCitySectionRecord | VideoBlockExternalRecord | VideoBlockInternalRecord | VideoBlockRecord) & { __isUnion?: true }
 
 
 /** Block of type Reference Section (reference_section) */
@@ -4568,6 +4593,31 @@ export interface PlainTextBlockRecordGenqlSelection{
     __scalar?: boolean | number
 }
 
+
+/** Block of type Post CTA Block (post_cta_block) */
+export interface PostCtaBlockRecordGenqlSelection{
+    _createdAt?: boolean | number
+    /** Editing URL */
+    _editingUrl?: boolean | number
+    _firstPublishedAt?: boolean | number
+    _isValid?: boolean | number
+    _modelApiKey?: boolean | number
+    _publicationScheduledAt?: boolean | number
+    _publishedAt?: boolean | number
+    /** Generates SEO and Social card meta tags to be used in your frontend */
+    _seoMetaTags?: (TagGenqlSelection & { __args?: {
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null)} })
+    _status?: boolean | number
+    _unpublishingScheduledAt?: boolean | number
+    _updatedAt?: boolean | number
+    cta?: PostCtaRecordGenqlSelection
+    ctaPosition?: boolean | number
+    id?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
 export interface PostCtaModelContentFieldGenqlSelection{
     blocks?: boolean | number
     links?: boolean | number
@@ -4577,6 +4627,13 @@ export interface PostCtaModelContentFieldGenqlSelection{
 }
 
 export interface PostCtaModelFilter {_createdAt?: (CreatedAtFilter | null),id?: (ItemIdFilter | null),_firstPublishedAt?: (PublishedAtFilter | null),_publicationScheduledAt?: (PublishedAtFilter | null),_unpublishingScheduledAt?: (PublishedAtFilter | null),_publishedAt?: (PublishedAtFilter | null),_status?: (StatusFilter | null),_updatedAt?: (UpdatedAtFilter | null),_isValid?: (BooleanFilter | null),content?: (StructuredTextFilter | null),repeatableTitle?: (StringFilter | null),title?: (StringFilter | null),OR?: ((PostCtaModelFilter | null)[] | null),AND?: ((PostCtaModelFilter | null)[] | null)}
+
+export interface PostCtaModelMediaFieldGenqlSelection{
+    on_ImageBlockRecord?:ImageBlockRecordGenqlSelection,
+    on_VideoBlockRecord?:VideoBlockRecordGenqlSelection,
+    on_RecordInterface?: RecordInterfaceGenqlSelection,
+    __typename?: boolean | number
+}
 
 
 /** Record of type 🔲 Post CTA (post_cta) */
@@ -4599,6 +4656,7 @@ export interface PostCtaRecordGenqlSelection{
     content?: PostCtaModelContentFieldGenqlSelection
     cta?: ActionBlockRecordGenqlSelection
     id?: boolean | number
+    media?: PostCtaModelMediaFieldGenqlSelection
     repeatableList?: PlainTextBlockRecordGenqlSelection
     repeatableTitle?: boolean | number
     title?: boolean | number
@@ -4606,7 +4664,7 @@ export interface PostCtaRecordGenqlSelection{
     __scalar?: boolean | number
 }
 
-export interface PostModelFilter {_createdAt?: (CreatedAtFilter | null),id?: (ItemIdFilter | null),_firstPublishedAt?: (PublishedAtFilter | null),_publicationScheduledAt?: (PublishedAtFilter | null),_unpublishingScheduledAt?: (PublishedAtFilter | null),_publishedAt?: (PublishedAtFilter | null),_status?: (StatusFilter | null),_updatedAt?: (UpdatedAtFilter | null),_isValid?: (BooleanFilter | null),author?: (LinkFilter | null),category?: (LinkFilter | null),featured?: (BooleanFilter | null),postCta?: (LinkFilter | null),reviewer?: (LinkFilter | null),routePaths?: (LinksFilter | null),slug?: (SlugFilter | null),title?: (StringFilter | null),OR?: ((PostModelFilter | null)[] | null),AND?: ((PostModelFilter | null)[] | null)}
+export interface PostModelFilter {_createdAt?: (CreatedAtFilter | null),id?: (ItemIdFilter | null),_firstPublishedAt?: (PublishedAtFilter | null),_publicationScheduledAt?: (PublishedAtFilter | null),_unpublishingScheduledAt?: (PublishedAtFilter | null),_publishedAt?: (PublishedAtFilter | null),_status?: (StatusFilter | null),_updatedAt?: (UpdatedAtFilter | null),_isValid?: (BooleanFilter | null),author?: (LinkFilter | null),category?: (LinkFilter | null),featured?: (BooleanFilter | null),reviewer?: (LinkFilter | null),routePaths?: (LinksFilter | null),slug?: (SlugFilter | null),title?: (StringFilter | null),OR?: ((PostModelFilter | null)[] | null),AND?: ((PostModelFilter | null)[] | null)}
 
 
 /** Record of type Post (post) */
@@ -4631,7 +4689,7 @@ export interface PostRecordGenqlSelection{
     featured?: boolean | number
     id?: boolean | number
     modularContent?: RichTextBlockRecordGenqlSelection
-    postCta?: PostCtaRecordGenqlSelection
+    postCtas?: PostCtaBlockRecordGenqlSelection
     reviewer?: AuthorRecordGenqlSelection
     routePaths?: RoutePathRecordGenqlSelection
     seo?: SeoBlockRecordGenqlSelection
@@ -5143,6 +5201,7 @@ export interface RecordInterfaceGenqlSelection{
     on_ModularPageRecord?: ModularPageRecordGenqlSelection
     on_NoteBlockRecord?: NoteBlockRecordGenqlSelection
     on_PlainTextBlockRecord?: PlainTextBlockRecordGenqlSelection
+    on_PostCtaBlockRecord?: PostCtaBlockRecordGenqlSelection
     on_PostCtaRecord?: PostCtaRecordGenqlSelection
     on_PostRecord?: PostRecordGenqlSelection
     on_ReferenceSectionRecord?: ReferenceSectionRecordGenqlSelection
@@ -6647,10 +6706,26 @@ export interface focalPointGenqlSelection{
     
 
 
+    const PostCtaBlockRecord_possibleTypes: string[] = ['PostCtaBlockRecord']
+    export const isPostCtaBlockRecord = (obj?: { __typename?: any } | null): obj is PostCtaBlockRecord => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isPostCtaBlockRecord"')
+      return PostCtaBlockRecord_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
     const PostCtaModelContentField_possibleTypes: string[] = ['PostCtaModelContentField']
     export const isPostCtaModelContentField = (obj?: { __typename?: any } | null): obj is PostCtaModelContentField => {
       if (!obj?.__typename) throw new Error('__typename is missing in "isPostCtaModelContentField"')
       return PostCtaModelContentField_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const PostCtaModelMediaField_possibleTypes: string[] = ['ImageBlockRecord','VideoBlockRecord']
+    export const isPostCtaModelMediaField = (obj?: { __typename?: any } | null): obj is PostCtaModelMediaField => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isPostCtaModelMediaField"')
+      return PostCtaModelMediaField_possibleTypes.includes(obj.__typename)
     }
     
 
@@ -6679,7 +6754,7 @@ export interface focalPointGenqlSelection{
     
 
 
-    const RecordInterface_possibleTypes: string[] = ['ActionBlockRecord','AuthorRecord','CardBlockNewRecord','CardBlockRecord','CardsSectionRecord','CategoryRecord','CityRecord','ComparisonBlockRecord','ComparisonSectionRecord','CompetitorRecord','CompetitorsComparisonRecord','ConvertboxBlockRecord','CountryRecord','CourseRecord','CoursesBlockRecord','CoursesSectionRecord','FaqBlockNewRecord','FaqBlockRecord','FaqItemRecord','FaqSectionRecord','HeadingBlockNewRecord','HeadingBlockRecord','HeroImageBlockRecord','HeroSectionRecord','ImageBlockRecord','InstructorRecord','JobRecord','MenuItemBlockRecord','MenuListBlockRecord','MenuRecord','ModularPageLocationRecord','ModularPageRecord','NoteBlockRecord','PlainTextBlockRecord','PostCtaRecord','PostRecord','ReferenceSectionRecord','ResourceRecord','ResourceTopicRecord','RichTextBlockRecord','RichTextSectionRecord','RoutePathRecord','SeoBlockRecord','TestimonialBlockCtaRecord','TestimonialBlockDefaultRecord','TestimonialBlockRecord','TestimonialRecord','TestimonialsListBlockRecord','TestimonialsSectionRecord','TutorRecord','TutorsBlockRecord','TutorsByCitySectionRecord','VideoBlockExternalRecord','VideoBlockInternalRecord','VideoBlockRecord']
+    const RecordInterface_possibleTypes: string[] = ['ActionBlockRecord','AuthorRecord','CardBlockNewRecord','CardBlockRecord','CardsSectionRecord','CategoryRecord','CityRecord','ComparisonBlockRecord','ComparisonSectionRecord','CompetitorRecord','CompetitorsComparisonRecord','ConvertboxBlockRecord','CountryRecord','CourseRecord','CoursesBlockRecord','CoursesSectionRecord','FaqBlockNewRecord','FaqBlockRecord','FaqItemRecord','FaqSectionRecord','HeadingBlockNewRecord','HeadingBlockRecord','HeroImageBlockRecord','HeroSectionRecord','ImageBlockRecord','InstructorRecord','JobRecord','MenuItemBlockRecord','MenuListBlockRecord','MenuRecord','ModularPageLocationRecord','ModularPageRecord','NoteBlockRecord','PlainTextBlockRecord','PostCtaBlockRecord','PostCtaRecord','PostRecord','ReferenceSectionRecord','ResourceRecord','ResourceTopicRecord','RichTextBlockRecord','RichTextSectionRecord','RoutePathRecord','SeoBlockRecord','TestimonialBlockCtaRecord','TestimonialBlockDefaultRecord','TestimonialBlockRecord','TestimonialRecord','TestimonialsListBlockRecord','TestimonialsSectionRecord','TutorRecord','TutorsBlockRecord','TutorsByCitySectionRecord','VideoBlockExternalRecord','VideoBlockInternalRecord','VideoBlockRecord']
     export const isRecordInterface = (obj?: { __typename?: any } | null): obj is RecordInterface => {
       if (!obj?.__typename) throw new Error('__typename is missing in "isRecordInterface"')
       return RecordInterface_possibleTypes.includes(obj.__typename)

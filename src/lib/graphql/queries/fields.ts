@@ -390,9 +390,11 @@ export {
 	heroSectionSelection,
 	postCategoryBlockFields,
 	responsiveImageFieldSelection,
+	richTextBlockSelection,
 	seoFieldsSelection,
 	testimonialSectionSelection,
 	tutorMetaFields,
 	tutorsByCitySectionSelection,
-	richTextBlockSelection,
+	videoBlockFields
 };
+
