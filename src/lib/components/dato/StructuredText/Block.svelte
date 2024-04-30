@@ -74,7 +74,7 @@
 
 {#if block.__typename === "CoursesBlockRecord"}
 	{#if block.courses && block.courses.length > 0}
-		<div class="grid gap-6 md:grid-cols-2">
+		<div class="grid gap-6 sm:grid-cols-2">
 			{#each block.courses as course (course.id)}
 				<CourseCard {course} />
 			{/each}
@@ -94,7 +94,7 @@
 
 {#if block.__typename === "TestimonialsListBlockRecord"}
 	{#if block.testimonials && block.testimonials.length > 0}
-		<div class="grid gap-8 pt-4 pb-10 md:grid-cols-2 lg:grid-cols-3">
+		<div class="grid gap-x-8 gap-y-12 py-8 sm:grid-cols-2">
 			{#each block.testimonials as { testimonial } (testimonial.id)}
 				{#if testimonial.__typename === "TestimonialBlockDefaultRecord"}
 					<DefaultTestimonial {testimonial} />
