@@ -24,7 +24,7 @@
 	/>
 
 	<h3>
-		<a href="/courses/{updatedCourse.slug}" class="hover:underline">{updatedCourse.name}</a>
+		<a href="/course/{updatedCourse.slug}" class="hover:underline">{updatedCourse.name}</a>
 	</h3>
 
 	<div class="flex-s-between">
@@ -51,7 +51,7 @@
 	<div class="text-2xl mt-auto">$ {updatedCourse.price} USD</div>
 
 	<div class="flex justify-between">
-		<a href="/courses/{updatedCourse.slug}" class="text-xs action-base w-fit">Read More</a>
+		<a href="/course/{updatedCourse.slug}" class="text-xs action-base w-fit">Read More</a>
 
 		<div class="flex items-center gap-2">
 			<AvatarsGroup avatars={getSampleAvatars()} loading="lazy" />

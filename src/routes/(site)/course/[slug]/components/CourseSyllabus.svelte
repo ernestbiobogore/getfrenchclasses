@@ -1,7 +1,3 @@
-<script lang="ts" context="module">
-	//
-</script>
-
 <script lang="ts">
 	import SyllabusSection from "./SyllabusSection.svelte";
 </script>

@@ -24,7 +24,7 @@ export const GET = async ({ url }) => {
 	});
 
 	const coursesEntries = (await getCoursesSlugs()).map(({ slug, _updatedAt }) => ({
-		url: `${siteURL}/courses/${slug}`,
+		url: `${siteURL}/course/${slug}`,
 		lastmod: new Date(_updatedAt).toISOString(),
 		priority,
 		frequency,

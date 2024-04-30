@@ -69,7 +69,7 @@
 
 		<p>{data.course.seo[0].seoBlock?.description}</p>
 
-		<a href="/courses/{data.course.slug}" class="text-xs action-base w-fit">Enroll Now</a>
+		<a href="/course/{data.course.slug}" class="text-xs action-base w-fit">Enroll Now</a>
 
 		<!-- INSTRUCTORS -->
 		<div class="py-5">

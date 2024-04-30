@@ -7,7 +7,7 @@
 </script>
 
 {#if link.__typename === "CourseRecord"}
-	<a href="/courses/{link.slug}" class="!no-underline group">
+	<a href="/course/{link.slug}" class="!no-underline group">
 		<Card.Root>
 			<Card.Header class="space-y-2">
 				<Badge class="w-fit bg-brand-primary">Course</Badge>
