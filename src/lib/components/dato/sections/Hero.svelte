@@ -82,7 +82,7 @@
 					>
 						{record.videoText}
 					</h3>
-					<PhArrowBendDownLeftFill class="text-[100px] text-[#3EAED0] rotate-[-20deg]" />
+					<PhArrowBendDownLeftFill class="text-[100px] text-aquamarine rotate-[-20deg]" />
 				</div>
 			</div>
 		</div>
