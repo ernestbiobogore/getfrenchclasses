@@ -4,7 +4,7 @@ import { getAllTutorsMetas } from "$lib/graphql/queries/tutors";
 import { error } from "@sveltejs/kit";
 
 export const load = async ({ params }) => {
-	const course = await getCourseBySlug(params.courseSlug);
+	const course = await getCourseBySlug(params.slug);
 	const tutorsMetas = await getAllTutorsMetas(3);
 
 	if (!course) {
