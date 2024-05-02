@@ -241,7 +241,7 @@
 				</div>
 
 				<div class="py-6">
-					<a href="/" class="w-full action-base">Enroll</a>
+					<Button variant="brand" href="/" class="w-full">Enroll</Button>
 				</div>
 
 				<div>
