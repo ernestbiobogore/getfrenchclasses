@@ -63,6 +63,16 @@
 			<Button href={course.rightCtaEnrollLink} variant="brand" class="w-full">Enroll</Button>
 		{/if}
 
+		<div class="flex justify-between">
+			{#each course.rightCtaActions as { link, text }, i}
+				<a href={link} class="font-semibold underline">{text}</a>
+
+				{#if i % 2 === 0}
+					<span>|</span>
+				{/if}
+			{/each}
+		</div>
+
 		{#if course.rightCtaMainText || course.rightCtaSubtext}
 			<div>
 				{#if course.rightCtaSubtext}
