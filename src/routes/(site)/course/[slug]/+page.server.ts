@@ -1,5 +1,9 @@
 import { formatTutorMeta } from "$dato/blocks/tutors/utils.server";
-import { CONTACT_FORM_RECIPIENT_EMAIL, CONTACT_FORM_SENDER_NAME } from "$env/static/private";
+import {
+	CONTACT_FORM_RECIPIENT_EMAIL,
+	CONTACT_FORM_SENDER_EMAIL,
+	CONTACT_FORM_SENDER_NAME,
+} from "$env/static/private";
 import { getCourseBySlug } from "$lib/graphql/queries/courses";
 import { getAllTutorsMetas } from "$lib/graphql/queries/tutors";
 import { sendResendEmail } from "$lib/server/resend";
@@ -40,7 +44,7 @@ export const actions = {
 
 		try {
 			const sendEmailResponse = await sendResendEmail({
-				from: CONTACT_FORM_SENDER_NAME + "<" + "courses@updates.getfrenchclasses.com" + ">",
+				from: CONTACT_FORM_SENDER_NAME + "<" + CONTACT_FORM_SENDER_EMAIL + ">",
 				to: CONTACT_FORM_RECIPIENT_EMAIL,
 				subject: `New user email (courses)`,
 				html: `
