@@ -16,7 +16,7 @@
 <footer class="py-12 space-y-8 mt-20 text-white bg-gray-900">
 	<div class="container-base">
 		<div class="flex flex-col gap-8 py-12 sm:gap-0 sm:flex-row">
-			<div class="space-y-5 basis-9/12">
+			<div class="space-y-5 basis-7/12">
 				<a href="/" class="font-bold">Get French Classes</a>
 				<p class="text-sm sm:w-4/12">
 					Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto inventore repellendus
@@ -31,7 +31,7 @@
 					<BiLinkedin />
 				</div>
 			</div>
-			<div class="flex flex-col gap-5 md:gap-20 basis-3/12 md:flex-row">
+			<div class="flex flex-col gap-5 md:gap-16 basis-5/12 md:flex-row">
 				{#if menuLists && menuLists.length > 0}
 					{#each menuLists as menuList (menuList.id)}
 						{#if menuList.items && menuList.items.length > 0}
