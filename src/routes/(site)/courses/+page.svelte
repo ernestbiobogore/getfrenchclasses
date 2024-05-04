@@ -29,7 +29,7 @@
 	<p>Explore our comprehensive range of financial courses</p>
 
 	<div class="max-w-3xl mx-auto">
-		<Button href="/" variant="brand" class="w-full">Take a language assessment course</Button>
+		<Button href="/" variant="brand">Take a language assessment course</Button>
 	</div>
 </section>
 
