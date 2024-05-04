@@ -1404,7 +1404,7 @@ export default {
             "_isValid": [
                 6
             ],
-            "ctaTitle": [
+            "ctaBannerTitle": [
                 169
             ],
             "duration": [
@@ -1499,16 +1499,16 @@ export default {
             "contentListHeading": [
                 57
             ],
-            "ctaButton": [
+            "ctaBannerButton": [
                 0
             ],
-            "ctaImages": [
+            "ctaBannerImages": [
                 59
             ],
-            "ctaMidActions": [
+            "ctaBannerMidActions": [
                 0
             ],
-            "ctaTitle": [
+            "ctaBannerTitle": [
                 168
             ],
             "duration": [

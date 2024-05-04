@@ -250,12 +250,12 @@
 	</section>
 {/if}
 
-{#if course.ctaTitle && course.ctaButton && course.ctaImages && course.ctaMidActions}
+{#if course.ctaBannerTitle && course.ctaBannerButton && course.ctaBannerImages && course.ctaBannerMidActions}
 	<CourseCtaBanner
-		title={course.ctaTitle}
-		midActions={course.ctaMidActions}
-		cta={course.ctaButton}
-		heroImages={course.ctaImages}
+		title={course.ctaBannerTitle}
+		midActions={course.ctaBannerMidActions}
+		cta={course.ctaBannerButton}
+		heroImages={course.ctaBannerImages}
 	/>
 {/if}
 

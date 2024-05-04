@@ -388,7 +388,7 @@ export interface CountryRecord {
     __typename: 'CountryRecord'
 }
 
-export type CourseModelOrderBy = '_createdAt_ASC' | '_createdAt_DESC' | 'id_ASC' | 'id_DESC' | '_firstPublishedAt_ASC' | '_firstPublishedAt_DESC' | '_publicationScheduledAt_ASC' | '_publicationScheduledAt_DESC' | '_unpublishingScheduledAt_ASC' | '_unpublishingScheduledAt_DESC' | '_publishedAt_ASC' | '_publishedAt_DESC' | '_status_ASC' | '_status_DESC' | '_updatedAt_ASC' | '_updatedAt_DESC' | '_isValid_ASC' | '_isValid_DESC' | 'ctaTitle_ASC' | 'ctaTitle_DESC' | 'duration_ASC' | 'duration_DESC' | 'level_ASC' | 'level_DESC' | 'name_ASC' | 'name_DESC' | 'numberOfEnrolledStudents_ASC' | 'numberOfEnrolledStudents_DESC' | 'numberOfSections_ASC' | 'numberOfSections_DESC' | 'price_ASC' | 'price_DESC' | 'tag_ASC' | 'tag_DESC'
+export type CourseModelOrderBy = '_createdAt_ASC' | '_createdAt_DESC' | 'id_ASC' | 'id_DESC' | '_firstPublishedAt_ASC' | '_firstPublishedAt_DESC' | '_publicationScheduledAt_ASC' | '_publicationScheduledAt_DESC' | '_unpublishingScheduledAt_ASC' | '_unpublishingScheduledAt_DESC' | '_publishedAt_ASC' | '_publishedAt_DESC' | '_status_ASC' | '_status_DESC' | '_updatedAt_ASC' | '_updatedAt_DESC' | '_isValid_ASC' | '_isValid_DESC' | 'ctaBannerTitle_ASC' | 'ctaBannerTitle_DESC' | 'duration_ASC' | 'duration_DESC' | 'level_ASC' | 'level_DESC' | 'name_ASC' | 'name_DESC' | 'numberOfEnrolledStudents_ASC' | 'numberOfEnrolledStudents_DESC' | 'numberOfSections_ASC' | 'numberOfSections_DESC' | 'price_ASC' | 'price_DESC' | 'tag_ASC' | 'tag_DESC'
 
 
 /** Record of type Course (course) */
@@ -408,10 +408,10 @@ export interface CourseRecord {
     _updatedAt: Scalars['DateTime']
     contentList: CardBlockNewRecord[]
     contentListHeading: (HeadingBlockNewRecord | null)
-    ctaButton: (ActionBlockRecord | null)
-    ctaImages: HeroImageBlockRecord[]
-    ctaMidActions: ActionBlockRecord[]
-    ctaTitle: (Scalars['String'] | null)
+    ctaBannerButton: (ActionBlockRecord | null)
+    ctaBannerImages: HeroImageBlockRecord[]
+    ctaBannerMidActions: ActionBlockRecord[]
+    ctaBannerTitle: (Scalars['String'] | null)
     duration: Scalars['IntType']
     faq: (FaqItemRecord | null)
     featuresCards: CardBlockRecord[]
@@ -2381,7 +2381,7 @@ export interface CountryRecordGenqlSelection{
     __scalar?: boolean | number
 }
 
-export interface CourseModelFilter {_createdAt?: (CreatedAtFilter | null),id?: (ItemIdFilter | null),_firstPublishedAt?: (PublishedAtFilter | null),_publicationScheduledAt?: (PublishedAtFilter | null),_unpublishingScheduledAt?: (PublishedAtFilter | null),_publishedAt?: (PublishedAtFilter | null),_status?: (StatusFilter | null),_updatedAt?: (UpdatedAtFilter | null),_isValid?: (BooleanFilter | null),ctaTitle?: (StringFilter | null),duration?: (IntegerFilter | null),faq?: (LinkFilter | null),instructors?: (LinksFilter | null),level?: (StringFilter | null),name?: (StringFilter | null),numberOfEnrolledStudents?: (IntegerFilter | null),numberOfSections?: (IntegerFilter | null),price?: (IntegerFilter | null),slug?: (SlugFilter | null),tag?: (StringFilter | null),testimonials?: (LinksFilter | null),tutors?: (LinksFilter | null),OR?: ((CourseModelFilter | null)[] | null),AND?: ((CourseModelFilter | null)[] | null)}
+export interface CourseModelFilter {_createdAt?: (CreatedAtFilter | null),id?: (ItemIdFilter | null),_firstPublishedAt?: (PublishedAtFilter | null),_publicationScheduledAt?: (PublishedAtFilter | null),_unpublishingScheduledAt?: (PublishedAtFilter | null),_publishedAt?: (PublishedAtFilter | null),_status?: (StatusFilter | null),_updatedAt?: (UpdatedAtFilter | null),_isValid?: (BooleanFilter | null),ctaBannerTitle?: (StringFilter | null),duration?: (IntegerFilter | null),faq?: (LinkFilter | null),instructors?: (LinksFilter | null),level?: (StringFilter | null),name?: (StringFilter | null),numberOfEnrolledStudents?: (IntegerFilter | null),numberOfSections?: (IntegerFilter | null),price?: (IntegerFilter | null),slug?: (SlugFilter | null),tag?: (StringFilter | null),testimonials?: (LinksFilter | null),tutors?: (LinksFilter | null),OR?: ((CourseModelFilter | null)[] | null),AND?: ((CourseModelFilter | null)[] | null)}
 
 
 /** Record of type Course (course) */
@@ -2403,10 +2403,10 @@ export interface CourseRecordGenqlSelection{
     _updatedAt?: boolean | number
     contentList?: CardBlockNewRecordGenqlSelection
     contentListHeading?: HeadingBlockNewRecordGenqlSelection
-    ctaButton?: ActionBlockRecordGenqlSelection
-    ctaImages?: HeroImageBlockRecordGenqlSelection
-    ctaMidActions?: ActionBlockRecordGenqlSelection
-    ctaTitle?: boolean | number
+    ctaBannerButton?: ActionBlockRecordGenqlSelection
+    ctaBannerImages?: HeroImageBlockRecordGenqlSelection
+    ctaBannerMidActions?: ActionBlockRecordGenqlSelection
+    ctaBannerTitle?: boolean | number
     duration?: boolean | number
     faq?: FaqItemRecordGenqlSelection
     featuresCards?: CardBlockRecordGenqlSelection
@@ -7235,8 +7235,8 @@ export const enumCourseModelOrderBy = {
    _updatedAt_DESC: '_updatedAt_DESC' as const,
    _isValid_ASC: '_isValid_ASC' as const,
    _isValid_DESC: '_isValid_DESC' as const,
-   ctaTitle_ASC: 'ctaTitle_ASC' as const,
-   ctaTitle_DESC: 'ctaTitle_DESC' as const,
+   ctaBannerTitle_ASC: 'ctaBannerTitle_ASC' as const,
+   ctaBannerTitle_DESC: 'ctaBannerTitle_DESC' as const,
    duration_ASC: 'duration_ASC' as const,
    duration_DESC: 'duration_DESC' as const,
    level_ASC: 'level_ASC' as const,

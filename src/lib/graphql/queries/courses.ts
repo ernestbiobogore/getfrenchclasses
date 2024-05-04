@@ -106,18 +106,19 @@ const getCourseBySlug = async (slug: string) => {
 			// FAQ
 			faq: faqItemFieldsSelection,
 
-			ctaTitle: true,
-			ctaMidActions: {
+			// CTA Banner
+			ctaBannerTitle: true,
+			ctaBannerMidActions: {
 				link: true,
 				text: true,
 			},
-			ctaImages: {
+			ctaBannerImages: {
 				image: {
 					responsiveImage: responsiveImageFieldSelection,
 				},
 				text: true,
 			},
-			ctaButton: {
+			ctaBannerButton: {
 				link: true,
 				text: true,
 			},
