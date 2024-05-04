@@ -1,22 +1,21 @@
 <script lang="ts">
 	import StructuredText from "$dato/StructuredText/index.svelte";
-	import type {
-		HeadingBlockNewModelSubheadingField,
-		HeadingBlockNewRecord,
-	} from "$lib/graphql/generated";
 	import { cn, spanify } from "$lib/utils";
+	import type { PageData } from "../../../../routes/(site)/course/[slug]/$types";
 
 	let className: string | undefined | null = undefined;
 	let contentClassName: string | undefined | null = undefined;
 
-	export let heading: HeadingBlockNewRecord | undefined = undefined;
+	type Heading = PageData["course"]["tutorsHeading"];
+	type SubHeading = NonNullable<Heading>["subheading"];
+	export let heading: Heading | undefined = undefined;
 	export let titleTag: "h1" | "h2" | "p" = "h2";
 	export let defaultHeading: string | undefined = undefined;
 	export let useDefaultHeading = false;
 	export { className as class };
 	export { contentClassName as contentClass };
 
-	const isEmptySubHeading = (subHeading: HeadingBlockNewModelSubheadingField) => {
+	const isEmptySubHeading = (subHeading: NonNullable<SubHeading>) => {
 		return (
 			subHeading.value?.document?.children?.length === 1 &&
 			subHeading.value.document.children?.[0]?.children?.[0]?.value === ""
