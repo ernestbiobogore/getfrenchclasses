@@ -4,15 +4,14 @@
 
 	import { getSampleAvatars } from "$lib/utils";
 	import { Button } from "$shadcn/button";
+	import type { PageData } from "../../../course/[slug]/$types";
 
-	export let data;
+	export let data: PageData;
 </script>
 
 <div class="md:flex-[0.7] lg:flex-[0.5] relative">
 	<div class="bg-white shadow-lg rounded-xl overflow-hidden sticky top-[5.75rem]">
-		<!--  -->
 		<div class="w-full bg-red-400 aspect-video">
-			<!-- NOTE: TEMPORARY -->
 			<div class="size-full flex-s-center">Image / Video</div>
 		</div>
 
