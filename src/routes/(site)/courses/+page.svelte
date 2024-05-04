@@ -3,6 +3,7 @@
 	import CourseCard from "$lib/components/CourseCard.svelte";
 	import CustomMultiselect from "$lib/components/CustomMultiselect.svelte";
 	import CourseSectionDivider from "./CourseSectionDivider.svelte";
+	import { Button } from "$shadcn/button";
 
 	export let data;
 	$: ({ allCoursesMetas } = data);
@@ -28,10 +29,7 @@
 	<p>Explore our comprehensive range of financial courses</p>
 
 	<div class="max-w-3xl mx-auto">
-		<!-- CTA BUTTON -->
-		<a href={"/"} class="action-base w-full text-base md:text-lg"
-			>Take a language assessment course</a
-		>
+		<Button href="/" variant="brand" class="w-full">Take a language assessment course</Button>
 	</div>
 </section>
 

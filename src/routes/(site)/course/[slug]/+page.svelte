@@ -356,8 +356,8 @@
 			{/each}
 		</div>
 
-		<div class="mt-10 flex-s-center">
-			<Button href="/tutors">See More</Button>
+		<div class="py-10 flex-s-center">
+			<Button href="/tutors" variant="brand">See More</Button>
 		</div>
 	</section>
 {/if}

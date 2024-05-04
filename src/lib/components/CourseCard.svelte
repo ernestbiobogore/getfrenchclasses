@@ -5,6 +5,7 @@
 	import BarChart from "~icons/lucide/bar-chart";
 	import Clock from "~icons/lucide/clock";
 	import PenSquare from "~icons/lucide/pen-square";
+	import { Button } from "$shadcn/button";
 
 	export let course: Awaited<ReturnType<typeof getAllCoursesMetas>>[number];
 	const updatedCourse = {
@@ -51,7 +52,7 @@
 	<div class="text-2xl mt-auto">$ {updatedCourse.price} USD</div>
 
 	<div class="flex justify-between">
-		<a href="/course/{updatedCourse.slug}" class="text-xs action-base w-fit">Read More</a>
+		<Button href="/course/{updatedCourse.slug}" variant="brand">Read More</Button>
 
 		<div class="flex items-center gap-2">
 			<AvatarsGroup avatars={getSampleAvatars()} loading="lazy" />

@@ -94,10 +94,7 @@
 	<p>Explore our comprehensive range of French tutors</p>
 
 	<div class="max-w-3xl mx-auto">
-		<!-- CTA BUTTON -->
-		<a href={"/"} class="w-full text-base action-base md:text-lg"
-			>Take a language assessment course</a
-		>
+		<Button href="/" variant="brand" class="w-full">Take a language assessment course</Button>
 	</div>
 </section>
 
@@ -116,10 +113,6 @@
 		{#each filteredTutors as tutor}
 			<TutorCard {tutor} withCTA />
 		{/each}
-	</div>
-
-	<div class="mt-10 flex-s-center">
-		<Button class="">See More</Button>
 	</div>
 </section>
 

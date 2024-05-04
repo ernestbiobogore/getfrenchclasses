@@ -6,7 +6,7 @@
 </script>
 
 {#if convertboxId}
-	<Button href={convertboxId}>
+	<Button variant="brand" href={convertboxId}>
 		{title}
 	</Button>
 {/if}

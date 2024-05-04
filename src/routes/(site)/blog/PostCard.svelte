@@ -1,6 +1,7 @@
 <script lang="ts" context="module">
 	import type { SinglePostFromAll } from "$lib/types";
 	import Tag from "~icons/lucide/tag";
+	import { Button } from "$shadcn/button";
 </script>
 
 <script lang="ts">
@@ -32,5 +33,5 @@
 		{post?.seo?.seoBlock?.description}
 	</p>
 
-	<a href={post.path} class="text-xs action-base w-fit">Read More</a>
+	<Button href={post.path} variant="brand">Read More</Button>
 </div>

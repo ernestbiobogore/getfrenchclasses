@@ -3,6 +3,7 @@
 	import * as Sheet from "$shadcn/sheet";
 	import AlignJustify from "~icons/lucide/align-justify";
 	import type { LayoutData } from "../../../../routes/(site)/$types";
+	import { Button } from "$shadcn/button";
 
 	$: menu = ($page.data as LayoutData).headerMenu;
 	$: items = menu?.menuLists[0].items;
@@ -22,7 +23,7 @@
 			</div>
 		{/if}
 
-		<a href="/" class="text-xs action-base max-lg:ml-auto max-lg:mr-4">Get Started</a>
+		<Button href="/" variant="brand">Get Started</Button>
 
 		<!-- MENU BUTTON / MENU -->
 		<Sheet.Root>
