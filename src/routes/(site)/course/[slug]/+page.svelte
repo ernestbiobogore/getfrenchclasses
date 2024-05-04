@@ -76,11 +76,19 @@
 			>
 				{#each course.instructors as instructor (instructor.id)}
 					<div class="gap-3 flex-s-start">
-						<img
-							src={instructor.profilePicture?.responsiveImage?.src}
-							alt={instructor.profilePicture?.responsiveImage?.alt || instructor.name}
-							class="rounded-xl size-16"
-						/>
+						{#if instructor.profilePicture?.responsiveImage?.src}
+							<Image
+								src={instructor.profilePicture.responsiveImage.src}
+								alt={instructor.profilePicture.responsiveImage.alt}
+								layout="constrained"
+								width={64}
+								aspectRatio={1}
+								background={instructor.profilePicture.responsiveImage.base64 ||
+									instructor.profilePicture.responsiveImage.bgColor ||
+									"auto"}
+								class="rounded-xl"
+							/>
+						{/if}
 
 						<div class="flex-1">
 							<p class="font-semibold">{instructor.name}</p>
