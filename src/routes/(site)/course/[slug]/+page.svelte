@@ -250,14 +250,7 @@
 	</section>
 {/if}
 
-{#if course.ctaBannerTitle && course.ctaBannerButton && course.ctaBannerImages && course.ctaBannerMidActions}
-	<CourseCtaBanner
-		title={course.ctaBannerTitle}
-		midActions={course.ctaBannerMidActions}
-		cta={course.ctaBannerButton}
-		heroImages={course.ctaBannerImages}
-	/>
-{/if}
+<CourseCtaBanner course={data.course} />
 
 <!-- INSTRUCTOR BIO -->
 <section class="py-20 container-base space-y-4">
