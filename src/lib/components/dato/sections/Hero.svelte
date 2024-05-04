@@ -1,10 +1,10 @@
 <script lang="ts">
+	import Video from "$dato/blocks/Video.svelte";
 	import AvatarsGroup from "$lib/components/AvatarsGroup.svelte";
 	import ImageWithCallout from "$lib/components/ImageWithCallout.svelte";
 	import Heading from "$lib/components/dato/blocks/Heading.svelte";
 	import { Button } from "$lib/components/shadcn/ui/button";
 	import type { HeroSectionRecord } from "$lib/graphql/generated";
-	import Video from "$dato/blocks/Video.svelte";
 	import PhArrowBendDownLeftFill from "~icons/ph/arrow-bend-down-left-fill";
 
 	export let record: HeroSectionRecord;
@@ -18,22 +18,34 @@
 		<div class="grid-areas grid justify-items-center gap-x-8 grid-cols-2">
 			<div class="flex-s-center">
 				<ImageWithCallout
-					heroImage={heroImages[0]}
+					responsiveImage={heroImages[0].image?.responsiveImage}
+					imageText={heroImages[0].text}
 					class="bottom-full -translate-x-1/2 left-1/2 text-center"
 				/>
 			</div>
 			<div></div>
-			<ImageWithCallout heroImage={heroImages[1]} class="bottom-5 -translate-x-[80%] text-end" />
+
+			<ImageWithCallout
+				responsiveImage={heroImages[1].image?.responsiveImage}
+				imageText={heroImages[1].text}
+				class="bottom-5 -translate-x-[80%] text-end"
+			/>
 		</div>
 
 		<div class="grid-areas grid justify-items-center gap-x-8 grid-cols-2">
 			<div class="flex-s-center">
 				<ImageWithCallout
-					heroImage={heroImages[2]}
+					responsiveImage={heroImages[2].image?.responsiveImage}
+					imageText={heroImages[2].text}
 					class="bottom-full -translate-x-1/3 left-1/2 text-center"
 				/>
 			</div>
-			<ImageWithCallout heroImage={heroImages[3]} class="bottom-5 translate-x-[60%]" />
+
+			<ImageWithCallout
+				responsiveImage={heroImages[3].image?.responsiveImage}
+				imageText={heroImages[3].text}
+				class="bottom-5 translate-x-[60%]"
+			/>
 		</div>
 	</div>
 
@@ -45,7 +57,9 @@
 
 			{#if record.cta}
 				<div class="flex-s-center">
-					<Button variant="brand" size="lg" href={record.cta.link} class="mx-auto">{record.cta.text}</Button>
+					<Button variant="brand" size="lg" href={record.cta.link} class="mx-auto"
+						>{record.cta.text}</Button
+					>
 				</div>
 			{/if}
 

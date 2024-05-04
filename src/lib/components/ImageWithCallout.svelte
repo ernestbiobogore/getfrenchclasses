@@ -9,11 +9,11 @@
 	export { _class as class };
 	export let responsiveImage: NonNullable<
 		NonNullable<Awaited<ReturnType<typeof getResourcePage>>>["featuredImage"]
-	>["responsiveImage"];
-	export let imageText: string;
+	>["responsiveImage"] | undefined
+	export let imageText: string | null;
 </script>
 
-{#if responsiveImage}
+{#if responsiveImage && imageText}
 	<div class="relative">
 		<Image
 			src={responsiveImage.src}

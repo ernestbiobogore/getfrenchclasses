@@ -29,21 +29,17 @@
 						class="max-w-4xl w-full mx-auto flex-s-between-end h-full max-xl:pb-10 xl:flex-s-between"
 						style:--sze="130px"
 					>
-						{#if bannerImages[0].image?.responsiveImage && bannerImages[0].text}
-							<ImageWithCallout
-								responsiveImage={bannerImages[0].image.responsiveImage}
-								imageText={bannerImages[0].text}
-								class="text-xs bottom-5 translate-x-[58%] xl:text-end xl:-translate-x-[88%] "
-							/>
-						{/if}
+						<ImageWithCallout
+							responsiveImage={bannerImages[0].image?.responsiveImage}
+							imageText={bannerImages[0].text}
+							class="text-xs bottom-5 translate-x-[58%] xl:text-end xl:-translate-x-[88%] "
+						/>
 
-						{#if bannerImages[1].image?.responsiveImage && bannerImages[1].text}
-							<ImageWithCallout
-								responsiveImage={bannerImages[1].image.responsiveImage}
-								imageText={bannerImages[1].text}
-								class="text-xs bottom-5 text-end -translate-x-[88%] xl:text-start xl:translate-x-[60%]"
-							/>
-						{/if}
+						<ImageWithCallout
+							responsiveImage={bannerImages[1].image?.responsiveImage}
+							imageText={bannerImages[1].text}
+							class="text-xs bottom-5 text-end -translate-x-[88%] xl:text-start xl:translate-x-[60%]"
+						/>
 					</div>
 				</div>
 			</div>
