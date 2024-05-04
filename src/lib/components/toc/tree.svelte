@@ -16,7 +16,7 @@
 	});
 </script>
 
-<div class={cn("m-0", level !== 1 ? "pl-4" : "")}>
+<div class={cn("m-0 space-y-2", level !== 1 ? "pl-4" : "")}>
 	{#each tree as heading, i (i)}
 		<div class={cn(linkWrapperClasses)}>
 			<a href="#{heading.id}" use:melt={$item(heading.id)} class={linkClasses}>
