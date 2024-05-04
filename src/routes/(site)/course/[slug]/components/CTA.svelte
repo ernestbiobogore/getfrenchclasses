@@ -8,6 +8,7 @@
 	import { Input } from "$shadcn/input";
 	import { Image } from "@unpic/svelte";
 	import ArrowRight from "~icons/lucide/arrow-right";
+	import LoaderCircle from "~icons/lucide/loader-circle";
 	import type { PageData } from "../../../course/[slug]/$types";
 
 	let className: string | undefined = "";
@@ -15,7 +16,7 @@
 	export let course: PageData["course"];
 	export { className as class };
 
-	$: console.log(course);
+	let running = false;
 </script>
 
 <Card.Root
@@ -74,18 +75,35 @@
 			</div>
 		{/if}
 
-		<form method="post" class="relative" use:enhance>
+		<form
+			method="post"
+			action="/course/[slug]?/sendUserEmail"
+			class="relative"
+			use:enhance={() => {
+				running = true;
+
+				return async ({ update }) => {
+					running = false;
+					return update();
+				};
+			}}
+		>
+			<Input type="hidden" name="slug" value={course.slug} />
 			<Input
 				class="flex-1 w-full py-3 pl-3 text-sm border rounded-lg pr-14"
 				type="email"
+				name="email"
 				placeholder="Your email"
 				required
 			/>
 
 			<div class="absolute top-0 right-0 h-full pr-1 flex-s-center">
-				<button class="bg-night px-3 flex-s-center rounded-lg h-[80%] text-xl text-white">
+				<Button type="submit" variant="brand" class="h-[80%] submit" disabled={running}>
+					<LoaderCircle
+						class="w-0 h-0 transition-all duration-500 ease-in-out opacity-0 loader-circle"
+					/>
 					<ArrowRight />
-				</button>
+				</Button>
 			</div>
 		</form>
 	</Card.Content>

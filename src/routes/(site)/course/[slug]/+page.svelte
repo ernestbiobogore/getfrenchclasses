@@ -219,7 +219,7 @@
 		{/if}
 	</div>
 
-	<CTA course={data.course} class="basis-4/12" />
+	<CTA course={data.course} />
 </section>
 
 <CourseSyllabus />

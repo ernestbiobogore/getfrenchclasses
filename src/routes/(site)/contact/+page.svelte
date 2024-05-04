@@ -15,6 +15,7 @@
 	export let data;
 	export let form;
 
+
 	let running = false;
 
 	$: if (form?.error) {
@@ -128,9 +129,3 @@
 {#if data.modularPage}
 	<ModularPage modularPage={data.modularPage} />
 {/if}
-
-<style>
-	:global(button.submit[disabled] .loader-circle) {
-		@apply h-4 w-4 animate-spin opacity-100 transition-all duration-500 ease-in-out;
-	}
-</style>
