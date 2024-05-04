@@ -1,8 +1,6 @@
 <script lang="ts">
 	import Block from "$dato/StructuredText/Block.svelte";
-	import type {
-		RichTextBlockModelRichTextBlocksField
-	} from "$lib/graphql/generated";
+	import type { RichTextBlockModelRichTextBlocksField } from "$lib/graphql/generated";
 	import { cn } from "$lib/utils";
 	import {
 		isBlock,
@@ -15,7 +13,8 @@
 		isParagraph,
 		isRoot,
 		isSpan,
-		type Node
+		type Node,
+		type Span,
 	} from "datocms-structured-text-utils";
 	import { getContext } from "svelte";
 	import type { ElementsClasses } from "./types";
@@ -26,6 +25,31 @@
 	$: block = isBlock(node) && (blocks || []).find(({ id }) => isBlock(node) && id === node.item);
 
 	const elementClasses = getContext<ElementsClasses | undefined>("elementClasses");
+
+	const renderSpan = (node: Span, marks: Span["marks"]): string => {
+		if (!marks || marks.length === 0) {
+			return node.value;
+		}
+
+		const mark = marks[0];
+		const remainingMarks = marks.slice(1);
+
+		if (mark === "strong") {
+			return `<strong>${renderSpan(node, remainingMarks)}</strong>`;
+		} else if (mark === "code") {
+			return `<code>${renderSpan(node, remainingMarks)}</code>`;
+		} else if (mark === "emphasis") {
+			return `<em>${renderSpan(node, remainingMarks)}</em>`;
+		} else if (mark === "underline") {
+			return `<u>${renderSpan(node, remainingMarks)}</u>`;
+		} else if (mark === "strikethrough") {
+			return `<s>${renderSpan(node, remainingMarks)}</s>`;
+		} else if (mark === "highlight") {
+			return `<mark>${renderSpan(node, remainingMarks)}</mark>`;
+		} else {
+			return renderSpan(node, remainingMarks);
+		}
+	};
 </script>
 
 {#if isRoot(node)}
@@ -140,38 +164,7 @@
 
 {#if isSpan(node)}
 	{#if node.marks}
-		{#each node.marks as mark, index}
-			{#if mark === "strong"}
-				<strong>
-					{node.value}
-				</strong>
-			{/if}
-			{#if mark === "code"}
-				<code>
-					{node.value}
-				</code>
-			{/if}
-			{#if mark === "emphasis"}
-				<em>
-					{node.value}
-				</em>
-			{/if}
-			{#if mark === "underline"}
-				<u>
-					{node.value}
-				</u>
-			{/if}
-			{#if mark === "strikethrough"}
-				<s>
-					{node.value}
-				</s>
-			{/if}
-			{#if mark === "highlight"}
-				<mark>
-					{node.value}
-				</mark>
-			{/if}
-		{/each}
+		{@html renderSpan(node, node.marks)}
 	{:else}
 		{node.value}
 	{/if}
