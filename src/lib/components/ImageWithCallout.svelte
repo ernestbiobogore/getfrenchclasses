@@ -1,15 +1,15 @@
 <script lang="ts">
-	import type { getResourcePage } from "$lib/graphql/queries/resource";
 	import { cn } from "$lib/utils";
 	import { Image } from "@unpic/svelte";
+	import type { PageData } from "../../routes/(site)/resources/[slug]/$types";
 
 	let _class = "";
 
 	export let size = 150;
 	export { _class as class };
-	export let responsiveImage: NonNullable<
-		NonNullable<Awaited<ReturnType<typeof getResourcePage>>>["featuredImage"]
-	>["responsiveImage"] | undefined
+	export let responsiveImage:
+		| NonNullable<NonNullable<PageData["resource"]>["featuredImage"]>["responsiveImage"]
+		| undefined;
 	export let imageText: string | null;
 </script>
 
