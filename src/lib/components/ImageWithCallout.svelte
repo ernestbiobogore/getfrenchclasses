@@ -1,31 +1,33 @@
 <script lang="ts">
-	import type { HeroImageBlockRecord } from "$lib/graphql/generated";
+	import type { getResourcePage } from "$lib/graphql/queries/resource";
 	import { cn } from "$lib/utils";
 	import { Image } from "@unpic/svelte";
 
-	export let heroImage: HeroImageBlockRecord;
-	export let size = 150;
 	let _class = "";
+
+	export let size = 150;
 	export { _class as class };
+	export let responsiveImage: NonNullable<
+		NonNullable<Awaited<ReturnType<typeof getResourcePage>>>["featuredImage"]
+	>["responsiveImage"];
+	export let imageText: string;
 </script>
 
-{#if heroImage && heroImage.image?.responsiveImage?.src}
+{#if responsiveImage}
 	<div class="relative">
 		<Image
-			src={heroImage.image.responsiveImage.src}
+			src={responsiveImage.src}
 			class="rounded-full hello"
 			alt="Banner"
 			layout="constrained"
 			width={size}
 			aspectRatio={1}
-			background={heroImage.image.responsiveImage.base64 ||
-				heroImage.image.responsiveImage.bgColor ||
-				"auto"}
+			background={responsiveImage.base64 || responsiveImage.bgColor || "auto"}
 		/>
 
 		<div class={cn("absolute bg-white p-2 rounded-lg text-sm gap-2 w-[200px]", _class)}>
 			<div class="font-medium">
-				{heroImage?.text}
+				{imageText}
 			</div>
 		</div>
 	</div>

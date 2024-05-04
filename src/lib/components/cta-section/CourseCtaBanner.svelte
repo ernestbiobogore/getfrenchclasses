@@ -5,6 +5,8 @@
 	import type { PageData } from "../../../routes/(site)/course/[slug]/$types";
 
 	export let course: PageData["course"];
+
+	$: bannerImages = course.ctaBannerImages;
 </script>
 
 {#if course.ctaBannerTitle && course.ctaBannerButton && course.ctaBannerImages && course.ctaBannerMidActions}
@@ -13,7 +15,7 @@
 		style="background: linear-gradient(261deg, #5e62d1 10%, #FFF 100%);"
 	>
 		<div class="container-base px-4 sm:px-6 md:px-10 xl:px-20 py-12 sm:py-20">
-			<div class="absolute inset-0 z-0">
+			<div class="absolute inset-0 z-0 top-20">
 				<img
 					alt="A pattern of wavy dots"
 					src={CTAImg}
@@ -27,14 +29,21 @@
 						class="max-w-4xl w-full mx-auto flex-s-between-end h-full max-xl:pb-10 xl:flex-s-between"
 						style:--sze="130px"
 					>
-						<ImageWithCallout
-							heroImage={course.ctaBannerImages?.[0]}
-							class="text-xs bottom-5 translate-x-[58%] xl:text-end xl:-translate-x-[88%] "
-						/>
-						<ImageWithCallout
-							heroImage={course.ctaBannerImages?.[0]}
-							class="text-xs bottom-5 text-end -translate-x-[88%] xl:text-start xl:translate-x-[60%]"
-						/>
+						{#if bannerImages[0].image?.responsiveImage && bannerImages[0].text}
+							<ImageWithCallout
+								responsiveImage={bannerImages[0].image.responsiveImage}
+								imageText={bannerImages[0].text}
+								class="text-xs bottom-5 translate-x-[58%] xl:text-end xl:-translate-x-[88%] "
+							/>
+						{/if}
+
+						{#if bannerImages[1].image?.responsiveImage && bannerImages[1].text}
+							<ImageWithCallout
+								responsiveImage={bannerImages[1].image.responsiveImage}
+								imageText={bannerImages[1].text}
+								class="text-xs bottom-5 text-end -translate-x-[88%] xl:text-start xl:translate-x-[60%]"
+							/>
+						{/if}
 					</div>
 				</div>
 			</div>
