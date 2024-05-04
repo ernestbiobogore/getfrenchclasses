@@ -8,6 +8,7 @@ import {
 	headingFieldSelection,
 	responsiveImageFieldSelection,
 	tutorMetaFields,
+	videoBlockFields,
 } from "./fields";
 
 const getCoursesSlugs = async () => {
@@ -121,6 +122,27 @@ const getCourseBySlug = async (slug: string) => {
 			ctaBannerButton: {
 				link: true,
 				text: true,
+			},
+
+			// Right CTA
+			rightCtaMainText: true,
+			rightCtaSubtext: true,
+			rightCtaActions: {
+				link: true,
+				text: true,
+			},
+			rightCtaEnrollLink: true,
+			rightCtaMedia: {
+				on_RecordInterface: {
+					__typename: true,
+					id: true,
+				},
+				on_VideoBlockRecord: videoBlockFields,
+				on_ImageBlockRecord: {
+					image: {
+						responsiveImage: responsiveImageFieldSelection,
+					},
+				},
 			},
 
 			// Instructors

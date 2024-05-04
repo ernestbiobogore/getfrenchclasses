@@ -40,7 +40,7 @@
 
 <section class="flex flex-col justify-between gap-24 py-8 md:flex-row container-base">
 	<!-- LEFT SIDE -->
-	<div class="flex-1 space-y-5">
+	<div class="space-y-5 basis-8/12">
 		<div class="space-y-4">
 			<h1>{data.course.name}</h1>
 
@@ -219,7 +219,7 @@
 		{/if}
 	</div>
 
-	<CTA {data} />
+	<CTA course={data.course} class="basis-4/12" />
 </section>
 
 <CourseSyllabus />

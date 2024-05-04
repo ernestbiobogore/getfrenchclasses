@@ -817,6 +817,9 @@ input CourseModelFilter {
   numberOfEnrolledStudents: IntegerFilter
   numberOfSections: IntegerFilter
   price: IntegerFilter
+  rightCtaEnrollLink: StringFilter
+  rightCtaMainText: StringFilter
+  rightCtaSubtext: StringFilter
   slug: SlugFilter
   tag: StringFilter
   testimonials: LinksFilter
@@ -858,9 +861,17 @@ enum CourseModelOrderBy {
   numberOfSections_DESC
   price_ASC
   price_DESC
+  rightCtaEnrollLink_ASC
+  rightCtaEnrollLink_DESC
+  rightCtaMainText_ASC
+  rightCtaMainText_DESC
+  rightCtaSubtext_ASC
+  rightCtaSubtext_DESC
   tag_ASC
   tag_DESC
 }
+
+union CourseModelRightCtaMediaField = ImageBlockRecord | VideoBlockRecord
 
 """Record of type Course (course)"""
 type CourseRecord implements RecordInterface {
@@ -901,6 +912,11 @@ type CourseRecord implements RecordInterface {
   outcomes: [CardBlockNewRecord!]!
   outcomesHeading: HeadingBlockNewRecord
   price: IntType!
+  rightCtaActions: [ActionBlockRecord!]!
+  rightCtaEnrollLink: String
+  rightCtaMainText: String
+  rightCtaMedia: CourseModelRightCtaMediaField
+  rightCtaSubtext: String
   seo: [SeoBlockRecord!]!
   slug: String!
   tag: String
