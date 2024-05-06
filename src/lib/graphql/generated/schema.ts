@@ -1592,6 +1592,8 @@ export interface TestimonialBlockDefaultModelContentField {
     __typename: 'TestimonialBlockDefaultModelContentField'
 }
 
+export type TestimonialBlockDefaultModelMediaField = (ImageBlockRecord | VideoBlockRecord) & { __isUnion?: true }
+
 
 /** Block of type Testimonial Block (Default) (testimonial_block_default) */
 export interface TestimonialBlockDefaultRecord {
@@ -1612,6 +1614,7 @@ export interface TestimonialBlockDefaultRecord {
     company: (Scalars['String'] | null)
     content: (TestimonialBlockDefaultModelContentField | null)
     id: Scalars['ItemId']
+    media: (TestimonialBlockDefaultModelMediaField | null)
     picture: (AltFileField | null)
     rating: (Scalars['IntType'] | null)
     role: (Scalars['String'] | null)
@@ -5758,6 +5761,13 @@ export interface TestimonialBlockDefaultModelContentFieldGenqlSelection{
     __scalar?: boolean | number
 }
 
+export interface TestimonialBlockDefaultModelMediaFieldGenqlSelection{
+    on_ImageBlockRecord?:ImageBlockRecordGenqlSelection,
+    on_VideoBlockRecord?:VideoBlockRecordGenqlSelection,
+    on_RecordInterface?: RecordInterfaceGenqlSelection,
+    __typename?: boolean | number
+}
+
 
 /** Block of type Testimonial Block (Default) (testimonial_block_default) */
 export interface TestimonialBlockDefaultRecordGenqlSelection{
@@ -5780,6 +5790,7 @@ export interface TestimonialBlockDefaultRecordGenqlSelection{
     company?: boolean | number
     content?: TestimonialBlockDefaultModelContentFieldGenqlSelection
     id?: boolean | number
+    media?: TestimonialBlockDefaultModelMediaFieldGenqlSelection
     picture?: AltFileFieldGenqlSelection
     rating?: boolean | number
     role?: boolean | number
@@ -7072,6 +7083,14 @@ export interface focalPointGenqlSelection{
     export const isTestimonialBlockDefaultModelContentField = (obj?: { __typename?: any } | null): obj is TestimonialBlockDefaultModelContentField => {
       if (!obj?.__typename) throw new Error('__typename is missing in "isTestimonialBlockDefaultModelContentField"')
       return TestimonialBlockDefaultModelContentField_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const TestimonialBlockDefaultModelMediaField_possibleTypes: string[] = ['ImageBlockRecord','VideoBlockRecord']
+    export const isTestimonialBlockDefaultModelMediaField = (obj?: { __typename?: any } | null): obj is TestimonialBlockDefaultModelMediaField => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isTestimonialBlockDefaultModelMediaField"')
+      return TestimonialBlockDefaultModelMediaField_possibleTypes.includes(obj.__typename)
     }
     
 

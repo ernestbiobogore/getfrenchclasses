@@ -222,16 +222,24 @@ const defaultTestimonialFieldsSelection = {
 	company: true,
 	rotation: true,
 	rating: true,
-	picture: {
-		url: true,
-		responsiveImage: {
-			__args: {
-				imgixParams: {
-					w: 32,
-					h: 32,
+	media: {
+		on_RecordInterface: {
+			__typename: true,
+			id: true,
+		},
+		on_VideoBlockRecord: videoBlockFields,
+		on_ImageBlockRecord: {
+			image: {
+				responsiveImage: {
+					__args: {
+						imgixParams: {
+							w: 32,
+							h: 32,
+						},
+					},
+					...responsiveImageFieldSelection,
 				},
 			},
-			...responsiveImageFieldSelection,
 		},
 	},
 	content: {
