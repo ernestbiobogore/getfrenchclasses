@@ -112,6 +112,17 @@ const getCourseBySlug = async (slug: string) => {
 				},
 			},
 
+			// Schedule
+			courseDurationWeek: true,
+			scheduleItems: {
+				id: true,
+				heading: true,
+				subheading: true,
+				description: {
+					value: true,
+				},
+			},
+
 			// Target audience
 			targetAudienceHeading: headingFieldSelection,
 			targetAudience: cardBlockFieldSelection,

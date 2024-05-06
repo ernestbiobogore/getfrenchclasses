@@ -411,7 +411,7 @@ export interface CountryRecord {
     __typename: 'CountryRecord'
 }
 
-export type CourseModelOrderBy = '_createdAt_ASC' | '_createdAt_DESC' | 'id_ASC' | 'id_DESC' | '_firstPublishedAt_ASC' | '_firstPublishedAt_DESC' | '_publicationScheduledAt_ASC' | '_publicationScheduledAt_DESC' | '_unpublishingScheduledAt_ASC' | '_unpublishingScheduledAt_DESC' | '_publishedAt_ASC' | '_publishedAt_DESC' | '_status_ASC' | '_status_DESC' | '_updatedAt_ASC' | '_updatedAt_DESC' | '_isValid_ASC' | '_isValid_DESC' | 'ctaBannerTitle_ASC' | 'ctaBannerTitle_DESC' | 'duration_ASC' | 'duration_DESC' | 'level_ASC' | 'level_DESC' | 'name_ASC' | 'name_DESC' | 'numberOfEnrolledStudents_ASC' | 'numberOfEnrolledStudents_DESC' | 'numberOfSections_ASC' | 'numberOfSections_DESC' | 'price_ASC' | 'price_DESC' | 'rightCtaMainText_ASC' | 'rightCtaMainText_DESC' | 'rightCtaSubtext_ASC' | 'rightCtaSubtext_DESC' | 'tag_ASC' | 'tag_DESC'
+export type CourseModelOrderBy = '_createdAt_ASC' | '_createdAt_DESC' | 'id_ASC' | 'id_DESC' | '_firstPublishedAt_ASC' | '_firstPublishedAt_DESC' | '_publicationScheduledAt_ASC' | '_publicationScheduledAt_DESC' | '_unpublishingScheduledAt_ASC' | '_unpublishingScheduledAt_DESC' | '_publishedAt_ASC' | '_publishedAt_DESC' | '_status_ASC' | '_status_DESC' | '_updatedAt_ASC' | '_updatedAt_DESC' | '_isValid_ASC' | '_isValid_DESC' | 'courseDurationWeek_ASC' | 'courseDurationWeek_DESC' | 'ctaBannerTitle_ASC' | 'ctaBannerTitle_DESC' | 'duration_ASC' | 'duration_DESC' | 'level_ASC' | 'level_DESC' | 'name_ASC' | 'name_DESC' | 'numberOfEnrolledStudents_ASC' | 'numberOfEnrolledStudents_DESC' | 'numberOfSections_ASC' | 'numberOfSections_DESC' | 'price_ASC' | 'price_DESC' | 'rightCtaMainText_ASC' | 'rightCtaMainText_DESC' | 'rightCtaSubtext_ASC' | 'rightCtaSubtext_DESC' | 'tag_ASC' | 'tag_DESC'
 
 export type CourseModelRightCtaMediaField = (ImageBlockRecord | VideoBlockRecord) & { __isUnion?: true }
 
@@ -465,6 +465,7 @@ export interface CourseRecord {
     _updatedAt: Scalars['DateTime']
     contentList: CardBlockNewRecord[]
     contentListHeading: (HeadingBlockNewRecord | null)
+    courseDurationWeek: (Scalars['String'] | null)
     courseSyllabus: CourseSyllabusBlockRecord[]
     ctaBannerButton: (ActionBlockRecord | null)
     ctaBannerImages: HeroImageBlockRecord[]
@@ -489,6 +490,7 @@ export interface CourseRecord {
     rightCtaMainText: (Scalars['String'] | null)
     rightCtaMedia: (CourseModelRightCtaMediaField | null)
     rightCtaSubtext: (Scalars['String'] | null)
+    scheduleItems: CourseScheduleItemRecord[]
     seo: SeoBlockRecord[]
     slug: Scalars['String']
     tag: (Scalars['String'] | null)
@@ -498,6 +500,36 @@ export interface CourseRecord {
     tutors: TutorRecord[]
     tutorsHeading: (HeadingBlockNewRecord | null)
     __typename: 'CourseRecord'
+}
+
+export interface CourseScheduleItemModelDescriptionField {
+    blocks: Scalars['String'][]
+    links: Scalars['String'][]
+    value: Scalars['JsonField']
+    __typename: 'CourseScheduleItemModelDescriptionField'
+}
+
+
+/** Block of type Course Schedule Item (course_schedule_item) */
+export interface CourseScheduleItemRecord {
+    _createdAt: Scalars['DateTime']
+    /** Editing URL */
+    _editingUrl: (Scalars['String'] | null)
+    _firstPublishedAt: (Scalars['DateTime'] | null)
+    _isValid: Scalars['BooleanType']
+    _modelApiKey: Scalars['String']
+    _publicationScheduledAt: (Scalars['DateTime'] | null)
+    _publishedAt: (Scalars['DateTime'] | null)
+    /** Generates SEO and Social card meta tags to be used in your frontend */
+    _seoMetaTags: Tag[]
+    _status: ItemStatus
+    _unpublishingScheduledAt: (Scalars['DateTime'] | null)
+    _updatedAt: Scalars['DateTime']
+    description: (CourseScheduleItemModelDescriptionField | null)
+    heading: Scalars['String']
+    id: Scalars['ItemId']
+    subheading: Scalars['String']
+    __typename: 'CourseScheduleItemRecord'
 }
 
 
@@ -1346,7 +1378,7 @@ export interface Query {
     __typename: 'Query'
 }
 
-export type RecordInterface = (ActionBlockRecord | AuthorRecord | AvatarGroupBlockRecord | CardBlockNewRecord | CardBlockRecord | CardsSectionRecord | CategoryRecord | CityRecord | ComparisonBlockRecord | ComparisonSectionRecord | CompetitorRecord | CompetitorsComparisonRecord | ConvertboxBlockRecord | CountryRecord | CourseModuleBlockRecord | CourseRecord | CourseSyllabusBlockRecord | CoursesBlockRecord | CoursesSectionRecord | FaqBlockNewRecord | FaqBlockRecord | FaqItemRecord | FaqSectionRecord | HeadingBlockNewRecord | HeadingBlockRecord | HeroImageBlockRecord | HeroSectionRecord | ImageBlockRecord | InstructorRecord | JobRecord | MenuItemBlockRecord | MenuListBlockRecord | MenuRecord | ModularPageLocationRecord | ModularPageRecord | NoteBlockRecord | PlainTextBlockRecord | PostCtaBlockRecord | PostCtaRecord | PostRecord | ReferenceSectionRecord | ResourceRecord | ResourceTopicRecord | RichTextBlockRecord | RichTextSectionRecord | RoutePathRecord | SeoBlockRecord | SiteConfigRecord | SocialLinkBlockRecord | TestimonialBlockCtaRecord | TestimonialBlockDefaultRecord | TestimonialBlockRecord | TestimonialRecord | TestimonialsListBlockRecord | TestimonialsSectionRecord | TutorRecord | TutorsBlockRecord | TutorsByCitySectionRecord | VideoBlockExternalRecord | VideoBlockInternalRecord | VideoBlockRecord) & { __isUnion?: true }
+export type RecordInterface = (ActionBlockRecord | AuthorRecord | AvatarGroupBlockRecord | CardBlockNewRecord | CardBlockRecord | CardsSectionRecord | CategoryRecord | CityRecord | ComparisonBlockRecord | ComparisonSectionRecord | CompetitorRecord | CompetitorsComparisonRecord | ConvertboxBlockRecord | CountryRecord | CourseModuleBlockRecord | CourseRecord | CourseScheduleItemRecord | CourseSyllabusBlockRecord | CoursesBlockRecord | CoursesSectionRecord | FaqBlockNewRecord | FaqBlockRecord | FaqItemRecord | FaqSectionRecord | HeadingBlockNewRecord | HeadingBlockRecord | HeroImageBlockRecord | HeroSectionRecord | ImageBlockRecord | InstructorRecord | JobRecord | MenuItemBlockRecord | MenuListBlockRecord | MenuRecord | ModularPageLocationRecord | ModularPageRecord | NoteBlockRecord | PlainTextBlockRecord | PostCtaBlockRecord | PostCtaRecord | PostRecord | ReferenceSectionRecord | ResourceRecord | ResourceTopicRecord | RichTextBlockRecord | RichTextSectionRecord | RoutePathRecord | SeoBlockRecord | SiteConfigRecord | SocialLinkBlockRecord | TestimonialBlockCtaRecord | TestimonialBlockDefaultRecord | TestimonialBlockRecord | TestimonialRecord | TestimonialsListBlockRecord | TestimonialsSectionRecord | TutorRecord | TutorsBlockRecord | TutorsByCitySectionRecord | VideoBlockExternalRecord | VideoBlockInternalRecord | VideoBlockRecord) & { __isUnion?: true }
 
 
 /** Block of type Reference Section (reference_section) */
@@ -2552,7 +2584,7 @@ export interface CountryRecordGenqlSelection{
     __scalar?: boolean | number
 }
 
-export interface CourseModelFilter {_createdAt?: (CreatedAtFilter | null),id?: (ItemIdFilter | null),_firstPublishedAt?: (PublishedAtFilter | null),_publicationScheduledAt?: (PublishedAtFilter | null),_unpublishingScheduledAt?: (PublishedAtFilter | null),_publishedAt?: (PublishedAtFilter | null),_status?: (StatusFilter | null),_updatedAt?: (UpdatedAtFilter | null),_isValid?: (BooleanFilter | null),ctaBannerTitle?: (StringFilter | null),duration?: (IntegerFilter | null),faq?: (LinkFilter | null),instructors?: (LinksFilter | null),level?: (StringFilter | null),name?: (StringFilter | null),numberOfEnrolledStudents?: (IntegerFilter | null),numberOfSections?: (IntegerFilter | null),price?: (IntegerFilter | null),rightCtaMainText?: (StringFilter | null),rightCtaSubtext?: (StringFilter | null),slug?: (SlugFilter | null),tag?: (StringFilter | null),testimonials?: (LinksFilter | null),tutors?: (LinksFilter | null),OR?: ((CourseModelFilter | null)[] | null),AND?: ((CourseModelFilter | null)[] | null)}
+export interface CourseModelFilter {_createdAt?: (CreatedAtFilter | null),id?: (ItemIdFilter | null),_firstPublishedAt?: (PublishedAtFilter | null),_publicationScheduledAt?: (PublishedAtFilter | null),_unpublishingScheduledAt?: (PublishedAtFilter | null),_publishedAt?: (PublishedAtFilter | null),_status?: (StatusFilter | null),_updatedAt?: (UpdatedAtFilter | null),_isValid?: (BooleanFilter | null),courseDurationWeek?: (StringFilter | null),ctaBannerTitle?: (StringFilter | null),duration?: (IntegerFilter | null),faq?: (LinkFilter | null),instructors?: (LinksFilter | null),level?: (StringFilter | null),name?: (StringFilter | null),numberOfEnrolledStudents?: (IntegerFilter | null),numberOfSections?: (IntegerFilter | null),price?: (IntegerFilter | null),rightCtaMainText?: (StringFilter | null),rightCtaSubtext?: (StringFilter | null),slug?: (SlugFilter | null),tag?: (StringFilter | null),testimonials?: (LinksFilter | null),tutors?: (LinksFilter | null),OR?: ((CourseModelFilter | null)[] | null),AND?: ((CourseModelFilter | null)[] | null)}
 
 export interface CourseModelRightCtaMediaFieldGenqlSelection{
     on_ImageBlockRecord?:ImageBlockRecordGenqlSelection,
@@ -2617,6 +2649,7 @@ export interface CourseRecordGenqlSelection{
     _updatedAt?: boolean | number
     contentList?: CardBlockNewRecordGenqlSelection
     contentListHeading?: HeadingBlockNewRecordGenqlSelection
+    courseDurationWeek?: boolean | number
     courseSyllabus?: CourseSyllabusBlockRecordGenqlSelection
     ctaBannerButton?: ActionBlockRecordGenqlSelection
     ctaBannerImages?: HeroImageBlockRecordGenqlSelection
@@ -2641,6 +2674,7 @@ export interface CourseRecordGenqlSelection{
     rightCtaMainText?: boolean | number
     rightCtaMedia?: CourseModelRightCtaMediaFieldGenqlSelection
     rightCtaSubtext?: boolean | number
+    scheduleItems?: CourseScheduleItemRecordGenqlSelection
     seo?: SeoBlockRecordGenqlSelection
     slug?: boolean | number
     tag?: boolean | number
@@ -2649,6 +2683,40 @@ export interface CourseRecordGenqlSelection{
     testimonials?: TestimonialRecordGenqlSelection
     tutors?: TutorRecordGenqlSelection
     tutorsHeading?: HeadingBlockNewRecordGenqlSelection
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+export interface CourseScheduleItemModelDescriptionFieldGenqlSelection{
+    blocks?: boolean | number
+    links?: boolean | number
+    value?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Block of type Course Schedule Item (course_schedule_item) */
+export interface CourseScheduleItemRecordGenqlSelection{
+    _createdAt?: boolean | number
+    /** Editing URL */
+    _editingUrl?: boolean | number
+    _firstPublishedAt?: boolean | number
+    _isValid?: boolean | number
+    _modelApiKey?: boolean | number
+    _publicationScheduledAt?: boolean | number
+    _publishedAt?: boolean | number
+    /** Generates SEO and Social card meta tags to be used in your frontend */
+    _seoMetaTags?: (TagGenqlSelection & { __args?: {
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null)} })
+    _status?: boolean | number
+    _unpublishingScheduledAt?: boolean | number
+    _updatedAt?: boolean | number
+    description?: CourseScheduleItemModelDescriptionFieldGenqlSelection
+    heading?: boolean | number
+    id?: boolean | number
+    subheading?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -5438,6 +5506,7 @@ export interface RecordInterfaceGenqlSelection{
     on_CountryRecord?: CountryRecordGenqlSelection
     on_CourseModuleBlockRecord?: CourseModuleBlockRecordGenqlSelection
     on_CourseRecord?: CourseRecordGenqlSelection
+    on_CourseScheduleItemRecord?: CourseScheduleItemRecordGenqlSelection
     on_CourseSyllabusBlockRecord?: CourseSyllabusBlockRecordGenqlSelection
     on_CoursesBlockRecord?: CoursesBlockRecordGenqlSelection
     on_CoursesSectionRecord?: CoursesSectionRecordGenqlSelection
@@ -6854,6 +6923,22 @@ export interface focalPointGenqlSelection{
     
 
 
+    const CourseScheduleItemModelDescriptionField_possibleTypes: string[] = ['CourseScheduleItemModelDescriptionField']
+    export const isCourseScheduleItemModelDescriptionField = (obj?: { __typename?: any } | null): obj is CourseScheduleItemModelDescriptionField => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isCourseScheduleItemModelDescriptionField"')
+      return CourseScheduleItemModelDescriptionField_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const CourseScheduleItemRecord_possibleTypes: string[] = ['CourseScheduleItemRecord']
+    export const isCourseScheduleItemRecord = (obj?: { __typename?: any } | null): obj is CourseScheduleItemRecord => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isCourseScheduleItemRecord"')
+      return CourseScheduleItemRecord_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
     const CourseSyllabusBlockRecord_possibleTypes: string[] = ['CourseSyllabusBlockRecord']
     export const isCourseSyllabusBlockRecord = (obj?: { __typename?: any } | null): obj is CourseSyllabusBlockRecord => {
       if (!obj?.__typename) throw new Error('__typename is missing in "isCourseSyllabusBlockRecord"')
@@ -7126,7 +7211,7 @@ export interface focalPointGenqlSelection{
     
 
 
-    const RecordInterface_possibleTypes: string[] = ['ActionBlockRecord','AuthorRecord','AvatarGroupBlockRecord','CardBlockNewRecord','CardBlockRecord','CardsSectionRecord','CategoryRecord','CityRecord','ComparisonBlockRecord','ComparisonSectionRecord','CompetitorRecord','CompetitorsComparisonRecord','ConvertboxBlockRecord','CountryRecord','CourseModuleBlockRecord','CourseRecord','CourseSyllabusBlockRecord','CoursesBlockRecord','CoursesSectionRecord','FaqBlockNewRecord','FaqBlockRecord','FaqItemRecord','FaqSectionRecord','HeadingBlockNewRecord','HeadingBlockRecord','HeroImageBlockRecord','HeroSectionRecord','ImageBlockRecord','InstructorRecord','JobRecord','MenuItemBlockRecord','MenuListBlockRecord','MenuRecord','ModularPageLocationRecord','ModularPageRecord','NoteBlockRecord','PlainTextBlockRecord','PostCtaBlockRecord','PostCtaRecord','PostRecord','ReferenceSectionRecord','ResourceRecord','ResourceTopicRecord','RichTextBlockRecord','RichTextSectionRecord','RoutePathRecord','SeoBlockRecord','SiteConfigRecord','SocialLinkBlockRecord','TestimonialBlockCtaRecord','TestimonialBlockDefaultRecord','TestimonialBlockRecord','TestimonialRecord','TestimonialsListBlockRecord','TestimonialsSectionRecord','TutorRecord','TutorsBlockRecord','TutorsByCitySectionRecord','VideoBlockExternalRecord','VideoBlockInternalRecord','VideoBlockRecord']
+    const RecordInterface_possibleTypes: string[] = ['ActionBlockRecord','AuthorRecord','AvatarGroupBlockRecord','CardBlockNewRecord','CardBlockRecord','CardsSectionRecord','CategoryRecord','CityRecord','ComparisonBlockRecord','ComparisonSectionRecord','CompetitorRecord','CompetitorsComparisonRecord','ConvertboxBlockRecord','CountryRecord','CourseModuleBlockRecord','CourseRecord','CourseScheduleItemRecord','CourseSyllabusBlockRecord','CoursesBlockRecord','CoursesSectionRecord','FaqBlockNewRecord','FaqBlockRecord','FaqItemRecord','FaqSectionRecord','HeadingBlockNewRecord','HeadingBlockRecord','HeroImageBlockRecord','HeroSectionRecord','ImageBlockRecord','InstructorRecord','JobRecord','MenuItemBlockRecord','MenuListBlockRecord','MenuRecord','ModularPageLocationRecord','ModularPageRecord','NoteBlockRecord','PlainTextBlockRecord','PostCtaBlockRecord','PostCtaRecord','PostRecord','ReferenceSectionRecord','ResourceRecord','ResourceTopicRecord','RichTextBlockRecord','RichTextSectionRecord','RoutePathRecord','SeoBlockRecord','SiteConfigRecord','SocialLinkBlockRecord','TestimonialBlockCtaRecord','TestimonialBlockDefaultRecord','TestimonialBlockRecord','TestimonialRecord','TestimonialsListBlockRecord','TestimonialsSectionRecord','TutorRecord','TutorsBlockRecord','TutorsByCitySectionRecord','VideoBlockExternalRecord','VideoBlockInternalRecord','VideoBlockRecord']
     export const isRecordInterface = (obj?: { __typename?: any } | null): obj is RecordInterface => {
       if (!obj?.__typename) throw new Error('__typename is missing in "isRecordInterface"')
       return RecordInterface_possibleTypes.includes(obj.__typename)
@@ -7647,6 +7732,8 @@ export const enumCourseModelOrderBy = {
    _updatedAt_DESC: '_updatedAt_DESC' as const,
    _isValid_ASC: '_isValid_ASC' as const,
    _isValid_DESC: '_isValid_DESC' as const,
+   courseDurationWeek_ASC: 'courseDurationWeek_ASC' as const,
+   courseDurationWeek_DESC: 'courseDurationWeek_DESC' as const,
    ctaBannerTitle_ASC: 'ctaBannerTitle_ASC' as const,
    ctaBannerTitle_DESC: 'ctaBannerTitle_DESC' as const,
    duration_ASC: 'duration_ASC' as const,

@@ -317,43 +317,28 @@
 	</section>
 {/if}
 
-<section class="max-w-2xl px-4 mx-auto my-12">
-	<h2 class="mb-6 text-3xl font-bold text-center">Course schedule</h2>
-	<div class="flex items-center justify-center mb-4">
-		<Clock class="mr-2 text-gray-500" />
-		<span class="text-gray-500">3-4 hours per week</span>
-	</div>
+{#if course.scheduleItems && course.scheduleItems.length > 0}
+	<section class="max-w-2xl px-4 mx-auto my-12">
+		<h2 class="mb-6 text-3xl font-bold text-center">Course schedule</h2>
+		<div class="flex items-center justify-center mb-4">
+			<Clock class="mr-2 text-gray-500" />
+			<span class="text-gray-500">{course.courseDurationWeek} per week</span>
+		</div>
 
-	<div class="pl-4 border-l-2 border-gray-400 border-dashed">
-		<h3 class="mt-4 mb-2 text-xl font-semibold">Office hours</h3>
-		<p class="mb-2 text-gray-700">
-			<strong>Wednesdays or Fridays</strong>
-		</p>
-		<p class="mb-4 text-gray-700">
-			Join Femke and course alumni mentors once a week on Wednesday's or Friday's for live sessions
-			to get your burning questions answered while working through worksheets with your peers.
-		</p>
-		<p class="mb-4 text-gray-700">Sessions will run at Europe & North America friendly times.</p>
-		<h3 class="mt-4 mb-2 text-xl font-semibold">Self-paced modules</h3>
-		<p class="mb-2 text-gray-700">
-			<strong>2 hours per week</strong>
-		</p>
-		<p class="mb-4 text-gray-700">
-			Work through 2 modules a week with an accompanying video. This format was created to ensure
-			you understand concepts, and provide you with tools to implement what you learned as a next
-			step.
-		</p>
-		<h3 class="mt-4 mb-2 text-xl font-semibold">Resources, templates & worksheets</h3>
-		<p class="mb-2 text-gray-700">
-			<strong>2 hours per week</strong>
-		</p>
-		<p class="mb-4 text-gray-700">
-			Tried and true templates, resources and worksheets you can use at work to advocate for your
-			ideas, feel empowered to have strategic influence within your team and get included in product
-			strategy conversations.
-		</p>
-	</div>
-</section>
+		<div class="pl-4 border-l-2 border-gray-400 border-dashed space-y-4">
+			{#each course.scheduleItems as item (item.id)}
+				<div class="space-y-2">
+					<h3 class="mt-4 mb-2 text-xl font-semibold">{item.heading}</h3>
+					<p class="mb-2 text-gray-700">
+						<strong>{item.subheading}</strong>
+					</p>
+
+					<StructuredText richText={item.description} class="text-gray-700" />
+				</div>
+			{/each}
+		</div>
+	</section>
+{/if}
 
 {#if ctaTestimonials && ctaTestimonials.length > 0}
 	<section class="py-20 space-y-12 container-base">
