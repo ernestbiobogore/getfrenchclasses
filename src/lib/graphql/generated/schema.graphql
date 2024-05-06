@@ -4868,6 +4868,17 @@ type Query {
     orderBy: [RoutePathModelOrderBy] = [_updatedAt_DESC]
   ): RoutePathRecord
 
+  """Returns the single instance record"""
+  siteConfig(
+    """The locale to use to fetch the field's content"""
+    locale: SiteLocale
+
+    """
+    If you want to fallback to a default translation when a translation has not been found
+    """
+    fallbackLocales: [SiteLocale!]
+  ): SiteConfigRecord
+
   """Returns a specific record"""
   testimonial(
     """The locale to use to fetch the field's content"""
@@ -5324,6 +5335,37 @@ type Site {
   noIndex: BooleanType
 }
 
+type SiteConfigModelCompanyDescriptionField {
+  blocks: [String!]!
+  links: [String!]!
+  value: JsonField!
+}
+
+"""Record of type 🔗 Site Config (site_config)"""
+type SiteConfigRecord implements RecordInterface {
+  _createdAt: DateTime!
+
+  """Editing URL"""
+  _editingUrl: String
+  _firstPublishedAt: DateTime
+  _isValid: BooleanType!
+  _modelApiKey: String!
+  _publicationScheduledAt: DateTime
+  _publishedAt: DateTime
+
+  """Generates SEO and Social card meta tags to be used in your frontend"""
+  _seoMetaTags(
+    """The locale to use to fetch the field's content"""
+    locale: SiteLocale
+  ): [Tag!]!
+  _status: ItemStatus!
+  _unpublishingScheduledAt: DateTime
+  _updatedAt: DateTime!
+  companyDescription: SiteConfigModelCompanyDescriptionField
+  id: ItemId!
+  socialLinks: [SocialLinkBlockRecord!]!
+}
+
 enum SiteLocale {
   en
 }
@@ -5341,6 +5383,31 @@ input SlugFilter {
 
   """Filter records that do have one of the specified slugs"""
   notIn: [String]
+}
+
+"""Block of type Social Link Block (social_link_block)"""
+type SocialLinkBlockRecord implements RecordInterface {
+  _createdAt: DateTime!
+
+  """Editing URL"""
+  _editingUrl: String
+  _firstPublishedAt: DateTime
+  _isValid: BooleanType!
+  _modelApiKey: String!
+  _publicationScheduledAt: DateTime
+  _publishedAt: DateTime
+
+  """Generates SEO and Social card meta tags to be used in your frontend"""
+  _seoMetaTags(
+    """The locale to use to fetch the field's content"""
+    locale: SiteLocale
+  ): [Tag!]!
+  _status: ItemStatus!
+  _unpublishingScheduledAt: DateTime
+  _updatedAt: DateTime!
+  id: ItemId!
+  link: String!
+  socialType: String!
 }
 
 """Specifies how to filter by status"""

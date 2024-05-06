@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { page } from "$app/stores";
+	import StructuredText from "$dato/StructuredText/index.svelte";
 	import "@fontsource-variable/inter";
 	import "nprogress/nprogress.css";
 	import BiFacebook from "~icons/bi/facebook";
@@ -10,6 +11,7 @@
 	import type { LayoutData } from "../../../../routes/(site)/$types";
 
 	$: menuLists = ($page.data as LayoutData).footerMenu?.menuLists;
+	$: siteConfig = ($page.data as LayoutData).siteConfig;
 	$: currentYear = new Date().getFullYear();
 </script>
 
@@ -18,18 +20,46 @@
 		<div class="flex flex-col gap-8 py-12 sm:gap-0 sm:flex-row">
 			<div class="space-y-5 basis-7/12">
 				<a href="/" class="font-bold">Get French Classes</a>
-				<p class="text-sm sm:w-4/12">
-					Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto inventore repellendus
-					perferendis illum autem, deserunt dignissimos aut.
-				</p>
 
-				<div class="flex gap-2 text-2xl">
-					<LucideInstagram />
-					<BiFacebook />
-					<BiTwitter />
-					<BiYoutube />
-					<BiLinkedin />
-				</div>
+				{#if siteConfig?.companyDescription}
+					<StructuredText richText={siteConfig.companyDescription} class="text-sm sm:w-4/12" />
+				{/if}
+
+				{#if siteConfig?.socialLinks && siteConfig.socialLinks.length > 0}
+					<div class="flex gap-2 text-2xl">
+						{#each siteConfig.socialLinks as link}
+							{#if link.socialType === "instagram"}
+								<a href={link.link} target="_blank">
+									<LucideInstagram />
+								</a>
+							{/if}
+
+							{#if link.socialType === "facebook"}
+								<a href={link.link} target="_blank">
+									<BiFacebook />
+								</a>
+							{/if}
+
+							{#if link.socialType === "twitter"}
+								<a href={link.link} target="_blank">
+									<BiTwitter />
+								</a>
+							{/if}
+
+							{#if link.socialType === "linkedin"}
+								<a href={link.link} target="_blank">
+									<BiLinkedin />
+								</a>
+							{/if}
+
+							{#if link.socialType === "youtube"}
+								<a href={link.link} target="_blank">
+									<BiYoutube />
+								</a>
+							{/if}
+						{/each}
+					</div>
+				{/if}
 			</div>
 			<div class="flex flex-col gap-5 md:gap-16 basis-5/12 md:flex-row">
 				{#if menuLists && menuLists.length > 0}

@@ -1253,6 +1253,8 @@ export interface Query {
     resourceTopic: (ResourceTopicRecord | null)
     /** Returns a specific record */
     routePath: (RoutePathRecord | null)
+    /** Returns the single instance record */
+    siteConfig: (SiteConfigRecord | null)
     /** Returns a specific record */
     testimonial: (TestimonialRecord | null)
     /** Returns a specific record */
@@ -1262,7 +1264,7 @@ export interface Query {
     __typename: 'Query'
 }
 
-export type RecordInterface = (ActionBlockRecord | AuthorRecord | CardBlockNewRecord | CardBlockRecord | CardsSectionRecord | CategoryRecord | CityRecord | ComparisonBlockRecord | ComparisonSectionRecord | CompetitorRecord | CompetitorsComparisonRecord | ConvertboxBlockRecord | CountryRecord | CourseRecord | CoursesBlockRecord | CoursesSectionRecord | FaqBlockNewRecord | FaqBlockRecord | FaqItemRecord | FaqSectionRecord | HeadingBlockNewRecord | HeadingBlockRecord | HeroImageBlockRecord | HeroSectionRecord | ImageBlockRecord | InstructorRecord | JobRecord | MenuItemBlockRecord | MenuListBlockRecord | MenuRecord | ModularPageLocationRecord | ModularPageRecord | NoteBlockRecord | PlainTextBlockRecord | PostCtaBlockRecord | PostCtaRecord | PostRecord | ReferenceSectionRecord | ResourceRecord | ResourceTopicRecord | RichTextBlockRecord | RichTextSectionRecord | RoutePathRecord | SeoBlockRecord | TestimonialBlockCtaRecord | TestimonialBlockDefaultRecord | TestimonialBlockRecord | TestimonialRecord | TestimonialsListBlockRecord | TestimonialsSectionRecord | TutorRecord | TutorsBlockRecord | TutorsByCitySectionRecord | VideoBlockExternalRecord | VideoBlockInternalRecord | VideoBlockRecord) & { __isUnion?: true }
+export type RecordInterface = (ActionBlockRecord | AuthorRecord | CardBlockNewRecord | CardBlockRecord | CardsSectionRecord | CategoryRecord | CityRecord | ComparisonBlockRecord | ComparisonSectionRecord | CompetitorRecord | CompetitorsComparisonRecord | ConvertboxBlockRecord | CountryRecord | CourseRecord | CoursesBlockRecord | CoursesSectionRecord | FaqBlockNewRecord | FaqBlockRecord | FaqItemRecord | FaqSectionRecord | HeadingBlockNewRecord | HeadingBlockRecord | HeroImageBlockRecord | HeroSectionRecord | ImageBlockRecord | InstructorRecord | JobRecord | MenuItemBlockRecord | MenuListBlockRecord | MenuRecord | ModularPageLocationRecord | ModularPageRecord | NoteBlockRecord | PlainTextBlockRecord | PostCtaBlockRecord | PostCtaRecord | PostRecord | ReferenceSectionRecord | ResourceRecord | ResourceTopicRecord | RichTextBlockRecord | RichTextSectionRecord | RoutePathRecord | SeoBlockRecord | SiteConfigRecord | SocialLinkBlockRecord | TestimonialBlockCtaRecord | TestimonialBlockDefaultRecord | TestimonialBlockRecord | TestimonialRecord | TestimonialsListBlockRecord | TestimonialsSectionRecord | TutorRecord | TutorsBlockRecord | TutorsByCitySectionRecord | VideoBlockExternalRecord | VideoBlockInternalRecord | VideoBlockRecord) & { __isUnion?: true }
 
 
 /** Block of type Reference Section (reference_section) */
@@ -1489,7 +1491,58 @@ export interface Site {
     __typename: 'Site'
 }
 
+export interface SiteConfigModelCompanyDescriptionField {
+    blocks: Scalars['String'][]
+    links: Scalars['String'][]
+    value: Scalars['JsonField']
+    __typename: 'SiteConfigModelCompanyDescriptionField'
+}
+
+
+/** Record of type 🔗 Site Config (site_config) */
+export interface SiteConfigRecord {
+    _createdAt: Scalars['DateTime']
+    /** Editing URL */
+    _editingUrl: (Scalars['String'] | null)
+    _firstPublishedAt: (Scalars['DateTime'] | null)
+    _isValid: Scalars['BooleanType']
+    _modelApiKey: Scalars['String']
+    _publicationScheduledAt: (Scalars['DateTime'] | null)
+    _publishedAt: (Scalars['DateTime'] | null)
+    /** Generates SEO and Social card meta tags to be used in your frontend */
+    _seoMetaTags: Tag[]
+    _status: ItemStatus
+    _unpublishingScheduledAt: (Scalars['DateTime'] | null)
+    _updatedAt: Scalars['DateTime']
+    companyDescription: (SiteConfigModelCompanyDescriptionField | null)
+    id: Scalars['ItemId']
+    socialLinks: SocialLinkBlockRecord[]
+    __typename: 'SiteConfigRecord'
+}
+
 export type SiteLocale = 'en'
+
+
+/** Block of type Social Link Block (social_link_block) */
+export interface SocialLinkBlockRecord {
+    _createdAt: Scalars['DateTime']
+    /** Editing URL */
+    _editingUrl: (Scalars['String'] | null)
+    _firstPublishedAt: (Scalars['DateTime'] | null)
+    _isValid: Scalars['BooleanType']
+    _modelApiKey: Scalars['String']
+    _publicationScheduledAt: (Scalars['DateTime'] | null)
+    _publishedAt: (Scalars['DateTime'] | null)
+    /** Generates SEO and Social card meta tags to be used in your frontend */
+    _seoMetaTags: Tag[]
+    _status: ItemStatus
+    _unpublishingScheduledAt: (Scalars['DateTime'] | null)
+    _updatedAt: Scalars['DateTime']
+    id: Scalars['ItemId']
+    link: Scalars['String']
+    socialType: Scalars['String']
+    __typename: 'SocialLinkBlockRecord'
+}
 
 export interface Tag {
     attributes: (Scalars['MetaTagAttributes'] | null)
@@ -5147,6 +5200,12 @@ export interface QueryGenqlSelection{
     locale?: (SiteLocale | null), 
     /** If you want to fallback to a default translation when a translation has not been found */
     fallbackLocales?: (SiteLocale[] | null), filter?: (RoutePathModelFilter | null), orderBy?: ((RoutePathModelOrderBy | null)[] | null)} })
+    /** Returns the single instance record */
+    siteConfig?: (SiteConfigRecordGenqlSelection & { __args?: {
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null), 
+    /** If you want to fallback to a default translation when a translation has not been found */
+    fallbackLocales?: (SiteLocale[] | null)} })
     /** Returns a specific record */
     testimonial?: (TestimonialRecordGenqlSelection & { __args?: {
     /** The locale to use to fetch the field's content */
@@ -5230,6 +5289,8 @@ export interface RecordInterfaceGenqlSelection{
     on_RichTextSectionRecord?: RichTextSectionRecordGenqlSelection
     on_RoutePathRecord?: RoutePathRecordGenqlSelection
     on_SeoBlockRecord?: SeoBlockRecordGenqlSelection
+    on_SiteConfigRecord?: SiteConfigRecordGenqlSelection
+    on_SocialLinkBlockRecord?: SocialLinkBlockRecordGenqlSelection
     on_TestimonialBlockCtaRecord?: TestimonialBlockCtaRecordGenqlSelection
     on_TestimonialBlockDefaultRecord?: TestimonialBlockDefaultRecordGenqlSelection
     on_TestimonialBlockRecord?: TestimonialBlockRecordGenqlSelection
@@ -5523,6 +5584,39 @@ export interface SiteGenqlSelection{
     __scalar?: boolean | number
 }
 
+export interface SiteConfigModelCompanyDescriptionFieldGenqlSelection{
+    blocks?: boolean | number
+    links?: boolean | number
+    value?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Record of type 🔗 Site Config (site_config) */
+export interface SiteConfigRecordGenqlSelection{
+    _createdAt?: boolean | number
+    /** Editing URL */
+    _editingUrl?: boolean | number
+    _firstPublishedAt?: boolean | number
+    _isValid?: boolean | number
+    _modelApiKey?: boolean | number
+    _publicationScheduledAt?: boolean | number
+    _publishedAt?: boolean | number
+    /** Generates SEO and Social card meta tags to be used in your frontend */
+    _seoMetaTags?: (TagGenqlSelection & { __args?: {
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null)} })
+    _status?: boolean | number
+    _unpublishingScheduledAt?: boolean | number
+    _updatedAt?: boolean | number
+    companyDescription?: SiteConfigModelCompanyDescriptionFieldGenqlSelection
+    id?: boolean | number
+    socialLinks?: SocialLinkBlockRecordGenqlSelection
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
 
 /** Specifies how to filter Slug fields */
 export interface SlugFilter {
@@ -5534,6 +5628,31 @@ neq?: (Scalars['String'] | null),
 in?: ((Scalars['String'] | null)[] | null),
 /** Filter records that do have one of the specified slugs */
 notIn?: ((Scalars['String'] | null)[] | null)}
+
+
+/** Block of type Social Link Block (social_link_block) */
+export interface SocialLinkBlockRecordGenqlSelection{
+    _createdAt?: boolean | number
+    /** Editing URL */
+    _editingUrl?: boolean | number
+    _firstPublishedAt?: boolean | number
+    _isValid?: boolean | number
+    _modelApiKey?: boolean | number
+    _publicationScheduledAt?: boolean | number
+    _publishedAt?: boolean | number
+    /** Generates SEO and Social card meta tags to be used in your frontend */
+    _seoMetaTags?: (TagGenqlSelection & { __args?: {
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null)} })
+    _status?: boolean | number
+    _unpublishingScheduledAt?: boolean | number
+    _updatedAt?: boolean | number
+    id?: boolean | number
+    link?: boolean | number
+    socialType?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
 
 
 /** Specifies how to filter by status */
@@ -6781,7 +6900,7 @@ export interface focalPointGenqlSelection{
     
 
 
-    const RecordInterface_possibleTypes: string[] = ['ActionBlockRecord','AuthorRecord','CardBlockNewRecord','CardBlockRecord','CardsSectionRecord','CategoryRecord','CityRecord','ComparisonBlockRecord','ComparisonSectionRecord','CompetitorRecord','CompetitorsComparisonRecord','ConvertboxBlockRecord','CountryRecord','CourseRecord','CoursesBlockRecord','CoursesSectionRecord','FaqBlockNewRecord','FaqBlockRecord','FaqItemRecord','FaqSectionRecord','HeadingBlockNewRecord','HeadingBlockRecord','HeroImageBlockRecord','HeroSectionRecord','ImageBlockRecord','InstructorRecord','JobRecord','MenuItemBlockRecord','MenuListBlockRecord','MenuRecord','ModularPageLocationRecord','ModularPageRecord','NoteBlockRecord','PlainTextBlockRecord','PostCtaBlockRecord','PostCtaRecord','PostRecord','ReferenceSectionRecord','ResourceRecord','ResourceTopicRecord','RichTextBlockRecord','RichTextSectionRecord','RoutePathRecord','SeoBlockRecord','TestimonialBlockCtaRecord','TestimonialBlockDefaultRecord','TestimonialBlockRecord','TestimonialRecord','TestimonialsListBlockRecord','TestimonialsSectionRecord','TutorRecord','TutorsBlockRecord','TutorsByCitySectionRecord','VideoBlockExternalRecord','VideoBlockInternalRecord','VideoBlockRecord']
+    const RecordInterface_possibleTypes: string[] = ['ActionBlockRecord','AuthorRecord','CardBlockNewRecord','CardBlockRecord','CardsSectionRecord','CategoryRecord','CityRecord','ComparisonBlockRecord','ComparisonSectionRecord','CompetitorRecord','CompetitorsComparisonRecord','ConvertboxBlockRecord','CountryRecord','CourseRecord','CoursesBlockRecord','CoursesSectionRecord','FaqBlockNewRecord','FaqBlockRecord','FaqItemRecord','FaqSectionRecord','HeadingBlockNewRecord','HeadingBlockRecord','HeroImageBlockRecord','HeroSectionRecord','ImageBlockRecord','InstructorRecord','JobRecord','MenuItemBlockRecord','MenuListBlockRecord','MenuRecord','ModularPageLocationRecord','ModularPageRecord','NoteBlockRecord','PlainTextBlockRecord','PostCtaBlockRecord','PostCtaRecord','PostRecord','ReferenceSectionRecord','ResourceRecord','ResourceTopicRecord','RichTextBlockRecord','RichTextSectionRecord','RoutePathRecord','SeoBlockRecord','SiteConfigRecord','SocialLinkBlockRecord','TestimonialBlockCtaRecord','TestimonialBlockDefaultRecord','TestimonialBlockRecord','TestimonialRecord','TestimonialsListBlockRecord','TestimonialsSectionRecord','TutorRecord','TutorsBlockRecord','TutorsByCitySectionRecord','VideoBlockExternalRecord','VideoBlockInternalRecord','VideoBlockRecord']
     export const isRecordInterface = (obj?: { __typename?: any } | null): obj is RecordInterface => {
       if (!obj?.__typename) throw new Error('__typename is missing in "isRecordInterface"')
       return RecordInterface_possibleTypes.includes(obj.__typename)
@@ -6897,6 +7016,30 @@ export interface focalPointGenqlSelection{
     export const isSite = (obj?: { __typename?: any } | null): obj is Site => {
       if (!obj?.__typename) throw new Error('__typename is missing in "isSite"')
       return Site_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SiteConfigModelCompanyDescriptionField_possibleTypes: string[] = ['SiteConfigModelCompanyDescriptionField']
+    export const isSiteConfigModelCompanyDescriptionField = (obj?: { __typename?: any } | null): obj is SiteConfigModelCompanyDescriptionField => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSiteConfigModelCompanyDescriptionField"')
+      return SiteConfigModelCompanyDescriptionField_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SiteConfigRecord_possibleTypes: string[] = ['SiteConfigRecord']
+    export const isSiteConfigRecord = (obj?: { __typename?: any } | null): obj is SiteConfigRecord => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSiteConfigRecord"')
+      return SiteConfigRecord_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SocialLinkBlockRecord_possibleTypes: string[] = ['SocialLinkBlockRecord']
+    export const isSocialLinkBlockRecord = (obj?: { __typename?: any } | null): obj is SocialLinkBlockRecord => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSocialLinkBlockRecord"')
+      return SocialLinkBlockRecord_possibleTypes.includes(obj.__typename)
     }
     
 
