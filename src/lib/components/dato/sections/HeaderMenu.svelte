@@ -23,7 +23,9 @@
 			</div>
 		{/if}
 
-		<Button href="/" variant="brand">Get Started</Button>
+		{#if menu?.mainCta}
+			<Button href={menu.mainCta.link} variant="brand">{menu.mainCta.text || "Get Started"}</Button>
+		{/if}
 
 		<!-- MENU BUTTON / MENU -->
 		<Sheet.Root>

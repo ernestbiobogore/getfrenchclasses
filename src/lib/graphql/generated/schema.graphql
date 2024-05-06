@@ -3720,6 +3720,7 @@ type MenuRecord implements RecordInterface {
   _unpublishingScheduledAt: DateTime
   _updatedAt: DateTime!
   id: ItemId!
+  mainCta: ActionBlockRecord
   menuLists: [MenuListBlockRecord!]!
   name: String!
   slug: String!

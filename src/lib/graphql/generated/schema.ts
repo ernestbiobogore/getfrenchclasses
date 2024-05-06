@@ -1004,6 +1004,7 @@ export interface MenuRecord {
     _unpublishingScheduledAt: (Scalars['DateTime'] | null)
     _updatedAt: Scalars['DateTime']
     id: Scalars['ItemId']
+    mainCta: (ActionBlockRecord | null)
     menuLists: MenuListBlockRecord[]
     name: Scalars['String']
     slug: Scalars['String']
@@ -4692,6 +4693,7 @@ export interface MenuRecordGenqlSelection{
     _unpublishingScheduledAt?: boolean | number
     _updatedAt?: boolean | number
     id?: boolean | number
+    mainCta?: ActionBlockRecordGenqlSelection
     menuLists?: MenuListBlockRecordGenqlSelection
     name?: boolean | number
     slug?: boolean | number

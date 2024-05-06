@@ -24,6 +24,10 @@ const getMenuBySlug = async (slug: string) => {
 			},
 			id: true,
 			name: true,
+			mainCta: {
+				link: true,
+				text: true,
+			},
 			menuLists: {
 				id: true,
 				name: true,
