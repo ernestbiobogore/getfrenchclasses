@@ -164,6 +164,12 @@ const getCourseBySlug = async (slug: string) => {
 					},
 				},
 			},
+			enrolledStudents: {
+				images: {
+					responsiveImage: responsiveImageFieldSelection,
+				},
+				description: true,
+			},
 
 			// Instructors
 			instructorsHeading: headingFieldSelection,

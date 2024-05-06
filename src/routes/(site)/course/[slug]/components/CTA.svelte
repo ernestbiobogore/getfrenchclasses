@@ -53,10 +53,19 @@
 		<div class="flex items-center justify-between">
 			<p class="font-semibold">${course.price} USD</p>
 
-			<div class="flex items-center gap-1">
-				<AvatarsGroup avatars={getSampleAvatars()} size={10} />
-				<p class="text-xs">{course.numberOfEnrolledStudents} enrolled.</p>
-			</div>
+			{#if course.enrolledStudents?.images && course.enrolledStudents.images.length > 0}
+				{@const avatars = course.enrolledStudents.images.map(image => ({
+					src: String(image.responsiveImage?.src),
+					alt: String(image.responsiveImage?.alt),
+				}))}
+				<div class="flex items-center gap-1">
+					<AvatarsGroup {avatars} size={30} />
+
+					<p class="text-xs">
+						{course.enrolledStudents.description || course.numberOfEnrolledStudents + "enrolled."}
+					</p>
+				</div>
+			{/if}
 		</div>
 
 		{#if course.rightCtaEnrollLink}
