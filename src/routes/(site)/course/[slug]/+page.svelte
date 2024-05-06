@@ -225,8 +225,8 @@
 <section class="container-base py-20 space-y-8">
 	<h2 class="text-center">Course Syllabus</h2>
 
-	{#if data.course.courseModules && data.course.courseModules.length > 0}
-		<Syllabus modules={data.course.courseModules} />
+	{#if data.course.courseSyllabus && data.course.courseSyllabus.length > 0}
+		<Syllabus syllabus={data.course.courseSyllabus} />
 	{/if}
 </section>
 

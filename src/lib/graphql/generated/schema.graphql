@@ -900,14 +900,11 @@ type CourseModuleBlockRecord implements RecordInterface {
   _unpublishingScheduledAt: DateTime
   _updatedAt: DateTime!
   description: CourseModuleBlockModelDescriptionField
-  endDate: Date!
   id: ItemId!
   lessonsNumber: IntType!
   lessonsTitles: [PlainTextBlockRecord!]!
   projectsNumber: IntType!
-  startDate: Date!
   title: String!
-  week: IntType!
 }
 
 """Record of type Course (course)"""
@@ -932,7 +929,7 @@ type CourseRecord implements RecordInterface {
   _updatedAt: DateTime!
   contentList: [CardBlockNewRecord!]!
   contentListHeading: HeadingBlockNewRecord
-  courseModules: [CourseModuleBlockRecord!]!
+  courseSyllabus: [CourseSyllabusBlockRecord!]!
   ctaBannerButton: ActionBlockRecord
   ctaBannerImages: [HeroImageBlockRecord!]!
   ctaBannerMidActions: [ActionBlockRecord!]!
@@ -963,6 +960,33 @@ type CourseRecord implements RecordInterface {
   testimonials: [TestimonialRecord!]!
   tutors: [TutorRecord!]!
   tutorsHeading: HeadingBlockNewRecord
+}
+
+"""Block of type Course Syllabus Block (course_syllabus_block)"""
+type CourseSyllabusBlockRecord implements RecordInterface {
+  _createdAt: DateTime!
+
+  """Editing URL"""
+  _editingUrl: String
+  _firstPublishedAt: DateTime
+  _isValid: BooleanType!
+  _modelApiKey: String!
+  _publicationScheduledAt: DateTime
+  _publishedAt: DateTime
+
+  """Generates SEO and Social card meta tags to be used in your frontend"""
+  _seoMetaTags(
+    """The locale to use to fetch the field's content"""
+    locale: SiteLocale
+  ): [Tag!]!
+  _status: ItemStatus!
+  _unpublishingScheduledAt: DateTime
+  _updatedAt: DateTime!
+  endDate: Date!
+  id: ItemId!
+  modules: [CourseModuleBlockRecord!]!
+  startDate: Date!
+  week: IntType!
 }
 
 """Block of type Courses Block (courses_block)"""

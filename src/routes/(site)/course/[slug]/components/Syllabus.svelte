@@ -6,23 +6,7 @@
 	import ChevronRight from "~icons/lucide/chevron-right";
 	import type { PageData } from "../../../course/[slug]/$types";
 
-	export let modules: PageData["course"]["courseModules"];
-
-	type Module = (typeof modules)[number];
-	type GroupedModules = {
-		[week: number]: Module[];
-	};
-
-	$: groupedModules = modules.reduce((acc: GroupedModules, module: Module) => {
-		const { week } = module;
-		if (!acc[week]) {
-			acc[week] = [];
-		}
-		acc[week].push(module);
-		return acc;
-	}, {}) satisfies GroupedModules;
-
-	$: console.log(groupedModules);
+	export let syllabus: PageData["course"]["courseSyllabus"];
 
 	let state: {
 		id: string;
@@ -40,15 +24,13 @@
 	};
 </script>
 
-{#each Object.entries(groupedModules) as [week, modules]}
+{#each syllabus as { week, startDate, endDate, modules, id } (id)}
 	<div class="flex items-center mb-4">
 		<Badge>WEEK {week}</Badge>
 
 		<div class="flex-1 mx-4 border-gray-400 border-t border-dashed" />
 		<span class="text-xs text-gray-500 uppercase">
-			{getReadableDate(new Date(modules[0].startDate))} — {getReadableDate(
-				new Date(modules[0].endDate)
-			)}
+			{getReadableDate(new Date(startDate))} — {getReadableDate(new Date(endDate))}
 		</span>
 	</div>
 

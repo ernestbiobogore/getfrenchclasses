@@ -93,20 +93,23 @@ const getCourseBySlug = async (slug: string) => {
 			tag: true,
 
 			// Modules
-			courseModules: {
+			courseSyllabus: {
 				id: true,
 				week: true,
-				title: true,
-				description: {
-					value: true,
-				},
-				lessonsTitles: {
-					text: true,
-				},
 				startDate: true,
 				endDate: true,
-				lessonsNumber: true,
-				projectsNumber: true,
+				modules: {
+					id: true,
+					title: true,
+					description: {
+						value: true,
+					},
+					lessonsTitles: {
+						text: true,
+					},
+					lessonsNumber: true,
+					projectsNumber: true,
+				},
 			},
 
 			// Target audience

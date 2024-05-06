@@ -417,14 +417,11 @@ export interface CourseModuleBlockRecord {
     _unpublishingScheduledAt: (Scalars['DateTime'] | null)
     _updatedAt: Scalars['DateTime']
     description: (CourseModuleBlockModelDescriptionField | null)
-    endDate: Scalars['Date']
     id: Scalars['ItemId']
     lessonsNumber: Scalars['IntType']
     lessonsTitles: PlainTextBlockRecord[]
     projectsNumber: Scalars['IntType']
-    startDate: Scalars['Date']
     title: Scalars['String']
-    week: Scalars['IntType']
     __typename: 'CourseModuleBlockRecord'
 }
 
@@ -446,7 +443,7 @@ export interface CourseRecord {
     _updatedAt: Scalars['DateTime']
     contentList: CardBlockNewRecord[]
     contentListHeading: (HeadingBlockNewRecord | null)
-    courseModules: CourseModuleBlockRecord[]
+    courseSyllabus: CourseSyllabusBlockRecord[]
     ctaBannerButton: (ActionBlockRecord | null)
     ctaBannerImages: HeroImageBlockRecord[]
     ctaBannerMidActions: ActionBlockRecord[]
@@ -478,6 +475,30 @@ export interface CourseRecord {
     tutors: TutorRecord[]
     tutorsHeading: (HeadingBlockNewRecord | null)
     __typename: 'CourseRecord'
+}
+
+
+/** Block of type Course Syllabus Block (course_syllabus_block) */
+export interface CourseSyllabusBlockRecord {
+    _createdAt: Scalars['DateTime']
+    /** Editing URL */
+    _editingUrl: (Scalars['String'] | null)
+    _firstPublishedAt: (Scalars['DateTime'] | null)
+    _isValid: Scalars['BooleanType']
+    _modelApiKey: Scalars['String']
+    _publicationScheduledAt: (Scalars['DateTime'] | null)
+    _publishedAt: (Scalars['DateTime'] | null)
+    /** Generates SEO and Social card meta tags to be used in your frontend */
+    _seoMetaTags: Tag[]
+    _status: ItemStatus
+    _unpublishingScheduledAt: (Scalars['DateTime'] | null)
+    _updatedAt: Scalars['DateTime']
+    endDate: Scalars['Date']
+    id: Scalars['ItemId']
+    modules: CourseModuleBlockRecord[]
+    startDate: Scalars['Date']
+    week: Scalars['IntType']
+    __typename: 'CourseSyllabusBlockRecord'
 }
 
 
@@ -1301,7 +1322,7 @@ export interface Query {
     __typename: 'Query'
 }
 
-export type RecordInterface = (ActionBlockRecord | AuthorRecord | CardBlockNewRecord | CardBlockRecord | CardsSectionRecord | CategoryRecord | CityRecord | ComparisonBlockRecord | ComparisonSectionRecord | CompetitorRecord | CompetitorsComparisonRecord | ConvertboxBlockRecord | CountryRecord | CourseModuleBlockRecord | CourseRecord | CoursesBlockRecord | CoursesSectionRecord | FaqBlockNewRecord | FaqBlockRecord | FaqItemRecord | FaqSectionRecord | HeadingBlockNewRecord | HeadingBlockRecord | HeroImageBlockRecord | HeroSectionRecord | ImageBlockRecord | InstructorRecord | JobRecord | MenuItemBlockRecord | MenuListBlockRecord | MenuRecord | ModularPageLocationRecord | ModularPageRecord | NoteBlockRecord | PlainTextBlockRecord | PostCtaBlockRecord | PostCtaRecord | PostRecord | ReferenceSectionRecord | ResourceRecord | ResourceTopicRecord | RichTextBlockRecord | RichTextSectionRecord | RoutePathRecord | SeoBlockRecord | SiteConfigRecord | SocialLinkBlockRecord | TestimonialBlockCtaRecord | TestimonialBlockDefaultRecord | TestimonialBlockRecord | TestimonialRecord | TestimonialsListBlockRecord | TestimonialsSectionRecord | TutorRecord | TutorsBlockRecord | TutorsByCitySectionRecord | VideoBlockExternalRecord | VideoBlockInternalRecord | VideoBlockRecord) & { __isUnion?: true }
+export type RecordInterface = (ActionBlockRecord | AuthorRecord | CardBlockNewRecord | CardBlockRecord | CardsSectionRecord | CategoryRecord | CityRecord | ComparisonBlockRecord | ComparisonSectionRecord | CompetitorRecord | CompetitorsComparisonRecord | ConvertboxBlockRecord | CountryRecord | CourseModuleBlockRecord | CourseRecord | CourseSyllabusBlockRecord | CoursesBlockRecord | CoursesSectionRecord | FaqBlockNewRecord | FaqBlockRecord | FaqItemRecord | FaqSectionRecord | HeadingBlockNewRecord | HeadingBlockRecord | HeroImageBlockRecord | HeroSectionRecord | ImageBlockRecord | InstructorRecord | JobRecord | MenuItemBlockRecord | MenuListBlockRecord | MenuRecord | ModularPageLocationRecord | ModularPageRecord | NoteBlockRecord | PlainTextBlockRecord | PostCtaBlockRecord | PostCtaRecord | PostRecord | ReferenceSectionRecord | ResourceRecord | ResourceTopicRecord | RichTextBlockRecord | RichTextSectionRecord | RoutePathRecord | SeoBlockRecord | SiteConfigRecord | SocialLinkBlockRecord | TestimonialBlockCtaRecord | TestimonialBlockDefaultRecord | TestimonialBlockRecord | TestimonialRecord | TestimonialsListBlockRecord | TestimonialsSectionRecord | TutorRecord | TutorsBlockRecord | TutorsByCitySectionRecord | VideoBlockExternalRecord | VideoBlockInternalRecord | VideoBlockRecord) & { __isUnion?: true }
 
 
 /** Block of type Reference Section (reference_section) */
@@ -2518,14 +2539,11 @@ export interface CourseModuleBlockRecordGenqlSelection{
     _unpublishingScheduledAt?: boolean | number
     _updatedAt?: boolean | number
     description?: CourseModuleBlockModelDescriptionFieldGenqlSelection
-    endDate?: boolean | number
     id?: boolean | number
     lessonsNumber?: boolean | number
     lessonsTitles?: PlainTextBlockRecordGenqlSelection
     projectsNumber?: boolean | number
-    startDate?: boolean | number
     title?: boolean | number
-    week?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -2550,7 +2568,7 @@ export interface CourseRecordGenqlSelection{
     _updatedAt?: boolean | number
     contentList?: CardBlockNewRecordGenqlSelection
     contentListHeading?: HeadingBlockNewRecordGenqlSelection
-    courseModules?: CourseModuleBlockRecordGenqlSelection
+    courseSyllabus?: CourseSyllabusBlockRecordGenqlSelection
     ctaBannerButton?: ActionBlockRecordGenqlSelection
     ctaBannerImages?: HeroImageBlockRecordGenqlSelection
     ctaBannerMidActions?: ActionBlockRecordGenqlSelection
@@ -2581,6 +2599,33 @@ export interface CourseRecordGenqlSelection{
     testimonials?: TestimonialRecordGenqlSelection
     tutors?: TutorRecordGenqlSelection
     tutorsHeading?: HeadingBlockNewRecordGenqlSelection
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** Block of type Course Syllabus Block (course_syllabus_block) */
+export interface CourseSyllabusBlockRecordGenqlSelection{
+    _createdAt?: boolean | number
+    /** Editing URL */
+    _editingUrl?: boolean | number
+    _firstPublishedAt?: boolean | number
+    _isValid?: boolean | number
+    _modelApiKey?: boolean | number
+    _publicationScheduledAt?: boolean | number
+    _publishedAt?: boolean | number
+    /** Generates SEO and Social card meta tags to be used in your frontend */
+    _seoMetaTags?: (TagGenqlSelection & { __args?: {
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null)} })
+    _status?: boolean | number
+    _unpublishingScheduledAt?: boolean | number
+    _updatedAt?: boolean | number
+    endDate?: boolean | number
+    id?: boolean | number
+    modules?: CourseModuleBlockRecordGenqlSelection
+    startDate?: boolean | number
+    week?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -5341,6 +5386,7 @@ export interface RecordInterfaceGenqlSelection{
     on_CountryRecord?: CountryRecordGenqlSelection
     on_CourseModuleBlockRecord?: CourseModuleBlockRecordGenqlSelection
     on_CourseRecord?: CourseRecordGenqlSelection
+    on_CourseSyllabusBlockRecord?: CourseSyllabusBlockRecordGenqlSelection
     on_CoursesBlockRecord?: CoursesBlockRecordGenqlSelection
     on_CoursesSectionRecord?: CoursesSectionRecordGenqlSelection
     on_FaqBlockNewRecord?: FaqBlockNewRecordGenqlSelection
@@ -6748,6 +6794,14 @@ export interface focalPointGenqlSelection{
     
 
 
+    const CourseSyllabusBlockRecord_possibleTypes: string[] = ['CourseSyllabusBlockRecord']
+    export const isCourseSyllabusBlockRecord = (obj?: { __typename?: any } | null): obj is CourseSyllabusBlockRecord => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isCourseSyllabusBlockRecord"')
+      return CourseSyllabusBlockRecord_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
     const CoursesBlockRecord_possibleTypes: string[] = ['CoursesBlockRecord']
     export const isCoursesBlockRecord = (obj?: { __typename?: any } | null): obj is CoursesBlockRecord => {
       if (!obj?.__typename) throw new Error('__typename is missing in "isCoursesBlockRecord"')
@@ -7012,7 +7066,7 @@ export interface focalPointGenqlSelection{
     
 
 
-    const RecordInterface_possibleTypes: string[] = ['ActionBlockRecord','AuthorRecord','CardBlockNewRecord','CardBlockRecord','CardsSectionRecord','CategoryRecord','CityRecord','ComparisonBlockRecord','ComparisonSectionRecord','CompetitorRecord','CompetitorsComparisonRecord','ConvertboxBlockRecord','CountryRecord','CourseModuleBlockRecord','CourseRecord','CoursesBlockRecord','CoursesSectionRecord','FaqBlockNewRecord','FaqBlockRecord','FaqItemRecord','FaqSectionRecord','HeadingBlockNewRecord','HeadingBlockRecord','HeroImageBlockRecord','HeroSectionRecord','ImageBlockRecord','InstructorRecord','JobRecord','MenuItemBlockRecord','MenuListBlockRecord','MenuRecord','ModularPageLocationRecord','ModularPageRecord','NoteBlockRecord','PlainTextBlockRecord','PostCtaBlockRecord','PostCtaRecord','PostRecord','ReferenceSectionRecord','ResourceRecord','ResourceTopicRecord','RichTextBlockRecord','RichTextSectionRecord','RoutePathRecord','SeoBlockRecord','SiteConfigRecord','SocialLinkBlockRecord','TestimonialBlockCtaRecord','TestimonialBlockDefaultRecord','TestimonialBlockRecord','TestimonialRecord','TestimonialsListBlockRecord','TestimonialsSectionRecord','TutorRecord','TutorsBlockRecord','TutorsByCitySectionRecord','VideoBlockExternalRecord','VideoBlockInternalRecord','VideoBlockRecord']
+    const RecordInterface_possibleTypes: string[] = ['ActionBlockRecord','AuthorRecord','CardBlockNewRecord','CardBlockRecord','CardsSectionRecord','CategoryRecord','CityRecord','ComparisonBlockRecord','ComparisonSectionRecord','CompetitorRecord','CompetitorsComparisonRecord','ConvertboxBlockRecord','CountryRecord','CourseModuleBlockRecord','CourseRecord','CourseSyllabusBlockRecord','CoursesBlockRecord','CoursesSectionRecord','FaqBlockNewRecord','FaqBlockRecord','FaqItemRecord','FaqSectionRecord','HeadingBlockNewRecord','HeadingBlockRecord','HeroImageBlockRecord','HeroSectionRecord','ImageBlockRecord','InstructorRecord','JobRecord','MenuItemBlockRecord','MenuListBlockRecord','MenuRecord','ModularPageLocationRecord','ModularPageRecord','NoteBlockRecord','PlainTextBlockRecord','PostCtaBlockRecord','PostCtaRecord','PostRecord','ReferenceSectionRecord','ResourceRecord','ResourceTopicRecord','RichTextBlockRecord','RichTextSectionRecord','RoutePathRecord','SeoBlockRecord','SiteConfigRecord','SocialLinkBlockRecord','TestimonialBlockCtaRecord','TestimonialBlockDefaultRecord','TestimonialBlockRecord','TestimonialRecord','TestimonialsListBlockRecord','TestimonialsSectionRecord','TutorRecord','TutorsBlockRecord','TutorsByCitySectionRecord','VideoBlockExternalRecord','VideoBlockInternalRecord','VideoBlockRecord']
     export const isRecordInterface = (obj?: { __typename?: any } | null): obj is RecordInterface => {
       if (!obj?.__typename) throw new Error('__typename is missing in "isRecordInterface"')
       return RecordInterface_possibleTypes.includes(obj.__typename)
