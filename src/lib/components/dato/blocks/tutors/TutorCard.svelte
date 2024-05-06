@@ -1,9 +1,10 @@
 <script lang="ts">
-	import * as Card from "$shadcn/card";
+	import Video from "$dato/blocks/Video.svelte";
 	import { type FormattedSingleTutor, type FormattedTutorMeta } from "$dato/blocks/tutors/types";
+	import * as Card from "$shadcn/card";
+	import { Image } from "@unpic/svelte";
 	import { setContext } from "svelte";
 	import TutorInsideCard from "./Card.svelte";
-	import Video from "$dato/blocks/Video.svelte";
 
 	export let tutor: FormattedTutorMeta | FormattedSingleTutor;
 	export let withCTA = false;
@@ -18,22 +19,26 @@
 			<Video video={tutor.coverMedia} class="h-60" />
 		{/if}
 
-		{#if tutor.coverMedia.__typename === "ImageBlockRecord"}
-			<img
-				alt={tutor.coverMedia.image.responsiveImage?.src}
-				class="object-cover w-full h-60 aspect-square"
-				height="100"
+		{#if tutor.coverMedia.__typename === "ImageBlockRecord" && tutor.coverMedia.image.responsiveImage?.src}
+			<Image
 				src={tutor.coverMedia.image.responsiveImage?.src}
-				width="350"
+				alt={tutor.coverMedia.image.responsiveImage?.alt}
+				layout="fullWidth"
+				height={240}
+				background={tutor.coverMedia.image.responsiveImage?.base64 ||
+					tutor.coverMedia.image.responsiveImage?.bgColor ||
+					"auto"}
+				class="object-cover"
 			/>
 		{/if}
 	{:else}
-		<img
-			alt="Banner"
-			class="object-cover w-full h-60 aspect-square"
-			height="100"
+		<Image
 			src="/placeholder.svg"
-			width="350"
+			alt="Banner"
+			layout="fullWidth"
+			height={240}
+			background="auto"
+			class="object-cover"
 		/>
 	{/if}
 
