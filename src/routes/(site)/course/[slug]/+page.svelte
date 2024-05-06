@@ -17,7 +17,7 @@
 	import Clock from "~icons/lucide/clock";
 	import PenSquare from "~icons/lucide/pen-square";
 	import CTA from "./components/CTA.svelte";
-	import CourseSyllabus from "./components/CourseSyllabus.svelte";
+	import Syllabus from "./components/Syllabus.svelte";
 
 	export let data;
 
@@ -222,7 +222,13 @@
 	<CTA course={data.course} />
 </section>
 
-<CourseSyllabus />
+<section class="container-base py-20 space-y-8">
+	<h2 class="text-center">Course Syllabus</h2>
+
+	{#if data.course.courseModules && data.course.courseModules.length > 0}
+		<Syllabus modules={data.course.courseModules} />
+	{/if}
+</section>
 
 {#if data.course.testimonials && data.course.testimonials.length > 0}
 	<section class="py-20 container-base space-y-8">

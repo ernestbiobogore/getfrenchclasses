@@ -1,50 +1,30 @@
-<script lang="ts" context="module">
-	export type Module = {
-		id: string;
-		name: string;
-		description: string;
-		lessons: Lesson[];
-	};
-
-	export type Lesson = {
-		id: string;
-		name: string;
-		icon?: string;
-	};
-</script>
-
 <script lang="ts">
+	import StructuredText from "$dato/StructuredText/index.svelte";
+	import { Badge } from "$shadcn/badge";
 	import { Accordion } from "bits-ui";
 	import { tick } from "svelte";
-
 	import ChevronRight from "~icons/lucide/chevron-right";
+	import type { PageData } from "../../../course/[slug]/$types";
 
-	const mockModule: Module = {
-		id: crypto.randomUUID(),
-		name: "File Structure",
-		description: `~1.5hr to complete | Learn about different file structures and determine the best strategy for the design system you will be building over the next 5 weeks.
-
-		All lessons and projects marked with a ★ are essential! Everything else is bonus content. If time allows, pick and choose bonus content that will be the most helpful to you. Remember, you get lifetime access to this material so you can always revisit lessons after the course ends.`,
-		lessons: [
-			{
-				id: crypto.randomUUID(),
-				name: "How to map your design system file structure",
-				// icon: "i-lucide-arrow-right",
-			},
-			{
-				id: crypto.randomUUID(),
-				name: "File structure map & file templates",
-				// icon: "i-lucide-arrow-right",
-			},
-		],
-	};
-
-	export let week = 1;
 	export let start = "Feb 5";
 	export let end = "Feb 11";
-	export let modules: Module[] = [mockModule, { ...mockModule, id: crypto.randomUUID() }];
+	export let modules: PageData["course"]["courseModules"];
 
-	// let el: HTMLDivElement;
+	type Module = (typeof modules)[number];
+	type GroupedModules = {
+		[week: number]: Module[];
+	};
+
+	$: groupedModules = modules.reduce((acc: GroupedModules, module: Module) => {
+		const { week } = module;
+		if (!acc[week]) {
+			acc[week] = [];
+		}
+		acc[week].push(module);
+		return acc;
+	}, {}) satisfies GroupedModules;
+
+	$: console.log(groupedModules);
 
 	let state: {
 		id: string;
@@ -55,12 +35,9 @@
 	};
 </script>
 
-<div>
+{#each Object.entries(groupedModules) as [week, modules]}
 	<div class="flex items-center mb-4">
-		<!-- BADGE -->
-		<div class="text-xs text-white font-semibold uppercase bg-night rounded-full px-2.5 py-0.5">
-			WEEK {week}
-		</div>
+		<Badge>WEEK {week}</Badge>
 
 		<div class="flex-1 mx-4 border-gray-400 border-t border-dashed" />
 		<span class="text-xs text-gray-500 uppercase">{start} — {end}</span>
@@ -104,7 +81,7 @@
 
 						<div class="flex-1">
 							<div class="flex-s-between mb-2">
-								<div class="font-semibold">{module.name}</div>
+								<div class="font-semibold">{module.title}</div>
 								<button
 									class="flex-s-start gap-1 text-gray-600 px-2.5 py-1 border border-gray-3 rounded-full"
 								>
@@ -119,17 +96,17 @@
 								class="text-start text-gray-500 text-sm sm:text-base"
 								class:line-clamp-1={!isOpen}
 							>
-								{module.description}
+								<StructuredText richText={module.description} />
 							</div>
 						</div>
 					</Accordion.Trigger>
 
 					<Accordion.Content>
 						<div class="border border-gray-300 rounded-lg">
-							{#each module.lessons as lesson}
+							{#each module.lessonsTitles as lesson}
 								<div class="p-3 border-gray-300 not-last:border-b">
 									<div class="uppercase text-xs text-gray-6 hidden sm:block">Lesson</div>
-									<div class="font-semibold text-gray-7 text-sm sm:text-base">{lesson.name}</div>
+									<div class="font-semibold text-gray-7 text-sm sm:text-base">{lesson.text}</div>
 								</div>
 							{/each}
 						</div>
@@ -138,4 +115,4 @@
 			{/each}
 		</Accordion.Root>
 	</div>
-</div>
+{/each}

@@ -873,6 +873,39 @@ enum CourseModelOrderBy {
 
 union CourseModelRightCtaMediaField = ImageBlockRecord | VideoBlockRecord
 
+type CourseModuleBlockModelDescriptionField {
+  blocks: [String!]!
+  links: [String!]!
+  value: JsonField!
+}
+
+"""Block of type Course Module Block (course_module_block)"""
+type CourseModuleBlockRecord implements RecordInterface {
+  _createdAt: DateTime!
+
+  """Editing URL"""
+  _editingUrl: String
+  _firstPublishedAt: DateTime
+  _isValid: BooleanType!
+  _modelApiKey: String!
+  _publicationScheduledAt: DateTime
+  _publishedAt: DateTime
+
+  """Generates SEO and Social card meta tags to be used in your frontend"""
+  _seoMetaTags(
+    """The locale to use to fetch the field's content"""
+    locale: SiteLocale
+  ): [Tag!]!
+  _status: ItemStatus!
+  _unpublishingScheduledAt: DateTime
+  _updatedAt: DateTime!
+  description: CourseModuleBlockModelDescriptionField
+  id: ItemId!
+  lessonsTitles: [PlainTextBlockRecord!]!
+  title: String!
+  week: IntType!
+}
+
 """Record of type Course (course)"""
 type CourseRecord implements RecordInterface {
   _createdAt: DateTime!
@@ -895,6 +928,7 @@ type CourseRecord implements RecordInterface {
   _updatedAt: DateTime!
   contentList: [CardBlockNewRecord!]!
   contentListHeading: HeadingBlockNewRecord
+  courseModules: [CourseModuleBlockRecord!]!
   ctaBannerButton: ActionBlockRecord
   ctaBannerImages: [HeroImageBlockRecord!]!
   ctaBannerMidActions: [ActionBlockRecord!]!
@@ -5532,7 +5566,6 @@ type TestimonialBlockCtaRecord implements RecordInterface {
   highlight: TestimonialBlockCtaModelHighlightField
   id: ItemId!
   media: TestimonialBlockCtaModelMediaField
-  picture: AltFileField
   role: String
 }
 
@@ -5569,7 +5602,6 @@ type TestimonialBlockDefaultRecord implements RecordInterface {
   content: TestimonialBlockDefaultModelContentField
   id: ItemId!
   media: TestimonialBlockDefaultModelMediaField
-  picture: AltFileField
   rating: IntType
   role: String
   rotation: String

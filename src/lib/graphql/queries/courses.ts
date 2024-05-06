@@ -92,6 +92,19 @@ const getCourseBySlug = async (slug: string) => {
 			numberOfEnrolledStudents: true,
 			tag: true,
 
+			// Modules
+			courseModules: {
+				id: true,
+				week: true,
+				title: true,
+				description: {
+					value: true,
+				},
+				lessonsTitles: {
+					text: true,
+				},
+			},
+
 			// Target audience
 			targetAudienceHeading: headingFieldSelection,
 			targetAudience: cardBlockFieldSelection,
