@@ -151,7 +151,10 @@ const getCourseBySlug = async (slug: string) => {
 				link: true,
 				text: true,
 			},
-			rightCtaEnrollLink: true,
+			rightCtaMainAction: {
+				link: true,
+				text: true,
+			},
 			rightCtaMedia: {
 				on_RecordInterface: {
 					__typename: true,

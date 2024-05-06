@@ -411,7 +411,7 @@ export interface CountryRecord {
     __typename: 'CountryRecord'
 }
 
-export type CourseModelOrderBy = '_createdAt_ASC' | '_createdAt_DESC' | 'id_ASC' | 'id_DESC' | '_firstPublishedAt_ASC' | '_firstPublishedAt_DESC' | '_publicationScheduledAt_ASC' | '_publicationScheduledAt_DESC' | '_unpublishingScheduledAt_ASC' | '_unpublishingScheduledAt_DESC' | '_publishedAt_ASC' | '_publishedAt_DESC' | '_status_ASC' | '_status_DESC' | '_updatedAt_ASC' | '_updatedAt_DESC' | '_isValid_ASC' | '_isValid_DESC' | 'ctaBannerTitle_ASC' | 'ctaBannerTitle_DESC' | 'duration_ASC' | 'duration_DESC' | 'level_ASC' | 'level_DESC' | 'name_ASC' | 'name_DESC' | 'numberOfEnrolledStudents_ASC' | 'numberOfEnrolledStudents_DESC' | 'numberOfSections_ASC' | 'numberOfSections_DESC' | 'price_ASC' | 'price_DESC' | 'rightCtaEnrollLink_ASC' | 'rightCtaEnrollLink_DESC' | 'rightCtaMainText_ASC' | 'rightCtaMainText_DESC' | 'rightCtaSubtext_ASC' | 'rightCtaSubtext_DESC' | 'tag_ASC' | 'tag_DESC'
+export type CourseModelOrderBy = '_createdAt_ASC' | '_createdAt_DESC' | 'id_ASC' | 'id_DESC' | '_firstPublishedAt_ASC' | '_firstPublishedAt_DESC' | '_publicationScheduledAt_ASC' | '_publicationScheduledAt_DESC' | '_unpublishingScheduledAt_ASC' | '_unpublishingScheduledAt_DESC' | '_publishedAt_ASC' | '_publishedAt_DESC' | '_status_ASC' | '_status_DESC' | '_updatedAt_ASC' | '_updatedAt_DESC' | '_isValid_ASC' | '_isValid_DESC' | 'ctaBannerTitle_ASC' | 'ctaBannerTitle_DESC' | 'duration_ASC' | 'duration_DESC' | 'level_ASC' | 'level_DESC' | 'name_ASC' | 'name_DESC' | 'numberOfEnrolledStudents_ASC' | 'numberOfEnrolledStudents_DESC' | 'numberOfSections_ASC' | 'numberOfSections_DESC' | 'price_ASC' | 'price_DESC' | 'rightCtaMainText_ASC' | 'rightCtaMainText_DESC' | 'rightCtaSubtext_ASC' | 'rightCtaSubtext_DESC' | 'tag_ASC' | 'tag_DESC'
 
 export type CourseModelRightCtaMediaField = (ImageBlockRecord | VideoBlockRecord) & { __isUnion?: true }
 
@@ -485,7 +485,7 @@ export interface CourseRecord {
     outcomesHeading: (HeadingBlockNewRecord | null)
     price: Scalars['IntType']
     rightCtaActions: ActionBlockRecord[]
-    rightCtaEnrollLink: (Scalars['String'] | null)
+    rightCtaMainAction: (ActionBlockRecord | null)
     rightCtaMainText: (Scalars['String'] | null)
     rightCtaMedia: (CourseModelRightCtaMediaField | null)
     rightCtaSubtext: (Scalars['String'] | null)
@@ -2551,7 +2551,7 @@ export interface CountryRecordGenqlSelection{
     __scalar?: boolean | number
 }
 
-export interface CourseModelFilter {_createdAt?: (CreatedAtFilter | null),id?: (ItemIdFilter | null),_firstPublishedAt?: (PublishedAtFilter | null),_publicationScheduledAt?: (PublishedAtFilter | null),_unpublishingScheduledAt?: (PublishedAtFilter | null),_publishedAt?: (PublishedAtFilter | null),_status?: (StatusFilter | null),_updatedAt?: (UpdatedAtFilter | null),_isValid?: (BooleanFilter | null),ctaBannerTitle?: (StringFilter | null),duration?: (IntegerFilter | null),faq?: (LinkFilter | null),instructors?: (LinksFilter | null),level?: (StringFilter | null),name?: (StringFilter | null),numberOfEnrolledStudents?: (IntegerFilter | null),numberOfSections?: (IntegerFilter | null),price?: (IntegerFilter | null),rightCtaEnrollLink?: (StringFilter | null),rightCtaMainText?: (StringFilter | null),rightCtaSubtext?: (StringFilter | null),slug?: (SlugFilter | null),tag?: (StringFilter | null),testimonials?: (LinksFilter | null),tutors?: (LinksFilter | null),OR?: ((CourseModelFilter | null)[] | null),AND?: ((CourseModelFilter | null)[] | null)}
+export interface CourseModelFilter {_createdAt?: (CreatedAtFilter | null),id?: (ItemIdFilter | null),_firstPublishedAt?: (PublishedAtFilter | null),_publicationScheduledAt?: (PublishedAtFilter | null),_unpublishingScheduledAt?: (PublishedAtFilter | null),_publishedAt?: (PublishedAtFilter | null),_status?: (StatusFilter | null),_updatedAt?: (UpdatedAtFilter | null),_isValid?: (BooleanFilter | null),ctaBannerTitle?: (StringFilter | null),duration?: (IntegerFilter | null),faq?: (LinkFilter | null),instructors?: (LinksFilter | null),level?: (StringFilter | null),name?: (StringFilter | null),numberOfEnrolledStudents?: (IntegerFilter | null),numberOfSections?: (IntegerFilter | null),price?: (IntegerFilter | null),rightCtaMainText?: (StringFilter | null),rightCtaSubtext?: (StringFilter | null),slug?: (SlugFilter | null),tag?: (StringFilter | null),testimonials?: (LinksFilter | null),tutors?: (LinksFilter | null),OR?: ((CourseModelFilter | null)[] | null),AND?: ((CourseModelFilter | null)[] | null)}
 
 export interface CourseModelRightCtaMediaFieldGenqlSelection{
     on_ImageBlockRecord?:ImageBlockRecordGenqlSelection,
@@ -2636,7 +2636,7 @@ export interface CourseRecordGenqlSelection{
     outcomesHeading?: HeadingBlockNewRecordGenqlSelection
     price?: boolean | number
     rightCtaActions?: ActionBlockRecordGenqlSelection
-    rightCtaEnrollLink?: boolean | number
+    rightCtaMainAction?: ActionBlockRecordGenqlSelection
     rightCtaMainText?: boolean | number
     rightCtaMedia?: CourseModelRightCtaMediaFieldGenqlSelection
     rightCtaSubtext?: boolean | number
@@ -7659,8 +7659,6 @@ export const enumCourseModelOrderBy = {
    numberOfSections_DESC: 'numberOfSections_DESC' as const,
    price_ASC: 'price_ASC' as const,
    price_DESC: 'price_DESC' as const,
-   rightCtaEnrollLink_ASC: 'rightCtaEnrollLink_ASC' as const,
-   rightCtaEnrollLink_DESC: 'rightCtaEnrollLink_DESC' as const,
    rightCtaMainText_ASC: 'rightCtaMainText_ASC' as const,
    rightCtaMainText_DESC: 'rightCtaMainText_DESC' as const,
    rightCtaSubtext_ASC: 'rightCtaSubtext_ASC' as const,

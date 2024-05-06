@@ -1484,9 +1484,6 @@ export default {
             "price": [
                 99
             ],
-            "rightCtaEnrollLink": [
-                178
-            ],
             "rightCtaMainText": [
                 178
             ],
@@ -1710,8 +1707,8 @@ export default {
             "rightCtaActions": [
                 0
             ],
-            "rightCtaEnrollLink": [
-                177
+            "rightCtaMainAction": [
+                0
             ],
             "rightCtaMainText": [
                 177

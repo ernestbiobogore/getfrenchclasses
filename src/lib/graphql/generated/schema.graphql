@@ -842,7 +842,6 @@ input CourseModelFilter {
   numberOfEnrolledStudents: IntegerFilter
   numberOfSections: IntegerFilter
   price: IntegerFilter
-  rightCtaEnrollLink: StringFilter
   rightCtaMainText: StringFilter
   rightCtaSubtext: StringFilter
   slug: SlugFilter
@@ -886,8 +885,6 @@ enum CourseModelOrderBy {
   numberOfSections_DESC
   price_ASC
   price_DESC
-  rightCtaEnrollLink_ASC
-  rightCtaEnrollLink_DESC
   rightCtaMainText_ASC
   rightCtaMainText_DESC
   rightCtaSubtext_ASC
@@ -974,7 +971,7 @@ type CourseRecord implements RecordInterface {
   outcomesHeading: HeadingBlockNewRecord
   price: IntType!
   rightCtaActions: [ActionBlockRecord!]!
-  rightCtaEnrollLink: String
+  rightCtaMainAction: ActionBlockRecord
   rightCtaMainText: String
   rightCtaMedia: CourseModelRightCtaMediaField
   rightCtaSubtext: String

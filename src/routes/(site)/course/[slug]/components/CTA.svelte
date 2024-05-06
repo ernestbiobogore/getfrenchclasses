@@ -68,8 +68,10 @@
 			{/if}
 		</div>
 
-		{#if course.rightCtaEnrollLink}
-			<Button href={course.rightCtaEnrollLink} variant="brand" class="w-full">Enroll</Button>
+		{#if course.rightCtaMainAction?.link}
+			<Button href={course.rightCtaMainAction.link} variant="brand" class="w-full">
+				{course.rightCtaMainAction.text || "Enroll"}
+			</Button>
 		{/if}
 
 		<div class="flex justify-between">
