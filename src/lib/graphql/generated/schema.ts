@@ -1558,6 +1558,8 @@ export interface TestimonialBlockCtaModelHighlightField {
     __typename: 'TestimonialBlockCtaModelHighlightField'
 }
 
+export type TestimonialBlockCtaModelMediaField = (ImageBlockRecord | VideoBlockRecord) & { __isUnion?: true }
+
 
 /** Block of type Testimonial Block (CTA) (testimonial_block_cta) */
 export interface TestimonialBlockCtaRecord {
@@ -1580,6 +1582,7 @@ export interface TestimonialBlockCtaRecord {
     cta: (ActionBlockRecord | null)
     highlight: (TestimonialBlockCtaModelHighlightField | null)
     id: Scalars['ItemId']
+    media: (TestimonialBlockCtaModelMediaField | null)
     picture: (AltFileField | null)
     role: (Scalars['String'] | null)
     __typename: 'TestimonialBlockCtaRecord'
@@ -5723,6 +5726,13 @@ export interface TestimonialBlockCtaModelHighlightFieldGenqlSelection{
     __scalar?: boolean | number
 }
 
+export interface TestimonialBlockCtaModelMediaFieldGenqlSelection{
+    on_ImageBlockRecord?:ImageBlockRecordGenqlSelection,
+    on_VideoBlockRecord?:VideoBlockRecordGenqlSelection,
+    on_RecordInterface?: RecordInterfaceGenqlSelection,
+    __typename?: boolean | number
+}
+
 
 /** Block of type Testimonial Block (CTA) (testimonial_block_cta) */
 export interface TestimonialBlockCtaRecordGenqlSelection{
@@ -5747,6 +5757,7 @@ export interface TestimonialBlockCtaRecordGenqlSelection{
     cta?: ActionBlockRecordGenqlSelection
     highlight?: TestimonialBlockCtaModelHighlightFieldGenqlSelection
     id?: boolean | number
+    media?: TestimonialBlockCtaModelMediaFieldGenqlSelection
     picture?: AltFileFieldGenqlSelection
     role?: boolean | number
     __typename?: boolean | number
@@ -7067,6 +7078,14 @@ export interface focalPointGenqlSelection{
     export const isTestimonialBlockCtaModelHighlightField = (obj?: { __typename?: any } | null): obj is TestimonialBlockCtaModelHighlightField => {
       if (!obj?.__typename) throw new Error('__typename is missing in "isTestimonialBlockCtaModelHighlightField"')
       return TestimonialBlockCtaModelHighlightField_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const TestimonialBlockCtaModelMediaField_possibleTypes: string[] = ['ImageBlockRecord','VideoBlockRecord']
+    export const isTestimonialBlockCtaModelMediaField = (obj?: { __typename?: any } | null): obj is TestimonialBlockCtaModelMediaField => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isTestimonialBlockCtaModelMediaField"')
+      return TestimonialBlockCtaModelMediaField_possibleTypes.includes(obj.__typename)
     }
     
 

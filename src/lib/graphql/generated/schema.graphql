@@ -5503,6 +5503,8 @@ type TestimonialBlockCtaModelHighlightField {
   value: JsonField!
 }
 
+union TestimonialBlockCtaModelMediaField = ImageBlockRecord | VideoBlockRecord
+
 """Block of type Testimonial Block (CTA) (testimonial_block_cta)"""
 type TestimonialBlockCtaRecord implements RecordInterface {
   _createdAt: DateTime!
@@ -5529,6 +5531,7 @@ type TestimonialBlockCtaRecord implements RecordInterface {
   cta: ActionBlockRecord
   highlight: TestimonialBlockCtaModelHighlightField
   id: ItemId!
+  media: TestimonialBlockCtaModelMediaField
   picture: AltFileField
   role: String
 }

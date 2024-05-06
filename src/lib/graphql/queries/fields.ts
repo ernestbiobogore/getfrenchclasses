@@ -253,16 +253,24 @@ const ctaTestimonialFieldsSelection = {
 	author: true,
 	role: true,
 	company: true,
-	picture: {
-		url: true,
-		responsiveImage: {
-			__args: {
-				imgixParams: {
-					w: 248,
-					h: 248,
+	media: {
+		on_RecordInterface: {
+			__typename: true,
+			id: true,
+		},
+		on_VideoBlockRecord: videoBlockFields,
+		on_ImageBlockRecord: {
+			image: {
+				responsiveImage: {
+					__args: {
+						imgixParams: {
+							w: 32,
+							h: 32,
+						},
+					},
+					...responsiveImageFieldSelection,
 				},
 			},
-			...responsiveImageFieldSelection,
 		},
 	},
 	highlight: {
