@@ -900,8 +900,12 @@ type CourseModuleBlockRecord implements RecordInterface {
   _unpublishingScheduledAt: DateTime
   _updatedAt: DateTime!
   description: CourseModuleBlockModelDescriptionField
+  endDate: Date!
   id: ItemId!
+  lessonsNumber: IntType!
   lessonsTitles: [PlainTextBlockRecord!]!
+  projectsNumber: IntType!
+  startDate: Date!
   title: String!
   week: IntType!
 }
@@ -1049,6 +1053,9 @@ input CreatedAtFilter {
 }
 
 scalar CustomData
+
+"""A ISO 8601 compliant date value"""
+scalar Date
 
 """A ISO 8601 compliant datetime value"""
 scalar DateTime

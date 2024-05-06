@@ -103,6 +103,10 @@ const getCourseBySlug = async (slug: string) => {
 				lessonsTitles: {
 					text: true,
 				},
+				startDate: true,
+				endDate: true,
+				lessonsNumber: true,
+				projectsNumber: true,
 			},
 
 			// Target audience

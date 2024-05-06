@@ -6,8 +6,6 @@
 	import ChevronRight from "~icons/lucide/chevron-right";
 	import type { PageData } from "../../../course/[slug]/$types";
 
-	export let start = "Feb 5";
-	export let end = "Feb 11";
 	export let modules: PageData["course"]["courseModules"];
 
 	type Module = (typeof modules)[number];
@@ -33,6 +31,13 @@
 		id: "",
 		value: "",
 	};
+
+	const getReadableDate = (date: Date) => {
+		return Intl.DateTimeFormat("en-US", {
+			day: "numeric",
+			month: "short",
+		}).format(date);
+	};
 </script>
 
 {#each Object.entries(groupedModules) as [week, modules]}
@@ -40,7 +45,11 @@
 		<Badge>WEEK {week}</Badge>
 
 		<div class="flex-1 mx-4 border-gray-400 border-t border-dashed" />
-		<span class="text-xs text-gray-500 uppercase">{start} — {end}</span>
+		<span class="text-xs text-gray-500 uppercase">
+			{getReadableDate(new Date(modules[0].startDate))} — {getReadableDate(
+				new Date(modules[0].endDate)
+			)}
+		</span>
 	</div>
 
 	<div>
@@ -85,7 +94,10 @@
 								<button
 									class="flex-s-start gap-1 text-gray-600 px-2.5 py-1 border border-gray-3 rounded-full"
 								>
-									<span class="text-[10px]">5 LESSONS · 1 PROJECT</span>
+									<span class="text-[10px]"
+										>{module.lessonsNumber} LESSON{module.lessonsNumber > 1 ? "S" : ""} · {module.projectsNumber}
+										PROJECT{module.projectsNumber > 1 ? "S" : ""}</span
+									>
 									<div class="transition duration-150" class:rotate-90={isOpen}>
 										<ChevronRight />
 									</div>

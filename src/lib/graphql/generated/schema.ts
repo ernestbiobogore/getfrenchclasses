@@ -7,6 +7,7 @@ export type Scalars = {
     Boolean: boolean,
     BooleanType: any,
     CustomData: any,
+    Date: any,
     DateTime: any,
     Float: number,
     FloatType: number,
@@ -416,8 +417,12 @@ export interface CourseModuleBlockRecord {
     _unpublishingScheduledAt: (Scalars['DateTime'] | null)
     _updatedAt: Scalars['DateTime']
     description: (CourseModuleBlockModelDescriptionField | null)
+    endDate: Scalars['Date']
     id: Scalars['ItemId']
+    lessonsNumber: Scalars['IntType']
     lessonsTitles: PlainTextBlockRecord[]
+    projectsNumber: Scalars['IntType']
+    startDate: Scalars['Date']
     title: Scalars['String']
     week: Scalars['IntType']
     __typename: 'CourseModuleBlockRecord'
@@ -2513,8 +2518,12 @@ export interface CourseModuleBlockRecordGenqlSelection{
     _unpublishingScheduledAt?: boolean | number
     _updatedAt?: boolean | number
     description?: CourseModuleBlockModelDescriptionFieldGenqlSelection
+    endDate?: boolean | number
     id?: boolean | number
+    lessonsNumber?: boolean | number
     lessonsTitles?: PlainTextBlockRecordGenqlSelection
+    projectsNumber?: boolean | number
+    startDate?: boolean | number
     title?: boolean | number
     week?: boolean | number
     __typename?: boolean | number
