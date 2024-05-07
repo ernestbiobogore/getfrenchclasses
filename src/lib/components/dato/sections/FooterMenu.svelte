@@ -22,7 +22,7 @@
 				<a href="/" class="font-bold">Get French Classes</a>
 
 				{#if siteConfig?.companyDescription}
-					<StructuredText richText={siteConfig.companyDescription} class="text-sm sm:w-4/12" />
+					<StructuredText richText={siteConfig.companyDescription} class="text-sm sm:w-6/12" />
 				{/if}
 
 				{#if siteConfig?.socialLinks && siteConfig.socialLinks.length > 0}
