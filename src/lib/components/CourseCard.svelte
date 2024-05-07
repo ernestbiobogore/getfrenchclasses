@@ -51,12 +51,24 @@
 
 	<div class="text-2xl mt-auto">$ {updatedCourse.price} USD</div>
 
-	<div class="flex justify-between">
+	<div class="flex flex-col gap-4">
 		<Button href="/course/{updatedCourse.slug}" variant="brand">Read More</Button>
 
-		<div class="flex items-center gap-2">
-			<AvatarsGroup avatars={getSampleAvatars()} loading="lazy" />
-			<p class="text-xs">{updatedCourse.numberOfEnrolledStudents} enrolled.</p>
+		<div class="flex items-center justify-center">
+			{#if updatedCourse.enrolledStudents?.images && updatedCourse.enrolledStudents.images.length > 0}
+				{@const avatars = updatedCourse.enrolledStudents.images.map(image => ({
+					src: String(image.responsiveImage?.src),
+					alt: String(image.responsiveImage?.alt),
+				}))}
+				<div class="flex items-center gap-1">
+					<AvatarsGroup {avatars} size={30} />
+
+					<p class="text-xs">
+						{updatedCourse.enrolledStudents.description ||
+							updatedCourse.numberOfEnrolledStudents + "enrolled."}
+					</p>
+				</div>
+			{/if}
 		</div>
 	</div>
 </div>

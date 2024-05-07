@@ -195,6 +195,12 @@ const courseMetaFields = {
 	numberOfEnrolledStudents: true,
 	level: true,
 	price: true,
+	enrolledStudents: {
+		images: {
+			responsiveImage: responsiveImageFieldSelection,
+		},
+		description: true,
+	},
 	seo: {
 		seoBlock: {
 			title: true,

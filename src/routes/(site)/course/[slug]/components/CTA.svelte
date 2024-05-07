@@ -2,7 +2,7 @@
 	import { enhance } from "$app/forms";
 	import Video from "$dato/blocks/Video.svelte";
 	import AvatarsGroup from "$lib/components/AvatarsGroup.svelte";
-	import { cn, getSampleAvatars } from "$lib/utils";
+	import { cn } from "$lib/utils";
 	import { Button } from "$shadcn/button";
 	import * as Card from "$shadcn/card";
 	import { Input } from "$shadcn/input";
