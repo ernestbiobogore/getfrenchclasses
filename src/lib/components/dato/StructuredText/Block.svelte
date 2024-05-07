@@ -1,5 +1,6 @@
 <script lang="ts" context="module">
 	import { cn } from "$lib/utils";
+	import * as Table from "$shadcn/table";
 
 	const getNoteClass = (type: string) => {
 		return cn("border-l-4 p-4", {
@@ -102,4 +103,29 @@
 			{/each}
 		</div>
 	{/if}
+{/if}
+
+{#if block.__typename === "TableBlockRecord"}
+	<Table.Root class="border-2 border-gray-500">
+		{#if block.description}
+			<Table.Caption>{block.description}</Table.Caption>
+		{/if}
+
+		<Table.Header class="bg-brand-primary">
+			<Table.Row>
+				{#each block.table.columns as column}
+					<Table.Head class="font-bold text-white">{column}</Table.Head>
+				{/each}
+			</Table.Row>
+		</Table.Header>
+		<Table.Body>
+			{#each block.table.data as row}
+				<Table.Row class="border-b-gray-500">
+					{#each block.table.columns as column}
+						<Table.Cell>{row[column]}</Table.Cell>
+					{/each}
+				</Table.Row>
+			{/each}
+		</Table.Body>
+	</Table.Root>
 {/if}

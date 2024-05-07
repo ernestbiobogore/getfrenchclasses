@@ -386,6 +386,10 @@ const richTextBlockSelection = {
 			},
 		},
 		on_CardBlockRecord: cardBlockFields,
+		on_TableBlockRecord: {
+			table: true,
+			description: true,
+		},
 	},
 } satisfies RichTextBlockModelRichTextFieldGenqlSelection;
 
@@ -411,6 +415,5 @@ export {
 	testimonialSectionSelection,
 	tutorMetaFields,
 	tutorsByCitySectionSelection,
-	videoBlockFields
+	videoBlockFields,
 };
-

@@ -5289,7 +5289,7 @@ type ResponsiveImage {
   width: IntType!
 }
 
-union RichTextBlockModelRichTextBlocksField = CardBlockRecord | CoursesBlockRecord | ImageBlockRecord | NoteBlockRecord | TestimonialsListBlockRecord | TutorsBlockRecord
+union RichTextBlockModelRichTextBlocksField = CardBlockRecord | CoursesBlockRecord | ImageBlockRecord | NoteBlockRecord | TableBlockRecord | TestimonialsListBlockRecord | TutorsBlockRecord
 
 type RichTextBlockModelRichTextField {
   blocks: [RichTextBlockModelRichTextBlocksField!]!
@@ -5615,6 +5615,31 @@ input StructuredTextFilter {
   Filter records with the specified field defined (i.e. with any value) or not [DEPRECATED]
   """
   exists: BooleanType
+}
+
+"""Block of type Table Block (table_block)"""
+type TableBlockRecord implements RecordInterface {
+  _createdAt: DateTime!
+
+  """Editing URL"""
+  _editingUrl: String
+  _firstPublishedAt: DateTime
+  _isValid: BooleanType!
+  _modelApiKey: String!
+  _publicationScheduledAt: DateTime
+  _publishedAt: DateTime
+
+  """Generates SEO and Social card meta tags to be used in your frontend"""
+  _seoMetaTags(
+    """The locale to use to fetch the field's content"""
+    locale: SiteLocale
+  ): [Tag!]!
+  _status: ItemStatus!
+  _unpublishingScheduledAt: DateTime
+  _updatedAt: DateTime!
+  description: String
+  id: ItemId!
+  table: JsonField!
 }
 
 type Tag {
