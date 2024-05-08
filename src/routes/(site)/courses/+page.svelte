@@ -22,7 +22,7 @@
 	$: seo = modularPage.seo?.seoBlock;
 	$: seoData = {
 		url: $page.url.href,
-		title: seo?.title || data.modularPage.title,
+		title: (seo?.title || data.modularPage.title) + " - GetFrenchClasses",
 		description: seo?.description || data.modularPage.title,
 		image: seo?.image
 			? {
