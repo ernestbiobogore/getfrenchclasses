@@ -9,45 +9,47 @@
 
 	export let record: HeroSectionRecord;
 
-	let heroImages = record.heroImages;
+	$: heroImages = record.heroImages;
 </script>
 
 <section class="relative z-1 max-w-[1500px] mx-auto">
 	<!-- IMAGES ON EACH END OF THE HERO SECTION -->
-	<div class="max-lg:hidden absolute inset-0 flex-s-between">
-		<div class="grid-areas grid justify-items-center gap-x-8 grid-cols-2">
-			<div class="flex-s-center">
-				<ImageWithCallout
-					responsiveImage={heroImages[0].image?.responsiveImage}
-					imageText={heroImages[0].text}
-					class="bottom-full -translate-x-1/2 left-1/2 text-center"
-				/>
-			</div>
-			<div></div>
+	{#if heroImages && heroImages.length > 0}
+		<div class="max-lg:hidden absolute inset-0 flex-s-between">
+			<div class="grid-areas grid justify-items-center gap-x-8 grid-cols-2">
+				<div class="flex-s-center">
+					<ImageWithCallout
+						responsiveImage={heroImages[0].image?.responsiveImage}
+						imageText={heroImages[0].text}
+						class="bottom-full -translate-x-1/2 left-1/2 text-center"
+					/>
+				</div>
+				<div></div>
 
-			<ImageWithCallout
-				responsiveImage={heroImages[1].image?.responsiveImage}
-				imageText={heroImages[1].text}
-				class="bottom-5 -translate-x-[80%] text-end"
-			/>
-		</div>
-
-		<div class="grid-areas grid justify-items-center gap-x-8 grid-cols-2">
-			<div class="flex-s-center">
 				<ImageWithCallout
-					responsiveImage={heroImages[2].image?.responsiveImage}
-					imageText={heroImages[2].text}
-					class="bottom-full -translate-x-1/3 left-1/2 text-center"
+					responsiveImage={heroImages[1].image?.responsiveImage}
+					imageText={heroImages[1].text}
+					class="bottom-5 -translate-x-[80%] text-end"
 				/>
 			</div>
 
-			<ImageWithCallout
-				responsiveImage={heroImages[3].image?.responsiveImage}
-				imageText={heroImages[3].text}
-				class="bottom-5 translate-x-[60%]"
-			/>
+			<div class="grid-areas grid justify-items-center gap-x-8 grid-cols-2">
+				<div class="flex-s-center">
+					<ImageWithCallout
+						responsiveImage={heroImages[2].image?.responsiveImage}
+						imageText={heroImages[2].text}
+						class="bottom-full -translate-x-1/3 left-1/2 text-center"
+					/>
+				</div>
+
+				<ImageWithCallout
+					responsiveImage={heroImages[3].image?.responsiveImage}
+					imageText={heroImages[3].text}
+					class="bottom-5 translate-x-[60%]"
+				/>
+			</div>
 		</div>
-	</div>
+	{/if}
 
 	<section class="px-3 py-20 container-base relative z-1">
 		<div class="relative w-full mx-auto space-y-6 md:max-w-3xl">

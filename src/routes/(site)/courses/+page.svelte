@@ -3,10 +3,12 @@
 	import CourseCard from "$lib/components/CourseCard.svelte";
 	import CustomMultiselect from "$lib/components/CustomMultiselect.svelte";
 	import CourseSectionDivider from "./CourseSectionDivider.svelte";
-	import { Button } from "$shadcn/button";
+	import { page } from "$app/stores";
+	import SvelteSeo from "svelte-seo";
+	import ModularPage from "$dato/sections/ModularPage.svelte";
 
 	export let data;
-	$: ({ allCoursesMetas } = data);
+	$: ({ allCoursesMetas, modularPage } = data);
 
 	const filterOptions = {
 		levels: [
@@ -16,22 +18,39 @@
 		],
 		bundles: [{ value: "starter", label: "Starter" }],
 	};
+
+	$: seo = modularPage.seo?.seoBlock;
+	$: seoData = {
+		url: $page.url.href,
+		title: seo?.title || data.modularPage.title,
+		description: seo?.description || data.modularPage.title,
+		image: seo?.image
+			? {
+					url: seo?.image?.responsiveImage?.src || seo?.image?.url,
+					alt: seo?.image?.alt || data.modularPage.title,
+					width: 1200,
+					height: 630,
+				}
+			: null,
+	};
 </script>
 
-<svelte:head>
-	<title>All our Courses - GetFrenchClasses</title>
-</svelte:head>
+<SvelteSeo
+	title={seoData.title}
+	description={seoData.description}
+	openGraph={{
+		title: seoData.title,
+		description: seoData.description,
+		url: seoData.url,
+		type: "website",
+		images: seoData.image ? [seoData.image] : [],
+		site_name: "Get French Classes",
+	}}
+/>
 
-<section class="container-base p-3 space-y-5 md:py-20 md:text-center">
-	<h1>
-		Courses to guide to you to a <br /> stronger financial future.
-	</h1>
-	<p>Explore our comprehensive range of financial courses</p>
-
-	<div class="max-w-3xl mx-auto">
-		<Button href="/" variant="brand">Take a language assessment course</Button>
-	</div>
-</section>
+{#if data.modularPage}
+	<ModularPage modularPage={data.modularPage} />
+{/if}
 
 <section class="container-base pt-10">
 	<CustomMultiselect placeholder="Filter by Level or Bundle" options={filterOptions} />
