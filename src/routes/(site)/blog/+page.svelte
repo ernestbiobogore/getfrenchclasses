@@ -15,6 +15,8 @@
 	import { BLOG_JUMPER_LENGTH } from "$lib/constants";
 	import { Button } from "$shadcn/button";
 	import PostCard from "./PostCard.svelte";
+	import ModularPage from "$dato/sections/ModularPage.svelte";
+	import Head from "$lib/components/seo/Head.svelte";
 
 	export let data;
 
@@ -22,7 +24,6 @@
 	$: featuredPosts = filterPosts(currentFilter, data.featuredPosts);
 	$: latestPosts = filterPosts(currentFilter, data.allPosts);
 
-	
 	$: uniqueCategories = Array.from(
 		new Map(
 			data.allPosts.flatMap(item => item.category).map(category => [category?.slug, category])
@@ -41,16 +42,17 @@
 	};
 </script>
 
+<Head seo={data.modularPage.seo} title={data.modularPage.title} />
+
+{#if data.modularPage}
+	<ModularPage modularPage={data.modularPage} />
+{/if}
+
 <svelte:head>
 	<title>Blog - GetFrenchClasses</title>
 </svelte:head>
 
 <section class="p-3 space-y-5 container-base md:py-20 md:text-center">
-	<h1><button on:click={() => (currentFilter = "all")}>Blog</button></h1>
-	<p class="md:text-xl max-w-[46ch] md:mx-auto">
-		Our blog covers writing tips, productivity hacks, and lessons learned on our startup journey.
-	</p>
-
 	<div class="py-3 overflow-y-auto flex-s-start md:flex-s-center">
 		<Button
 			variant="outline"

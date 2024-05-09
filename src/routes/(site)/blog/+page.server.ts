@@ -1,8 +1,15 @@
 import { BLOG_JUMPER_LENGTH } from "$lib/constants";
+import { getSingleModularPage } from "$lib/graphql/queries/modular";
 import { getAllBlogPosts, getBlogPostsCount } from "$lib/graphql/queries/posts";
-import { redirect } from "@sveltejs/kit";
+import { error, redirect } from "@sveltejs/kit";
 
 export async function load({ url }) {
+	const modularPage = await getSingleModularPage("blog");
+
+	if (!modularPage) {
+		error(404, "Page not found");
+	}
+
 	const count = await getBlogPostsCount({ featured: false });
 
 	const allNonFeaturedPostsCount = count === 0 ? 1 : count;
@@ -19,5 +26,6 @@ export async function load({ url }) {
 		allPosts: await getAllBlogPosts({ first }),
 		featuredPosts: await getAllBlogPosts({ featured: true }),
 		allNonFeaturedPostsCount,
+		modularPage,
 	};
 }
