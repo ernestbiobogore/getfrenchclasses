@@ -34,6 +34,7 @@
 	import CustomMultiselect, {
 		type SelectChangeHandler,
 	} from "$lib/components/CustomMultiselect.svelte";
+	import Head from "$lib/components/seo/Head.svelte";
 	import { Button } from "$shadcn/button";
 	import * as Card from "$shadcn/card";
 	import type { Selected } from "bits-ui";
@@ -83,20 +84,11 @@
 	};
 </script>
 
-<svelte:head>
-	<title>All our tutors - GetFrenchClasses</title>
-</svelte:head>
+<Head seo={data.modularPage.seo} title={data.modularPage.title} />
 
-<section class="p-3 space-y-5 container-base md:py-20 md:text-center">
-	<h1>
-		French Tutors to guide to you to a <br /> better understanding of the language.
-	</h1>
-	<p>Explore our comprehensive range of French tutors</p>
-
-	<div class="max-w-3xl mx-auto">
-		<Button href="/" variant="brand">Take a language assessment course</Button>
-	</div>
-</section>
+{#if data.modularPage}
+	<ModularPage modularPage={data.modularPage} />
+{/if}
 
 <section class="pt-10 container-base">
 	<CustomMultiselect
@@ -115,39 +107,3 @@
 		{/each}
 	</div>
 </section>
-
-<!-- HOW IT WORKS -->
-<section class="py-10 container-base">
-	<h2 class="text-center">How it works</h2>
-	<p class="text-center mx-auto max-w-[46ch] md:max-w-[64ch]">
-		Lorem ipsum, dolor sit amet consectetur adipisicing elit. Inventore rerum sapiente nulla quasi
-		assumenda.
-	</p>
-
-	<div class="grid gap-4 mt-10 sm:grid-cols-2 md:grid-cols-3">
-		{#each [...Array(3)] as _}
-			<Card.Root class="bg-transparent border-none shadow-none">
-				<img
-					class="object-cover w-full h-48 rounded-lg"
-					height="200"
-					src="/placeholder.svg"
-					style="aspect-ratio: 300/200; object-fit: cover;"
-					alt=""
-				/>
-				<Card.Header class="px-0 py-4">
-					<Card.Title>Find your French tutor</Card.Title>
-				</Card.Header>
-				<Card.Content class="px-0 py-0">
-					<p class="text-sm text-gray-500 dark:text-gray-400">
-						Consult tutor profiles freely and contact your ideal tutor according to your needs
-						(prices, qualifications, reviews, home or webcam lessons)
-					</p>
-				</Card.Content>
-			</Card.Root>
-		{/each}
-	</div>
-</section>
-
-{#if data.modularPage}
-	<ModularPage modularPage={data.modularPage} />
-{/if}
