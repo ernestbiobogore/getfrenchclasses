@@ -1,11 +1,10 @@
 <script>
 	import { enhance } from "$app/forms";
-	import { page } from "$app/stores";
 	import ModularPage from "$dato/sections/ModularPage.svelte";
+	import Head from "$lib/components/seo/Head.svelte";
 	import { Button } from "$shadcn/button";
 	import { Input } from "$shadcn/input";
 	import { Textarea } from "$shadcn/textarea";
-	import SvelteSeo from "svelte-seo";
 	import { toast } from "svelte-sonner";
 	import LoaderCircle from "~icons/lucide/loader-circle";
 	import Mail from "~icons/lucide/mail";
@@ -14,7 +13,6 @@
 
 	export let data;
 	export let form;
-
 
 	let running = false;
 
@@ -27,40 +25,9 @@
 	$: if (form?.success) {
 		toast.success(form.message);
 	}
-
-	$: seo = data.modularPage.seo?.seoBlock;
-	$: seoData = {
-		url: $page.url.href,
-		title: seo?.title || data.modularPage.title,
-		description: seo?.description || data.modularPage.title,
-		image: {
-			url: seo?.image?.responsiveImage?.src || seo?.image?.url,
-			alt: seo?.image?.alt || data.modularPage.title,
-			width: 1200,
-			height: 630,
-		},
-	};
 </script>
 
-<SvelteSeo
-	title={seoData.title}
-	description={seoData.description}
-	openGraph={{
-		title: seoData.title,
-		description: seoData.description,
-		url: seoData.url,
-		type: "website",
-		images: [
-			{
-				url: seoData.image.url,
-				width: seoData.image.width,
-				height: seoData.image.height,
-				alt: seoData.image.alt,
-			},
-		],
-		site_name: "Get French Classes",
-	}}
-/>
+<Head seo={data.modularPage.seo} title={data.modularPage.title} />
 
 <section class="py-12 text-center">
 	<h1>Here to help you.</h1>

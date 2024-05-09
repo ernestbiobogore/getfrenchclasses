@@ -3,9 +3,8 @@
 	import CourseCard from "$lib/components/CourseCard.svelte";
 	import CustomMultiselect from "$lib/components/CustomMultiselect.svelte";
 	import CourseSectionDivider from "./CourseSectionDivider.svelte";
-	import { page } from "$app/stores";
-	import SvelteSeo from "svelte-seo";
 	import ModularPage from "$dato/sections/ModularPage.svelte";
+	import Head from "$lib/components/seo/Head.svelte";
 
 	export let data;
 	$: ({ allCoursesMetas, modularPage } = data);
@@ -18,35 +17,9 @@
 		],
 		bundles: [{ value: "starter", label: "Starter" }],
 	};
-
-	$: seo = modularPage.seo?.seoBlock;
-	$: seoData = {
-		url: $page.url.href,
-		title: (seo?.title || data.modularPage.title) + " - GetFrenchClasses",
-		description: seo?.description || data.modularPage.title,
-		image: seo?.image
-			? {
-					url: seo?.image?.responsiveImage?.src || seo?.image?.url,
-					alt: seo?.image?.alt || data.modularPage.title,
-					width: 1200,
-					height: 630,
-				}
-			: null,
-	};
 </script>
 
-<SvelteSeo
-	title={seoData.title}
-	description={seoData.description}
-	openGraph={{
-		title: seoData.title,
-		description: seoData.description,
-		url: seoData.url,
-		type: "website",
-		images: seoData.image ? [seoData.image] : [],
-		site_name: "Get French Classes",
-	}}
-/>
+<Head seo={modularPage.seo} title={data.modularPage.title} />
 
 {#if data.modularPage}
 	<ModularPage modularPage={data.modularPage} />
