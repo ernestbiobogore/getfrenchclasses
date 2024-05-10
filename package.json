@@ -45,7 +45,6 @@
 	"dependencies": {
 		"@fontsource-variable/inter": "^5.0.16",
 		"@genql/runtime": "^2.10.0",
-		"@mux/mux-player": "^2.3.3",
 		"@unpic/svelte": "^0.0.53",
 		"bits-ui": "^0.21.3",
 		"clsx": "^2.1.0",

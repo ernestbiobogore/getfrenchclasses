@@ -11,9 +11,6 @@ dependencies:
   '@genql/runtime':
     specifier: ^2.10.0
     version: 2.10.0(graphql@16.8.1)
-  '@mux/mux-player':
-    specifier: ^2.3.3
-    version: 2.3.3
   '@unpic/svelte':
     specifier: ^0.0.53
     version: 0.0.53(svelte@4.2.8)
@@ -606,30 +603,6 @@ packages:
       nanoid: 5.0.7
       svelte: 4.2.8
     dev: true
-
-  /@mux/mux-player@2.3.3:
-    resolution: {integrity: sha512-KBg44zL0iAGiiDx4hnY/VHcUDXXlKQqzkFIkUw1tjnyDYOvoT03dLyaZrcmRPRVCQ1RF4zAGujn1onJc4SktvA==}
-    dependencies:
-      '@mux/mux-video': 0.17.3
-      '@mux/playback-core': 0.22.2
-      media-chrome: 2.2.5
-    dev: false
-
-  /@mux/mux-video@0.17.3:
-    resolution: {integrity: sha512-KlbT0KCmIMjchk+/sV3OowWqqbGzAgSrtZLqFQnnWr/dqK5K72ixgIXpXiXxPda/Qoq2d2yuD6p1rN06mgf0LQ==}
-    dependencies:
-      '@mux/playback-core': 0.22.2
-      castable-video: 1.0.6
-      custom-media-element: 1.2.3
-      media-tracks: 0.3.0
-    dev: false
-
-  /@mux/playback-core@0.22.2:
-    resolution: {integrity: sha512-HCM4ASN4SQyWS+W0+Ee02RyfYu5AV11SmCZTFU78JWTaNsoiBHmK9D/BsT8A9iheEa6KS+0nNcnlCB3V6ivyZw==}
-    dependencies:
-      hls.js: 1.4.14
-      mux-embed: 4.30.0
-    dev: false
 
   /@nodelib/fs.scandir@2.1.5:
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
@@ -1381,12 +1354,6 @@ packages:
     resolution: {integrity: sha512-6Xi7aHHzKwxZsem4mCKoqP6YwUG3HamaHHAlz1hTNQPCqXhARFpSXnkC9TWlahHY5CG6hSL5XexNjxK8irVErg==}
     dev: false
 
-  /castable-video@1.0.6:
-    resolution: {integrity: sha512-Ykw2uL4ZQnqX0j9KF9ksbDpyc8I53mFMswCKW9yV5TrwpWkdNqRHLlcU85W30BIw61fgDjgm0Xh5G0rbcmv23g==}
-    dependencies:
-      custom-media-element: 1.2.3
-    dev: false
-
   /chalk@4.1.2:
     resolution: {integrity: sha512-oKnbhFyRIXpUuez8iBMmyEa4nbj4IOQyuhc/wy9kY7/WVPcwIO9VA668Pu8RkO7+0G76SLROeyw9CpQ061i4mA==}
     engines: {node: '>=10'}
@@ -1525,10 +1492,6 @@ packages:
     dependencies:
       css-tree: 2.2.1
     dev: true
-
-  /custom-media-element@1.2.3:
-    resolution: {integrity: sha512-xr9Hbrslkjm1fapJP5hL98pySeZmNepBSefQS/XTxynamqPTfRBK5MnhReMOiAj8xvJApVPrVnlYxIrknay8jg==}
-    dev: false
 
   /datocms-structured-text-utils@3.0.0:
     resolution: {integrity: sha512-1mo78UD4Sz+fhiwBMUqNls/jgm+33/MxZe5eHYjKuklSdQPE7KslIWqD3hWi6W641rpeU0rEW+RFwQlduqEvIQ==}
@@ -2123,10 +2086,6 @@ packages:
     dependencies:
       function-bind: 1.1.2
 
-  /hls.js@1.4.14:
-    resolution: {integrity: sha512-UppQjyvPVclg+6t2KY/Rv03h0+bA5u6zwqVoz4LAC/L0fgYmIaCD7ZCrwe8WI1Gv01be1XL0QFsRbSdIHV/Wbw==}
-    dev: false
-
   /html-to-text@9.0.5:
     resolution: {integrity: sha512-qY60FjREgVZL03vJU6IfMV4GDjGBIoOyvuFdpBDIX9yTlDw0TjxVBQp+P8NvpdIXNJvfWBTNul7fsAQJq2FNpg==}
     engines: {node: '>=14'}
@@ -2434,14 +2393,6 @@ packages:
   /mdn-data@2.0.30:
     resolution: {integrity: sha512-GaqWWShW4kv/G9IEucWScBx9G1/vsFZZJUO+tD26M8J8z3Kw5RDQjaoZe03YAClgeS/SWPOcb4nkFBTEi5DUEA==}
 
-  /media-chrome@2.2.5:
-    resolution: {integrity: sha512-59peAYFlL9ZlFVkKJmIgIDNMkQr4nauYTwIQhLg3khmGfO6/25VNEI8Yn0aUMLb5IFB2gzjcPmfu1ktfOhQ8Ag==}
-    dev: false
-
-  /media-tracks@0.3.0:
-    resolution: {integrity: sha512-kicD8eOFwe6nD7jn7iM/0yuLzWuo6abWHURYwY7NhxL1dBif+lt0on4rLTs6VhKwAEE/BjT3wr+0vn1w8SBpag==}
-    dev: false
-
   /merge-stream@2.0.0:
     resolution: {integrity: sha512-abv/qOcuPfk3URPfDzmZU1LKmuw8kT+0nIHvKrKgFrwifol/doWcdA4ZqsWQ8ENrFKkd67Mfpo/LovbIUsbt3w==}
     dev: true
@@ -2566,10 +2517,6 @@ packages:
   /ms@2.1.2:
     resolution: {integrity: sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==}
     dev: true
-
-  /mux-embed@4.30.0:
-    resolution: {integrity: sha512-XAgAp4CEvsiZL26GbruzeG1g33OWyrzuskDMavXUxDufTxS0/AxAhwoTTRqEzEJS9vnZa/X9R2GV3xRX1XMp2w==}
-    dev: false
 
   /mz@2.7.0:
     resolution: {integrity: sha512-z81GNO7nnYMEhrGh9LeymoE4+Yr0Wn5McHIZMK5cfQCl+NDX08sCZgUc9/6MHni9IWuFLm1Z3HTCXu2z9fN62Q==}
