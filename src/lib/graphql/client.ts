@@ -14,7 +14,6 @@ const client = createClient({
 		Authorization: `Bearer ${DATOCMS_API_KEY}`,
 		"X-Environment": DATOCMS_ENVIRONMENT_NAME,
 		"X-Exclude-Invalid": "true",
-		"x-graphql-client-name": environment,
 	},
 });
 
