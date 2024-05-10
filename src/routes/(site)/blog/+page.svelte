@@ -1,13 +1,13 @@
 <script lang="ts" context="module">
 	import type { PageData } from "../blog/$types";
 
-	const filterPosts = (currentFilter: string, posts: PageData["allPosts"]) => {
-		if (currentFilter === "all") {
-			return posts;
-		} else {
-			return posts.filter(post => post.category?.slug === currentFilter);
-		}
-	};
+	// const filterPosts = (currentFilter: string, posts: PageData["allPosts"]) => {
+	// 	if (currentFilter === "all") {
+	// 		return posts;
+	// 	} else {
+	// 		return posts.filter(post => post.category?.slug === currentFilter);
+	// 	}
+	// };
 </script>
 
 <script lang="ts">
@@ -19,27 +19,29 @@
 	import Head from "$lib/components/seo/Head.svelte";
 
 	export let data;
+	$: ({ featuredPosts, nonFeaturedPosts } = data);
 
 	let currentFilter = "all" as string;
-	$: featuredPosts = filterPosts(currentFilter, data.featuredPosts);
-	$: latestPosts = filterPosts(currentFilter, data.allPosts);
+	// $: featuredPosts = filterPosts(currentFilter, data.featuredPosts);
+	// $: latestPosts = filterPosts(currentFilter, data.allPosts);
+	// $: console.log('latestPosts', latestPosts);
 
-	$: uniqueCategories = Array.from(
-		new Map(
-			data.allPosts.flatMap(item => item.category).map(category => [category?.slug, category])
-		).values()
-	);
+	// $: uniqueCategories = Array.from(
+	// 	new Map(
+	// 		data.allPosts.flatMap(item => item.category).map(category => [category?.slug, category])
+	// 	).values()
+	// );
 
-	const loadMorePosts = () => {
-		const currentFirst = data.first;
-		const newFirst = currentFirst + BLOG_JUMPER_LENGTH;
-		const finalFirst =
-			newFirst > data.allNonFeaturedPostsCount ? data.allNonFeaturedPostsCount : newFirst;
+	// const loadMorePosts = () => {
+	// 	const currentFirst = data.first;
+	// 	const newFirst = currentFirst + BLOG_JUMPER_LENGTH;
+	// 	const finalFirst =
+	// 		newFirst > data.allNonFeaturedPostsCount ? data.allNonFeaturedPostsCount : newFirst;
 
-		goto(`/blog?first=${finalFirst}`, {
-			noScroll: true,
-		});
-	};
+	// 	goto(`/blog?first=${finalFirst}`, {
+	// 		noScroll: true,
+	// 	});
+	// };
 </script>
 
 <Head seo={data.modularPage.seo} title={data.modularPage.title} />
@@ -52,7 +54,7 @@
 	<title>Blog - GetFrenchClasses</title>
 </svelte:head>
 
-<section class="p-3 space-y-5 container-base md:py-20 md:text-center">
+<!-- <section class="p-3 space-y-5 container-base md:text-center">
 	<div class="py-3 overflow-y-auto flex-s-start md:flex-s-center">
 		<Button
 			variant="outline"
@@ -79,7 +81,7 @@
 	</div>
 </section>
 
-<hr class="max-md:mt-10" />
+<hr class="max-md:mt-10" /> -->
 
 <div class="py-10 container-base">
 	<h2 class="text-center">Featured Blog Posts</h2>
@@ -87,7 +89,7 @@
 </div>
 
 {#if featuredPosts.length === 0}
-	<p class="text-center">No posts found</p>
+	<p class="text-center">No featured posts found</p>
 {:else}
 	<div class="py-5 container-base">
 		<div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
@@ -103,22 +105,22 @@
 	<p class="text-center">Discover some of our most recent articles</p>
 </div>
 
-{#if latestPosts.length === 0}
+{#if nonFeaturedPosts.length === 0}
 	<p class="text-center">No posts found</p>
 {:else}
 	<div class="py-5 container-base">
 		<div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-			{#each latestPosts as post (post.id)}
+			{#each nonFeaturedPosts as post (post.id)}
 				<PostCard {post} />
 			{/each}
 		</div>
 	</div>
 {/if}
 
-{#if latestPosts.length >= BLOG_JUMPER_LENGTH && data.allNonFeaturedPostsCount > data.first}
+<!-- {#if latestPosts.length >= BLOG_JUMPER_LENGTH && data.allNonFeaturedPostsCount > data.first}
 	<div class="flex justify-center py-20">
 		<Button class="bg-indigo-600 hover:bg-indigo-700" on:click={loadMorePosts}
 			>Load More Posts</Button
 		>
 	</div>
-{/if}
+{/if} -->

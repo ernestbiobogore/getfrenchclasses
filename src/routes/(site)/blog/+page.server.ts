@@ -10,22 +10,25 @@ export async function load({ url }) {
 		error(404, "Page not found");
 	}
 
-	const count = await getBlogPostsCount({ featured: false });
+	// const count = await getBlogPostsCount({ featured: false });
 
-	const allNonFeaturedPostsCount = count === 0 ? 1 : count;
-	const firstParam = url.searchParams.get("first") || BLOG_JUMPER_LENGTH;
+	// const allNonFeaturedPostsCount = count === 0 ? 1 : count;
+	// const firstParam = url.searchParams.get("first") || BLOG_JUMPER_LENGTH;
 
-	if (Number(firstParam) > allNonFeaturedPostsCount) {
-		redirect(301, `/blog?first=${allNonFeaturedPostsCount}`);
-	}
+	// if (Number(firstParam) > allNonFeaturedPostsCount) {
+	// 	redirect(301, `/blog?first=${allNonFeaturedPostsCount}`);
+	// }
 
-	const first = Number(firstParam);
+	// const first = Number(firstParam);
+
+	const featuredPosts = await getAllBlogPosts({ featured: true });
+	const nonFeaturedPosts = await getAllBlogPosts({ featured: false });
 
 	return {
-		first,
-		allPosts: await getAllBlogPosts({ first }),
-		featuredPosts: await getAllBlogPosts({ featured: true }),
-		allNonFeaturedPostsCount,
+		// first,
+		nonFeaturedPosts,
+		featuredPosts,
+		// allNonFeaturedPostsCount,
 		modularPage,
 	};
 }
