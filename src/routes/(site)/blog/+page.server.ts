@@ -1,27 +1,25 @@
 import { getSingleModularPage } from "$lib/graphql/queries/modular";
-import { getBlogPosts } from "$lib/graphql/queries/posts";
+import {
+	getBlogPosts,
+	getCategoriesWithPosts,
+	getCategoryBySlug,
+} from "$lib/graphql/queries/posts";
 import { error } from "@sveltejs/kit";
 
-export async function load() {
+export async function load({ url }) {
 	const modularPage = await getSingleModularPage("blog");
 
 	if (!modularPage) {
 		error(404, "Page not found");
 	}
 
-	// const count = await getBlogPostsCount({ featured: false });
+	const categoryParam = url.searchParams.get("category");
+	const categoryId = categoryParam ? await getCategoryBySlug(categoryParam) : undefined;
 
-	// const allNonFeaturedPostsCount = count === 0 ? 1 : count;
-	// const firstParam = url.searchParams.get("first") || BLOG_JUMPER_LENGTH;
+	const featuredPosts = await getBlogPosts({ featured: true, categoryId });
+	const nonFeaturedPosts = await getBlogPosts({ featured: false, categoryId });
 
-	// if (Number(firstParam) > allNonFeaturedPostsCount) {
-	// 	redirect(301, `/blog?first=${allNonFeaturedPostsCount}`);
-	// }
-
-	// const first = Number(firstParam);
-
-	const featuredPosts = await getBlogPosts({ featured: true });
-	const nonFeaturedPosts = await getBlogPosts({ featured: false });
+	const categoriesWithPosts = await getCategoriesWithPosts();
 
 	return {
 		// first,
@@ -29,5 +27,6 @@ export async function load() {
 		featuredPosts,
 		// allNonFeaturedPostsCount,
 		modularPage,
+		categoriesWithPosts,
 	};
 }

@@ -45,12 +45,44 @@ const getBlogPostsCount = async ({ featured }: { featured: boolean }) => {
 	return _allPostsMeta.count;
 };
 
+const getCategoriesWithPosts = async () => {
+	const { allCategories } = await client.query({
+		allCategories: {
+			slug: true,
+			name: true,
+			_allReferencingPostsMeta: {
+				count: true,
+			},
+		},
+	});
+
+	return allCategories.filter(category => category._allReferencingPostsMeta.count > 0);
+};
+
+const getCategoryBySlug = async (slug: string) => {
+	const { category } = await client.query({
+		category: {
+			__args: {
+				filter: {
+					slug: {
+						eq: slug,
+					},
+				},
+			},
+			id: true,
+		},
+	});
+
+	return category?.id;
+};
+
 type GetBlogPostsParams = {
 	first?: number;
 	skip?: number;
 	featured?: boolean;
+	categoryId?: string;
 };
-const getBlogPosts = async ({ first, skip, featured = false }: GetBlogPostsParams) => {
+const getBlogPosts = async ({ first, skip, categoryId, featured = false }: GetBlogPostsParams) => {
 	const { allPosts } = await client.query({
 		allPosts: {
 			__args: {
@@ -58,6 +90,9 @@ const getBlogPosts = async ({ first, skip, featured = false }: GetBlogPostsParam
 				skip,
 				filter: {
 					featured: { eq: featured },
+					category: {
+						eq: categoryId,
+					},
 				},
 			},
 			id: true,
@@ -137,7 +172,7 @@ const getSingleBlogPost = async (slug: string) => {
 					cta: {
 						link: true,
 						text: true,
-					}
+					},
 				},
 			},
 
@@ -167,6 +202,8 @@ export {
 	getBlogPosts,
 	getBlogPostsCount,
 	getBlogPostsSlugs,
+	getCategoriesWithPosts,
+	getCategoryBySlug,
 	getPostFullPath,
 	getSingleBlogPost
 };

@@ -1,47 +1,18 @@
-<script lang="ts" context="module">
-	import type { PageData } from "../blog/$types";
-
-	// const filterPosts = (currentFilter: string, posts: PageData["allPosts"]) => {
-	// 	if (currentFilter === "all") {
-	// 		return posts;
-	// 	} else {
-	// 		return posts.filter(post => post.category?.slug === currentFilter);
-	// 	}
-	// };
-</script>
-
 <script lang="ts">
 	import { goto } from "$app/navigation";
-	import { BLOG_JUMPER_LENGTH } from "$lib/constants";
-	import { Button } from "$shadcn/button";
-	import PostCard from "./PostCard.svelte";
+	import { page } from "$app/stores";
 	import ModularPage from "$dato/sections/ModularPage.svelte";
 	import Head from "$lib/components/seo/Head.svelte";
+	import { Button } from "$shadcn/button";
+	import PostCard from "./PostCard.svelte";
 
 	export let data;
-	$: ({ featuredPosts, nonFeaturedPosts } = data);
+	$: ({ featuredPosts, nonFeaturedPosts, categoriesWithPosts } = data);
 
-	let currentFilter = "all" as string;
-	// $: featuredPosts = filterPosts(currentFilter, data.featuredPosts);
-	// $: latestPosts = filterPosts(currentFilter, data.allPosts);
-	// $: console.log('latestPosts', latestPosts);
-
-	// $: uniqueCategories = Array.from(
-	// 	new Map(
-	// 		data.allPosts.flatMap(item => item.category).map(category => [category?.slug, category])
-	// 	).values()
-	// );
-
-	// const loadMorePosts = () => {
-	// 	const currentFirst = data.first;
-	// 	const newFirst = currentFirst + BLOG_JUMPER_LENGTH;
-	// 	const finalFirst =
-	// 		newFirst > data.allNonFeaturedPostsCount ? data.allNonFeaturedPostsCount : newFirst;
-
-	// 	goto(`/blog?first=${finalFirst}`, {
-	// 		noScroll: true,
-	// 	});
-	// };
+	const isCategoryFiltered = (categorySlug: string, url: URL) => {
+		const categoryParam = url.searchParams.get("category");
+		return categoryParam === categorySlug;
+	};
 </script>
 
 <Head seo={data.modularPage.seo} title={data.modularPage.title} />
@@ -54,24 +25,23 @@
 	<title>Blog - GetFrenchClasses</title>
 </svelte:head>
 
-<!-- <section class="p-3 space-y-5 container-base md:text-center">
+<section class="p-3 space-y-5 container-base md:text-center">
 	<div class="py-3 overflow-y-auto flex-s-start md:flex-s-center">
 		<Button
-			variant="outline"
+			variant={$page.url.searchParams.get("category") ? "outline" : "default"}
 			class="border rounded-none shrink-0 not-first:border-r first:rounded-l-lg last:rounded-r-lg"
-			on:click={() => (currentFilter = "all")}
-			disabled={currentFilter === "all"}
+			on:click={() => goto(`/blog`)}
 		>
 			All
 		</Button>
 
-		{#if uniqueCategories && uniqueCategories.length > 0}
-			{#each uniqueCategories as category (category?.slug)}
+		{#if categoriesWithPosts && categoriesWithPosts.length > 0}
+			{#each categoriesWithPosts as category (category?.slug)}
 				{#if category}
 					<Button
-						variant={currentFilter === category?.slug ? "default" : "outline"}
+						variant={isCategoryFiltered(category?.slug, $page.url) ? "default" : "outline"}
 						class="border rounded-none shrink-0 not-first:border-r first:rounded-l-lg last:rounded-r-lg"
-						on:click={() => (currentFilter = String(category?.slug))}
+						on:click={() => goto(`/blog?category=${category.slug}`)}
 					>
 						{category?.name}
 					</Button>
@@ -81,7 +51,7 @@
 	</div>
 </section>
 
-<hr class="max-md:mt-10" /> -->
+<hr class="max-md:mt-10" />
 
 <div class="py-10 container-base">
 	<h2 class="text-center">Featured Blog Posts</h2>

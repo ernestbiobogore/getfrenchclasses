@@ -338,6 +338,36 @@ enum CategoryModelOrderBy {
 
 """Record of type Category (category)"""
 type CategoryRecord implements RecordInterface {
+  _allReferencingPosts(
+    """Specifies how to filter linking records"""
+    through: InverseRelationshipFilterBetweenPostAndCategory
+
+    """The locale to use to fetch the field's content"""
+    locale: SiteLocale
+
+    """
+    If you want to fallback to a default translation when a translation has not been found
+    """
+    fallbackLocales: [SiteLocale!]
+
+    """Skip the first results"""
+    skip: IntType
+
+    """Limit the number of results"""
+    first: IntType = 20
+    filter: PostModelFilter
+    orderBy: [PostModelOrderBy] = [_updatedAt_DESC]
+  ): [PostRecord!]!
+
+  """Returns meta information regarding a record collection"""
+  _allReferencingPostsMeta(
+    """Specifies how to filter linking records"""
+    through: InverseRelationshipFilterBetweenPostAndCategory
+
+    """The locale to use to fetch the field's content"""
+    locale: SiteLocale
+    filter: PostModelFilter
+  ): CollectionMetadata!
   _createdAt: DateTime!
 
   """Editing URL"""
@@ -3429,6 +3459,19 @@ input InverseRelationshipFieldFilterBetweenModularPageLocationAndCity {
 }
 
 """Specifies how to filter by linking fields"""
+input InverseRelationshipFieldFilterBetweenPostAndCategory {
+  """
+  Filter linking records that reference current record in at least one of the specified fields
+  """
+  anyIn: [PostModelFieldsReferencingCategoryModel!]
+
+  """
+  Filter linking records that do not reference current record in any of the specified fields
+  """
+  notIn: [PostModelFieldsReferencingCategoryModel!]
+}
+
+"""Specifies how to filter by linking fields"""
 input InverseRelationshipFieldFilterBetweenTutorAndCity {
   """
   Filter linking records that reference current record in at least one of the specified fields
@@ -3454,6 +3497,15 @@ input InverseRelationshipFilterBetweenCityAndCountry {
 input InverseRelationshipFilterBetweenModularPageLocationAndCity {
   """Specifies how to filter by linking fields"""
   fields: InverseRelationshipFieldFilterBetweenModularPageLocationAndCity
+
+  """Specifies how to filter by linking locales"""
+  locales: LinkingLocalesFilter
+}
+
+"""Specifies how to filter linking records"""
+input InverseRelationshipFilterBetweenPostAndCategory {
+  """Specifies how to filter by linking fields"""
+  fields: InverseRelationshipFieldFilterBetweenPostAndCategory
 
   """Specifies how to filter by linking locales"""
   locales: LinkingLocalesFilter
@@ -4082,6 +4134,11 @@ type PostCtaRecord implements RecordInterface {
   repeatableList: [PlainTextBlockRecord!]!
   repeatableTitle: String
   title: String!
+}
+
+"""Linking fields"""
+enum PostModelFieldsReferencingCategoryModel {
+  post_category
 }
 
 input PostModelFilter {

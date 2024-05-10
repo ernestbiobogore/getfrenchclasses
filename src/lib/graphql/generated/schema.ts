@@ -196,6 +196,9 @@ export type CategoryModelOrderBy = '_createdAt_ASC' | '_createdAt_DESC' | 'id_AS
 
 /** Record of type Category (category) */
 export interface CategoryRecord {
+    _allReferencingPosts: PostRecord[]
+    /** Returns meta information regarding a record collection */
+    _allReferencingPostsMeta: CollectionMetadata
     _createdAt: Scalars['DateTime']
     /** Editing URL */
     _editingUrl: (Scalars['String'] | null)
@@ -1209,6 +1212,10 @@ export interface PostCtaRecord {
     title: Scalars['String']
     __typename: 'PostCtaRecord'
 }
+
+
+/** Linking fields */
+export type PostModelFieldsReferencingCategoryModel = 'post_category'
 
 export type PostModelOrderBy = '_createdAt_ASC' | '_createdAt_DESC' | 'id_ASC' | 'id_DESC' | '_firstPublishedAt_ASC' | '_firstPublishedAt_DESC' | '_publicationScheduledAt_ASC' | '_publicationScheduledAt_DESC' | '_unpublishingScheduledAt_ASC' | '_unpublishingScheduledAt_DESC' | '_publishedAt_ASC' | '_publishedAt_DESC' | '_status_ASC' | '_status_DESC' | '_updatedAt_ASC' | '_updatedAt_DESC' | '_isValid_ASC' | '_isValid_DESC' | 'featured_ASC' | 'featured_DESC' | 'title_ASC' | 'title_DESC'
 
@@ -2329,6 +2336,23 @@ export interface CategoryModelFilter {_createdAt?: (CreatedAtFilter | null),id?:
 
 /** Record of type Category (category) */
 export interface CategoryRecordGenqlSelection{
+    _allReferencingPosts?: (PostRecordGenqlSelection & { __args?: {
+    /** Specifies how to filter linking records */
+    through?: (InverseRelationshipFilterBetweenPostAndCategory | null), 
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null), 
+    /** If you want to fallback to a default translation when a translation has not been found */
+    fallbackLocales?: (SiteLocale[] | null), 
+    /** Skip the first results */
+    skip?: (Scalars['IntType'] | null), 
+    /** Limit the number of results */
+    first?: (Scalars['IntType'] | null), filter?: (PostModelFilter | null), orderBy?: ((PostModelOrderBy | null)[] | null)} })
+    /** Returns meta information regarding a record collection */
+    _allReferencingPostsMeta?: (CollectionMetadataGenqlSelection & { __args?: {
+    /** Specifies how to filter linking records */
+    through?: (InverseRelationshipFilterBetweenPostAndCategory | null), 
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null), filter?: (PostModelFilter | null)} })
     _createdAt?: boolean | number
     /** Editing URL */
     _editingUrl?: boolean | number
@@ -4596,6 +4620,14 @@ notIn?: (ModularPageLocationModelFieldsReferencingCityModel[] | null)}
 
 
 /** Specifies how to filter by linking fields */
+export interface InverseRelationshipFieldFilterBetweenPostAndCategory {
+/** Filter linking records that reference current record in at least one of the specified fields */
+anyIn?: (PostModelFieldsReferencingCategoryModel[] | null),
+/** Filter linking records that do not reference current record in any of the specified fields */
+notIn?: (PostModelFieldsReferencingCategoryModel[] | null)}
+
+
+/** Specifies how to filter by linking fields */
 export interface InverseRelationshipFieldFilterBetweenTutorAndCity {
 /** Filter linking records that reference current record in at least one of the specified fields */
 anyIn?: (TutorModelFieldsReferencingCityModel[] | null),
@@ -4615,6 +4647,14 @@ locales?: (LinkingLocalesFilter | null)}
 export interface InverseRelationshipFilterBetweenModularPageLocationAndCity {
 /** Specifies how to filter by linking fields */
 fields?: (InverseRelationshipFieldFilterBetweenModularPageLocationAndCity | null),
+/** Specifies how to filter by linking locales */
+locales?: (LinkingLocalesFilter | null)}
+
+
+/** Specifies how to filter linking records */
+export interface InverseRelationshipFilterBetweenPostAndCategory {
+/** Specifies how to filter by linking fields */
+fields?: (InverseRelationshipFieldFilterBetweenPostAndCategory | null),
 /** Specifies how to filter by linking locales */
 locales?: (LinkingLocalesFilter | null)}
 
@@ -8190,6 +8230,10 @@ export const enumPostCtaModelOrderBy = {
    repeatableTitle_DESC: 'repeatableTitle_DESC' as const,
    title_ASC: 'title_ASC' as const,
    title_DESC: 'title_DESC' as const
+}
+
+export const enumPostModelFieldsReferencingCategoryModel = {
+   post_category: 'post_category' as const
 }
 
 export const enumPostModelOrderBy = {
