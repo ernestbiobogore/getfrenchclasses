@@ -45,12 +45,12 @@ const getBlogPostsCount = async ({ featured }: { featured: boolean }) => {
 	return _allPostsMeta.count;
 };
 
-type GetAllBlogPostsParams = {
+type GetBlogPostsParams = {
 	first?: number;
 	skip?: number;
 	featured?: boolean;
 };
-const getAllBlogPosts = async ({ first, skip, featured = false }: GetAllBlogPostsParams) => {
+const getBlogPosts = async ({ first, skip, featured = false }: GetBlogPostsParams) => {
 	const { allPosts } = await client.query({
 		allPosts: {
 			__args: {
@@ -164,7 +164,7 @@ const getSingleBlogPost = async (slug: string) => {
 };
 
 export {
-	getAllBlogPosts,
+	getBlogPosts,
 	getBlogPostsCount,
 	getBlogPostsSlugs,
 	getPostFullPath,

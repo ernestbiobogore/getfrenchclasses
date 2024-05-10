@@ -1,9 +1,8 @@
-import { BLOG_JUMPER_LENGTH } from "$lib/constants";
 import { getSingleModularPage } from "$lib/graphql/queries/modular";
-import { getAllBlogPosts, getBlogPostsCount } from "$lib/graphql/queries/posts";
-import { error, redirect } from "@sveltejs/kit";
+import { getBlogPosts } from "$lib/graphql/queries/posts";
+import { error } from "@sveltejs/kit";
 
-export async function load({ url }) {
+export async function load() {
 	const modularPage = await getSingleModularPage("blog");
 
 	if (!modularPage) {
@@ -21,8 +20,8 @@ export async function load({ url }) {
 
 	// const first = Number(firstParam);
 
-	const featuredPosts = await getAllBlogPosts({ featured: true });
-	const nonFeaturedPosts = await getAllBlogPosts({ featured: false });
+	const featuredPosts = await getBlogPosts({ featured: true });
+	const nonFeaturedPosts = await getBlogPosts({ featured: false });
 
 	return {
 		// first,
