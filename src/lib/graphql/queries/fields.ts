@@ -396,6 +396,9 @@ const richTextBlockSelection = {
 			table: true,
 			description: true,
 		},
+		on_YoutubeEmbedBlockRecord: {
+			youtubeId: true,
+		},
 	},
 } satisfies RichTextBlockModelRichTextFieldGenqlSelection;
 
@@ -421,5 +424,6 @@ export {
 	testimonialSectionSelection,
 	tutorMetaFields,
 	tutorsByCitySectionSelection,
-	videoBlockFields,
+	videoBlockFields
 };
+

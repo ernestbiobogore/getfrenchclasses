@@ -5,6 +5,7 @@
 <script lang="ts">
 	import DefaultTestimonial from "$dato/blocks/DefaultTestimonial.svelte";
 	import Note from "$dato/blocks/Note.svelte";
+	import YouTube from "$dato/blocks/YouTube.svelte";
 	import TutorCard from "$dato/blocks/tutors/TutorCard.svelte";
 	import CourseCard from "$lib/components/CourseCard.svelte";
 	import type { RichTextBlockModelRichTextBlocksField } from "$lib/graphql/generated";
@@ -64,4 +65,8 @@
 
 {#if block.__typename === "TableBlockRecord"}
 	<Table table={block} />
+{/if}
+
+{#if block.__typename === "YoutubeEmbedBlockRecord"}
+	<YouTube youtubeId={block.youtubeId} />
 {/if}

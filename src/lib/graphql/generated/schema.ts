@@ -1385,7 +1385,7 @@ export interface Query {
     __typename: 'Query'
 }
 
-export type RecordInterface = (ActionBlockRecord | AuthorRecord | AvatarGroupBlockRecord | CardBlockNewRecord | CardBlockRecord | CardsSectionRecord | CategoryRecord | CityRecord | ComparisonBlockRecord | ComparisonSectionRecord | CompetitorRecord | CompetitorsComparisonRecord | ConvertboxBlockRecord | CountryRecord | CourseModuleBlockRecord | CourseRecord | CourseScheduleItemRecord | CourseSyllabusBlockRecord | CoursesBlockRecord | CoursesSectionRecord | FaqBlockNewRecord | FaqBlockRecord | FaqItemRecord | FaqSectionRecord | HeadingBlockNewRecord | HeadingBlockRecord | HeroImageBlockRecord | HeroSectionRecord | ImageBlockRecord | InstructorRecord | JobRecord | MenuItemBlockRecord | MenuListBlockRecord | MenuRecord | ModularPageLocationRecord | ModularPageRecord | NoteBlockRecord | PlainTextBlockRecord | PostCtaBlockRecord | PostCtaRecord | PostRecord | ReferenceSectionRecord | ResourceRecord | ResourceTopicRecord | RichTextBlockRecord | RichTextSectionRecord | RoutePathRecord | SeoBlockRecord | SiteConfigRecord | SocialLinkBlockRecord | TableBlockRecord | TestimonialBlockCtaRecord | TestimonialBlockDefaultRecord | TestimonialBlockRecord | TestimonialRecord | TestimonialsListBlockRecord | TestimonialsSectionRecord | TutorRecord | TutorsBlockRecord | TutorsByCitySectionRecord | VideoBlockExternalRecord | VideoBlockInternalRecord | VideoBlockRecord) & { __isUnion?: true }
+export type RecordInterface = (ActionBlockRecord | AuthorRecord | AvatarGroupBlockRecord | CardBlockNewRecord | CardBlockRecord | CardsSectionRecord | CategoryRecord | CityRecord | ComparisonBlockRecord | ComparisonSectionRecord | CompetitorRecord | CompetitorsComparisonRecord | ConvertboxBlockRecord | CountryRecord | CourseModuleBlockRecord | CourseRecord | CourseScheduleItemRecord | CourseSyllabusBlockRecord | CoursesBlockRecord | CoursesSectionRecord | FaqBlockNewRecord | FaqBlockRecord | FaqItemRecord | FaqSectionRecord | HeadingBlockNewRecord | HeadingBlockRecord | HeroImageBlockRecord | HeroSectionRecord | ImageBlockRecord | InstructorRecord | JobRecord | MenuItemBlockRecord | MenuListBlockRecord | MenuRecord | ModularPageLocationRecord | ModularPageRecord | NoteBlockRecord | PlainTextBlockRecord | PostCtaBlockRecord | PostCtaRecord | PostRecord | ReferenceSectionRecord | ResourceRecord | ResourceTopicRecord | RichTextBlockRecord | RichTextSectionRecord | RoutePathRecord | SeoBlockRecord | SiteConfigRecord | SocialLinkBlockRecord | TableBlockRecord | TestimonialBlockCtaRecord | TestimonialBlockDefaultRecord | TestimonialBlockRecord | TestimonialRecord | TestimonialsListBlockRecord | TestimonialsSectionRecord | TutorRecord | TutorsBlockRecord | TutorsByCitySectionRecord | VideoBlockExternalRecord | VideoBlockInternalRecord | VideoBlockRecord | YoutubeEmbedBlockRecord) & { __isUnion?: true }
 
 
 /** Block of type Reference Section (reference_section) */
@@ -1497,7 +1497,7 @@ export interface ResponsiveImage {
     __typename: 'ResponsiveImage'
 }
 
-export type RichTextBlockModelRichTextBlocksField = (CardBlockRecord | CoursesBlockRecord | ImageBlockRecord | NoteBlockRecord | TableBlockRecord | TestimonialsListBlockRecord | TutorsBlockRecord) & { __isUnion?: true }
+export type RichTextBlockModelRichTextBlocksField = (CardBlockRecord | CoursesBlockRecord | ImageBlockRecord | NoteBlockRecord | TableBlockRecord | TestimonialsListBlockRecord | TutorsBlockRecord | YoutubeEmbedBlockRecord) & { __isUnion?: true }
 
 export interface RichTextBlockModelRichTextField {
     blocks: RichTextBlockModelRichTextBlocksField[]
@@ -2094,6 +2094,27 @@ export interface VideoBlockRecord {
 }
 
 export type VideoMp4Res = 'low' | 'medium' | 'high'
+
+
+/** Block of type YouTube Embed Block (youtube_embed_block) */
+export interface YoutubeEmbedBlockRecord {
+    _createdAt: Scalars['DateTime']
+    /** Editing URL */
+    _editingUrl: (Scalars['String'] | null)
+    _firstPublishedAt: (Scalars['DateTime'] | null)
+    _isValid: Scalars['BooleanType']
+    _modelApiKey: Scalars['String']
+    _publicationScheduledAt: (Scalars['DateTime'] | null)
+    _publishedAt: (Scalars['DateTime'] | null)
+    /** Generates SEO and Social card meta tags to be used in your frontend */
+    _seoMetaTags: Tag[]
+    _status: ItemStatus
+    _unpublishingScheduledAt: (Scalars['DateTime'] | null)
+    _updatedAt: Scalars['DateTime']
+    id: Scalars['ItemId']
+    youtubeId: Scalars['String']
+    __typename: 'YoutubeEmbedBlockRecord'
+}
 
 export interface focalPoint {
     x: Scalars['FloatType']
@@ -5615,6 +5636,7 @@ export interface RecordInterfaceGenqlSelection{
     on_VideoBlockExternalRecord?: VideoBlockExternalRecordGenqlSelection
     on_VideoBlockInternalRecord?: VideoBlockInternalRecordGenqlSelection
     on_VideoBlockRecord?: VideoBlockRecordGenqlSelection
+    on_YoutubeEmbedBlockRecord?: YoutubeEmbedBlockRecordGenqlSelection
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -5759,6 +5781,7 @@ export interface RichTextBlockModelRichTextBlocksFieldGenqlSelection{
     on_TableBlockRecord?:TableBlockRecordGenqlSelection,
     on_TestimonialsListBlockRecord?:TestimonialsListBlockRecordGenqlSelection,
     on_TutorsBlockRecord?:TutorsBlockRecordGenqlSelection,
+    on_YoutubeEmbedBlockRecord?:YoutubeEmbedBlockRecordGenqlSelection,
     on_RecordInterface?: RecordInterfaceGenqlSelection,
     __typename?: boolean | number
 }
@@ -6836,6 +6859,30 @@ export interface VideoBlockRecordGenqlSelection{
     __scalar?: boolean | number
 }
 
+
+/** Block of type YouTube Embed Block (youtube_embed_block) */
+export interface YoutubeEmbedBlockRecordGenqlSelection{
+    _createdAt?: boolean | number
+    /** Editing URL */
+    _editingUrl?: boolean | number
+    _firstPublishedAt?: boolean | number
+    _isValid?: boolean | number
+    _modelApiKey?: boolean | number
+    _publicationScheduledAt?: boolean | number
+    _publishedAt?: boolean | number
+    /** Generates SEO and Social card meta tags to be used in your frontend */
+    _seoMetaTags?: (TagGenqlSelection & { __args?: {
+    /** The locale to use to fetch the field's content */
+    locale?: (SiteLocale | null)} })
+    _status?: boolean | number
+    _unpublishingScheduledAt?: boolean | number
+    _updatedAt?: boolean | number
+    id?: boolean | number
+    youtubeId?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
 export interface focalPointGenqlSelection{
     x?: boolean | number
     y?: boolean | number
@@ -7300,7 +7347,7 @@ export interface focalPointGenqlSelection{
     
 
 
-    const RecordInterface_possibleTypes: string[] = ['ActionBlockRecord','AuthorRecord','AvatarGroupBlockRecord','CardBlockNewRecord','CardBlockRecord','CardsSectionRecord','CategoryRecord','CityRecord','ComparisonBlockRecord','ComparisonSectionRecord','CompetitorRecord','CompetitorsComparisonRecord','ConvertboxBlockRecord','CountryRecord','CourseModuleBlockRecord','CourseRecord','CourseScheduleItemRecord','CourseSyllabusBlockRecord','CoursesBlockRecord','CoursesSectionRecord','FaqBlockNewRecord','FaqBlockRecord','FaqItemRecord','FaqSectionRecord','HeadingBlockNewRecord','HeadingBlockRecord','HeroImageBlockRecord','HeroSectionRecord','ImageBlockRecord','InstructorRecord','JobRecord','MenuItemBlockRecord','MenuListBlockRecord','MenuRecord','ModularPageLocationRecord','ModularPageRecord','NoteBlockRecord','PlainTextBlockRecord','PostCtaBlockRecord','PostCtaRecord','PostRecord','ReferenceSectionRecord','ResourceRecord','ResourceTopicRecord','RichTextBlockRecord','RichTextSectionRecord','RoutePathRecord','SeoBlockRecord','SiteConfigRecord','SocialLinkBlockRecord','TableBlockRecord','TestimonialBlockCtaRecord','TestimonialBlockDefaultRecord','TestimonialBlockRecord','TestimonialRecord','TestimonialsListBlockRecord','TestimonialsSectionRecord','TutorRecord','TutorsBlockRecord','TutorsByCitySectionRecord','VideoBlockExternalRecord','VideoBlockInternalRecord','VideoBlockRecord']
+    const RecordInterface_possibleTypes: string[] = ['ActionBlockRecord','AuthorRecord','AvatarGroupBlockRecord','CardBlockNewRecord','CardBlockRecord','CardsSectionRecord','CategoryRecord','CityRecord','ComparisonBlockRecord','ComparisonSectionRecord','CompetitorRecord','CompetitorsComparisonRecord','ConvertboxBlockRecord','CountryRecord','CourseModuleBlockRecord','CourseRecord','CourseScheduleItemRecord','CourseSyllabusBlockRecord','CoursesBlockRecord','CoursesSectionRecord','FaqBlockNewRecord','FaqBlockRecord','FaqItemRecord','FaqSectionRecord','HeadingBlockNewRecord','HeadingBlockRecord','HeroImageBlockRecord','HeroSectionRecord','ImageBlockRecord','InstructorRecord','JobRecord','MenuItemBlockRecord','MenuListBlockRecord','MenuRecord','ModularPageLocationRecord','ModularPageRecord','NoteBlockRecord','PlainTextBlockRecord','PostCtaBlockRecord','PostCtaRecord','PostRecord','ReferenceSectionRecord','ResourceRecord','ResourceTopicRecord','RichTextBlockRecord','RichTextSectionRecord','RoutePathRecord','SeoBlockRecord','SiteConfigRecord','SocialLinkBlockRecord','TableBlockRecord','TestimonialBlockCtaRecord','TestimonialBlockDefaultRecord','TestimonialBlockRecord','TestimonialRecord','TestimonialsListBlockRecord','TestimonialsSectionRecord','TutorRecord','TutorsBlockRecord','TutorsByCitySectionRecord','VideoBlockExternalRecord','VideoBlockInternalRecord','VideoBlockRecord','YoutubeEmbedBlockRecord']
     export const isRecordInterface = (obj?: { __typename?: any } | null): obj is RecordInterface => {
       if (!obj?.__typename) throw new Error('__typename is missing in "isRecordInterface"')
       return RecordInterface_possibleTypes.includes(obj.__typename)
@@ -7356,7 +7403,7 @@ export interface focalPointGenqlSelection{
     
 
 
-    const RichTextBlockModelRichTextBlocksField_possibleTypes: string[] = ['CardBlockRecord','CoursesBlockRecord','ImageBlockRecord','NoteBlockRecord','TableBlockRecord','TestimonialsListBlockRecord','TutorsBlockRecord']
+    const RichTextBlockModelRichTextBlocksField_possibleTypes: string[] = ['CardBlockRecord','CoursesBlockRecord','ImageBlockRecord','NoteBlockRecord','TableBlockRecord','TestimonialsListBlockRecord','TutorsBlockRecord','YoutubeEmbedBlockRecord']
     export const isRichTextBlockModelRichTextBlocksField = (obj?: { __typename?: any } | null): obj is RichTextBlockModelRichTextBlocksField => {
       if (!obj?.__typename) throw new Error('__typename is missing in "isRichTextBlockModelRichTextBlocksField"')
       return RichTextBlockModelRichTextBlocksField_possibleTypes.includes(obj.__typename)
@@ -7640,6 +7687,14 @@ export interface focalPointGenqlSelection{
     export const isVideoBlockRecord = (obj?: { __typename?: any } | null): obj is VideoBlockRecord => {
       if (!obj?.__typename) throw new Error('__typename is missing in "isVideoBlockRecord"')
       return VideoBlockRecord_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const YoutubeEmbedBlockRecord_possibleTypes: string[] = ['YoutubeEmbedBlockRecord']
+    export const isYoutubeEmbedBlockRecord = (obj?: { __typename?: any } | null): obj is YoutubeEmbedBlockRecord => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isYoutubeEmbedBlockRecord"')
+      return YoutubeEmbedBlockRecord_possibleTypes.includes(obj.__typename)
     }
     
 

@@ -202,7 +202,7 @@ export default {
                 182
             ],
             "focalPoint": [
-                242,
+                243,
                 {
                     "locale": [
                         178
@@ -2386,7 +2386,7 @@ export default {
                 182
             ],
             "focalPoint": [
-                242,
+                243,
                 {
                     "locale": [
                         178
@@ -2551,7 +2551,7 @@ export default {
                 182
             ],
             "focalPoint": [
-                242,
+                243,
                 {
                     "locale": [
                         178
@@ -6298,6 +6298,9 @@ export default {
             "on_VideoBlockRecord": [
                 240
             ],
+            "on_YoutubeEmbedBlockRecord": [
+                242
+            ],
             "__typename": [
                 182
             ]
@@ -6704,6 +6707,9 @@ export default {
             ],
             "on_TutorsBlockRecord": [
                 208
+            ],
+            "on_YoutubeEmbedBlockRecord": [
+                242
             ],
             "on_RecordInterface": [
                 153
@@ -8784,7 +8790,7 @@ export default {
                 182
             ],
             "focalPoint": [
-                242,
+                243,
                 {
                     "locale": [
                         178
@@ -9038,6 +9044,55 @@ export default {
             ]
         },
         "VideoMp4Res": {},
+        "YoutubeEmbedBlockRecord": {
+            "_createdAt": [
+                48
+            ],
+            "_editingUrl": [
+                182
+            ],
+            "_firstPublishedAt": [
+                48
+            ],
+            "_isValid": [
+                8
+            ],
+            "_modelApiKey": [
+                182
+            ],
+            "_publicationScheduledAt": [
+                48
+            ],
+            "_publishedAt": [
+                48
+            ],
+            "_seoMetaTags": [
+                187,
+                {
+                    "locale": [
+                        178
+                    ]
+                }
+            ],
+            "_status": [
+                112
+            ],
+            "_unpublishingScheduledAt": [
+                48
+            ],
+            "_updatedAt": [
+                48
+            ],
+            "id": [
+                110
+            ],
+            "youtubeId": [
+                182
+            ],
+            "__typename": [
+                182
+            ]
+        },
         "focalPoint": {
             "x": [
                 61
