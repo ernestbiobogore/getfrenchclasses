@@ -1,6 +1,7 @@
 import type { getSingleModularPage } from "$lib/graphql/queries/modular";
 
-type Seo = NonNullable<Awaited<ReturnType<typeof getSingleModularPage>>>["seo"];
+type ModularPage = NonNullable<Awaited<ReturnType<typeof getSingleModularPage>>>["seo"];
+type Seo = ModularPage;
 
 const getSeoData = ({ seo, href, title }: { seo: Seo; href: string; title: string }) => {
 	const block = seo?.seoBlock;
