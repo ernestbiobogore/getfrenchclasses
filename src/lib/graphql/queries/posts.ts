@@ -7,6 +7,8 @@ import {
 	videoBlockFields,
 } from "$lib/graphql/queries/fields";
 
+const TEST_POST_SLUG = "test-post";
+
 const getPostFullPath = (
 	postRoutePathSlugs: (string | null)[],
 	postSlug: string,
@@ -19,6 +21,13 @@ const getPostFullPath = (
 const getBlogPostsSlugs = async () => {
 	const { allPosts } = await client.query({
 		allPosts: {
+			__args: {
+				filter: {
+					slug: {
+						neq: TEST_POST_SLUG,
+					},
+				},
+			},
 			slug: true,
 			_updatedAt: true,
 			routePaths: {
@@ -36,6 +45,9 @@ const getBlogPostsCount = async ({ featured }: { featured: boolean }) => {
 			__args: {
 				filter: {
 					featured: { eq: featured },
+					slug: {
+						neq: TEST_POST_SLUG,
+					},
 				},
 			},
 			count: true,
@@ -51,6 +63,13 @@ const getCategoriesWithPosts = async () => {
 			slug: true,
 			name: true,
 			_allReferencingPostsMeta: {
+				__args: {
+					filter: {
+						slug: {
+							neq: TEST_POST_SLUG,
+						},
+					},
+				},
 				count: true,
 			},
 		},
@@ -92,6 +111,9 @@ const getBlogPosts = async ({ first, skip, categoryId, featured = false }: GetBl
 					featured: { eq: featured },
 					category: {
 						eq: categoryId,
+					},
+					slug: {
+						neq: TEST_POST_SLUG,
 					},
 				},
 			},
@@ -205,6 +227,5 @@ export {
 	getCategoriesWithPosts,
 	getCategoryBySlug,
 	getPostFullPath,
-	getSingleBlogPost
+	getSingleBlogPost,
 };
-
