@@ -1072,10 +1072,10 @@ type CourseSyllabusBlockRecord implements RecordInterface {
   _status: ItemStatus!
   _unpublishingScheduledAt: DateTime
   _updatedAt: DateTime!
-  endDate: Date!
+  endDate: Date
   id: ItemId!
   modules: [CourseModuleBlockRecord!]!
-  startDate: Date!
+  startDate: Date
   week: IntType!
 }
 

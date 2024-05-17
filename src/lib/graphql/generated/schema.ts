@@ -551,10 +551,10 @@ export interface CourseSyllabusBlockRecord {
     _status: ItemStatus
     _unpublishingScheduledAt: (Scalars['DateTime'] | null)
     _updatedAt: Scalars['DateTime']
-    endDate: Scalars['Date']
+    endDate: (Scalars['Date'] | null)
     id: Scalars['ItemId']
     modules: CourseModuleBlockRecord[]
-    startDate: Scalars['Date']
+    startDate: (Scalars['Date'] | null)
     week: Scalars['IntType']
     __typename: 'CourseSyllabusBlockRecord'
 }

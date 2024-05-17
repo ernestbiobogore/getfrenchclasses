@@ -29,9 +29,12 @@
 		<Badge>WEEK {week}</Badge>
 
 		<div class="flex-1 mx-4 border-gray-400 border-t border-dashed" />
-		<span class="text-xs text-gray-500 uppercase">
-			{getReadableDate(new Date(startDate))} — {getReadableDate(new Date(endDate))}
-		</span>
+
+		{#if startDate && endDate}
+			<span class="text-xs text-gray-500 uppercase">
+				{getReadableDate(new Date(startDate))} — {getReadableDate(new Date(endDate))}
+			</span>
+		{/if}
 	</div>
 
 	<div>
