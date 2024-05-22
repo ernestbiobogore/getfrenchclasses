@@ -19,24 +19,44 @@ const getPostFullPath = (
 };
 
 const getBlogPostsSlugs = async () => {
-	const { allPosts } = await client.query({
-		allPosts: {
-			__args: {
-				filter: {
-					slug: {
-						neq: TEST_POST_SLUG,
-					},
-				},
-			},
-			slug: true,
-			_updatedAt: true,
-			routePaths: {
-				slug: true,
-			},
+	const { _allPostsMeta } = await client.query({
+		_allPostsMeta: {
+			count: true,
 		},
 	});
 
-	return allPosts;
+	const slugs = [];
+
+	const totalPosts = _allPostsMeta.count;
+	const iterations = Math.ceil(totalPosts / 20);
+
+	for (let i = 0; i < iterations; i++) {
+		const skip = i * 20;
+		const first = 20;
+
+		const { allPosts } = await client.query({
+			allPosts: {
+				__args: {
+					filter: {
+						slug: {
+							neq: TEST_POST_SLUG,
+						},
+					},
+					skip,
+					first,
+				},
+				slug: true,
+				_updatedAt: true,
+				routePaths: {
+					slug: true,
+				},
+			},
+		});
+
+		slugs.push(...allPosts);
+	}
+
+	return slugs;
 };
 
 const getBlogPostsCount = async ({ featured }: { featured: boolean }) => {
@@ -102,38 +122,56 @@ type GetBlogPostsParams = {
 	categoryId?: string;
 };
 const getBlogPosts = async ({ first, skip, categoryId, featured = false }: GetBlogPostsParams) => {
-	const { allPosts } = await client.query({
-		allPosts: {
-			__args: {
-				first,
-				skip,
-				filter: {
-					featured: { eq: featured },
-					category: {
-						eq: categoryId,
-					},
-					slug: {
-						neq: TEST_POST_SLUG,
-					},
-				},
-			},
-			id: true,
-			slug: true,
-			title: true,
-			category: postCategoryBlockFields,
-			featured: true,
-			routePaths: {
-				slug: true,
-			},
-
-			// SEO
-			seo: {
-				seoBlock: seoFieldsSelection,
-			},
+	const { _allPostsMeta } = await client.query({
+		_allPostsMeta: {
+			count: true,
 		},
 	});
 
-	return allPosts.map(post => ({
+	const totalPosts = _allPostsMeta.count;
+	const iterations = Math.ceil(totalPosts / 20);
+
+	const posts = [];
+
+	for (let i = 0; i < iterations; i++) {
+		const skip = i * 20;
+		const first = 20;
+
+		const { allPosts } = await client.query({
+			allPosts: {
+				__args: {
+					first,
+					skip,
+					filter: {
+						featured: { eq: featured },
+						category: {
+							eq: categoryId,
+						},
+						slug: {
+							neq: TEST_POST_SLUG,
+						},
+					},
+				},
+				id: true,
+				slug: true,
+				title: true,
+				category: postCategoryBlockFields,
+				featured: true,
+				routePaths: {
+					slug: true,
+				},
+
+				// SEO
+				seo: {
+					seoBlock: seoFieldsSelection,
+				},
+			},
+		});
+
+		posts.push(...allPosts);
+	}
+
+	return posts.map(post => ({
 		...post,
 		path: getPostFullPath(
 			post.routePaths.map(path => path.slug),
