@@ -1,5 +1,7 @@
 import { getCoursesSlugs } from "$lib/graphql/queries/courses";
+import { getLocationModularPagesSlugs, getModularPageSlugs } from "$lib/graphql/queries/modular";
 import { getBlogPostsSlugs, getPostFullPath } from "$lib/graphql/queries/posts";
+import { getTutorsSlugs } from "$lib/graphql/queries/tutors";
 
 export const GET = async ({ url }) => {
 	const siteURL = url.origin;
@@ -23,8 +25,51 @@ export const GET = async ({ url }) => {
 		};
 	});
 
+	const modularPagesSlugs = await getModularPageSlugs();
+	const modularPagesEntries = modularPagesSlugs
+		.filter(({ slug }) => slug !== "get-french-classes")
+		.map(({ slug, _updatedAt }) => ({
+			url: `${siteURL}/${slug}`,
+			lastmod: new Date(_updatedAt).toISOString(),
+			priority,
+			frequency,
+		}));
+
+	const locationModularPagesSlugs = await getLocationModularPagesSlugs();
+	const tutorsLocationModularSlugs = locationModularPagesSlugs.filter(
+		({ pageType }) => pageType === "tutors"
+	);
+	const coursesLocationModularSlugs = locationModularPagesSlugs.filter(
+		({ pageType }) => pageType === "courses"
+	);
+
+	const tutorsLocationModularPagesEntries = tutorsLocationModularSlugs.map(
+		({ slug, _updatedAt }) => ({
+			url: `${siteURL}/tutors/${slug}`,
+			lastmod: new Date(_updatedAt).toISOString(),
+			priority,
+			frequency,
+		})
+	);
+	const coursesLocationModularPagesEntries = coursesLocationModularSlugs.map(
+		({ slug, _updatedAt }) => ({
+			url: `${siteURL}/courses/${slug}`,
+			lastmod: new Date(_updatedAt).toISOString(),
+			priority,
+			frequency,
+		})
+	);
+
 	const coursesEntries = (await getCoursesSlugs()).map(({ slug, _updatedAt }) => ({
 		url: `${siteURL}/course/${slug}`,
+		lastmod: new Date(_updatedAt).toISOString(),
+		priority,
+		frequency,
+	}));
+
+	const tutorsSlugs = await getTutorsSlugs();
+	const tutorsEntries = tutorsSlugs.map(({ slug, _updatedAt }) => ({
+		url: `${siteURL}/tutor/${slug}`,
 		lastmod: new Date(_updatedAt).toISOString(),
 		priority,
 		frequency,
@@ -37,8 +82,12 @@ export const GET = async ({ url }) => {
 			frequency,
 			priority,
 		},
+		...modularPagesEntries,
+		...tutorsLocationModularPagesEntries,
+		...coursesLocationModularPagesEntries,
 		...postsEntries,
 		...coursesEntries,
+		...tutorsEntries,
 	];
 
 	const entriesXml = entries.map(({ url, lastmod, priority, frequency }) => {

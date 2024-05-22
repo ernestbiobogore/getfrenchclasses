@@ -3,20 +3,72 @@ import {
 	courseMetaFields,
 	defaultTestimonialFieldsSelection,
 	faqItemFieldsSelection,
-	tutorMetaFields
+	tutorMetaFields,
 } from "./fields";
 
-const getAllTutorsMetas = async (first?: number) => {
-	const { allTutors } = await client.query({
-		allTutors: {
-			__args: {
-				first,
-			},
-			...tutorMetaFields,
+const getTutorsSlugs = async () => {
+	const { _allTutorsMeta } = await client.query({
+		_allTutorsMeta: {
+			count: true,
 		},
 	});
 
-	return allTutors;
+	const slugs = [];
+
+	const totalTutors = _allTutorsMeta.count;
+	const iterations = Math.ceil(totalTutors / 20);
+
+	for (let i = 0; i < iterations; i++) {
+		const skip = i * 20;
+		const first = 20;
+
+		const { allTutors } = await client.query({
+			allTutors: {
+				__args: {
+					first,
+					skip,
+				},
+				slug: true,
+				_updatedAt: true,
+			},
+		});
+
+		slugs.push(...allTutors);
+	}
+
+	return slugs;
+};
+
+const getAllTutorsMetas = async (first?: number) => {
+	const { _allTutorsMeta } = await client.query({
+		_allTutorsMeta: {
+			count: true,
+		},
+	});
+
+	const totalTutors = _allTutorsMeta.count;
+	const iterations = Math.ceil(totalTutors / 20);
+
+	const tutors = [];
+
+	for (let i = 0; i < iterations; i++) {
+		const skip = i * 20;
+		const first = 20;
+
+		const { allTutors } = await client.query({
+			allTutors: {
+				__args: {
+					first,
+					skip,
+				},
+				...tutorMetaFields,
+			},
+		});
+
+		tutors.push(...allTutors);
+	}
+
+	return tutors;
 };
 
 const getTutorBySlug = async (slug: string) => {
@@ -64,4 +116,4 @@ const getTutorBySlug = async (slug: string) => {
 	return tutor;
 };
 
-export { getAllTutorsMetas, getTutorBySlug };
+export { getAllTutorsMetas, getTutorBySlug, getTutorsSlugs };

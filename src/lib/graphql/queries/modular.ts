@@ -12,6 +12,90 @@ import {
 	tutorsByCitySectionSelection,
 } from "$lib/graphql/queries/fields";
 
+const getModularPageSlugs = async () => {
+	const { _allModularPagesMeta } = await client.query({
+		_allModularPagesMeta: {
+			count: true,
+		},
+	});
+
+	const slugs = [];
+
+	const totalPosts = _allModularPagesMeta.count;
+	const iterations = Math.ceil(totalPosts / 20);
+
+	for (let i = 0; i < iterations; i++) {
+		const skip = i * 20;
+		const first = 20;
+
+		const { allModularPages } = await client.query({
+			allModularPages: {
+				__args: {
+					skip,
+					first,
+				},
+				slug: true,
+				_updatedAt: true,
+				routePaths: {
+					slug: true,
+				},
+			},
+		});
+
+		slugs.push(...allModularPages);
+	}
+
+	return slugs;
+};
+
+const getLocationModularPagesSlugs = async () => {
+	const { _allModularPageLocationsMeta } = await client.query({
+		_allModularPageLocationsMeta: {
+			count: true,
+		},
+	});
+
+	const slugs = [];
+
+	const totalPosts = _allModularPageLocationsMeta.count;
+	const iterations = Math.ceil(totalPosts / 20);
+
+	for (let i = 0; i < iterations; i++) {
+		const skip = i * 20;
+		const first = 20;
+
+		const { allModularPageLocations } = await client.query({
+			allModularPageLocations: {
+				__args: {
+					skip,
+					first,
+					filter: {
+						OR: [
+							{
+								pageType: {
+									eq: "courses",
+								},
+							},
+							{
+								pageType: {
+									eq: "tutors",
+								},
+							},
+						],
+					},
+				},
+				slug: true,
+				pageType: true,
+				_updatedAt: true,
+			},
+		});
+
+		slugs.push(...allModularPageLocations);
+	}
+
+	return slugs;
+};
+
 const getSingleLocationModularPage = async (slug: string, pageType: "courses" | "tutors") => {
 	const { modularPageLocation } = await client.query({
 		modularPageLocation: {
@@ -113,4 +197,9 @@ const getSingleModularPage = async (slug: string) => {
 	return modularPage;
 };
 
-export { getSingleLocationModularPage, getSingleModularPage };
+export {
+	getSingleLocationModularPage,
+	getSingleModularPage,
+	getModularPageSlugs,
+	getLocationModularPagesSlugs,
+};
