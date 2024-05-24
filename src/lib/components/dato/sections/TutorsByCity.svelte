@@ -25,7 +25,9 @@
 
 {#if tutors && tutors.length > 0}
 	<section class="py-20 space-y-12 container-base">
-		<Heading defaultHeading="Our tutors in {record.city.name}" useDefaultHeading />
+		{#if record.heading}
+			<Heading heading={record.heading} />
+		{/if}
 
 		<div class="grid gap-6 sm:grid-cols-3">
 			{#each tutors as tutor (tutor.id)}

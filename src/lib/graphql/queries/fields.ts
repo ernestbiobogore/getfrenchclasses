@@ -353,6 +353,7 @@ const courseSectionSelection = {
 } satisfies CoursesSectionRecordGenqlSelection;
 
 const tutorsByCitySectionSelection = {
+	heading: headingFieldSelection,
 	city: {
 		slug: true,
 		name: true,

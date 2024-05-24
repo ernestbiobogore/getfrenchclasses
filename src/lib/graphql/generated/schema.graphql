@@ -6111,6 +6111,7 @@ type TutorsByCitySectionRecord implements RecordInterface {
   _unpublishingScheduledAt: DateTime
   _updatedAt: DateTime!
   city: CityRecord!
+  heading: HeadingBlockNewRecord
   id: ItemId!
 }
 

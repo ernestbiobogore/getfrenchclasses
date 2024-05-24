@@ -1966,6 +1966,7 @@ export interface TutorsByCitySectionRecord {
     _unpublishingScheduledAt: (Scalars['DateTime'] | null)
     _updatedAt: Scalars['DateTime']
     city: CityRecord
+    heading: (HeadingBlockNewRecord | null)
     id: Scalars['ItemId']
     __typename: 'TutorsByCitySectionRecord'
 }
@@ -6392,6 +6393,7 @@ export interface TutorsByCitySectionRecordGenqlSelection{
     _unpublishingScheduledAt?: boolean | number
     _updatedAt?: boolean | number
     city?: CityRecordGenqlSelection
+    heading?: HeadingBlockNewRecordGenqlSelection
     id?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
