@@ -10,6 +10,7 @@
 	export let responsiveImage:
 		| NonNullable<NonNullable<PageData["resource"]>["featuredImage"]>["responsiveImage"]
 		| undefined;
+	export let imageAlt: string | null;
 	export let imageText: string | null;
 </script>
 
@@ -18,7 +19,7 @@
 		<Image
 			src={responsiveImage.src}
 			class="rounded-full hello"
-			alt="Banner"
+			alt={imageAlt || responsiveImage.alt}
 			layout="constrained"
 			width={size}
 			aspectRatio={1}

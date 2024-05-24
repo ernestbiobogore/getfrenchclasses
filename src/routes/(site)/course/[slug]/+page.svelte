@@ -195,7 +195,7 @@
 								{:else if content.media?.responsiveImage}
 									<Image
 										src={content.media.responsiveImage?.src || content.media.url}
-										alt={content.media.responsiveImage?.alt}
+										alt={content.mediaAlt || content.media.responsiveImage?.alt}
 										layout="constrained"
 										width={16}
 										aspectRatio={1}

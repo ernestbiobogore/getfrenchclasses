@@ -20,6 +20,7 @@
 				<div class="flex-s-center">
 					<ImageWithCallout
 						responsiveImage={heroImages[0].image?.responsiveImage}
+						imageAlt={heroImages[0].imageAlt}
 						imageText={heroImages[0].text}
 						class="bottom-full -translate-x-1/2 left-1/2 text-center"
 					/>
@@ -28,6 +29,7 @@
 
 				<ImageWithCallout
 					responsiveImage={heroImages[1].image?.responsiveImage}
+					imageAlt={heroImages[1].imageAlt}
 					imageText={heroImages[1].text}
 					class="bottom-5 -translate-x-[80%] text-end"
 				/>
@@ -37,6 +39,7 @@
 				<div class="flex-s-center">
 					<ImageWithCallout
 						responsiveImage={heroImages[2].image?.responsiveImage}
+						imageAlt={heroImages[2].imageAlt}
 						imageText={heroImages[2].text}
 						class="bottom-full -translate-x-1/3 left-1/2 text-center"
 					/>
@@ -44,6 +47,7 @@
 
 				<ImageWithCallout
 					responsiveImage={heroImages[3].image?.responsiveImage}
+					imageAlt={heroImages[3].imageAlt}
 					imageText={heroImages[3].text}
 					class="bottom-5 translate-x-[60%]"
 				/>

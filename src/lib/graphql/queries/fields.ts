@@ -58,6 +58,7 @@ const cardBlockFieldSelection = {
 	id: true,
 	heading: headingFieldSelection,
 	cta: actionBlockFieldSelection,
+	mediaAlt: true,
 	media: {
 		format: true,
 		url: true,
@@ -294,6 +295,7 @@ const heroSectionSelection = {
 	cta: actionBlockFieldSelection,
 	testimonialTitle: true,
 	heroImages: {
+		imageAlt: true,
 		image: {
 			responsiveImage: responsiveImageFieldSelection,
 		},

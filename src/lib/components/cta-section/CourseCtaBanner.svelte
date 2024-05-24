@@ -31,12 +31,14 @@
 					>
 						<ImageWithCallout
 							responsiveImage={bannerImages[0].image?.responsiveImage}
+							imageAlt={bannerImages[0].imageAlt}
 							imageText={bannerImages[0].text}
 							class="text-xs bottom-5 translate-x-[58%] xl:text-end xl:-translate-x-[88%] "
 						/>
 
 						<ImageWithCallout
 							responsiveImage={bannerImages[1].image?.responsiveImage}
+							imageAlt={bannerImages[1].imageAlt}
 							imageText={bannerImages[1].text}
 							class="text-xs bottom-5 text-end -translate-x-[88%] xl:text-start xl:translate-x-[60%]"
 						/>

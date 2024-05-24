@@ -145,6 +145,7 @@ const getCourseBySlug = async (slug: string) => {
 				text: true,
 			},
 			ctaBannerImages: {
+				imageAlt: true,
 				image: {
 					responsiveImage: responsiveImageFieldSelection,
 				},

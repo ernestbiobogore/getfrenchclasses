@@ -69,12 +69,16 @@
 						<Card.Header class="p-0 space-y-8 basis-5/12">
 							{#if card.media?.format === "svg"}
 								{#if card.media.url}
-									<img src={card.media?.url} alt={card.media?.alt} class="w-12 h-12" />
+									<img
+										src={card.media?.url}
+										alt={card.mediaAlt || card.media?.alt}
+										class="w-12 h-12"
+									/>
 								{/if}
 							{:else if card.media?.responsiveImage}
 								<Image
 									src={card.media.responsiveImage?.src || card.media.url}
-									alt={card.media.responsiveImage?.alt}
+									alt={card.mediaAlt || card.media.responsiveImage?.alt}
 									layout="constrained"
 									width={card.media.responsiveImage?.width || 1200}
 									aspectRatio={card.media.responsiveImage?.aspectRatio || 1.9}

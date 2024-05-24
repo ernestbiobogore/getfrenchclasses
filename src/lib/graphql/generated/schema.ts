@@ -141,6 +141,7 @@ export interface CardBlockNewRecord {
     heading: HeadingBlockNewRecord
     id: Scalars['ItemId']
     media: (FileField | null)
+    mediaAlt: (Scalars['String'] | null)
     __typename: 'CardBlockNewRecord'
 }
 
@@ -809,6 +810,7 @@ export interface HeroImageBlockRecord {
     _updatedAt: Scalars['DateTime']
     id: Scalars['ItemId']
     image: (AltFileField | null)
+    imageAlt: (Scalars['String'] | null)
     text: (Scalars['String'] | null)
     __typename: 'HeroImageBlockRecord'
 }
@@ -880,7 +882,15 @@ export type ImgixParamsCrop = 'top' | 'bottom' | 'left' | 'right' | 'faces' | 'e
 
 export type ImgixParamsCs = 'srgb' | 'adobergb1998' | 'tinysrgb' | 'strip'
 
-export type ImgixParamsFill = 'solid' | 'blur'
+export type ImgixParamsFill = 'solid' | 'blur' | 'gen' | 'generative' | 'gradient'
+
+export type ImgixParamsFillGenPos = 'top' | 'bottom' | 'middle' | 'left' | 'right' | 'center'
+
+export type ImgixParamsFillGradientCs = 'linear' | 'srgb' | 'oklab' | 'hsl' | 'lch'
+
+export type ImgixParamsFillGradientLinearDirection = 'top' | 'bottom' | 'left' | 'right'
+
+export type ImgixParamsFillGradientType = 'linear' | 'radial'
 
 export type ImgixParamsFit = 'clamp' | 'clip' | 'crop' | 'facearea' | 'fill' | 'fillmax' | 'max' | 'min' | 'scale'
 
@@ -2297,6 +2307,7 @@ export interface CardBlockNewRecordGenqlSelection{
     heading?: HeadingBlockNewRecordGenqlSelection
     id?: boolean | number
     media?: FileFieldGenqlSelection
+    mediaAlt?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -3264,6 +3275,7 @@ export interface HeroImageBlockRecordGenqlSelection{
     _updatedAt?: boolean | number
     id?: boolean | number
     image?: AltFileFieldGenqlSelection
+    imageAlt?: boolean | number
     text?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
@@ -3344,13 +3356,45 @@ ar?: (Scalars['String'] | null),
  */
 auto?: (ImgixParamsAuto[] | null),
 /**
+ * Background Removal Fallback
+ * 
+ * Overrides default fallback behavior for bg-remove failures.
+ * 
+ * [Open Imgix reference »](https://docs.imgix.com/apis/rendering/background/bg-remove)
+ */
+bgRemoveFallback?: (Scalars['BooleanType'] | null),
+/**
  * Background Removal
  * 
  * Removes background from image.
  * 
- * [Open Imgix reference »](https://docs.imgix.com/apis/rendering/background-removal/bg-remove)
+ * [Open Imgix reference »](https://docs.imgix.com/apis/rendering/background/bg-remove)
  */
 bgRemove?: (Scalars['BooleanType'] | null),
+/**
+ * Background Removal Fallback
+ * 
+ * Overrides default fallback behavior for bg-replace failures.
+ * 
+ * [Open Imgix reference »](https://docs.imgix.com/apis/rendering/background/bg-replace)
+ */
+bgReplaceFallback?: (Scalars['BooleanType'] | null),
+/**
+ * Background Replacement Negative Prompt
+ * 
+ * Provides a negative text suggestion for background replacement.
+ * 
+ * [Open Imgix reference »](https://docs.imgix.com/apis/rendering/background/bg-replace-neg-prompt)
+ */
+bgReplaceNegPrompt?: (Scalars['String'] | null),
+/**
+ * Background Replacement
+ * 
+ * Replaces background from image using a string based prompt.
+ * 
+ * [Open Imgix reference »](https://docs.imgix.com/apis/rendering/background/bg-replace)
+ */
+bgReplace?: (Scalars['String'] | null),
 /**
  * Background Color
  * 
@@ -3738,6 +3782,136 @@ faces?: (Scalars['IntType'] | null),
  */
 fillColor?: (Scalars['String'] | null),
 /**
+ * Fill Generative Fallback
+ * 
+ * Sets the fallback behavior for generative fill.
+ * 
+ * Depends on: `fit=fill`, `fill=gen`
+ * 
+ * [Open Imgix reference »](https://docs.imgix.com/apis/url/fill/fill-gen-fallback)
+ */
+fillGenFallback?: (Scalars['BooleanType'] | null),
+/**
+ * Fill Generative Negative Prompt
+ * 
+ * Provides a negative text suggestion to the generative fill parameter. Used to reduce the probability of a subject, detail, or object appearing in generative output.
+ * 
+ * Depends on: `fit=fill`, `fill=gen`
+ * 
+ * [Open Imgix reference »](https://docs.imgix.com/apis/url/fill/fill-gen-neg-prompt)
+ */
+fillGenNegPrompt?: (Scalars['String'] | null),
+/**
+ * Fill Generative Position
+ * 
+ * Sets the position of the Origin Image in relation to the generative fill.
+ * 
+ * Depends on: `fit=fill`, `fill=gen`
+ * 
+ * [Open Imgix reference »](https://docs.imgix.com/apis/url/fill/fill-gen-pos)
+ */
+fillGenPos?: (ImgixParamsFillGenPos[] | null),
+/**
+ * Fill Generative Prompt
+ * 
+ * Provides a text suggestion to the generative fill parameter.
+ * 
+ * Depends on: `fit=fill`, `fill=gen`
+ * 
+ * [Open Imgix reference »](https://docs.imgix.com/apis/url/fill/fill-gen-prompt)
+ */
+fillGenPrompt?: (Scalars['String'] | null),
+/**
+ * Fill Generative Seed
+ * 
+ * Sets the generative seed value. Used to generate similar outputs from different prompts.
+ * 
+ * Depends on: `fit=fill`, `fill=gen`
+ * 
+ * [Open Imgix reference »](https://docs.imgix.com/apis/url/fill/fill-gen-seed)
+ */
+fillGenSeed?: (Scalars['IntType'] | null),
+/**
+ * Fill Gradient Color Space
+ * 
+ * Defines the color space as linear, sRGB, Oklab, HSL, or LCH for gradient color interpolation
+ * 
+ * Depends on: `fit=fill`, `fill=gradient`
+ * 
+ * [Open Imgix reference »](https://docs.imgix.com/apis/url/fill/fill-gradient-cs)
+ */
+fillGradientCs?: (ImgixParamsFillGradientCs | null),
+/**
+ * Fill Gradient Linear Direction
+ * 
+ * The fill-gradient-linear-direction specifies the gradient's direction, flowing towards the bottom, top, right, or left
+ * 
+ * Depends on: `fit=fill`, `fill=gen`
+ * 
+ * [Open Imgix reference »](https://docs.imgix.com/apis/url/fill/fill-gradient-linear-direction)
+ */
+fillGradientLinearDirection?: (ImgixParamsFillGradientLinearDirection[] | null),
+/**
+ * Fill Gradient Linear
+ * 
+ * Blends a gradient between two colors, {color1} and {color2}, along a straight path
+ * 
+ * Depends on: `fit=fill`, `fill=gradient`
+ * 
+ * [Open Imgix reference »](https://docs.imgix.com/apis/url/fill/fill-gradient-linear)
+ */
+fillGradientLinear?: (Scalars['String'] | null),
+/**
+ * Fill Gradient Radial Radius
+ * 
+ * Parameter defines the radial gradient's radius as pixels or a percentage (0.0-1.0) of the image's smallest dimension
+ * 
+ * Depends on: `fit=fill`, `fill=gradient`
+ * 
+ * [Open Imgix reference »](https://docs.imgix.com/apis/url/fill/fill-gradient-radial-radius)
+ */
+fillGradientRadialRadius?: (Scalars['String'] | null),
+/**
+ * Fill Gradient Radial X
+ * 
+ * Specifies the location of the radial gradient's center along the x-axis, using either a pixel value or a floating point percentage (ranging from 0.0 to 1.0) of the image's width
+ * 
+ * Depends on: `fit=fill`, `fill=gradient`
+ * 
+ * [Open Imgix reference »](https://docs.imgix.com/apis/url/fill/fill-gradient-radial-x)
+ */
+fillGradientRadialX?: (Scalars['FloatType'] | null),
+/**
+ * Fill Gradient Radial Y
+ * 
+ * Parameter sets the radial gradient's center on the y-axis, using pixels or a 0.0 to 1.0 percentage of the image's height
+ * 
+ * Depends on: `fit=fill`, `fill=gradient`
+ * 
+ * [Open Imgix reference »](https://docs.imgix.com/apis/url/fill/fill-gradient-radial-y)
+ */
+fillGradientRadialY?: (Scalars['FloatType'] | null),
+/**
+ * Fill Gradient Radial
+ * 
+ * The fill-gradient-radial parameter creates a circular gradient transitioning from a central color (Color1) to an outer color (Color2)
+ * 
+ * Depends on: `fit=fill`, `fill=gradient`
+ * 
+ * [Open Imgix reference »](https://docs.imgix.com/apis/url/fill/fill-gradient-radial)
+ */
+fillGradientRadial?: (Scalars['String'] | null),
+/**
+ * Fill Gradient Type
+ * 
+ * Specifies if a gradient is radial (circular) or linear (straight)
+ * 
+ * Depends on: `fit=fill`, `fill=gradient`
+ * 
+ * [Open Imgix reference »](https://docs.imgix.com/apis/url/fill/fill-gradient-type)
+ */
+fillGradientType?: (ImgixParamsFillGradientType | null),
+/**
  * Fill Mode
  * 
  * Determines how to fill in additional space created by the fit setting
@@ -3834,6 +4008,8 @@ gam?: (Scalars['IntType'] | null),
 /**
  * Animated Gif Quality
  * 
+ * Specifies the quality of the animated gif. The higher the value, the better more compression is applied.
+ * 
  * Depends on: `fm=gif`
  */
 gifQ?: (Scalars['IntType'] | null),
@@ -3905,6 +4081,12 @@ invert?: (Scalars['BooleanType'] | null),
  * Determine if IPTC data should be passed for JPEG images.
  */
 iptc?: (ImgixParamsIptc | null),
+/**
+ * Jpg Progressive
+ * 
+ * Specifies whether or not a jpg/jpeg uses progressive (true) or baseline (false)
+ */
+jpgProgressive?: (Scalars['BooleanType'] | null),
 /**
  * Animation Loop Count
  * 
@@ -4290,6 +4472,12 @@ sharp?: (Scalars['FloatType'] | null),
  */
 skip?: (Scalars['IntType'] | null),
 /**
+ * Sanitize Svg
+ * 
+ * Specifies whether to sanitize an SVG.
+ */
+svgSanitize?: (Scalars['BooleanType'] | null),
+/**
  * Transparency
  * 
  * Adds checkerboard behind images which support transparency.
@@ -4416,16 +4604,6 @@ txtFont?: (Scalars['String'] | null),
  */
 txtLead?: (Scalars['IntType'] | null),
 /**
- * Text Ligatures
- * 
- * Controls the level of ligature substitution
- * 
- * Depends on: `txt`
- * 
- * [Open Imgix reference »](https://docs.imgix.com/apis/url/text/txt-lig)
- */
-txtLig?: (Scalars['IntType'] | null),
-/**
  * Text Outline Color
  * 
  * Specifies a text outline color.
@@ -4523,6 +4701,22 @@ txtY?: (Scalars['IntType'] | null),
  * [Open Imgix reference »](https://docs.imgix.com/apis/url/text/txt)
  */
 txt?: (Scalars['String'] | null),
+/**
+ * Super Resolution Fallback
+ * 
+ * Overrides default fallback behavior for super resolution failures
+ * 
+ * [Open Imgix reference »](https://docs.imgix.com/apis/rendering/super-resolution/upscale-fallback)
+ */
+upscaleFallback?: (Scalars['BooleanType'] | null),
+/**
+ * Super Resolution
+ * 
+ * Uses generative AI fill to upscale low resolution images.
+ * 
+ * [Open Imgix reference »](https://docs.imgix.com/apis/rendering/super-resolution/upscale)
+ */
+upscale?: (Scalars['BooleanType'] | null),
 /**
  * Unsharp Mask
  * 
@@ -8022,7 +8216,39 @@ export const enumImgixParamsCs = {
 
 export const enumImgixParamsFill = {
    solid: 'solid' as const,
-   blur: 'blur' as const
+   blur: 'blur' as const,
+   gen: 'gen' as const,
+   generative: 'generative' as const,
+   gradient: 'gradient' as const
+}
+
+export const enumImgixParamsFillGenPos = {
+   top: 'top' as const,
+   bottom: 'bottom' as const,
+   middle: 'middle' as const,
+   left: 'left' as const,
+   right: 'right' as const,
+   center: 'center' as const
+}
+
+export const enumImgixParamsFillGradientCs = {
+   linear: 'linear' as const,
+   srgb: 'srgb' as const,
+   oklab: 'oklab' as const,
+   hsl: 'hsl' as const,
+   lch: 'lch' as const
+}
+
+export const enumImgixParamsFillGradientLinearDirection = {
+   top: 'top' as const,
+   bottom: 'bottom' as const,
+   left: 'left' as const,
+   right: 'right' as const
+}
+
+export const enumImgixParamsFillGradientType = {
+   linear: 'linear' as const,
+   radial: 'radial' as const
 }
 
 export const enumImgixParamsFit = {
