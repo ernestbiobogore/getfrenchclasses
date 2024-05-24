@@ -173,6 +173,7 @@ const getCourseBySlug = async (slug: string) => {
 				},
 				on_VideoBlockRecord: videoBlockFields,
 				on_ImageBlockRecord: {
+					altText: true,
 					image: {
 						responsiveImage: responsiveImageFieldSelection,
 					},

@@ -3021,6 +3021,9 @@ export default {
             "_updatedAt": [
                 48
             ],
+            "altText": [
+                182
+            ],
             "id": [
                 110
             ],

@@ -1749,6 +1749,7 @@ type ImageBlockRecord implements RecordInterface {
   _status: ItemStatus!
   _unpublishingScheduledAt: DateTime
   _updatedAt: DateTime!
+  altText: String
   id: ItemId!
   image: AltFileField!
 }

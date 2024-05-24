@@ -31,7 +31,7 @@
 			{#if testimonial.media.__typename === "ImageBlockRecord" && testimonial.media.image.responsiveImage?.src}
 				<Image
 					src={testimonial.media.image.responsiveImage.src}
-					alt={testimonial.media.image.responsiveImage.alt}
+					alt={testimonial.media.altText || testimonial.media.image.responsiveImage.alt}
 					layout="constrained"
 					width={32}
 					aspectRatio={1}

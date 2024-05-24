@@ -856,6 +856,7 @@ export interface ImageBlockRecord {
     _status: ItemStatus
     _unpublishingScheduledAt: (Scalars['DateTime'] | null)
     _updatedAt: Scalars['DateTime']
+    altText: (Scalars['String'] | null)
     id: Scalars['ItemId']
     image: AltFileField
     __typename: 'ImageBlockRecord'
@@ -3315,6 +3316,7 @@ export interface ImageBlockRecordGenqlSelection{
     _status?: boolean | number
     _unpublishingScheduledAt?: boolean | number
     _updatedAt?: boolean | number
+    altText?: boolean | number
     id?: boolean | number
     image?: AltFileFieldGenqlSelection
     __typename?: boolean | number

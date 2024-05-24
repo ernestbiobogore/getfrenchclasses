@@ -24,7 +24,7 @@
 					{#if ctaData.media?.__typename === "ImageBlockRecord"}
 						<Image
 							src={ctaData.media.image.responsiveImage?.src || ctaData.media.image.url}
-							alt={ctaData.media.image.alt}
+							alt={ctaData.media.altText || ctaData.media.image.alt}
 							layout="fullWidth"
 							aspectRatio={ctaData.media.image.responsiveImage?.aspectRatio || 1.28}
 							background={ctaData.media.image.responsiveImage?.base64 ||

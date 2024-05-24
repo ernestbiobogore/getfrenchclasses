@@ -52,7 +52,7 @@ box-shadow: 0px 8px 12px 0px rgba(0, 0, 0, 0.25);"
 				{#if testimonial.media.__typename === "ImageBlockRecord" && testimonial.media.image.responsiveImage?.src}
 					<Image
 						src={testimonial.media.image.responsiveImage.src}
-						alt={testimonial.media.image.responsiveImage.alt}
+						alt={testimonial.media.altText || testimonial.media.image.responsiveImage.alt}
 						layout="constrained"
 						width={248}
 						aspectRatio={1}

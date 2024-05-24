@@ -17,7 +17,7 @@
 {#if block.__typename === "ImageBlockRecord"}
 	<Image
 		src={block.image.responsiveImage?.src || block.image.url}
-		alt={block.image.alt}
+		alt={block.altText || block.image.alt}
 		layout="constrained"
 		width={block.image.responsiveImage?.width || 1200}
 		aspectRatio={block.image.responsiveImage?.aspectRatio || 1.9}

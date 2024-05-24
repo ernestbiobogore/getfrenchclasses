@@ -22,7 +22,7 @@
 		{#if tutor.coverMedia.__typename === "ImageBlockRecord" && tutor.coverMedia.image.responsiveImage?.src}
 			<Image
 				src={tutor.coverMedia.image.responsiveImage?.src}
-				alt={tutor.coverMedia.image.responsiveImage?.alt}
+				alt={tutor.coverMedia.altText || tutor.coverMedia.image.responsiveImage?.alt}
 				layout="fullWidth"
 				height={240}
 				background={tutor.coverMedia.image.responsiveImage?.base64 ||

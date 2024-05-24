@@ -30,7 +30,7 @@
 		{#if course.rightCtaMedia.__typename === "ImageBlockRecord" && course.rightCtaMedia.image.responsiveImage?.src}
 			<Image
 				src={course.rightCtaMedia.image.responsiveImage.src}
-				alt={course.rightCtaMedia.image.responsiveImage?.alt}
+				alt={course.rightCtaMedia.altText || course.rightCtaMedia.image.responsiveImage?.alt}
 				layout="fullWidth"
 				height={240}
 				background={course.rightCtaMedia.image.responsiveImage?.base64 ||

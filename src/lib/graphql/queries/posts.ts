@@ -219,6 +219,7 @@ const getSingleBlogPost = async (slug: string) => {
 						},
 						on_VideoBlockRecord: videoBlockFields,
 						on_ImageBlockRecord: {
+							altText: true,
 							image: {
 								url: true,
 								responsiveImage: responsiveImageFieldSelection,

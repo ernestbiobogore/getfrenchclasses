@@ -176,6 +176,7 @@ const tutorMetaFields = {
 		},
 		on_VideoBlockRecord: videoBlockFields,
 		on_ImageBlockRecord: {
+			altText: true,
 			image: {
 				responsiveImage: responsiveImageFieldSelection,
 			},
@@ -235,6 +236,7 @@ const defaultTestimonialFieldsSelection = {
 		},
 		on_VideoBlockRecord: videoBlockFields,
 		on_ImageBlockRecord: {
+			altText: true,
 			image: {
 				responsiveImage: {
 					__args: {
@@ -266,6 +268,7 @@ const ctaTestimonialFieldsSelection = {
 		},
 		on_VideoBlockRecord: videoBlockFields,
 		on_ImageBlockRecord: {
+			altText: true,
 			image: {
 				responsiveImage: {
 					__args: {
@@ -368,6 +371,7 @@ const richTextBlockSelection = {
 			card: cardBlockFields,
 		},
 		on_ImageBlockRecord: {
+			altText: true,
 			image: {
 				url: true,
 				alt: true,
