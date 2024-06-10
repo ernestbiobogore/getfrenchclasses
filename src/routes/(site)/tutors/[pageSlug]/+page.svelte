@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { page } from "$app/stores";
 	import ModularPage from "$dato/sections/ModularPage.svelte";
-	import InternalLinks, {
+	import {
 		type Section as InternalLinkSection,
 	} from "$lib/components/dato/sections/InternalLinks.svelte";
 	import SvelteSeo from "svelte-seo";
@@ -56,5 +56,3 @@
 {#if data.modularPage}
 	<ModularPage modularPage={data.modularPage} />
 {/if}
-
-<InternalLinks basePath="/tutors" sections={tutorsInternalLinks} />
