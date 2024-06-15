@@ -1,5 +1,6 @@
 import { client } from "$lib/graphql/client";
 import {
+	actionBlockFieldSelection,
 	cardBlockFieldSelection,
 	courseMetaFields,
 	ctaTestimonialFieldsSelection,
@@ -91,6 +92,7 @@ const getCourseBySlug = async (slug: string) => {
 			level: true,
 			numberOfEnrolledStudents: true,
 			tag: true,
+			mainCta: actionBlockFieldSelection,
 
 			// Modules
 			courseSyllabus: {

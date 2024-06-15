@@ -483,6 +483,7 @@ export interface CourseRecord {
     instructors: InstructorRecord[]
     instructorsHeading: (HeadingBlockNewRecord | null)
     level: Scalars['String']
+    mainCta: (ActionBlockRecord | null)
     name: Scalars['String']
     numberOfEnrolledStudents: Scalars['IntType']
     numberOfSections: Scalars['IntType']
@@ -809,7 +810,7 @@ export interface HeroImageBlockRecord {
     _unpublishingScheduledAt: (Scalars['DateTime'] | null)
     _updatedAt: Scalars['DateTime']
     id: Scalars['ItemId']
-    image: (AltFileField | null)
+    image: (FileField | null)
     imageAlt: (Scalars['String'] | null)
     text: (Scalars['String'] | null)
     __typename: 'HeroImageBlockRecord'
@@ -2743,6 +2744,7 @@ export interface CourseRecordGenqlSelection{
     instructors?: InstructorRecordGenqlSelection
     instructorsHeading?: HeadingBlockNewRecordGenqlSelection
     level?: boolean | number
+    mainCta?: ActionBlockRecordGenqlSelection
     name?: boolean | number
     numberOfEnrolledStudents?: boolean | number
     numberOfSections?: boolean | number
@@ -3274,7 +3276,7 @@ export interface HeroImageBlockRecordGenqlSelection{
     _unpublishingScheduledAt?: boolean | number
     _updatedAt?: boolean | number
     id?: boolean | number
-    image?: AltFileFieldGenqlSelection
+    image?: FileFieldGenqlSelection
     imageAlt?: boolean | number
     text?: boolean | number
     __typename?: boolean | number

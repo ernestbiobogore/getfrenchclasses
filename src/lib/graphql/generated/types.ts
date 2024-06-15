@@ -1742,6 +1742,9 @@ export default {
             "level": [
                 186
             ],
+            "mainCta": [
+                0
+            ],
             "name": [
                 186
             ],
@@ -2913,7 +2916,7 @@ export default {
                 114
             ],
             "image": [
-                1
+                56
             ],
             "imageAlt": [
                 186

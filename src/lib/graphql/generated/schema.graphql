@@ -999,6 +999,7 @@ type CourseRecord implements RecordInterface {
   instructors: [InstructorRecord!]!
   instructorsHeading: HeadingBlockNewRecord
   level: String!
+  mainCta: ActionBlockRecord
   name: String!
   numberOfEnrolledStudents: IntType!
   numberOfSections: IntType!
@@ -1696,7 +1697,7 @@ type HeroImageBlockRecord implements RecordInterface {
   _unpublishingScheduledAt: DateTime
   _updatedAt: DateTime!
   id: ItemId!
-  image: AltFileField
+  image: FileField
   imageAlt: String
   text: String
 }

@@ -64,7 +64,9 @@
 
 		<p>{data.course.seo[0].seoBlock?.description}</p>
 
-		<Button href="/course/{data.course.slug}" variant="brand">Enroll Now</Button>
+		<Button href={data.course.mainCta?.link || `/course/${data.course.slug}`} variant="brand">
+			{data.course.mainCta?.text || "Enroll Now"}
+		</Button>
 
 		<!-- INSTRUCTORS -->
 		<div class="py-5">
