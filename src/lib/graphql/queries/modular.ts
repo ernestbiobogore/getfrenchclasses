@@ -48,47 +48,85 @@ const getModularPageSlugs = async () => {
 	return slugs;
 };
 
-const getLocationModularPagesSlugs = async (pageTypes?: ("courses" | "tutors")[]) => {
-	const { _allModularPageLocationsMeta } = await client.query({
-		_allModularPageLocationsMeta: {
-			count: true,
-		},
-	});
-
-	const slugs = [];
-
-	const totalPosts = _allModularPageLocationsMeta.count;
-	const iterations = Math.ceil(totalPosts / 20);
-
+const getLocationModularPagesCount = async ({
+	pageTypes,
+}: {
+	pageTypes?: ("courses" | "tutors")[];
+}) => {
 	const pageTypeFilter = (pageTypes || ["courses", "tutors"]).map(pageType => ({
 		pageType: {
 			eq: pageType,
 		},
 	}));
 
-	for (let i = 0; i < iterations; i++) {
-		const skip = i * 20;
-		const first = 20;
-
-		const { allModularPageLocations } = await client.query({
-			allModularPageLocations: {
-				__args: {
-					skip,
-					first,
-					filter: {
-						OR: pageTypeFilter,
-					},
+	const { _allModularPageLocationsMeta } = await client.query({
+		_allModularPageLocationsMeta: {
+			count: true,
+			__args: {
+				filter: {
+					OR: pageTypeFilter,
 				},
-				slug: true,
-				pageType: true,
-				_updatedAt: true,
 			},
-		});
+		},
+	});
 
-		slugs.push(...allModularPageLocations);
+	return _allModularPageLocationsMeta.count;
+};
+
+type GetLocationModularPagesSlugsParams = {
+	pageTypes?: ("courses" | "tutors")[];
+	itemsPerPage?: number;
+	currentPage?: number;
+	extraEntriesCount?: number;
+};
+const getLocationModularPagesSlugs = async ({
+	pageTypes,
+	itemsPerPage = 50,
+	currentPage = 1,
+	extraEntriesCount = 0,
+}: GetLocationModularPagesSlugsParams) => {
+	const pageTypeFilter = (pageTypes || ["courses", "tutors"]).map(pageType => ({
+		pageType: {
+			eq: pageType,
+		},
+	}));
+
+	const totalPosts = (await getLocationModularPagesCount({ pageTypes })) + extraEntriesCount;
+	const totalPages = Math.ceil(totalPosts / itemsPerPage);
+
+	if (currentPage < 1 || currentPage > totalPages) {
+		console.error(`Invalid page number. Must be between 1 and ${totalPages}`);
+
+		return {
+			slugsData: [],
+			totalPosts: 0,
+			totalPages: 0,
+		};
 	}
 
-	return slugs;
+	const skip = Math.max(0, (currentPage - 1) * itemsPerPage - extraEntriesCount);
+	const first = Math.min(itemsPerPage, Math.max(0, itemsPerPage - (extraEntriesCount - skip)));
+
+	const { allModularPageLocations } = await client.query({
+		allModularPageLocations: {
+			__args: {
+				skip,
+				first,
+				filter: {
+					OR: pageTypeFilter,
+				},
+			},
+			slug: true,
+			pageType: true,
+			_updatedAt: true,
+		},
+	});
+
+	return {
+		slugsData: allModularPageLocations,
+		totalPosts,
+		totalPages,
+	};
 };
 
 const getSingleLocationModularPage = async (slug: string, pageType: "courses" | "tutors") => {
@@ -193,7 +231,7 @@ const getSingleModularPage = async (slug: string) => {
 };
 
 export {
-	getLocationModularPagesSlugs,
+	getLocationModularPagesCount, getLocationModularPagesSlugs,
 	getModularPageSlugs,
 	getSingleLocationModularPage,
 	getSingleModularPage

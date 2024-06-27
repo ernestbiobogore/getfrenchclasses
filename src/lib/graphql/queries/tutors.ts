@@ -39,14 +39,18 @@ const getTutorsSlugs = async () => {
 	return slugs;
 };
 
-const getAllTutorsMetas = async (first?: number) => {
+const getTutorsCount = async () => {
 	const { _allTutorsMeta } = await client.query({
 		_allTutorsMeta: {
 			count: true,
 		},
 	});
 
-	const totalTutors = _allTutorsMeta.count;
+	return _allTutorsMeta.count;
+};
+
+const getAllTutorsMetas = async (first?: number) => {
+	const totalTutors = await getTutorsCount();
 	const iterations = Math.ceil(totalTutors / 20);
 
 	const tutors = [];
@@ -116,4 +120,4 @@ const getTutorBySlug = async (slug: string) => {
 	return tutor;
 };
 
-export { getAllTutorsMetas, getTutorBySlug, getTutorsSlugs };
+export { getAllTutorsMetas, getTutorBySlug, getTutorsCount, getTutorsSlugs };

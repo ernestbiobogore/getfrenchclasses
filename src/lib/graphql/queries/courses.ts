@@ -23,6 +23,16 @@ const getCoursesSlugs = async () => {
 	return allCourses;
 };
 
+const getCoursesCount = async () => {
+	const { _allCoursesMeta } = await client.query({
+		_allCoursesMeta: {
+			count: true,
+		},
+	});
+
+	return _allCoursesMeta.count;
+};
+
 const getAllCourses = async (first?: number) => {
 	const { allCourses } = await client.query({
 		allCourses: {
@@ -245,4 +255,5 @@ const getCourseBySlug = async (slug: string) => {
 	return course;
 };
 
-export { getAllCourses, getAllCoursesMetas, getCourseBySlug, getCoursesSlugs };
+export { getAllCourses, getAllCoursesMetas, getCourseBySlug, getCoursesCount, getCoursesSlugs };
+
