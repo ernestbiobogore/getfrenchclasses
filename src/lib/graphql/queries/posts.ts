@@ -266,5 +266,6 @@ export {
 	getCategoriesWithPosts,
 	getCategoryBySlug,
 	getPostFullPath,
-	getSingleBlogPost,
+	getSingleBlogPost
 };
+
