@@ -17,12 +17,7 @@ export const GET = async ({ url }) => {
 		frequency,
 	}));
 
-	const locationModularPagesSlugs = await getLocationModularPagesSlugs();
-
-	const coursesLocationModularSlugs = locationModularPagesSlugs.filter(
-		({ pageType }) => pageType === "courses"
-	);
-
+	const coursesLocationModularSlugs = await getLocationModularPagesSlugs(['courses']);
 	const coursesLocationModularPagesEntries = coursesLocationModularSlugs.map(
 		({ slug, _updatedAt }) => ({
 			url: `${siteURL}/courses/${slug}`,

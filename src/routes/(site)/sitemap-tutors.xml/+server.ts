@@ -18,10 +18,7 @@ export const GET = async ({ url }) => {
 		frequency,
 	}));
 
-	const locationModularPagesSlugs = await getLocationModularPagesSlugs();
-	const tutorsLocationModularSlugs = locationModularPagesSlugs.filter(
-		({ pageType }) => pageType === "tutors"
-	);
+	const tutorsLocationModularSlugs = await getLocationModularPagesSlugs(['tutors']);
 	const tutorsLocationModularPagesEntries = tutorsLocationModularSlugs.map(
 		({ slug, _updatedAt }) => ({
 			url: `${siteURL}/tutors/${slug}`,

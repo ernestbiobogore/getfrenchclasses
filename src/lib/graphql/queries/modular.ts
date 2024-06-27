@@ -48,7 +48,7 @@ const getModularPageSlugs = async () => {
 	return slugs;
 };
 
-const getLocationModularPagesSlugs = async () => {
+const getLocationModularPagesSlugs = async (pageTypes?: ("courses" | "tutors")[]) => {
 	const { _allModularPageLocationsMeta } = await client.query({
 		_allModularPageLocationsMeta: {
 			count: true,
@@ -60,6 +60,12 @@ const getLocationModularPagesSlugs = async () => {
 	const totalPosts = _allModularPageLocationsMeta.count;
 	const iterations = Math.ceil(totalPosts / 20);
 
+	const pageTypeFilter = (pageTypes || ["courses", "tutors"]).map(pageType => ({
+		pageType: {
+			eq: pageType,
+		},
+	}));
+
 	for (let i = 0; i < iterations; i++) {
 		const skip = i * 20;
 		const first = 20;
@@ -70,18 +76,7 @@ const getLocationModularPagesSlugs = async () => {
 					skip,
 					first,
 					filter: {
-						OR: [
-							{
-								pageType: {
-									eq: "courses",
-								},
-							},
-							{
-								pageType: {
-									eq: "tutors",
-								},
-							},
-						],
+						OR: pageTypeFilter,
 					},
 				},
 				slug: true,
@@ -198,8 +193,9 @@ const getSingleModularPage = async (slug: string) => {
 };
 
 export {
-	getSingleLocationModularPage,
-	getSingleModularPage,
-	getModularPageSlugs,
 	getLocationModularPagesSlugs,
+	getModularPageSlugs,
+	getSingleLocationModularPage,
+	getSingleModularPage
 };
+

@@ -1,6 +1,8 @@
 import { getSingleLocationModularPage } from "$lib/graphql/queries/modular";
 import { error } from "@sveltejs/kit";
 
+export const prerender = true;
+
 export async function load({ params }) {
 	const { pageSlug } = params;
 	const modularPage = await getSingleLocationModularPage(pageSlug, "courses");
