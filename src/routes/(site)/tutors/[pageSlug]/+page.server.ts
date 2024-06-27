@@ -1,6 +1,15 @@
+import { ISR_BYPASS_TOKEN } from "$env/static/private";
 import { getCitiesWithTutors } from "$lib/graphql/queries/locations";
 import { getSingleLocationModularPage } from "$lib/graphql/queries/modular";
 import { error } from "@sveltejs/kit";
+
+export const config = {
+	isr: {
+		expiration: 600,
+		bypassToken: ISR_BYPASS_TOKEN,
+		allowQuery: ["search"],
+	},
+};
 
 export async function load({ params }) {
 	const { pageSlug } = params;
