@@ -121,7 +121,7 @@ type GetBlogPostsParams = {
 	featured?: boolean;
 	categoryId?: string;
 };
-const getBlogPosts = async ({ first, skip, categoryId, featured = false }: GetBlogPostsParams) => {
+const getBlogPosts = async ({ first, skip, categoryId, featured }: GetBlogPostsParams) => {
 	const { _allPostsMeta } = await client.query({
 		_allPostsMeta: {
 			count: true,

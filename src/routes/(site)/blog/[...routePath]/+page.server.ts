@@ -1,7 +1,21 @@
-import { getPostFullPath, getSingleBlogPost } from "$lib/graphql/queries/posts";
+import { getBlogPostsSlugs, getPostFullPath, getSingleBlogPost } from "$lib/graphql/queries/posts";
 import { error } from "@sveltejs/kit";
 
-// TODO: prerender
+export const entries = async () => {
+	const posts = await getBlogPostsSlugs();
+
+	const entries = posts.map(post => ({
+		routePath: getPostFullPath(
+			post.routePaths.map(path => path.slug),
+			String(post.slug)
+		).replace(/^\//, ""),
+		slug: post.slug,
+	}));
+
+	return entries;
+};
+
+export const prerender = true;
 
 export const load = async ({ params, url }) => {
 	const { routePath } = params;
