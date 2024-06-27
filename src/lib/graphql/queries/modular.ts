@@ -48,6 +48,31 @@ const getModularPageSlugs = async () => {
 	return slugs;
 };
 
+const getLocationModularPagesCount = async ({
+	pageTypes,
+}: {
+	pageTypes?: ("courses" | "tutors")[];
+}) => {
+	const pageTypeFilter = (pageTypes || ["courses", "tutors"]).map(pageType => ({
+		pageType: {
+			eq: pageType,
+		},
+	}));
+
+	const { _allModularPageLocationsMeta } = await client.query({
+		_allModularPageLocationsMeta: {
+			count: true,
+			__args: {
+				filter: {
+					OR: pageTypeFilter,
+				},
+			},
+		},
+	});
+
+	return _allModularPageLocationsMeta.count;
+};
+
 type GetLocationModularPagesSlugsParams = {
 	pageTypes?: ("courses" | "tutors")[];
 	itemsPerPage?: number;
@@ -66,18 +91,7 @@ const getLocationModularPagesSlugs = async ({
 		},
 	}));
 
-	const { _allModularPageLocationsMeta } = await client.query({
-		_allModularPageLocationsMeta: {
-			count: true,
-			__args: {
-				filter: {
-					OR: pageTypeFilter,
-				},
-			},
-		},
-	});
-
-	const totalPosts = _allModularPageLocationsMeta.count + extraEntriesCount;
+	const totalPosts = (await getLocationModularPagesCount({ pageTypes })) + extraEntriesCount;
 	const totalPages = Math.ceil(totalPosts / itemsPerPage);
 
 	if (currentPage < 1 || currentPage > totalPages) {
@@ -217,7 +231,7 @@ const getSingleModularPage = async (slug: string) => {
 };
 
 export {
-	getLocationModularPagesSlugs,
+	getLocationModularPagesCount, getLocationModularPagesSlugs,
 	getModularPageSlugs,
 	getSingleLocationModularPage,
 	getSingleModularPage
