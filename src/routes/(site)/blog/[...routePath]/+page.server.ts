@@ -15,8 +15,6 @@ export const entries = async () => {
 	return entries;
 };
 
-// export const prerender = true;
-
 export const load = async ({ params, url }) => {
 	const { routePath } = params;
 	const parts = routePath.split("/");

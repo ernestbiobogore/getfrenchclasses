@@ -1,10 +1,18 @@
+import { ISR_BYPASS_TOKEN } from "$env/static/private";
 import { getModularPageSlugs } from "$lib/graphql/queries/modular";
 import {
-    getSitemapEntriesXml,
-    getSitemapMeta,
-    getSitemapResponseHeaders,
-    getSitemapXml,
+	getSitemapEntriesXml,
+	getSitemapMeta,
+	getSitemapResponseHeaders,
+	getSitemapXml,
 } from "$lib/server/sitemaps";
+
+export const config = {
+	isr: {
+		expiration: 1800,
+		bypassToken: ISR_BYPASS_TOKEN,
+	},
+};
 
 export const GET = async ({ url }) => {
 	const { siteURL, priority, frequency } = getSitemapMeta(url);

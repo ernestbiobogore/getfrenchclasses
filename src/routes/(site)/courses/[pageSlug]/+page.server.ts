@@ -6,7 +6,6 @@ export const config = {
 	isr: {
 		expiration: 600,
 		bypassToken: ISR_BYPASS_TOKEN,
-		allowQuery: ["search"],
 	},
 };
 
