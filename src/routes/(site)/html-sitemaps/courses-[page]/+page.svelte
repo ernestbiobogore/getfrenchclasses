@@ -24,15 +24,14 @@
 	}}
 />
 
-<div class="container-base space-y-8 py-16">
+<div class="container-base space-y-32 py-16">
 	<h1>Courses</h1>
 
-	<div class="grid grid-cols-3 gap-x-8">
+	<div class="grid sm:grid-cols-3 gap-x-8">
 		{#each data.coursesLocationModularPagesEntries as { url, title }}
 			<a href={url} class="w-fit hover:underline">{title}</a>
 		{/each}
 	</div>
-</div>
 
-<!-- Pagination -->
-<Pagination currentPage={data.page} maxPages={data.maxPages} basePath="/html-sitemaps/courses" />
+	<Pagination currentPage={data.page} maxPages={data.maxPages} basePath="/html-sitemaps/courses" />
+</div>
