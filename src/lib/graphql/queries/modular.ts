@@ -118,6 +118,7 @@ const getLocationModularPagesSlugs = async ({
 			},
 			slug: true,
 			pageType: true,
+			title: true,
 			_updatedAt: true,
 		},
 	});
