@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { page } from "$app/stores";
 	import ModularPage from "$dato/sections/ModularPage.svelte";
-	import SvelteSeo from "svelte-seo";
+	import Head from "$lib/components/seo/Head.svelte";
 
 	export let data;
 	$: ({ modularPage } = data);
@@ -22,18 +22,7 @@
 	};
 </script>
 
-<SvelteSeo
-	title={seoData.title}
-	description={seoData.description}
-	openGraph={{
-		title: seoData.title,
-		description: seoData.description,
-		url: seoData.url,
-		type: "website",
-		images: seoData.image ? [seoData.image] : [],
-		site_name: "Get French Classes",
-	}}
-/>
+<Head seo={data.modularPage.seo} title={data.modularPage.title} />
 
 {#if data.modularPage}
 	<ModularPage modularPage={data.modularPage} />

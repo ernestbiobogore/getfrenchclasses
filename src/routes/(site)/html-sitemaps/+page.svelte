@@ -12,6 +12,7 @@
 <SvelteSeo
 	title={seoData.title}
 	description={seoData.description}
+	canonical={seoData.url}
 	openGraph={{
 		title: seoData.title,
 		description: seoData.description,

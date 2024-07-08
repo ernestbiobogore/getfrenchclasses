@@ -22,7 +22,7 @@
 	});
 </script>
 
-<Head {seo} title={String(post?.title)} />
+<Head seo={data.post?.seo} title={String(post?.title)} />
 
 {#if post}
 	<header class="py-4 space-y-4 container-base sm:py-8">

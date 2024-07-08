@@ -1,7 +1,11 @@
-import type { getSingleModularPage } from "$lib/graphql/queries/modular";
+import type { getSingleLocationModularPage, getSingleModularPage } from "$lib/graphql/queries/modular";
+import type { getSingleBlogPost } from "$lib/graphql/queries/posts";
 
-type ModularPage = NonNullable<Awaited<ReturnType<typeof getSingleModularPage>>>["seo"];
-type Seo = ModularPage;
+type ModularPageDefault = NonNullable<Awaited<ReturnType<typeof getSingleModularPage>>>["seo"];
+type ModularPageLocation = NonNullable<Awaited<ReturnType<typeof getSingleLocationModularPage>>>["seo"];
+type ModularPageSingleBlog = NonNullable<Awaited<ReturnType<typeof getSingleBlogPost>>>["seo"];
+
+type Seo = ModularPageDefault | ModularPageLocation | ModularPageSingleBlog;
 
 const getSeoData = ({ seo, href, title }: { seo: Seo; href: string; title: string }) => {
 	const block = seo?.seoBlock;
